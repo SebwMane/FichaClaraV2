@@ -181,3 +181,9 @@ def test_point_verdict_consistency() -> None:
         PointVerdict(_cert(connected=False), (), None, Verdict.GEOMETRIC_CANDIDATE, {})
     with pytest.raises(ValueError):
         PointVerdict(_cert(), (FailureCode.F10,), FailureCode.F10, Verdict.GEOMETRIC_CANDIDATE, {})
+
+
+def test_b3_resistance_max_nodes_covers_n3000() -> None:
+    from omega.config.settings11 import DistanceSuiteConfig
+
+    assert DistanceSuiteConfig().resistance_max_nodes == 4000

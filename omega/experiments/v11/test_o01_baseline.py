@@ -49,7 +49,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "description": "S0 de Omega-1.0 con taxonomia v1.1 (registro negativo, riesgo R8)",
         "n": n, "replicates": reps, "alpha_hat": alphas, "gamma_hat": gammas, "expected": expected,
     }
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     points: list[dict[str, Any]] = []
@@ -89,7 +89,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "n_runs_pass": sum(p["n_passes"] for p in points),
         "passports": writer.labels, "complete": True,
     }
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def test_smoke(tmp_path: Path) -> None:
@@ -99,8 +99,8 @@ def test_smoke(tmp_path: Path) -> None:
     assert len(data["points"]) == 4 and len(data["expected"]) == 4
     assert all(len(p["rows"]) == 2 for p in data["points"])
     assert data["n_runs_pass"] == 0  # S0 no produce candidatos (R8)
-    assert len(data["passports"]) == 4
-    assert len(list((tmp_path / NAME / "passports").glob("OMEGA-EXP-*.json"))) == 4
+    assert len(data["passports"]) == 4 * 2  # un pasaporte por corrida dinamica (auditoria B8)
+    assert len(list((tmp_path / NAME / "passports").glob("OMEGA-EXP-*.json"))) == 4 * 2
 
 
 @pytest.mark.slow

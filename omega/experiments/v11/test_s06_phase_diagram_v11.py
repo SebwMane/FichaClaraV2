@@ -1,6 +1,6 @@
 """Paso 6 / Experimento 3 (Ω-1.1): diagrama de fases reducido con taxonomia y certificado por punto (DESIGN §4).
 
-COMPUERTA: en modo full, `require_prerequisites(out_root, "s06_phase_diagram")` exige O-00..O-04 en modo full completos
+COMPUERTA: en modo full, `require_prerequisites(out_root, "s06_phase_diagram")` exige p01, p02 y O-00..O-04 en modo full completos, del commit HEAD y con arbol limpio (Enmienda A-13)
 y se evalua ANTES de ejecutar nada. El modo smoke (N=24, 2x2 puntos) no tiene compuerta.
 
 Preregistrado (R8, riesgo de expectativa honesta; escrito antes de medir y sin ajustar umbrales, M§44):
@@ -8,7 +8,12 @@ Preregistrado (R8, riesgo de expectativa honesta; escrito antes de medir y sin a
   * ningun punto es Ω-CANDIDATE y ninguna corrida pasa todos los campos;
   * la varianza entre semillas ("seed_variance", no termica) del peso medio es 0 en todo punto, de modo que λ* no
     esta definido (susceptibilidad maxima 0) para ningun γ̂.
-Esta corrida usa un solo tamano: `size_robust` no es evaluable (F6 por evidencia faltante); el tamano finito es O-06.
+Esta corrida usa un solo tamano: `size_robust` no es evaluable; el tamano finito es O-06. Con la semantica de codigos
+por punto de la Enmienda A-10 (auditoria B5) F6/F7/F8 solo aparecen si el resultado modal es PASS, de modo que en estos
+puntos (todos con fallo modal F0/F1) la falta de evidencia de tamano NO anade F6.
+Enmienda A-5 (auditoria B6): la expectativa "chi_max == 0" pasa a "chi_max <= CHI_ZERO_TOL (1e-12)": el peso de F0 es ~1e-10
+y da chi~4e-21 (ruido numerico) y un lambda* espurio; es precision numerica, no fisica.
+Enmienda A-14/B8 (auditoria): se guarda pasaporte de CADA corrida dinamica (no solo rep 0).
 Los nulos se evaluan solo en puntos con alguna corrida no trivial (primario fuera de F0/F1/F10).
 """
 
@@ -48,6 +53,7 @@ NAME = "s06_phase_diagram"
 EXPERIMENT_ID = 1106
 ENTRYPOINT = "omega.experiments.v11.test_s06_phase_diagram_v11:run"
 ALPHA_SPLIT = 1.95
+CHI_ZERO_TOL = 1e-12  # Enmienda A-5 (auditoria B6): chi por debajo de esta tolerancia es ruido numerico, no una transicion
 DEFAULT_ALPHAS = (0.0, 0.5, 1.0, 1.5, 1.9, 2.1, 2.5, 3.0, 4.0)
 DEFAULT_GAMMAS = (0.0, 0.3, 1.0, 3.0, 10.0)
 TRIVIAL = {"Ω-F0", "Ω-F1", "Ω-F10"}
@@ -72,15 +78,15 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "s0_codes": "F0 para α̂ <= 1.9 y F1 para α̂ >= 2.1 en el 100% de las corridas, para todo γ̂",
         "n_candidate_points": 0,
         "n_runs_pass": 0,
-        "seed_variance_chi_max": 0.0,
-        "lambda_star": "indefinido (chi_max == 0)",
+        "seed_variance_chi_max": f"<= {CHI_ZERO_TOL:g}",
+        "lambda_star": "indefinido (chi_max <= CHI_ZERO_TOL)",
     }
     header: dict[str, Any] = {
         "experiment": EXPERIMENT_ID, "description": "diagrama de fases reducido, taxonomia y certificado por punto",
         "n": n, "replicates": reps, "alpha_hat": alphas, "gamma_hat": gammas, "expected": expected,
-        "gate": "O-00..O-04 en modo full" if mode == "full" else "sin compuerta (smoke)",
+        "gate": "p01, p02, O-00..O-04 en modo full" if mode == "full" else "sin compuerta (smoke)",
     }
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     w_min = cfg.base.graph.w_min
@@ -146,7 +152,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
             ts = transition_summary(samples, n_edges)
             chi_max = float(np.max(ts.susceptibility))
             transition[f"{g:g}"] = {
-                "label": "seed_variance", "chi_max": chi_max, "lambda_star": float(ts.peak_lambda) if chi_max > 0.0 else None,
+                "label": "seed_variance", "chi_max": chi_max, "lambda_star": float(ts.peak_lambda) if chi_max > CHI_ZERO_TOL else None,
                 "lambdas": ts.lambdas, "mean": ts.mean, "susceptibility": ts.susceptibility,
             }
     candidates = [pt for pt in points if pt["verdict"] == "Ω-CANDIDATE"]
@@ -158,11 +164,11 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "expectations_met": (
             all(pt["claim_met"] for pt in points) and not candidates
             and all(pt["n_runs_pass"] == 0 for pt in points)
-            and all(t["chi_max"] == 0.0 for t in transition.values())
+            and all(t["chi_max"] <= CHI_ZERO_TOL for t in transition.values())
         ),
         "passports": writer.labels, "complete": True,
     }
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def test_smoke(tmp_path: Path) -> None:
@@ -172,7 +178,7 @@ def test_smoke(tmp_path: Path) -> None:
     assert len(data["points"]) == 4 and data["n_candidate_points"] == 0
     assert all(pt["verdict"] == "NOT_CANDIDATE" for pt in data["points"])
     assert set(data["seed_variance_transition"]) == {"0", "10"}
-    assert len(data["passports"]) == 4
+    assert len(data["passports"]) == 4 * 2  # un pasaporte por corrida dinamica (4 puntos x 2 replicas; B8)
     assert (tmp_path / NAME / "summary.json").is_file()
 
 
@@ -184,14 +190,18 @@ def test_full_mode_requires_prerequisites(tmp_path: Path) -> None:
     assert not (tmp_path / NAME).exists()
 
 
-def test_gate_semantics(tmp_path: Path) -> None:
-    assert STEP_ORDER.index("s06_phase_diagram") == 5
-    for step in STEP_ORDER[:5]:
-        require_prerequisites(tmp_path, "o00_validation")  # el primero no exige nada
+def test_gate_semantics(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr("omega.experiments.v11.gate.head_commit", lambda: "c0ffee")
+    monkeypatch.setattr("omega.experiments.v11.gate.tree_dirty", lambda: False)
+    assert STEP_ORDER[:2] == ("p01_analytical", "p02_golden")  # Enmienda A-13 (auditoria B7)
+    k = STEP_ORDER.index("s06_phase_diagram")
+    assert k == 7
+    for step in STEP_ORDER[:k]:
+        require_prerequisites(tmp_path, "p01_analytical")  # el primero no exige nada
         write_summary(tmp_path, step, {"complete": True}, mode="smoke")
     with pytest.raises(PrerequisiteError):  # smoke no cuenta como full
         require_prerequisites(tmp_path, NAME)
-    for step in STEP_ORDER[:5]:
+    for step in STEP_ORDER[:k]:
         write_summary(tmp_path, step, {"complete": True}, mode="full")
     require_prerequisites(tmp_path, NAME)
     write_summary(tmp_path, "o03_nulls", {"complete": False}, mode="full")

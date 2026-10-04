@@ -122,7 +122,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "expected": expected,
         "info_only_families": [f["name"] for f in fams if not f["claim"]],
     }
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     results: dict[str, Any] = {}
@@ -165,7 +165,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "expectations_met": all(r["claim_met"] for r in results.values() if "claim_met" in r),
         "passports": writer.labels, "complete": True,
     }
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def test_smoke(tmp_path: Path) -> None:

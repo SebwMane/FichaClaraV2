@@ -89,7 +89,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "replicates": cfg.coarse.replicates,
     }
     header: dict[str, Any] = {"experiment": EXPERIMENT_ID, "description": "coarse-graining y consistencia de clase", "expected": expected}
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     results: dict[str, Any] = {}
@@ -120,7 +120,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
     asserted = {k: v for k, v in judged.items() if mode == "full" or k.startswith("ring")}
     summary = {**header, "stage": "final", "results": results, "expectation_results": judged,
                "expectations_met": all(asserted.values()), "passports": writer.labels, "complete": True}
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def test_smoke(tmp_path: Path) -> None:

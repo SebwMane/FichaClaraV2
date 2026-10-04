@@ -79,7 +79,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
     }
     header: dict[str, Any] = {"experiment": EXPERIMENT_ID, "description": "curvas de Betti, H0, beta1^(4), cliques y estabilidad topologica",
                               "n": n, "expected": expected}
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     results: dict[str, Any] = {}
@@ -103,7 +103,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
     asserted = ["euler_identity", "tree_b1_short"] + (["stable_flags_controls"] if mode == "full" else [])
     summary = {**header, "stage": "final", "results": results, "expectation_results": met,
                "expectations_met": all(met[k] for k in asserted), "passports": writer.labels, "complete": True}
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def test_smoke(tmp_path: Path) -> None:

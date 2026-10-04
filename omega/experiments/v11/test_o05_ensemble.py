@@ -14,15 +14,17 @@ equilibraron y cuantas no). Ademas: <m>, χ_m = M·Var(m), U4 de Binder y bimoda
 Preregistrado ANTES de medir (R8: la unica via abierta a una region no trivial es Θ > 0; sin ajustar umbrales, M§44):
   * no se reporta fase sin equilibrio (invariante estructural verificado en el resumen);
   * validacion Gibbs: con α̂=γ̂=0 las aristas son independientes con densidad ∝ exp(-w²/Θ̂) en [0,1]; en las celdas
-    equilibradas de METROPOLIS (muestreador exacto) la media <m> coincide con la cuadratura a 3·SE + 0.005. Langevin es
+    equilibradas de METROPOLIS (muestreador exacto) la media <m> coincide con la cuadratura a 3·SE (Enmienda A-11, auditoria B17: se elimino el piso 0.005, un ensanchamiento no autorizado). Langevin es
     Euler-Maruyama y tiene sesgo O(dt) (en smoke con N=16, Θ̂=1 midio +0.013 con SE 0.002): su desviacion se REPORTA
     (`bias`) pero no se afirma (correccion hecha tras el primer smoke, documentada; ningun umbral de decision cambia);
   * NO existe region dominante geometrica con N <= 100: la ventana de dimension 3 solo existe con N >= 800 (R1), asi que se
     predice `dominant_geometric_region = False` (registro negativo honesto);
+  * Enmienda A-12 (auditoria B16): una celda Langevin solo cuenta como region dominante si la celda Metropolis homologa
+    (mismos N, Θ̂, α̂, γ̂) tambien lo es; si no, se marca `langevin_only_unconfirmed` y no cuenta (Langevin tiene sesgo O(dt));
   * el resto (probabilidades de codigos, χ, U4, λ*, histeresis) es solo informe.
 Full: N ∈ {64, 100}, Θ̂ ∈ {0.01, 0.03, 0.1, 0.3, 1}, α̂ ∈ {0, 0.5, 1, 1.5, 2, 2.5, 3, 4}, γ̂ ∈ {0, 1, 10}, ambos motores con sus
 longitudes por defecto. Smoke: N=16, Θ̂ ∈ {0.1, 1}, α̂ ∈ {0, 3}, γ̂=0, Metropolis 200 sweeps y Langevin 1000 pasos.
-Coste: los estados densos (ρ > 0.1) usan `evidence_cfg` (muestreo de 25 aristas de Ollivier; ningun umbral cambia).
+Coste: los estados F1 garantizados (Enmienda A-6, auditoria B1/B2) usan `evidence_cfg` (muestreo de 25 aristas de Ollivier; ningun umbral cambia).
 """
 
 from __future__ import annotations
@@ -72,7 +74,6 @@ NAME = "o05_ensemble"
 EXPERIMENT_ID = 1105
 ENTRYPOINT = "omega.experiments.v11.test_o05_ensemble:run"
 NOT_EQUILIBRATED = "CHAIN_NOT_EQUILIBRATED"
-GIBBS_SE_FLOOR = 0.005
 HYSTERESIS_BASE = 50_000
 DYNAMICS_STREAM = 3000
 
@@ -244,7 +245,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
     engines = (Engine.LANGEVIN, Engine.METROPOLIS)
     expected: dict[str, Any] = {
         "no_phase_without_equilibrium": True,
-        "gibbs_alpha0_gamma0": f"Metropolis: <m> = cuadratura de exp(-w²/Θ̂) a 3·SE + {GIBBS_SE_FLOOR} en celdas equilibradas (Langevin: solo sesgo informado)",
+        "gibbs_alpha0_gamma0": f"Metropolis: <m> = cuadratura de exp(-w²/Θ̂) a 3·SE en celdas equilibradas (Langevin: solo sesgo informado)",
         "dominant_geometric_region": False,
         "reason": "N <= 100: la ventana de dimension 3 exige N >= 800 (R1); unica via abierta: Θ > 0 (R8)",
     }
@@ -254,7 +255,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "n_chains": cfg.ensemble.n_chains, "expected": expected,
         "panel_question": "¿existe una region estadisticamente dominante con propiedades geometricas?",
     }
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     cells: list[dict[str, Any]] = []
@@ -290,7 +291,16 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
     eq = [c for c in cells if c["status"] == "EQUILIBRATED"]
     neq = [c for c in cells if c["status"] == NOT_EQUILIBRATED]
     frac_min = cfg.certificate.seed_fraction
-    dominant = [c for c in eq if c["phase"]["pass_fraction"] >= frac_min]
+    cand = [c for c in eq if c["phase"]["pass_fraction"] >= frac_min]
+    metro_dom = {(c["n"], c["theta_hat"], c["alpha_hat"], c["gamma_hat"]) for c in cand if c["engine"] == Engine.METROPOLIS.value}
+    langevin_only: list[dict[str, Any]] = []
+    dominant: list[dict[str, Any]] = []
+    for c in cand:  # Enmienda A-12 (auditoria B16)
+        if c["engine"] == Engine.LANGEVIN.value and (c["n"], c["theta_hat"], c["alpha_hat"], c["gamma_hat"]) not in metro_dom:
+            c["langevin_only_unconfirmed"] = True
+            langevin_only.append(c)
+        else:
+            dominant.append(c)
     answer = (
         f"SI: {len(dominant)} celdas equilibradas con >= {frac_min:.0%} de estados que pasan todos los campos de corrida"
         if dominant else
@@ -301,7 +311,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
     gibbs: list[dict[str, Any]] = []
     for c in eq:
         if c["alpha_hat"] == 0.0 and c["gamma_hat"] == 0.0:
-            tol = 3.0 * (c["mean_weight"]["se"] or 0.0) + GIBBS_SE_FLOOR
+            tol = 3.0 * (c["mean_weight"]["se"] or 0.0)
             ref = gibbs_mean(c["theta_hat"])
             gibbs.append({"engine": c["engine"], "n": c["n"], "theta_hat": c["theta_hat"], "measured": c["mean_weight"]["mean"],
                           "reference": ref, "tol": tol, "bias": c["mean_weight"]["mean"] - ref,
@@ -313,6 +323,8 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "dominant_geometric_region": bool(dominant), "dominant_cells": [
             {k: c[k] for k in ("engine", "n", "theta_hat", "alpha_hat", "gamma_hat")} for c in dominant],
         "panel_answer": answer, "gibbs_checks": gibbs,
+        "langevin_only_unconfirmed": [
+            {k: c[k] for k in ("engine", "n", "theta_hat", "alpha_hat", "gamma_hat")} for c in langevin_only],
         "expectation_results": {
             "no_phase_without_equilibrium": no_phase_ok,
             "gibbs_alpha0_gamma0": all(x["ok"] for x in gibbs if x["asserted"]),
@@ -321,7 +333,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "passports": writer.labels, "complete": True,
     }
     summary["expectations_met"] = all(summary["expectation_results"].values())
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def test_smoke(tmp_path: Path) -> None:
@@ -336,7 +348,7 @@ def test_smoke(tmp_path: Path) -> None:
     assert data["n_equilibrated"] + data["n_not_equilibrated"] == data["n_cells"]
     assert data["n_equilibrated"] >= 1  # al menos una celda (aristas independientes) equilibra
     assert all(x["ok"] for x in data["gibbs_checks"] if x["asserted"])
-    assert data["dominant_geometric_region"] is False
+    assert data["dominant_geometric_region"] is False and isinstance(data["langevin_only_unconfirmed"], list)
     assert len(data["hysteresis"]) == 2 and len(data["passports"]) == data["n_cells"]
 
 

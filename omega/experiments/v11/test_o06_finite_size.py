@@ -15,8 +15,9 @@ Preregistrado ANTES de medir (R8, sin ajustar umbrales, M§44):
 En smoke (N=16,20,24) el control RGG3 no se ejecuta (N pequeno carece de ventana 3D). Las expectativas se evaluan y se informan igual, pero
 la expectativa S0 solo esta preregistrada para N >= 64: smoke mostro que con N <= 24 los puntos cercanos al umbral α̂=2 (1.9 y 2.1)
 mezclan F0/F1 (efecto de tamano finito), asi que el test de smoke solo afirma los puntos alejados del umbral (α̂=3) y Omega-B γ̂=0.
-Coste: con estados densos (ρ > 0.1, p. ej. los F1) la evidencia muestrea 25 aristas de Ollivier en vez de 1000 (`evidence_cfg`; solo presupuesto,
+Coste: con estados F1 garantizados (ρ >= dense_rho o <w> >= dense_meanw; Enmienda A-6, auditoria B1/B2) la evidencia muestrea 25 aristas de Ollivier en vez de 1000 (`evidence_cfg`; solo presupuesto,
 ningun umbral cambia): el LP de transporte de un grafo casi completo cuesta ~90 s con N=120.
+Enmienda A-3: smoke con N=(16,20,24). Pasaportes (auditoria B8): pasaporte de CADA corrida dinamica.
 `complete` = toda la malla preregistrada se ejecuto; `expectations_met` = las expectativas anteriores se cumplieron.
 """
 
@@ -137,7 +138,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "sizes": sizes, "xl_sizes": tuple(cfg.finite_size.xl_sizes) if mode == "full" else (), "replicates": reps,
         "points": [p["id"] for p in pts], "expected": expected,
     }
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     results: list[dict[str, Any]] = []
@@ -222,7 +223,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "expectations_met": bool(met_s0 and met_b and trivial_ok and rgg_ok),
         "passports": writer.labels, "complete": True,
     }
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def test_smoke(tmp_path: Path) -> None:

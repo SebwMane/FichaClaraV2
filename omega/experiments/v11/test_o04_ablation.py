@@ -35,7 +35,7 @@ EXPERIMENT_ID = 1104
 ENTRYPOINT = "omega.experiments.v11.test_o04_ablation:run"
 
 ABLATION_CLAIM = {AblationSpec.NO_TRIANGLES: "Ω-F0", AblationSpec.TRIANGLES_ONLY: "Ω-F1"}
-EXTRA_SPECS = (AblationSpec.FULL, AblationSpec.NO_TRIANGLES)  # Enmienda A-2: tambien con el N mayor (auditoria, desviacion 7)
+EXTRA_SPECS = (AblationSpec.FULL, AblationSpec.NO_TRIANGLES)  # Enmienda A-14 (auditoria, desviacion 7): tambien con el N mayor
 
 
 def _grid(mode: Literal["smoke", "full"]) -> dict[str, Any]:
@@ -74,7 +74,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
     header: dict[str, Any] = {"experiment": EXPERIMENT_ID, "description": "ablacion y Omega-B (densidad fija)",
                               "n": n, "n_extra": sizes[1], "extra_specs": [x.value for x in EXTRA_SPECS],
                               "replicates": reps, "expected": expected}
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     idx = 0
@@ -148,7 +148,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "n_claims": len(judged), "n_claims_met": sum(1 for j in judged if j), "expectations_met": all(judged),
         "n_runs_pass": sum(c["n_passes"] for c in cells), "passports": writer.labels, "complete": True,
     }
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def test_smoke(tmp_path: Path) -> None:

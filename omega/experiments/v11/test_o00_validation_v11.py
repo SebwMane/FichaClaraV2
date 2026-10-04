@@ -170,7 +170,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "expected": prereg,
         "expectations_source": "OMEGA_1_1_DESIGN §1.3 (Weyl), §1.6 (kappa), §1.2 (beta), §4 (O-00)",
     }
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     table: list[dict[str, Any]] = []
@@ -206,7 +206,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "passports": writer.labels,
         "complete": True,
     }
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def _small_cfg(n: int = 24) -> Omega11Config:

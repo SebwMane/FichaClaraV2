@@ -125,10 +125,10 @@ def test_evidence_cfg_budgets_only_dense_states() -> None:
 
 
 def test_evidence_cfg_keeps_full_budget_in_intermediate_density() -> None:
-    """Enmienda A-1 (auditoria B2): 0.1 < rho < 0.5 no es F1 garantizado, no se recorta."""
+    """Enmienda A-6 (auditoria B2): 0.1 < rho < 0.5 no es F1 garantizado, no se recorta."""
     cfg = _cfg(60)
-    rng = np.random.default_rng(0)
-    a = np.triu((rng.random((60, 60)) < 0.3).astype(float), 1)
+    ii, jj = np.indices((60, 60))
+    a = np.triu(((ii * 7 + jj * 3) % 10 < 3).astype(float), 1)  # densidad ~0.3 determinista (sin RNG)
     mid = a + a.T
     assert 0.1 < float(np.mean(mid[np.triu_indices(60, 1)] > 0)) < cfg.certificate.dense_rho
     assert evidence_cfg(cfg, mid) is cfg

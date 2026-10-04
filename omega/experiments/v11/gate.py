@@ -4,6 +4,10 @@
 `out_root/<paso>/summary.json` con `mode == "full"` y `complete == True`. `complete` significa "toda la malla
 preregistrada se ejecuto", no "las expectativas se cumplieron" (eso va en `expectations_met`).
 
+Enmienda A-13 (auditoria B7): `STEP_ORDER` empieza con `p01_analytical` y `p02_golden` (pasos 1-2 de P§22, ejecutados por
+`test_p00_prereq`). Cada summary registra `code_commit`, `git_dirty` y `config_hash`; `require_prerequisites` exige que
+cada summary previo sea del commit HEAD actual, con arbol limpio, y rechaza ejecutar si el arbol actual esta sucio.
+
 E/S permitida: este modulo vive en `omega/experiments/`.
 """
 
@@ -12,12 +16,14 @@ from __future__ import annotations
 import dataclasses
 import json
 import os
+import subprocess
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any, Final, Literal
 
 from omega.certificate.evidence import evidence_summary
 from omega.certificate.taxonomy import assess_run
+from omega.config.convert11 import config_hash
 from omega.config.seeds import SeedKey
 from omega.config.settings import FunctionalParams
 from omega.config.settings11 import Engine, FixedDensityConfig, NullModel, Omega11Config
@@ -33,6 +39,9 @@ __all__ = [
     "PrerequisiteError",
     "runs_root",
     "write_summary",
+    "head_commit",
+    "tree_dirty",
+    "require_clean_tree",
     "require_prerequisites",
     "derive_cfg",
     "PassportWriter",
@@ -41,6 +50,8 @@ __all__ = [
 ]
 
 STEP_ORDER: Final = (
+    "p01_analytical",
+    "p02_golden",
     "o00_validation",
     "o01_baseline",
     "o02_distance",
@@ -66,10 +77,39 @@ def runs_root() -> Path:
     return Path(os.environ.get("OMEGA_RUNS_DIR", "runs/omega11"))
 
 
-def write_summary(out_root: Path, name: str, data: Mapping[str, Any], *, mode: Mode) -> Path:
+_REPO_ROOT: Final = Path(__file__).resolve().parents[3]
+
+
+def head_commit() -> str:
+    """Commit HEAD del repositorio ('unknown' si no se puede leer)."""
+    return git_info(_REPO_ROOT)[0]
+
+
+def tree_dirty() -> bool:
+    """True si `git status --porcelain` no es vacio (o si git falla: no se puede garantizar un arbol limpio)."""
+    try:
+        res = subprocess.run(
+            ["git", "-C", str(_REPO_ROOT), "status", "--porcelain"],
+            capture_output=True, text=True, timeout=30, check=False,
+        )
+    except (OSError, subprocess.SubprocessError, ValueError):
+        return True
+    return res.returncode != 0 or bool(res.stdout.strip())
+
+
+def require_clean_tree(step: str) -> None:
+    """Levanta PrerequisiteError si el arbol de trabajo actual esta sucio (o git no responde)."""
+    if tree_dirty():
+        raise PrerequisiteError(f"{step}: el arbol de git esta sucio; el modo full exige un commit limpio")
+
+
+def write_summary(
+    out_root: Path, name: str, data: Mapping[str, Any], *, mode: Mode, cfg: Omega11Config | None = None
+) -> Path:
     """Escribe `out_root/<name>/summary.json` (JSON estricto, atomico) y devuelve su ruta.
 
-    Anade `step`, `mode` y, si falta, `complete=False`. `complete` debe ser bool.
+    Anade `step`, `mode`, `code_commit`, `git_dirty`, `config_hash` (None si no se pasa `cfg`) y, si falta,
+    `complete=False`. `complete` debe ser bool.
     """
     if mode not in ("smoke", "full"):
         raise ValueError(f"mode invalido: {mode!r}")
@@ -78,6 +118,9 @@ def write_summary(out_root: Path, name: str, data: Mapping[str, Any], *, mode: M
     out = dict(data)
     out["step"] = name
     out["mode"] = mode
+    out["code_commit"] = head_commit()
+    out["git_dirty"] = tree_dirty()
+    out["config_hash"] = None if cfg is None else config_hash(cfg)
     out.setdefault("complete", False)
     if type(out["complete"]) is not bool:
         raise TypeError("complete debe ser bool")
@@ -91,9 +134,14 @@ def write_summary(out_root: Path, name: str, data: Mapping[str, Any], *, mode: M
 
 
 def require_prerequisites(out_root: Path, step: str) -> None:
-    """Levanta PrerequisiteError si algun paso anterior a `step` no tiene summary full completo."""
+    """Levanta PrerequisiteError si el arbol esta sucio o algun paso anterior a `step` no tiene summary full completo,
+    del commit HEAD actual y de un arbol limpio (Enmienda A-13)."""
     if step not in STEP_ORDER:
         raise ValueError(f"paso desconocido: {step!r}")
+    require_clean_tree(step)
+    head = head_commit()
+    if head == "unknown":
+        raise PrerequisiteError(f"{step}: no se pudo leer el commit HEAD")
     for prev in STEP_ORDER[: STEP_ORDER.index(step)]:
         path = Path(out_root) / prev / "summary.json"
         if not path.is_file():
@@ -104,6 +152,10 @@ def require_prerequisites(out_root: Path, step: str) -> None:
             raise PrerequisiteError(f"{step}: {prev} tiene un summary ilegible: {exc}") from exc
         if not isinstance(data, dict) or data.get("mode") != "full" or data.get("complete") is not True:
             raise PrerequisiteError(f"{step}: {prev} no esta en modo full completo")
+        if data.get("code_commit") != head:
+            raise PrerequisiteError(f"{step}: {prev} es de otro commit ({data.get('code_commit')!r} != HEAD {head})")
+        if data.get("git_dirty") is not False:
+            raise PrerequisiteError(f"{step}: {prev} se ejecuto con el arbol sucio")
 
 
 def derive_cfg(

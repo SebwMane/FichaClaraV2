@@ -41,7 +41,7 @@ def evidence_cfg(cfg: Omega11Config, w: FloatArray) -> Omega11Config:
     N=120 y es inviable con N=800. El recorte se aplica SOLO cuando F1 (denso o uniforme) esta garantizado por los mismos
     umbrales del certificado (`certificate.dense_rho` / `dense_meanw`, tests de `assess_run`): en esos estados la
     curvatura es (casi) constante y se muestrean `DENSE_CURVATURE_EDGES` aristas. Estados no triviales con
-    0.1 < rho < 0.5 conservan el presupuesto completo (Enmienda A-1, auditoria B2). Solo presupuesto de muestreo
+    0.1 < rho < 0.5 conservan el presupuesto completo (Enmienda A-6 (auditoria B1, B2)). Solo presupuesto de muestreo
     (`curvature.max_edges`); NINGUN umbral cambia.
     """
     if not isinstance(cfg, Omega11Config):

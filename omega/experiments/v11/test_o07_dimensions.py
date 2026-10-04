@@ -171,7 +171,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         "experiment": EXPERIMENT_ID, "description": "estimadores de dimension y acuerdo por pares (curvas por escala)",
         "n": n, "expected": expected, "prerequisites": PREREQ_STEP if mode == "full" else "sin compuerta (smoke)",
     }
-    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
+    write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode, cfg=cfg)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
     results: dict[str, Any] = {}
@@ -193,7 +193,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
     met["er_k12.F4"] = check_expectation("contains", results[er]["assessment"]["codes"], FailureCode.F4.value)
     summary = {**header, "stage": "final", "results": results, "expectation_results": met,
                "expectations_met": all(met.values()), "passports": writer.labels, "complete": True}
-    return write_summary(out_root, NAME, summary, mode=mode)
+    return write_summary(out_root, NAME, summary, mode=mode, cfg=cfg)
 
 
 def test_smoke(tmp_path: Path) -> None:

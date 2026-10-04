@@ -161,3 +161,11 @@ def test_save_load_tamper_and_reconstruct(tmp_path: Path) -> None:
     bad2["reconstruct"] = rec
     with pytest.raises(PassportIntegrityError):
         reconstruct(bad2)
+
+
+def test_b13_distance_definition_formulas_match_distance_suite() -> None:
+    from omega.io.provenance import _distance_definition
+
+    s = _distance_definition(Omega11Config(base=make_config(12)))
+    assert "d=1/(W+ε)" in s and "d=1-ln(max(W,log_floor))" in s
+    assert "d=1/W " not in s and "-log(" not in s
