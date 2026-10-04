@@ -27,6 +27,7 @@ from omega.dynamics.fixed_density import evolve_fixed_density, uniform_state_thr
 from omega.experiments.v11.gate import PassportWriter, assessment_row, derive_cfg, require_prerequisites, runs_root, write_summary
 from omega.network.initialization import random_uniform_weights
 from omega.phases.ablation import AblationSpec, ablation_set, evolve_ablated
+from omega.phases.finite_size import evidence_cfg
 from omega.phases.scan import default_config
 
 NAME = "o04_ablation"
@@ -34,14 +35,15 @@ EXPERIMENT_ID = 1104
 ENTRYPOINT = "omega.experiments.v11.test_o04_ablation:run"
 
 ABLATION_CLAIM = {AblationSpec.NO_TRIANGLES: "Ω-F0", AblationSpec.TRIANGLES_ONLY: "Ω-F1"}
+EXTRA_SPECS = (AblationSpec.FULL, AblationSpec.NO_TRIANGLES)  # Enmienda A-2: tambien con el N mayor (auditoria, desviacion 7)
 
 
 def _grid(mode: Literal["smoke", "full"]) -> dict[str, Any]:
     if mode == "smoke":
         return {"n": 24, "reps": 1, "alphas": (0.5, 4.0), "gammas": (0.0, 10.0),
-                "rhos": (0.1,), "factors": (0.5, 3.0), "b_gammas": (0.0, 1.0)}
+                "rhos": (0.1,), "factors": (0.5, 3.0), "b_gammas": (0.0, 1.0), "n_extra": 28}
     return {"n": 100, "reps": 10, "alphas": (0.5, 1.5, 2.5, 4.0), "gammas": (0.0, 1.0, 10.0),
-            "rhos": (0.05, 0.1, 0.2), "factors": (0.5, 1.5, 3.0), "b_gammas": (0.0, 1.0, 10.0)}
+            "rhos": (0.05, 0.1, 0.2), "factors": (0.5, 1.5, 3.0), "b_gammas": (0.0, 1.0, 10.0), "n_extra": 200}
 
 
 def _claim_b(factor: float, gamma: float) -> str | None:
@@ -56,11 +58,13 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
         require_prerequisites(out_root, NAME)
     g = _grid(mode)
     n, reps = int(g["n"]), int(g["reps"])
+    sizes = (n, int(g["n_extra"]))
     cfg = derive_cfg(cfg, n=n, experiment_id=EXPERIMENT_ID, replicates=reps)
     expected: list[dict[str, Any]] = []
     for spec, code in ABLATION_CLAIM.items():
-        expected.append({"block": "ablation", "spec": spec.value, "code": code, "fraction": 1.0,
-                         "alpha_hat": list(g["alphas"]), "gamma_hat": list(g["gammas"])})
+        for n_i in sizes if spec in EXTRA_SPECS else (n,):
+            expected.append({"block": "ablation", "spec": spec.value, "n": n_i, "code": code, "fraction": 1.0,
+                             "alpha_hat": list(g["alphas"]), "gamma_hat": list(g["gammas"])})
     for rho in g["rhos"]:
         for gm in g["b_gammas"]:
             for f in g["factors"]:
@@ -68,7 +72,8 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                 if c:
                     expected.append({"block": "omega_b", "rho": rho, "gamma_hat": gm, "factor": f, "code": c, "fraction": 1.0})
     header: dict[str, Any] = {"experiment": EXPERIMENT_ID, "description": "ablacion y Omega-B (densidad fija)",
-                              "n": n, "replicates": reps, "expected": expected}
+                              "n": n, "n_extra": sizes[1], "extra_specs": [x.value for x in EXTRA_SPECS],
+                              "replicates": reps, "expected": expected}
     write_summary(out_root, NAME, {**header, "stage": "preregistered", "results": None, "complete": False}, mode=mode)
 
     writer = PassportWriter(out_root, NAME, ENTRYPOINT)
@@ -76,32 +81,36 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
     cells: list[dict[str, Any]] = []
     for a in g["alphas"]:
         for gm in g["gammas"]:
-            full_p = reduced_to_raw(a, gm, n)
-            for ap in ablation_set(a, gm, n):
-                rows: list[dict[str, Any]] = []
-                for rep in range(reps):
-                    key = seed_key(cfg.base.seeds, idx, rep)
-                    w0 = random_uniform_weights(n, make_rng(key))
-                    traj = evolve_ablated(w0, ap, cfg.base.dynamics)
-                    c_ev = evidence_cfg(cfg, traj.w_final)  # auditoria B1
-                    ev = collect_run_evidence(traj.w_final, traj.status, c_ev, evidence_rng(key))
-                    row = assessment_row(ev, c_ev)
-                    row["steps"] = traj.steps
-                    if rep == 0:
+            for n_i in sizes:
+                c_n = derive_cfg(cfg, n=n_i)
+                full_p = reduced_to_raw(a, gm, n_i)
+                for ap in ablation_set(a, gm, n_i):
+                    if n_i != n and ap.spec not in EXTRA_SPECS:
+                        continue
+                    rows: list[dict[str, Any]] = []
+                    for rep in range(reps):
+                        key = seed_key(cfg.base.seeds, idx, rep)
+                        w0 = random_uniform_weights(n_i, make_rng(key))
+                        traj = evolve_ablated(w0, ap, cfg.base.dynamics)
+                        c_ev = evidence_cfg(c_n, traj.w_final)  # auditoria B1
+                        ev = collect_run_evidence(traj.w_final, traj.status, c_ev, evidence_rng(key))
+                        row = assessment_row(ev, c_ev)
+                        row["steps"] = traj.steps
                         row["passport"] = writer.save(
-                            derive_cfg(cfg, functional=full_p), seed=key, w=traj.w_final, termination=traj.status.value,
-                            init_distribution=f"uniform/upper_mirror;ablation={ap.spec.value}", results=row, w0=w0)
-                    rows.append(row)
-                idx += 1
-                counts: Counter[str] = Counter(c for r in rows for c in r["codes"])
-                claim = ABLATION_CLAIM.get(ap.spec)
-                cells.append({
-                    "block": "ablation", "spec": ap.spec.value, "alpha_hat": a, "gamma_hat": gm,
-                    "code_fractions": {k: v / reps for k, v in sorted(counts.items())},
-                    "primary_fractions": {k: v / reps for k, v in sorted(Counter(str(r["primary"]) for r in rows).items())},
-                    "claim_code": claim, "claim_met": None if claim is None else counts[claim] == reps,
-                    "n_passes": sum(1 for r in rows if r["passes"]), "rows": rows,
-                })
+                            derive_cfg(c_n, functional=full_p), seed=key, w=traj.w_final, termination=traj.status.value,
+                            init_distribution=f"uniform/upper_mirror;ablation={ap.spec.value}",
+                            results={**row, "ablation": ap.spec.value}, w0=w0)  # auditoria B8/B15
+                        rows.append(row)
+                    idx += 1
+                    counts: Counter[str] = Counter(c for r in rows for c in r["codes"])
+                    claim = ABLATION_CLAIM.get(ap.spec)
+                    cells.append({
+                        "block": "ablation", "spec": ap.spec.value, "n": n_i, "alpha_hat": a, "gamma_hat": gm,
+                        "code_fractions": {k: v / reps for k, v in sorted(counts.items())},
+                        "primary_fractions": {k: v / reps for k, v in sorted(Counter(str(r["primary"]) for r in rows).items())},
+                        "claim_code": claim, "claim_met": None if claim is None else counts[claim] == reps,
+                        "n_passes": sum(1 for r in rows if r["passes"]), "rows": rows,
+                    })
 
     for rho in g["rhos"]:
         for gm in g["b_gammas"]:
@@ -120,9 +129,8 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                     ev = collect_run_evidence(traj.w_final, traj.status, c_ev, evidence_rng(key))
                     row = assessment_row(ev, c_ev)
                     row["steps"] = traj.steps
-                    if rep == 0:
-                        row["passport"] = writer.save(c_case, seed=key, w=traj.w_final, termination=traj.status.value,
-                                                      init_distribution="uniform/upper_mirror;fixed_density", results=row, w0=w0)
+                    row["passport"] = writer.save(c_case, seed=key, w=traj.w_final, termination=traj.status.value,
+                                                  init_distribution="uniform/upper_mirror;fixed_density", results=row, w0=w0)
                     rows.append(row)
                 idx += 1
                 counts = Counter(c for r in rows for c in r["codes"])
@@ -148,7 +156,9 @@ def test_smoke(tmp_path: Path) -> None:
     data = json.loads(run(cfg, tmp_path, mode="smoke").read_text(encoding="utf-8"))
     assert data["step"] == NAME and data["mode"] == "smoke" and data["complete"] is True
     cells = data["cells"]
-    assert sum(1 for c in cells if c["block"] == "ablation") == 5 * 2 * 2
+    assert sum(1 for c in cells if c["block"] == "ablation") == (5 + 2) * 2 * 2  # N base + FULL/NO_TRIANGLES en n_extra
+    assert {c["n"] for c in cells if c["block"] == "ablation" and c["spec"] == "full"} == {24, 28}
+    assert {c["n"] for c in cells if c["block"] == "ablation" and c["spec"] == "no_density"} == {24}
     assert sum(1 for c in cells if c["block"] == "omega_b") == 1 * 2 * 2
     # T=0 da F0 siempre (analitico) y TRIANGLES_ONLY da F1.
     for c in cells:
@@ -156,7 +166,10 @@ def test_smoke(tmp_path: Path) -> None:
             assert c["claim_met"] is True, c
         if c["block"] == "ablation" and c["spec"] == "triangles_only":
             assert c["claim_met"] is True, c
-    assert len(data["passports"]) == len(cells)
+    assert len(data["passports"]) == len(cells) * data["replicates"]  # un pasaporte por corrida (B8)
+    ab = [json.loads(p.read_text(encoding="utf-8")) for p in (tmp_path / NAME / "passports").glob("OMEGA-EXP-*.json")]
+    assert len(ab) == len(data["passports"])
+    assert {p["results"].get("ablation") for p in ab if "ablation" in p["results"]} == {x.value for x in AblationSpec}  # B15
 
 
 @pytest.mark.slow

@@ -108,3 +108,37 @@ def test_fiedler_length() -> None:
     lam2 = 2.0 - 2.0 * math.cos(2.0 * math.pi / n)
     assert fiedler_length(periodic_lattice((n,)), 0.5) == pytest.approx(lam2**-0.5)
     assert math.isnan(fiedler_length(np.zeros((4, 4)), 0.5))
+
+
+def test_b18_weyl_and_fiedler_equal_separate_calls() -> None:
+    from omega.geometry.weyl import weyl_and_fiedler
+
+    rng = np.random.Generator(np.random.PCG64(3))
+    graphs = [periodic_lattice((17, 17)), periodic_lattice((60,)), np.zeros((4, 4)), periodic_lattice((6, 6))]
+    u = np.triu(rng.random((80, 80)), 1)
+    graphs.append(np.asarray(u + u.T, dtype=np.float64))
+    for cfg in (WeylConfig(), WeylConfig(laplacian="normalized"), WeylConfig(graph="thresholded_weighted")):
+        for w in graphs:
+            est, xi = weyl_and_fiedler(w, 0.5, cfg)
+            ref = weyl_dimension(w, 0.5, cfg)
+            ref_xi = fiedler_length(w, 0.5)
+            assert est.method == ref.method and est.status == ref.status and est.plateau == ref.plateau and est.window == ref.window
+            assert np.array_equal(est.value, ref.value, equal_nan=True) and np.array_equal(est.stderr, ref.stderr, equal_nan=True)
+            assert np.array_equal(est.scales, ref.scales) and np.array_equal(est.profile, ref.profile)
+            assert np.array_equal(est.local_slopes, ref.local_slopes, equal_nan=True)
+            assert (math.isnan(xi) and math.isnan(ref_xi)) or xi == ref_xi
+
+
+def test_b18_single_spectrum_computation(monkeypatch: pytest.MonkeyPatch) -> None:
+    import omega.geometry.weyl as mod
+
+    calls: list[str] = []
+    real = mod.laplacian_spectrum
+
+    def spy(w: FloatArray, kind: str) -> FloatArray:
+        calls.append(kind)
+        return real(w, kind)  # type: ignore[arg-type]
+
+    monkeypatch.setattr(mod, "laplacian_spectrum", spy)
+    mod.weyl_and_fiedler(periodic_lattice((17, 17)), 0.5, WeylConfig())
+    assert calls == ["combinatorial"]

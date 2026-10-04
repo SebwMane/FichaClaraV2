@@ -23,7 +23,7 @@ from omega.geometry.distance_suite import distance_suite
 from omega.geometry.distances import hop_distance_matrix, threshold_adjacency
 from omega.geometry.local_structure import annulus_connectivity, homogeneity, isotropy, locality
 from omega.geometry.observables import geometry_observables
-from omega.geometry.weyl import fiedler_length, weyl_dimension
+from omega.geometry.weyl import weyl_and_fiedler
 from omega.network.topology import component_labels, giant_component_nodes, topology_observables
 from omega.network.weights import upper_triangle, validate_weight_matrix
 from omega.topology.betti import clique_complex_betti, short_cycle_betti1
@@ -135,7 +135,7 @@ def collect_run_evidence(
     top = topology_observables(w, w_min, base.phases.large_component_frac)
     geo = geometry_observables(w, base.graph, base.dimension, base.spectral)
     suite = distance_suite(w, base.graph, base.dimension, cfg.distance)
-    d_weyl = weyl_dimension(w, w_min, cfg.weyl)
+    d_weyl, xi_fiedler = weyl_and_fiedler(w, w_min, cfg.weyl)
     d_star, cls = consensus_dimension([geo.d_eff, geo.d_s, d_weyl], cfg.certificate.class_tol)
 
     a = threshold_adjacency(w, w_min)
@@ -187,7 +187,7 @@ def collect_run_evidence(
         consensus_dimension=d_star,
         dimension_class=cls,
         clustering_ratio=float(ratio),
-        fiedler_length=fiedler_length(w, w_min),
+        fiedler_length=xi_fiedler,
         n=int(w.shape[0]),
     )
 

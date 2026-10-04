@@ -40,6 +40,7 @@ from omega.experiments.v11.gate import (
     write_summary,
 )
 from omega.network.weights import upper_triangle
+from omega.phases.finite_size import evidence_cfg
 from omega.phases.scan import default_config, point_params, simulate
 from omega.statistics.transition import transition_summary
 
@@ -102,10 +103,9 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                 states.append((key, w))
                 row = assessment_row(ev, c_ev)
                 row["omega10_label"] = res.assessment.label.value
-                if rep == 0:
-                    row["passport"] = writer.save(
-                        derive_cfg(cfg, functional=p), seed=key, w=w, termination=res.trajectory.status.value,
-                        init_distribution="uniform/upper_mirror", results=row, w0=res.w0)
+                row["passport"] = writer.save(
+                    derive_cfg(cfg, functional=p), seed=key, w=w, termination=res.trajectory.status.value,
+                    init_distribution="uniform/upper_mirror", results=row, w0=res.w0)
                 rows.append(row)
                 mean_weights[g][a].append(float(upper_triangle(w).mean()))
             assessments = [assess_run(r, cfg) for r in runs]  # umbrales identicos en c_ev y cfg

@@ -20,7 +20,7 @@ from omega.network.topology import component_labels, giant_component_nodes, subm
 from omega.network.weights import validate_weight_matrix
 from omega.types import DimensionEstimate, FloatArray
 
-__all__ = ["laplacian_spectrum", "weyl_staircase", "weyl_dimension", "fiedler_length"]
+__all__ = ["laplacian_spectrum", "weyl_staircase", "weyl_dimension", "fiedler_length", "weyl_and_fiedler"]
 
 _NAN = float("nan")
 
@@ -75,37 +75,59 @@ def _giant_adjacency(w: FloatArray, w_min: float) -> tuple[FloatArray, FloatArra
     return ws, asub.astype(np.float64)
 
 
+def _weyl_core(ws: FloatArray, a: FloatArray, cfg: WeylConfig) -> tuple[DimensionEstimate, FloatArray | None]:
+    """(estimacion, espectro combinatorio binario si se calculo con la configuracion binaria/combinatoria)."""
+    method = f"weyl_{cfg.laplacian}_{cfg.graph}"
+    z = np.zeros(0, dtype=np.float64)
+    n = ws.shape[0]
+    if n < cfg.min_nodes:
+        return DimensionEstimate(_NAN, _NAN, "insufficient_component", None, z, z, z, False, method), None
+    m = a if cfg.graph == "binary" else a * ws
+    eigs = laplacian_spectrum(m, cfg.laplacian)
+    reusable = eigs if (cfg.graph == "binary" and cfg.laplacian == "combinatorial") else None
+    levels, counts = weyl_staircase(eigs, cfg.degeneracy_rtol)
+    sel = np.flatnonzero((counts >= cfg.count_min) & (counts <= cfg.count_max_frac * n) & (levels > 0.0))
+    if sel.size < cfg.min_levels:
+        est = DimensionEstimate(_NAN, _NAN, "no_window", None, levels, counts, np.full(levels.shape, _NAN), False, method)
+        return est, reusable
+    lo, hi = int(sel[0]), int(sel[-1])
+    slope, err, r2 = fit_loglog(levels[lo : hi + 1], counts[lo : hi + 1])
+    loc = 2.0 * np.gradient(np.log(counts), np.log(levels)) if levels.size >= 2 else np.zeros_like(levels)
+    est = DimensionEstimate(
+        2.0 * slope, 2.0 * err, "ok", (lo, hi), levels, counts, np.asarray(loc, dtype=np.float64), bool(r2 >= cfg.r2_min), method
+    )
+    return est, reusable
+
+
+def _fiedler_from(a: FloatArray, eigs: FloatArray | None) -> float:
+    if a.shape[0] < 2:
+        return _NAN
+    spec = eigs if eigs is not None else laplacian_spectrum(a, "combinatorial")
+    lam2 = float(spec[1])
+    if not lam2 > 1e-12:
+        return _NAN
+    return float(1.0 / math.sqrt(lam2))
+
+
 def weyl_dimension(w: FloatArray, w_min: float, cfg: WeylConfig) -> DimensionEstimate:
     """D_W = 2·pendiente MCO de ln N frente a ln λ en la ventana de cuenta [count_min, count_max_frac·n].
 
     Gigante con n < cfg.min_nodes: `insufficient_component`. Ventana con menos de `cfg.min_levels`
     niveles: `no_window`. `plateau := R² ≥ r2_min`; stderr = 2·se. method "weyl_<lap>_<graph>".
     """
-    method = f"weyl_{cfg.laplacian}_{cfg.graph}"
-    z = np.zeros(0, dtype=np.float64)
     ws, a = _giant_adjacency(w, w_min)
-    n = ws.shape[0]
-    if n < cfg.min_nodes:
-        return DimensionEstimate(_NAN, _NAN, "insufficient_component", None, z, z, z, False, method)
-    m = a if cfg.graph == "binary" else a * ws
-    levels, counts = weyl_staircase(laplacian_spectrum(m, cfg.laplacian), cfg.degeneracy_rtol)
-    sel = np.flatnonzero((counts >= cfg.count_min) & (counts <= cfg.count_max_frac * n) & (levels > 0.0))
-    if sel.size < cfg.min_levels:
-        return DimensionEstimate(_NAN, _NAN, "no_window", None, levels, counts, np.full(levels.shape, _NAN), False, method)
-    lo, hi = int(sel[0]), int(sel[-1])
-    slope, err, r2 = fit_loglog(levels[lo : hi + 1], counts[lo : hi + 1])
-    loc = 2.0 * np.gradient(np.log(counts), np.log(levels)) if levels.size >= 2 else np.zeros_like(levels)
-    return DimensionEstimate(
-        2.0 * slope, 2.0 * err, "ok", (lo, hi), levels, counts, np.asarray(loc, dtype=np.float64), bool(r2 >= cfg.r2_min), method
-    )
+    return _weyl_core(ws, a, cfg)[0]
 
 
 def fiedler_length(w: FloatArray, w_min: float) -> float:
     """ξ = λ₂^{-1/2} (Laplaciano combinatorio binario de la gigante); NaN si n<2 o λ₂ ≤ 0."""
     _, a = _giant_adjacency(w, w_min)
-    if a.shape[0] < 2:
-        return _NAN
-    lam2 = float(laplacian_spectrum(a, "combinatorial")[1])
-    if not lam2 > 1e-12:
-        return _NAN
-    return float(1.0 / math.sqrt(lam2))
+    return _fiedler_from(a, None)
+
+
+def weyl_and_fiedler(w: FloatArray, w_min: float, cfg: WeylConfig) -> tuple[DimensionEstimate, float]:
+    """(`weyl_dimension`, `fiedler_length`) con un unico calculo de la gigante y, si la configuracion de Weyl es
+    binaria/combinatorial, un unico espectro (B18). Resultados identicos a las dos funciones por separado."""
+    ws, a = _giant_adjacency(w, w_min)
+    est, eigs = _weyl_core(ws, a, cfg)
+    return est, _fiedler_from(a, eigs)

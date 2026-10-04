@@ -161,9 +161,8 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                 codes.update(row["codes"])
                 passes += int(row["passes"])
                 rows.append(row)
-                if rep == 0:
-                    row["passport"] = writer.save(c_case, seed=key, w=w, termination=status.value,
-                                                  init_distribution="uniform/upper_mirror", results=row)
+                row["passport"] = writer.save(c_case, seed=key, w=w, termination=status.value,
+                                              init_distribution="uniform/upper_mirror", results=row)
             claim = pt["claim"]
             met = None if claim is None else codes[claim] == reps
             per_n[str(n)] = {"code_fractions": {k: v / reps for k, v in sorted(codes.items())}, "n_runs_pass": passes,
@@ -201,9 +200,8 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                 ev = collect_run_evidence(w, RunStatus.CONVERGED, evidence_cfg(c_case, w), evidence_rng(key))
                 by_n_rgg.setdefault(n, []).append(ev)
                 fracs += int(assess_run(ev, evidence_cfg(c_case, w)).passes)
-                if rep == 0:
-                    writer.save(c_case, seed=key, w=w, termination="STATIC", init_distribution="control/rgg3_k12",
-                                results=assessment_row(ev, c_case))
+                writer.save(c_case, seed=key, w=w, termination="STATIC", init_distribution="control/rgg3_k12",
+                            results=assessment_row(ev, c_case))
             per_n_rgg[str(n)] = {"pass_fraction": fracs / reps}
         ok_r, ev_r = size_robust(by_n_rgg, cfg)
         rgg = {"ran": True, "sizes": RGG_SIZES, "size_robust": ok_r, "size_robust_evidence": ev_r, "per_size": per_n_rgg,

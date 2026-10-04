@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import math
+
 import numpy as np
 import pytest
 from scipy.optimize import linear_sum_assignment
@@ -103,3 +105,9 @@ def test_sphere_more_curved_than_torus() -> None:
         tor.append(_kappa(random_geometric_torus(300, 2, 20, rng, euclidean=False), cfg, seed).mean)
     se = np.sqrt(np.var(sph, ddof=1) / 5 + np.var(tor, ddof=1) / 5)
     assert np.mean(sph) - np.mean(tor) > 2 * se
+
+
+def test_b12_no_edges_gives_nan() -> None:
+    s0 = _kappa(np.zeros((5, 5)))
+    assert s0.n_edges == 0 and not s0.ok
+    assert all(math.isnan(x) for x in (s0.mean, s0.std, s0.se, s0.tail_fraction))

@@ -302,3 +302,62 @@ def test_certificate_fields_are_strict_bool() -> None:
     for name in CERTIFICATE_FIELDS:
         assert type(getattr(cert, name)) is bool
     assert cert.n_runs == 5
+
+
+# ------------------------------------------------------------------ Omega-1.1 audit patches (B5, B9, B10, guarda RGG)
+
+
+def test_b5_modal_failure_is_primary_not_f7_f6_f8() -> None:
+    """Punto 100% con un mismo fallo modal (F2) y tamanos/nulos ausentes: primario F2, no F7/F6/F8."""
+    f2 = make_evidence(topology=dataclasses.replace(make_evidence().topology, giant_fraction=0.9, giant_size=720))
+    pv = point_verdict([f2] * 5, {}, {}, CFG)  # sin tamanos ni nulos: antes anadia F6/F8
+    assert pv.primary is F.F2
+    assert F.F6 not in pv.codes and F.F8 not in pv.codes and F.F7 not in pv.codes
+    assert pv.verdict is Verdict.NOT_CANDIDATE
+
+
+def test_b5_pass_modal_still_reports_f6_f8() -> None:
+    pv = point_verdict(make_series(3.0, 5), {}, {}, CFG)
+    assert F.F6 in pv.codes and F.F8 in pv.codes
+
+
+def test_b9_contiguous_suffix_ignores_small_bad_size() -> None:
+    by_size = {50: [dataclasses.replace(r, status=RunStatus.MAX_STEPS) for r in make_series(3.06, 3)]}
+    by_size.update(_by_size())
+    ok, ev = size_robust(by_size, CFG)
+    assert ok, ev
+    assert ev["size_suffix_min"] == 100.0 and ev["size_suffix_n"] == 3.0 and ev["size_50_frac_clean"] == 0.0
+
+
+def test_b9_gap_inside_cuts_suffix() -> None:
+    by_size = {50: make_series(3.0, 3), 100: [dataclasses.replace(r, status=RunStatus.MAX_STEPS) for r in make_series(3.0, 3)]}
+    by_size[200] = make_series(3.1, 3)
+    by_size[400] = make_series(3.1, 3)
+    ok, ev = size_robust(by_size, CFG)
+    assert not ok and ev["size_suffix_min"] == 200.0 and ev["size_suffix_n"] == 2.0
+
+
+def test_b9_suffix_too_short_fails() -> None:
+    by_size = _by_size()
+    ks = sorted(by_size)
+    by_size[ks[1]] = [dataclasses.replace(r, status=RunStatus.MAX_STEPS) for r in by_size[ks[1]]]
+    ok, ev = size_robust(by_size, CFG)
+    assert not ok and ev["size_suffix_n"] == 1.0
+
+
+def test_b10_tiny_sigma_null_near_dstar_not_separated() -> None:
+    runs = make_series(3.0, 5)
+    near = [with_dimensions(make_evidence(status=RunStatus.MAX_STEPS), d) for d in (2.95, 2.9501, 2.9499, 2.95)]
+    nulls = _nulls()
+    nulls[NullModel.SHUFFLED_WEIGHTS] = near  # gap 0.05, sigma ~1e-4: need = max(3 sigma, dim_tol)
+    ok, ev = null_separated(runs, nulls, CFG)
+    assert not ok and ev["null_shuffled_weights_sigma"] > 0.0 and ev["null_shuffled_weights_gap"] < CFG.certificate.dim_tol
+
+
+def test_random_geometric_is_not_a_valid_null() -> None:
+    runs = make_series(3.0, 5)
+    nulls = _nulls()
+    assert null_separated(runs, nulls, CFG)[0]
+    nulls[NullModel.RANDOM_GEOMETRIC] = [with_dimensions(make_evidence(status=RunStatus.MAX_STEPS), 1.0)] * 4
+    ok, ev = null_separated(runs, nulls, CFG)
+    assert not ok and ev["null_random_geometric_invalid"] == 1.0

@@ -18,6 +18,7 @@ from omega.certificate.evidence import collect_run_evidence, evidence_rng
 from omega.config.seeds import seed_key
 from omega.config.settings11 import Omega11Config
 from omega.experiments.v11.gate import PassportWriter, assessment_row, derive_cfg, require_prerequisites, runs_root, write_summary
+from omega.phases.finite_size import evidence_cfg
 from omega.phases.scan import default_config, point_params, simulate
 
 NAME = "o01_baseline"
@@ -67,10 +68,9 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                 row["omega10_label"] = res.assessment.label.value
                 row["steps"] = res.trajectory.steps
                 rows.append(row)
-                if rep == 0:
-                    row["passport"] = writer.save(
-                        derive_cfg(cfg, functional=p), seed=key, w=w, termination=res.trajectory.status.value,
-                        init_distribution="uniform/upper_mirror", results=row, w0=res.w0)
+                row["passport"] = writer.save(
+                    derive_cfg(cfg, functional=p), seed=key, w=w, termination=res.trajectory.status.value,
+                    init_distribution="uniform/upper_mirror", results=row, w0=res.w0)
             code_counts: Counter[str] = Counter(c for r in rows for c in r["codes"])
             claim = "Ω-F0" if a < ALPHA_SPLIT else "Ω-F1"
             points.append({

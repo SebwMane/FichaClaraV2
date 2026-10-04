@@ -25,6 +25,7 @@ from omega.controls.small_world import watts_strogatz
 from omega.experiments.reference_graphs import complete_graph, periodic_lattice
 from omega.experiments.v11.gate import PassportWriter, check_expectation, derive_cfg, runs_root, write_summary
 from omega.geometry.weyl import weyl_dimension
+from omega.phases.finite_size import evidence_cfg
 from omega.phases.scan import default_config
 from omega.types import FloatArray, RunStatus
 

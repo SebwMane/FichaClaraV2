@@ -29,6 +29,7 @@ from omega.controls.erdos_renyi import erdos_renyi_gnp
 from omega.controls.random_geometric import balanced_tree, rgg_torus
 from omega.controls.small_world import watts_strogatz
 from omega.experiments.v11.gate import PassportWriter, derive_cfg, require_prerequisites, runs_root, write_summary
+from omega.phases.finite_size import evidence_cfg
 from omega.phases.scan import default_config
 from omega.types import FloatArray, RunStatus
 

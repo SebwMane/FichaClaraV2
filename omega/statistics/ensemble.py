@@ -155,6 +155,8 @@ def ensemble_summary(
         ess[key] = ess_tot
         if key in primary:
             rhat_ok = rhat_ok and r <= cfg.rhat_max
+            if any(float(np.var(s_)) == 0.0 for s_ in series):  # B11: cadena congelada no esta equilibrada
+                rhat_ok = False
             ess_ok = ess_ok and ess_tot >= cfg.ess_min
             for s in series:
                 try:

@@ -134,3 +134,10 @@ def test_ensemble_summary_equilibrated_and_not() -> None:
     assert not ss.equilibrated
     with pytest.raises(ValueError):
         ensemble_summary(good[:1], ["action"], cfg, 0.5)
+
+
+def test_b11_frozen_chain_is_not_equilibrated() -> None:
+    cfg = EnsembleConfig()
+    frozen = [_chain({"action": np.full(4000, 10.0), "mean_weight": np.full(4000, 0.5)}) for _ in range(4)]
+    s = ensemble_summary(frozen, ["action", "mean_weight"], cfg, 0.5)
+    assert not s.equilibrated
