@@ -16,11 +16,17 @@ from omega.statistics.ensemble import (
     integrated_autocorr_time,
     post_burn_in,
     split_rhat,
+
 )
 
 
+def _rng(seed: int) -> np.random.Generator:
+    """Generador PCG64 explícito (prohibido np.random global)."""
+    return np.random.Generator(np.random.PCG64(seed))
+
+
 def ar1(n: int, phi: float, seed: int, mean: float = 0.0) -> np.ndarray:
-    rng = np.random.default_rng(seed)
+    rng = _rng(seed)
     e = rng.standard_normal(n)
     x = np.empty(n)
     x[0] = e[0] / np.sqrt(1 - phi**2)
@@ -32,7 +38,7 @@ def ar1(n: int, phi: float, seed: int, mean: float = 0.0) -> np.ndarray:
 def ar1_fast(n: int, phi: float, seed: int) -> np.ndarray:
     from scipy.signal import lfilter
 
-    e = np.random.default_rng(seed).standard_normal(n)
+    e = _rng(seed).standard_normal(n)
     return np.asarray(lfilter([1.0], [1.0, -phi], e))
 
 
@@ -57,13 +63,13 @@ def test_tau_int_ar1_phi09() -> None:
 
 
 def test_tau_int_iid_is_half() -> None:
-    x = np.random.default_rng(0).standard_normal(50_000)
+    x = _rng(0).standard_normal(50_000)
     assert integrated_autocorr_time(x) == pytest.approx(0.5, abs=0.08)
     assert integrated_autocorr_time(np.ones(100)) == 0.5
 
 
 def test_split_rhat_iid_and_shifted() -> None:
-    rng = np.random.default_rng(1)
+    rng = _rng(1)
     iid = [rng.standard_normal(5000) for _ in range(4)]
     assert split_rhat(iid) <= 1.01
     shifted = [rng.standard_normal(5000) + 0.5 * k for k in range(4)]

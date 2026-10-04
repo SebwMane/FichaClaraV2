@@ -14,12 +14,17 @@ from omega.statistics.ensemble import effective_sample_size
 from omega.statistics.metropolis import delta_action_edge, metropolis_sweep, run_metropolis
 
 
+def _rng(seed: int) -> np.random.Generator:
+    """Generador PCG64 explícito (prohibido np.random global)."""
+    return np.random.Generator(np.random.PCG64(seed))
+
+
 def _w0(n: int, seed: int) -> np.ndarray:
-    return from_upper_triangle(np.random.default_rng(seed).uniform(size=n * (n - 1) // 2), n)
+    return from_upper_triangle(_rng(seed).uniform(size=n * (n - 1) // 2), n)
 
 
 def test_delta_action_matches_action_difference_200() -> None:
-    rng = np.random.default_rng(0)
+    rng = _rng(0)
     for _ in range(200):
         n = int(rng.integers(3, 10))
         p = FunctionalParams(
@@ -42,20 +47,20 @@ def test_eta_rejected() -> None:
     with pytest.raises(ValueError):
         delta_action_edge(w, 0, 1, 0.5, p, w.sum(axis=1))
     with pytest.raises(ValueError):
-        metropolis_sweep(w, p, 0.1, 0.2, np.random.default_rng(0))
+        metropolis_sweep(w, p, 0.1, 0.2, _rng(0))
     with pytest.raises(ValueError):
-        run_metropolis(w, p, MetropolisConfig(theta_hat=0.1, n_sweeps=5), 0.1, np.random.default_rng(0))
+        run_metropolis(w, p, MetropolisConfig(theta_hat=0.1, n_sweeps=5), 0.1, _rng(0))
 
 
 def test_sweep_pure_symmetric_bounded() -> None:
     p = FunctionalParams(alpha=0.5, beta=1.0, gamma=0.3)
     w = _w0(7, 2)
     w0 = w.copy()
-    out, acc = metropolis_sweep(w, p, 0.3, 0.5, np.random.default_rng(1))
+    out, acc = metropolis_sweep(w, p, 0.3, 0.5, _rng(1))
     np.testing.assert_array_equal(w, w0)
     validate_weight_matrix(out)
     assert 0 <= acc <= 21
-    out2, acc2 = metropolis_sweep(w, p, 0.3, 0.5, np.random.default_rng(1))
+    out2, acc2 = metropolis_sweep(w, p, 0.3, 0.5, _rng(1))
     np.testing.assert_array_equal(out, out2)
     assert acc == acc2
 
@@ -74,7 +79,7 @@ def test_detailed_balance_single_edge() -> None:
     """pi(x) q(x,y) a(x->y) == pi(y) q(y,x) a(y->x) con pi ~ exp(-H/Theta), propuesta reflejada simetrica."""
     p = FunctionalParams(alpha=0.0, beta=1.0, gamma=0.0, mu=0.7)
     theta = 0.4
-    rng = np.random.default_rng(3)
+    rng = _rng(3)
     for _ in range(100):
         x, y = rng.uniform(size=2)
         s = float(rng.uniform(0.1, 1.0))
@@ -92,7 +97,7 @@ def test_detailed_balance_single_edge() -> None:
 def test_reflected_proposal_empirically_symmetric() -> None:
     from omega.statistics.langevin import reflect_unit
 
-    rng = np.random.default_rng(5)
+    rng = _rng(5)
     s, x, y, h = 0.5, 0.15, 0.4, 0.02
     n = 400_000
     px = np.mean(np.abs(reflect_unit(x + s * rng.uniform(-1, 1, n)) - y) < h)
@@ -105,10 +110,10 @@ def test_step_fixed_after_burn_in_and_bounds() -> None:
     p = FunctionalParams(alpha=0.0, beta=1.0)
     w0 = _w0(6, 1)
     r0 = run_metropolis(w0, p, MetropolisConfig(theta_hat=0.1, n_sweeps=50, step_init=0.3,
-                                                burn_in_fraction=0.0), 0.1, np.random.default_rng(2))
+                                                burn_in_fraction=0.0), 0.1, _rng(2))
     assert r0.step_size == pytest.approx(0.3)
     r1 = run_metropolis(w0, p, MetropolisConfig(theta_hat=0.01, n_sweeps=400, step_init=1.0,
-                                                burn_in_fraction=0.5), 0.1, np.random.default_rng(2))
+                                                burn_in_fraction=0.5), 0.1, _rng(2))
     assert 1e-4 <= r1.step_size <= 1.0 and r1.step_size < 1.0
     assert r1.engine is Engine.METROPOLIS and r1.theta == pytest.approx(0.01)
     assert 0.0 < r1.acceptance <= 1.0
@@ -120,8 +125,8 @@ def test_run_contract_states_determinism() -> None:
     p = FunctionalParams(alpha=0.5, beta=1.0, gamma=0.1)
     w0 = _w0(6, 3)
     cfg = MetropolisConfig(theta_hat=0.3, n_sweeps=100, thin=2)
-    a = run_metropolis(w0, p, cfg, 0.1, np.random.default_rng(9), n_states=4)
-    b = run_metropolis(w0, p, cfg, 0.1, np.random.default_rng(9), n_states=4)
+    a = run_metropolis(w0, p, cfg, 0.1, _rng(9), n_states=4)
+    b = run_metropolis(w0, p, cfg, 0.1, _rng(9), n_states=4)
     assert len(a.states) == 4 and a.sample_steps.shape == (50,)
     np.testing.assert_array_equal(a.w_final, b.w_final)
     np.testing.assert_array_equal(a.samples["action"], b.samples["action"])
@@ -131,7 +136,7 @@ def test_run_contract_states_determinism() -> None:
 def test_gibbs_independent_edges_quadrature(theta_hat: float) -> None:
     p = FunctionalParams(alpha=0.0, beta=1.0, gamma=0.0)
     cfg = MetropolisConfig(theta_hat=theta_hat, n_sweeps=4000)
-    r = run_metropolis(_w0(8, 5), p, cfg, 0.1, np.random.default_rng(3))
+    r = run_metropolis(_w0(8, 5), p, cfg, 0.1, _rng(3))
     x = r.samples["mean_weight"][2000:]
     se = float(x.std() / np.sqrt(effective_sample_size(x)))
     num = quad(lambda w: w * np.exp(-w * w / theta_hat), 0, 1)[0]

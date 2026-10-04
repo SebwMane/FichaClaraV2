@@ -9,6 +9,7 @@ desvío corto (≤3 saltos en G−e) como proxy de localidad (Watts & Strogatz, 
 from __future__ import annotations
 
 import numpy as np
+from scipy.linalg import eigvalsh
 from scipy.sparse import csr_array
 from scipy.sparse.csgraph import connected_components
 
@@ -99,7 +100,7 @@ def ball_mds_ratio(d_hop: FloatArray, center: int, radius: int, k: int) -> float
     m = idx.size
     j = np.eye(m) - np.full((m, m), 1.0 / m)
     g = -0.5 * j @ d2 @ j
-    ev = np.sort(np.linalg.eigvalsh(0.5 * (g + g.T)))[::-1]
+    ev = np.sort(eigvalsh(0.5 * (g + g.T), subset_by_index=[m - k, m - 1]))[::-1]  # k mayores
     if not ev[0] > 1e-12:
         return 0.0
     return float(min(1.0, max(0.0, ev[k - 1] / ev[0])))

@@ -31,7 +31,7 @@ SUITE = DistanceSuiteConfig()
 
 
 def _weighted(shape: tuple[int, ...], seed: int, lo: float = 0.3) -> FloatArray:
-    rng = np.random.default_rng(seed)
+    rng = np.random.Generator(np.random.PCG64(seed))
     u = np.triu(rng.uniform(lo, 1.0, size=(int(np.prod(shape)),) * 2), 1)
     return np.asarray(periodic_lattice(shape) * (u + u.T), dtype=np.float64)
 
@@ -130,7 +130,7 @@ def test_distance_sensitive_when_modes_missing_window() -> None:
 
 
 def test_sparse_hop_window_is_distance_sensitive() -> None:
-    rng = np.random.default_rng(0)
+    rng = np.random.Generator(np.random.PCG64(0))
     pts = rng.random((120, 2))
     d = np.linalg.norm(pts[:, None] - pts[None], axis=2)
     w = np.exp(-d / 0.05)
@@ -156,7 +156,7 @@ def test_trivial_giant() -> None:
 
 
 def test_resistance_triangle_inequality_and_known_values() -> None:
-    rng = np.random.default_rng(5)
+    rng = np.random.Generator(np.random.PCG64(5))
     n = 25
     u = np.triu(rng.uniform(0.2, 1.0, (n, n)) * (rng.random((n, n)) < 0.3), 1)
     w = u + u.T

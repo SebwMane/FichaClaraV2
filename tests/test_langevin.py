@@ -18,11 +18,17 @@ from omega.statistics.langevin import (
     reflect_unit,
     run_langevin,
     temperature,
+
 )
 
 
+def _rng(seed: int) -> np.random.Generator:
+    """Generador PCG64 explícito (prohibido np.random global)."""
+    return np.random.Generator(np.random.PCG64(seed))
+
+
 def _w0(n: int, seed: int) -> np.ndarray:
-    v = np.random.default_rng(seed).uniform(size=n * (n - 1) // 2)
+    v = _rng(seed).uniform(size=n * (n - 1) // 2)
     return from_upper_triangle(v, n)
 
 
@@ -32,7 +38,7 @@ def test_reflect_unit_values_and_purity() -> None:
     y = reflect_unit(x)
     np.testing.assert_allclose(y, [0.3, 0.0, 0.4, 1.0, 0.8, 0.5, 0.9, 0.2], atol=1e-12)
     np.testing.assert_array_equal(x, x0)
-    z = np.random.default_rng(0).uniform(-50, 50, 1000)
+    z = _rng(0).uniform(-50, 50, 1000)
     r = reflect_unit(z)
     assert r.min() >= 0.0 and r.max() <= 1.0
 
@@ -47,17 +53,17 @@ def test_eta_nonzero_rejected() -> None:
     p = FunctionalParams(alpha=0.1, beta=1.0, eta=0.1)
     w0 = _w0(5, 0)
     with pytest.raises(ValueError):
-        run_langevin(w0, p, LangevinConfig(theta_hat=0.1, n_steps=10), 0.1, np.random.default_rng(0))
+        run_langevin(w0, p, LangevinConfig(theta_hat=0.1, n_steps=10), 0.1, _rng(0))
     with pytest.raises(ValueError):
-        langevin_step(w0[np.triu_indices(5, 1)], 5, p, 0.01, 0.1, np.random.default_rng(0), "reflect")
+        langevin_step(w0[np.triu_indices(5, 1)], 5, p, 0.01, 0.1, _rng(0), "reflect")
 
 
 def test_step_pure_bounded_and_deterministic() -> None:
     p = FunctionalParams(alpha=0.5, beta=1.0, gamma=0.2)
     u = _w0(6, 1)[np.triu_indices(6, 1)]
     u0 = u.copy()
-    a = langevin_step(u, 6, p, 0.01, 5.0, np.random.default_rng(7), "reflect")
-    b = langevin_step(u, 6, p, 0.01, 5.0, np.random.default_rng(7), "reflect")
+    a = langevin_step(u, 6, p, 0.01, 5.0, _rng(7), "reflect")
+    b = langevin_step(u, 6, p, 0.01, 5.0, _rng(7), "reflect")
     np.testing.assert_array_equal(u, u0)
     np.testing.assert_array_equal(a, b)
     assert a.min() >= 0.0 and a.max() <= 1.0 and a.shape == u.shape
@@ -68,7 +74,7 @@ def test_run_langevin_contract_and_invariants() -> None:
     w0 = _w0(6, 2)
     w0c = w0.copy()
     cfg = LangevinConfig(theta_hat=0.3, n_steps=400, thin=10)
-    r = run_langevin(w0, p, cfg, 0.1, np.random.default_rng(3), n_states=3)
+    r = run_langevin(w0, p, cfg, 0.1, _rng(3), n_states=3)
     np.testing.assert_array_equal(w0, w0c)
     assert isinstance(r, ChainResult) and r.engine is Engine.LANGEVIN
     assert r.theta == pytest.approx(0.3) and r.acceptance == 1.0 and r.n_steps == 400
@@ -80,7 +86,7 @@ def test_run_langevin_contract_and_invariants() -> None:
     assert len(r.states) == 3
     for s in r.states:
         validate_weight_matrix(s)
-    r2 = run_langevin(w0, p, cfg, 0.1, np.random.default_rng(3), n_states=3)
+    r2 = run_langevin(w0, p, cfg, 0.1, _rng(3), n_states=3)
     np.testing.assert_array_equal(r.w_final, r2.w_final)
 
 
@@ -101,7 +107,7 @@ def test_gaussian_variance_far_from_borders() -> None:
     p = FunctionalParams(alpha=0.0, beta=1.0, gamma=0.0, mu=1.0)
     w = np.full((n, n), 0.5) - 0.5 * np.eye(n)
     u = w[np.triu_indices(n, 1)]
-    rng = np.random.default_rng(11)
+    rng = _rng(11)
     dt = 0.02 / lipschitz_bound(n, p)
     theta = temperature(theta_hat, p.beta)
     xs = []
@@ -125,7 +131,7 @@ def _quad_mean(theta_hat: float) -> float:
 def _lan_mean(w0: np.ndarray, p: FunctionalParams, theta_hat: float, dts: float, steps: int,
               seed: int) -> tuple[float, float]:
     cfg = LangevinConfig(theta_hat=theta_hat, n_steps=steps, dt_safety=dts, thin=5)
-    x = run_langevin(w0, p, cfg, 0.1, np.random.default_rng(seed)).samples["mean_weight"]
+    x = run_langevin(w0, p, cfg, 0.1, _rng(seed)).samples["mean_weight"]
     x = x[len(x) // 10 :]
     return float(x.mean()), float(x.std() / np.sqrt(effective_sample_size(x)))
 
@@ -153,7 +159,7 @@ def test_project_creates_atoms_reflect_does_not() -> None:
     theta = temperature(1.0, p.beta)
     frac = {}
     for bnd in ("reflect", "project"):
-        rng = np.random.default_rng(4)
+        rng = _rng(4)
         u = np.full(n * (n - 1) // 2, 0.3)
         zeros = 0
         total = 0

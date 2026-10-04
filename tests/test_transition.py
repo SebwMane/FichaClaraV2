@@ -12,7 +12,13 @@ from omega.statistics.transition import (
     order_parameter_histogram,
     susceptibility,
     transition_summary,
+
 )
+
+
+def _rng(seed: int) -> np.random.Generator:
+    """Generador PCG64 explícito (prohibido np.random global)."""
+    return np.random.Generator(np.random.PCG64(seed))
 
 
 def test_fluctuation_and_susceptibility() -> None:
@@ -24,7 +30,7 @@ def test_fluctuation_and_susceptibility() -> None:
 
 
 def test_binder_known_distributions() -> None:
-    rng = np.random.default_rng(0)
+    rng = _rng(0)
     assert binder_cumulant(rng.standard_normal(400_000)) == pytest.approx(0.0, abs=0.02)
     assert binder_cumulant(rng.uniform(size=400_000)) == pytest.approx(0.4, abs=0.02)
     assert binder_cumulant(np.tile([-1.0, 1.0], 500)) == pytest.approx(2.0 / 3.0, abs=1e-12)
@@ -32,7 +38,7 @@ def test_binder_known_distributions() -> None:
 
 
 def test_bimodality_coefficient() -> None:
-    rng = np.random.default_rng(1)
+    rng = _rng(1)
     uni = rng.normal(0.5, 0.05, 50_000)
     bi = np.concatenate([rng.normal(0.2, 0.03, 25_000), rng.normal(0.8, 0.03, 25_000)])
     assert bimodality_coefficient(bi) > 5.0 / 9.0 > bimodality_coefficient(uni)
@@ -42,14 +48,14 @@ def test_bimodality_coefficient() -> None:
 
 
 def test_histogram_density_integrates_to_one() -> None:
-    m = np.random.default_rng(2).uniform(size=5000)
+    m = _rng(2).uniform(size=5000)
     dens, edges = order_parameter_histogram(m, 20)
     assert dens.shape == (20,) and edges.shape == (21,)
     assert float(np.sum(dens * np.diff(edges))) == pytest.approx(1.0)
 
 
 def test_transition_summary_bimodal_peak() -> None:
-    rng = np.random.default_rng(3)
+    rng = _rng(3)
     lams = [0.0, 0.25, 0.5, 0.75, 1.0]
     samples = {}
     for lam in lams:

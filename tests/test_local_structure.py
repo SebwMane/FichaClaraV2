@@ -12,7 +12,6 @@ from omega.config.settings import DimensionConfig
 from omega.config.settings11 import LocalStructureConfig
 from omega.experiments.reference_graphs import (
     complete_graph,
-    open_lattice,
     periodic_lattice,
     random_geometric_torus,
 )
@@ -113,24 +112,24 @@ def test_homogeneity_nan_and_unusable_estimate(cube9: tuple[BoolArray, FloatArra
 
 def test_isotropy_torus_and_slab(cube9: tuple[BoolArray, FloatArray, DimensionEstimate]) -> None:
     _, d, est = cube9
-    rep = isotropy(d, est, 3, CFG, np.random.default_rng(0))
+    rep = isotropy(d, est, 3, CFG, np.random.Generator(np.random.PCG64(0)))
     assert rep.ok and rep.median_ratio >= 0.99 and rep.n_sources == 64 and rep.radius == 5
-    _, ds, es = _setup(open_lattice((32, 5, 5)))
-    slab = isotropy(ds, es, 3, CFG, np.random.default_rng(0))
+    _, ds, es = _setup(periodic_lattice((32, 5, 5)))
+    slab = isotropy(ds, es, 3, CFG, np.random.Generator(np.random.PCG64(0)))
     assert not slab.ok
-    assert slab.median_ratio < rep.median_ratio
+    assert slab.median_ratio == pytest.approx(0.27, abs=0.02)
 
 
 def test_isotropy_class_one_and_none(cube9: tuple[BoolArray, FloatArray, DimensionEstimate]) -> None:
     _, d, est = cube9
-    assert isotropy(d, est, 1, CFG, np.random.default_rng(0)).ok
-    assert not isotropy(d, est, None, CFG, np.random.default_rng(0)).ok
+    assert isotropy(d, est, 1, CFG, np.random.Generator(np.random.PCG64(0))).ok
+    assert not isotropy(d, est, None, CFG, np.random.Generator(np.random.PCG64(0))).ok
 
 
 def test_isotropy_deterministic_by_rng() -> None:
     _, d, est = _setup(periodic_lattice((9, 9, 9)))
-    r1 = isotropy(d, est, 3, CFG, np.random.default_rng(7))
-    r2 = isotropy(d, est, 3, CFG, np.random.default_rng(7))
+    r1 = isotropy(d, est, 3, CFG, np.random.Generator(np.random.PCG64(7)))
+    r2 = isotropy(d, est, 3, CFG, np.random.Generator(np.random.PCG64(7)))
     assert r1 == r2
 
 
@@ -140,35 +139,35 @@ def test_ball_mds_ratio_cases(cube9: tuple[BoolArray, FloatArray, DimensionEstim
     assert ball_mds_ratio(d, 0, 4, 3) == pytest.approx(1.0, abs=1e-9)
     assert ball_mds_ratio(d, 0, 0, 3) == 0.0  # bola de un solo nodo
     ring = hop_distance_matrix(periodic_lattice((200,)) > 0)
-    assert ball_mds_ratio(ring, 0, 10, 2) < 0.2  # bola de un anillo: casi unidimensional... 
+    assert ball_mds_ratio(ring, 0, 10, 2) < 0.2   # bola de un anillo: casi unidimensional
     with pytest.raises(ValueError):
         ball_mds_ratio(d, -1, 3, 2)
 
 
 def test_annulus_torus_ok_and_tree_fails(cube9: tuple[BoolArray, FloatArray, DimensionEstimate]) -> None:
     a, d, est = cube9
-    rep = annulus_connectivity(a, d, est, CFG, np.random.default_rng(0))
+    rep = annulus_connectivity(a, d, est, CFG, np.random.Generator(np.random.PCG64(0)))
     assert rep.ok and min(rep.fractions.values()) == 1.0 and set(rep.fractions) == {2, 3, 4}
     g = nx.balanced_tree(3, 5)
     at, dt, et = _setup(nx.to_numpy_array(g))
-    rt = annulus_connectivity(at, dt, et, CFG, np.random.default_rng(0))
+    rt = annulus_connectivity(at, dt, et, CFG, np.random.Generator(np.random.PCG64(0)))
     assert not rt.ok and max(rt.fractions.values()) == 0.0
 
 
 def test_annulus_scale_insufficient_and_ring() -> None:
     a, d, est = _setup(periodic_lattice((300,)))
-    rep = annulus_connectivity(a, d, est, CFG, np.random.default_rng(0))
+    rep = annulus_connectivity(a, d, est, CFG, np.random.Generator(np.random.PCG64(0)))
     assert not rep.ok and all(v == 0.0 for v in rep.fractions.values())
-    small = DimensionEstimate(2.0, 0.0, "ok", (0, 1), np.array([1.0, 2.0]), np.zeros(2), np.zeros(2), True, "shell")
-    rep2 = annulus_connectivity(a, d, small, CFG, np.random.default_rng(0))
+    small = DimensionEstimate(2.0, 0.0, "ok", (0, 0), np.array([1.0]), np.zeros(1), np.zeros(1), True, "shell")
+    rep2 = annulus_connectivity(a, d, small, CFG, np.random.Generator(np.random.PCG64(0)))
     assert not rep2.ok and rep2.fractions == {}
 
 
 @pytest.mark.slow
 def test_rgg3_reference_values() -> None:
-    w = random_geometric_torus(800, 3, 12, np.random.default_rng(0), euclidean=False)
+    w = random_geometric_torus(800, 3, 12, np.random.Generator(np.random.PCG64(0)), euclidean=False)
     a, d, est = _setup(w)
     assert homogeneity(d, est, CFG).cv < 0.2
     assert locality(a, CFG).ok
-    assert isotropy(d, est, 3, CFG, np.random.default_rng(0)).ok
-    assert annulus_connectivity(a, d, est, CFG, np.random.default_rng(0)).ok
+    assert isotropy(d, est, 3, CFG, np.random.Generator(np.random.PCG64(0))).ok
+    assert annulus_connectivity(a, d, est, CFG, np.random.Generator(np.random.PCG64(0))).ok

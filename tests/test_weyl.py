@@ -49,12 +49,12 @@ def test_weyl_table_slow(shape: tuple[int, ...], expected: float, tol: float) ->
 @pytest.mark.slow
 def test_weyl_rgg() -> None:
     d3 = [
-        weyl_dimension(random_geometric_torus(800, 3, 12, np.random.default_rng(s), euclidean=False), 0.5, CFG).value
+        weyl_dimension(random_geometric_torus(800, 3, 12, np.random.Generator(np.random.PCG64(s)), euclidean=False), 0.5, CFG).value
         for s in range(3)
     ]
     assert float(np.mean(d3)) == pytest.approx(2.96, abs=0.25)
     for s in range(3):
-        w = random_geometric_torus(800, 2, 10, np.random.default_rng(s), euclidean=False)
+        w = random_geometric_torus(800, 2, 10, np.random.Generator(np.random.PCG64(s)), euclidean=False)
         assert weyl_dimension(w, 0.5, CFG).value == pytest.approx(2.0, abs=0.25)
 
 
@@ -69,7 +69,7 @@ def test_tiny_component_insufficient() -> None:
 
 
 def _uniform(n: int, seed: int) -> FloatArray:
-    u = np.triu(np.random.default_rng(seed).random((n, n)), 1)
+    u = np.triu(np.random.Generator(np.random.PCG64(seed)).random((n, n)), 1)
     return np.asarray(u + u.T, dtype=np.float64)
 
 
