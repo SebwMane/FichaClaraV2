@@ -90,10 +90,8 @@ def _check_n(n: int) -> None:
 
 
 def reduced_to_raw(alpha_hat: float, gamma_hat: float, n: int, beta: float = 1.0) -> FunctionalParams:
-    """alpha = 2*beta*alpha_hat/(n-2), gamma = beta*gamma_hat/(n-2) (D-15); n>=3, hats>=0."""
+    """alpha = 2*beta*alpha_hat/(n-2), gamma = beta*gamma_hat/(n-2) (D-15); n>=3, gamma_hat>=0."""
     _check_n(n)
-    if alpha_hat < 0.0 or gamma_hat < 0.0:
-        raise ValueError("alpha_hat y gamma_hat deben ser >= 0")
     return FunctionalParams(
         alpha=2.0 * beta * alpha_hat / (n - 2),
         beta=beta,
