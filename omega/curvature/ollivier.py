@@ -103,7 +103,7 @@ def ollivier_curvature(
     Si hay mas de cfg.max_edges aristas se muestrean sin reemplazo con `rng` (sampled=True).
     Salida: media, desviacion (ddof=1), SE = std/sqrt(n), tail_fraction = frac(kappa <
     cfg.tail_cut) y ok = (media >= cfg.mean_min) y (tail_fraction <= cfg.tail_frac_max).
-    Sin aristas: n_edges=0, media 0 y ok=False. `graph.w_min` se sustituye por `w_min`.
+    Sin aristas: n_edges=0, media/std/SE/cola NaN y ok=False. `graph.w_min` se sustituye por `w_min`.
     """
     validate_weight_matrix(w)
     a_full = threshold_adjacency(w, w_min)
@@ -114,7 +114,8 @@ def ollivier_curvature(
     xs, ys = np.nonzero(np.triu(a, k=1))
     m = int(xs.size)
     if m == 0:
-        return CurvatureSummary(mean=0.0, std=0.0, se=0.0, tail_fraction=0.0, n_edges=0, sampled=False,
+        nan = float("nan")
+        return CurvatureSummary(mean=nan, std=nan, se=nan, tail_fraction=nan, n_edges=0, sampled=False,
                                 edge_values=np.zeros(0, dtype=np.float64), ok=False)
     sampled = m > cfg.max_edges
     if sampled:

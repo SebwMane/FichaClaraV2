@@ -96,10 +96,11 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                 key = seed_key(cfg.base.seeds, idx, rep)
                 res = simulate(cfg.base, p, key)
                 w = res.trajectory.w_final
-                ev = collect_run_evidence(w, res.trajectory.status, cfg, evidence_rng(key))
+                c_ev = evidence_cfg(cfg, w)  # auditoria B1
+                ev = collect_run_evidence(w, res.trajectory.status, c_ev, evidence_rng(key))
                 runs.append(ev)
                 states.append((key, w))
-                row = assessment_row(ev, cfg)
+                row = assessment_row(ev, c_ev)
                 row["omega10_label"] = res.assessment.label.value
                 if rep == 0:
                     row["passport"] = writer.save(
@@ -107,7 +108,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                         init_distribution="uniform/upper_mirror", results=row, w0=res.w0)
                 rows.append(row)
                 mean_weights[g][a].append(float(upper_triangle(w).mean()))
-            assessments = [assess_run(r, cfg) for r in runs]
+            assessments = [assess_run(r, cfg) for r in runs]  # umbrales identicos en c_ev y cfg
             nontrivial = any(x.primary is not None and x.primary.value not in TRIVIAL for x in assessments) or any(
                 x.passes for x in assessments)
             nulls: dict[NullModel, list[RunEvidence]] = {}
@@ -115,7 +116,7 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                 for rep, (key, w) in enumerate(states[: min(3, reps)]):
                     for kind, wn in null_battery(w, w_min, cfg.null_models, key).items():
                         nulls.setdefault(kind, []).append(
-                            collect_run_evidence(wn, runs[rep].status, cfg, evidence_rng(null_seed_key(key, kind))))
+                            collect_run_evidence(wn, runs[rep].status, evidence_cfg(cfg, wn), evidence_rng(null_seed_key(key, kind))))
             pv = point_verdict(runs, {n: runs}, nulls, cfg)
             claim = "Ω-F0" if a < ALPHA_SPLIT else "Ω-F1"
             code_counts: Counter[str] = Counter(c for r in rows for c in r["codes"])

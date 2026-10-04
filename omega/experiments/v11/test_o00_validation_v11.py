@@ -118,6 +118,7 @@ def _measure(w: FloatArray, cfg: Omega11Config, key: SeedKey, weyl_only: bool) -
     if weyl_only:
         d = weyl_dimension(w, cfg.base.graph.w_min, cfg.weyl)
         return {"n": int(w.shape[0]), "d_weyl": _num(d.value), "d_weyl_status": d.status, "d_weyl_plateau": bool(d.plateau)}
+    cfg = evidence_cfg(cfg, w)  # presupuesto de coste solo en estados F1 garantizados (auditoria B1)
     ev = collect_run_evidence(w, RunStatus.CONVERGED, cfg, evidence_rng(key))
     a = assess_run(ev, cfg)
     kv = ev.curvature.edge_values

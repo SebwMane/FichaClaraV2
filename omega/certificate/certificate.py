@@ -98,22 +98,32 @@ def seed_robust(runs: Sequence[RunEvidence], cfg: Omega11Config) -> tuple[bool, 
 
 
 def size_robust(by_size: Mapping[int, Sequence[RunEvidence]], cfg: Omega11Config) -> tuple[bool, dict[str, float]]:
-    """Robustez en tamano (§1.12). Opcion conservadora: TODOS los tamanos con evidencia deben tener >= 80% de
-    corridas sin codigo (no se descartan tamanos malos) y debe haber >= `min_sizes` tamanos."""
+    """Robustez en tamano (§1.12, B9). Se evalua el SUFIJO CONTIGUO de tamanos limpios (fraccion de corridas sin
+    codigo >= seed_fraction) que incluye al mayor; debe tener >= `min_sizes` tamanos. Un tamano pequeno malo
+    fuera del sufijo no invalida; un hueco malo dentro lo corta. Se registra `size_suffix_min` (menor N)."""
     c = cfg.certificate
-    sizes = sorted(n for n, rs in by_size.items() if len(rs) > 0)
-    ev: dict[str, float] = {"size_n_sizes": float(len(sizes))}
-    if len(sizes) < c.min_sizes:
+    sizes_all = sorted(n for n, rs in by_size.items() if len(rs) > 0)
+    ev: dict[str, float] = {"size_n_sizes": float(len(sizes_all))}
+    if len(sizes_all) < c.min_sizes:
         ev["size_missing"] = 1.0
+        return False, ev
+    fracs = {n: sum(_clean(by_size[n], cfg)) / len(by_size[n]) for n in sizes_all}
+    for n in sizes_all:
+        ev[f"size_{n}_frac_clean"] = fracs[n]
+    sizes: list[int] = []
+    for n in reversed(sizes_all):
+        if fracs[n] < c.seed_fraction:
+            break
+        sizes.append(n)
+    sizes.reverse()
+    ev["size_suffix_n"] = float(len(sizes))
+    ev["size_suffix_min"] = float(sizes[0]) if sizes else 0.0
+    if len(sizes) < c.min_sizes:
         return False, ev
     clean_ok = True
     means: list[float] = []
     for n in sizes:
-        rs = by_size[n]
-        frac = sum(_clean(rs, cfg)) / len(rs)
-        ev[f"size_{n}_frac_clean"] = frac
-        clean_ok = clean_ok and frac >= c.seed_fraction
-        ds = _finite_dstar(rs)
+        ds = _finite_dstar(by_size[n])
         means.append(float(np.mean(ds)) if ds else math.nan)
     if not all(math.isfinite(m) for m in means):
         ev["size_missing"] = 1.0
@@ -155,6 +165,10 @@ def null_separated(
     mu_c = float(np.mean(cand_d))
     required = list(cfg.null_models) + [m for m in nulls if m not in cfg.null_models]
     ok = True
+    if NullModel.RANDOM_GEOMETRIC in required:
+        # RANDOM_GEOMETRIC es un control positivo (geometrico por construccion), nunca un nulo (desviacion 3).
+        ev["null_random_geometric_invalid"] = 1.0
+        ok = False
     for model in required:
         reps = nulls.get(model, ())
         key = f"null_{model.value}"
@@ -171,7 +185,7 @@ def null_separated(
             mu_n = float(np.mean(nd))
             sigma = float(np.std(nd, ddof=1)) if len(nd) >= 2 else 0.0
             gap = abs(mu_c - mu_n)
-            need = c.null_sigma * sigma if sigma > 0.0 else c.dim_tol
+            need = max(c.null_sigma * sigma, c.dim_tol)
             ev[f"{key}_gap"] = gap
             ev[f"{key}_sigma"] = sigma
             if gap < need:
@@ -262,18 +276,21 @@ def point_verdict(
     for a in assessments:
         outcomes["PASS" if a.primary is None else a.primary.value] += 1
     fractions = {k: v / n for k, v in outcomes.items()} if n else {}
+    modal_fail = False
     if n:
         modal, count = max(outcomes.items(), key=lambda kv: (kv[1], kv[0]))
         if count / n < frac:
             codes.add(FailureCode.F7)
         elif modal != "PASS":
             codes.add(FailureCode(modal))
-    if not cert.size_robust:
-        codes.add(FailureCode.F6)
-    if not cert.seed_robust:
-        codes.add(FailureCode.F7)
-    if not cert.null_separated:
-        codes.add(FailureCode.F8)
+            modal_fail = True
+    if not modal_fail:  # B5: con un fallo modal claro, F6/F7/F8 no desplazan al codigo primario
+        if not cert.size_robust:
+            codes.add(FailureCode.F6)
+        if not cert.seed_robust:
+            codes.add(FailureCode.F7)
+        if not cert.null_separated:
+            codes.add(FailureCode.F8)
     if not codes:
         # Salvaguarda: un certificado incompleto nunca queda sin codigo.
         if cert.dimension_class is None:

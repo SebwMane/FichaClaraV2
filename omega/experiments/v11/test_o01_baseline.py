@@ -61,8 +61,9 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                 key = seed_key(cfg.base.seeds, idx, rep)
                 res = simulate(cfg.base, p, key)
                 w = res.trajectory.w_final
-                ev = collect_run_evidence(w, res.trajectory.status, cfg, evidence_rng(key))
-                row = assessment_row(ev, cfg)
+                c_ev = evidence_cfg(cfg, w)  # auditoria B1
+                ev = collect_run_evidence(w, res.trajectory.status, c_ev, evidence_rng(key))
+                row = assessment_row(ev, c_ev)
                 row["omega10_label"] = res.assessment.label.value
                 row["steps"] = res.trajectory.steps
                 rows.append(row)

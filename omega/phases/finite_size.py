@@ -17,9 +17,8 @@ from omega.config.settings11 import Omega11Config
 from omega.contracts import RunEvidence
 from omega.types import FloatArray
 
-__all__ = ["size_config", "fss_observables", "fss_fit", "evidence_cfg", "FSS_KEYS", "DENSE_CURVATURE_EDGES", "DENSE_RHO"]
+__all__ = ["size_config", "fss_observables", "fss_fit", "evidence_cfg", "FSS_KEYS", "DENSE_CURVATURE_EDGES"]
 
-DENSE_RHO = 0.1  # densidad binaria por encima de la cual el LP de Ollivier es costoso
 DENSE_CURVATURE_EDGES = 25  # presupuesto de aristas de Ollivier en estados densos (solo coste, ver `evidence_cfg`)
 
 FSS_KEYS = ("d_star", "d_vol", "d_s", "d_weyl", "c_bin", "giant_fraction", "rho", "xi_f", "l_hop")
@@ -36,17 +35,23 @@ def size_config(cfg: Omega11Config, n: int) -> Omega11Config:
 
 
 def evidence_cfg(cfg: Omega11Config, w: FloatArray) -> Omega11Config:
-    """Configuracion de evidencia con presupuesto de coste para estados densos.
+    """Configuracion de evidencia con presupuesto de coste para estados F1 garantizados.
 
-    Ollivier resuelve un LP de transporte por arista con soporte ~ grado: con grafos casi completos (rho > 0.1) cuesta
-    ~90 s con N=120 (grado 119) y es inviable con N=800; aplica a rho > `DENSE_RHO`. En esos estados la curvatura es (casi) constante y se muestrean
-    `DENSE_CURVATURE_EDGES` aristas. Es solo un presupuesto de muestreo (`curvature.max_edges`); NINGUN umbral cambia.
+    Ollivier resuelve un LP de transporte por arista con soporte ~ grado: con grafos casi completos cuesta ~90 s con
+    N=120 y es inviable con N=800. El recorte se aplica SOLO cuando F1 (denso o uniforme) esta garantizado por los mismos
+    umbrales del certificado (`certificate.dense_rho` / `dense_meanw`, tests de `assess_run`): en esos estados la
+    curvatura es (casi) constante y se muestrean `DENSE_CURVATURE_EDGES` aristas. Estados no triviales con
+    0.1 < rho < 0.5 conservan el presupuesto completo (Enmienda A-1, auditoria B2). Solo presupuesto de muestreo
+    (`curvature.max_edges`); NINGUN umbral cambia.
     """
     if not isinstance(cfg, Omega11Config):
         raise TypeError("cfg debe ser Omega11Config")
     n = w.shape[0]
     iu = np.triu_indices(n, 1)
-    dense = bool(np.mean(w[iu] > cfg.base.graph.w_min) > DENSE_RHO)
+    v = w[iu]
+    dense = bool(
+        np.mean(v > cfg.base.graph.w_min) >= cfg.certificate.dense_rho or float(v.mean()) >= cfg.certificate.dense_meanw
+    )
     if not dense or cfg.curvature.max_edges <= DENSE_CURVATURE_EDGES:
         return cfg
     return dataclasses.replace(cfg, curvature=dataclasses.replace(cfg.curvature, max_edges=DENSE_CURVATURE_EDGES))

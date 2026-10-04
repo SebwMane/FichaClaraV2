@@ -83,8 +83,9 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                     key = seed_key(cfg.base.seeds, idx, rep)
                     w0 = random_uniform_weights(n, make_rng(key))
                     traj = evolve_ablated(w0, ap, cfg.base.dynamics)
-                    ev = collect_run_evidence(traj.w_final, traj.status, cfg, evidence_rng(key))
-                    row = assessment_row(ev, cfg)
+                    c_ev = evidence_cfg(cfg, traj.w_final)  # auditoria B1
+                    ev = collect_run_evidence(traj.w_final, traj.status, c_ev, evidence_rng(key))
+                    row = assessment_row(ev, c_ev)
                     row["steps"] = traj.steps
                     if rep == 0:
                         row["passport"] = writer.save(
@@ -115,8 +116,9 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
                     key = seed_key(cfg.base.seeds, idx, rep)
                     w0 = random_uniform_weights(n, make_rng(key))
                     traj = evolve_fixed_density(w0, p, cfg.base.dynamics, fd)
-                    ev = collect_run_evidence(traj.w_final, traj.status, c_case, evidence_rng(key))
-                    row = assessment_row(ev, c_case)
+                    c_ev = evidence_cfg(c_case, traj.w_final)  # auditoria B1
+                    ev = collect_run_evidence(traj.w_final, traj.status, c_ev, evidence_rng(key))
+                    row = assessment_row(ev, c_ev)
                     row["steps"] = traj.steps
                     if rep == 0:
                         row["passport"] = writer.save(c_case, seed=key, w=traj.w_final, termination=traj.status.value,

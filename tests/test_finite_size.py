@@ -122,3 +122,21 @@ def test_evidence_cfg_budgets_only_dense_states() -> None:
     assert dataclasses.replace(c2, curvature=cfg.curvature) == cfg  # ningun umbral cambia
     with pytest.raises(TypeError):
         evidence_cfg("cfg", dense)  # type: ignore[arg-type]
+
+
+def test_evidence_cfg_keeps_full_budget_in_intermediate_density() -> None:
+    """Enmienda A-1 (auditoria B2): 0.1 < rho < 0.5 no es F1 garantizado, no se recorta."""
+    cfg = _cfg(60)
+    rng = np.random.default_rng(0)
+    a = np.triu((rng.random((60, 60)) < 0.3).astype(float), 1)
+    mid = a + a.T
+    assert 0.1 < float(np.mean(mid[np.triu_indices(60, 1)] > 0)) < cfg.certificate.dense_rho
+    assert evidence_cfg(cfg, mid) is cfg
+    # umbral inclusivo (>=): rho exactamente dense_rho si se recorta
+    half = np.zeros((60, 60))
+    iu = np.triu_indices(60, 1)
+    idx = np.arange(iu[0].shape[0])
+    sel = idx[: idx.shape[0] // 2]
+    half[iu[0][sel], iu[1][sel]] = 1.0
+    half = half + half.T
+    assert evidence_cfg(cfg, half).curvature.max_edges == DENSE_CURVATURE_EDGES

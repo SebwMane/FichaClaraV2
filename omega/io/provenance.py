@@ -129,8 +129,8 @@ def allocate_experiment_id(registry_dir: Path) -> int:
 def _distance_definition(cfg: Omega11Config) -> str:
     parts = {
         "hop": "hop: conteo de saltos BFS sobre A=(W>w_min)",
-        "weighted_inverse": "weighted_inverse: d=1/W sobre aristas W>w_min",
-        "weighted_log": "weighted_log: d=-log(max(W,log_floor)) sobre aristas W>w_min",
+        "weighted_inverse": "weighted_inverse: d=1/(W+ε) sobre aristas W>w_min",
+        "weighted_log": "weighted_log: d=1-ln(max(W,log_floor)) sobre aristas W>w_min",
         "resistance": "resistance: resistencia efectiva sobre el grafo ponderado",
     }
     return "; ".join(parts[m.value] for m in cfg.distance.modes)

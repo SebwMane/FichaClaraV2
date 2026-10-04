@@ -127,7 +127,7 @@ class DistanceSuiteConfig:
     metric_tol: float = 0.5
     log_floor: float = 1e-12
     fallback_n_radii: int = 12
-    resistance_max_nodes: int = 2000
+    resistance_max_nodes: int = 4000
     zeta_1d_min: float = 0.8
     zeta_2d_min: float = 0.35
     zeta_2d_max: float = 0.65

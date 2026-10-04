@@ -117,8 +117,9 @@ def run(cfg: Omega11Config, out_root: Path, *, mode: Literal["smoke", "full"]) -
             key = seed_key(cfg.base.seeds, gi, rep)
             for sub, w, ekey, null in gen(key, n):
                 c_case = derive_cfg(cfg, n=int(w.shape[0]))
-                ev = collect_run_evidence(w, RunStatus.CONVERGED, c_case, evidence_rng(ekey))
-                a = assess_run(ev, c_case)
+                c_ev = evidence_cfg(c_case, w)  # auditoria B1
+                ev = collect_run_evidence(w, RunStatus.CONVERGED, c_ev, evidence_rng(ekey))
+                a = assess_run(ev, c_ev)
                 row: dict[str, Any] = {
                     "codes": [c.value for c in a.codes], "primary": None if a.primary is None else a.primary.value,
                     "passes": a.passes, "flags": dict(a.flags),
