@@ -1,0 +1,42 @@
+{
+ "generated_from_commit": "9dfbea7d6be28a8f17fbf336579c23628ac5669d",
+ "observables": [
+  "clustering_binary",
+  "clustering_weighted",
+  "d_eff",
+  "d_eff_ball",
+  "d_eff_hops",
+  "d_s",
+  "diameter",
+  "giant_fraction",
+  "giant_size",
+  "mean_strength",
+  "path_length",
+  "path_length_hops",
+  "std_strength",
+  "topology"
+ ],
+ "top_level": [
+  "N",
+  "array_digests",
+  "config",
+  "created_utc",
+  "curvature",
+  "dt",
+  "git_commit",
+  "npz_file",
+  "npz_sha256",
+  "observables",
+  "omega0",
+  "params_raw",
+  "params_reduced",
+  "phase",
+  "run_id",
+  "schema_version",
+  "seed",
+  "status",
+  "steps",
+  "tau_max",
+  "versions"
+ ]
+}

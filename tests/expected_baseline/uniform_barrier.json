@@ -1,0 +1,107 @@
+{
+ "gamma_hat": 0.0,
+ "generated_from_commit": "9dfbea7d6be28a8f17fbf336579c23628ac5669d",
+ "homogeneous": [
+  {
+   "action": [
+    259.92252000000025,
+    259.89495865690543,
+    5.816632600224793e-18
+   ],
+   "alpha_hat": 1.0,
+   "start": "below",
+   "status": "CONVERGED",
+   "steps": 157,
+   "w0": 0.99,
+   "w_final_max": 8.635520414409773e-11,
+   "w_final_mean": 8.635520414409774e-11,
+   "w_final_min": 8.635520414409773e-11
+  },
+  {
+   "action": [
+    260.0,
+    260.0,
+    260.0
+   ],
+   "alpha_hat": 1.0,
+   "start": "above",
+   "status": "CONVERGED",
+   "steps": 10,
+   "w0": 1.0,
+   "w_final_max": 1.0,
+   "w_final_mean": 1.0,
+   "w_final_min": 1.0
+  },
+  {
+   "action": [
+    115.47833555555565,
+    115.45827063609434,
+    2.969974016172042e-17
+   ],
+   "alpha_hat": 1.5,
+   "start": "below",
+   "status": "CONVERGED",
+   "steps": 200,
+   "w0": 0.6566666666666666,
+   "w_final_max": 1.9513223710692601e-10,
+   "w_final_mean": 1.9513223710692601e-10,
+   "w_final_min": 1.9513223710692601e-10
+  },
+  {
+   "action": [
+    115.47677555555549,
+    115.45539132070954,
+    0.0
+   ],
+   "alpha_hat": 1.5,
+   "start": "above",
+   "status": "CONVERGED",
+   "steps": 37,
+   "w0": 0.6766666666666666,
+   "w_final_max": 1.0,
+   "w_final_mean": 1.0,
+   "w_final_min": 1.0
+  },
+  {
+   "action": [
+    64.92304,
+    64.90733959131974,
+    7.702243440474136e-17
+   ],
+   "alpha_hat": 2.0,
+   "start": "below",
+   "status": "CONVERGED",
+   "steps": 242,
+   "w0": 0.49,
+   "w_final_max": 3.1423989373833966e-10,
+   "w_final_mean": 3.142398937383396e-10,
+   "w_final_min": 3.1423989373833966e-10
+  },
+  {
+   "action": [
+    64.92095999999992,
+    64.90388468386368,
+    -260.0
+   ],
+   "alpha_hat": 2.0,
+   "start": "above",
+   "status": "CONVERGED",
+   "steps": 45,
+   "w0": 0.51,
+   "w_final_max": 1.0,
+   "w_final_mean": 1.0,
+   "w_final_min": 1.0
+  }
+ ],
+ "n": 40,
+ "random_start": [
+  {
+   "alpha_hat": 1.9,
+   "label": "A"
+  },
+  {
+   "alpha_hat": 2.1,
+   "label": "E"
+  }
+ ]
+}

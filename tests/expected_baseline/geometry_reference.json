@@ -1,0 +1,123 @@
+{
+ "generated_from_commit": "9dfbea7d6be28a8f17fbf336579c23628ac5669d",
+ "lattice_7x7x7": {
+  "d_eff": {
+   "method": "shell",
+   "plateau": true,
+   "status": "ok",
+   "stderr": "nan",
+   "value": 2.842857466371408,
+   "window": [
+    1,
+    2
+   ]
+  },
+  "d_eff_ball": {
+   "method": "ball",
+   "plateau": true,
+   "status": "ok",
+   "stderr": 0.11645279846436792,
+   "value": 1.9823941236145983,
+   "window": [
+    0,
+    2
+   ]
+  },
+  "d_eff_hops": {
+   "method": "shell",
+   "plateau": true,
+   "status": "ok",
+   "stderr": "nan",
+   "value": 2.842857466371408,
+   "window": [
+    1,
+    2
+   ]
+  },
+  "d_s": {
+   "method": "lazy_walk",
+   "plateau": true,
+   "status": "ok",
+   "stderr": 0.015412031681616254,
+   "value": 3.122834354231812,
+   "window": [
+    3,
+    15
+   ]
+  },
+  "diameter": 8.999999991,
+  "path_length": 5.15789473168421,
+  "path_length_hops": 5.157894736842105,
+  "topology": {
+   "binary_density": 0.017543859649122806,
+   "clustering_binary": 0.0,
+   "clustering_weighted": 0.0,
+   "cv_strength": 0.0,
+   "frac_at_one": 0.017543859649122806,
+   "frac_at_zero": 0.9824561403508771,
+   "giant_fraction": 1.0,
+   "giant_size": 343,
+   "mean_binary_degree": 6.0,
+   "mean_strength": 6.0,
+   "mean_weight": 0.017543859649122806,
+   "n": 343,
+   "n_components": 1,
+   "n_large_components": 1,
+   "std_strength": 0.0
+  }
+ },
+ "uniform_n60": {
+  "d_eff": {
+   "method": "shell",
+   "plateau": false,
+   "status": "no_window",
+   "stderr": "nan",
+   "value": "nan",
+   "window": null
+  },
+  "d_eff_ball": {
+   "method": "ball",
+   "plateau": false,
+   "status": "no_window",
+   "stderr": "nan",
+   "value": "nan",
+   "window": null
+  },
+  "d_eff_hops": {
+   "method": "shell",
+   "plateau": false,
+   "status": "no_window",
+   "stderr": "nan",
+   "value": "nan",
+   "window": null
+  },
+  "d_s": {
+   "method": "lazy_walk",
+   "plateau": false,
+   "status": "no_window",
+   "stderr": "nan",
+   "value": "nan",
+   "window": null
+  },
+  "diameter": 2.752211276802531,
+  "path_length": 1.787394170749414,
+  "path_length_hops": 1.1045197740112995,
+  "topology": {
+   "binary_density": 0.8954802259887006,
+   "clustering_binary": 0.8958952455769567,
+   "clustering_weighted": 0.49635794496398133,
+   "cv_strength": 0.06812975691833505,
+   "frac_at_one": 0.0,
+   "frac_at_zero": 0.0,
+   "giant_fraction": 1.0,
+   "giant_size": 60,
+   "mean_binary_degree": 52.833333333333336,
+   "mean_strength": 29.383922567863056,
+   "mean_weight": 0.498032585895984,
+   "n": 60,
+   "n_components": 1,
+   "n_large_components": 1,
+   "std_strength": 2.0019195018556895
+  }
+ }
+}
