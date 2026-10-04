@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omega-simulator"
+version = "1.0.0"
+description = "Simulador Omega: fases geometricas emergentes de pesos relacionales aleatorios"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "scipy>=1.11", "networkx>=3.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "matplotlib>=3.7", "mypy>=1.8"]
+
+[tool.setuptools.packages.find]
+include = ["omega*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "omega/experiments"]
+addopts = "-m 'not slow'"
+pythonpath = ["."]
+markers = ["slow: corridas completas, excluidas por defecto (usar -m slow)"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+plugins = []
+
+[[tool.mypy.overrides]]
+module = ["scipy.*", "networkx.*", "matplotlib.*"]
+ignore_missing_imports = true
