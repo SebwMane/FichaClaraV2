@@ -293,11 +293,25 @@ class LocalityReport:
 
 @dataclass(frozen=True, slots=True)
 class AnnulusReport:
+    """Enmienda A-17 (D1/B4): `excluded_radius` = r_hi (radio contaminado por saturación), None si no se excluyó.
+
+    `sensitivity` es diagnóstico NO decisorio (nunca entra en taxonomía/certificado).
+    """
+
     fractions: Mapping[int, float]
     ok: bool
+    excluded_radius: int | None = None
+    evaluated_radii: tuple[int, ...] = ()
+    sensitivity: Mapping[str, float | int | bool | None] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         _mapping(self, "fractions", int)
+        _opt_int(self, "excluded_radius")
+        if not isinstance(self.evaluated_radii, tuple) or not all(
+            isinstance(r, int) and not isinstance(r, bool) for r in self.evaluated_radii
+        ):
+            raise TypeError("evaluated_radii debe ser tuple[int, ...]")
+        _mapping(self, "sensitivity", str)
         for k, v in self.fractions.items():
             if isinstance(k, bool) or isinstance(v, bool) or not isinstance(v, (int, float)):
                 raise TypeError("fractions debe ser Mapping[int, float]")
