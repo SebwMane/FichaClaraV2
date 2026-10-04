@@ -17,7 +17,6 @@ from omega.geometry.distance_suite import (
     metric_spread,
     mode_dimension,
     mode_distance_matrix,
-    resistance_consistent,
     resistance_exponent,
     resistance_matrix,
 )
@@ -209,6 +208,8 @@ def test_mode_dimension_fallback_flag() -> None:
 
 
 def test_resistance_consistent() -> None:
+    from omega.certificate.taxonomy import resistance_consistent
+
     s = SUITE
     assert resistance_consistent(0.9, 1, s) and not resistance_consistent(0.5, 1, s)
     assert resistance_consistent(0.35, 2, s) and resistance_consistent(0.65, 2, s)

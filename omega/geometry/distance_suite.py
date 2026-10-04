@@ -37,7 +37,6 @@ __all__ = [
     "mode_dimension",
     "resistance_exponent",
     "metric_spread",
-    "resistance_consistent",
     "distance_suite",
 ]
 
@@ -186,18 +185,6 @@ def metric_spread(estimates: Mapping[DistanceMode, DimensionEstimate]) -> float:
     return float(max(vals) - min(vals))
 
 
-def resistance_consistent(zeta: float, dimension_class: int | None, suite: DistanceSuiteConfig) -> bool:
-    """¿Es ζ_R compatible con la clase de dimensión? (DESIGN §1.1; clase None o ζ NaN: False).
-
-    Clase 1: ζ ≥ zeta_1d_min; clase 2: zeta_2d_min ≤ ζ ≤ zeta_2d_max; clase ≥3: ζ < zeta_3d_max.
-    """
-    if dimension_class is None or not math.isfinite(zeta):
-        return False
-    if dimension_class <= 1:
-        return bool(zeta >= suite.zeta_1d_min)
-    if dimension_class == 2:
-        return bool(suite.zeta_2d_min <= zeta <= suite.zeta_2d_max)
-    return bool(zeta < suite.zeta_3d_max)
 
 
 def _empty_estimate(method: str) -> DimensionEstimate:
