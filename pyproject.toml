@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "omega-simulator"
-version = "1.0.0"
+version = "1.1.0"
 description = "Simulador Omega: fases geometricas emergentes de pesos relacionales aleatorios"
 requires-python = ">=3.11"
 dependencies = ["numpy>=1.26", "scipy>=1.11", "networkx>=3.0"]
