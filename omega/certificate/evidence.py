@@ -7,6 +7,8 @@ Solo calcula; no decide (la decision es de `omega.certificate.taxonomy`).
 
 from __future__ import annotations
 
+import copy
+import dataclasses
 import hashlib
 import math
 from typing import Any
@@ -21,7 +23,7 @@ from omega.curvature.ollivier import ollivier_curvature
 from omega.curvature.qrc import quantum_ricci_profile
 from omega.geometry.distance_suite import distance_suite
 from omega.geometry.distances import hop_distance_matrix, threshold_adjacency
-from omega.geometry.local_structure import annulus_connectivity, homogeneity, isotropy, locality
+from omega.geometry.local_structure import annulus_connectivity, annulus_sensitivity, homogeneity, isotropy, locality
 from omega.geometry.observables import geometry_observables
 from omega.geometry.weyl import weyl_and_fiedler
 from omega.network.topology import component_labels, giant_component_nodes, topology_observables
@@ -152,7 +154,10 @@ def collect_run_evidence(
     homo = homogeneity(d_hop, hop_est, cfg.local)
     iso = isotropy(d_hop, hop_est, cls, cfg.local, rng)
     loc = locality(asub, cfg.local)
+    rng_sens = copy.deepcopy(rng)  # mismas fuentes que annulus_connectivity; no perturba el flujo de rng
     ann = annulus_connectivity(asub, d_hop, hop_est, cfg.local, rng)
+    # Diagnóstico NO decisorio (Enmienda A-17): nunca usado por taxonomía/certificado.
+    ann = dataclasses.replace(ann, sensitivity=annulus_sensitivity(asub, d_hop, hop_est, cfg.local, rng_sens))
     topo = _cached_topology_summary(
         w, w_min, tuple(base.graph.w_min_sensitivity), cfg.certificate.g_connected, cfg.topology
     )
@@ -228,6 +233,9 @@ def evidence_summary(ev: RunEvidence) -> dict[str, Any]:
         "isotropy_p10": _fin(ev.isotropy.p10_ratio),
         "detour_fraction": _fin(ev.locality.detour_fraction),
         "annulus_ok": bool(ev.annulus.ok),
+        "annulus_excluded_radius": ev.annulus.excluded_radius,
+        "annulus_evaluated_radii": list(ev.annulus.evaluated_radii),
+        "annulus_sensitivity_diag": {k: (_fin(v) if isinstance(v, float) else v) for k, v in ev.annulus.sensitivity.items()},
         "topology_stable": bool(ev.topo.stable),
         "b1_density_w_min": _fin(ev.topo.at_w_min.b1_density),
         "kappa_mean": _fin(ev.curvature.mean),

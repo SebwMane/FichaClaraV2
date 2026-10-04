@@ -148,3 +148,19 @@ def test_cached_topology_equals_wp_c_summary() -> None:
             va, vb = getattr(a.curves, f.name), getattr(b.curves, f.name)
             assert (va == vb) if isinstance(va, tuple) else np.array_equal(va, vb), f.name
         assert np.array_equal(a.h0.deaths, b.h0.deaths) and a.h0.n_essential == b.h0.n_essential
+
+
+def test_annulus_a17_summary_keys_and_diag_not_decisive() -> None:
+    """Enmienda A-17 (D1/B4, aprobada por el usuario): radio excluido y sensibilidad en el resumen; el
+    diagnóstico no altera el veredicto (assess_run no lo lee)."""
+    cfg = _cfg(800)
+    w = rgg_torus(800, 3, 12.0, make_rng(KEY))
+    ev = collect_run_evidence(w, RunStatus.CONVERGED, cfg, evidence_rng(KEY))
+    s = evidence_summary(ev)
+    json.dumps(s, allow_nan=False)
+    assert s["annulus_excluded_radius"] == ev.annulus.excluded_radius is not None
+    assert s["annulus_evaluated_radii"] == list(ev.annulus.evaluated_radii)
+    diag = s["annulus_sensitivity_diag"]
+    assert diag["r_hi"] == ev.annulus.excluded_radius and diag["ok_hi1"] == ev.annulus.ok
+    stripped = dataclasses.replace(ev, annulus=dataclasses.replace(ev.annulus, sensitivity={}))
+    assert assess_run(stripped, cfg) == assess_run(ev, cfg)

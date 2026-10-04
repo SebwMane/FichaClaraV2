@@ -30,13 +30,29 @@ Este registro existe para cumplir M§44: no ajustar el modelo tras ver resultado
 | A-15 | Diseño §0/§1.2/§1.6 | β1^(4)(T³ 4³)=3 y κ=0 | Requiere lado ≥5 (se usan 6³ y 9³) | WP-C | Error del diseño: con lado 4, los ciclos de envoltura miden 4 y quedan rellenados. |
 | A-16 | Diseño O-00 | ER k12 da F4 | Primario F3, con F4 ∈ codes | G1 | Precedencia F3>F4 del diseño. |
 
-## Pendientes de decisión del usuario (no aplicadas)
+| A-17 | `annulus_connectivity` (D1/B4) | r ∈ [2, r_hi] | r ∈ [2, r_hi−1] (si r_hi > r_min); se registran `excluded_radius = r_hi`, `evaluated_radii` y el diagnóstico NO decisorio de sensibilidad [2,r_hi−1] vs [2,r_hi−2] | Auditoría: RGG3 N=3000 daba 0.80–0.875 en r=r_hi (F9) mientras T³ 15³ da 1.0 | **Aprobada por el usuario (D1).** r_hi = radio contaminado por saturación finita/topológica. Ninguna tolerancia ni criterio de certificación cambia; la regla se aplica por igual a positivos y nulos (tests). Medido: RGG3 N=3000 min 0.906/0.938/0.969 (3/3 ok); WS 0.25, árbol y anillo 0.0 (siguen fallando). |
 
-- **D1 / B4: regla de anillos.**
-  - Propuesta: evaluar r ∈ [2, r_hi−1] en lugar de [2, r_hi].
-  - Motivo: con RGG3 N=3000, r = r_hi da 0.80–0.875 y produce F9 por saturación del toro, mientras que T³ 15³ da 1.0.
-  - Sin el cambio, el certificado 3D es inalcanzable con tamaños XL.
-- **B14: homogeneidad.**
-  - Propuesta: exigir n_valid ≥ 0.9·n_gigante.
-  - Requiere un campo nuevo de configuración y una nueva versión del diseño.
-- **D2:** confirmar R1 (tamaños XL y coste), R3 (rigor de umbrales), R4 (isotropía por MDS local) y R8 (expectativa honesta) del §6 de `docs/OMEGA_1_1_DESIGN.md`.
+**Nota de alcance de A-17:** se aplica a la prueba de conectividad de anillos (lo que proponía D1). El ajuste volumétrico de D_eff es código congelado de Ω-1.0 y ya excluye la saturación con su propio corte (N̄(r) ≤ 0.2·N_gc); no se modificó.
+
+## Decisiones del usuario (2026-10-04)
+- D1: **aprobada** (A-17).
+- Ejecución: **aprobada** para los pasos 1–5 completos sobre un commit limpio, con manifiesto y hash actualizados, sin cambios de parámetros después de iniciar las corridas. **No** se ejecuta s06 ni los ensembles antes de congelar y analizar los pasos 1–5.
+- **Criterio preregistrado:** un resultado F0/F1 de S0 es un resultado científico válido del baseline, no un fallo que justifique modificar retrospectivamente la funcional.
+
+## Congelación para los pasos 1–5
+Script: `tools/run_steps_1_5.py` (configuraciones idénticas a los `test_full_run`, `master_entropy=20240901`).
+
+| Paso | N | Réplicas | config_hash (sha256 canónico) |
+|---|---|---|---|
+| p00 | 200 | 3 | `6a178e19b1b838936a18464876ecdcf62d8598dea4c38b9a70390f1032e67e11` |
+| O-00 | 200 | 3 | `6a178e19b1b838936a18464876ecdcf62d8598dea4c38b9a70390f1032e67e11` |
+| O-01 | 200 | 10 | `a72304f8ab551f38dfa9996ec6f8d254f2ced4240f31027add30d216fee21726` |
+| O-02 | 200 | 5 | `a60f804833d5fb0e6e87937f4fd1e4f1b40fc920a3923e4a8a7b46ca5cf7d8ac` |
+| O-03 | 800 | 5 | `474194734022c90796bb04e812d48a755e60217cd1fd19d797f3bee79bd3ac6b` |
+| O-04 | 100 | 10 | `4090c3ab83638cf4029d7b29328c8f42d52d9b728bb131f9150631bb3487b88c` |
+
+Cada experimento deriva su configuración (experiment_id, N y réplicas) y registra su propio `config_hash` en `summary.json`. El commit de ejecución queda en `code_commit` de cada resumen.
+
+## Pendientes (no aplicadas)
+- **B14 (homogeneidad, n_valid ≥ 0.9·n_gigante):** requiere un campo nuevo y una nueva versión del diseño.
+- **D2:** confirmar R1, R3, R4 y R8 del §6 del diseño antes de s06.

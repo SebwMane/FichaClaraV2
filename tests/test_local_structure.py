@@ -19,6 +19,7 @@ from omega.geometry.dimension import effective_dimension
 from omega.geometry.distances import hop_distance_matrix
 from omega.geometry.local_structure import (
     annulus_connectivity,
+    annulus_sensitivity,
     ball_mds_ratio,
     edge_detour_fraction,
     homogeneity,
@@ -145,9 +146,10 @@ def test_ball_mds_ratio_cases(cube9: tuple[BoolArray, FloatArray, DimensionEstim
 
 
 def test_annulus_torus_ok_and_tree_fails(cube9: tuple[BoolArray, FloatArray, DimensionEstimate]) -> None:
+    """Enmienda A-17 (D1/B4, aprobada por el usuario): dominio [2, r_hi-1]; antes {2,3,4} con r_hi=4."""
     a, d, est = cube9
     rep = annulus_connectivity(a, d, est, CFG, np.random.Generator(np.random.PCG64(0)))
-    assert rep.ok and min(rep.fractions.values()) == 1.0 and set(rep.fractions) == {2, 3, 4}
+    assert rep.ok and min(rep.fractions.values()) == 1.0 and set(rep.fractions) == {2, 3} and rep.excluded_radius == 4
     g = nx.balanced_tree(3, 5)
     at, dt, et = _setup(nx.to_numpy_array(g))
     rt = annulus_connectivity(at, dt, et, CFG, np.random.Generator(np.random.PCG64(0)))
@@ -171,3 +173,86 @@ def test_rgg3_reference_values() -> None:
     assert locality(a, CFG).ok
     assert isotropy(d, est, 3, CFG, np.random.Generator(np.random.PCG64(0))).ok
     assert annulus_connectivity(a, d, est, CFG, np.random.Generator(np.random.PCG64(0))).ok
+
+
+# ---- Enmienda A-17 (D1/B4, aprobada por el usuario): dominio [r_min, r_hi-1] ----
+
+def _rng(seed: int = 0) -> np.random.Generator:
+    return np.random.Generator(np.random.PCG64(seed))
+
+
+def _ann(w: FloatArray) -> tuple[BoolArray, FloatArray, DimensionEstimate]:
+    return _setup(w)
+
+
+@pytest.mark.parametrize("case", ["torus", "rgg3", "ws", "tree"])
+def test_annulus_a17_same_rule_pos_and_nulls(case: str) -> None:
+    """Enmienda A-17 (D1/B4): misma regla para positivos y nulos; excluded_radius == r_hi."""
+    if case == "torus":
+        w = periodic_lattice((9, 9, 9))
+    elif case == "rgg3":
+        w = random_geometric_torus(800, 3, 12, _rng(0), euclidean=False)
+    elif case == "ws":
+        w = nx.to_numpy_array(nx.connected_watts_strogatz_graph(800, 12, 0.05, seed=1))
+    else:
+        w = nx.to_numpy_array(nx.balanced_tree(3, 5))
+    a, d, est = _ann(w)
+    rep = annulus_connectivity(a, d, est, CFG, _rng())
+    assert rep.excluded_radius is not None and rep.excluded_radius > CFG.annulus_r_min
+    assert rep.excluded_radius not in rep.fractions
+    assert rep.evaluated_radii == tuple(range(CFG.annulus_r_min, rep.excluded_radius))
+    assert tuple(rep.fractions) == rep.evaluated_radii
+    assert rep.ok == (case in ("torus", "rgg3"))
+
+
+def test_annulus_a17_er_and_ring_still_fail() -> None:
+    """Enmienda A-17: ER k12 no tiene ventana HOP (escala insuficiente: excluded None) y el anillo da 0 en r=2."""
+    g = nx.gnp_random_graph(800, 12 / 799, seed=1)
+    g = g.subgraph(max(nx.connected_components(g), key=len))
+    a, d, est = _ann(nx.to_numpy_array(g))
+    rep = annulus_connectivity(a, d, est, CFG, _rng())
+    assert not rep.ok and rep.excluded_radius is None and rep.evaluated_radii == ()
+    ar, dr, er = _ann(periodic_lattice((300,)))
+    rr = annulus_connectivity(ar, dr, er, CFG, _rng())
+    assert not rr.ok and rr.fractions[2] == 0.0 and rr.excluded_radius is not None
+
+
+def test_annulus_a17_edge_r_hi_equals_r_min() -> None:
+    """Enmienda A-17: r_hi == r_min -> dominio [r_min, r_min], excluded_radius None."""
+    a, d, _ = _ann(periodic_lattice((9, 9, 9)))
+    est = DimensionEstimate(3.0, 0.0, "ok", (0, 0), np.array([2.0]), np.zeros(1), np.zeros(1), True, "shell")
+    rep = annulus_connectivity(a, d, est, CFG, _rng())
+    assert set(rep.fractions) == {CFG.annulus_r_min} and rep.excluded_radius is None
+    assert rep.evaluated_radii == (CFG.annulus_r_min,) and rep.ok
+
+
+@pytest.mark.parametrize("case", ["torus", "rgg3"])
+def test_annulus_sensitivity_structure(case: str) -> None:
+    """Enmienda A-17: diagnóstico no decisorio [2,r_hi-1] vs [2,r_hi-2]; coherencia, sin umbral nuevo."""
+    w = periodic_lattice((9, 9, 9)) if case == "torus" else random_geometric_torus(800, 3, 12, _rng(0), euclidean=False)
+    a, d, est = _ann(w)
+    rep = annulus_connectivity(a, d, est, CFG, _rng())
+    sen = annulus_sensitivity(a, d, est, CFG, _rng())
+    assert set(sen) == {"r_hi", "min_frac_hi1", "ok_hi1", "min_frac_hi2", "ok_hi2", "same_ok"}
+    assert sen["r_hi"] == rep.excluded_radius
+    assert sen["min_frac_hi1"] == min(rep.fractions.values()) and sen["ok_hi1"] == rep.ok
+    r_hi = rep.excluded_radius
+    assert r_hi is not None
+    if r_hi - 2 >= CFG.annulus_r_min:
+        sub = [v for r, v in rep.fractions.items() if r <= r_hi - 2]
+        assert sen["min_frac_hi2"] == min(sub)
+        assert sen["same_ok"] == (sen["ok_hi1"] == sen["ok_hi2"])
+        assert isinstance(sen["min_frac_hi1"], float) and isinstance(sen["min_frac_hi2"], float)
+        assert sen["min_frac_hi1"] <= sen["min_frac_hi2"]
+    else:
+        assert sen["min_frac_hi2"] is None and sen["same_ok"] is None
+
+
+@pytest.mark.slow
+def test_annulus_a17_rgg3_n3000_ok() -> None:
+    """Enmienda A-17 (D1/B4): RGG3 N=3000 k12, 3 semillas, anillos ok con el nuevo dominio (audit: >=0.906)."""
+    for seed in range(3):
+        w = random_geometric_torus(3000, 3, 12, _rng(seed), euclidean=False)
+        a, d, est = _ann(w)
+        rep = annulus_connectivity(a, d, est, CFG, _rng(0))
+        assert rep.ok and min(rep.fractions.values()) >= 0.9 and rep.excluded_radius is not None

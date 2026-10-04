@@ -9,6 +9,7 @@ desvío corto (≤3 saltos en G−e) como proxy de localidad (Watts & Strogatz, 
 from __future__ import annotations
 
 import numpy as np
+import numpy.typing as npt
 from scipy.linalg import eigvalsh
 from scipy.sparse import csr_array
 from scipy.sparse.csgraph import connected_components
@@ -26,6 +27,7 @@ __all__ = [
     "edge_detour_fraction",
     "locality",
     "annulus_connectivity",
+    "annulus_sensitivity",
 ]
 
 _NAN = float("nan")
@@ -169,34 +171,12 @@ def locality(a: BoolArray, cfg: LocalStructureConfig) -> LocalityReport:
     return LocalityReport(f, bool(f >= cfg.locality_min))
 
 
-def annulus_connectivity(
-    a: BoolArray,
-    d_hop: FloatArray,
-    hop_est: DimensionEstimate,
-    cfg: LocalStructureConfig,
-    rng: np.random.Generator,
-) -> AnnulusReport:
-    """Conectividad de anillos A_i(r)={j: r ≤ d_ij ≤ r+1}, r ∈ [annulus_r_min, r_hi(HOP)].
-
-    fractions[r] = fracción de fuentes (annulus_sources, con rng) cuyo anillo induce un subgrafo
-    conexo (anillo vacío: no conexo). `ok := min_r fracción ≥ annulus_min`; si r_hi < r_min, False
-    ("escala insuficiente", fractions vacío). Medido: 9³ 1.0; RGG3 k12 0.97; árbol y anillo 0.
-    """
-    _check_a(a)
-    validate_distance_matrix(d_hop)
-    if a.shape != d_hop.shape:
-        raise ValueError("a y d_hop deben tener la misma forma")
-    radii = _window_radii(hop_est)
-    if radii is None or radii.size == 0:
-        return AnnulusReport({}, False)
-    r_hi = int(round(float(radii[-1])))
-    if r_hi < cfg.annulus_r_min:
-        return AnnulusReport({}, False)
-    n = a.shape[0]
-    n_src = min(cfg.annulus_sources, n)
-    src = np.sort(rng.choice(n, size=n_src, replace=False))
+def _annulus_fractions(
+    a: BoolArray, d_hop: FloatArray, src: npt.NDArray[np.intp], r_lo: int, r_top: int
+) -> dict[int, float]:
+    n_src = int(src.size)
     fractions: dict[int, float] = {}
-    for r in range(cfg.annulus_r_min, r_hi + 1):
+    for r in range(r_lo, r_top + 1):
         good = 0
         for i in src:
             idx = np.flatnonzero((d_hop[i] >= r) & (d_hop[i] <= r + 1))
@@ -205,4 +185,95 @@ def annulus_connectivity(
             nc, _ = connected_components(csr_array(a[np.ix_(idx, idx)].astype(np.float64)), directed=False)
             good += int(nc == 1)
         fractions[r] = good / float(n_src)
-    return AnnulusReport(fractions, bool(min(fractions.values()) >= cfg.annulus_min))
+    return fractions
+
+
+def _annulus_setup(
+    a: BoolArray,
+    d_hop: FloatArray,
+    hop_est: DimensionEstimate,
+    cfg: LocalStructureConfig,
+) -> int | None:
+    """Valida entradas y devuelve r_hi (None si no hay ventana utilizable o r_hi < r_min)."""
+    _check_a(a)
+    validate_distance_matrix(d_hop)
+    if a.shape != d_hop.shape:
+        raise ValueError("a y d_hop deben tener la misma forma")
+    radii = _window_radii(hop_est)
+    if radii is None or radii.size == 0:
+        return None
+    r_hi = int(round(float(radii[-1])))
+    return None if r_hi < cfg.annulus_r_min else r_hi
+
+
+def annulus_connectivity(
+    a: BoolArray,
+    d_hop: FloatArray,
+    hop_est: DimensionEstimate,
+    cfg: LocalStructureConfig,
+    rng: np.random.Generator,
+) -> AnnulusReport:
+    """Conectividad de anillos A_i(r)={j: r ≤ d_ij ≤ r+1}, r ∈ [annulus_r_min, r_top].
+
+    Enmienda A-17 (D1/B4, aprobada por el usuario): r_hi (techo de la ventana HOP) se interpreta como
+    radio contaminado por saturación finita/topológica, así que `r_top = r_hi − 1` si
+    r_hi > annulus_r_min, y r_top = r_hi si r_hi == annulus_r_min. La regla es idéntica para positivos
+    y nulos; `excluded_radius = r_hi` (None si no se excluyó nada). Umbrales sin cambios.
+
+    fractions[r] = fracción de fuentes (annulus_sources, con rng) cuyo anillo induce un subgrafo
+    conexo (anillo vacío: no conexo). `ok := min_r fracción ≥ annulus_min`; si r_hi < r_min, False
+    ("escala insuficiente", fractions vacío). Medido: 9³ 1.0; RGG3 k12 0.97; árbol y anillo 0.
+    """
+    r_hi = _annulus_setup(a, d_hop, hop_est, cfg)
+    if r_hi is None:
+        return AnnulusReport({}, False)
+    excl = r_hi > cfg.annulus_r_min
+    r_top = r_hi - 1 if excl else r_hi
+    n = a.shape[0]
+    n_src = min(cfg.annulus_sources, n)
+    src = np.sort(rng.choice(n, size=n_src, replace=False))
+    fractions = _annulus_fractions(a, d_hop, src, cfg.annulus_r_min, r_top)
+    return AnnulusReport(
+        fractions,
+        bool(min(fractions.values()) >= cfg.annulus_min),
+        r_hi if excl else None,
+        tuple(range(cfg.annulus_r_min, r_top + 1)),
+    )
+
+
+def annulus_sensitivity(
+    a: BoolArray,
+    d_hop: FloatArray,
+    hop_est: DimensionEstimate,
+    cfg: LocalStructureConfig,
+    rng: np.random.Generator,
+) -> dict[str, float | int | bool | None]:
+    """Diagnóstico NO decisorio (Enmienda A-17): dominio [r_min, r_hi−1] vs [r_min, r_hi−2].
+
+    Usa las MISMAS fuentes (un único `rng.choice`, igual que `annulus_connectivity` con el mismo rng)
+    y las mismas fracciones por radio en ambos dominios. Claves: r_hi, min_frac_hi1/ok_hi1 (dominio
+    r_hi−1), min_frac_hi2/ok_hi2 (r_hi−2; None si r_hi−2 < r_min), same_ok (None si no hay hi2).
+    Nunca se usa en taxonomía ni certificado.
+    """
+    r_hi = _annulus_setup(a, d_hop, hop_est, cfg)
+    out: dict[str, float | int | bool | None] = {
+        "r_hi": r_hi, "min_frac_hi1": None, "ok_hi1": None,
+        "min_frac_hi2": None, "ok_hi2": None, "same_ok": None,
+    }
+    if r_hi is None:
+        return out
+    n = a.shape[0]
+    n_src = min(cfg.annulus_sources, n)
+    src = np.sort(rng.choice(n, size=n_src, replace=False))
+    r1 = r_hi - 1 if r_hi > cfg.annulus_r_min else r_hi
+    fr = _annulus_fractions(a, d_hop, src, cfg.annulus_r_min, r1)
+    m1 = min(fr.values())
+    out["min_frac_hi1"] = float(m1)
+    out["ok_hi1"] = bool(m1 >= cfg.annulus_min)
+    sub = [v for r, v in fr.items() if r <= r_hi - 2]
+    if sub:
+        m2 = min(sub)
+        out["min_frac_hi2"] = float(m2)
+        out["ok_hi2"] = bool(m2 >= cfg.annulus_min)
+        out["same_ok"] = bool(out["ok_hi1"] == out["ok_hi2"])
+    return out
