@@ -269,3 +269,34 @@ Se registró después de ver el resultado de C0-L4 (CONTINÚA) y antes de correr
 - Método: se continúa cada uno desde su W final hasta 100 000 pasos en total y se reclasifica.
 - Se informa la fracción que sigue siendo DISPERSO-LOCAL, la que converge y la evolución de S/LB.
 - Su lectura entra en el informe con el nivel de afirmación que corresponda.
+
+### C0-A6 — Detalle de la batería descriptiva y escalado con el tamaño
+
+Se registró antes de terminar R6 y antes de aplicar la batería a cualquier estado de C0. La herramienta es `tools/c0_battery.py`.
+
+**Batería (solo describe; no hay umbrales nuevos):** sobre el soporte fuerte A y su componente gigante se miden:
+- D_eff en saltos;
+- D_s con el paseo lazy sobre A binario;
+- homogeneidad;
+- isotropía con k = round(D_eff);
+- salto medio y diámetro;
+- descriptores de cliques: clique máxima, cliques maximales ≥ 4 por nodo y fracción de nodos que están en alguna.
+
+**Añadido: dimensión de escalado D_L.** Se define por L(N) ∝ N^{1/D_L}, con el salto medio en N = 125, 216 y 343 para cada par (celda, inicio). Con N ≤ 343, D_eff suele quedar en `no_window` incluso para T³ y RGG3, así que D_L es el estimador más estable a este tamaño.
+
+**Calibración en controles** (solo grafos de referencia; ningún estado de C0):
+
+| Control | D_L |
+|---|---|
+| T³ | 2.86 |
+| RGG3 k12 | 3.09 |
+| anillo k6 | 1.03 |
+| caveman K8 | 1.08 |
+| árbol aleatorio | 1.37 |
+
+**Regla de lectura** (descriptiva, no veredicto):
+- D_L < 1.5 → la fase es esencialmente unidimensional (cadena o árbol).
+- 1.5–2.5 → de tipo 2D.
+- \> 2.5 → de dimensión mayor.
+
+D_L ≈ 3 no basta por sí solo (`RULE_D3_NEVER_SUFFICIENT`).
