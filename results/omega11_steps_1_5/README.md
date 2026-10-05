@@ -23,6 +23,6 @@
 - **Celdas afectadas:** ρ ∈ {0.05, 0.1}, γ̂ = 10, factor = 0.5 (por debajo del umbral lineal α̂ρ(N−4)/(N−2) = 1+γ̂).
 - **Esperado:** F1 (estado uniforme).
 - **Obtenido:** F2 en 10/10 semillas.
-- **Estado final:** CONVERGED y heterogéneo. Del 5% al 9% de las aristas supera w_min, la componente gigante abarca el 23–30% de los nodos y se conserva ⟨W⟩ = ρ.
+- **Estado final:** CONVERGED y heterogéneo. Supera w_min el 4.7–5.2% de las aristas con ρ=0.05 y el 8.8–24.4% con ρ=0.1. La componente gigante abarca el 18–23% y el 28–32% de los nodos, respectivamente. Se conserva ⟨W⟩ = ρ. Son cliques en la frontera (puntos KKT); detalles en `ANALYSIS.md` §5. *(Rangos corregidos tras el análisis; la versión anterior decía «5–9%» y «23–30%».)*
 - **Interpretación:** la predicción se basaba solo en la estabilidad lineal del estado uniforme. Desde U(0,1) proyectado, la dinámica con γ̂ alto alcanza otros puntos KKT en la frontera.
 - **Tratamiento:** se registra como predicción fallida y no se modifica nada (M§44). No es geometría.
