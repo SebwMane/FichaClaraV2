@@ -223,3 +223,31 @@ Los umbrales del certificado no se modifican.
 - Funcionales con estructura de segundo orden (C1).
 
 Cualquiera de ellas requiere un documento propio.
+
+## 6. Enmiendas registradas antes de las corridas oficiales
+
+Todas se registraron después de las corridas *smoke* de código (3 celdas de paisaje y 10 dinámicas de 2000 pasos) y antes de cualquier corrida oficial de C0-L1…L4.
+
+### C0-A1 — R7 (reetiquetado)
+
+- **Problema:** la equivarianza exacta está garantizada por la matemática, porque solo hay operaciones matriciales. Sin embargo, en los valles planos degenerados que predice C0-T2, el orden de suma de BLAS da diferencias numéricas de entre 1e-8 y 4e-5 en las corridas convergidas.
+- **Nuevo criterio de R7 (código):** max|Δ| ≤ 1e-8 a horizonte corto (60 pasos), sobre las 10 corridas sorteadas.
+- **Nuevo criterio de R7 (resultado):** en las corridas finales que convergen, misma clase y |ΔS|/|S| ≤ 1e-6. max|ΔW| se reporta, pero no vota.
+
+### C0-A2 — Precisión sobre C0-L3
+
+- La predicción «mínimo local estricto» de §1 era incorrecta en la celda favorable (c* = 0, k* = 6, a = 1).
+- Ahí T³ es un mínimo global (alcanza la cota), con G = 0 exactamente en sus aristas: −ψ* + 2κ·2k* = 0.
+- Es KKT **no estricto**: hay direcciones planas, que son la degeneración de C0-T2.
+- El criterio de L3 (KKT sí/no) no cambia. Solo se corrige la lectura.
+
+### C0-A3 — Estado `stalled` (operativo)
+
+- Una corrida termina `stalled` cuando dt < 1e-14 porque el ruido de redondeo hace que cualquier propuesta suba S.
+- Se reporta `kkt_residual` (residuo del gradiente proyectado) y la corrida se clasifica igual que las demás.
+- La regla de aceptación S' ≤ S no cambia.
+
+### C0-A4 — Operativo
+
+- Cada proceso usa un solo hilo BLAS (`OMP_NUM_THREADS` = 1).
+- No afecta a ningún criterio.
