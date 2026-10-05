@@ -1,0 +1,53 @@
+{
+  "step": "c0_dynamics",
+  "mode": "full",
+  "code_commit": "511158d990d59f8296ca6adf122199fe1dbc062c",
+  "git_dirty": false,
+  "allow_dirty_used": false,
+  "config_hash": "a8c7f352f2e64cdc0c9b791bfe5be744c070262e1b14fffe08b058b91a9569a3",
+  "config": {
+    "n": 216,
+    "c_stars": [
+      0,
+      1,
+      2,
+      4,
+      8
+    ],
+    "k_stars": [
+      4,
+      6,
+      8,
+      12,
+      16
+    ],
+    "a_values": [
+      0.25,
+      1.0,
+      4.0
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "max_steps": 20000,
+    "tol": 1e-10,
+    "patience": 50,
+    "geo_noise": 0.01,
+    "vote_frac": 0.6666666666666666,
+    "r7_n": 10,
+    "r7_seed": 7,
+    "r3_max": 3.0,
+    "master_entropy": 20261005,
+    "smoke": false
+  },
+  "dependency_lock": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "networkx": "3.6.1"
+  },
+  "phase": "preregistered",
+  "complete": false
+}

@@ -1,0 +1,19 @@
+  validacion T3_6x6x6: DISPERSO_LOCAL h_null=1.400486680327869 ciclos=1.0 ok=True
+  validacion RGG3_k12: DISPERSO_LOCAL h_null=1.3042861097113494 ciclos=0.9977029096477795 ok=True
+  validacion triangular_12x18: DISPERSO_LOCAL h_null=1.8028848076928206 ciclos=1.0 ok=True
+  validacion ring_k6: DISPERSO_LOCAL h_null=5.699770505873291 ciclos=1.0 ok=True
+  validacion ER_k6: DISPERSO_NO_LOCAL h_null=0.999283095943405 ciclos=0.6743827160493827 ok=True
+  validacion RR_k6: DISPERSO_NO_LOCAL h_null=0.9963646263732744 ciclos=0.4074074074074074 ok=True
+  validacion K_108_108: DENSO_TRIVIAL h_null=None ciclos=None ok=True
+  validacion K8_union: DENSO_TRIVIAL h_null=None ciclos=None ok=True
+  validacion random_tree: DISPERSO_NO_LOCAL h_null=1.7370908778487606 ciclos=0.0 ok=True
+[C0-L4] preregistrado (config_hash a8c7f352f2e6, commit 511158d990, dirty=False, 825 corridas)
+[C0-L4] 0 ya hechas, 825 pendientes
+  10/825 corridas (7s)
+  20/825 corridas (18s)
+  30/825 corridas (39s)
+  40/825 corridas (44s)
+  50/825 corridas (51s)
+  60/825 corridas (60s)
+  70/825 corridas (67s)
+  80/825 corridas (73s)

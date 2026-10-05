@@ -1,0 +1,123 @@
+{
+  "seed": 0,
+  "ok": true,
+  "graphs": {
+    "T3_6x6x6": {
+      "class": "DISPERSO_LOCAL",
+      "structure": "otro",
+      "density_A": 0.027906976744186046,
+      "giant_frac": 1.0,
+      "mean_degree_A": 6.0,
+      "kmax_over_kmean": 1.0,
+      "h_null": 1.400486680327869,
+      "short_cycles": 1.0,
+      "n_edges_A": 648,
+      "expected_local": true,
+      "ok": true
+    },
+    "RGG3_k12": {
+      "class": "DISPERSO_LOCAL",
+      "structure": "otro",
+      "density_A": 0.05624461670973299,
+      "giant_frac": 1.0,
+      "mean_degree_A": 12.092592592592593,
+      "kmax_over_kmean": 1.7366003062787134,
+      "h_null": 1.3042861097113494,
+      "short_cycles": 0.9977029096477795,
+      "n_edges_A": 1306,
+      "expected_local": true,
+      "ok": true
+    },
+    "triangular_12x18": {
+      "class": "DISPERSO_LOCAL",
+      "structure": "otro",
+      "density_A": 0.027906976744186046,
+      "giant_frac": 1.0,
+      "mean_degree_A": 6.0,
+      "kmax_over_kmean": 1.0,
+      "h_null": 1.8028848076928206,
+      "short_cycles": 1.0,
+      "n_edges_A": 648,
+      "expected_local": true,
+      "ok": true
+    },
+    "ring_k6": {
+      "class": "DISPERSO_LOCAL",
+      "structure": "otro",
+      "density_A": 0.027906976744186046,
+      "giant_frac": 1.0,
+      "mean_degree_A": 6.0,
+      "kmax_over_kmean": 1.0,
+      "h_null": 5.699770505873291,
+      "short_cycles": 1.0,
+      "n_edges_A": 648,
+      "expected_local": true,
+      "ok": true
+    },
+    "ER_k6": {
+      "class": "DISPERSO_NO_LOCAL",
+      "structure": "otro",
+      "density_A": 0.027906976744186046,
+      "giant_frac": 1.0,
+      "mean_degree_A": 6.0,
+      "kmax_over_kmean": 2.5,
+      "h_null": 0.999283095943405,
+      "short_cycles": 0.6743827160493827,
+      "n_edges_A": 648,
+      "expected_local": false,
+      "ok": true
+    },
+    "RR_k6": {
+      "class": "DISPERSO_NO_LOCAL",
+      "structure": "otro",
+      "density_A": 0.027906976744186046,
+      "giant_frac": 1.0,
+      "mean_degree_A": 6.0,
+      "kmax_over_kmean": 1.0,
+      "h_null": 0.9963646263732744,
+      "short_cycles": 0.4074074074074074,
+      "n_edges_A": 648,
+      "expected_local": false,
+      "ok": true
+    },
+    "K_108_108": {
+      "class": "DENSO_TRIVIAL",
+      "structure": "otro",
+      "density_A": 0.5023255813953489,
+      "giant_frac": 1.0,
+      "mean_degree_A": 108.0,
+      "kmax_over_kmean": 1.0,
+      "h_null": null,
+      "short_cycles": null,
+      "n_edges_A": 11664,
+      "expected_local": false,
+      "ok": true
+    },
+    "K8_union": {
+      "class": "DENSO_TRIVIAL",
+      "structure": "multi_clique",
+      "density_A": 0.03255813953488372,
+      "giant_frac": 0.037037037037037035,
+      "mean_degree_A": 7.0,
+      "kmax_over_kmean": 1.0,
+      "h_null": null,
+      "short_cycles": null,
+      "n_edges_A": 756,
+      "expected_local": false,
+      "ok": true
+    },
+    "random_tree": {
+      "class": "DISPERSO_NO_LOCAL",
+      "structure": "otro",
+      "density_A": 0.009259259259259259,
+      "giant_frac": 1.0,
+      "mean_degree_A": 1.9907407407407407,
+      "kmax_over_kmean": 3.516279069767442,
+      "h_null": 1.7370908778487606,
+      "short_cycles": 0.0,
+      "n_edges_A": 215,
+      "expected_local": false,
+      "ok": true
+    }
+  }
+}
