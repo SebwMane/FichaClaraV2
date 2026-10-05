@@ -103,8 +103,12 @@ def run_task(task: dict[str, Any]) -> dict[str, Any]:
         out = RUNS / "out" / f"{task['id']}.npz"
         out.parent.mkdir(parents=True, exist_ok=True)
         np.savez_compressed(out, w=w)
-    row["battery"] = describe(w, task["seed"])
-    row["null_mean_hop"] = null_hop(w, R.rng_from_key((MASTER, 90, n, task["seed"], len(task["id"]))))
+    if row.get("cls", {}).get("class") in ("VACIO", "DENSO_TRIVIAL"):  # sin bateria en estados densos (cliques explosivas)
+        row["battery"] = {"mean_hop": float("nan"), "D_eff": None, "D_s": None}
+        row["null_mean_hop"] = float("nan")
+    else:
+        row["battery"] = describe(w, task["seed"])
+        row["null_mean_hop"] = null_hop(w, R.rng_from_key((MASTER, 90, n, task["seed"], len(task["id"]))))
     row["certificate"] = certificate_report(w, status, key)
     row["elapsed_s"] = time.perf_counter() - t0
     return row

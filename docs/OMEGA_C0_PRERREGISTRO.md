@@ -356,3 +356,17 @@ Este apartado se registra antes de cualquier corrida con N > 343. Lo autoriza la
 | **F1-NEGATIVO** | Cualquier otro caso: D_L fuera de [2.5, 3.5]; códigos que la RGG3 de referencia no tiene; o pérdida de DISPERSO-LOCAL |
 
 Un F1-POSITIVO **no** declara geometría emergente. Abre el paquete de confirmación (N-1, reproducibilidad, Θ > 0), que requiere ratificación del Consejo.
+
+### C0-A8 — F1, operativo
+
+Se registró antes de las corridas de F1.
+
+- La batería y el nulo no se aplican a finales VACÍO o DENSO-TRIVIAL. La enumeración de cliques sobre soportes densos no termina, y esos estados ya cuentan como F1-NEGATIVO en su celda.
+- Calibración de tiempos con referencias:
+
+  | Referencia | N | Certificado |
+  |---|---|---|
+  | RGG3 k12 | 512 | F4, F5, F9 |
+  | RGG3 k12 | **729** | **pasa** |
+
+  Por tanto, N = 729 es el primer tamaño en que el certificado discrimina a la referencia RGG3.
