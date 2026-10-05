@@ -300,3 +300,20 @@ Se registró antes de terminar R6 y antes de aplicar la batería a cualquier est
 - \> 2.5 → de dimensión mayor.
 
 D_L ≈ 3 no basta por sí solo (`RULE_D3_NEVER_SUFFICIENT`).
+
+### C0-A7 — Control nulo de la batería (D-2, conservador)
+
+Se registró **después** de ver la batería. Solo puede rebajar afirmaciones; no puede promover ninguna.
+
+**Motivación**
+- Una familia de finales (inicios R y E) muestra D_L entre 2.5 y 6 y D_s ≈ 3 con N = 343.
+- D_eff no tiene ventana.
+- Con N ≤ 343, el crecimiento logarítmico de un expansor también produce un D_L finito y grande.
+
+**Control D-2:** para cada final candidato con N = 125, 216 y 343:
+- se recablea su soporte fuerte A conservando los grados (10·|E| intercambios, PCG64);
+- se recalculan el salto medio, D_L y D_s.
+
+**Lectura:**
+- Si el nulo reproduce D_L y D_s dentro de ±0.5, esas cifras no indican geometría. Se deben al grado y al tamaño.
+- Solo una separación clara respecto del nulo (D_L(final) < D_L(nulo) − 0.5) se informa como «estructura de escala no trivial».
