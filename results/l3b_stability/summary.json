@@ -1,0 +1,4675 @@
+{
+  "step": "l3b_stability",
+  "mode": "full",
+  "code_commit": "008cfc6a07403dc4358f4b81acef0d04450e0bea",
+  "git_dirty": false,
+  "allow_dirty_used": false,
+  "validation_skipped": false,
+  "config_hash": "fc7871aecff25a2f572372b970a81fdce6c23898e304bb40026c3ffb64074b4e",
+  "dependency_lock": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "networkx": "3.6.1"
+  },
+  "config": {
+    "n": 216,
+    "inputs": [
+      "T3",
+      "RGG3",
+      "T3_decorated",
+      "ER",
+      "K8_union"
+    ],
+    "s0_alpha_hats": [
+      0.5,
+      1.0,
+      1.5,
+      1.9,
+      2.1,
+      2.5,
+      3.0
+    ],
+    "gamma_hats": [
+      0.0,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "omega_b_factors": [
+      0.25,
+      0.5,
+      1.0,
+      1.5,
+      3.0
+    ],
+    "eps": [
+      {
+        "eps_idx": 0,
+        "eps": 0.01,
+        "seeds": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "eps_idx": 1,
+        "eps": 0.001,
+        "seeds": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "eps_idx": 2,
+        "eps": 0.0,
+        "seeds": [
+          0
+        ]
+      }
+    ],
+    "max_steps": 40000,
+    "certificate": true,
+    "master_entropy": 20261005,
+    "experiment_id": 3,
+    "smoke": false,
+    "hop_max": 4,
+    "criterion": "L-A5",
+    "geometric_persistent": {
+      "r_orig_min": 0.5,
+      "jaccard_min": 0.5,
+      "h_min": 0.8,
+      "rho_s": "solo informe",
+      "giant_min_frac": 0.5,
+      "giant_rel_threshold": 0.1,
+      "excluded_classes": [
+        "clique_\u00fanica",
+        "multi_clique",
+        "cliques_solapadas",
+        "vac\u00edo",
+        "uniforme"
+      ]
+    },
+    "stage1_fraction": 0.9,
+    "kkt_rel_tol": 1e-07,
+    "drift_tol": 0.01,
+    "vote_fraction": [
+      2,
+      3
+    ],
+    "stability_eps": 0.01,
+    "stability_stream": 99,
+    "er_graph_offset": 100
+  },
+  "classifier_validation": {
+    "passed": true,
+    "inputs": {
+      "a_b_T3_unevolved": {
+        "R_orig": 1.0,
+        "J": 1.0,
+        "H": 1.0,
+        "rho_S": 0.42727392971518596,
+        "giant_frac": 1.0,
+        "state_class": "otro",
+        "geo": true,
+        "expected_geo": true,
+        "ok": true
+      },
+      "a_b_RGG3_unevolved": {
+        "R_orig": 1.0,
+        "J": 1.0,
+        "H": 1.0,
+        "rho_S": 0.4409099493060547,
+        "giant_frac": 1.0,
+        "state_class": "otro",
+        "geo": true,
+        "expected_geo": true,
+        "ok": true
+      },
+      "a_b_T3_decorated_unevolved": {
+        "R_orig": 1.0,
+        "J": 1.0,
+        "H": 1.0,
+        "rho_S": 0.43811122359951526,
+        "giant_frac": 1.0,
+        "state_class": "otro",
+        "geo": true,
+        "expected_geo": true,
+        "ok": true
+      },
+      "a_b_K8_union_unevolved": {
+        "R_orig": 1.0,
+        "J": 1.0,
+        "H": 1.0,
+        "rho_S": null,
+        "giant_frac": 0.037037037037037035,
+        "state_class": "multi_clique",
+        "geo": false,
+        "expected_geo": false,
+        "ok": true
+      },
+      "a_b_ER_unevolved": {
+        "R_orig": 1.0,
+        "J": 1.0,
+        "H": 1.0,
+        "rho_S": 0.450149897895495,
+        "giant_frac": 1.0,
+        "state_class": "otro",
+        "geo": true,
+        "expected_geo": null,
+        "ok": true
+      },
+      "c_T3_vs_ER_final": {
+        "R_orig": 0.035493827160493825,
+        "J": 0.018067556952081697,
+        "H": 0.7077236701722298,
+        "rho_S": 0.0006159345676298656,
+        "giant_frac": 1.0,
+        "state_class": "otro",
+        "geo": false,
+        "expected_geo": false,
+        "ok": true
+      },
+      "c_RGG3_vs_ER_final": {
+        "R_orig": 0.054628224582701064,
+        "J": 0.028081123244929798,
+        "H": 0.7563639792042669,
+        "rho_S": 0.005589446427475247,
+        "giant_frac": 1.0,
+        "state_class": "otro",
+        "geo": false,
+        "expected_geo": false,
+        "ok": true
+      },
+      "d_T3_vs_rewired20": {
+        "R_orig": 0.7993827160493827,
+        "J": 0.6658097686375322,
+        "H": 0.7470755220240817,
+        "rho_S": 0.35660883947278493,
+        "giant_frac": 1.0,
+        "state_class": "otro",
+        "geo": false,
+        "expected_geo": false,
+        "ok": true
+      }
+    }
+  },
+  "phase": "final",
+  "complete": true,
+  "elapsed_s_this_invocation": 10499.891882492,
+  "result": {
+    "n_rows": 1680,
+    "n_expected": 1680,
+    "global": {
+      "decision": "S\u00cd (incompatible)",
+      "decision_is_no": false,
+      "nonspecific_cells": [],
+      "persistent_cells_eps_1e-2": [],
+      "metastable_cells_eps_1e-3_only": [],
+      "max_steps_drift_rows": [],
+      "n_converged_with_kkt": 1659,
+      "n_converged_not_kkt_no_vote": 0,
+      "control_geometric_persistent_alarm": {
+        "alarm": false,
+        "ids": []
+      }
+    },
+    "per_input": {
+      "T3": {
+        "n_runs": 336,
+        "classes": {
+          "vac\u00edo": 196,
+          "uniforme": 32,
+          "cliques_solapadas": 82,
+          "multi_clique": 15,
+          "otro": 11
+        },
+        "status": {
+          "CONVERGED": 327,
+          "MAX_STEPS": 9
+        },
+        "n_geo": 0,
+        "n_geo_stable": 0,
+        "n_geo_votes_eps": 0,
+        "eps0_n_geo": 0,
+        "n_max_steps": 9,
+        "n_rho_S_nan": 0
+      },
+      "RGG3": {
+        "n_runs": 336,
+        "classes": {
+          "vac\u00edo": 196,
+          "uniforme": 22,
+          "multi_clique": 30,
+          "cliques_solapadas": 59,
+          "clique_\u00fanica": 29
+        },
+        "status": {
+          "CONVERGED": 334,
+          "MAX_STEPS": 2
+        },
+        "n_geo": 0,
+        "n_geo_stable": 0,
+        "n_geo_votes_eps": 0,
+        "eps0_n_geo": 0,
+        "n_max_steps": 2,
+        "n_rho_S_nan": 0
+      },
+      "T3_decorated": {
+        "n_runs": 336,
+        "classes": {
+          "vac\u00edo": 196,
+          "uniforme": 31,
+          "multi_clique": 70,
+          "cliques_solapadas": 17,
+          "otro": 6,
+          "clique_\u00fanica": 16
+        },
+        "status": {
+          "CONVERGED": 331,
+          "MAX_STEPS": 5
+        },
+        "n_geo": 0,
+        "n_geo_stable": 0,
+        "n_geo_votes_eps": 0,
+        "eps0_n_geo": 0,
+        "n_max_steps": 5,
+        "n_rho_S_nan": 0
+      },
+      "ER": {
+        "n_runs": 336,
+        "classes": {
+          "vac\u00edo": 196,
+          "uniforme": 35,
+          "cliques_solapadas": 22,
+          "otro": 4,
+          "clique_\u00fanica": 75,
+          "multi_clique": 4
+        },
+        "status": {
+          "CONVERGED": 336
+        },
+        "n_geo": 0,
+        "n_geo_stable": 0,
+        "n_geo_votes_eps": 0,
+        "eps0_n_geo": 0,
+        "n_max_steps": 0,
+        "n_rho_S_nan": 0
+      },
+      "K8_union": {
+        "n_runs": 336,
+        "classes": {
+          "vac\u00edo": 196,
+          "uniforme": 29,
+          "multi_clique": 105,
+          "otro": 6
+        },
+        "status": {
+          "CONVERGED": 331,
+          "MAX_STEPS": 5
+        },
+        "n_geo": 0,
+        "n_geo_stable": 0,
+        "n_geo_votes_eps": 0,
+        "eps0_n_geo": 0,
+        "n_max_steps": 5,
+        "n_rho_S_nan": 336
+      }
+    },
+    "cells": [
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 28,
+        "gamma_hat": 0.0,
+        "alpha_hat": 4.445951556102728,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 29,
+        "gamma_hat": 1.0,
+        "alpha_hat": 8.891903112205457,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 30,
+        "gamma_hat": 10.0,
+        "alpha_hat": 48.905467117130016,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 31,
+        "gamma_hat": 100.0,
+        "alpha_hat": 449.0411071663756,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 32,
+        "gamma_hat": 0.0,
+        "alpha_hat": 8.891903112205457,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 33,
+        "gamma_hat": 1.0,
+        "alpha_hat": 17.783806224410913,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 34,
+        "gamma_hat": 10.0,
+        "alpha_hat": 97.81093423426003,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 35,
+        "gamma_hat": 100.0,
+        "alpha_hat": 898.0822143327512,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "otro": 1,
+          "cliques_solapadas": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 36,
+        "gamma_hat": 0.0,
+        "alpha_hat": 17.783806224410913,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 37,
+        "gamma_hat": 1.0,
+        "alpha_hat": 35.567612448821826,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 38,
+        "gamma_hat": 10.0,
+        "alpha_hat": 195.62186846852006,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 2,
+          "multi_clique": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 39,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1796.1644286655023,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 2,
+          "multi_clique": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 40,
+        "gamma_hat": 0.0,
+        "alpha_hat": 26.67570933661637,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 41,
+        "gamma_hat": 1.0,
+        "alpha_hat": 53.35141867323274,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 42,
+        "gamma_hat": 10.0,
+        "alpha_hat": 293.4328027027801,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 43,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2694.2466429982533,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 44,
+        "gamma_hat": 0.0,
+        "alpha_hat": 53.35141867323274,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 45,
+        "gamma_hat": 1.0,
+        "alpha_hat": 106.70283734646549,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 46,
+        "gamma_hat": 10.0,
+        "alpha_hat": 586.8656054055602,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "omega_b",
+        "cell_idx": 47,
+        "gamma_hat": 100.0,
+        "alpha_hat": 5388.4932859965065,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 0,
+        "gamma_hat": 0.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 1,
+        "gamma_hat": 1.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 2,
+        "gamma_hat": 10.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 3,
+        "gamma_hat": 100.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 4,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 5,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 6,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 7,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 8,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 9,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 10,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 11,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 12,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 13,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 14,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 15,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 16,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 17,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 18,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 19,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 20,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 21,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 22,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 23,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 24,
+        "gamma_hat": 0.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 25,
+        "gamma_hat": 1.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 26,
+        "gamma_hat": 10.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "ER",
+        "block": "s0",
+        "cell_idx": 27,
+        "gamma_hat": 100.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 28,
+        "gamma_hat": 0.0,
+        "alpha_hat": 7.751010781671159,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 29,
+        "gamma_hat": 1.0,
+        "alpha_hat": 15.502021563342318,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 30,
+        "gamma_hat": 10.0,
+        "alpha_hat": 85.26111859838275,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 31,
+        "gamma_hat": 100.0,
+        "alpha_hat": 782.852088948787,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 32,
+        "gamma_hat": 0.0,
+        "alpha_hat": 15.502021563342318,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 33,
+        "gamma_hat": 1.0,
+        "alpha_hat": 31.004043126684635,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 34,
+        "gamma_hat": 10.0,
+        "alpha_hat": 170.5222371967655,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 35,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1565.704177897574,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 36,
+        "gamma_hat": 0.0,
+        "alpha_hat": 31.004043126684635,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "otro": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 37,
+        "gamma_hat": 1.0,
+        "alpha_hat": 62.00808625336927,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 38,
+        "gamma_hat": 10.0,
+        "alpha_hat": 341.044474393531,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 39,
+        "gamma_hat": 100.0,
+        "alpha_hat": 3131.408355795148,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 40,
+        "gamma_hat": 0.0,
+        "alpha_hat": 46.50606469002695,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 41,
+        "gamma_hat": 1.0,
+        "alpha_hat": 93.0121293800539,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 42,
+        "gamma_hat": 10.0,
+        "alpha_hat": 511.5667115902965,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 43,
+        "gamma_hat": 100.0,
+        "alpha_hat": 4697.112533692722,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 44,
+        "gamma_hat": 0.0,
+        "alpha_hat": 93.0121293800539,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 45,
+        "gamma_hat": 1.0,
+        "alpha_hat": 186.0242587601078,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 46,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1023.133423180593,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "omega_b",
+        "cell_idx": 47,
+        "gamma_hat": 100.0,
+        "alpha_hat": 9394.225067385443,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 0,
+        "gamma_hat": 0.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 1,
+        "gamma_hat": 1.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 2,
+        "gamma_hat": 10.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 3,
+        "gamma_hat": 100.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 4,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 5,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 6,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 7,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 8,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 9,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 10,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 11,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 12,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 13,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 14,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 15,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 16,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 17,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 18,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 19,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 20,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 21,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 22,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 23,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 24,
+        "gamma_hat": 0.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 25,
+        "gamma_hat": 1.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 26,
+        "gamma_hat": 10.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "K8_union",
+        "block": "s0",
+        "cell_idx": 27,
+        "gamma_hat": 100.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 28,
+        "gamma_hat": 0.0,
+        "alpha_hat": 4.445951556102728,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 29,
+        "gamma_hat": 1.0,
+        "alpha_hat": 8.891903112205457,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 30,
+        "gamma_hat": 10.0,
+        "alpha_hat": 48.905467117130016,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 31,
+        "gamma_hat": 100.0,
+        "alpha_hat": 451.78334293533055,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 32,
+        "gamma_hat": 0.0,
+        "alpha_hat": 8.891903112205457,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 33,
+        "gamma_hat": 1.0,
+        "alpha_hat": 17.783806224410913,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 1,
+          "clique_\u00fanica": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 34,
+        "gamma_hat": 10.0,
+        "alpha_hat": 98.40825291660666,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "multi_clique": 2,
+          "cliques_solapadas": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 35,
+        "gamma_hat": 100.0,
+        "alpha_hat": 898.0822143327512,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 36,
+        "gamma_hat": 0.0,
+        "alpha_hat": 17.783806224410913,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 37,
+        "gamma_hat": 1.0,
+        "alpha_hat": 35.78481924240242,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 2,
+          "cliques_solapadas": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 38,
+        "gamma_hat": 10.0,
+        "alpha_hat": 195.62186846852006,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "multi_clique": 2,
+          "cliques_solapadas": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 39,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1796.1644286655023,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 2,
+          "multi_clique": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 40,
+        "gamma_hat": 0.0,
+        "alpha_hat": 26.67570933661637,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 1,
+          "clique_\u00fanica": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 41,
+        "gamma_hat": 1.0,
+        "alpha_hat": 53.35141867323274,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 1,
+          "multi_clique": 1,
+          "clique_\u00fanica": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 42,
+        "gamma_hat": 10.0,
+        "alpha_hat": 298.8751421655828,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 1,
+          "multi_clique": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 43,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2694.2466429982533,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 44,
+        "gamma_hat": 0.0,
+        "alpha_hat": 53.35141867323274,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 1,
+          "clique_\u00fanica": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 45,
+        "gamma_hat": 1.0,
+        "alpha_hat": 106.70283734646549,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "multi_clique": 2,
+          "clique_\u00fanica": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 46,
+        "gamma_hat": 10.0,
+        "alpha_hat": 586.8656054055602,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "omega_b",
+        "cell_idx": 47,
+        "gamma_hat": 100.0,
+        "alpha_hat": 5388.4932859965065,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 0,
+        "gamma_hat": 0.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 1,
+        "gamma_hat": 1.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 2,
+        "gamma_hat": 10.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 3,
+        "gamma_hat": 100.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 4,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 5,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 6,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 7,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 8,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 9,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 10,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 11,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 12,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 13,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 14,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 15,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 16,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 17,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 18,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 19,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 20,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 21,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 22,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 23,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 24,
+        "gamma_hat": 0.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 25,
+        "gamma_hat": 1.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 26,
+        "gamma_hat": 10.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "RGG3",
+        "block": "s0",
+        "cell_idx": 27,
+        "gamma_hat": 100.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 28,
+        "gamma_hat": 0.0,
+        "alpha_hat": 9.042845911949685,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 29,
+        "gamma_hat": 1.0,
+        "alpha_hat": 18.08569182389937,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 30,
+        "gamma_hat": 10.0,
+        "alpha_hat": 99.47130503144653,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "cliques_solapadas": 1,
+          "multi_clique": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 31,
+        "gamma_hat": 100.0,
+        "alpha_hat": 913.3274371069182,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 32,
+        "gamma_hat": 0.0,
+        "alpha_hat": 18.08569182389937,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 33,
+        "gamma_hat": 1.0,
+        "alpha_hat": 36.17138364779874,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 34,
+        "gamma_hat": 10.0,
+        "alpha_hat": 198.94261006289307,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "multi_clique": 2,
+          "cliques_solapadas": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 35,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1826.6548742138364,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "multi_clique": 1,
+          "cliques_solapadas": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 36,
+        "gamma_hat": 0.0,
+        "alpha_hat": 36.17138364779874,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "otro": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 37,
+        "gamma_hat": 1.0,
+        "alpha_hat": 72.34276729559748,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 38,
+        "gamma_hat": 10.0,
+        "alpha_hat": 397.88522012578613,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 39,
+        "gamma_hat": 100.0,
+        "alpha_hat": 3653.3097484276727,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 2,
+          "otro": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 40,
+        "gamma_hat": 0.0,
+        "alpha_hat": 54.257075471698116,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 41,
+        "gamma_hat": 1.0,
+        "alpha_hat": 108.51415094339623,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 42,
+        "gamma_hat": 10.0,
+        "alpha_hat": 596.8278301886792,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 2,
+          "multi_clique": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 43,
+        "gamma_hat": 100.0,
+        "alpha_hat": 5479.964622641509,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 44,
+        "gamma_hat": 0.0,
+        "alpha_hat": 108.51415094339623,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 45,
+        "gamma_hat": 1.0,
+        "alpha_hat": 217.02830188679246,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 46,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1193.6556603773583,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "omega_b",
+        "cell_idx": 47,
+        "gamma_hat": 100.0,
+        "alpha_hat": 10959.929245283018,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 0,
+        "gamma_hat": 0.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 1,
+        "gamma_hat": 1.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 2,
+        "gamma_hat": 10.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 3,
+        "gamma_hat": 100.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 4,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 5,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 6,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 7,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 8,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 9,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 10,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 11,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 12,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 13,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 14,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 15,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 16,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 17,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 18,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 19,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 20,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 21,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 22,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 23,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 24,
+        "gamma_hat": 0.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 25,
+        "gamma_hat": 1.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 26,
+        "gamma_hat": 10.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3",
+        "block": "s0",
+        "cell_idx": 27,
+        "gamma_hat": 100.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 28,
+        "gamma_hat": 0.0,
+        "alpha_hat": 4.173621190130624,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 29,
+        "gamma_hat": 1.0,
+        "alpha_hat": 8.347242380261248,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 30,
+        "gamma_hat": 10.0,
+        "alpha_hat": 45.909833091436866,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 31,
+        "gamma_hat": 100.0,
+        "alpha_hat": 421.53574020319303,
+        "factor": 0.25,
+        "classes_1e-2": {
+          "cliques_solapadas": 2,
+          "multi_clique": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 32,
+        "gamma_hat": 0.0,
+        "alpha_hat": 8.347242380261248,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 33,
+        "gamma_hat": 1.0,
+        "alpha_hat": 16.694484760522496,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "uniforme": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 34,
+        "gamma_hat": 10.0,
+        "alpha_hat": 91.81966618287373,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 35,
+        "gamma_hat": 100.0,
+        "alpha_hat": 843.0714804063861,
+        "factor": 0.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 1,
+          "multi_clique": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 36,
+        "gamma_hat": 0.0,
+        "alpha_hat": 16.694484760522496,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "otro": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 37,
+        "gamma_hat": 1.0,
+        "alpha_hat": 33.38896952104499,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 38,
+        "gamma_hat": 10.0,
+        "alpha_hat": 183.63933236574746,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 39,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1686.1429608127721,
+        "factor": 1.0,
+        "classes_1e-2": {
+          "multi_clique": 2,
+          "cliques_solapadas": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 40,
+        "gamma_hat": 0.0,
+        "alpha_hat": 25.041727140783742,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "clique_\u00fanica": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 41,
+        "gamma_hat": 1.0,
+        "alpha_hat": 50.083454281567484,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 2,
+          "multi_clique": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 42,
+        "gamma_hat": 10.0,
+        "alpha_hat": 275.4589985486212,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "multi_clique": 2,
+          "cliques_solapadas": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 43,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2529.2144412191583,
+        "factor": 1.5,
+        "classes_1e-2": {
+          "cliques_solapadas": 1,
+          "multi_clique": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 44,
+        "gamma_hat": 0.0,
+        "alpha_hat": 50.083454281567484,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "multi_clique": 2,
+          "cliques_solapadas": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 45,
+        "gamma_hat": 1.0,
+        "alpha_hat": 100.16690856313497,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "cliques_solapadas": 1,
+          "multi_clique": 2
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 46,
+        "gamma_hat": 10.0,
+        "alpha_hat": 550.9179970972424,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "multi_clique": 2,
+          "clique_\u00fanica": 1
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "omega_b",
+        "cell_idx": 47,
+        "gamma_hat": 100.0,
+        "alpha_hat": 5058.428882438317,
+        "factor": 3.0,
+        "classes_1e-2": {
+          "multi_clique": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 0,
+        "gamma_hat": 0.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 1,
+        "gamma_hat": 1.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 2,
+        "gamma_hat": 10.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 3,
+        "gamma_hat": 100.0,
+        "alpha_hat": 0.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 4,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 5,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 6,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 7,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 8,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 9,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 10,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 11,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 12,
+        "gamma_hat": 0.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 13,
+        "gamma_hat": 1.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 14,
+        "gamma_hat": 10.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 15,
+        "gamma_hat": 100.0,
+        "alpha_hat": 1.9,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 16,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 17,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 18,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 19,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.1,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 20,
+        "gamma_hat": 0.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 21,
+        "gamma_hat": 1.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 22,
+        "gamma_hat": 10.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 23,
+        "gamma_hat": 100.0,
+        "alpha_hat": 2.5,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 24,
+        "gamma_hat": 0.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 25,
+        "gamma_hat": 1.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 26,
+        "gamma_hat": 10.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      },
+      {
+        "input": "T3_decorated",
+        "block": "s0",
+        "cell_idx": 27,
+        "gamma_hat": 100.0,
+        "alpha_hat": 3.0,
+        "factor": null,
+        "classes_1e-2": {
+          "vac\u00edo": 3
+        },
+        "geo_1e-2": 0,
+        "persistent_1e-2": 0,
+        "persistent_1e-3": 0,
+        "n_1e-2": 3,
+        "n_1e-3": 3,
+        "cell_persistent_1e-2": false,
+        "cell_persistent_1e-3": false
+      }
+    ],
+    "n_certificates": 0,
+    "certificate_passes": 0,
+    "total_run_seconds": 41038.762384605994
+  }
+}
