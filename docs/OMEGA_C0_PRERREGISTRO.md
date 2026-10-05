@@ -370,3 +370,20 @@ Se registró antes de las corridas de F1.
   | RGG3 k12 | **729** | **pasa** |
 
   Por tanto, N = 729 es el primer tamaño en que el certificado discrimina a la referencia RGG3.
+
+### C0-A9 — F1b: cierre de las celdas indeterminadas
+
+Se registró después del resultado oficial de F1.
+
+**Resultado oficial de F1:** global **F1-INDETERMINADO**, con 4 celdas INDETERMINADO (18, 20, 38, 56) y 6 NEGATIVO.
+
+- Las 4 celdas INDETERMINADO son justo las que solo se probaron hasta N = 512, el tamaño en que la RGG3 de referencia tampoco pasa el certificado.
+- Las 4 celdas probadas en N = 729, el primer tamaño que discrimina, son NEGATIVO: códigos F4, F5 y F9 frente a una RGG3 sin códigos.
+
+**F1b:** se corren las celdas 18, 20, 38 y 56 con N = 729:
+- inicio R;
+- semillas 0, 1 y 2;
+- 40 000 pasos;
+- misma herramienta y mismo criterio de §7.
+
+El veredicto de cada celda pasa a ser el de N = 729, y el global se recalcula con la misma regla. No se modifica ningún umbral.

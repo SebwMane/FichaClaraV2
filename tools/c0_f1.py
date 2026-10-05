@@ -40,7 +40,7 @@ from omega.experiments.v11.gate import head_commit, tree_dirty  # noqa: E402
 
 MASTER = 20261005
 CELLS_512 = (18, 19, 20, 36, 37, 38, 55, 56, 73, 74)
-CELLS_729 = (19, 37, 55, 73)
+CELLS_729 = (19, 37, 55, 73, 18, 20, 38, 56)  # 18, 20, 38, 56: F1b (C0-A9)
 SEEDS = (0, 1, 2)
 MAX_STEPS = 40000
 TOL, PATIENCE = 1e-10, 50
