@@ -25,20 +25,27 @@ Observables por final: clase R2.4; R_orig = sum_{(i,j) arista del input} W_ij / 
   quedan fuera; scipy.stats.spearmanr; NaN si W o d0 son constantes -> cuenta como fallo); fraccion de componente gigante de
   {W > 0.1 max W} (0 si max = 0); P3 abiertos en {W > 1e-6}; residuos KKT relativos y lambda' (solo CONVERGED; tol cero/uno 1e-6);
   status y pasos.
-Geometrico-persistente: R_orig >= 0.5 y rho_S >= 0.5 y gigante >= 0.5 (N/2 nodos) y clase fuera de {clique_unica, multi_clique,
-  cliques_solapadas, vacio, uniforme} (es decir, clase "otro").
+Geometrico-persistente (enmienda L-A5; sustituye rho_S >= 0.5, que no tenia validez de constructo): R_orig >= 0.5 y J >= 0.5 y
+  H >= 0.8 y gigante >= 0.5 (N/2 nodos) y clase fuera de {clique_unica, multi_clique, cliques_solapadas, vacio, uniforme}.
+  J = Jaccard(aristas del input, soporte fuerte del final {W > 0.1 max W}) (0 si max W = 0). H = distancia media de saltos dentro
+  de la componente gigante del soporte fuerte final / distancia media de saltos del input en su componente gigante (pares i<j);
+  0 si el soporte final no tiene componente de >= 2 nodos. rho_S se conserva SOLO como informe (sin voto).
 Estabilidad [I]: TODO final geometrico-persistente (cualquier eps) se re-perturba con eps = 1e-2 (xi como arriba con
   rng = make_rng(SeedKey(20261005, (3, 99, input_idx, cell_idx, eps_idx, s))), W0' = clip(W_final + 1e-2 xi, 0, 1), proyectado en
   Omega-B a la masa del input) y se re-evoluciona igual; "estable" si el nuevo final sigue siendo geometrico-persistente.
-Validacion del clasificador (ANTES de las corridas, sobre los inputs sin evolucionar, grafo 0, R_orig = 1, rho_S sobre W = A):
-  T3, RGG3 y decorada deben ser geometrico-persistentes; ER y K8_union no. Si falla: se escribe el summary con decision
+Validacion del clasificador (L-A5, ANTES de las corridas): (a) T3, RGG3 (grafo 0) y decorada sin evolucionar -> persistentes;
+  (b) K8_union sin evolucionar -> no; (c) input T3 y input RGG3 (grafo 0) con final = ER G(n,m) independiente de la misma m
+  (rng SeedKey(20261005,(3,98,0))) -> no; (d) input T3 con final = T3 con el 20% de sus aristas sustituidas por no-aristas
+  elegidas uniformemente (reemplazo uniforme, m preservada; rng SeedKey(20261005,(3,98,1))) -> no (por H < 0.8; se registran J y H).
+  El ER sin evolucionar se informa pero no se exige. Si falla: se escribe el summary con decision
   "CLASSIFIER_VALIDATION_FAILED" (con los valores medidos) y se sale con codigo 3, sin ajustar nada.
 Voto por (input, celda): persistente si >= 2/3 de las semillas con eps = 1e-2 son geometrico-persistentes Y estables.
-Decision global (en este orden): "NO" si alguna celda persistente con input T3 o RGG3; si no "NO-decorado" si solo hay celdas
+Decision global (en este orden): "NO" si alguna celda persistente con input T3 o RGG3 (se reporta "NO-inespecifico" si en alguna de
+  esas celdas, mismo cell_idx, el input ER tambien es persistente; sigue siendo NO); si no "NO-decorado" si solo hay celdas
   persistentes con T3_decorated; si no "METAESTABLE" si alguna celda de T3/RGG3/decorada [I: los controles no votan] tiene >= 2/3
   de semillas persistentes (mismo criterio geo+estable) con eps = 1e-3 pero no con 1e-2, o algun final MAX_STEPS con
   |deriva R_orig| > 0.01 en T3/RGG3/decorada; si no "SI (incompatible)". Informe sin voto: convergidos con residuo KKT relativo
-  > 1e-7 ("no KKT"), controles ER/K8_union geometrico-persistentes (alarma del clasificador), eps = 0.
+  > 1e-7 ("no KKT"), K8_union geometrico-persistente (alarma del clasificador; ER ya no es control), eps = 0.
 Certificado completo (collect_run_evidence + assess_run, `certificate_report`): solo sobre finales geometrico-persistentes
   (nivel 3, sin voto); desactivable con --no-certificate.
 Paralelismo: Pool de 4 procesos, una corrida por tarea, cada tarea autocontenida y determinista; resultados anadidos a
@@ -108,7 +115,7 @@ MASTER_ENTROPY = 20261005
 EXPERIMENT_ID = 3
 INPUTS = ("T3", "RGG3", "T3_decorated", "ER", "K8_union")
 GEOMETRIC_INPUTS = ("T3", "RGG3", "T3_decorated")
-CONTROL_INPUTS = ("ER", "K8_union")
+CONTROL_INPUTS = ("K8_union",)
 EPS_LIST = (1e-2, 1e-3, 0.0)  # eps_idx 0, 1, 2
 STAB_STREAM = 99
 ER_GRAPH_OFFSET = 100
@@ -116,9 +123,13 @@ MAX_STEPS_FULL = 40000
 STAGE1_FRACTION = 0.9
 HOP_MAX = 4
 R_ORIG_MIN = 0.5
-RHO_S_MIN = 0.5
 GIANT_MIN = 0.5
 GIANT_REL_THR = 0.1
+JACCARD_MIN = 0.5
+H_MIN = 0.8
+VALIDATION_STREAM = 98
+REWIRE_FRACTION = 0.2
+CRITERION = "L-A5"
 NON_GEOMETRIC_CLASSES = ("clique_única", "multi_clique", "cliques_solapadas", "vacío", "uniforme")
 KKT_REL_TOL = 1e-7
 DRIFT_TOL = 0.01
@@ -177,7 +188,8 @@ def build_config(smoke: bool) -> dict[str, Any]:
             "experiment_id": EXPERIMENT_ID,
             "smoke": bool(smoke),
             "hop_max": HOP_MAX,
-            "geometric_persistent": {"r_orig_min": R_ORIG_MIN, "rho_s_min": RHO_S_MIN, "giant_min_frac": GIANT_MIN,
+            "criterion": CRITERION,
+            "geometric_persistent": {"r_orig_min": R_ORIG_MIN, "jaccard_min": JACCARD_MIN, "h_min": H_MIN, "rho_s": "solo informe", "giant_min_frac": GIANT_MIN,
                                       "giant_rel_threshold": GIANT_REL_THR, "excluded_classes": list(NON_GEOMETRIC_CLASSES)},
             "stage1_fraction": STAGE1_FRACTION,
             "kkt_rel_tol": KKT_REL_TOL,
@@ -261,6 +273,7 @@ class InputGeometry:
     edge_upper: Any  # mascara booleana (M,) de aristas del input sobre triu_indices
     pair_mask: Any  # mascara booleana (M,) de pares con d0 <= HOP_MAX (finito)
     neg_d0: FloatArray  # -d0 sobre los pares de pair_mask
+    mean_hop: float  # distancia media de saltos (pares i<j) en la componente gigante del input
 
 
 def make_geometry(adj: FloatArray, hop_max: int = HOP_MAX) -> InputGeometry:
@@ -270,7 +283,7 @@ def make_geometry(adj: FloatArray, hop_max: int = HOP_MAX) -> InputGeometry:
     d0 = np.asarray(d[iu], dtype=np.float64)
     pair_mask = np.isfinite(d0) & (d0 <= hop_max)
     return InputGeometry(n=n, adj=np.asarray(adj, dtype=np.float64), edge_upper=np.asarray(adj[iu] > 0.0),
-                         pair_mask=pair_mask, neg_d0=-d0[pair_mask])
+                         pair_mask=pair_mask, neg_d0=-d0[pair_mask], mean_hop=giant_mean_hop(adj > 0.0))
 
 
 @lru_cache(maxsize=24)
@@ -280,6 +293,40 @@ def cached_input(name: str, graph: int) -> tuple[FloatArray, InputGeometry]:
 
 
 # ------------------------------------------------------------------ observables puras
+
+
+def giant_mean_hop(strong: Any) -> float:
+    """Distancia media de saltos (pares i<j) dentro de la componente mas grande del grafo booleano `strong`; 0 si no hay componente de >= 2 nodos."""
+    ncomp, labels = connected_components(csr_matrix(strong), directed=False)
+    if ncomp == 0:
+        return 0.0
+    cnt = np.bincount(labels)
+    big = int(np.argmax(cnt))
+    if int(cnt[big]) < 2:
+        return 0.0
+    idx = np.flatnonzero(labels == big)
+    d = shortest_path(csr_matrix(np.asarray(strong)[np.ix_(idx, idx)]), unweighted=True, directed=False)
+    k = idx.size
+    return float(d[np.triu_indices(k, k=1)].mean())
+
+
+def jaccard_edges(w: FloatArray, edge_upper: Any, rel_thr: float = GIANT_REL_THR) -> float:
+    """Jaccard entre las aristas del input y el soporte fuerte {W > rel_thr max W} del final (0 si max W = 0)."""
+    mx = float(np.max(w))
+    if mx <= 0.0:
+        return 0.0
+    strong = upper_triangle(w) > rel_thr * mx
+    inter = float(np.sum(strong & edge_upper))
+    union = float(np.sum(strong | edge_upper))
+    return inter / union if union > 0.0 else 0.0
+
+
+def shortcut_ratio(w: FloatArray, geom: InputGeometry, rel_thr: float = GIANT_REL_THR) -> float:
+    """H = dist. media de saltos de la gigante del soporte fuerte final / la del input (0 si el final no tiene componente >= 2 nodos)."""
+    mx = float(np.max(w))
+    if mx <= 0.0 or geom.mean_hop <= 0.0:
+        return 0.0
+    return giant_mean_hop(w > rel_thr * mx) / geom.mean_hop
 
 
 def r_orig(w: FloatArray, edge_upper: Any) -> float:
@@ -310,11 +357,10 @@ def giant_fraction(w: FloatArray, rel_thr: float = GIANT_REL_THR) -> float:
     return float(np.max(np.bincount(labels))) / float(w.shape[0]) if ncomp > 0 else 0.0
 
 
-def is_geometric_persistent(r: float, rho_s: float, giant: float, state_class: str) -> bool:
-    """Regla congelada: R_orig >= 0.5, rho_S >= 0.5 (NaN falla), gigante >= 0.5 N y clase fuera de las 5 no geometricas."""
-    if not math.isfinite(rho_s):
-        return False
-    return bool(r >= R_ORIG_MIN and rho_s >= RHO_S_MIN and giant >= GIANT_MIN and state_class not in NON_GEOMETRIC_CLASSES)
+def is_geometric_persistent(r: float, jac: float, h: float, giant: float, state_class: str) -> bool:
+    """Regla L-A5: R_orig >= 0.5, J >= 0.5, H >= 0.8, gigante >= 0.5 N y clase fuera de las 5 no geometricas."""
+    return bool(r >= R_ORIG_MIN and jac >= JACCARD_MIN and h >= H_MIN and giant >= GIANT_MIN
+                and state_class not in NON_GEOMETRIC_CLASSES)
 
 
 def observe(w: FloatArray, geom: InputGeometry, block: str, params: FunctionalParams | None, status: str) -> dict[str, Any]:
@@ -323,11 +369,14 @@ def observe(w: FloatArray, geom: InputGeometry, block: str, params: FunctionalPa
     ro = r_orig(w, geom.edge_upper)
     rs = rho_spearman(w, geom)
     gf = giant_fraction(w)
+    jac = jaccard_edges(w, geom.edge_upper)
+    hh = shortcut_ratio(w, geom)
     out: dict[str, Any] = {
         "state_class": cl.state_class, "has_halo": cl.has_halo, "halo_is_clique_union": cl.halo_is_clique_union,
         "n_components": len(cl.components), "open_p3": cl.open_p3,
         "R_orig": ro, "rho_S": None if not math.isfinite(rs) else rs, "rho_S_nan": not math.isfinite(rs), "giant_frac": gf,
-        "geo": is_geometric_persistent(ro, rs, gf, cl.state_class),
+        "J": jac, "H": hh,
+        "geo": is_geometric_persistent(ro, jac, hh, gf, cl.state_class),
         "kkt_rel": None, "kkt_ok": None, "kkt_multiplier": None,
     }
     if status == RunStatus.CONVERGED.value and params is not None:
@@ -450,17 +499,41 @@ def run_task(args: tuple[dict[str, Any], dict[str, Any]]) -> dict[str, Any]:
 # ------------------------------------------------------------------ validacion del clasificador
 
 
+def rewire_uniform(a: FloatArray, fraction: float, rng: np.random.Generator) -> FloatArray:
+    """Sustituye round(fraction*m) aristas elegidas al azar por el mismo numero de no-aristas elegidas al azar (m preservada)."""
+    n = a.shape[0]
+    iu = np.triu_indices(n, k=1)
+    v = a[iu] > 0.0
+    edges, non = np.flatnonzero(v), np.flatnonzero(~v)
+    k = int(round(fraction * edges.size))
+    out = v.copy()
+    out[rng.choice(edges, size=k, replace=False)] = False
+    out[rng.choice(non, size=k, replace=False)] = True
+    return from_upper_triangle(out.astype(np.float64), n)
+
+
 def classifier_validation() -> dict[str, Any]:
-    """Inputs sin evolucionar (grafo 0): R_orig = 1, rho_S sobre W = A. Esperado: T3, RGG3, decorada geo; ER, K8 no."""
+    """Validacion L-A5: (a) T3/RGG3/decorada sin evolucionar -> geo; (b) K8 -> no; (c) T3 y RGG3 vs final ER (3,98,0) -> no;
+    (d) T3 vs final con 20% de aristas reemplazadas (3,98,1) -> no. Registra R_orig, J, H, rho_S, gigante, clase."""
     out: dict[str, Any] = {}
+
+    def entry(label: str, w: FloatArray, geom: InputGeometry, expected: bool | None) -> bool:
+        o = observe(w, geom, "s0", None, RunStatus.MAX_STEPS.value)
+        out[label] = {k: o[k] for k in ("R_orig", "J", "H", "rho_S", "giant_frac", "state_class", "geo")}
+        out[label].update(expected_geo=expected, ok=True if expected is None else o["geo"] == expected)
+        return bool(out[label]["ok"])
+
     ok = True
-    for name in INPUTS:
+    for name, want in (("T3", True), ("RGG3", True), ("T3_decorated", True), ("K8_union", False), ("ER", None)):
         a, geom = cached_input(name, 0)
-        o = observe(a, geom, "s0", None, RunStatus.MAX_STEPS.value)
-        want = name in GEOMETRIC_INPUTS
-        out[name] = {"R_orig": o["R_orig"], "rho_S": o["rho_S"], "giant_frac": o["giant_frac"], "state_class": o["state_class"],
-                     "geo": o["geo"], "expected_geo": want, "ok": o["geo"] == want}
-        ok = ok and o["geo"] == want
+        ok = entry(f"a_b_{name}_unevolved", a, geom, want) and ok
+    for name in ("T3", "RGG3"):
+        a, geom = cached_input(name, 0)
+        er = R.erdos_renyi_m(N, int(round(float(a.sum()) / 2.0)), make_rng(SeedKey(MASTER_ENTROPY, (EXPERIMENT_ID, VALIDATION_STREAM, 0))))
+        ok = entry(f"c_{name}_vs_ER_final", er, geom, False) and ok
+    a, geom = cached_input("T3", 0)
+    rw = rewire_uniform(a, REWIRE_FRACTION, make_rng(SeedKey(MASTER_ENTROPY, (EXPERIMENT_ID, VALIDATION_STREAM, 1))))
+    ok = entry("d_T3_vs_rewired20", rw, geom, False) and ok
     return {"passed": ok, "inputs": out}
 
 
@@ -499,8 +572,9 @@ def global_decision(rows: list[dict[str, Any]]) -> dict[str, Any]:
     drift_rows = [r["id"] for r in rows if r["input"] in GEOMETRIC_INPUTS and r.get("max_steps_final")
                   and r.get("drift_R_orig") is not None and abs(r["drift_R_orig"]) > DRIFT_TOL and int(r["eps_idx"]) in (0, 1)]
     inputs_persistent = {k[0] for k in persistent_1e2}
+    nonspecific = sorted((k[1], k[2]) for k in persistent_1e2 if k[0] in ("T3", "RGG3") and ("ER", k[1], k[2]) in set(persistent_1e2))
     if inputs_persistent & {"T3", "RGG3"}:
-        decision = "NO"
+        decision = "NO-inespecífico" if nonspecific else "NO"
     elif "T3_decorated" in inputs_persistent:
         decision = "NO-decorado"
     elif persistent_1e3_only or drift_rows:
@@ -511,6 +585,8 @@ def global_decision(rows: list[dict[str, Any]]) -> dict[str, Any]:
     alarm = sorted({r["id"] for r in rows if r["input"] in CONTROL_INPUTS and r.get("geo")})
     return {
         "decision": decision,
+        "decision_is_no": decision in ("NO", "NO-inespecífico"),
+        "nonspecific_cells": [{"block": b, "cell_idx": c} for b, c in nonspecific],
         "persistent_cells_eps_1e-2": [{"input": k[0], "block": k[1], "cell_idx": k[2]} for k in sorted(persistent_1e2)],
         "metastable_cells_eps_1e-3_only": [{"input": k[0], "block": k[1], "cell_idx": k[2]} for k in sorted(persistent_1e3_only)],
         "max_steps_drift_rows": drift_rows,
@@ -691,7 +767,7 @@ def main(argv: list[str] | None = None) -> int:
             _atomic_write(summary_path, json.dumps(to_jsonable(final), indent=2, allow_nan=False) + "\n")
             print("[L-3b] CLASSIFIER_VALIDATION_FAILED (sin ajustar):")
             for k, v in val["inputs"].items():
-                print(f"    {k}: R_orig={v['R_orig']:.3f} rho_S={v['rho_S']} gigante={v['giant_frac']:.2f} clase={v['state_class']} geo={v['geo']} esperado={v['expected_geo']}")
+                print(f"    {k}: R_orig={v['R_orig']:.3f} J={v['J']:.3f} H={v['H']:.3f} gigante={v['giant_frac']:.2f} clase={v['state_class']} geo={v['geo']} esperado={v['expected_geo']}")
             return 3
         meta["classifier_validation"] = val
         print("[L-3b] validacion del clasificador: OK")

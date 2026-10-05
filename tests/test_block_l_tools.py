@@ -58,7 +58,7 @@ def test_rho_spearman_known_cases() -> None:
 
 
 def test_rho_spearman_binary_input_is_below_threshold() -> None:
-    """Hecho medido (informe de L-3b): rho_S(A, -d0) de un input binario sobre todos los pares d0<=4 queda < 0.5."""
+    """Hecho medido (rho_S es solo informe tras L-A5): rho_S(A, -d0) de un input binario sobre todos los pares d0<=4 queda < 0.5."""
     a, geom = L.cached_input("T3", 0)
     assert 0.3 < L.rho_spearman(a, geom) < 0.5
 
@@ -73,23 +73,73 @@ def test_giant_fraction() -> None:
 
 
 @pytest.mark.parametrize(
-    ("r", "rs", "giant", "cls", "expected"),
+    ("r", "jac", "h", "giant", "cls", "expected"),
     [
-        (0.6, 0.6, 0.6, "otro", True),
-        (0.5, 0.5, 0.5, "otro", True),            # umbrales inclusivos
-        (0.49, 0.9, 0.9, "otro", False),          # R_orig
-        (0.9, 0.49, 0.9, "otro", False),          # rho_S
-        (0.9, 0.9, 0.49, "otro", False),          # gigante
-        (0.9, float("nan"), 0.9, "otro", False),  # NaN falla
-        (0.9, 0.9, 0.9, "cliques_solapadas", False),
-        (0.9, 0.9, 0.9, "clique_única", False),
-        (0.9, 0.9, 0.9, "multi_clique", False),
-        (0.9, 0.9, 0.9, "vacío", False),
-        (0.9, 0.9, 0.9, "uniforme", False),
+        (0.6, 0.6, 0.9, 0.6, "otro", True),
+        (0.5, 0.5, 0.8, 0.5, "otro", True),            # umbrales inclusivos
+        (0.49, 0.9, 0.9, 0.9, "otro", False),          # R_orig
+        (0.9, 0.49, 0.9, 0.9, "otro", False),          # J
+        (0.9, 0.9, 0.79, 0.9, "otro", False),          # H
+        (0.9, 0.9, 0.9, 0.49, "otro", False),          # gigante
+        (0.9, 0.9, 0.9, 0.9, "cliques_solapadas", False),
+        (0.9, 0.9, 0.9, 0.9, "clique_única", False),
+        (0.9, 0.9, 0.9, 0.9, "multi_clique", False),
+        (0.9, 0.9, 0.9, 0.9, "vacío", False),
+        (0.9, 0.9, 0.9, 0.9, "uniforme", False),
     ],
 )
-def test_geometric_persistent_rule(r: float, rs: float, giant: float, cls: str, expected: bool) -> None:
-    assert L.is_geometric_persistent(r, rs, giant, cls) is expected
+def test_geometric_persistent_rule(r: float, jac: float, h: float, giant: float, cls: str, expected: bool) -> None:
+    assert L.is_geometric_persistent(r, jac, h, giant, cls) is expected
+
+
+def test_jaccard_edges() -> None:
+    geom = L.make_geometry(_path_adj(4))  # aristas 01,12,23
+    assert L.jaccard_edges(_path_adj(4), geom.edge_upper) == pytest.approx(1.0)
+    w = np.zeros((4, 4))
+    w[0, 1] = w[1, 0] = 1.0   # soporte {01}: inter 1, union 3
+    assert L.jaccard_edges(w, geom.edge_upper) == pytest.approx(1 / 3)
+    w[0, 3] = w[3, 0] = 0.05  # < 0.1 max: no cuenta
+    assert L.jaccard_edges(w, geom.edge_upper) == pytest.approx(1 / 3)
+    w[0, 2] = w[2, 0] = 1.0   # soporte {01,02}: inter 1, union 4
+    assert L.jaccard_edges(w, geom.edge_upper) == pytest.approx(1 / 4)
+    assert L.jaccard_edges(np.zeros((4, 4)), geom.edge_upper) == 0.0
+
+
+def test_shortcut_ratio_h() -> None:
+    n = 8
+    ring = np.zeros((n, n))
+    for i in range(n):
+        ring[i, (i + 1) % n] = ring[(i + 1) % n, i] = 1.0
+    geom = L.make_geometry(ring)
+    assert L.shortcut_ratio(ring, geom) == pytest.approx(1.0)
+    short = ring.copy()
+    short[0, 4] = short[4, 0] = 1.0  # atajo: distancias medias menores
+    assert L.shortcut_ratio(short, geom) < 1.0
+    complete = np.ones((n, n)) - np.eye(n)
+    assert L.shortcut_ratio(complete, geom) == pytest.approx(1.0 / geom.mean_hop)
+    assert L.shortcut_ratio(np.zeros((n, n)), geom) == 0.0
+    tiny = np.zeros((n, n))  # soporte sin componente >= 2 nodos tras el umbral: un solo par aislado SI es componente
+    tiny[0, 1] = tiny[1, 0] = 1.0
+    assert L.shortcut_ratio(tiny, geom) == pytest.approx(1.0 / geom.mean_hop)
+
+
+def test_classifier_validation_la5() -> None:
+    v = L.classifier_validation()
+    assert v["passed"] is True
+    d = v["inputs"]
+    for k in ("a_b_T3_unevolved", "a_b_RGG3_unevolved", "a_b_T3_decorated_unevolved"):
+        assert d[k]["geo"] is True
+    assert d["a_b_K8_union_unevolved"]["geo"] is False
+    assert d["c_T3_vs_ER_final"]["geo"] is False and d["c_RGG3_vs_ER_final"]["geo"] is False
+    assert d["d_T3_vs_rewired20"]["geo"] is False and d["d_T3_vs_rewired20"]["H"] < 0.8
+
+
+def test_rewire_uniform_preserves_m() -> None:
+    a = L.build_input("T3", 0)
+    w = L.rewire_uniform(a, 0.2, make_rng(SeedKey(1, (1,))))
+    assert w.sum() == a.sum() and np.array_equal(w, w.T)
+    changed = int(np.sum((w > 0) & (a == 0))) // 2
+    assert changed == round(0.2 * 648)
 
 
 def test_noisy_start_symmetric_clipped_and_deterministic() -> None:
@@ -167,14 +217,28 @@ def test_global_decision_metastable_by_drift() -> None:
     assert L.global_decision(rows)["decision"] == "METAESTABLE"
     rows[-1]["drift_R_orig"] = 0.005
     assert L.global_decision(rows)["decision"] == "SÍ (incompatible)"
-    ctrl = [_row("ER", 0, 0, False, status="MAX_STEPS", drift=0.5)]  # los controles no votan la deriva
+    ctrl = [_row("K8_union", 0, 0, False, status="MAX_STEPS", drift=0.5)]  # los controles no votan la deriva
     assert L.global_decision(_cell("T3", 0, [False] * 3) + ctrl)["decision"] == "SÍ (incompatible)"
 
 
 def test_global_decision_control_alarm_does_not_change_decision() -> None:
-    rows = _cell("T3", 0, [False] * 3) + _cell("ER", 0, [True, False, False])
+    rows = _cell("T3", 0, [False] * 3) + _cell("K8_union", 0, [True, False, False])
     g = L.global_decision(rows)
     assert g["decision"] == "SÍ (incompatible)" and g["control_geometric_persistent_alarm"]["alarm"] is True
+    # ER ya no es control: no hay alarma
+    g2 = L.global_decision(_cell("T3", 0, [False] * 3) + _cell("ER", 0, [True, True, True]))
+    assert g2["control_geometric_persistent_alarm"]["alarm"] is False
+
+
+def test_global_decision_no_nonspecific() -> None:
+    rows = _cell("T3", 0, [True] * 3) + _cell("ER", 0, [True, True, False])
+    g = L.global_decision(rows)
+    assert g["decision"] == "NO-inespecífico" and g["decision_is_no"] is True and g["nonspecific_cells"] == [{"block": "s0", "cell_idx": 0}]
+    # ER persistente en OTRA celda: sigue siendo NO simple
+    rows = _cell("T3", 0, [True] * 3) + _cell("ER", 0, [True] * 3, cell=5)
+    assert L.global_decision(rows)["decision"] == "NO"
+    # el ER solo no decide nada
+    assert L.global_decision(_cell("ER", 0, [True] * 3))["decision"] == "SÍ (incompatible)"
 
 
 def test_global_decision_counts_non_kkt_without_vote() -> None:
