@@ -1,10 +1,233 @@
 # CONSEJO Ω — DECISIÓN DE SIGUIENTE FASE
 
+> **Revisión 2 (2026-10-05).** Ver «REVISIÓN 2» más abajo: ratificación del usuario, afirmaciones rebajadas en 4 niveles, nueva prueba L-3 y criterios congelados del bloque L.
+
 - **Fecha:** 2026-10-05.
 - **Rama:** `claude/hopeful-galileo-88u1l1`.
 - **Base auditada:** `539770f`.
 - **Naturaleza:** documento de decisión. **No contiene código ni autoriza implementar nada** hasta que el usuario ratifique las resoluciones (§XII).
 - **Principio rector:** «No queremos demostrar que Ω es correcta; queremos descubrir qué puede producir Ω y dónde los experimentos pueden demostrar que estamos equivocados.»
+
+---
+
+## REVISIÓN 2 (2026-10-05) — incorpora la crítica del usuario y el análisis Opus
+
+**Esta revisión prevalece sobre el texto original donde haya conflicto.** Las secciones sustituidas llevan la marca «⟶ Rev. 2». El texto original se conserva para la trazabilidad.
+
+### R2.0 Ratificación del usuario (2026-10-05)
+
+| # | Resolución | Estado |
+|---|---|---|
+| D-1 | D2/R1/R3/R4/R8: APROBAR con el cambio propuesto (R1 modificada; R4 = veto necesario, nunca suficiente) | **RATIFICADA** |
+| D-2 | s06: APROBAR (cadena completa sobre el commit congelado final + RP-1; la compuerta no se relaja) | **RATIFICADA** |
+| D-3 | O-04b reducido: APROBAR | **RATIFICADA** (con la enmienda de clases de R2.4) |
+| D-4 | O-06 → O-05: APROBAR CON MODIFICACIÓN. **L-1, L-2 y L-3 se ejecutan antes de comprometer el coste de O-05.** O-06 no modifica criterios de O-05 | **RATIFICADA** |
+| D-5 | Ω-1.2 por ρ ≤ w_min: RECHAZAR; regla de lectura preregistrada | **RATIFICADA** |
+
+**Instrucción global del usuario:** no ejecutar C0–C12 hasta corregir el documento:
+- incorporar L-3;
+- rebajar las dos afirmaciones teóricas;
+- separar resultado demostrado → explicación propuesta → teorema externo aplicable → extrapolación no demostrada.
+
+Esta revisión cumple esa instrucción. A partir de ella se ejecuta **solo** el bloque L (R2.5), en el orden de R2.3.
+
+### R2.1 Análisis Opus de las objeciones (resumen)
+
+El análisis Opus (solo lectura, con verificación numérica en el scratchpad) da la razón al usuario en las dos objeciones.
+
+**Afirmación sobre cliques.** El documento original mezclaba tres cosas:
+1. **Una cota de vecindario** para grafos k-regulares binarios: T ≤ N·C(k,2)/3, con igualdad si y solo si el grafo es la unión disjunta de K_{k+1}. Es correcta, pero **no es Kruskal–Katona**.
+2. **Kruskal–Katona/Lovász** (a m fijo, binario): el extremal es **una sola clique** (colex), no una unión de cliques.
+3. **Una extrapolación no demostrada** a grados libres, pesos continuos y mínimos locales.
+
+Además:
+- el RGG3 no es regular, así que la clase de comparación «mismos grados» está prácticamente vacía;
+- a m fijo con grados libres, Σ C(k_i,2) es convexa;
+- con pesos, S_dens = Σw² no es constante a Σw fija;
+- confundir mínimo global con mínimo local (o con metaestabilidad) es exactamente lo que L-3 debe cerrar.
+
+**Afirmación Θ > 0.** Chatterjee–Diaconis (2013) trata ERGM **binarios**. Ω tiene pesos continuos con medida de Lebesgue y energía cuadrática. La traslación es una **analogía**, no una prueba. Además, la cercanía en métrica de corte a un grafón constante no controla estructura con o(N²) aristas, y el teorema no dice nada sobre N finito ni sobre equilibración.
+
+### R2.2 Escala de afirmación (sustituye «Hallazgo central» y «Hallazgo para Θ > 0»)
+
+#### Afirmación «triángulos → cliques»
+
+| Nivel | Contenido |
+|---|---|
+| **1. Demostrado** (prueba corta; L-1 y L-3a lo verifican en código) | (i) S_smooth = 2Σk² − 12T en binario y 2Σ_i k_i s_i − 2 tr W³ en ponderado. (ii) A secuencia de grados binaria fija, S = const − (α + 12η)T. (iii) Cota de vecindario k-regular con su caso de igualdad. (iv) **Lemas KKT de S0** (gradiente G = −αW² + 2βW + 2γ(u_i+u_j), verificado contra `gradient.py`): **P-KKT** (γ = 0): todo cero con codegrado > 0 viola KKT, así que el soporte de cualquier punto KKT, con pesos continuos, es una unión disjunta de cliques. **P-KKT-reg**: en estados regulares γ desaparece del gradiente, así que **ningún γ estabiliza T³**. **P-KKT-γ**: un cero entre nodos con u_i + u_j ≤ 0 exige codegrado 0. **Lema de escala**: toda arista de peso 1 exige c_ij ≥ (N−2)/α̂ (más el término γ), por lo que las cliques KKT son extensivas. (v) **Ω-B** (multiplicador λ' = ν/dt del código): condición de separación de codegrados. Con λ' > 0, los ceros admiten codegrado hasta λ'/α, así que **en Ω-B el soporte KKT NO es necesariamente una unión disjunta de cliques**. Los halos de O-04 son puntos KKT exactos **solo con γ > 0**. |
+| **2. Explicación propuesta** | F0/F1 en S0 y las cliques (disjuntas, solapadas, con halo) en Ω-B ocurren porque la recompensa por triángulo exige un codegrado extensivo ≥ (N−2)/α̂, que ningún grafo geométrico de grado acotado tiene. |
+| **3. Teorema externo aplicable** | Kruskal–Katona/Lovász: entre grafos binarios con m fijo, T es máximo en la clique colex. Es el mínimo global binario de Ω-B con γ = η = 0. |
+| **4. Extrapolación NO demostrada** | «Toda geometría tiene más acción» con pesos, grados libres o restricciones arbitrarias. «Ninguna dinámica de la familia selecciona geometría», en particular en Ω-B con λ' > 0 y γ̂ alto, donde el piloto Opus encontró aristas RGG que se autosostienen localmente (R2.6). |
+
+#### Afirmación «Θ > 0 → sin estructura»
+
+| Nivel | Contenido |
+|---|---|
+| **1. Demostrado** | Todos los términos escalan en régimen denso (αT/Θ, βΣw²/Θ y γS_deg/Θ son O(N²)). Un término ≥ 0 que vale 0 en un maximizador constante no lo desplaza, **condicionado** a que el resultado con γ = 0 se cumpla. |
+| **2. Explicación propuesta** | MF-1: aristas casi i.i.d. con una inclinación autoconsistente. |
+| **3. Teorema externo (por analogía)** | La teoría de ERGM densos (Chatterjee–Diaconis 2013) da resultados de degeneración que hacen **plausible** que la rama Θ > 0 tampoco produzca geometría. **La extensión al modelo continuo de Ω requiere demostración o validación computacional.** |
+| **4. Extrapolación NO demostrada** | Pesos continuos con Lebesgue, N finito (64–100), equilibración real y ausencia de estructura con o(N²) aristas. |
+
+**Frase del hallazgo central (reemplaza la anterior y la conclusión de §IX):**
+
+> «La evidencia actual indica que S0 y Ω-B no producen una fase geométrica en el dominio estudiado. Existe además una hipótesis fuerte de que la forma actual del funcional favorece estados densos y altamente triangulados frente a estructuras geométricas. Esta hipótesis debe someterse a pruebas extremales explícitas (L-1 → L-2 → L-3) antes de concluir que la familia completa de dinámicas es incapaz de producir geometría.»
+
+### R2.3 Orden revisado (sustituye §VI en su orden de ejecución)
+
+```text
+L-1  identidades y cotas exactas del funcional (INCORPORAR, tests)            [minutos]
+  ↓
+L-2  paisaje extremal: acción de referencias concretas, incluidas
+     geométricas ponderadas optimizadas a Σw fija (PROBAR)                     [< 1 h]
+  ↓
+L-3  ¿los estados que la dinámica selecciona son incompatibles con la geometría 3D?
+     L-3a analítica: lemas KKT (INCORPORAR, tests)                           [minutos]
+     L-3b dinámica: estabilidad desde arranques geométricos (PROBAR)           [~2 h, 4 CPU]
+  ↓
+┌──────────────────────────────┬─────────────────────────────────────────────┐
+│ SÍ (incompatible)            │ NO / METAESTABLE / NO-decorado               │
+↓                              ↓                                             
+limitar la familia;            investigar el mecanismo; O-05 tiene valor     
+O-05 solo como prueba de       real, pero SE ENMIENDA ANTES (arranques       
+MF-1 (analogía de CD);         geométricos y celdas L-3b) → nuevo Consejo    
+nueva hipótesis dinámica                                                     
+```
+
+- **En paralelo con L-2 y L-3 (independiente):** O4B-1, con las clases enmendadas (R2.4).
+- **Después de L-3 y de congelar el código:** la cadena de la compuerta (RP-1 → s06 → O-06), y O-05 según el resultado de L-3.
+- **Nada del bloque L modifica umbrales del certificado ni criterios de O-05.**
+
+### R2.4 Clasificación estructural compartida (congelada; la usan O4B-1 y L-3b)
+
+Para un estado W (N×N, simétrico, en [0,1]):
+1. **Vacío:** max W ≤ 1e-6.
+2. **Uniforme:** cv de las entradas fuera de la diagonal < `uniform_cv_max` (1e-6).
+3. **Grafo fuerte** A_s = {W > 1/2}. **Estrato débil** = {1e-6 < W ≤ 1/2}; si no está vacío se marca **+halo** y se informa si su soporte es a su vez una unión de cliques.
+4. **Componentes de A_s de tamaño ≥ 2:**
+   - **clique** si su densidad interna es 1;
+   - **cliques solapadas** si no es una clique y todas sus aristas pertenecen a cliques maximales de tamaño ≥ 4, con a lo sumo 10 de ellas;
+   - **otro** en cualquier otro caso.
+5. **Clase del estado:**
+   - `vacío`;
+   - `uniforme`;
+   - `clique_única` (una componente clique);
+   - `multi_clique` (≥ 2 componentes, todas clique);
+   - `cliques_solapadas` (≥ 1 componente solapada y ninguna «otro»);
+   - `otro` (alguna componente «otro», o A_s vacío con estrato débil no uniforme).
+6. **Diagnósticos sin voto:**
+   - κ_inj = t_inj(K3)/t_inj(K2)^{3/2} por componente (densidades inyectivas; vale 1 en una clique);
+   - número de P3 abiertos en el soporte {W > 1e-6};
+   - residuos KKT.
+
+Esta definición se congela antes de ver ningún resultado de O4B-1 ni de L-3b. **Enmienda respecto de la ficha O4B-1 original:** se añade la clase «cliques solapadas», porque el piloto Opus (exploratorio, R2.6) mostró que existe en Ω-B. Sin ella, O4B-1 podría fallar por un motivo no geométrico.
+
+### R2.5 Fichas revisadas (sustituyen L-1, L-2 y O4B-1 de §VII; L-3a y L-3b son nuevas)
+
+#### L-1 — Identidades y cotas exactas · INCORPORAR (tests analíticos)
+- **Prueba SOLO estas afirmaciones:**
+  1. S_smooth, comparada con la definición directa Σ_ij W_ij Σ_k (W_ik − W_jk)² (tolerancia relativa 1e-10), en binario (= 2Σk² − 12T) y en ponderado (= 2Σk_i s_i − 2 tr W³).
+  2. Bajo double-edge swaps que preservan grados, ΔS = −(α + 12η)ΔT exactamente.
+  3. Cota de vecindario T ≤ N·C(k,2)/3 para grafos k-regulares, con igualdad si y solo si es la unión disjunta de K_{k+1}. Se verifica exhaustivamente sobre el atlas de grafos de ≤ 7 nodos.
+  4. Lovász: si m = C(x,2), entonces T ≤ C(x,3), sobre todo el atlas.
+  5. tr W³ ≤ (ΣW²)^{3/2} ≤ (ΣW)^{3/2} en [0,1] (200 matrices U(0,1) con PCG64 y semilla 20261005, más casos extremos).
+- **No prueba nada** sobre grados libres, pesos óptimos ni mínimos locales.
+- **Éxito:** 100%. **Fracaso:** cualquier excepción. En ese caso se detiene el bloque L y se vuelve al Consejo.
+
+#### L-2 — Paisaje extremal sobre referencias concretas · PROBAR
+- **Pregunta:** a Σw fija (la restricción de Ω-B, la más favorable a estructura), ¿alguna referencia geométrica **evaluada** tiene menor acción que la mejor referencia no geométrica evaluada?
+- **N = 216.** Densidades ρ ∈ {6/215 (la de T³ 6³), 12/215 (RGG3 k12), 0.1}.
+- **Malla:** α̂ ∈ {0.5, 1, 1.5, 2, 3}; γ̂ ∈ {0, 1, 10, 100}; η̂ = η(N−2)/β ∈ {0, 0.1, 1}; μ = 0.
+- **Geométricas:**
+  - T³ 6³ binaria;
+  - RGG3 en el toro, binaria (k12; 5 semillas);
+  - **RGG3 ponderada optimizada:** w_ij = min(1, a·φ(d_ij/r)) con φ ∈ {escalón, lineal 1 − x, suave (1 − x²)}₊ y r en una malla de 12 valores (0.5–3 veces el radio k12). a se ajusta por bisección para cumplir Σw = W0 y se toma el mínimo de S sobre (φ, r);
+  - **T³ decorada 3³ ⊗ K8:** 27 bloques K8; los bloques de sitios vecinos se unen por emparejamiento vértice a vértice; grado 13.
+- **No geométricas:**
+  - clique colex con la misma masa;
+  - unión de cliques K_{k+1} (con k el de la referencia geométrica comparada);
+  - caveman conectado;
+  - ER G(n,m);
+  - uniforme w = ρ.
+- **Igualación de masa:** las binarias con m ≠ W0 se igualan por la arista parcial colex (o se descartan si no pueden igualarse; se informa).
+- **Observable:** ΔS = [min S(geométricas) − min S(no geométricas)] / (β·C(N,2)), por punto y semilla.
+- **Éxito («la hipótesis energética se sostiene para las referencias evaluadas»):** ΔS > 0 en el 100% de los puntos, en ≥ 3/5 semillas.
+- **Fracaso:** ΔS < 0 en algún punto, en ≥ 3/5 semillas. Esos puntos se marcan como prioritarios para L-3b; no cambian ningún criterio.
+- **Alcance:** compara representantes, no minimiza globalmente. Su conclusión se redacta como «ninguna de las referencias geométricas evaluadas…», nunca como «ninguna geometría…».
+
+#### L-3a — Lemas KKT · INCORPORAR (tests analíticos)
+1. La función de residuos KKT (S0 y Ω-B, con λ' estimado) coincide con las condiciones del gradiente del código.
+2. **P-KKT:** S0 con γ = 0, N = 30, 20 semillas y α̂ ∈ {0.5, 1.5, 2.5, 4}, evolucionado hasta convergencia. El soporte {W > 1e-6} tiene 0 P3 abiertos y residuo KKT ≤ 1e-7 relativo.
+3. **P-KKT-reg:** T³ 6³ y 8³ binarias no son KKT en S0 para ningún (α̂, γ̂) de la malla de L-3b (violación > 0).
+4. **RGG3 k12** (N = 216 y 512, 3 semillas) binaria no es KKT en S0 para ningún punto de la malla.
+5. **Lema de escala:** en todos los finales convergidos del punto 2, toda arista con W = 1 cumple α c_ij ≥ 2β + 2γ(u_i+u_j) − tolerancia.
+6. **Ω-B:** el estado «K22 + halo» (N = 100, f = 0.5) es KKT con γ̂ = 10 y **no** lo es con γ̂ = 0. T³ binaria con su propia ρ no es KKT en Ω-B para α > 0.
+
+- **Éxito:** 100%. **Fracaso:** cualquier excepción. Se detiene y se vuelve al Consejo.
+
+#### L-3b — Estabilidad de arranques geométricos · PROBAR (criterios congelados aquí)
+- **Pregunta:** ¿los estados que S0 y Ω-B seleccionan **cuando arrancan cerca de una geometría** siguen siendo geométricos?
+- **Inputs (N = 216):**
+  - T³ 6³;
+  - RGG3 k12 en el toro (3 grafos; la semilla s usa el grafo s);
+  - T³ decorada 3³ ⊗ K8;
+  - control negativo ER G(n,m) con la misma m que el RGG3;
+  - control de clases: unión de 27 K8.
+- **S0:** α̂ ∈ {0.5, 1, 1.5, 1.9, 2.1, 2.5, 3} × γ̂ ∈ {0, 1, 10, 100} (28 celdas).
+- **Ω-B:** ρ = la densidad del input; α̂ = f·α̂_c(γ̂, ρ, N), con α̂_c = `uniform_state_threshold`; f ∈ {0.25, 0.5, 1, 1.5, 3} × γ̂ ∈ {0, 1, 10, 100} (20 celdas).
+- **Ruido:**
+  - W0 = clip(A + εξ) con ξ gaussiano simétrico (PCG64, `master_entropy = 20261005`), proyectado en Ω-B;
+  - ε = 1e-2 (3 semillas) y ε = 1e-3 (3 semillas);
+  - ε = 0, solo como diagnóstico del subespacio simétrico, sin voto.
+- **Dinámica:** `evolve` / `evolve_fixed_density` con `DynamicsConfig` por defecto salvo `max_steps = 40000`.
+- **Prueba de estabilidad:** todo final clasificado «geométrico-persistente» se re-perturba con ε = 1e-2 y se re-evoluciona.
+- **Observables:**
+  - clase R2.4;
+  - R_orig (fracción de Σw que queda en las aristas del input);
+  - ρ_S = Spearman(W_ij, −d0_ij) sobre los pares con distancia de saltos del input d0 ≤ 4;
+  - fracción de la componente gigante de {W > 0.1·max W};
+  - P3 abiertos, residuos KKT y λ';
+  - estado de la corrida y deriva de R_orig en los últimos 10% de pasos si termina en MAX_STEPS.
+  - El certificado completo **solo** se calcula sobre los finales geométrico-persistentes (como confirmación de nivel 3; no se exige para la decisión).
+- **«Geométrico-persistente» (congelado):** R_orig ≥ 0.5 **y** ρ_S ≥ 0.5 **y** componente gigante ≥ 0.5N **y** clase ∉ {clique_única, multi_clique, cliques_solapadas, vacío, uniforme}.
+- **Validación del clasificador (antes de las corridas):**
+  - los inputs T³, RGG3 y decorada **sin evolucionar** deben clasificarse como geométrico-persistentes;
+  - ER y la unión de K8 no.
+  - Si falla, se vuelve al Consejo sin ajustar.
+- **Resultado por celda e input:** persistente si ≥ 2/3 semillas con ε = 1e-2 son geométrico-persistentes **y** estables tras la re-perturbación.
+- **Decisión global (congelada):**
+  - **SÍ (incompatible):** ninguna celda persistente con ε = 1e-2, para ningún input. Además, todo final convergido con residuo KKT ≤ 1e-7 relativo (si no, se informa como «no KKT», sin voto).
+  - **NO:** alguna celda persistente con un input **no decorado** (T³ o RGG3) → la geometría es un mínimo local; O-05 gana valor real y se enmienda antes de ejecutarse.
+  - **NO-decorado:** solo persiste la T³ decorada → se reabre el control diferido de la retícula decorada (es geometría a gran escala con cliques locales; la pregunta pasa a ser si el certificado la reconoce).
+  - **METAESTABLE:** alguna celda persiste con ε = 1e-3 pero no con 1e-2, o termina en MAX_STEPS con |deriva de R_orig| > 0.01 → se informa la vida media; si ocurre con γ̂ alto, O-05 solo tiene valor si **antes** se enmienda para incluir arranques geométricos (desde U(0,1) nunca visitaría esa cuenca).
+- **Coste:** S0 ≈ 980 corridas de segundos. Ω-B ≈ 700 corridas de ~10–60 s, en 4 procesos. Total ≈ 1.5–3 h. N = 512 solo para celdas no-SÍ (nuevo Consejo).
+
+#### O4B-1 — enmendada
+- Igual que en §VII, pero con la clasificación de R2.4 (incluye `cliques_solapadas` y +halo) y residuos KKT.
+- **Éxito:** 100% de los finales Ω-B de O-04 en {vacío, uniforme, clique_única, multi_clique, cliques_solapadas} (± halo) **y** residuo KKT ≤ 1e-7 relativo en los convergidos.
+- **Fracaso:** algún `otro`, o un convergido que no sea KKT → explicación debilitada; se reabre el mapa de cuenca.
+- **κ:** solo informe.
+- **Input:** los `.npz` de `runs/omega11/o04_ablation/passports`, verificados por sha256 frente a `array_digests` (si alguno no coincide, se excluye y se informa).
+- **Los finales S0 de O-04 se clasifican también**, como informe.
+
+### R2.6 Declaración del piloto exploratorio (transparencia M§44)
+
+Antes de congelar L-3b, el agente Opus ejecutó **pilotos exploratorios** en el scratchpad (no versionados, sin pasaporte):
+- S0 desde T³ 6³ y RGG3 N = 512 → F0 en todas las celdas probadas.
+- Ω-B desde T³ → uniforme o K37 colex.
+- Ω-B desde RGG3 N = 512 con f = 0.5 y γ̂ = 10 → 45% del peso en aristas originales, repartido en cliques localizadas y cliques solapadas, con 254 componentes y sin geometría conexa.
+
+La malla y los umbrales de L-3b **no se ajustaron para cambiar esos resultados**. La malla incluye γ̂ alto y f ≤ 1 **porque** el piloto señaló esa región como la única no excluida por escala. Esto es una elección de dónde mirar, declarada; no de qué cuenta como éxito. Los resultados del piloto no cuentan como evidencia de L-3b.
+
+### R2.7 Estado de los compromisos
+
+| Ítem | Estado tras la Rev. 2 |
+|---|---|
+| L-1, L-3a, L-2, L-3b, O4B-1 | **APPROVED (ejecución inmediata)**, en el orden de R2.3 |
+| RP-1 + s06 + O-06 | APPROVED; se ejecutan **después** del bloque L, sobre el commit congelado final |
+| O-05 (+ MF-1, PG-1, piloto) | **ESPERA el resultado de L-3** (D-4 modificada). Si L-3 = SÍ, se ejecuta como prueba de la analogía; si no, se enmienda antes |
+| N-1 | APPROVED, después del bloque L |
+| Resto de §V | Sin cambios |
+
 
 ---
 
@@ -85,7 +308,7 @@
 
 ## Deliberación del Consejo (resumen adversarial)
 
-### Hallazgo central (teórico de grafos y físico teórico)
+### Hallazgo central (teórico de grafos y físico teórico) ⟶ Rev. 2 (R2.2): sobreafirmado; reemplazado
 
 **Proposición P-Ω1, el paisaje favorece cliques** (argumento; se verifica en L-1).
 
@@ -111,7 +334,7 @@ Por eso, **para cualquier α > 0 o η > 0, una partición en cliques tiene acci�
 
 **Lectura del físico.** No es que la dinámica «no encuentre» el mínimo geométrico: **la funcional no tiene un mínimo geométrico.** Ninguna dinámica de descenso, determinista o con otra inicialización, puede seleccionar geometría a Θ = 0 dentro de esta familia y a densidad y grados comparables.
 
-### Hallazgo para Θ > 0 (físico teórico y experto en Monte Carlo)
+### Hallazgo para Θ > 0 (físico teórico y experto en Monte Carlo) ⟶ Rev. 2 (R2.2): rebajado a analogía
 
 **Teorema de partida (Chatterjee–Diaconis 2013, Ann. Stat., Thm 6.1).** Para modelos exponenciales arista–triángulo en escala densa con coeficiente de triángulos ≥ 0, el maximizador del problema variacional es un grafón **constante**. El grafo es asintóticamente indistinguible de un Erdős–Rényi; hay una transición de primer orden entre ramas de densidad baja y alta.
 
@@ -298,7 +521,7 @@ La «D1» de `AUDIT.md` (anillos) es otra numeración. Está **cerrada**: el usu
 | Ω-1.2 por ρ ≤ w_min | REJECTED | No semántico | Decisión 5 |
 | Nueva hipótesis dinámica (fuera de M§13–15) | **DEFERRED, necesita al usuario** | No se inventa funcional. Cualquier propuesta debe pasar antes L-2 (§VI) | Documento del usuario con una funcional nueva |
 
-## VI. Dónde bifurca Ω
+## VI. Dónde bifurca Ω ⟶ Rev. 2 (R2.3): orden L-1 → L-2 → L-3
 
 ```text
 Ω  (familia M§13–15: −αT + βS_dens + γS_deg + ηS_smooth − μS_mass)
@@ -330,7 +553,7 @@ Por eso **B0 va primero**: cuesta minutos y condiciona el valor de todo lo demá
 
 ## VII. Nuevos tests (fichas)
 
-### L-1 — Proposición P-Ω1 (paisaje favorece cliques), test analítico · INCORPORAR
+### L-1 — Proposición P-Ω1 (paisaje favorece cliques), test analítico · INCORPORAR ⟶ Rev. 2 (R2.5)
 - **Hipótesis:** a N, m y secuencia k-regular fijos, para todo α > 0, η ≥ 0, β, γ, μ ≥ 0, la unión disjunta de K_{k+1} minimiza S. Además, con pesos en [0,1]: t(K3) ≤ t(K2)^{3/2}.
 - **Qué intenta demostrar:** que la familia es estructuralmente buscadora de cliques.
 - **Qué intenta falsar:** la afirmación implícita de M§13–15 de que S puede favorecer una geometría.
@@ -352,7 +575,7 @@ Por eso **B0 va primero**: cuesta minutos y condiciona el valor de todo lo demá
 - **Dependencias:** ninguna.
 - **¿Puede modificar otra decisión?** Sí: B0, η y μ (§V).
 
-### L-2 — Paisaje energético sobre referencias · PROBAR
+### L-2 — Paisaje energético sobre referencias · PROBAR ⟶ Rev. 2 (R2.5)
 - **Hipótesis:** en las mismas condiciones (N, m y grado medio coincidentes), ninguna referencia geométrica (RGG3 k12, T³, RGG2 k10) tiene acción menor que la mejor no geométrica (unión de cliques, caveman conectado, ER, uniforme ponderado con la misma Σw), para ningún punto de la malla.
 - **Qué intenta demostrar:** que la conclusión de P-Ω1 se extiende a grafos no regulares y reales.
 - **Qué intenta falsar:** «existe una región de parámetros de la familia donde la geometría es energéticamente preferida».
@@ -375,7 +598,7 @@ Por eso **B0 va primero**: cuesta minutos y condiciona el valor de todo lo demá
 - **¿Puede modificar otra decisión?** Sí: B0, η, μ y la puerta de entrada de B3.
 - **Nota:** solo es condición necesaria a Θ = 0. A Θ > 0 el ΔS por arista se informa para compararlo con diferencias de entropía (no decide).
 
-### O4B-1 — O-04b-lite: cierre explicativo de Ω-B · PROBAR/DIAGNÓSTICO
+### O4B-1 — O-04b-lite: cierre explicativo de Ω-B · PROBAR/DIAGNÓSTICO ⟶ Rev. 2 (R2.4, R2.5)
 - **Hipótesis:** todos los estados finales de Ω-B en O-04 son (a) uniformes (cv < `uniform_cv_max`) o (b) uniones de cliques KKT con pesos de frontera, cada una saturando Kruskal–Katona ponderado (κ_c = t(K3)/t(K2)^{3/2} ≈ 1 en su subgrafo inducido).
 - **Qué intenta demostrar:** que Ω-B falla precisamente por el mecanismo de Kruskal–Katona.
 - **Qué intenta falsar:** la explicación misma.
@@ -494,7 +717,7 @@ Por eso **B0 va primero**: cuesta minutos y condiciona el valor de todo lo demá
   - certificado completo = nivel 3;
   - **los niveles 4–6 no son alcanzables con ningún experimento de esta fase.**
 
-## IX. Condiciones de falsación (qué nos obliga a abandonar cada rama)
+## IX. Condiciones de falsación (qué nos obliga a abandonar cada rama) ⟶ Rev. 2: la conclusión preregistrada de R8 se sustituye por la frase de R2.2
 
 | Rama | Se abandona si | Se reabre si |
 |---|---|---|
@@ -535,7 +758,7 @@ Por eso **B0 va primero**: cuesta minutos y condiciona el valor de todo lo demá
 
 **Regla de parada (economía).** Los ítems 1–4 se ejecutan primero, fuera de la puerta. Si L-1 o L-2 refutan P-Ω1, el Consejo se reúne **antes** de gastar las 8–25 h de los ítems 6–8, porque la prioridad cambiaría hacia η.
 
-## XI. Plan de implementación (solo tras la ratificación; commits pequeños)
+## XI. Plan de implementación (solo tras la ratificación; commits pequeños) ⟶ Rev. 2 (R2.3, R2.7): el bloque L va primero
 
 | Commit | Contenido | Etiqueta | Validación antes del push |
 |---|---|---|---|
@@ -559,7 +782,7 @@ Por eso **B0 va primero**: cuesta minutos y condiciona el valor de todo lo demá
 
 ---
 
-## XII. Resoluciones que requieren firma del usuario
+## XII. Resoluciones que requieren firma del usuario ⟶ ratificadas (R2.0)
 
 | # | Resolución del Consejo | Estado |
 |---|---|---|
