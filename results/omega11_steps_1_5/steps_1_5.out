@@ -1,0 +1,16 @@
+[21:43:57] inicio p00 (omega.experiments.v11.test_p00_prereq, N=200, reps=3)
+....................................                                     [100%]
+36 passed in 66.52s (0:01:06)
+[21:45:03] fin p00: {'step': 'p00', 'seconds': 66.6, 'summary': 'runs/omega11/p02_golden/summary.json', 'complete': True, 'expectations_met': True}
+[21:45:03] inicio o00 (omega.experiments.v11.test_o00_validation_v11, N=200, reps=3)
+[21:46:20] fin o00: {'step': 'o00', 'seconds': 76.9, 'summary': 'runs/omega11/o00_validation/summary.json', 'complete': True, 'expectations_met': True}
+[21:46:20] inicio o01 (omega.experiments.v11.test_o01_baseline, N=200, reps=10)
+[21:59:29] fin o01: {'step': 'o01', 'seconds': 788.6, 'summary': 'runs/omega11/o01_baseline/summary.json', 'complete': True, 'expectations_met': True}
+[21:59:29] inicio o02 (omega.experiments.v11.test_o02_distance, N=200, reps=5)
+[22:08:58] fin o02: {'step': 'o02', 'seconds': 568.9, 'summary': 'runs/omega11/o02_distance/summary.json', 'complete': True, 'expectations_met': True}
+[22:08:58] inicio o03 (omega.experiments.v11.test_o03_nulls, N=800, reps=5)
+[22:14:05] inicio o03 (omega.experiments.v11.test_o03_nulls, N=800, reps=5)
+[22:22:45] fin o03: {'step': 'o03', 'seconds': 520.3, 'summary': 'runs/omega11/o03_nulls/summary.json', 'complete': True, 'expectations_met': True}
+[22:22:45] inicio o04 (omega.experiments.v11.test_o04_ablation, N=100, reps=10)
+[23:15:02] inicio o04 (omega.experiments.v11.test_o04_ablation, N=100, reps=10)
+[00:14:42] fin o04: {'step': 'o04', 'seconds': 3579.4, 'summary': 'runs/omega11/o04_ablation/summary.json', 'complete': True, 'expectations_met': False}

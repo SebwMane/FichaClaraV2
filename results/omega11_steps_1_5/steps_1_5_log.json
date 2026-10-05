@@ -1,0 +1,44 @@
+[
+  {
+    "step": "p00",
+    "seconds": 66.6,
+    "summary": "runs/omega11/p02_golden/summary.json",
+    "complete": true,
+    "expectations_met": true
+  },
+  {
+    "step": "o00",
+    "seconds": 76.9,
+    "summary": "runs/omega11/o00_validation/summary.json",
+    "complete": true,
+    "expectations_met": true
+  },
+  {
+    "step": "o01",
+    "seconds": 788.6,
+    "summary": "runs/omega11/o01_baseline/summary.json",
+    "complete": true,
+    "expectations_met": true
+  },
+  {
+    "step": "o02",
+    "seconds": 568.9,
+    "summary": "runs/omega11/o02_distance/summary.json",
+    "complete": true,
+    "expectations_met": true
+  },
+  {
+    "step": "o03",
+    "seconds": 520.3,
+    "summary": "runs/omega11/o03_nulls/summary.json",
+    "complete": true,
+    "expectations_met": true
+  },
+  {
+    "step": "o04",
+    "seconds": 3579.4,
+    "summary": "runs/omega11/o04_ablation/summary.json",
+    "complete": true,
+    "expectations_met": false
+  }
+]

@@ -1,0 +1,1096 @@
+{
+  "experiment": 1102,
+  "description": "distance_sensitive y metric_spread por familia (DESIGN \u00a71.1)",
+  "expected": [
+    {
+      "family": "omega10_final_binary",
+      "metric": "max_finite_spread",
+      "target": 0.0
+    },
+    {
+      "family": "torus_random_weights_9x9x9",
+      "metric": "fraction_sensitive",
+      "target": 0.0
+    },
+    {
+      "family": "torus_random_weights_28x28",
+      "metric": "fraction_sensitive",
+      "target": 0.0
+    },
+    {
+      "family": "rgg_euclidean_k12",
+      "metric": "fraction_sensitive",
+      "target": 1.0
+    }
+  ],
+  "info_only_families": [
+    "sigmoid_final",
+    "static_uniform_wmin0.01",
+    "static_uniform_wmin0.05",
+    "static_uniform_wmin0.1",
+    "static_uniform_wmin0.2",
+    "static_uniform_wmin0.5",
+    "langevin_theta0.1",
+    "langevin_theta0.3"
+  ],
+  "stage": "final",
+  "results": {
+    "omega10_final_binary": {
+      "n": 200,
+      "n_states": 5,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 0,
+      "mean_finite_spread": null,
+      "max_finite_spread": null,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "componente gigante trivial",
+          "passport": "\u03a9-EXP-000192"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "componente gigante trivial"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "componente gigante trivial"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "componente gigante trivial"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "componente gigante trivial"
+        }
+      ],
+      "claim_met": true
+    },
+    "sigmoid_final": {
+      "n": 200,
+      "n_states": 5,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 0,
+      "mean_finite_spread": null,
+      "max_finite_spread": null,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "algun modo geodesico sin ventana",
+          "passport": "\u03a9-EXP-000193"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "insufficient_component",
+            "weighted_inverse": "insufficient_component",
+            "weighted_log": "insufficient_component",
+            "resistance": "insufficient_component"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        }
+      ]
+    },
+    "static_uniform_wmin0.01": {
+      "n": 200,
+      "n_states": 5,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 0,
+      "mean_finite_spread": null,
+      "max_finite_spread": null,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana",
+          "passport": "\u03a9-EXP-000194"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        }
+      ]
+    },
+    "static_uniform_wmin0.05": {
+      "n": 200,
+      "n_states": 5,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 0,
+      "mean_finite_spread": null,
+      "max_finite_spread": null,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana",
+          "passport": "\u03a9-EXP-000195"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        }
+      ]
+    },
+    "static_uniform_wmin0.1": {
+      "n": 200,
+      "n_states": 5,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 0,
+      "mean_finite_spread": null,
+      "max_finite_spread": null,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana",
+          "passport": "\u03a9-EXP-000196"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        }
+      ]
+    },
+    "static_uniform_wmin0.2": {
+      "n": 200,
+      "n_states": 5,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 0,
+      "mean_finite_spread": null,
+      "max_finite_spread": null,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana",
+          "passport": "\u03a9-EXP-000197"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        }
+      ]
+    },
+    "static_uniform_wmin0.5": {
+      "n": 200,
+      "n_states": 5,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 0,
+      "mean_finite_spread": null,
+      "max_finite_spread": null,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana",
+          "passport": "\u03a9-EXP-000198"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        }
+      ]
+    },
+    "langevin_theta0.1": {
+      "n": 200,
+      "n_states": 3,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 0,
+      "mean_finite_spread": null,
+      "max_finite_spread": null,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana",
+          "passport": "\u03a9-EXP-000199"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        }
+      ]
+    },
+    "langevin_theta0.3": {
+      "n": 200,
+      "n_states": 3,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 0,
+      "mean_finite_spread": null,
+      "max_finite_spread": null,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana",
+          "passport": "\u03a9-EXP-000200"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": null,
+          "resistance_exponent": null,
+          "d": {
+            "hop": null,
+            "weighted_inverse": null,
+            "weighted_log": null,
+            "resistance": null
+          },
+          "status": {
+            "hop": "no_window",
+            "weighted_inverse": "no_window",
+            "weighted_log": "no_window",
+            "resistance": "no_window"
+          },
+          "reason": "algun modo geodesico sin ventana"
+        }
+      ]
+    },
+    "torus_random_weights_9x9x9": {
+      "n": 729,
+      "n_states": 3,
+      "fraction_sensitive": 0.0,
+      "n_finite_spread": 3,
+      "mean_finite_spread": 0.3007474456054042,
+      "max_finite_spread": 0.3066788647581342,
+      "rows": [
+        {
+          "distance_sensitive": false,
+          "metric_spread": 0.3002757461532264,
+          "resistance_exponent": 0.21015109760987846,
+          "d": {
+            "hop": 2.8723942941664333,
+            "weighted_inverse": 2.572118548013207,
+            "weighted_log": 2.575247062408736,
+            "resistance": null
+          },
+          "status": {
+            "hop": "ok",
+            "weighted_inverse": "ok",
+            "weighted_log": "ok",
+            "resistance": "no_window"
+          },
+          "reason": "dispersion geodesica 0.3 <= metric_tol 0.5",
+          "passport": "\u03a9-EXP-000201"
+        },
+        {
+          "distance_sensitive": false,
+          "metric_spread": 0.3066788647581342,
+          "resistance_exponent": 0.21023227588319882,
+          "d": {
+            "hop": 2.8723942941664333,
+            "weighted_inverse": 2.6187437060366587,
+            "weighted_log": 2.565715429408299,
+            "resistance": null
+          },
+          "status": {
+            "hop": "ok",
+            "weighted_inverse": "ok",
+            "weighted_log": "ok",
+            "resistance": "no_window"
+          },
+          "reason": "dispersion geodesica 0.307 <= metric_tol 0.5"
+        },
+        {
+          "distance_sensitive": false,
+          "metric_spread": 0.29528772590485186,
+          "resistance_exponent": 0.21021588913946088,
+          "d": {
+            "hop": 2.8723942941664333,
+            "weighted_inverse": 2.614086241614552,
+            "weighted_log": 2.5771065682615815,
+            "resistance": null
+          },
+          "status": {
+            "hop": "ok",
+            "weighted_inverse": "ok",
+            "weighted_log": "ok",
+            "resistance": "no_window"
+          },
+          "reason": "dispersion geodesica 0.295 <= metric_tol 0.5"
+        }
+      ],
+      "claim_met": true
+    },
+    "torus_random_weights_28x28": {
+      "n": 784,
+      "n_states": 3,
+      "fraction_sensitive": 0.0,
+      "n_finite_spread": 3,
+      "mean_finite_spread": 0.05885320946003617,
+      "max_finite_spread": 0.07325385733300549,
+      "rows": [
+        {
+          "distance_sensitive": false,
+          "metric_spread": 0.07325385733300549,
+          "resistance_exponent": 0.3716660343916935,
+          "d": {
+            "hop": 2.0,
+            "weighted_inverse": 1.9600418494082963,
+            "weighted_log": 2.033295706741302,
+            "resistance": null
+          },
+          "status": {
+            "hop": "ok",
+            "weighted_inverse": "ok",
+            "weighted_log": "ok",
+            "resistance": "no_window"
+          },
+          "reason": "dispersion geodesica 0.0733 <= metric_tol 0.5",
+          "passport": "\u03a9-EXP-000202"
+        },
+        {
+          "distance_sensitive": false,
+          "metric_spread": 0.062167430063736484,
+          "resistance_exponent": 0.3714730378457213,
+          "d": {
+            "hop": 2.0,
+            "weighted_inverse": 1.9668967738040501,
+            "weighted_log": 2.0290642038677866,
+            "resistance": null
+          },
+          "status": {
+            "hop": "ok",
+            "weighted_inverse": "ok",
+            "weighted_log": "ok",
+            "resistance": "no_window"
+          },
+          "reason": "dispersion geodesica 0.0622 <= metric_tol 0.5"
+        },
+        {
+          "distance_sensitive": false,
+          "metric_spread": 0.04113834098336655,
+          "resistance_exponent": 0.37156405149136457,
+          "d": {
+            "hop": 2.0,
+            "weighted_inverse": 1.9681159118084817,
+            "weighted_log": 2.009254252791848,
+            "resistance": null
+          },
+          "status": {
+            "hop": "ok",
+            "weighted_inverse": "ok",
+            "weighted_log": "ok",
+            "resistance": "no_window"
+          },
+          "reason": "dispersion geodesica 0.0411 <= metric_tol 0.5"
+        }
+      ],
+      "claim_met": true
+    },
+    "rgg_euclidean_k12": {
+      "n": 800,
+      "n_states": 3,
+      "fraction_sensitive": 1.0,
+      "n_finite_spread": 3,
+      "mean_finite_spread": 0.667692655281332,
+      "max_finite_spread": 0.6948217579219058,
+      "rows": [
+        {
+          "distance_sensitive": true,
+          "metric_spread": 0.6628969631823995,
+          "resistance_exponent": 0.4683887268528741,
+          "d": {
+            "hop": 2.858612684042262,
+            "weighted_inverse": 2.1957157208598623,
+            "weighted_log": 2.271899086412511,
+            "resistance": null
+          },
+          "status": {
+            "hop": "ok",
+            "weighted_inverse": "ok",
+            "weighted_log": "ok",
+            "resistance": "no_window"
+          },
+          "reason": "dispersion geodesica 0.663 > metric_tol 0.5",
+          "passport": "\u03a9-EXP-000203"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": 0.6453592447396908,
+          "resistance_exponent": 0.4694454155568811,
+          "d": {
+            "hop": 2.8681643554622234,
+            "weighted_inverse": 2.2228051107225326,
+            "weighted_log": 2.276405136430715,
+            "resistance": null
+          },
+          "status": {
+            "hop": "ok",
+            "weighted_inverse": "ok",
+            "weighted_log": "ok",
+            "resistance": "no_window"
+          },
+          "reason": "dispersion geodesica 0.645 > metric_tol 0.5"
+        },
+        {
+          "distance_sensitive": true,
+          "metric_spread": 0.6948217579219058,
+          "resistance_exponent": 0.5035232524515025,
+          "d": {
+            "hop": 2.844674073412727,
+            "weighted_inverse": 2.149852315490821,
+            "weighted_log": 2.2426167929601277,
+            "resistance": null
+          },
+          "status": {
+            "hop": "ok",
+            "weighted_inverse": "ok",
+            "weighted_log": "ok",
+            "resistance": "no_window"
+          },
+          "reason": "dispersion geodesica 0.695 > metric_tol 0.5"
+        }
+      ],
+      "claim_met": true
+    }
+  },
+  "expectations_met": true,
+  "passports": [
+    "\u03a9-EXP-000192",
+    "\u03a9-EXP-000193",
+    "\u03a9-EXP-000194",
+    "\u03a9-EXP-000195",
+    "\u03a9-EXP-000196",
+    "\u03a9-EXP-000197",
+    "\u03a9-EXP-000198",
+    "\u03a9-EXP-000199",
+    "\u03a9-EXP-000200",
+    "\u03a9-EXP-000201",
+    "\u03a9-EXP-000202",
+    "\u03a9-EXP-000203"
+  ],
+  "complete": true,
+  "step": "o02_distance",
+  "mode": "full",
+  "code_commit": "167efca40ef83f2b2625977d9ff4f8f0ce77f0fe",
+  "git_dirty": false,
+  "config_hash": "f0005ba2d37294ee2a399802076538de4f8683334a17773de616cb036358ed61"
+}

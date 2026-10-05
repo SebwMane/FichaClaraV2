@@ -1,0 +1,1547 @@
+{
+  "experiment": 1103,
+  "description": "bateria de nulos y falsos positivos por campo (DESIGN \u00a71.10)",
+  "n": 800,
+  "replicates": 5,
+  "expected": [
+    {
+      "family": "er_k6",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "er_k12",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "er_k30",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "rgg3_k12",
+      "metric": "pass_fraction",
+      "target": 1.0
+    },
+    {
+      "family": "rgg3_derived_nulls",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "ws_p0.01",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "ws_p0.05",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "ws_p0.1",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "ws_p0.2",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "ws_p1",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "tree3_h5",
+      "metric": "pass_fraction",
+      "target": 0.0
+    },
+    {
+      "family": "ws_p0.05",
+      "metric": "primary_F3_fraction",
+      "target": 1.0
+    }
+  ],
+  "note": "familias 'rgg3_k12' y 'rgg2_k10' son controles positivos; en smoke solo informe",
+  "stage": "final",
+  "results": {
+    "er_k6": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 4.274879329330397,
+          "d_weyl": 4.744186857214836,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000213"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 4.215207686768819,
+          "d_weyl": 4.806425782492281,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 4.259706188085676,
+          "d_weyl": 5.02747952116661,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 4.225977101480645,
+          "d_weyl": 5.237707804709181,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 4.330902498218883,
+          "d_weyl": 5.045549503426118,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "er_k12": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 9.378027175840755,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000214"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 9.17752852080863,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.842357562530792,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.139392696736557,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.112173836535508,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "er_k30": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 0.0,
+      "code_fractions": {
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F4": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 1.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 1.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 15.872879340243033,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000215"
+        },
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 15.979514721336399,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 17.00074664504746,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 16.600805706350812,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 15.829120020202415,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "rgg3_k12": {
+      "n_runs": 5,
+      "pass_fraction": 1.0,
+      "primary_F3_fraction": 0.0,
+      "code_fractions": {},
+      "primary_fractions": {
+        "None": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 1.0,
+        "d_volume": 1.0,
+        "d_spectral": 1.0,
+        "d_weyl": 1.0,
+        "metric_robust": 1.0,
+        "isotropy_ok": 1.0,
+        "homogeneity_ok": 1.0,
+        "topology_stable": 1.0,
+        "manifold_proxy_ok": 1.0
+      },
+      "rows": [
+        {
+          "codes": [],
+          "primary": null,
+          "passes": true,
+          "d_vol": 3.073251562757805,
+          "d_s": 2.6220893695931644,
+          "d_weyl": 2.9150798340932305,
+          "consensus_dimension": 2.9150798340932305,
+          "passport": "\u03a9-EXP-000216"
+        },
+        {
+          "codes": [],
+          "primary": null,
+          "passes": true,
+          "d_vol": 3.058275343354925,
+          "d_s": 2.651993896133961,
+          "d_weyl": 2.9025194356629807,
+          "consensus_dimension": 2.9025194356629807
+        },
+        {
+          "codes": [],
+          "primary": null,
+          "passes": true,
+          "d_vol": 3.085909992914093,
+          "d_s": 2.6785223251055936,
+          "d_weyl": 2.9474986393281406,
+          "consensus_dimension": 2.9474986393281406
+        },
+        {
+          "codes": [],
+          "primary": null,
+          "passes": true,
+          "d_vol": 3.0741055501839956,
+          "d_s": 2.5869187155444107,
+          "d_weyl": 2.864090154480998,
+          "consensus_dimension": 2.864090154480998
+        },
+        {
+          "codes": [],
+          "primary": null,
+          "passes": true,
+          "d_vol": 3.0450266664266796,
+          "d_s": 2.6320952073649875,
+          "d_weyl": 2.941670840116734,
+          "consensus_dimension": 2.941670840116734
+        }
+      ]
+    },
+    "rgg3_degree_preserving_rewire": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 9.019424631269182,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000217"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.116012788873988,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.493549245601656,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.221513443648368,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.63863620242419,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "rgg3_configuration_model": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 9.017650791477484,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000218"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.23357034494902,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.541027008225825,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.027760070613548,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.653871378142808,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "rgg3_erdos_renyi": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.432211380418874,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000219"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.113058366673652,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.444980368032894,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 9.189914923251663,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.59128683925486,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "rgg3_shuffled_weights": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 7.7090745082717005,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000220"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.34966517706482,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.428647016784891,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.268591682467404,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 8.620870630410375,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "ws_p0.01": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 0.0,
+      "code_fractions": {
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F4": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 1.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.8,
+        "d_weyl": 1.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.8,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 1.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": 2.5263131949889748,
+          "d_s": 1.2929743412353993,
+          "d_weyl": 1.3112573185482463,
+          "consensus_dimension": 1.3112573185482463,
+          "passport": "\u03a9-EXP-000221"
+        },
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": 2.7409204343051394,
+          "d_s": 1.3494827722188116,
+          "d_weyl": 1.3347523547856148,
+          "consensus_dimension": 1.3494827722188116
+        },
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": 2.747467276146708,
+          "d_s": 1.3715942204324343,
+          "d_weyl": 1.3459415593499642,
+          "consensus_dimension": 1.3715942204324343
+        },
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": 2.6556389553583775,
+          "d_s": 1.338285947159904,
+          "d_weyl": 1.3312295393127902,
+          "consensus_dimension": 1.338285947159904
+        },
+        {
+          "codes": [
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F4",
+          "passes": false,
+          "d_vol": 2.6180566903833613,
+          "d_s": 1.3244341234696846,
+          "d_weyl": 1.3278287617949043,
+          "consensus_dimension": 1.3278287617949043
+        }
+      ]
+    },
+    "ws_p0.05": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 1.0,
+        "metric_robust": 1.0,
+        "isotropy_ok": 1.0,
+        "homogeneity_ok": 1.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 4.332052638696245,
+          "d_s": 1.9010484656834297,
+          "d_weyl": 1.652695729808438,
+          "consensus_dimension": 1.9010484656834297,
+          "passport": "\u03a9-EXP-000222"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 4.39009900244928,
+          "d_s": 1.9681538394734184,
+          "d_weyl": 1.7040095699371836,
+          "consensus_dimension": 1.9681538394734184
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 4.245138059003068,
+          "d_s": 1.8627533402549064,
+          "d_weyl": 1.6313588521102276,
+          "consensus_dimension": 1.8627533402549064
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 4.294639395341152,
+          "d_s": 1.886614965503118,
+          "d_weyl": 1.6440886639943615,
+          "consensus_dimension": 1.886614965503118
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 4.411797558897316,
+          "d_s": 1.9593349594885454,
+          "d_weyl": 1.7093678928219629,
+          "consensus_dimension": 1.9593349594885454
+        }
+      ]
+    },
+    "ws_p0.1": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 2.4151944886141825,
+          "d_weyl": 2.063867425986244,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000223"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 2.3576002795664746,
+          "d_weyl": 2.0225846744465503,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 2.5104292875656626,
+          "d_weyl": 2.1356292929038956,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 2.4088546692768067,
+          "d_weyl": 2.0817821455342953,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 2.329207277935749,
+          "d_weyl": 1.9976892041298775,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "ws_p0.2": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 3.244290924453882,
+          "d_weyl": 2.955018083485379,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000224"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 3.258821653622858,
+          "d_weyl": 2.961006602680506,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 3.1751983510128605,
+          "d_weyl": 2.869407204930212,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 3.186772236968184,
+          "d_weyl": 2.8544911260370447,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": 3.2564050261810804,
+          "d_weyl": 2.943619623088295,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "ws_p1": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 0.0,
+        "topology_stable": 0.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 11.101026086695116,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000225"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 11.149207715127915,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 11.46418178543517,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 11.486081479703426,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": null,
+          "d_s": null,
+          "d_weyl": 11.39866124624011,
+          "consensus_dimension": null
+        }
+      ]
+    },
+    "rgg2_k10": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 0.0,
+      "code_fractions": {
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F9": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 1.0,
+        "d_volume": 1.0,
+        "d_spectral": 1.0,
+        "d_weyl": 1.0,
+        "metric_robust": 1.0,
+        "isotropy_ok": 1.0,
+        "homogeneity_ok": 1.0,
+        "topology_stable": 1.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F9",
+          "passes": false,
+          "d_vol": 2.117515890751081,
+          "d_s": 1.7062065186888125,
+          "d_weyl": 1.9183022757175001,
+          "consensus_dimension": 1.9183022757175001,
+          "passport": "\u03a9-EXP-000226"
+        },
+        {
+          "codes": [
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F9",
+          "passes": false,
+          "d_vol": 2.0593443930979882,
+          "d_s": 1.5932396715898618,
+          "d_weyl": 1.7764366987898463,
+          "consensus_dimension": 1.7764366987898463
+        },
+        {
+          "codes": [
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F9",
+          "passes": false,
+          "d_vol": 2.111472404482055,
+          "d_s": 1.6194905297023847,
+          "d_weyl": 1.8769899059116675,
+          "consensus_dimension": 1.8769899059116675
+        },
+        {
+          "codes": [
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F9",
+          "passes": false,
+          "d_vol": 2.123198893476207,
+          "d_s": 1.7162382127849807,
+          "d_weyl": 1.8946246029057392,
+          "consensus_dimension": 1.8946246029057392
+        },
+        {
+          "codes": [
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F9",
+          "passes": false,
+          "d_vol": 2.1489033953871917,
+          "d_s": 1.6454216302507363,
+          "d_weyl": 1.8394930074082378,
+          "consensus_dimension": 1.8394930074082378
+        }
+      ]
+    },
+    "tree3_h5": {
+      "n_runs": 5,
+      "pass_fraction": 0.0,
+      "primary_F3_fraction": 1.0,
+      "code_fractions": {
+        "\u03a9-F3": 1.0,
+        "\u03a9-F4": 1.0,
+        "\u03a9-F5": 1.0,
+        "\u03a9-F9": 1.0
+      },
+      "primary_fractions": {
+        "\u03a9-F3": 1.0
+      },
+      "field_true_rate": {
+        "nontrivial": 1.0,
+        "connected": 1.0,
+        "locality": 0.0,
+        "d_volume": 0.0,
+        "d_spectral": 0.0,
+        "d_weyl": 0.0,
+        "metric_robust": 0.0,
+        "isotropy_ok": 0.0,
+        "homogeneity_ok": 1.0,
+        "topology_stable": 1.0,
+        "manifold_proxy_ok": 0.0
+      },
+      "rows": [
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 2.8346157096819997,
+          "d_s": 1.4468358322563064,
+          "d_weyl": null,
+          "consensus_dimension": null,
+          "passport": "\u03a9-EXP-000227"
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 2.8346157096819997,
+          "d_s": 1.4468358322563064,
+          "d_weyl": null,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 2.8346157096819997,
+          "d_s": 1.4468358322563064,
+          "d_weyl": null,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 2.8346157096819997,
+          "d_s": 1.4468358322563064,
+          "d_weyl": null,
+          "consensus_dimension": null
+        },
+        {
+          "codes": [
+            "\u03a9-F3",
+            "\u03a9-F4",
+            "\u03a9-F5",
+            "\u03a9-F9"
+          ],
+          "primary": "\u03a9-F3",
+          "passes": false,
+          "d_vol": 2.8346157096819997,
+          "d_s": 1.4468358322563064,
+          "d_weyl": null,
+          "consensus_dimension": null
+        }
+      ]
+    }
+  },
+  "expectation_results": {
+    "er_k6.pass_fraction": true,
+    "er_k12.pass_fraction": true,
+    "er_k30.pass_fraction": true,
+    "rgg3_k12.pass_fraction": true,
+    "rgg3_degree_preserving_rewire.pass_fraction": true,
+    "rgg3_configuration_model.pass_fraction": true,
+    "rgg3_erdos_renyi.pass_fraction": true,
+    "rgg3_shuffled_weights.pass_fraction": true,
+    "ws_p0.01.pass_fraction": true,
+    "ws_p0.05.pass_fraction": true,
+    "ws_p0.1.pass_fraction": true,
+    "ws_p0.2.pass_fraction": true,
+    "ws_p1.pass_fraction": true,
+    "tree3_h5.pass_fraction": true,
+    "ws_p0.05.primary_F3_fraction": true
+  },
+  "expectations_met": true,
+  "passports": [
+    "\u03a9-EXP-000213",
+    "\u03a9-EXP-000214",
+    "\u03a9-EXP-000215",
+    "\u03a9-EXP-000216",
+    "\u03a9-EXP-000217",
+    "\u03a9-EXP-000218",
+    "\u03a9-EXP-000219",
+    "\u03a9-EXP-000220",
+    "\u03a9-EXP-000221",
+    "\u03a9-EXP-000222",
+    "\u03a9-EXP-000223",
+    "\u03a9-EXP-000224",
+    "\u03a9-EXP-000225",
+    "\u03a9-EXP-000226",
+    "\u03a9-EXP-000227"
+  ],
+  "complete": true,
+  "step": "o03_nulls",
+  "mode": "full",
+  "code_commit": "167efca40ef83f2b2625977d9ff4f8f0ce77f0fe",
+  "git_dirty": false,
+  "config_hash": "933725803d0d8e9e1e455f68a80211b5111e14ddf1a2411bfbec656c01cc54dc"
+}

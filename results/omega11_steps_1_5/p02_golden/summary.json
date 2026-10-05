@@ -1,0 +1,23 @@
+{
+  "description": "prerrequisito P\u00a722: tests/test_baseline_golden.py",
+  "target": "tests/test_baseline_golden.py",
+  "pytest_args": [
+    "-m",
+    "not slow",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "-m",
+    "slow or not slow",
+    "/home/user/FichaClaraV2/tests/analytical",
+    "/home/user/FichaClaraV2/tests/test_baseline_golden.py"
+  ],
+  "returncode": 0,
+  "complete": true,
+  "expectations_met": true,
+  "step": "p02_golden",
+  "mode": "full",
+  "code_commit": "167efca40ef83f2b2625977d9ff4f8f0ce77f0fe",
+  "git_dirty": false,
+  "config_hash": "6a178e19b1b838936a18464876ecdcf62d8598dea4c38b9a70390f1032e67e11"
+}
