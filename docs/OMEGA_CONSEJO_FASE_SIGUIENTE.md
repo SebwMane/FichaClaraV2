@@ -229,6 +229,18 @@ La malla y los umbrales de L-3b **no se ajustaron para cambiar esos resultados**
 | Resto de §V | Sin cambios |
 
 
+### R2.8 Enmiendas operativas del bloque L (registradas ANTES de cualquier resultado oficial)
+
+| ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
+|---|---|---|---|---|
+| L-A1 | L-2, igualación de masa | Una referencia geométrica binaria cuya masa propia difiera de W0 en más de 10% (`MATCH_REL_TOL`) se **descarta** en ese ρ y se informa. | Operacionaliza «no pueden igualarse»: igualar T³ (648 aristas) a ρ=0.1 (2322) añadiría 1674 aristas colex y ya no sería geometría. | No: solo reduce el conjunto geométrico. |
+| L-A2 | L-2, diagnóstico | Se añade `delta_S_local` **sin voto**: igual que ΔS, pero solo con las geométricas binarias y las ponderadas con r ≤ 1.5·r12. | En el smoke, la RGG ponderada con r grande degenera en casi uniforme, y ΔS > 0 podía deberse solo a eso (ΔS ~1e-5). La decisión congelada no cambia. | No (no vota). |
+| L-A3 | L-3a, punto 6 | El test K22 + halo se evalúa con ρ = 0.05 (el halo h ≈ 0.0055 de O-04) y con ρ = 0.1. Se registra un matiz: **con el mismo α̂ = 0.5·α̂_c(10) y γ̂ = 0, el halo es KKT con ρ = 0.1 pero no con ρ = 0.05.** | Error de transcripción en el encargo (ρ = 0.1 da h = 0.088). | — |
+
+**Corrección del nivel 1 de R2.2:** «los halos de O-04 son puntos KKT exactos **solo con γ > 0**» se mantiene para las celdas de O-04 (ρ = 0.05, h ≈ 0.0055). **No es una afirmación general:** con ρ = 0.1 y el mismo α̂ el halo es KKT sin γ.
+
+**Hallazgo de L-3a (punto 2):** se cumple, pero es casi vacuo. Desde U(0,1) con N = 30 y γ = 0, todos los finales son el vacío o K_N. Se añadió un test con 3 K10 disjuntas, que es KKT si y solo si α̂ ≥ (N−2)/(m−2) = 3.5. Así P-KKT y el lema de escala tienen contenido no trivial.
+
 ---
 
 ## 0. AUDITORÍA DE ESTADO
