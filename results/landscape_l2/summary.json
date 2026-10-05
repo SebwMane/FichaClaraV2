@@ -1,0 +1,1197 @@
+{
+  "step": "l2_landscape",
+  "mode": "full",
+  "code_commit": "42a2c435ac4eadfcf3bbdf8e385939a0369197d5",
+  "git_dirty": false,
+  "allow_dirty_used": false,
+  "config_hash": "3d18e8f77222e3668af57412553d7eea8572d77110192730dc75b8af6be52394",
+  "dependency_lock": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "networkx": "3.6.1"
+  },
+  "config": {
+    "n": 216,
+    "rhos": [
+      0.027906976744186046,
+      0.05581395348837209,
+      0.1
+    ],
+    "alpha_hats": [
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "gamma_hats": [
+      0.0,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "eta_hats": [
+      0.0,
+      0.1,
+      1.0
+    ],
+    "mu": 0.0,
+    "beta": 1.0,
+    "n_seeds": 5,
+    "r_multipliers": [
+      0.5,
+      0.7272727272727273,
+      0.9545454545454546,
+      1.1818181818181817,
+      1.4090909090909092,
+      1.6363636363636362,
+      1.8636363636363635,
+      2.090909090909091,
+      2.3181818181818183,
+      2.5454545454545454,
+      2.7727272727272725,
+      3.0
+    ],
+    "profiles": [
+      "step",
+      "linear",
+      "smooth"
+    ],
+    "master_entropy": 20261005,
+    "experiment_id": 2,
+    "match_rel_tol": 0.1,
+    "local_r_mult_max": 1.5,
+    "k_by_geometric": {
+      "T3_6^3": 6,
+      "RGG3_k12": 12,
+      "RGG3_weighted": 12,
+      "T3_decorated": 13
+    },
+    "criteria": {
+      "observable": "DeltaS = [min S(geometricas) - min S(no geometricas)] / (beta*C(N,2))",
+      "exito": "DeltaS>0 en 100% de los puntos, en >=3/5 semillas",
+      "fracaso": "DeltaS<0 en algun punto, en >=3/5 semillas (puntos marcados prioritarios para L-3b)",
+      "min_seeds": 3,
+      "eta_convention": "eta = eta_hat*beta/(N-2)",
+      "geometricas": [
+        "T3 6^3 binaria",
+        "RGG3 k12 binaria",
+        "RGG3 ponderada optimizada (perfil x r, a por biseccion)",
+        "T3 decorada 3^3 x K8"
+      ],
+      "no_geometricas": [
+        "clique colex",
+        "union K_{k+1}",
+        "caveman conectado",
+        "ER G(n,m)",
+        "uniforme"
+      ]
+    }
+  },
+  "phase": "final",
+  "complete": true,
+  "elapsed_s": 5.12936907600033,
+  "result": {
+    "decision": "EXITO",
+    "seeds_with_all_points_positive": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n_points": 180,
+    "n_points_negative_in_ge3_seeds": 0,
+    "priority_points_for_L3b": [],
+    "n_points_positive_in_ge3_seeds": 180,
+    "delta_S_min": 2.5561380455172617e-05,
+    "delta_S_max": 0.000857940822457259,
+    "frac_rows_positive": 1.0,
+    "geo_best_counts": {
+      "RGG3_weighted": 900
+    },
+    "diagnostic_local_no_vote": {
+      "local_r_mult_max": 1.5,
+      "delta_S_local_min": 0.003972493640200609,
+      "frac_rows_local_positive": 1.0,
+      "n_rows_local_negative": 0
+    },
+    "non_best_counts": {
+      "uniform": 900
+    }
+  },
+  "reference_reports": {
+    "rho=0.027907|seed=0": {
+      "geo_active": {
+        "T3_6^3": 1,
+        "RGG3_weighted": 30
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K7",
+        "caveman_K7",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1334 vs W0 648 (rel 1.059 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 648 (rel 1.167 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        }
+      ]
+    },
+    "rho=0.027907|seed=1": {
+      "geo_active": {
+        "T3_6^3": 1,
+        "RGG3_weighted": 30
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K7",
+        "caveman_K7",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1357 vs W0 648 (rel 1.094 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 648 (rel 1.167 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        }
+      ]
+    },
+    "rho=0.027907|seed=2": {
+      "geo_active": {
+        "T3_6^3": 1,
+        "RGG3_weighted": 30
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K7",
+        "caveman_K7",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1319 vs W0 648 (rel 1.035 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 648 (rel 1.167 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        }
+      ]
+    },
+    "rho=0.027907|seed=3": {
+      "geo_active": {
+        "T3_6^3": 1,
+        "RGG3_weighted": 30
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K7",
+        "caveman_K7",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1308 vs W0 648 (rel 1.019 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 648 (rel 1.167 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        }
+      ]
+    },
+    "rho=0.027907|seed=4": {
+      "geo_active": {
+        "T3_6^3": 1,
+        "RGG3_weighted": 30
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K7",
+        "caveman_K7",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1310 vs W0 648 (rel 1.022 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 648 (rel 1.167 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        }
+      ]
+    },
+    "rho=0.055814|seed=0": {
+      "geo_active": {
+        "RGG3_k12": 1,
+        "T3_decorated": 1,
+        "RGG3_weighted": 27
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "clique_union_K14",
+        "caveman_K14",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 1296 (rel 0.500 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        }
+      ]
+    },
+    "rho=0.055814|seed=1": {
+      "geo_active": {
+        "RGG3_k12": 1,
+        "T3_decorated": 1,
+        "RGG3_weighted": 27
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "clique_union_K14",
+        "caveman_K14",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 1296 (rel 0.500 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        }
+      ]
+    },
+    "rho=0.055814|seed=2": {
+      "geo_active": {
+        "RGG3_k12": 1,
+        "T3_decorated": 1,
+        "RGG3_weighted": 27
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "clique_union_K14",
+        "caveman_K14",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 1296 (rel 0.500 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        }
+      ]
+    },
+    "rho=0.055814|seed=3": {
+      "geo_active": {
+        "RGG3_k12": 1,
+        "T3_decorated": 1,
+        "RGG3_weighted": 27
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "clique_union_K14",
+        "caveman_K14",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 1296 (rel 0.500 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        }
+      ]
+    },
+    "rho=0.055814|seed=4": {
+      "geo_active": {
+        "RGG3_k12": 1,
+        "T3_decorated": 1,
+        "RGG3_weighted": 27
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "clique_union_K14",
+        "caveman_K14",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 1296 (rel 0.500 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        }
+      ]
+    },
+    "rho=0.100000|seed=0": {
+      "geo_active": {
+        "RGG3_weighted": 24
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 2322 (rel 0.721 > 0.1)"
+        },
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1334 vs W0 2322 (rel 0.425 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 2322 (rel 0.395 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=1.1818"
+        }
+      ]
+    },
+    "rho=0.100000|seed=1": {
+      "geo_active": {
+        "RGG3_weighted": 24
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 2322 (rel 0.721 > 0.1)"
+        },
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1357 vs W0 2322 (rel 0.416 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 2322 (rel 0.395 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=1.1818"
+        }
+      ]
+    },
+    "rho=0.100000|seed=2": {
+      "geo_active": {
+        "RGG3_weighted": 24
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 2322 (rel 0.721 > 0.1)"
+        },
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1319 vs W0 2322 (rel 0.432 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 2322 (rel 0.395 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=1.1818"
+        }
+      ]
+    },
+    "rho=0.100000|seed=3": {
+      "geo_active": {
+        "RGG3_weighted": 24
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 2322 (rel 0.721 > 0.1)"
+        },
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1308 vs W0 2322 (rel 0.437 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 2322 (rel 0.395 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=1.1818"
+        }
+      ]
+    },
+    "rho=0.100000|seed=4": {
+      "geo_active": {
+        "RGG3_weighted": 24
+      },
+      "non_active": [
+        "clique_colex",
+        "clique_union_K13",
+        "caveman_K13",
+        "ER_Gnm",
+        "uniform"
+      ],
+      "omissions": [
+        {
+          "ref": "T3_6^3",
+          "status": "descartada",
+          "reason": "masa propia 648 vs W0 2322 (rel 0.721 > 0.1)"
+        },
+        {
+          "ref": "RGG3_k12",
+          "status": "descartada",
+          "reason": "masa propia 1310 vs W0 2322 (rel 0.436 > 0.1)"
+        },
+        {
+          "ref": "T3_decorated",
+          "status": "descartada",
+          "reason": "masa propia 1404 vs W0 2322 (rel 0.395 > 0.1)"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=step r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=linear r_mult=1.1818"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.5000"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.7273"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=0.9545"
+        },
+        {
+          "ref": "RGG3_weighted",
+          "status": "omitida",
+          "reason": "masa inalcanzable perfil=smooth r_mult=1.1818"
+        }
+      ]
+    }
+  },
+  "scope_note": "Compara representantes evaluados; no minimiza globalmente. Redactar como 'ninguna de las referencias geometricas evaluadas...'."
+}

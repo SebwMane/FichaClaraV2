@@ -50,7 +50,7 @@ if str(ROOT) not in sys.path:
 from omega.config.convert import reduced_to_raw  # noqa: E402
 from omega.config.seeds import SeedKey, make_rng  # noqa: E402
 from omega.config.settings import FunctionalParams  # noqa: E402
-from omega.dynamics.fixed_density import density_to_total  # noqa: E402
+from omega.dynamics.fixed_density import density_to_total, uniform_state_threshold  # noqa: E402
 from omega.dynamics.functional import action, degree_irregularity, density, smoothness, triangles  # noqa: E402
 from omega.experiments.v11.gate import head_commit, tree_dirty  # noqa: E402
 from omega.io.provenance import dependency_lock  # noqa: E402
@@ -82,6 +82,13 @@ FULL: dict[str, Any] = {
     "r_multipliers": [float(x) for x in np.linspace(0.5, 3.0, 12)],
     "profiles": list(R.PROFILES),
 }
+# L-2b (Consejo Rev. 2, R2.8 L-A4): suplemento declarado tras L-2. Mismos criterios, referencias y semillas; la malla
+# de alpha se expresa en la escala de Omega-B, alpha_hat = f * alpha_c(gamma_hat, rho, N) (la de L-3b), porque la malla
+# absoluta de L-2 (alpha_hat <= 3) queda muy por debajo del umbral alpha_c ~ (1+gamma_hat)/rho de estas densidades.
+L2B_OVERRIDE: dict[str, Any] = {
+    "alpha_mode": "omega_b_factor",
+    "factors": [0.25, 0.5, 1.0, 1.5, 3.0],
+}
 SMOKE_OVERRIDE: dict[str, Any] = {
     "rhos": [6 / 215, 0.1],
     "alpha_hats": [1.0, 3.0],
@@ -106,8 +113,12 @@ def canonical_hash(cfg: dict[str, Any]) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
-def build_config(smoke: bool) -> dict[str, Any]:
+def build_config(smoke: bool, l2b: bool = False) -> dict[str, Any]:
     cfg = dict(FULL)
+    cfg["alpha_mode"] = "absolute"
+    if l2b:
+        cfg.update(L2B_OVERRIDE)
+        cfg.pop("alpha_hats")
     if smoke:
         cfg.update(SMOKE_OVERRIDE)
     cfg.update(
@@ -244,13 +255,19 @@ def self_check(refs: list[Ref], p: FunctionalParams) -> None:
 
 def run_computation(cfg: dict[str, Any], log: Any) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     n = int(cfg["n"])
-    grid = list(itertools.product(cfg["alpha_hats"], cfg["gamma_hats"], cfg["eta_hats"]))
-    params = [params_for(a, g, e, n) for a, g, e in grid]
-    coef = np.array([[-p.alpha, p.beta, p.gamma, p.eta] for p in params], dtype=np.float64)
+    by_factor = cfg.get("alpha_mode") == "omega_b_factor"
+    first = cfg["factors"] if by_factor else cfg["alpha_hats"]
+    base_grid = list(itertools.product(first, cfg["gamma_hats"], cfg["eta_hats"]))
     norm = BETA * n * (n - 1) / 2.0
     rows: list[dict[str, Any]] = []
     reports: dict[str, Any] = {}
     for rho_idx, rho in enumerate(cfg["rhos"]):
+        if by_factor:
+            grid = [(f * uniform_state_threshold(g, rho, n), g, e) for f, g, e in base_grid]
+        else:
+            grid = list(base_grid)
+        params = [params_for(a, g, e, n) for a, g, e in grid]
+        coef = np.array([[-p.alpha, p.beta, p.gamma, p.eta] for p in params], dtype=np.float64)
         for seed in range(int(cfg["n_seeds"])):
             t0 = time.perf_counter()
             geo, non, report = build_references(cfg, rho, rho_idx, seed)
@@ -275,6 +292,7 @@ def run_computation(cfg: dict[str, Any], log: Any) -> tuple[list[dict[str, Any]]
                 rows.append(
                     {
                         "rho": rho, "alpha_hat": a, "gamma_hat": g, "eta_hat": e, "seed": seed,
+                        "factor": base_grid[p_idx][0] if by_factor else float("nan"),
                         "S_geo_min": sg, "geo_best": gb.name, "geo_best_detail": gb.detail,
                         "S_non_min": sn, "non_best": nb.name, "non_best_detail": nb.detail,
                         "delta_S": (sg - sn) / norm, "n_geo": len(geo), "n_non": len(non),
@@ -329,7 +347,7 @@ def decide(rows: list[dict[str, Any]], n_seeds: int) -> dict[str, Any]:
 
 CSV_FIELDS = [
     "rho", "alpha_hat", "gamma_hat", "eta_hat", "seed", "S_geo_min", "geo_best", "geo_best_detail",
-    "S_non_min", "non_best", "non_best_detail", "delta_S", "n_geo", "n_non", "delta_S_local",
+    "S_non_min", "non_best", "non_best_detail", "delta_S", "n_geo", "n_non", "delta_S_local", "factor",
 ]
 
 
@@ -348,18 +366,21 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0] if __doc__ else "")
     ap.add_argument("--smoke", action="store_true", help="malla minima (no valida la decision)")
     ap.add_argument("--allow-dirty", action="store_true", help="solo smoke: permite arbol sucio (queda marcado)")
-    ap.add_argument("--out", type=Path, default=ROOT / "results" / "landscape_l2", help="directorio de salida")
+    ap.add_argument("--out", type=Path, default=None, help="directorio de salida")
+    ap.add_argument("--l2b", action="store_true", help="suplemento L-2b: alpha_hat = f * alpha_c(gamma_hat, rho, N)")
     args = ap.parse_args(argv)
 
     dirty = tree_dirty()
     if dirty and not (args.smoke and args.allow_dirty):
         print("ERROR: arbol git sucio; el modo full exige commit limpio (--allow-dirty solo con --smoke).", file=sys.stderr)
         return 2
-    cfg = build_config(args.smoke)
+    cfg = build_config(args.smoke, args.l2b)
+    if args.out is None:
+        args.out = ROOT / "results" / ("landscape_l2b" if args.l2b else "landscape_l2")
     chash = canonical_hash(cfg)
     commit = head_commit()
     meta: dict[str, Any] = {
-        "step": STEP,
+        "step": "l2b_landscape" if args.l2b else STEP,
         "mode": "smoke" if args.smoke else "full",
         "code_commit": commit,
         "git_dirty": dirty,
