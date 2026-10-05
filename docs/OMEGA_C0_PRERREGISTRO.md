@@ -251,3 +251,21 @@ Todas se registraron después de las corridas *smoke* de código (3 celdas de pa
 
 - Cada proceso usa un solo hilo BLAS (`OMP_NUM_THREADS` = 1).
 - No afecta a ningún criterio.
+
+### C0-A5 — Protocolo de R6 y diagnóstico D-1
+
+Se registró después de ver el resultado de C0-L4 (CONTINÚA) y antes de correr R6 y D-1.
+
+**R6 (sin cambio de criterio; se fija lo que §4 no detallaba)**
+- Se aplica a las celdas candidatas que superan R3 y R8. Son 30 celdas.
+- Por celda se repiten los inicios que votaron LOCAL (≥ 2/3 semillas), con las semillas 0, 1 y 2 y N ∈ {125, 343}.
+- Mismos (c*, k*, a), max_steps, tolerancias e inicios definidos de forma intensiva (k*/(N−1), etc.).
+- La celda supera R6 si **algún** inicio que votó obtiene DISPERSO-LOCAL en ≥ 2/3 semillas **en ambos** tamaños.
+- La semilla RNG incluye N.
+
+**D-1 (diagnóstico añadido; NO vota en la decisión preregistrada)**
+- 157 de los 253 finales DISPERSO-LOCAL de inicios genéricos terminaron en `max_steps`, es decir, sin converger.
+- Pregunta: ¿esos estados son estacionarios o son transitorios de engrosamiento (coarsening) hacia DENSO-TRIVIAL?
+- Método: se continúa cada uno desde su W final hasta 100 000 pasos en total y se reclasifica.
+- Se informa la fracción que sigue siendo DISPERSO-LOCAL, la que converge y la evolución de S/LB.
+- Su lectura entra en el informe con el nivel de afirmación que corresponda.
