@@ -317,3 +317,42 @@ Se registró **después** de ver la batería. Solo puede rebajar afirmaciones; n
 **Lectura:**
 - Si el nulo reproduce D_L y D_s dentro de ±0.5, esas cifras no indican geometría. Se deben al grado y al tamaño.
 - Solo una separación clara respecto del nulo (D_L(final) < D_L(nulo) − 0.5) se informa como «estructura de escala no trivial».
+
+## 7. C0-F1 — Escalado y certificado de la subfamilia «R-3D» (prerregistro)
+
+Este apartado se registra antes de cualquier corrida con N > 343. Lo autoriza la condición de continuación del Consejo: «solo si aparece una fase intermedia no trivial se ejecuta la dinámica completa y se mide D_eff, D_s, …».
+
+**Objeto.** Las 10 celdas candidatas donde el inicio R da, con N = 343, D_s ≥ 2.5 y D_L entre 2.4 y 3.7, separado del nulo:
+
+| c* | k* | Celdas |
+|---|---|---|
+| 1 | 6 | 18, 19, 20 |
+| 2 | 8 | 36, 37, 38 |
+| 4 | 12 | 55, 56 |
+| 8 | 16 | 73, 74 |
+
+**Corridas**
+- Inicio R (mismo generador que en R6, con la semilla dependiente de N), semillas 0, 1 y 2.
+- N = 512 en las 10 celdas.
+- N = 729 en 4 celdas (19, 37, 55 y 73; a = 1, una por c*).
+- max_steps = 40 000; el resto de la dinámica es idéntico.
+- Total: 30 + 12 = 42 corridas.
+
+**Medidas**
+- Clase C0 (§4).
+- Batería C0-A6.
+- Control nulo C0-A7.
+- **Certificado Ω-1.1 completo**, con umbrales sin modificar (`collect_run_evidence` y `assess_run`; mismo camino que el informe de L-3b).
+- Referencia del certificado con el mismo N: RGG3 k12 (3 semillas) y T³ (8³ = 512 y 9³ = 729).
+
+**D_L.** Se ajusta con N ∈ {216, 343, 512} para todas las celdas y con N ∈ {216, 343, 512, 729} para las 4 celdas con 729. Se usa la mediana de las semillas.
+
+**Decisión de F1** (por celda; global = la mejor celda):
+
+| Veredicto | Condición |
+|---|---|
+| **F1-POSITIVO** | En N máximo, ≥ 2/3 semillas DISPERSO-LOCAL **y** certificado sin códigos (veredicto candidato) |
+| **F1-INDETERMINADO** | Hay DISPERSO-LOCAL, 2.5 ≤ D_L ≤ 3.5 y separación del nulo ≥ 0.5, pero el certificado falla. Todos sus códigos, salvo F10 (no convergencia), están también en la RGG3 de referencia con el mismo N: el tamaño no basta para discriminar |
+| **F1-NEGATIVO** | Cualquier otro caso: D_L fuera de [2.5, 3.5]; códigos que la RGG3 de referencia no tiene; o pérdida de DISPERSO-LOCAL |
+
+Un F1-POSITIVO **no** declara geometría emergente. Abre el paquete de confirmación (N-1, reproducibilidad, Θ > 0), que requiere ratificación del Consejo.
