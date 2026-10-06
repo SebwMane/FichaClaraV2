@@ -50,3 +50,15 @@ Además, **la dimensión no se fija**: ningún nivel exige D = 3. D_B ≈ 3 no e
 - El Nivel II aislado puede dar D ≈ 3 convergente en un anillo con 0.1 % de atajos. Nunca debe usarse solo.
 
 **Informe obligatorio:** NO_GEOMÉTRICO / GEOMETRÍA_GRUESA(d) / GEOMETRÍA_VARIEDAD(d ≥ 3) / VARIEDAD_NO_EVALUABLE (d ≤ 2).
+
+## Diagnósticos complementarios (tras L-COH-0b y la auditoría (b))
+
+| Diagnóstico | Herramienta | Atrapa | No ve | Estado |
+|---|---|---|---|---|
+| **B-bis: coherencia multiescala γ** | `omega/diagnostics/coherence.py` | Retazos, cruces lentos (WS β = 0.001, atajos al 0.1 %), cactus; **corrige el falso negativo con borde** | Árboles críticos (amenables), tubos 1D gruesos | Diagnóstico, PARCIAL (0.95 / 0.81) |
+| **K: curvatura de Ollivier (escala 1)** | `omega/curvature/ollivier_sparse.py` | ER y RR, retazos, cliques, árboles (f_neg); corrige los bordes | WS y atajos escasos; C0 | Diagnóstico, APORTA (no redundante con ρ) |
+
+**Reglas:**
+- Ninguno es certificado, criterio de dimensión ni término de energía.
+- La coherencia como objetivo colapsaría a 1D (CH-T5).
+- Una regla de decisión combinada queda **pendiente de prerregistro** con familias nuevas.
