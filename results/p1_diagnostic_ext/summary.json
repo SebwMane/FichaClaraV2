@@ -1,0 +1,427 @@
+{
+  "step": "p1_diagnostic_ext",
+  "code_commit": "5cf402be8bc0d2dab16ecbc2b06de822ce262474",
+  "n_graphs": 23,
+  "result": {
+    "extension_sola": {
+      "verdict": "PARCIAL",
+      "sensitivity": 1.0,
+      "specificity": 0.875,
+      "n_G_eval": 6,
+      "n_L_NL_eval": 16,
+      "by_family": {
+        "RGG3_k12_n4096": {
+          "label": "G",
+          "status": {
+            "HOMOGENEIZA": 3
+          },
+          "rho": [
+            0.419,
+            0.353,
+            0.378
+          ]
+        },
+        "RGG2_k12_n4096": {
+          "label": "G",
+          "status": {
+            "HOMOGENEIZA": 3
+          },
+          "rho": [
+            0.237,
+            0.256,
+            0.294
+          ]
+        },
+        "retazos_8_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 3
+          },
+          "rho": [
+            1.337,
+            1.314,
+            1.346
+          ]
+        },
+        "retazos_27_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 3
+          },
+          "rho": [
+            1.108,
+            1.128,
+            1.124
+          ]
+        },
+        "retazos_64_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 2,
+            "HOMOGENEIZA": 1
+          },
+          "rho": [
+            1.025,
+            1.021,
+            0.997
+          ]
+        },
+        "RGG3_atajos1_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 3
+          },
+          "rho": [
+            1.026,
+            1.037,
+            1.032
+          ]
+        },
+        "WS_b001_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 3
+          },
+          "rho": [
+            2.476,
+            2.599,
+            2.616
+          ]
+        },
+        "caveman_K8_n4096": {
+          "label": "L",
+          "status": {
+            "HOMOGENEIZA": 1
+          },
+          "rho": [
+            0.085
+          ]
+        },
+        "ER_k12_n4096": {
+          "label": "NL",
+          "status": {
+            "SIN_VENTANA": 1
+          },
+          "rho": [
+            null
+          ]
+        }
+      }
+    },
+    "union_principal_extension": {
+      "verdict": "PARCIAL",
+      "sensitivity": 1.0,
+      "specificity": 0.85,
+      "n_G_eval": 21,
+      "n_L_NL_eval": 20,
+      "by_family": {
+        "RGG3_k8": {
+          "label": "G",
+          "status": {
+            "HOMOGENEIZA": 3
+          },
+          "rho": [
+            0.747,
+            0.705,
+            0.651
+          ]
+        },
+        "RGG3_k12": {
+          "label": "G",
+          "status": {
+            "HOMOGENEIZA": 3
+          },
+          "rho": [
+            0.747,
+            0.734,
+            0.753
+          ]
+        },
+        "RGG3_k16": {
+          "label": "G",
+          "status": {
+            "SIN_VENTANA": 3
+          },
+          "rho": [
+            null,
+            null,
+            null
+          ]
+        },
+        "RGG3_k12_n1728": {
+          "label": "G",
+          "status": {
+            "HOMOGENEIZA": 3
+          },
+          "rho": [
+            0.542,
+            0.663,
+            0.649
+          ]
+        },
+        "RGG2_k12": {
+          "label": "G",
+          "status": {
+            "HOMOGENEIZA": 3
+          },
+          "rho": [
+            0.697,
+            0.639,
+            0.522
+          ]
+        },
+        "RGG4_k12": {
+          "label": "G",
+          "status": {
+            "SIN_VENTANA": 3
+          },
+          "rho": [
+            null,
+            null,
+            null
+          ]
+        },
+        "RGG3_diluido": {
+          "label": "G",
+          "status": {
+            "HOMOGENEIZA": 3
+          },
+          "rho": [
+            0.693,
+            0.729,
+            0.697
+          ]
+        },
+        "T3_9": {
+          "label": "G",
+          "status": {
+            "CV_CERO": 1
+          },
+          "rho": [
+            null
+          ]
+        },
+        "cuadrado_27": {
+          "label": "G",
+          "status": {
+            "CV_CERO": 1
+          },
+          "rho": [
+            null
+          ]
+        },
+        "triangular_27": {
+          "label": "G",
+          "status": {
+            "CV_CERO": 1
+          },
+          "rho": [
+            null
+          ]
+        },
+        "anillo_k12": {
+          "label": "G",
+          "status": {
+            "CV_CERO": 1
+          },
+          "rho": [
+            null
+          ]
+        },
+        "retazos_27": {
+          "label": "L",
+          "status": {
+            "SIN_VENTANA": 3
+          },
+          "rho": [
+            null,
+            null,
+            null
+          ]
+        },
+        "retazos_8": {
+          "label": "L",
+          "status": {
+            "SIN_VENTANA": 3
+          },
+          "rho": [
+            null,
+            null,
+            null
+          ]
+        },
+        "retazos_64_n1728": {
+          "label": "L",
+          "status": {
+            "SIN_VENTANA": 3
+          },
+          "rho": [
+            null,
+            null,
+            null
+          ]
+        },
+        "RGG3_atajos10": {
+          "label": "L",
+          "status": {
+            "SIN_VENTANA": 3
+          },
+          "rho": [
+            null,
+            null,
+            null
+          ]
+        },
+        "WS_b005": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 3
+          },
+          "rho": [
+            1.01,
+            1.036,
+            1.129
+          ]
+        },
+        "WS_b02": {
+          "label": "L",
+          "status": {
+            "SIN_VENTANA": 3
+          },
+          "rho": [
+            null,
+            null,
+            null
+          ]
+        },
+        "caveman_K8": {
+          "label": "L",
+          "status": {
+            "HOMOGENEIZA": 1
+          },
+          "rho": [
+            0.085
+          ]
+        },
+        "ER_k12": {
+          "label": "NL",
+          "status": {
+            "SIN_VENTANA": 3
+          },
+          "rho": [
+            null,
+            null,
+            null
+          ]
+        },
+        "RR_k12": {
+          "label": "NL",
+          "status": {
+            "SIN_VENTANA": 3
+          },
+          "rho": [
+            null,
+            null,
+            null
+          ]
+        },
+        "RGG3_k12_n4096": {
+          "label": "G",
+          "status": {
+            "HOMOGENEIZA": 3
+          },
+          "rho": [
+            0.419,
+            0.353,
+            0.378
+          ]
+        },
+        "RGG2_k12_n4096": {
+          "label": "G",
+          "status": {
+            "HOMOGENEIZA": 3
+          },
+          "rho": [
+            0.237,
+            0.256,
+            0.294
+          ]
+        },
+        "retazos_8_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 3
+          },
+          "rho": [
+            1.337,
+            1.314,
+            1.346
+          ]
+        },
+        "retazos_27_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 3
+          },
+          "rho": [
+            1.108,
+            1.128,
+            1.124
+          ]
+        },
+        "retazos_64_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 2,
+            "HOMOGENEIZA": 1
+          },
+          "rho": [
+            1.025,
+            1.021,
+            0.997
+          ]
+        },
+        "RGG3_atajos1_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 3
+          },
+          "rho": [
+            1.026,
+            1.037,
+            1.032
+          ]
+        },
+        "WS_b001_n4096": {
+          "label": "L",
+          "status": {
+            "NO_HOMOGENEIZA": 3
+          },
+          "rho": [
+            2.476,
+            2.599,
+            2.616
+          ]
+        },
+        "caveman_K8_n4096": {
+          "label": "L",
+          "status": {
+            "HOMOGENEIZA": 1
+          },
+          "rho": [
+            0.085
+          ]
+        },
+        "ER_k12_n4096": {
+          "label": "NL",
+          "status": {
+            "SIN_VENTANA": 1
+          },
+          "rho": [
+            null
+          ]
+        }
+      }
+    }
+  }
+}
