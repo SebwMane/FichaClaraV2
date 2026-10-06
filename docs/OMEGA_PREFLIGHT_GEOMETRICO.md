@@ -70,3 +70,12 @@ Además, **la dimensión no se fija**: ningún nivel exige D = 3. D_B ≈ 3 no e
 | `omega/diagnostics/annulus.py` (conexidad del anillo r ≤ d ≤ 2r) | Árboles (incluido el uniforme), cactus, árboles de cliques; distingue 1D (DOS_EXTREMOS); cliques y expansores sin ventana | 2-árbol y estructuras de mundo pequeño trianguladas (una sola escala); retazos; tubos a escala menor que su fibra | Diagnóstico, PARCIAL (1.00 / 0.87). No selecciona dimensión |
 
 **Regla combinada RC-1** (localidad + γ + K + Nivel II), validada fuera de muestra: **INVÁLIDA** (sensibilidad 0.696, especificidad 0.97). Sirve como **filtro de rechazo conservador**, no como certificado de aceptación.
+
+## Propuestas de dimensionalidad (tras L-DIM-1 y L-ARQ-0)
+
+Toda propuesta que pretenda **seleccionar** una dimensión debe cumplir, además de A–H, los criterios **E1–E6** de `docs/OMEGA_ARQ_0.md` §4.
+
+- **E2, prueba del dial:** se barre cada parámetro continuo durante ≥ 4 décadas. Si aparecen ≥ 2 enteros, la propuesta es un dial y se rechaza, salvo que el parámetro esté fijado de antemano por un principio independiente.
+- **E5, no identificación:** el nulo de etiquetas permutadas debe quedar en ≤ 5 %.
+- **E6, alfabeto:** d no puede ser una función del tamaño del alfabeto de la regla.
+- El **problema A** (exclusión de degenerados) va antes que el **B** (selección).

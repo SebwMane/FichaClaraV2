@@ -118,7 +118,27 @@ Esto enlaza tres resultados previos de Ω:
 
 ## 5. Referencias externas
 
-*(sección completada tras la verificación del agente Haiku y la revisión del cerebro)*
+Verificación bibliográfica de un agente Haiku, revisada por el cerebro.
+- El agente **no aportó URL**, así que la verificación es bibliográfica débil.
+- Los enunciados los confirma el cerebro con la literatura estándar.
+- Todas se usan como **nivel 3**, y solo por su contenido combinatorio y estadístico.
+
+| Referencia | Uso en este documento | Estado |
+|---|---|---|
+| Topkis, *Oper. Res.* **26**, 305–321 (1978) | Generalización del lema del dial (diferencias crecientes ⇒ argmin monótono) | ✔ |
+| Bass, *Proc. London Math. Soc.* (3) **25**, 603–614 (1972); Guivarc'h, *Bull. SMF* **101**, 333–379 (1973) | Grado de crecimiento = Σ k·rango(G_k/G_{k+1}); en Z^d vale d | ✔ |
+| Ambjørn–Jurkiewicz, *Phys. Lett. B* **278**, 42 (1992) | Triangulaciones dinámicas euclídeas 4D: fase arrugada y fase de polímero ramificado | ✔ |
+| Agishtein–Migdal, *Mod. Phys. Lett. A* **7**, 1039 (1992); véase también *Nucl. Phys. B* **385** (1992) | Ídem. Ellos interpretaron inicialmente la transición como continua | Débil: el agente dudó de la revista. Confianza moderada |
+| Bialas–Burda–Krzywicki–Petersson, *Nucl. Phys. B* **472**, 293 (1996) | La transición es de primer orden: no hay límite continuo entre ambas fases | ✔ |
+| Ambjørn–Jurkiewicz–Loll, *PRL* **93**, 131301 (2004) y *PRL* **95**, 171301 (2005) | Con foliación causal impuesta aparece un universo extendido; dimensión espectral ≈ 2 a escala corta y ≈ 4 a escala larga | ✔ |
+| Ambjørn–Durhuus–Jonsson, *Quantum Geometry*, CUP (1997) | Polímeros ramificados genéricos: d_H = 2 | ✔ |
+| Kleitman–Rothschild, *Trans. AMS* **205**, 205–220 (1975) | Casi todos los órdenes parciales tienen tres capas (dominio entrópico no variedad) | ✔ |
+| Myrheim (CERN TH-2538, 1978); Meyer (tesis MIT, 1988) | Estimador de dimensión por fracción de orden | Fuentes primarias no consultadas; citado de forma consistente |
+
+**Lectura de nivel 3 para Ω.**
+- Un programa externo independiente, con 30 años de simulaciones, encontró **las mismas dos degeneraciones** que el mapa negativo de Ω: la compactificación y la ramificación.
+- Ese programa solo las evitó **añadiendo estructura** (la foliación causal), con la dimensión fijada por el bloque.
+- No es una prueba de que Ω deba hacer lo mismo. Sí es evidencia externa de que **ningún ensemble relacional sin estructura adicional conocido** ha producido geometría extendida de forma espontánea, y es coherente con la conjetura de nivel 4 del §1 del mapa negativo.
 
 ## 6. Decisión del cerebro
 
