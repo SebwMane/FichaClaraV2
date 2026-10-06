@@ -62,3 +62,11 @@ Además, **la dimensión no se fija**: ningún nivel exige D = 3. D_B ≈ 3 no e
 - Ninguno es certificado, criterio de dimensión ni término de energía.
 - La coherencia como objetivo colapsaría a 1D (CH-T5).
 - Una regla de decisión combinada queda **pendiente de prerregistro** con familias nuevas.
+
+## B-ter: un extremo a toda escala (tras L-CIC-0b)
+
+| Herramienta | Atrapa | No ve | Estado |
+|---|---|---|---|
+| `omega/diagnostics/annulus.py` (conexidad del anillo r ≤ d ≤ 2r) | Árboles (incluido el uniforme), cactus, árboles de cliques; distingue 1D (DOS_EXTREMOS); cliques y expansores sin ventana | 2-árbol y estructuras de mundo pequeño trianguladas (una sola escala); retazos; tubos a escala menor que su fibra | Diagnóstico, PARCIAL (1.00 / 0.87). No selecciona dimensión |
+
+**Regla combinada RC-1** (localidad + γ + K + Nivel II), validada fuera de muestra: **INVÁLIDA** (sensibilidad 0.696, especificidad 0.97). Sirve como **filtro de rechazo conservador**, no como certificado de aceptación.

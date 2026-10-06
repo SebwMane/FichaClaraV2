@@ -47,6 +47,8 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 | P1-D.2 | SEPARA-PARCIAL | La meseta de D_B no es fiable; geometría gruesa ≠ variedad |
 | **P1-D.3** | **VÁLIDO** (15/15, 33/33, N ≈ 2·10⁴–5·10⁴) | Batería obligatoria; dominio: espacios cerrados casi homogéneos; D ≈ 3 fabricable con WS |
 | L-COH-0b | PARCIAL (0.95, 0.81) | γ corrige los bordes y los cruces lentos; no excluye árboles críticos |
+| L-CIC-0b | PARCIAL (1.00, 0.87) | Un extremo a toda escala (conexidad de anillos): excluye árboles (incluido el uniforme), cliques y expansores sin imponer d ni densidad; falla con el 2-árbol (sin escalas) |
+| RC-1 (fuera de muestra) | INVÁLIDA (sens 0.696, spec 0.97) | La combinación congelada es un rechazador conservador; pierde RGG3 k8, T³ y cajas; acepta el anillo 1D |
 | Auditoría (b) | K APORTA | Curvatura no redundante; corrige ER y los bordes; ciega a los atajos |
 
 ## 5. Correcciones registradas (errores propios y ajenos)
@@ -60,6 +62,9 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 | Cerebro, L-P3-0b | Predijo KD1 ✔ y RGG con κ positivo | El árbol tiene signo mixto; el RGG3 es plano |
 | Cerebro, L-COH-0b | Predijo que los árboles aleatorios serían incoherentes | Los árboles críticos son amenables. **CH-T2 restringido a ramificación acotada inferiormente** |
 | Cerebro, L-COH-0b | C × RR diseñado con un expansor demasiado pequeño | Resultó un tubo 1D (cuasi-isométrico a un ciclo) |
+| Cerebro, L-CIC-0b | Predijo el 2-árbol SIN_VENTANA, el tubo DOS_EXTREMOS y RC-1 PARCIAL o VÁLIDA | 2-árbol CONEXO (una sola escala); tubo CONEXO (r < diámetro de la fibra); RC-1 INVÁLIDA |
+| Consejo | «C + K ⇏ geometría» | No demostrado: solo cada uno por separado; la combinación estaba sin validar |
+| Consejo | «Ya reconocemos la geometría» | RC-1 fuera de muestra: rechazo fiable (0.97), aceptación con pérdidas (0.70) |
 | Auditor Haiku | «24/24 pasan el certificado con N = 729» | Falso: 0/24 (verificado a mano) |
 | Auditor Haiku | Etiquetó L-1/L-2/L-3a como «éxito» | Son análisis que demuestran destinos degenerados |
 | Consejo | «C0 tiende a vacío/cliques» | C0 rompió la dicotomía; su fallo fue no ser geometría |
@@ -78,6 +83,7 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 7. **La planitud es un punto crítico** (Gauss–Bonnet, T5, nivel 1); K ≈ 0 ⇏ geometría.
 8. **Coherencia de Følner ⇏ geometría:** los árboles críticos y las cadenas la cumplen. Y homogeneidad más coherencia ⇒ dimensión entera, pero no necesariamente euclídea (Bass–Guivarc'h, Trofimov; CH-T6).
 9. **Valores objetivo de solapamiento, de incompatibilidad o de 4-ciclos imponen la dimensión** (L-ΩD-T2, CH-T1, Fase 2 §1.3).
+10. **Un extremo a toda escala separa la dimensión ≥ 2 de árboles, 1D, cliques y expansores, pero no 2 de 3** (CIC-T5). Las propiedades estructurales estudiadas son todas ciegas a la dimensión por construcción: **la selección de dimensión es la frontera abierta**.
 
 ## 7. Lo que queda abierto
 
