@@ -121,3 +121,33 @@ El exponente p es la única libertad de forma; se prerregistran los tres valores
 - Ni dinámica ni ajuste de θ o de p tras ver los datos.
 - Ningún uso de d, grado o familia en el cálculo de F.
 - No se reabre la instrumentación.
+
+## 10. Enmienda A1 (2026-10-06, antes de escribir el código y de evaluar ningún grafo)
+
+Solo operacionaliza detalles que el §4–§7 dejaba abiertos. No cambia la familia de candidatos, la rejilla de θ ni los umbrales.
+
+1. **Características.** Se usa el observador congelado `sampled_ball_profile` (400 fuentes, R_MAX = 200).
+   - r_max(W) = `max_window`.
+   - Si la ventana está vacía, r* = 1.
+   - Para el anillo k2, el límite R_MAX = 200 recorta r*; se acepta como parte del instrumento congelado.
+2. **Estratos para L2:**
+   - *retículo:* anillo k2, cuadrado, T³, T⁴, T⁵ (d = 1..5);
+   - *k8:* anillo k8, RGG2/3/4 k8 (d = 1..4);
+   - *k16:* RGG2/3/4 k16 (d = 2..4).
+   - d* por estrato = argmin_d de la media de F en ese estrato. L1 usa la media sobre todas las discretizaciones de cada d.
+3. **L4.** F(d*) es la media de F de las geometrías de dimensión d* (todos los estratos a tamaño N). Pasa si F(degenerado) > F(d*) para **cada instancia** degenerada.
+4. **L7.** Se añade **T⁵ 9⁵ (59 049)** al estrato retículo de escala, para que esté completo (d = 1..5). La condición es que d* del estrato retículo a ≈ 4N coincida con d* del estrato retículo a N.
+5. **NC-2.** Spearman de F frente al grado medio sobre todas las instancias geométricas a tamaño N, para cada θ de la meseta. Sin meseta, se informa el máximo de |ρ_s| sobre la rejilla, solo a título informativo.
+6. **NC-5.**
+   - d*(p) = el d* combinado más frecuente sobre la rejilla de θ, entre los θ con d* interior.
+   - **Codificación confirmada** si d*(p) es estrictamente decreciente en p.
+   - Se informa también la coincidencia exacta con (4, 3, 2).
+7. **Nulos:**
+   - **A:** F_ω no tiene θ. Pasa si cumple L1 + L2 + L4.
+   - **B:** se permutan las etiquetas d entre las instancias geométricas de tamaño N, conservando el estrato. Pasa si algún θ cumple L1 + L2 + L3.
+   - **C:** solo degenerados. Cada instancia recibe una etiqueta d aleatoria en 1..5 y un estrato aleatorio entre los tres; se aplica L1 + L2 + L3. Se hacen 200 repeticiones en B y en C.
+   - Todas las extracciones aleatorias usan `rng_from_key((20261014, 99, i))`.
+8. **Ceguera.**
+   - El extractor recibe solo la matriz de adyacencia y un ID = sha256(clave)[:12].
+   - `truth.jsonl` contiene familia, grupo, d, estrato, N y grado medio, que calcula el generador y no el extractor.
+   - El evaluador es un script distinto que lee los dos archivos.
