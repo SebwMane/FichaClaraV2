@@ -27,3 +27,11 @@
 - certificar geometría (eso es A+);
 - seleccionar ni estimar d, aunque δ ≈ 1/d sea un subproducto;
 - excluir clases fuera del catálogo.
+
+## Punto ciego W5 (tras R1-1)
+
+**Cambio de régimen entre tamaños.**
+- Si el proceso cambia de densidad entre N y 8N, δ refleja el cambio de densidad, no un escalado.
+- Ejemplo: inicio denso con B-s, con E/N 7.9 → 2.0 y δ = 0.45.
+- Si además la coherencia se abstiene en N (SIN_VENTANA), X4 no puede activarse.
+- Regla de uso propuesta (pendiente del Consejo; no se aplica retroactivamente): el par solo es válido si E/N difiere < 25 % entre los dos tamaños.

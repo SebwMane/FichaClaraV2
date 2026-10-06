@@ -210,6 +210,8 @@ def _run_idx(i: int) -> dict[str, Any]:
 
 
 def _dominant(classes: list[str]) -> dict[str, Any]:
+    if not classes:
+        return {"n": 0, "dominant": None, "freq": 0.0, "attractor": False, "result": None, "distribution": {}}
     c = Counter(classes)
     top = sorted(c.items(), key=lambda kv: (-kv[1], kv[0]))[0]
     freq = top[1] / len(classes) if classes else 0.0

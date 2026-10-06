@@ -38,6 +38,7 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 | 8 | **P3-B** (frontera por saturación) | ídem | ídem | ✘ (T2) | Capacidad κ_c − 2m | 1D o mundo pequeño |
 | 9 | **P3-C** (capas con coalescencia) | ídem | ídem | ✘ (T3) | μ_eff > 1 / < 1 / = 1 | Hiperbólico, extinción o polímero ramificado; d dependiente de p |
 | 10 | **P3-D** (planitud de Ollivier) | ídem | `OMEGA_P3_L0B_RESULTADOS.md` | ✘ premisa | Árbol: mediana −0.167 / 0.000. Retazos: f_neg 0.67–0.79. C0: +0.03 | K ≈ 0 no excluye árboles ni C0 |
+| 12 | **R1-1 / SQ** (reescritura irreversible: borrar las aristas sin 4-ciclo y reenganchar los vértices de grado ≤ 1; solo se conserva N) | `claude/omega-r1-1-congelado` | `OMEGA_R1_1_RESULTADOS.md` | ✘ NEGATIVA (Ω6 0/6) | 606 pares: FRAGMENTADO 0.69–0.94; MULTIESTABLE; residuo I1 = grafo aleatorio de tamaño finito (k³/N) | Los dominios con cuadrados nuclean pero no coalescen |
 | 11 | **D5-B** (selección estática expansión + θ·fragilidad^p) | `claude/omega-ldim1-congelado` | `OMEGA_LDIM1_RESULTADOS.md` | ✘ SELECCIÓN-NO-VIABLE | p = 1/2, 1, 2: meseta d* = 2, L4 falla siempre (clique; árboles); nulo B 0.08–0.09; NC-2 \|ρ\| ≤ 0.47 | Compactificación (T2); baja expansión degenerada; d* = f(θ, N), y de p asintóticamente (T1) |
 
 ## 4. Instrumentación (resultados positivos del programa)
@@ -70,6 +71,8 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 | Cerebro, L-CIC-0b | «B-ter es independiente de la dimensión» | Solo se comprobó con d = 2 y 3; a N fijo, el número de escalas decrece con d |
 | Cerebro, RC-3 | Predijo que RGG3 + 0.1 % de atajos no se excluiría y que Heisenberg y los retazos sí | Atajos excluidos (X4-marginal); Heisenberg y retazos no excluidos; árbol de cubos no excluido (no previsto) |
 | Agente Sonnet, RC-3 | Veredicto «VÁLIDA» por lectura literal de la regla por familia | El cerebro adopta la lectura conservadora: PARCIAL |
+| Cerebro, R1-1 | Atribuyó el fallo previsto a la nucleación (∝ 1/N) | Hay nucleación en RAND/ASYNC; el fallo es de coalescencia |
+| Cerebro, R1-1 | Predijo X1 para el inicio denso I1 | NO-EXCLUIDO por el punto ciego W5 de RC-3 (cambio de régimen entre tamaños); la clase es grafo aleatorio |
 | Consejo | «C + K ⇏ geometría» | No demostrado: solo cada uno por separado; la combinación estaba sin validar |
 | Consejo | «Ya reconocemos la geometría» | RC-1 fuera de muestra: rechazo fiable (0.97), aceptación con pérdidas (0.70) |
 | Auditor Haiku | «24/24 pasan el certificado con N = 729» | Falso: 0/24 (verificado a mano) |
@@ -101,12 +104,14 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 19. **Un juez de exclusión de escalado (N → 8N) puede ser ciego a d en el rango validado** (RC-3: cero exclusiones falsas con d = 2…6). Lo que falla con N fijo son las estadísticas locales y de ventana corta, no la exclusión como tal. Límite: ningún juez a N finito es ciego a d para toda d (O3), y los árboles de bloques grandes solo se excluyen a N ≫ bloque^d (W2).
 20. **Las reglas de reescritura reversibles son ensembles de equilibrio (clase cerrada).** R1 solo aporta algo si rompe el balance detallado (R1-0, Ω1).
 21. **Con información de radio 1 (vecinos comunes t), geometría y árbol son indistinguibles localmente.** Ninguna regla de umbral sobre t con todas las Z^d como puntos fijos borra la memoria de un inicio arbóreo (R1-T1, censo exacto). Toda regla que apunte a la fracción de cuñas cuadradas ((d−1)/d en Z^d) codifica d (R1-T2).
+22. **Nuclear no es crecer** (R1-1). Una regla de estabilidad ciega a d (presencia de 4-ciclos) forma núcleos ricos en cuadrados que se absorben aislados. El cuello de botella del problema A es la **coalescencia** de dominios, no su formación.
 10. **Un extremo a toda escala separa la dimensión ≥ 2 de árboles, 1D, cliques y expansores, pero no 2 de 3** (CIC-T5). Las propiedades estructurales estudiadas son todas ciegas a la dimensión por construcción: **la selección de dimensión es la frontera abierta**.
 
 ## 7. Lo que queda abierto
 
 - **Cierre oficial de D5 (frase del Consejo):** «L-DIM-1 no demuestra que Ω sea incapaz de generar una dimensión. Demuestra que la dimensionalidad no puede darse por emergente simplemente porque un funcional estático produzca una meseta o un mínimo interior. En la familia ensayada, la selección queda controlada por parámetros del funcional, escala finita y estructuras degeneradas. Por tanto, cualquier mecanismo futuro de dimensionalidad deberá explicar simultáneamente por qué existe una dimensión, por qué no es un parámetro oculto y por qué las estructuras degeneradas quedan excluidas sin introducir la dimensión que se pretende explicar.»
 - **L-ARQ-0 (síntesis):** la jerarquía conectividad → localidad → coherencia → un extremo → ? → dimensión → geometría. Ω solo tiene mecanismos en los dos primeros niveles. El candidato no dial para «?» es el rango de un sistema de relaciones conmutativas (Bass–Guivarc'h). Criterios de entrada E1–E6 (`OMEGA_ARQ_0.md` §4). Decisión pendiente del Consejo: L-ARQ-1 (conmutatividad con rango no prescrito) o volver al problema A.
+- **R1-1 (SQ):** NEGATIVA. Pendiente del Consejo: cierre de R1 con alcance limitado a SQ y similares, regla W5 y autorización de R3-0 (orden que haga crecer y unir dominios sin codificar d).
 - **R1-0 (análisis de reglas):** se conserva solo N; la densidad y los ciclos son salidas. Familia mínima admisible SQ: borrar las aristas sin 4-ciclo y reenganchar los vértices de grado ≤ 1. Predicción congelada: degenerada (bosque con rotación). Siguiente paso: prerregistro de R1-1.
 - **RC-3 (juez A−):** PARCIAL (lectura conservadora), FE = 0 con d = 2…6, EP 0.944 en las familias nuevas. Se adopta como juez provisional con puntos ciegos declarados (`OMEGA_MAPA_EXCLUSIONES.md`). Siguiente paso en el orden lógico: dinámica A (pendiente del Consejo).
 - **L-A-0 (problema A):** RC-2 INVÁLIDA. El juez de A no es ciego a d. Pendiente del Consejo: A1 (juez relativo, RC-3), A2 (solo rechazo) o A3 (evaluación por tendencias con N). Ninguna dinámica antes.
