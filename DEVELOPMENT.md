@@ -1,321 +1,171 @@
-# Guía de Instalación y Desarrollo Local — Proyecto Omega
+# Guía local: instalar, probar y simular (Proyecto Ω)
 
-## 1. Requisitos previos
+## 1. Instalación
 
-- **Python 3.11+**
-- **pip** o equivalente
-- **Git**
-
-## 2. Instalación
-
-### Clonar el repositorio
+Requisitos: Python ≥ 3.11 y git.
 
 ```bash
 git clone https://github.com/SebwMane/FichaClaraV2.git
 cd FichaClaraV2
+git checkout claude/omega-c0-competencia     # o la rama que quieras reproducir (ver §6)
+python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -e ".[dev]"                      # numpy, scipy, networkx + pytest, mypy, matplotlib
 ```
 
-### Crear un entorno virtual (recomendado)
+**Importante: un solo hilo BLAS.** Las herramientas fijan `OMP_NUM_THREADS=1` (enmienda C0-A4); con varios hilos, la dinámica era unas 30 veces más lenta. Si escribes tus propios scripts, exporta lo mismo:
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 ```
 
-### Instalar dependencias
+## 2. Pruebas
 
 ```bash
-pip install -e .                    # Instalar el paquete en modo desarrollo
-pip install -e ".[dev]"            # Instalar también dependencias de desarrollo
-```
-
-Esto instala:
-- **Núcleo**: numpy ≥1.26, scipy ≥1.11, networkx ≥3.0
-- **Desarrollo**: pytest ≥7.4, matplotlib ≥3.7, mypy ≥1.8
-
-## 3. Estructura del proyecto
-
-```
-FichaClaraV2/
-├── docs/
-│   ├── OMEGA_C0_PRERREGISTRO.md      # Especificación preregistrada de C0
-│   └── OMEGA_C0_RESULTADOS.md        # Resultados finales
-├── omega/
-│   ├── c0/                           # Funcional y dinámica de Ω-C0
-│   │   ├── functional.py             # Acción, gradiente, parámetros
-│   │   ├── dynamics.py               # Evolución por descenso de gradiente
-│   │   ├── locality.py               # Clasificación y medidas locales
-│   │   └── references.py             # Grafos de referencia
-│   ├── config/
-│   │   ├── seeds.py                  # Generación de claves RNG (SeedKey)
-│   │   └── settings*.py              # Configuración de medidas geométricas
-│   ├── geometry/                     # Dimensión, distancia, estructura local
-│   └── experiments/v11/
-│       └── gate.py                   # Herramientas del certificado Ω-1.1
-├── tools/
-│   ├── c0_landscape.py               # Prueba L1–L3 (puerta analítica)
-│   ├── c0_dynamics.py                # Prueba L4 (dinámica a N=216)
-│   ├── c0_battery.py                 # Descriptores geométricos (C0-A6)
-│   ├── c0_null_battery.py            # Control nulo (C0-A7)
-│   ├── c0_redteam.py                 # R6 (escalado N=125,343), D-1 (persistencia)
-│   ├── c0_f1.py                      # F1 y F1b (N=512,729, certificado)
-│   └── l3b_stability.py              # Certificado Ω-1.1
-├── tests/
-│   ├── test_c0_*.py                  # Tests unitarios (18 pruebas)
-│   └── ...                           # Tests de arquitectura
-├── results/                          # Salida de simulaciones (datos JSON, JSONLines)
-├── runs/                             # Pesos finales (archivos .npz comprimidos)
-├── DEVELOPMENT.md                    # Este archivo
-└── pyproject.toml                    # Configuración de proyecto
-```
-
-## 4. Pruebas unitarias
-
-Ejecutar todos los tests:
-
-```bash
-pytest
-```
-
-Incluye 39 tests en total (18 en `tests/test_c0_*.py` + tests de arquitectura).
-
-Tipos de test:
-- **Unitarios**: funcionalidad de módulos (`test_c0_functional.py`, `test_c0_locality.py`, etc.)
-- **Integración**: fin a fin (`test_c0_integration.py`)
-- **Arquitectura**: garantías del sistema (`omega/experiments/v11/`)
-
-Ver detalles con:
-
-```bash
-pytest -v
-pytest -k "c0_functional"       # Solo tests de funcional
-pytest -k "locality"            # Solo tests de localidad
-pytest --co                     # Listar tests sin ejecutar
-```
-
-Verificar tipos con mypy (estricto):
-
-```bash
+pytest                                   # suite rápida (las marcadas 'slow' se excluyen)
+pytest tests/test_c0_*.py -v             # solo Ω-C0: funcional, localidad, dinámica
+pytest tests/test_architecture*.py       # reglas de arquitectura (p. ej. RNG solo vía PCG64)
+pytest -m slow                           # corridas completas (lentas)
 mypy --strict --explicit-package-bases omega/c0
 ```
 
-## 5. Simulaciones de Ω-C0
+### Añadir una prueba propia
 
-Las simulaciones se corren en etapas, cada una prerregistrada en `docs/OMEGA_C0_PRERREGISTRO.md`. Deben ejecutarse **en orden** y la salida de cada etapa alimenta la siguiente.
+Crea `tests/test_<tema>.py`. Ejemplo mínimo, que comprueba la cota C0-T1 (S ≥ −Nψ*²/16κ) sobre un estado aleatorio:
 
-### 5.1 Landscape (C0-L1, L2, L3)
+```python
+import numpy as np
+from omega.c0.functional import action_c0, params_from_targets
 
-**Qué hace**: Analiza la energía y el equilibrio KKT en 75 celdas (parrilla de parámetros).
+def test_cota_c0_t1() -> None:
+    p = params_from_targets(c_star=2, k_star=8, a=1.0)
+    rng = np.random.Generator(np.random.PCG64(0))   # RNG siempre explícito con PCG64
+    n = 64
+    w = rng.random((n, n)) * 0.2
+    w = (w + w.T) / 2
+    np.fill_diagonal(w, 0.0)
+    assert action_c0(w, p) >= p.lower_bound(n) - 1e-9
+```
+
+Reglas que hacen cumplir los tests de arquitectura:
+- nunca `np.random.seed` ni `np.random.rand`: usa `np.random.Generator(np.random.PCG64(...))`;
+- no modifiques el código congelado de Ω-1.0/1.1 ni los umbrales del certificado.
+
+## 3. Mapa del código
+
+| Ruta | Qué hay |
+|---|---|
+| `omega/c0/functional.py` | Acción S_C0, gradiente, `params_from_targets(c*, k*, a)`, cota inferior, KKT |
+| `omega/c0/dynamics.py` | `evolve_c0`: descenso de gradiente proyectado en [0,1] con paso adaptativo |
+| `omega/c0/locality.py` | `classify_c0` (VACIO / DENSO_TRIVIAL / FRAGMENTADO / DISPERSO_LOCAL / DISPERSO_NO_LOCAL) |
+| `omega/c0/references.py` | Grafos de referencia: T³, RGG3, cliques, ER, toro triangular, anillo, árbol… |
+| `omega/geometry/`, `omega/certificate/` | Dimensión, homogeneidad, isotropía, certificado Ω-1.1 |
+| `tools/c0_*.py` | Scripts de cada etapa de Ω-C0 |
+| `docs/OMEGA_C0_PRERREGISTRO.md` | Especificación congelada (parámetros, criterios, enmiendas) |
+| `docs/OMEGA_C0_RESULTADOS.md` | Resultados e interpretación |
+| `results/` | Resultados oficiales versionados (JSON y JSONL) |
+| `runs/` | Pesos W finales (`.npz`). **Ignorado por git**: un clon nuevo no los trae |
+
+## 4. Simulaciones
+
+### 4.1 Prueba rápida (recomendado para empezar)
+
+Los modos `--smoke` usan pocas celdas y semillas, escriben en `results/*_smoke` y no tocan los resultados oficiales:
 
 ```bash
-python tools/c0_landscape.py
+python tools/c0_landscape.py --smoke --allow-dirty            # L1–L3, ~minutos
+python tools/c0_dynamics.py  --smoke --allow-dirty --procs 2  # L4, 2 celdas × 3 inicios, 2000 pasos
 ```
 
-- **Salida**: `results/c0_landscape/{runs.jsonl, summary.json, log.txt}`
-- **Datos**: energía, gradiente, KKT, codegrado en referencias (T³, RGG3, toro triangular)
-- **Tiempo**: ~5–15 min
+Para escribir en otra carpeta: `--out /ruta/salida` (y `--runs-dir` para los `.npz` en dinámica).
 
-### 5.2 Dinámica (C0-L4)
+### 4.2 Experimento a mano
 
-**Qué hace**: Corre descenso de gradiente desde inicios genéricos (U, E, R) en N=216 para todas las celdas y clasifica los estados finales.
+```python
+import numpy as np
+from omega.c0.functional import params_from_targets
+from omega.c0.dynamics import evolve_c0
+from omega.c0.locality import classify_c0
 
-```bash
-python tools/c0_dynamics.py [--resume] [--summarize-only] [--procs 4]
+p = params_from_targets(c_star=2, k_star=8, a=1.0)          # celda 37
+rng = np.random.Generator(np.random.PCG64(1))
+n = 216
+w0 = rng.random((n, n)) * 2 * 8 / (n - 1)                   # inicio "R"
+w0 = np.triu(w0, 1)
+w0 = w0 + w0.T
+ev = evolve_c0(w0, p, max_steps=5000)
+print(ev["status"], ev["s_final"] / p.lower_bound(n))
+print(classify_c0(ev["w"], np.random.Generator(np.random.PCG64(2))))
 ```
 
-- **Salida**: `results/c0_dynamics/{runs.jsonl, summary.json, log.txt}`; pesos en `runs/c0/out/`
-- **Flags**:
-  - `--resume`: continuar desde donde paró
-  - `--summarize-only`: solo regenerar resumen sin correr
-  - `--procs 4`: número de procesos paralelos (ajustar a tu CPU)
-- **Tiempo**: ~30 min (CPU-bound, paralelizable)
+Una corrida de 20 000 pasos tarda ~1 min con N=216 y ~3 min con N=343.
 
-### 5.3 Batería descriptiva (C0-A6) + Control nulo (C0-A7)
+### 4.3 Reproducir el pipeline oficial completo
 
-**Qué hace**: Computa dimensión efectiva, dimensión espectral, homogeneidad, isotropía, salto promedio en estados DISPERSO-LOCAL.
+**Orden obligatorio** (cada etapa lee la salida de la anterior):
 
-```bash
-python tools/c0_battery.py
-```
+| # | Comando | Lee | CPU aprox. |
+|---|---|---|---|
+| 1 | `python tools/c0_landscape.py` | — | minutos |
+| 2 | `python tools/c0_dynamics.py` | — | ~5 h |
+| 3 | `python tools/c0_redteam.py` | 2 (+ `.npz` de 2) | ~14 h |
+| 4 | `python tools/c0_battery.py` | 2, 3 (+ `.npz`) | ~1 h |
+| 5 | `python tools/c0_null_battery.py` | 4 (+ `.npz` de 3) | <1 h |
+| 6 | `python tools/c0_f1.py` | 4, 5 | ~21 h |
 
-- **Requisito previo**: `c0_dynamics.py` debe haber terminado
-- **Salida**: `results/c0_battery/{summary.json, finals.jsonl}`
-- **Tiempo**: ~20 min
+Los tiempos son de CPU; divídelos por el número de procesos (`--procs`, por defecto 4).
 
-Tabla de diagnóstico (D-1 + control nulo):
+Antes de lanzar una reproducción oficial, ten en cuenta dos protecciones:
+- **Árbol limpio:** los scripts exigen un árbol git limpio (sin cambios sin commitear) y guardan el commit en cada resultado.
+- **Resultados existentes:** si `results/<etapa>/runs.jsonl` ya existe, el script se niega a correr. Como esos archivos son los resultados oficiales, reprodúcelos en una rama o clon aparte (por ejemplo, `git checkout -b repro` y borra `results/c0_*`), nunca sobre la rama oficial.
 
-```bash
-python tools/c0_null_battery.py
-```
+Otras opciones:
+- `--resume` retoma una corrida interrumpida;
+- `--summarize-only` recalcula el resumen a partir del `runs.jsonl` existente, sin simular.
 
-- **Salida**: `results/c0_battery/null_control.json`
-- **Tiempo**: ~10 min
+## 5. Leer resultados
 
-### 5.4 Red-team (R6, D-1)
-
-**Qué hace**:
-- **R6**: escalado a N=125 y 343 en celdas candidatas
-- **D-1**: continúa corridas no convergidas a 100 000 pasos para verificar persistencia
-
-```bash
-python tools/c0_redteam.py [--resume] [--summarize-only] [--procs 4]
-```
-
-- **Requisito previo**: `c0_dynamics.py` completo
-- **Salida**: `results/c0_redteam/{runs.jsonl, summary.json, log.txt}`; pesos en `runs/c0_redteam/out/`
-- **Tiempo**: ~1–2 horas
-
-### 5.5 Prueba F1 (Certificado + escalado a N=512 y 729)
-
-**Qué hace**: Corre la subfamilia R-3D en N=512 y N=729, aplica el certificado Ω-1.1 y compara contra referencias (T³, RGG3).
-
-```bash
-python tools/c0_f1.py [--resume] [--summarize-only] [--procs 4]
-```
-
-- **Requisito previo**: `c0_redteam.py` completo
-- **Salida**: `results/c0_f1/{runs.jsonl, summary.json, log.txt}`; pesos en `runs/c0_f1/out/`
-- **Veredicto final**: F1-POSITIVO / F1-INDETERMINADO / F1-NEGATIVO
-- **Tiempo**: ~2–3 horas
-
-## 6. Ejecución completa (pipeline)
-
-Para correr todas las simulaciones en orden:
-
-```bash
-set -e  # Parar si algo falla
-
-python tools/c0_landscape.py
-python tools/c0_dynamics.py
-python tools/c0_battery.py
-python tools/c0_null_battery.py
-python tools/c0_redteam.py
-python tools/c0_f1.py
-
-echo "✓ Pipeline completo terminado"
-```
-
-**Tiempo total**: 4–6 horas (dependiendo de CPU y paralelización).
-
-## 7. Entender los resultados
-
-### Archivos principales
-
-| Archivo | Contenido | Consultar para... |
-|---------|-----------|-------------------|
-| `results/c0_landscape/summary.json` | Energía, KKT en 75 celdas | Ver si cliques y T³ son extremales |
-| `results/c0_dynamics/summary.json` | L4, clasificación de 675 estados | Contar fases DISPERSO-LOCAL vs triviales |
-| `results/c0_battery/summary.json` | Dimensión D_L, D_s, homogeneidad | Saber qué familias geométricas emergen |
-| `results/c0_battery/null_control.json` | Comparación vs grafo recableado | Verificar que no es solo ruido |
-| `results/c0_redteam/summary.json` | 24 celdas candidatas, escalado en N | Confirmar persistencia de localidad |
-| `results/c0_f1/summary.json` | Veredicto F1 y códigos de certificado | Decidir si la fase pasa como geométrica |
-| `docs/OMEGA_C0_RESULTADOS.md` | Interpretación completa | Leer el análisis humano |
-
-### Estructura de un resultado (JSONLines)
-
-Cada línea en `runs.jsonl` es un diccionario JSON con:
-
-```json
-{
-  "id": "c{cell}_U_n216_s0",          // Identificador único
-  "cell_idx": 0,                       // Índice en la parrilla
-  "c_star": 0,                         // Parámetro codegrado objetivo
-  "k_star": 4,                         // Parámetro grado objetivo
-  "a": 0.25,                           // Parámetro de offset
-  "init": "U",                         // Inicio (U/E/R)
-  "seed": 0,                           // Semilla RNG
-  "n": 216,                            // Tamaño del grafo
-  "status": "converged",               // CONVERGED / MAX_STEPS / stalled
-  "steps": 1248,                       // Pasos dados
-  "S_over_LB": -0.95,                  // Acción / cota inferior
-  "kkt_residual": 1.2e-11,             // Residuo KKT
-  "cls": {
-    "class": "DISPERSO_LOCAL",         // Clasificación L4
-    "H_null": 1.42,                    // Nulidad de código
-    "kmax_over_kmean": 1.8             // Índice de hubs
-  }
-}
-```
-
-### Filtrar y explorar resultados
-
-Con Python:
+| Archivo | Responde a |
+|---|---|
+| `results/c0_landscape/summary.json` | L1–L3: ¿las cliques o T³ son mínimos? ¿Hay KKT? |
+| `results/c0_dynamics/summary.json` | L4: clases de los estados finales (675 corridas, N=216) |
+| `results/c0_redteam/summary.json` | R6 (N=125, 343) y D-1 (100 000 pasos): celdas CANDIDATO-C0 |
+| `results/c0_battery/summary.json`, `null_control.json` | D_eff, D_s, D_L y separación del nulo con grados fijos |
+| `results/c0_f1/summary.json` | Veredicto F1 con N=512 y 729 y códigos del certificado |
 
 ```python
 import json
-
-# Leer todas las filas
-with open("results/c0_dynamics/runs.jsonl") as f:
-    rows = [json.loads(line) for line in f]
-
-# Filtrar locales
-local = [r for r in rows if r["cls"]["class"] == "DISPERSO_LOCAL"]
-print(f"Estados locales: {len(local)}/{len(rows)}")
-
-# Por celda
-cell18 = [r for r in rows if r["cell_idx"] == 18]
-print(f"Celda 18: {len(cell18)} corridas")
-
-# Estadísticas
-dims = [r["battery"]["D_L"] for r in local if "battery" in r and r["battery"].get("D_L")]
-print(f"D_L (dimensión de escalado): {sorted(dims)}")
+rows = [json.loads(l) for l in open("results/c0_dynamics/runs.jsonl")]
+gen = [r for r in rows if r["kind"] == "generic"]
+local = [r for r in gen if r["cls"]["class"] == "DISPERSO_LOCAL"]
+print(len(local), "/", len(gen))
+print(local[0]["cls"])   # H_null, fracción de ciclos cortos, kmax/kmean...
 ```
 
-## 8. Personalizar parámetros
+Campos útiles de cada fila:
+- `cell_idx`, `c_star`, `k_star`, `a`, `init` (U/E/R), `seed`;
+- `status` (converged / max_steps / stalled);
+- `S_over_LB` (acción / cota C0-T1);
+- `kkt_residual`;
+- `cls.class`;
+- `cls.H_null`: salto medio relativo al grafo recableado con los mismos grados (mayor que 1 indica localidad).
 
-Para modificar los parámetros de las simulaciones, edita las constantes en cada herramienta:
+## 6. Ramas
 
-- `c0_landscape.py`: `MASTER`, `TOL`, `MAX_STEPS`
-- `c0_dynamics.py`: `N` (tamaño), `SEEDS`, número de celdas
-- `c0_redteam.py`: `SIZES` (125, 343), `D1_TOTAL` (100 000)
-- `c0_f1.py`: `CELLS_512`, `CELLS_729`, `MAX_STEPS` (40 000)
+| Rama | Contenido |
+|---|---|
+| `claude/omega-1.1-congelado` | Ω-1.1 y bloque L, congelados |
+| `claude/omega-c0-congelado` | Ω-C0 completo, congelado |
+| `claude/omega-c0-competencia` | Rama de trabajo de Ω-C0 |
+| `claude/omega-fase2-theta` | Fase 2: Θ>0 sobre C0 y preparación de C1 (`docs/OMEGA_FASE2_PRERREGISTRO.md`) |
 
-Véase `docs/OMEGA_C0_PRERREGISTRO.md` para la especificación oficial de todos los parámetros.
+Regla del proyecto: primero se prerregistra (documento con parámetros, semillas y criterios commiteado) y después se escribe el código y se corre.
 
-## 9. Troubleshooting
+## 7. Problemas frecuentes
 
-### ImportError: omega.c0
-
-Asegúrate de instalar en modo desarrollo:
-
-```bash
-pip install -e .
-```
-
-### Los tests fallan
-
-Verifica el entorno:
-
-```bash
-python --version              # ≥3.11
-pip show numpy scipy networkx  # Versiones correctas
-```
-
-Si fallan tests específicos de arquitectura, puede ser por el RNG o por precisión numérica. Consulta `omega/experiments/v11/`.
-
-### Las simulaciones son muy lentas
-
-- Reduce `--procs` si el disco está saturado
-- Usa `--summarize-only` para regenerar solo estadísticas
-- Verifica que los threads de BLAS estén limitados (las herramientas lo hacen automáticamente via `OMP_NUM_THREADS=1`)
-
-### Out of memory en F1 con N=729
-
-- Reduce `--procs` a 1–2
-- Ejecuta `python tools/c0_f1.py --resume` después de un reinicio
-
-## 10. Próximos pasos
-
-Una vez completada la prueba C0 y revisados los resultados:
-
-1. **Lee** `docs/OMEGA_C0_RESULTADOS.md` para la interpretación
-2. **Decide**: ¿C1 (segundo orden)? ¿Θ>0 (entropía)? ¿O-05?
-3. **Prerregistra** la nueva dinámica en `docs/` antes de simular
-4. **Crea** los scripts correspondientes en `tools/`
-5. **Ejecuta** y analiza
-
----
-
-**Última actualización**: 2026-10-06  
-**Rama principal**: `claude/omega-c0-competencia`  
-**Estado**: C0 completo; pendiente decisión del Consejo para C1.
+| Problema | Solución |
+|---|---|
+| `ModuleNotFoundError: omega` | `pip install -e .` desde la raíz |
+| "arbol sucio" | commitea, o usa `--smoke --allow-dirty` |
+| "runs.jsonl ya existe" | `--resume`, o `--out` a otra carpeta |
+| Falta un `.npz` en `runs/` | No están en git: corre la etapa anterior |
+| Va lentísimo | Comprueba `OMP_NUM_THREADS=1` |
