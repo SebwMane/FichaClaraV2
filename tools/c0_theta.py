@@ -183,10 +183,14 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--procs", type=int, default=4)
     ap.add_argument("--dt", type=float, default=0.0025)  # F2-A1
     ap.add_argument("--smoke", action="store_true", help="4 tareas, 400 pasos, salida en results/c0_theta_smoke")
+    ap.add_argument("--sensitivity", action="store_true", help="F2-A2: N=343, R, semilla 0, dt=0.00125, 80000 pasos")
     args = ap.parse_args(argv)
-    out = ROOT / "results" / ("c0_theta_smoke" if args.smoke else "c0_theta")
+    out = ROOT / "results" / ("c0_theta_smoke" if args.smoke else "c0_theta_dt" if args.sensitivity else "c0_theta")
     tasks = build_tasks()
     n_steps = N_STEPS
+    if args.sensitivity:
+        tasks = [t for t in tasks if t["proto"] == "S" and t["n"] == 343 and t["seed"] == 0 and t["mult"] <= 1.0]
+        args.dt, n_steps = 0.00125, 80000
     if args.smoke:
         tasks = [t for t in tasks if t["seed"] == 0 and t["cell"] == 37 and t["mult"] in (0.0, 1.0) and t["n"] == 216][:4]
         n_steps = 400
@@ -213,7 +217,7 @@ def main(argv: list[str] | None = None) -> int:
                     log.write(msg + "\n")
                     log.flush()
     rows = read_rows(jsonl)
-    res = summarize(rows) if not args.smoke else {"rows": len(rows)}
+    res = summarize(rows) if not (args.smoke or args.sensitivity) else {"rows": len(rows)}
     summary = {"step": "c0_theta", "code_commit": head_commit(), "n_tasks": len(tasks), "n_rows": len(rows),
                "complete": len({r["id"] for r in rows}) == len(tasks), "result": res}
     _atomic_write(out / "summary.json", json.dumps(summary, indent=2, default=str))

@@ -198,3 +198,18 @@ Es el sesgo O(dt) de la reflexión en la pared W = 1. Las aristas saturadas rebo
 - el sesgo de pared (≈ 0.7 % en S) afecta igual a todos los brazos.
 
 Observación del smoke (cuatro corridas de 400 pasos con dt = 0.02, **no oficiales**): con Θ = Θ_N, la celda 37 pasó a DENSO-TRIVIAL en un tiempo de 8. Se registra solo para transparencia y no altera los criterios.
+
+### F2-A2: el control Θ = 0 falla con N = 343 (registrada tras la corrida oficial, antes de la prueba de sensibilidad)
+
+**Lo que se observó.** Con dt = 0.0025, el brazo Θ = 0 cumple el criterio en N = 216 (déficit de S/LB ≤ 0.9 %) pero lo **incumple** en N = 343 para las celdas 37, 55 y 73:
+- 1.2 %, 2.0 % y 2.0–2.4 % de déficit;
+- la clase sigue siendo DISPERSO-LOCAL y J ≥ 0.97.
+
+El sesgo de pared crece con N. Según §2.1 y F2-A1 habría que reducir dt otra vez y repetir la tabla.
+
+**Decisión:**
+1. La tabla oficial (dt = 0.0025) se publica tal cual, con el fallo de control declarado.
+2. Se corre una **prueba de sensibilidad** con dt = 0.00125 y 80 000 pasos (mismo tiempo de integración, 100).
+   - Alcance: N = 343, inicio R, semilla 0, las 4 celdas, Θ/Θ_N ∈ {0, 0.1, 0.3, 1}. Son 16 corridas.
+   - Salida: `results/c0_theta_dt/`.
+3. Si alguna de esas 16 corridas cambia de clase, o cambia el lado de J respecto de 0.5, frente a la misma corrida oficial, el veredicto oficial pasa a NO CONCLUYENTE hasta repetir la tabla completa con el dt menor. Si ninguna cambia, se mantiene, con la nota de sesgo.
