@@ -87,3 +87,14 @@ Toda propuesta que pretenda **seleccionar** una dimensión debe cumplir, además
 - **La ventana de κ de RC-1/RC-2 y cualquier exigencia de «≥ s escalas» a N fijo penalizan las d altas.** No deben usarse como jueces ciegos a d.
 - Todo informe de B-ter, γ o K debe declarar su resolución dimensional d_max(N).
 - Toda validación debe incluir d = 2, 3 y 4, con varias discretizaciones de cada una.
+
+## Juez A− (RC-3, tras su validación)
+
+`tools/rc3.py`: pares N / 8N del mismo proceso, con exclusiones X1–X4 (δ, anillos, coherencia) y sin estadísticas locales.
+
+- **Resultado:** PARCIAL; FE = 0 con d = 2…6.
+- **Uso obligatorio:**
+  - informar R, δ, γ y f̃ en los dos tamaños;
+  - una exclusión que dependa solo de X4 es «X4-marginal»;
+  - todo NO-EXCLUIDO se inspecciona.
+- **Puntos ciegos:** `docs/OMEGA_MAPA_EXCLUSIONES.md`.
