@@ -139,6 +139,13 @@ def specs() -> list[dict[str, Any]]:
     return out
 
 
+_SPECS: list[dict[str, Any]] = []
+
+
+def run_idx(i: int) -> dict[str, Any]:
+    return run(_SPECS[i])
+
+
 def run(spec: dict[str, Any]) -> dict[str, Any]:
     if "npz" in spec:
         z = np.load(spec["npz"])
@@ -177,9 +184,9 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--procs", type=int, default=4)
     args = ap.parse_args(argv)
-    sp = specs()
+    _SPECS[:] = specs()
     with mp.get_context("fork").Pool(args.procs) as pool:
-        rows = pool.map(run, sp, chunksize=1)
+        rows = pool.map(run_idx, range(len(_SPECS)), chunksize=1)
     OUT.mkdir(parents=True, exist_ok=True)
     with (OUT / "graphs.jsonl").open("w", encoding="utf-8") as fh:
         for r in rows:
