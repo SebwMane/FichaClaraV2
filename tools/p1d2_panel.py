@@ -173,8 +173,10 @@ def verdict(rows: list[dict[str, Any]], delta: float) -> dict[str, Any]:
 def level3(rows: list[dict[str, Any]]) -> dict[str, Any]:
     r_pass = verdict(rows, DELTAS[0])["R_families_passing_joint"]
     analogs: dict[str, np.ndarray] = {}
-    if any(f.startswith("caveman_K8") for f in r_pass):
-        analogs["caveman_K8_n728"] = connected_caveman(728, 8)
+    for f in r_pass:
+        if f.startswith("caveman_K"):
+            size = int(f.split("K")[1])
+            analogs[f"{f}_n728"] = connected_caveman(728, size)
     if "reticulo_cliques_3D_K8" in r_pass:
         analogs["reticulo_cliques_3D_K6_n750"] = clique_lattice_3d(5, 6)
     refs = {"RGG3_k12_n729": rgg_torus(729, 3, 12.0, R.rng_from_key((MASTER, 60, 0))),
@@ -191,7 +193,14 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--procs", type=int, default=3)
     ap.add_argument("--skip-level3", action="store_true")
+    ap.add_argument("--only-level3", action="store_true", help="P1D2-A1: solo Nivel III sobre results/p1d2/graphs.jsonl")
     args = ap.parse_args(argv)
+    if args.only_level3:
+        rows0 = [json.loads(line) for line in (OUT / "graphs.jsonl").read_text().splitlines() if line.strip()]
+        l3 = level3(rows0)
+        _atomic_write(OUT / "level3.json", json.dumps(l3, indent=2, default=str))
+        print(json.dumps(l3, default=str))
+        return 0
     _SPECS[:] = specs()
     with mp.get_context("fork").Pool(args.procs) as pool:
         rows = pool.map(run_idx, range(len(_SPECS)), chunksize=1)

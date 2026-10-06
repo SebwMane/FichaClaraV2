@@ -2,7 +2,22 @@
   "R_pass_family_list": [
     "caveman_K4"
   ],
-  "analogs": {},
+  "analogs": {
+    "caveman_K4_n728": [
+      [
+        "\u03a9-F3",
+        "\u03a9-F9"
+      ],
+      [
+        "\u03a9-F3",
+        "\u03a9-F9"
+      ],
+      [
+        "\u03a9-F3",
+        "\u03a9-F9"
+      ]
+    ]
+  },
   "references": {
     "RGG3_k12_n729": [
       [],
