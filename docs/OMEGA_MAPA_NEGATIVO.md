@@ -38,6 +38,7 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 | 8 | **P3-B** (frontera por saturación) | ídem | ídem | ✘ (T2) | Capacidad κ_c − 2m | 1D o mundo pequeño |
 | 9 | **P3-C** (capas con coalescencia) | ídem | ídem | ✘ (T3) | μ_eff > 1 / < 1 / = 1 | Hiperbólico, extinción o polímero ramificado; d dependiente de p |
 | 10 | **P3-D** (planitud de Ollivier) | ídem | `OMEGA_P3_L0B_RESULTADOS.md` | ✘ premisa | Árbol: mediana −0.167 / 0.000. Retazos: f_neg 0.67–0.79. C0: +0.03 | K ≈ 0 no excluye árboles ni C0 |
+| 11 | **D5-B** (selección estática expansión + θ·fragilidad^p) | `claude/omega-ldim1-congelado` | `OMEGA_LDIM1_RESULTADOS.md` | ✘ SELECCIÓN-NO-VIABLE | p = 1/2, 1, 2: meseta d* = 2, L4 falla siempre (clique; árboles); nulo B 0.08–0.09; NC-2 \|ρ\| ≤ 0.47 | Compactificación (T2); baja expansión degenerada; d* = f(θ, N), y de p asintóticamente (T1) |
 
 ## 4. Instrumentación (resultados positivos del programa)
 
@@ -63,6 +64,8 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 | Cerebro, L-COH-0b | Predijo que los árboles aleatorios serían incoherentes | Los árboles críticos son amenables. **CH-T2 restringido a ramificación acotada inferiormente** |
 | Cerebro, L-COH-0b | C × RR diseñado con un expansor demasiado pequeño | Resultó un tubo 1D (cuasi-isométrico a un ciclo) |
 | Cerebro, L-CIC-0b | Predijo el 2-árbol SIN_VENTANA, el tubo DOS_EXTREMOS y RC-1 PARCIAL o VÁLIDA | 2-árbol CONEXO (una sola escala); tubo CONEXO (r < diámetro de la fibra); RC-1 INVÁLIDA |
+| Cerebro, L-DIM-1 | Predijo d*(p) → 4, 3, 2, NC-5 confirmada y nulo A sustancial | Meseta d = 2 para los tres p a N ≈ 2·10⁴; NC-5 no confirmada; nulo A 0.008 (alto solo en L1: 0.37) |
+| Cerebro, prerregistro L-DIM-1 | «Σ 1/\|S_r\| < ∞ ⇔ transitoriedad» | Solo en retículos; en general Nash-Williams da solo recurrencia (Thomassen 1992) |
 | Consejo | «C + K ⇏ geometría» | No demostrado: solo cada uno por separado; la combinación estaba sin validar |
 | Consejo | «Ya reconocemos la geometría» | RC-1 fuera de muestra: rechazo fiable (0.97), aceptación con pérdidas (0.70) |
 | Auditor Haiku | «24/24 pasan el certificado con N = 729» | Falso: 0/24 (verificado a mano) |
@@ -85,10 +88,12 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 9. **Valores objetivo de solapamiento, de incompatibilidad o de 4-ciclos imponen la dimensión** (L-ΩD-T2, CH-T1, Fase 2 §1.3).
 11. **Clase nueva: «topología no degenerada sin geometría macroscópica»** (2-árbol aleatorio). Tiene ciclos abundantes, redundancia y estructura local rica, pero diámetro logarítmico y ninguna jerarquía de escalas extensas.
 12. **Control de la expansión necesario pero no suficiente** (L-DIM-0). Hay tres presiones (F-exp, F-ram, F-baja), y las de F-exp y F-baja se oponen.
+13. **Competencia estática ⇏ selección de dimensión** (L-DIM-1). Los extremos degenerados (clique, árboles) ganan cualquier funcional expansión–fragilidad. El ganador entre geometrías lo fijan θ y N, y p asintóticamente (L-DIM-T1). Dentro de funcionales de bolas con leyes de potencias, la invariancia de escala y la no codificación por exponente son incompatibles (nivel 2).
 10. **Un extremo a toda escala separa la dimensión ≥ 2 de árboles, 1D, cliques y expansores, pero no 2 de 3** (CIC-T5). Las propiedades estructurales estudiadas son todas ciegas a la dimensión por construcción: **la selección de dimensión es la frontera abierta**.
 
 ## 7. Lo que queda abierto
 
+- **L-DIM-1 (cerrada):** D5-B refutado como mecanismo estático. L-DIM-2 no procede. Queda una pregunta: ¿existe una razón independiente para un exponente (por ejemplo, la transitoriedad)?
 - **L-DIM-0 (sesión conceptual):** la integralidad de d puede venir de la homogeneidad (Gromov, Trofimov, Bass–Guivarc'h). Un equilibrio continuo entre la presión de expansión y la de robustez sobre los enteros produciría **mesetas** (criterio C1-D). Es un esquema de nivel 4, pendiente de ratificar. «¿Por qué 3?» no es determinable desde Ω actual.
 
 - **Pregunta central del Consejo:** ¿qué ingrediente mínimo falta para que una dinámica sin geometría inicial estabilice una estructura geométrica de dimensión finita?
