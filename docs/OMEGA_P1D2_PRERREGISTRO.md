@@ -111,3 +111,15 @@ El Nivel III solo discrimina a partir de la clase 3. En D = 1 y D = 2 los umbral
 - Ni requisito D_B ≈ 3.
 - Ni cambios en el certificado Ω-1.1 ni en código congelado.
 - Los finales C0 de N = 729 son solo informativos: su ventana a N = 729 no admite el Nivel II.
+
+## 7. Enmiendas
+
+### P1D2-A1: análogo de Nivel III para la familia R que de hecho pasó (registrada tras ver el resultado del panel)
+
+**Resultado oficial del panel (sin cambios):** SEPARA-PARCIAL con δ = 0.15, 0.10 y 0.25. La única familia R que pasa I y II es **caveman K4**; K8, K16 y el retículo de cliques 3D no pasan el Nivel II.
+
+**Hueco del prerregistro.** El §5 pedía el Nivel III «para cada familia R que pase I y II», pero solo enumeraba los análogos de K8 y del retículo de cliques. La familia que pasó fue K4, sin análogo especificado, de modo que la herramienta no ejecutó el Nivel III.
+
+**Enmienda.** Se aplica la regla general del §5: para toda familia caveman K_s que pase I y II, el análogo es `connected_caveman(728, s)`. Se corre con las mismas 3 claves y las mismas referencias. Solo añade información; no cambia ningún veredicto.
+
+**Análisis descriptivo adicional (NO oficial, *post hoc*):** con los perfiles ya guardados se calcula D_B suavizado a dos pasos, D_B2(r) = ln(m(r+2)/m(r)) / ln((r+2)/r), para ver si la oscilación de período 2 explica los fallos del Nivel II. Sirve para plantear un P1-D.3 con otros grafos, no para decidir nada aquí.
