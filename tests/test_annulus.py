@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import numpy as np
-from scipy import sparse
 
 from omega.c0.references import rng_from_key
 from omega.diagnostics.annulus import annulus_profile, annulus_status
@@ -51,4 +50,3 @@ def test_status_table() -> None:
     assert annulus_status({**base, "f_med": 0.95}) == "CONEXO"
     assert annulus_status(base) == "DOS_EXTREMOS"
     assert annulus_status({**base, "c_med": 3.0}) == "RAMIFICADO"
-    assert isinstance(sparse.csr_array((2, 2)), sparse.csr_array)
