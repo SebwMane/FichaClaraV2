@@ -1,0 +1,221 @@
+{
+  "commit": "c20d230b27b3553a8eb76a9e905560ca84e76aa8",
+  "smoke": false,
+  "n_graphs": 77,
+  "idleness": 0.5,
+  "n_edges": 600,
+  "regen_mismatches": [],
+  "seconds": 51.3,
+  "KA1": {
+    "n": 72,
+    "spearman": -0.16714847061986138,
+    "p": 0.1605053396841693,
+    "non_redundant": true
+  },
+  "KA2": {
+    "band": {
+      "kappa_median": [
+        -0.05660714285714284,
+        0.27000000000000013
+      ],
+      "f_neg_max": 0.42833333333333334,
+      "G_hom_n": 20
+    },
+    "families": {
+      "RGG3_atajos_0.1": {
+        "expected": "FUERA",
+        "n": 3,
+        "n_correct_side": 0,
+        "inside": [
+          true,
+          true,
+          true
+        ],
+        "kappa_median": [
+          -0.0357,
+          -0.0379,
+          -0.0295
+        ],
+        "f_neg": [
+          0.3483,
+          0.3883,
+          0.3617
+        ],
+        "corrects": false
+      },
+      "ER_k12": {
+        "expected": "FUERA",
+        "n": 3,
+        "n_correct_side": 3,
+        "inside": [
+          false,
+          false,
+          false
+        ],
+        "kappa_median": [
+          -0.8013,
+          -0.8029,
+          -0.8016
+        ],
+        "f_neg": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "corrects": true
+      },
+      "WS_b0.001": {
+        "expected": "FUERA",
+        "n": 3,
+        "n_correct_side": 0,
+        "inside": [
+          true,
+          true,
+          true
+        ],
+        "kappa_median": [
+          0.25,
+          0.1742,
+          0.1667
+        ],
+        "f_neg": [
+          0.0,
+          0.0033,
+          0.0017
+        ],
+        "corrects": false
+      },
+      "WS_b0.002": {
+        "expected": "FUERA",
+        "n": 3,
+        "n_correct_side": 0,
+        "inside": [
+          true,
+          true,
+          true
+        ],
+        "kappa_median": [
+          0.2019,
+          0.1667,
+          0.1667
+        ],
+        "f_neg": [
+          0.0033,
+          0.0033,
+          0.0
+        ],
+        "corrects": false
+      },
+      "RGG3_caja_k12": {
+        "expected": "DENTRO",
+        "n": 3,
+        "n_correct_side": 3,
+        "inside": [
+          true,
+          true,
+          true
+        ],
+        "kappa_median": [
+          -0.0241,
+          0.0,
+          -0.0105
+        ],
+        "f_neg": [
+          0.3367,
+          0.3383,
+          0.3417
+        ],
+        "corrects": true
+      },
+      "RGG2_caja_k12": {
+        "expected": "DENTRO",
+        "n": 3,
+        "n_correct_side": 3,
+        "inside": [
+          true,
+          true,
+          true
+        ],
+        "kappa_median": [
+          0.1087,
+          0.0833,
+          0.1
+        ],
+        "f_neg": [
+          0.1633,
+          0.1867,
+          0.1683
+        ],
+        "corrects": true
+      }
+    },
+    "n_corrected": 3,
+    "control": {
+      "G_hom_fraction_inside": 1.0,
+      "R_fraction_outside": 0.9090909090909091,
+      "R_n": 11,
+      "LNL_rest_fraction_outside": 0.56,
+      "LNL_rest_n": 25,
+      "LNL_rest_ids": [
+        "retazos_b2_s0",
+        "retazos_b2_s1",
+        "retazos_b2_s2",
+        "retazos_b4_s0",
+        "retazos_b4_s1",
+        "retazos_b4_s2",
+        "retazos_b8_s0",
+        "retazos_b8_s1",
+        "retazos_b8_s2",
+        "RGG3_atajos_1_s0",
+        "RGG3_atajos_1_s1",
+        "RGG3_atajos_1_s2",
+        "WS_b0.005_s0",
+        "WS_b0.005_s1",
+        "WS_b0.005_s2",
+        "WS_b0.01_s0",
+        "WS_b0.01_s1",
+        "WS_b0.01_s2",
+        "RR_k12_s0",
+        "RR_k12_s1",
+        "RR_k12_s2",
+        "retazos_b4_N5e4_s0",
+        "retazos_b4_N5e4_s1",
+        "WS_b0.002_N5e4_s0",
+        "WS_b0.002_N5e4_s1"
+      ],
+      "LNL_rest_outside_by_id": {
+        "retazos_b2_s0": true,
+        "retazos_b2_s1": true,
+        "retazos_b2_s2": true,
+        "retazos_b4_s0": true,
+        "retazos_b4_s1": true,
+        "retazos_b4_s2": true,
+        "retazos_b8_s0": true,
+        "retazos_b8_s1": true,
+        "retazos_b8_s2": true,
+        "RGG3_atajos_1_s0": false,
+        "RGG3_atajos_1_s1": false,
+        "RGG3_atajos_1_s2": false,
+        "WS_b0.005_s0": false,
+        "WS_b0.005_s1": false,
+        "WS_b0.005_s2": false,
+        "WS_b0.01_s0": false,
+        "WS_b0.01_s1": false,
+        "WS_b0.01_s2": false,
+        "RR_k12_s0": true,
+        "RR_k12_s1": true,
+        "RR_k12_s2": true,
+        "retazos_b4_N5e4_s0": true,
+        "retazos_b4_N5e4_s1": true,
+        "WS_b0.002_N5e4_s0": false,
+        "WS_b0.002_N5e4_s1": false
+      },
+      "G_inh_other_inside_by_id": {
+        "RGG3_gradiente_s0": true,
+        "RGG3_gradiente_s1": true,
+        "RGG3_gradiente_s2": true
+      }
+    }
+  },
+  "verdict": "K APORTA"
+}
