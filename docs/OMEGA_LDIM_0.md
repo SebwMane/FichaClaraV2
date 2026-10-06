@@ -133,3 +133,16 @@ Es la generalización del método C0-T1/L-2 al eje dimensional. **Prohibición e
 ## 5. Lo que no se hace
 
 Ni código, ni dinámica, ni nuevos filtros. La instrumentación queda cerrada.
+
+## 8. Verificación de referencias (agente Haiku, revisada por el cerebro)
+
+| Afirmación | Estado tras la revisión | Referencia |
+|---|---|---|
+| Estabilidad orbital solo en d = 3 | Verificado en contenido; **el agente no dio la revista** | Ehrenfest (1917), *Proc. Amsterdam Acad.* 20 (cita completada por el cerebro) |
+| Campo de Schwarzschild en n dimensiones y estados ligados | Verificado | Tangherlini, *Il Nuovo Cimento* 27, 636–651 (1963) |
+| Bonnet–Myers discreto: κ ≥ κ₀ > 0 ⇒ diámetro ≤ 2/κ₀ | Verificado | Ollivier, *J. Funct. Anal.* 256(3), 810–864 (2009) |
+| Curvatura no negativa en grafos ⇒ crecimiento polinómico de las bolas | **Parcial (matiz del cerebro):** está demostrado bajo la condición de curvatura-dimensión exponencial CDE′(0, n), no bajo la CD(0, n) simple | Bauer, Horn, Lin, Lippner, Mangoubi, Yau, *J. Differential Geom.* 99, 359–405 (2015); Horn, Lin, Liu, Yau (duplicación de volumen bajo CDE′) |
+| Nudos no triviales solo en ℝ³ | Verificado en contenido; sin cita de manual | Hecho estándar de teoría de nudos |
+| Principio de Huygens en dimensiones impares ≥ 3 | Verificado en contenido; sin cita de manual | Hecho estándar (Courant–Hilbert, vol. II) |
+
+Gromov, Trofimov y Bass–Guivarc'h se verificaron en L-COH-0 (`OMEGA_COH_L0B_RESULTADOS.md`).

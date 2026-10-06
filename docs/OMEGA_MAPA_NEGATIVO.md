@@ -83,9 +83,13 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 7. **La planitud es un punto crítico** (Gauss–Bonnet, T5, nivel 1); K ≈ 0 ⇏ geometría.
 8. **Coherencia de Følner ⇏ geometría:** los árboles críticos y las cadenas la cumplen. Y homogeneidad más coherencia ⇒ dimensión entera, pero no necesariamente euclídea (Bass–Guivarc'h, Trofimov; CH-T6).
 9. **Valores objetivo de solapamiento, de incompatibilidad o de 4-ciclos imponen la dimensión** (L-ΩD-T2, CH-T1, Fase 2 §1.3).
+11. **Clase nueva: «topología no degenerada sin geometría macroscópica»** (2-árbol aleatorio). Tiene ciclos abundantes, redundancia y estructura local rica, pero diámetro logarítmico y ninguna jerarquía de escalas extensas.
+12. **Control de la expansión necesario pero no suficiente** (L-DIM-0). Hay tres presiones (F-exp, F-ram, F-baja), y las de F-exp y F-baja se oponen.
 10. **Un extremo a toda escala separa la dimensión ≥ 2 de árboles, 1D, cliques y expansores, pero no 2 de 3** (CIC-T5). Las propiedades estructurales estudiadas son todas ciegas a la dimensión por construcción: **la selección de dimensión es la frontera abierta**.
 
 ## 7. Lo que queda abierto
+
+- **L-DIM-0 (sesión conceptual):** la integralidad de d puede venir de la homogeneidad (Gromov, Trofimov, Bass–Guivarc'h). Un equilibrio continuo entre la presión de expansión y la de robustez sobre los enteros produciría **mesetas** (criterio C1-D). Es un esquema de nivel 4, pendiente de ratificar. «¿Por qué 3?» no es determinable desde Ω actual.
 
 - **Pregunta central del Consejo:** ¿qué ingrediente mínimo falta para que una dinámica sin geometría inicial estabilice una estructura geométrica de dimensión finita?
 - **Candidatos que el programa no ha discriminado todavía:** conservación, competencia entre términos no locales, restricciones topológicas (riqueza de ciclos en todas las escalas), defectos, fluctuaciones, reglas de reescritura y relaciones de orden superior (T_ijk). La hipótesis «coherencia + riqueza de ciclos» (§5 de los resultados de L-COH-0b) está informada por los datos y requeriría el tratamiento de D′.
