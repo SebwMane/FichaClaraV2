@@ -1,0 +1,607 @@
+{
+  "step": "a0_rc2",
+  "code_commit": "1b26cabd63187e1b06cc8e5c05d9991c4fe5ab4b",
+  "smoke": true,
+  "n_graphs": 20,
+  "seconds": 11.8,
+  "evaluation": {
+    "verdict": "RC2-INVALIDA",
+    "sensitivity": 0.3333333333333333,
+    "specificity": 0.8,
+    "n_V": 9,
+    "n_X_U": 10,
+    "false_negatives": [
+      "panal_hexagonal_s0",
+      "T4_12_s0",
+      "RGG4_k16_s0",
+      "RGG2_k20_s0",
+      "RGG3_k12_del15_s0",
+      "T3_27_diag20_s0"
+    ],
+    "false_positives": [
+      "arbol_de_rejillas_s0",
+      "T3_27_atajos0.1_s0"
+    ],
+    "E_informative": [
+      {
+        "id": "Heisenberg_Z27_s0",
+        "nondegenerate": false,
+        "rejected_by": [
+          "i_locality",
+          "ii_one_end",
+          "iii_coherence",
+          "iv_curvature"
+        ]
+      }
+    ]
+  },
+  "by_family": {
+    "toro_triangular_141": {
+      "group": "V",
+      "n_instances": 1,
+      "n_nondegenerate": 1,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        5
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.0
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        []
+      ]
+    },
+    "panal_hexagonal": {
+      "group": "V",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        7
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        -0.333
+      ],
+      "f_neg": [
+        1.0
+      ],
+      "locality": [
+        0.0
+      ],
+      "rejected_by": [
+        [
+          "i_locality",
+          "iv_curvature"
+        ]
+      ]
+    },
+    "T4_12": {
+      "group": "V",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        1
+      ],
+      "coherence_status": [
+        "INTERMEDIO"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.0
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end"
+        ]
+      ]
+    },
+    "RGG4_k16": {
+      "group": "V",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "SIN_VENTANA"
+      ],
+      "n_scales": [
+        0
+      ],
+      "coherence_status": [
+        "SIN_VENTANA"
+      ],
+      "kappa_median": [
+        -0.108
+      ],
+      "f_neg": [
+        0.537
+      ],
+      "locality": [
+        0.999
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end",
+          "iii_coherence",
+          "iv_curvature"
+        ]
+      ]
+    },
+    "RGG2_k20": {
+      "group": "V",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        1
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.079
+      ],
+      "f_neg": [
+        0.13
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end"
+        ]
+      ]
+    },
+    "RGG3_k12_del15": {
+      "group": "V",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        1
+      ],
+      "coherence_status": [
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        -0.061
+      ],
+      "f_neg": [
+        0.423
+      ],
+      "locality": [
+        0.995
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end",
+          "iii_coherence",
+          "iv_curvature"
+        ]
+      ]
+    },
+    "T3_27_diag20": {
+      "group": "V",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        1
+      ],
+      "coherence_status": [
+        "INTERMEDIO"
+      ],
+      "kappa_median": [
+        -0.099
+      ],
+      "f_neg": [
+        0.5
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end",
+          "iv_curvature"
+        ]
+      ]
+    },
+    "cubo_abierto_27": {
+      "group": "V",
+      "n_instances": 1,
+      "n_nondegenerate": 1,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        3
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.0
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        []
+      ]
+    },
+    "RGG2_cilindro_k12": {
+      "group": "V",
+      "n_instances": 1,
+      "n_nondegenerate": 1,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        3
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.113
+      ],
+      "f_neg": [
+        0.153
+      ],
+      "locality": [
+        0.998
+      ],
+      "rejected_by": [
+        []
+      ]
+    },
+    "3arbol": {
+      "group": "X",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "SIN_VENTANA"
+      ],
+      "n_scales": [
+        0
+      ],
+      "coherence_status": [
+        "SIN_VENTANA"
+      ],
+      "kappa_median": [
+        -0.073
+      ],
+      "f_neg": [
+        0.48
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end",
+          "iii_coherence",
+          "iv_curvature"
+        ]
+      ]
+    },
+    "apoloniana": {
+      "group": "X",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "SIN_VENTANA"
+      ],
+      "n_scales": [
+        0
+      ],
+      "coherence_status": [
+        "SIN_VENTANA"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.403
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end",
+          "iii_coherence"
+        ]
+      ]
+    },
+    "arbol_de_rejillas": {
+      "group": "X",
+      "n_instances": 1,
+      "n_nondegenerate": 1,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        9
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.01
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        []
+      ]
+    },
+    "BA_m6": {
+      "group": "X",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "SIN_VENTANA"
+      ],
+      "n_scales": [
+        0
+      ],
+      "coherence_status": [
+        "SIN_VENTANA"
+      ],
+      "kappa_median": [
+        -0.417
+      ],
+      "f_neg": [
+        0.997
+      ],
+      "locality": [
+        0.898
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end",
+          "iii_coherence",
+          "iv_curvature"
+        ]
+      ]
+    },
+    "cuadrado_141_atajos1": {
+      "group": "X",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        4
+      ],
+      "coherence_status": [
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.103
+      ],
+      "locality": [
+        0.99
+      ],
+      "rejected_by": [
+        [
+          "iii_coherence"
+        ]
+      ]
+    },
+    "T3_27_atajos0.1": {
+      "group": "X",
+      "n_instances": 1,
+      "n_nondegenerate": 1,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        2
+      ],
+      "coherence_status": [
+        "INTERMEDIO"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.007
+      ],
+      "locality": [
+        0.999
+      ],
+      "rejected_by": [
+        []
+      ]
+    },
+    "retazos_b3": {
+      "group": "X",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "SIN_VENTANA"
+      ],
+      "n_scales": [
+        0
+      ],
+      "coherence_status": [
+        "SIN_VENTANA"
+      ],
+      "kappa_median": [
+        -0.344
+      ],
+      "f_neg": [
+        0.773
+      ],
+      "locality": [
+        0.812
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end",
+          "iii_coherence",
+          "iv_curvature"
+        ]
+      ]
+    },
+    "escalera_C5000xP4": {
+      "group": "U",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "DOS_EXTREMOS"
+      ],
+      "n_scales": [
+        12
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.0
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end"
+        ]
+      ]
+    },
+    "cilindro_C2000xC10": {
+      "group": "U",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "DOS_EXTREMOS"
+      ],
+      "n_scales": [
+        12
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.0
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end"
+        ]
+      ]
+    },
+    "anillo_k6": {
+      "group": "U",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "DOS_EXTREMOS"
+      ],
+      "n_scales": [
+        12
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.167
+      ],
+      "f_neg": [
+        0.0
+      ],
+      "locality": [
+        1.0
+      ],
+      "rejected_by": [
+        [
+          "ii_one_end"
+        ]
+      ]
+    },
+    "Heisenberg_Z27": {
+      "group": "E",
+      "n_instances": 1,
+      "n_nondegenerate": 0,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "n_scales": [
+        1
+      ],
+      "coherence_status": [
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        -0.5
+      ],
+      "f_neg": [
+        1.0
+      ],
+      "locality": [
+        0.0
+      ],
+      "rejected_by": [
+        [
+          "i_locality",
+          "ii_one_end",
+          "iii_coherence",
+          "iv_curvature"
+        ]
+      ]
+    }
+  },
+  "heisenberg_excluded_from_verdicts": true
+}

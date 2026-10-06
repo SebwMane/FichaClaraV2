@@ -79,3 +79,11 @@ Toda propuesta que pretenda **seleccionar** una dimensión debe cumplir, además
 - **E5, no identificación:** el nulo de etiquetas permutadas debe quedar en ≤ 5 %.
 - **E6, alfabeto:** d no puede ser una función del tamaño del alfabeto de la regla.
 - El **problema A** (exclusión de degenerados) va antes que el **B** (selección).
+
+## Sesgo dimensional de los diagnósticos (tras L-A-0)
+
+**RC-2 INVÁLIDA** (sensibilidad 0.632, especificidad 0.864, panel fuera de muestra).
+
+- **La ventana de κ de RC-1/RC-2 y cualquier exigencia de «≥ s escalas» a N fijo penalizan las d altas.** No deben usarse como jueces ciegos a d.
+- Todo informe de B-ter, γ o K debe declarar su resolución dimensional d_max(N).
+- Toda validación debe incluir d = 2, 3 y 4, con varias discretizaciones de cada una.

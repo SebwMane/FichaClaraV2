@@ -66,6 +66,8 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 | Cerebro, L-CIC-0b | Predijo el 2-árbol SIN_VENTANA, el tubo DOS_EXTREMOS y RC-1 PARCIAL o VÁLIDA | 2-árbol CONEXO (una sola escala); tubo CONEXO (r < diámetro de la fibra); RC-1 INVÁLIDA |
 | Cerebro, L-DIM-1 | Predijo d*(p) → 4, 3, 2, NC-5 confirmada y nulo A sustancial | Meseta d = 2 para los tres p a N ≈ 2·10⁴; NC-5 no confirmada; nulo A 0.008 (alto solo en L1: 0.37) |
 | Cerebro, prerregistro L-DIM-1 | «Σ 1/\|S_r\| < ∞ ⇔ transitoriedad» | Solo en retículos; en general Nash-Williams da solo recurrencia (Thomassen 1992) |
+| Cerebro, L-A-0 | Predijo RC-2 PARCIAL y la aceptación de RGG4 k16 y de T³ con diagonales | INVÁLIDA; ambas rechazadas por los sesgos dimensionales de ventana y curvatura |
+| Cerebro, L-CIC-0b | «B-ter es independiente de la dimensión» | Solo se comprobó con d = 2 y 3; a N fijo, el número de escalas decrece con d |
 | Consejo | «C + K ⇏ geometría» | No demostrado: solo cada uno por separado; la combinación estaba sin validar |
 | Consejo | «Ya reconocemos la geometría» | RC-1 fuera de muestra: rechazo fiable (0.97), aceptación con pérdidas (0.70) |
 | Auditor Haiku | «24/24 pasan el certificado con N = 729» | Falso: 0/24 (verificado a mano) |
@@ -92,12 +94,14 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 14. **Lema del dial** (L-ARQ-T1, nivel 1): toda competencia escalar A + θB entre candidatos selecciona solo vértices de la envolvente convexa inferior de {(B_d, A_d)}, y el entero lo fija θ. Una meseta mide una arista de la envolvente, no una selección (verificado 75/75 con los datos de L-DIM-1).
 15. **Principio de no identificación:** una propiedad estable que sobrevive a una asignación aleatoria de la etiqueta dimensional (nulo B de L-DIM-1: 8–9 %) no es evidencia de selección.
 16. **Paralelo externo (nivel 3):** las triangulaciones dinámicas euclídeas presentan las mismas degeneraciones (fase arrugada ≈ clique; polímero ramificado ≈ árbol). La extensión solo aparece con estructura impuesta (foliación causal) y con la dimensión fijada por el bloque.
+17. **El juez de no degeneración a N fijo no es ciego a d** (L-A-0, RC-2 INVÁLIDA: sensibilidad 0.632, especificidad 0.864). El número de escalas disponibles decrece con d (r_w ≈ (N/4c)^{1/d}), y la curvatura de Ollivier a escala 1 decrece con d y depende de la discretización (RGG2 +0.1, RGG3 −0.03, RGG4 −0.11; T³ con diagonales −0.10). RC-1 y RC-2 tienen un sesgo hacia d baja. Todo juez futuro debe declarar su resolución d_max(N) y validarse con d = 2..4.
 10. **Un extremo a toda escala separa la dimensión ≥ 2 de árboles, 1D, cliques y expansores, pero no 2 de 3** (CIC-T5). Las propiedades estructurales estudiadas son todas ciegas a la dimensión por construcción: **la selección de dimensión es la frontera abierta**.
 
 ## 7. Lo que queda abierto
 
 - **Cierre oficial de D5 (frase del Consejo):** «L-DIM-1 no demuestra que Ω sea incapaz de generar una dimensión. Demuestra que la dimensionalidad no puede darse por emergente simplemente porque un funcional estático produzca una meseta o un mínimo interior. En la familia ensayada, la selección queda controlada por parámetros del funcional, escala finita y estructuras degeneradas. Por tanto, cualquier mecanismo futuro de dimensionalidad deberá explicar simultáneamente por qué existe una dimensión, por qué no es un parámetro oculto y por qué las estructuras degeneradas quedan excluidas sin introducir la dimensión que se pretende explicar.»
 - **L-ARQ-0 (síntesis):** la jerarquía conectividad → localidad → coherencia → un extremo → ? → dimensión → geometría. Ω solo tiene mecanismos en los dos primeros niveles. El candidato no dial para «?» es el rango de un sistema de relaciones conmutativas (Bass–Guivarc'h). Criterios de entrada E1–E6 (`OMEGA_ARQ_0.md` §4). Decisión pendiente del Consejo: L-ARQ-1 (conmutatividad con rango no prescrito) o volver al problema A.
+- **L-A-0 (problema A):** RC-2 INVÁLIDA. El juez de A no es ciego a d. Pendiente del Consejo: A1 (juez relativo, RC-3), A2 (solo rechazo) o A3 (evaluación por tendencias con N). Ninguna dinámica antes.
 - **L-DIM-1 (cerrada):** D5-B refutado como mecanismo estático. L-DIM-2 no procede. Queda una pregunta: ¿existe una razón independiente para un exponente (por ejemplo, la transitoriedad)?
 - **L-DIM-0 (sesión conceptual):** la integralidad de d puede venir de la homogeneidad (Gromov, Trofimov, Bass–Guivarc'h). Un equilibrio continuo entre la presión de expansión y la de robustez sobre los enteros produciría **mesetas** (criterio C1-D). Es un esquema de nivel 4, pendiente de ratificar. «¿Por qué 3?» no es determinable desde Ω actual.
 
