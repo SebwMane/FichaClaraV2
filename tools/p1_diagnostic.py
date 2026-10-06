@@ -146,6 +146,27 @@ def run_idx(i: int) -> dict[str, Any]:
     return run(_SPECS[i])
 
 
+def specs_ext() -> list[dict[str, Any]]:
+    """Enmienda P1-A1: N = 4096."""
+    n = 4096
+    out: list[dict[str, Any]] = []
+
+    def add(fam: str, label: str, gen: Callable[[np.random.Generator], np.ndarray], fid: int, seeds: tuple[int, ...] = SEEDS) -> None:
+        for s in seeds:
+            out.append({"id": f"{fam}_s{s}", "family": fam, "label": label, "panel": "extension", "gen": gen, "key": (MASTER, fid, s)})
+
+    add("RGG3_k12_n4096", "G", lambda g: rgg_points(n, 3, 12.0, g)[1], 30)
+    add("RGG2_k12_n4096", "G", lambda g: rgg_points(n, 2, 12.0, g)[1], 31)
+    add("retazos_8_n4096", "L", lambda g: patchwork(n, 2, g), 32)
+    add("retazos_27_n4096", "L", lambda g: patchwork(n, 3, g), 33)
+    add("retazos_64_n4096", "L", lambda g: patchwork(n, 4, g), 34)
+    add("RGG3_atajos1_n4096", "L", lambda g: shortcuts(n, 0.01, g), 35)
+    add("WS_b001_n4096", "L", lambda g: R.watts_strogatz(n, 12, 0.01, g), 36)
+    add("caveman_K8_n4096", "L", lambda g: __import__("omega.landscape.references", fromlist=["x"]).connected_caveman(n, 8), 37, (0,))
+    add("ER_k12_n4096", "NL", lambda g: R.erdos_renyi_m(n, n * 6, g), 38, (0,))
+    return out
+
+
 def run(spec: dict[str, Any]) -> dict[str, Any]:
     if "npz" in spec:
         z = np.load(spec["npz"])
@@ -183,7 +204,10 @@ def verdict(rows: list[dict[str, Any]], tag: str) -> dict[str, Any]:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--procs", type=int, default=4)
+    ap.add_argument("--extension", action="store_true", help="enmienda P1-A1 (N = 4096) + veredicto de la union")
     args = ap.parse_args(argv)
+    if args.extension:
+        return main_ext(args.procs)
     _SPECS[:] = specs()
     with mp.get_context("fork").Pool(args.procs) as pool:
         rows = pool.map(run_idx, range(len(_SPECS)), chunksize=1)
@@ -202,6 +226,26 @@ def main(argv: list[str] | None = None) -> int:
             print(panel, tag, v["verdict"], "sens", v["sensitivity"], "spec", v["specificity"], v["n_G_eval"], v["n_L_NL_eval"])
         for f, d in rr["primario_q4"]["by_family"].items():
             print(f"   {f:<22} {d['label']:<3} {d['status']} rho={d['rho'][:6]}")
+    return 0
+
+
+def main_ext(procs: int) -> int:
+    _SPECS[:] = specs_ext()
+    with mp.get_context("fork").Pool(procs) as pool:
+        rows = pool.map(run_idx, range(len(_SPECS)), chunksize=1)
+    out = ROOT / "results" / "p1_diagnostic_ext"
+    out.mkdir(parents=True, exist_ok=True)
+    with (out / "graphs.jsonl").open("w", encoding="utf-8") as fh:
+        for r in rows:
+            fh.write(json.dumps(r, default=str) + "\n")
+    base = [r for r in read_rows(OUT / "graphs.jsonl") if r["panel"] == "principal"]
+    res = {"extension_sola": verdict(rows, "q4"), "union_principal_extension": verdict(base + rows, "q4")}
+    _atomic_write(out / "summary.json", json.dumps({"step": "p1_diagnostic_ext", "code_commit": head_commit(),
+                                                    "n_graphs": len(rows), "result": res}, indent=2, default=str))
+    for tag, v in res.items():
+        print(tag, v["verdict"], "sens", v["sensitivity"], "spec", v["specificity"], v["n_G_eval"], v["n_L_NL_eval"])
+    for f, d in res["extension_sola"]["by_family"].items():
+        print(f"   {f:<22} {d['label']:<3} {d['status']} rho={d['rho']}")
     return 0
 
 

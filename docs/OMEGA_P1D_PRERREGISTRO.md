@@ -86,3 +86,28 @@ El panel secundario C0 se evalúa igual y se informa por separado. Sirve para sa
 
 - Ninguna funcional ni dinámica nueva. El observador no entra en el certificado.
 - No se cambia ningún umbral existente.
+
+## 7. Enmiendas
+
+### P1-A1: panel de extensión con N = 4096 para resolver el INDETERMINADO (registrada tras ver el resultado oficial)
+
+**Resultado oficial (sin cambios):**
+- ventana N/4: principal INDETERMINADO. La sensibilidad es 15/15, pero solo hay 4 grafos L/NL evaluables; retazos, atajos, ER, RR y WS β = 0.2 quedan SIN_VENTANA a N = 729 porque crecen demasiado rápido;
+- ventana N/2: MUERE, con especificidad 0/11.
+
+**Motivo.** Los controles más duros (geometría local pegada de forma incoherente) no tienen ventana intermedia con N = 729. Con N = 4096 y bloques grandes, sí la tienen.
+
+**Panel de extensión** (N = 4096; semillas 0–2 salvo indicación; clave PCG64 (20261007, 30 + i, s)):
+
+| Etiqueta | Familia |
+|---|---|
+| G | RGG3 k12, RGG2 k12 |
+| L | Retazos-8 (bloques de ~512 nodos), retazos-27 (~152), retazos-64 (~64) |
+| L | RGG3 con 1 % de atajos |
+| L | Watts–Strogatz anillo k12, β = 0.01 |
+| L | Caveman K8 (N = 4096, una semilla) |
+| NL | ER k12 (una semilla) |
+
+**Criterio:** el mismo de §4, ventana N/4, aplicado a la **unión** del panel principal y la extensión. El veredicto de la unión sustituye al INDETERMINADO. Si sigue habiendo menos de 5 grafos evaluables en algún grupo, P1-D queda **INDETERMINADO definitivo** y se informa así.
+
+**Predicción del cerebro:** los retazos-8 y retazos-27 HOMOGENEIZAN, porque la mezcla entre bloques autopromedia las bolas. La especificidad cae por debajo de 0.9 y el veredicto será **PARCIAL o MUERE**.
