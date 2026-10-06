@@ -114,3 +114,20 @@ Antes de definir su regla exacta (L-P3-1) se comprueba su **premisa**: que la cu
 - No se simula ninguna regla de crecimiento.
 - No se define todavía la regla exacta de D: eso es L-P3-1, tras la ratificación.
 - No se usan las referencias externas para diseñar.
+
+## 8. Verificación de referencias externas (auditoría de lectura, agente Haiku; nivel 3)
+
+Se registran después de escribir §3–§6 y **no** se han usado para diseñar la regla. Solo fijan el nivel de las afirmaciones T1, T3 y T5.
+
+| Afirmación | Estado | Referencia |
+|---|---|---|
+| Altura del árbol recursivo ≈ e·ln N (T1) | Verificado | Pittel, *Random Structures & Algorithms* 5(2), 1994 |
+| Árbol crítico / polímero ramificado: d_H = 2, d_s = 4/3 (T3) | Verificado (varias fuentes) | — |
+| Triangulaciones euclídeas: solo fases arrugada y de polímero ramificado; causales: fase extendida ≈ 4D | Verificado | Ambjørn, Jurkiewicz, Loll, *PRL* 93, 131301 (2004). **Solo para comparar al final, no para diseñar** |
+| Crecimiento de complejos simpliciales → geometría hiperbólica | Verificado | Bianconi y Rahmede, *PRE* 93, 032315 (2016); *Sci. Rep.* 7, 41974 (2017) |
+| Curvatura de Ollivier: Z^d = 0, árboles y expansores < 0, completos > 0 | Verificado | Ollivier, *J. Funct. Anal.* 256, 810 (2009); Lin, Lu y Yau, *Tohoku Math. J.* 63, 605 (2011) |
+| Rigidez local–global de Z^d | Verificado | Benjamini y Ellis |
+| Gauss–Bonnet combinatorio (T5) | Parcial en la búsqueda; **demostrado aquí (nivel 1)** | Ver demostración abajo |
+| Potencial químico ∝ log N en grafos aleatorios exponenciales dispersos | **No verificado** | Se retira como referencia (Fase 2 §3.1 la marcaba «por verificar») |
+
+**Demostración de T5 (nivel 1).** En una triangulación cerrada de una superficie de característica de Euler χ, cada cara tiene 3 aristas y cada arista está en 2 caras, así que 3F = 2E. Sustituyendo en V − E + F = χ se obtiene E = 3V − 3χ. Por tanto Σ_v deg v = 2E = 6V − 6χ, y Σ_v (6 − deg v) = 6χ. En el límite plano (χ/V → 0, por ejemplo un toro con χ = 0), la curvatura media nula equivale a un grado medio de exactamente 6. ∎
