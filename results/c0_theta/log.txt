@@ -1,0 +1,4 @@
+commit 2f4a2ee4f055d235d99c36f1d40e6eead555749c dt 0.0025 tareas 216 pendientes 216
+  1/216 S_c19_R_n343_t0_s2 DISPERSO_LOCAL f_bg=0.027 (368s)
+  2/216 S_c19_R_n343_t0_s1 DISPERSO_LOCAL f_bg=0.027 (373s)
+  3/216 S_c19_R_n343_t0_s0 DISPERSO_LOCAL f_bg=0.028 (373s)
