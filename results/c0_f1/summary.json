@@ -1,14 +1,13 @@
 {
   "step": "c0_f1",
-  "code_commit": "e046742b0ea5a1b7ab4c36d205813042cb44deef",
-  "n_tasks": 50,
-  "n_rows": 50,
+  "code_commit": "9d9d85da933897c87ce26f9b33cba1dfe5b61577",
+  "n_tasks": 62,
+  "n_rows": 62,
   "complete": true,
   "result": {
-    "global": "F1-INDETERMINADO",
+    "global": "F1-NEGATIVO",
     "verdicts": {
-      "F1-INDETERMINADO": 4,
-      "F1-NEGATIVO": 6
+      "F1-NEGATIVO": 10
     },
     "cells": [
       {
@@ -16,28 +15,27 @@
         "c_star": 1,
         "k_star": 6,
         "a": 0.25,
-        "n_max": 512,
+        "n_max": 729,
         "local_at_nmax": 3,
         "cert_pass_at_nmax": 0,
-        "D_L": 2.8774214993547726,
+        "D_L": 2.893567476454022,
         "D_L_null_prev": 4.929189000618842,
         "D_L_null_hi": null,
         "mean_hop_by_n": {
           "216": 3.2338931955211025,
           "343": 3.7759534891650897,
-          "512": 4.366254892367906
+          "512": 4.366254892367906,
+          "729": 4.912849153589894
         },
         "codes_at_nmax": [
           [
             "\u03a9-F10",
             "\u03a9-F4",
-            "\u03a9-F5",
             "\u03a9-F9"
           ],
           [
             "\u03a9-F10",
             "\u03a9-F4",
-            "\u03a9-F5",
             "\u03a9-F9"
           ],
           [
@@ -47,23 +45,27 @@
             "\u03a9-F9"
           ]
         ],
-        "extra_codes_vs_rgg3": [],
+        "extra_codes_vs_rgg3": [
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ],
         "status_at_nmax": [
           "max_steps",
           "max_steps",
           "max_steps"
         ],
         "D_s_at_nmax": [
-          2.3918331656655476,
-          2.3250860845225776,
-          2.471962162681052
+          2.156879522358693,
+          2.2054386835987043,
+          1.9056226912224734
         ],
         "D_eff_at_nmax": [
-          NaN,
-          NaN,
-          NaN
+          2.4820309844323574,
+          2.565034405555945,
+          2.291018364060239
         ],
-        "verdict": "F1-INDETERMINADO"
+        "verdict": "F1-NEGATIVO"
       },
       {
         "cell_idx": 19,
@@ -129,16 +131,17 @@
         "c_star": 1,
         "k_star": 6,
         "a": 4.0,
-        "n_max": 512,
+        "n_max": 729,
         "local_at_nmax": 3,
         "cert_pass_at_nmax": 0,
-        "D_L": 3.088575972809546,
+        "D_L": 3.247435312451285,
         "D_L_null_prev": 4.888283678887383,
         "D_L_null_hi": null,
         "mean_hop_by_n": {
           "216": 3.404263565891473,
           "343": 4.022982626634613,
-          "512": 4.497920743639922
+          "512": 4.497920743639922,
+          "729": 4.9624504439319255
         },
         "codes_at_nmax": [
           [
@@ -156,27 +159,30 @@
           [
             "\u03a9-F10",
             "\u03a9-F4",
-            "\u03a9-F5",
             "\u03a9-F9"
           ]
         ],
-        "extra_codes_vs_rgg3": [],
+        "extra_codes_vs_rgg3": [
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ],
         "status_at_nmax": [
           "max_steps",
           "max_steps",
           "max_steps"
         ],
         "D_s_at_nmax": [
-          1.9661667115153876,
-          2.050947649550724,
-          2.190447155919556
+          1.9379077144142651,
+          1.996349943762323,
+          2.198056357638023
         ],
         "D_eff_at_nmax": [
-          NaN,
-          NaN,
-          NaN
+          2.2288618439514924,
+          2.4999576224198776,
+          2.5943647024304046
         ],
-        "verdict": "F1-INDETERMINADO"
+        "verdict": "F1-NEGATIVO"
       },
       {
         "cell_idx": 36,
@@ -294,16 +300,17 @@
         "c_star": 2,
         "k_star": 8,
         "a": 4.0,
-        "n_max": 512,
+        "n_max": 729,
         "local_at_nmax": 3,
         "cert_pass_at_nmax": 0,
-        "D_L": 2.8646261841914207,
+        "D_L": 2.7773551657513442,
         "D_L_null_prev": 5.144223352868119,
         "D_L_null_hi": null,
         "mean_hop_by_n": {
           "216": 3.434668389319552,
           "343": 4.08512778545002,
-          "512": 4.639516572896282
+          "512": 4.639516572896282,
+          "729": 5.35424863202641
         },
         "codes_at_nmax": [
           [
@@ -321,27 +328,30 @@
           [
             "\u03a9-F10",
             "\u03a9-F4",
-            "\u03a9-F5",
             "\u03a9-F9"
           ]
         ],
-        "extra_codes_vs_rgg3": [],
+        "extra_codes_vs_rgg3": [
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ],
         "status_at_nmax": [
           "max_steps",
           "max_steps",
           "max_steps"
         ],
         "D_s_at_nmax": [
-          1.9513968853465062,
-          2.216776985043248,
-          2.2633254340577613
+          1.7741923257579049,
+          1.9746827825183466,
+          2.1084591571998867
         ],
         "D_eff_at_nmax": [
-          NaN,
-          NaN,
-          NaN
+          2.221565958568317,
+          2.356782544163526,
+          2.623398946381126
         ],
-        "verdict": "F1-INDETERMINADO"
+        "verdict": "F1-NEGATIVO"
       },
       {
         "cell_idx": 55,
@@ -404,19 +414,21 @@
         "c_star": 4,
         "k_star": 12,
         "a": 4.0,
-        "n_max": 512,
+        "n_max": 729,
         "local_at_nmax": 3,
         "cert_pass_at_nmax": 0,
-        "D_L": 3.44071208333545,
+        "D_L": 3.318337862875246,
         "D_L_null_prev": 4.782302459587076,
         "D_L_null_hi": null,
         "mean_hop_by_n": {
           "216": 3.0551248923341947,
           "343": 3.6301297461340427,
-          "512": 3.9188249143835616
+          "512": 3.9188249143835616,
+          "729": 4.4709258505554805
         },
         "codes_at_nmax": [
           [
+            "\u03a9-F10",
             "\u03a9-F4",
             "\u03a9-F5",
             "\u03a9-F9"
@@ -434,23 +446,27 @@
             "\u03a9-F9"
           ]
         ],
-        "extra_codes_vs_rgg3": [],
+        "extra_codes_vs_rgg3": [
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ],
         "status_at_nmax": [
-          "converged",
+          "max_steps",
           "max_steps",
           "max_steps"
         ],
         "D_s_at_nmax": [
-          2.698999074454263,
-          2.7325544566900937,
-          2.7055629977802647
+          2.344246398913854,
+          2.7631470224608976,
+          2.48922607650963
         ],
         "D_eff_at_nmax": [
           NaN,
           NaN,
           NaN
         ],
-        "verdict": "F1-INDETERMINADO"
+        "verdict": "F1-NEGATIVO"
       },
       {
         "cell_idx": 73,

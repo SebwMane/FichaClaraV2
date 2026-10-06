@@ -86,21 +86,64 @@ Con N = 343, el certificado **no distingue** la subfamilia R-3D de un RGG3 auté
 
 El fallo de L4 es el resultado más informativo de C0: la dinámica encuentra estructuras locales que el paisaje no premia.
 
-## 5. Siguiente paso en curso
+## 5. C0-F1: escalado y certificado (N = 512 y 729) — **F1-NEGATIVO**
 
-**C0-F1** (§7 del prerregistro):
-- N = 512 en las 10 celdas R-3D y N = 729 en 4 de ellas;
-- 40 000 pasos;
-- certificado Ω-1.1 completo frente a RGG3 y T³ con el mismo N;
-- D_L con 3–4 tamaños.
+| Fase | Resultado |
+|---|---|
+| F1 oficial | Global INDETERMINADO: 4 celdas INDETERMINADO, que solo llegaron a N = 512, donde la RGG3 de referencia tampoco pasa; 6 NEGATIVO |
+| F1b (C0-A9) | Las 4 celdas restantes con N = 729 son NEGATIVO |
+| **Global** | **F1-NEGATIVO, 10/10 celdas** |
 
-Decisión preregistrada: F1-POSITIVO, INDETERMINADO o NEGATIVO. Un POSITIVO no declara geometría; abre el paquete de confirmación, que requiere ratificación del Consejo.
+**Referencias del certificado con el mismo N:**
 
-## 6. Pendiente para el Consejo
+| Grafo | N = 512 | N = 729 |
+|---|---|---|
+| T³ (8³ y 9³) | pasa | pasa |
+| RGG3 k12 | F4, F5, F9 | **pasa** (D_eff ≈ 3.03, D_s ≈ 2.6) |
 
-- Ratificar la lectura «fase dinámica, no energética» y decidir si es un problema (falta de selección) o un rasgo (las cuencas dinámicas *son* el mecanismo).
-- Si F1 sale POSITIVO o INDETERMINADO:
-  - N-1 con nulos con clustering;
-  - Θ > 0 sobre C0, para comprobar si la entropía destruye la fase;
-  - reproducibilidad.
-- Propuesta C1 (no ejecutada): añadir estructura de segundo orden para romper la degeneración de C0-T2.
+**Subfamilia R-3D con N = 729 (8 celdas × 3 semillas):**
+- Las 24 corridas siguen DISPERSO-LOCAL.
+- El certificado da 0/24: siempre F4 (artefacto de dimensión), F9 (no-variedad) y casi siempre F5 (dependencia de la métrica). La RGG3 auténtica, con el mismo N, no tiene esos códigos.
+- Dimensiones:
+  - D_s = 1.77–2.76 (mediana 2.20);
+  - D_eff = 2.22–2.62 (mediana 2.47; 15/24 con ventana);
+  - D_L = 2.7–4.1. Las celdas con c* alto derivan hacia el valor del nulo (≈ 4.8).
+
+**Lectura:** la «R-3D» de N = 343 era un efecto de tamaño. Al crecer N, la fase sigue siendo local y no trivial, pero tiene dimensión baja e inhomogénea (≈ 2–2.5) y no es una variedad. Es un complejo de cliques pequeñas solapadas, no una geometría 3D.
+
+## 6. Conclusión de Ω-C0
+
+**Lo que C0 consiguió (verificado):**
+- rompe la dicotomía vacío/clique del bloque L;
+- produce una fase intermedia local, persistente en tiempo y tamaño, sin hubs y separada del nulo de grados.
+
+Es el primer «tercer atractor» del proyecto.
+
+**Lo que C0 no consiguió:**
+- **Paisaje:** por C0-T1 y C0-T2, la geometría nunca gana energéticamente; solo empata con estados densos.
+- **Dinámica:** la fase que produce es un complejo de cliques solapadas cuya estructura depende de la condición inicial:
+
+  | Inicio | Estructura |
+  |---|---|
+  | U | cadenas 1D |
+  | E | expansor decorado |
+  | R | dimensión ≈ 2–2.5, no variedad |
+
+  En el primer tamaño que discrimina, ninguna supera el certificado.
+
+**Decisión según el árbol preregistrado:**
+- C0 superó la puerta L1–L4 y el filtro red-team (24 CANDIDATO-C0), y falló F1.
+- **C0 queda limitada:** produce localidad, no geometría.
+- La rama no se reabre con búsqueda paramétrica; esa decisión del Consejo sobre S0/Ω-B vale igual aquí.
+
+**Hipótesis de trabajo para el Consejo (nivel 2):** la localidad puede surgir de la competencia y la saturación; la dimensión y la homogeneidad no. Dos datos lo apoyan:
+- la degeneración de C0-T2: una acción que depende solo de (k, c) no distingue estructuras con la misma estadística local;
+- la dependencia de la condición inicial: el paisaje es vidrioso y no hay selección.
+
+Para seleccionar una dimensión haría falta un ingrediente que distinga la estructura a escala intermedia: relaciones de segundo orden, como sugirió el especialista en emergencia, o un mecanismo entrópico o dinámico.
+
+## 7. Pendiente para el Consejo (no ejecutado)
+
+1. **C1** — estructura de segundo orden: término sobre 4-ciclos o codegrado de no-aristas, con saturación. Antes de simular tiene que pasar la misma puerta (L1–L4, red-team y F1 a N = 729). Advertencia analítica previa: una recompensa cóncava de 2-caminos favorece los expansores e hipercubos frente a T³; la forma funcional debe someterse primero a un análisis tipo C0-T1.
+2. **Θ > 0 sobre C0:** ¿la entropía estabiliza o destruye la fase local? Es una pregunta legítima y barata a N ≤ 343.
+3. **O-05** (S0/Ω-B, Θ > 0): sigue como rama secundaria.
