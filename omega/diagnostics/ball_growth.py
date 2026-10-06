@@ -14,7 +14,7 @@ from scipy.sparse.csgraph import connected_components, dijkstra
 
 from omega.types import FloatArray
 
-__all__ = ["giant", "ball_profile"]
+__all__ = ["giant", "ball_profile", "dimension_plateau"]
 
 R_CAP = 15
 CV_ZERO = 1e-9
@@ -65,3 +65,24 @@ def ball_profile(adj: FloatArray) -> dict[str, Any]:
                     "D_B_range": [min(d_b[r - 1] for r in w if r - 1 < len(d_b)), max(d_b[r - 1] for r in w if r - 1 < len(d_b))]
                     if any(r - 1 < len(d_b) for r in w) else None}
     return out
+
+
+def dimension_plateau(profile: dict[str, Any], delta: float = 0.15, tag: str = "q4") -> dict[str, Any]:
+    """Nivel II (P1-D.2 §1): racha de >= 3 valores consecutivos de D_B con (max-min)/media <= delta en la ventana."""
+    w = profile[tag]["window"]
+    d_b = profile["D_B"]
+    rs = [r for r in range(2, (max(w) if w else 0)) if r - 1 < len(d_b)]
+    if len(rs) < 3:
+        return {"status": "SIN_VENTANA_D", "D_plat": None, "run": [], "delta": delta}
+    vals = [d_b[r - 1] for r in rs]
+    best: tuple[int, int] | None = None
+    for i in range(len(vals)):
+        for j in range(i + 3, len(vals) + 1):
+            seg = vals[i:j]
+            m = float(np.mean(seg))
+            if m > 0 and (max(seg) - min(seg)) / m <= delta and (best is None or (j - i, j) >= (best[1] - best[0], best[1])):
+                best = (i, j)
+    if best is None:
+        return {"status": "SIN_PLATEAU", "D_plat": None, "run": [], "delta": delta}
+    seg = vals[best[0]:best[1]]
+    return {"status": "PLATEAU", "D_plat": float(np.mean(seg)), "run": rs[best[0]:best[1]], "delta": delta}
