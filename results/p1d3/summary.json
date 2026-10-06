@@ -1,0 +1,4873 @@
+{
+  "step": "p1d3_panel",
+  "code_commit": "307d52b37a10736cc326ec2dbdebacd6343f9d34",
+  "smoke": false,
+  "n_graphs": 77,
+  "seconds": 533.3,
+  "level3_condition": true,
+  "final_threshold": 0.05,
+  "result": {
+    "0.05": {
+      "threshold": 0.05,
+      "verdict": "INSTRUMENTO-VALIDO",
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "n_ghom": 15,
+      "n_nongeo": 33,
+      "level3_condition": true,
+      "level3_note": null,
+      "by_family": {
+        "RGG2_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.019,
+            2.027,
+            2.023
+          ],
+          "rho": [
+            0.108,
+            0.1,
+            0.117
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.032,
+            2.023,
+            2.042
+          ]
+        },
+        "RGG3_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.044,
+            3.046,
+            3.05
+          ],
+          "rho": [
+            0.207,
+            0.228,
+            0.266
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.025,
+            3.053,
+            2.948
+          ]
+        },
+        "RGG3_k8": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.109,
+            3.109,
+            3.11
+          ],
+          "rho": [
+            0.237,
+            0.242,
+            0.254
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.039,
+            2.992,
+            3.04
+          ]
+        },
+        "RGG_S2_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.849,
+            1.862,
+            1.851
+          ],
+          "rho": [
+            0.097,
+            0.1,
+            0.099
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            1.965,
+            1.963,
+            1.993
+          ]
+        },
+        "anillo_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.0
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.0
+          ]
+        },
+        "cuadrado_141": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.979
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.0
+          ]
+        },
+        "T3_27": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.866
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.005
+          ]
+        },
+        "RGG3_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "NO_CONVERGE",
+            "NO_CONVERGE",
+            "NO_CONVERGE"
+          ],
+          "D_conv": [
+            2.416,
+            2.469,
+            2.413
+          ],
+          "rho": [
+            1.154,
+            1.139,
+            1.219
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            2.45,
+            2.488,
+            2.57
+          ]
+        },
+        "RGG2_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.674,
+            1.718,
+            1.73
+          ],
+          "rho": [
+            1.243,
+            1.064,
+            1.084
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.794,
+            1.826,
+            1.767
+          ]
+        },
+        "RGG3_gradiente": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.957,
+            2.959,
+            2.975
+          ],
+          "rho": [
+            0.655,
+            0.645,
+            0.692
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.012,
+            3.002,
+            3.035
+          ]
+        },
+        "caveman_K4": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.001
+          ],
+          "rho": [
+            0.009
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.005
+          ]
+        },
+        "caveman_K5": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.009
+          ]
+        },
+        "caveman_K6": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.016
+          ]
+        },
+        "caveman_K8": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.027
+          ]
+        },
+        "caveman_K10": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.053
+          ]
+        },
+        "caveman_K12": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.05
+          ]
+        },
+        "caveman_K16": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.004
+          ],
+          "rho": [
+            0.006
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.047
+          ]
+        },
+        "cliques3D_K6_L15": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.882
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.141
+          ]
+        },
+        "cliques3D_K8_L13": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.913
+          ],
+          "rho": [
+            0.317
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.213
+          ]
+        },
+        "cliques2D_K6_L58": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.993
+          ],
+          "rho": [
+            0.088
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.027
+          ]
+        },
+        "retazos_b2": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.828,
+            1.943,
+            1.746
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.274,
+            3.17,
+            3.149
+          ]
+        },
+        "retazos_b4": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.339,
+            1.215,
+            1.298
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.841,
+            4.25,
+            4.116
+          ]
+        },
+        "retazos_b8": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.067,
+            1.067,
+            1.058
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            5.094,
+            5.222,
+            5.662
+          ]
+        },
+        "RGG3_atajos_0.1": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CRUCE",
+            "CRUCE",
+            "CRUCE"
+          ],
+          "D_conv": [
+            3.69,
+            3.681,
+            3.696
+          ],
+          "rho": [
+            0.858,
+            0.862,
+            0.793
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            2.934,
+            2.944,
+            2.965
+          ]
+        },
+        "RGG3_atajos_1": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.175,
+            1.167,
+            1.154
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.207,
+            3.056,
+            3.095
+          ]
+        },
+        "WS_b0.001": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.283,
+            3.119,
+            2.928
+          ],
+          "rho": [
+            7.428,
+            10.314,
+            16.773
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.328,
+            1.319,
+            1.281
+          ]
+        },
+        "WS_b0.002": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 2,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "NO_CONVERGE"
+          ],
+          "D_conv": [
+            3.757,
+            3.657,
+            3.625
+          ],
+          "rho": [
+            6.469,
+            13.458,
+            8.147
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.406,
+            1.458,
+            1.442
+          ]
+        },
+        "WS_b0.005": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CRUCE",
+            "CRUCE",
+            "CRUCE"
+          ],
+          "D_conv": [
+            4.492,
+            4.548,
+            4.41
+          ],
+          "rho": [
+            4.471,
+            4.219,
+            5.291
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.53,
+            1.565,
+            1.44
+          ]
+        },
+        "WS_b0.01": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CRUCE",
+            "CRUCE",
+            "CRUCE"
+          ],
+          "D_conv": [
+            4.939,
+            4.881,
+            4.837
+          ],
+          "rho": [
+            2.628,
+            2.748,
+            2.667
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.643,
+            1.598,
+            1.583
+          ]
+        },
+        "ER_k12": {
+          "cls": "NL",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            0.973,
+            0.975,
+            0.967
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            7.961,
+            7.693,
+            7.769
+          ]
+        },
+        "RR_k12": {
+          "cls": "NL",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.564,
+            1.486,
+            1.641
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            7.685,
+            7.684,
+            7.677
+          ]
+        },
+        "RGG3_k12_N5e4": {
+          "cls": "G-hom",
+          "panel": "escala",
+          "n": 2,
+          "I": 2,
+          "II": 2,
+          "joint": 2,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.064,
+            3.067
+          ],
+          "rho": [
+            0.16,
+            0.163
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.058,
+            3.016
+          ]
+        },
+        "RGG2_k12_N5e4": {
+          "cls": "G-hom",
+          "panel": "escala",
+          "n": 2,
+          "I": 2,
+          "II": 2,
+          "joint": 2,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.027,
+            2.022
+          ],
+          "rho": [
+            0.087,
+            0.072
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.035,
+            1.993
+          ]
+        },
+        "retazos_b4_N5e4": {
+          "cls": "L",
+          "panel": "escala",
+          "n": 2,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null
+          ],
+          "rho": [
+            1.675,
+            1.609
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.608,
+            3.636
+          ]
+        },
+        "WS_b0.002_N5e4": {
+          "cls": "L",
+          "panel": "escala",
+          "n": 2,
+          "I": 0,
+          "II": 1,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "NO_CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            4.317,
+            4.449
+          ],
+          "rho": [
+            7.796,
+            7.937
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.509,
+            1.512
+          ]
+        },
+        "caveman_K8_N5e4": {
+          "cls": "R",
+          "panel": "escala",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.03
+          ]
+        },
+        "T3_37_N5e4": {
+          "cls": "G-hom",
+          "panel": "escala",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.887
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.002
+          ]
+        }
+      }
+    },
+    "0.03": {
+      "threshold": 0.03,
+      "verdict": "INSTRUMENTO-VALIDO",
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "n_ghom": 15,
+      "n_nongeo": 33,
+      "level3_condition": true,
+      "level3_note": null,
+      "by_family": {
+        "RGG2_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.019,
+            2.027,
+            2.023
+          ],
+          "rho": [
+            0.108,
+            0.1,
+            0.117
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.032,
+            2.023,
+            2.042
+          ]
+        },
+        "RGG3_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.044,
+            3.046,
+            3.05
+          ],
+          "rho": [
+            0.207,
+            0.228,
+            0.266
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.025,
+            3.053,
+            2.948
+          ]
+        },
+        "RGG3_k8": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.109,
+            3.109,
+            3.11
+          ],
+          "rho": [
+            0.237,
+            0.242,
+            0.254
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.039,
+            2.992,
+            3.04
+          ]
+        },
+        "RGG_S2_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.849,
+            1.862,
+            1.851
+          ],
+          "rho": [
+            0.097,
+            0.1,
+            0.099
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            1.965,
+            1.963,
+            1.993
+          ]
+        },
+        "anillo_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.0
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.0
+          ]
+        },
+        "cuadrado_141": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.979
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.0
+          ]
+        },
+        "T3_27": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.866
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.005
+          ]
+        },
+        "RGG3_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "NO_CONVERGE",
+            "NO_CONVERGE",
+            "NO_CONVERGE"
+          ],
+          "D_conv": [
+            2.416,
+            2.469,
+            2.413
+          ],
+          "rho": [
+            1.154,
+            1.139,
+            1.219
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            2.45,
+            2.488,
+            2.57
+          ]
+        },
+        "RGG2_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.674,
+            1.718,
+            1.73
+          ],
+          "rho": [
+            1.243,
+            1.064,
+            1.084
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.794,
+            1.826,
+            1.767
+          ]
+        },
+        "RGG3_gradiente": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.957,
+            2.959,
+            2.975
+          ],
+          "rho": [
+            0.655,
+            0.645,
+            0.692
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.012,
+            3.002,
+            3.035
+          ]
+        },
+        "caveman_K4": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.001
+          ],
+          "rho": [
+            0.009
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.005
+          ]
+        },
+        "caveman_K5": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.009
+          ]
+        },
+        "caveman_K6": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.016
+          ]
+        },
+        "caveman_K8": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.027
+          ]
+        },
+        "caveman_K10": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.053
+          ]
+        },
+        "caveman_K12": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.05
+          ]
+        },
+        "caveman_K16": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.004
+          ],
+          "rho": [
+            0.006
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.047
+          ]
+        },
+        "cliques3D_K6_L15": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.882
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.141
+          ]
+        },
+        "cliques3D_K8_L13": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.913
+          ],
+          "rho": [
+            0.317
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.213
+          ]
+        },
+        "cliques2D_K6_L58": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.993
+          ],
+          "rho": [
+            0.088
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.027
+          ]
+        },
+        "retazos_b2": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.828,
+            1.943,
+            1.746
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.274,
+            3.17,
+            3.149
+          ]
+        },
+        "retazos_b4": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.339,
+            1.215,
+            1.298
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.841,
+            4.25,
+            4.116
+          ]
+        },
+        "retazos_b8": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.067,
+            1.067,
+            1.058
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            5.094,
+            5.222,
+            5.662
+          ]
+        },
+        "RGG3_atajos_0.1": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CRUCE",
+            "CRUCE",
+            "CRUCE"
+          ],
+          "D_conv": [
+            3.69,
+            3.681,
+            3.696
+          ],
+          "rho": [
+            0.858,
+            0.862,
+            0.793
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            2.934,
+            2.944,
+            2.965
+          ]
+        },
+        "RGG3_atajos_1": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.175,
+            1.167,
+            1.154
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.207,
+            3.056,
+            3.095
+          ]
+        },
+        "WS_b0.001": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.283,
+            3.119,
+            2.928
+          ],
+          "rho": [
+            7.428,
+            10.314,
+            16.773
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.328,
+            1.319,
+            1.281
+          ]
+        },
+        "WS_b0.002": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 2,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "NO_CONVERGE"
+          ],
+          "D_conv": [
+            3.757,
+            3.657,
+            3.625
+          ],
+          "rho": [
+            6.469,
+            13.458,
+            8.147
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.406,
+            1.458,
+            1.442
+          ]
+        },
+        "WS_b0.005": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CRUCE",
+            "CRUCE",
+            "CRUCE"
+          ],
+          "D_conv": [
+            4.492,
+            4.548,
+            4.41
+          ],
+          "rho": [
+            4.471,
+            4.219,
+            5.291
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.53,
+            1.565,
+            1.44
+          ]
+        },
+        "WS_b0.01": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CRUCE",
+            "CRUCE",
+            "CRUCE"
+          ],
+          "D_conv": [
+            4.939,
+            4.881,
+            4.837
+          ],
+          "rho": [
+            2.628,
+            2.748,
+            2.667
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.643,
+            1.598,
+            1.583
+          ]
+        },
+        "ER_k12": {
+          "cls": "NL",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            0.973,
+            0.975,
+            0.967
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            7.961,
+            7.693,
+            7.769
+          ]
+        },
+        "RR_k12": {
+          "cls": "NL",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.564,
+            1.486,
+            1.641
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            7.685,
+            7.684,
+            7.677
+          ]
+        },
+        "RGG3_k12_N5e4": {
+          "cls": "G-hom",
+          "panel": "escala",
+          "n": 2,
+          "I": 2,
+          "II": 2,
+          "joint": 2,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.064,
+            3.067
+          ],
+          "rho": [
+            0.16,
+            0.163
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.058,
+            3.016
+          ]
+        },
+        "RGG2_k12_N5e4": {
+          "cls": "G-hom",
+          "panel": "escala",
+          "n": 2,
+          "I": 2,
+          "II": 2,
+          "joint": 2,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.027,
+            2.022
+          ],
+          "rho": [
+            0.087,
+            0.072
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.035,
+            1.993
+          ]
+        },
+        "retazos_b4_N5e4": {
+          "cls": "L",
+          "panel": "escala",
+          "n": 2,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null
+          ],
+          "rho": [
+            1.675,
+            1.609
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.608,
+            3.636
+          ]
+        },
+        "WS_b0.002_N5e4": {
+          "cls": "L",
+          "panel": "escala",
+          "n": 2,
+          "I": 0,
+          "II": 1,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "NO_CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            4.317,
+            4.449
+          ],
+          "rho": [
+            7.796,
+            7.937
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.509,
+            1.512
+          ]
+        },
+        "caveman_K8_N5e4": {
+          "cls": "R",
+          "panel": "escala",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.03
+          ]
+        },
+        "T3_37_N5e4": {
+          "cls": "G-hom",
+          "panel": "escala",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.887
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.002
+          ]
+        }
+      }
+    },
+    "0.08": {
+      "threshold": 0.08,
+      "verdict": "INSTRUMENTO-VALIDO",
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "n_ghom": 15,
+      "n_nongeo": 33,
+      "level3_condition": true,
+      "level3_note": null,
+      "by_family": {
+        "RGG2_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.019,
+            2.027,
+            2.023
+          ],
+          "rho": [
+            0.108,
+            0.1,
+            0.117
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.032,
+            2.023,
+            2.042
+          ]
+        },
+        "RGG3_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.044,
+            3.046,
+            3.05
+          ],
+          "rho": [
+            0.207,
+            0.228,
+            0.266
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.025,
+            3.053,
+            2.948
+          ]
+        },
+        "RGG3_k8": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.109,
+            3.109,
+            3.11
+          ],
+          "rho": [
+            0.237,
+            0.242,
+            0.254
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.039,
+            2.992,
+            3.04
+          ]
+        },
+        "RGG_S2_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.849,
+            1.862,
+            1.851
+          ],
+          "rho": [
+            0.097,
+            0.1,
+            0.099
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            1.965,
+            1.963,
+            1.993
+          ]
+        },
+        "anillo_k12": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.0
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.0
+          ]
+        },
+        "cuadrado_141": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.979
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.0
+          ]
+        },
+        "T3_27": {
+          "cls": "G-hom",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.866
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.005
+          ]
+        },
+        "RGG3_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.416,
+            2.469,
+            2.413
+          ],
+          "rho": [
+            1.154,
+            1.139,
+            1.219
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            2.45,
+            2.488,
+            2.57
+          ]
+        },
+        "RGG2_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.674,
+            1.718,
+            1.73
+          ],
+          "rho": [
+            1.243,
+            1.064,
+            1.084
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.794,
+            1.826,
+            1.767
+          ]
+        },
+        "RGG3_gradiente": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.957,
+            2.959,
+            2.975
+          ],
+          "rho": [
+            0.655,
+            0.645,
+            0.692
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.012,
+            3.002,
+            3.035
+          ]
+        },
+        "caveman_K4": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.001
+          ],
+          "rho": [
+            0.009
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.005
+          ]
+        },
+        "caveman_K5": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.009
+          ]
+        },
+        "caveman_K6": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.016
+          ]
+        },
+        "caveman_K8": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.027
+          ]
+        },
+        "caveman_K10": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.053
+          ]
+        },
+        "caveman_K12": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.05
+          ]
+        },
+        "caveman_K16": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.004
+          ],
+          "rho": [
+            0.006
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.047
+          ]
+        },
+        "cliques3D_K6_L15": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.882
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.141
+          ]
+        },
+        "cliques3D_K8_L13": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.913
+          ],
+          "rho": [
+            0.317
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.213
+          ]
+        },
+        "cliques2D_K6_L58": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.993
+          ],
+          "rho": [
+            0.088
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.027
+          ]
+        },
+        "retazos_b2": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.828,
+            1.943,
+            1.746
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.274,
+            3.17,
+            3.149
+          ]
+        },
+        "retazos_b4": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.339,
+            1.215,
+            1.298
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.841,
+            4.25,
+            4.116
+          ]
+        },
+        "retazos_b8": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.067,
+            1.067,
+            1.058
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            5.094,
+            5.222,
+            5.662
+          ]
+        },
+        "RGG3_atajos_0.1": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CRUCE",
+            "CRUCE",
+            "CRUCE"
+          ],
+          "D_conv": [
+            3.69,
+            3.681,
+            3.696
+          ],
+          "rho": [
+            0.858,
+            0.862,
+            0.793
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            2.934,
+            2.944,
+            2.965
+          ]
+        },
+        "RGG3_atajos_1": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.175,
+            1.167,
+            1.154
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.207,
+            3.056,
+            3.095
+          ]
+        },
+        "WS_b0.001": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.283,
+            3.119,
+            2.928
+          ],
+          "rho": [
+            7.428,
+            10.314,
+            16.773
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.328,
+            1.319,
+            1.281
+          ]
+        },
+        "WS_b0.002": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 2,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "NO_CONVERGE"
+          ],
+          "D_conv": [
+            3.757,
+            3.657,
+            3.625
+          ],
+          "rho": [
+            6.469,
+            13.458,
+            8.147
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.406,
+            1.458,
+            1.442
+          ]
+        },
+        "WS_b0.005": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CRUCE",
+            "CRUCE",
+            "CRUCE"
+          ],
+          "D_conv": [
+            4.492,
+            4.548,
+            4.41
+          ],
+          "rho": [
+            4.471,
+            4.219,
+            5.291
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.53,
+            1.565,
+            1.44
+          ]
+        },
+        "WS_b0.01": {
+          "cls": "L",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CRUCE",
+            "CRUCE",
+            "CRUCE"
+          ],
+          "D_conv": [
+            4.939,
+            4.881,
+            4.837
+          ],
+          "rho": [
+            2.628,
+            2.748,
+            2.667
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.643,
+            1.598,
+            1.583
+          ]
+        },
+        "ER_k12": {
+          "cls": "NL",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            0.973,
+            0.975,
+            0.967
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            7.961,
+            7.693,
+            7.769
+          ]
+        },
+        "RR_k12": {
+          "cls": "NL",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.564,
+            1.486,
+            1.641
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            7.685,
+            7.684,
+            7.677
+          ]
+        },
+        "RGG3_k12_N5e4": {
+          "cls": "G-hom",
+          "panel": "escala",
+          "n": 2,
+          "I": 2,
+          "II": 2,
+          "joint": 2,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            3.064,
+            3.067
+          ],
+          "rho": [
+            0.16,
+            0.163
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.058,
+            3.016
+          ]
+        },
+        "RGG2_k12_N5e4": {
+          "cls": "G-hom",
+          "panel": "escala",
+          "n": 2,
+          "I": 2,
+          "II": 2,
+          "joint": 2,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.027,
+            2.022
+          ],
+          "rho": [
+            0.087,
+            0.072
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)",
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.035,
+            1.993
+          ]
+        },
+        "retazos_b4_N5e4": {
+          "cls": "L",
+          "panel": "escala",
+          "n": 2,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "SIN_VENTANA_D",
+            "SIN_VENTANA_D"
+          ],
+          "D_conv": [
+            null,
+            null
+          ],
+          "rho": [
+            1.675,
+            1.609
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            3.608,
+            3.636
+          ]
+        },
+        "WS_b0.002_N5e4": {
+          "cls": "L",
+          "panel": "escala",
+          "n": 2,
+          "I": 0,
+          "II": 1,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "NO_CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            4.317,
+            4.449
+          ],
+          "rho": [
+            7.796,
+            7.937
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.509,
+            1.512
+          ]
+        },
+        "caveman_K8_N5e4": {
+          "cls": "R",
+          "panel": "escala",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.03
+          ]
+        },
+        "T3_37_N5e4": {
+          "cls": "G-hom",
+          "panel": "escala",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.887
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.002
+          ]
+        }
+      }
+    }
+  },
+  "scope_tables": {
+    "0.05": {
+      "G-inh": {
+        "RGG3_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "NO_CONVERGE",
+            "NO_CONVERGE",
+            "NO_CONVERGE"
+          ],
+          "D_conv": [
+            2.416,
+            2.469,
+            2.413
+          ],
+          "rho": [
+            1.154,
+            1.139,
+            1.219
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            2.45,
+            2.488,
+            2.57
+          ]
+        },
+        "RGG2_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.674,
+            1.718,
+            1.73
+          ],
+          "rho": [
+            1.243,
+            1.064,
+            1.084
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.794,
+            1.826,
+            1.767
+          ]
+        },
+        "RGG3_gradiente": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.957,
+            2.959,
+            2.975
+          ],
+          "rho": [
+            0.655,
+            0.645,
+            0.692
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.012,
+            3.002,
+            3.035
+          ]
+        }
+      },
+      "R": {
+        "caveman_K4": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.001
+          ],
+          "rho": [
+            0.009
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.005
+          ]
+        },
+        "caveman_K5": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.009
+          ]
+        },
+        "caveman_K6": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.016
+          ]
+        },
+        "caveman_K8": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.027
+          ]
+        },
+        "caveman_K10": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.053
+          ]
+        },
+        "caveman_K12": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.05
+          ]
+        },
+        "caveman_K16": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.004
+          ],
+          "rho": [
+            0.006
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.047
+          ]
+        },
+        "cliques3D_K6_L15": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.882
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.141
+          ]
+        },
+        "cliques3D_K8_L13": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.913
+          ],
+          "rho": [
+            0.317
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.213
+          ]
+        },
+        "cliques2D_K6_L58": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.993
+          ],
+          "rho": [
+            0.088
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.027
+          ]
+        },
+        "caveman_K8_N5e4": {
+          "cls": "R",
+          "panel": "escala",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.03
+          ]
+        }
+      }
+    },
+    "0.03": {
+      "G-inh": {
+        "RGG3_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "NO_CONVERGE",
+            "NO_CONVERGE",
+            "NO_CONVERGE"
+          ],
+          "D_conv": [
+            2.416,
+            2.469,
+            2.413
+          ],
+          "rho": [
+            1.154,
+            1.139,
+            1.219
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            2.45,
+            2.488,
+            2.57
+          ]
+        },
+        "RGG2_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.674,
+            1.718,
+            1.73
+          ],
+          "rho": [
+            1.243,
+            1.064,
+            1.084
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.794,
+            1.826,
+            1.767
+          ]
+        },
+        "RGG3_gradiente": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.957,
+            2.959,
+            2.975
+          ],
+          "rho": [
+            0.655,
+            0.645,
+            0.692
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.012,
+            3.002,
+            3.035
+          ]
+        }
+      },
+      "R": {
+        "caveman_K4": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.001
+          ],
+          "rho": [
+            0.009
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.005
+          ]
+        },
+        "caveman_K5": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.009
+          ]
+        },
+        "caveman_K6": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.016
+          ]
+        },
+        "caveman_K8": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.027
+          ]
+        },
+        "caveman_K10": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.053
+          ]
+        },
+        "caveman_K12": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.05
+          ]
+        },
+        "caveman_K16": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.004
+          ],
+          "rho": [
+            0.006
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.047
+          ]
+        },
+        "cliques3D_K6_L15": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.882
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.141
+          ]
+        },
+        "cliques3D_K8_L13": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.913
+          ],
+          "rho": [
+            0.317
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.213
+          ]
+        },
+        "cliques2D_K6_L58": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.993
+          ],
+          "rho": [
+            0.088
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.027
+          ]
+        },
+        "caveman_K8_N5e4": {
+          "cls": "R",
+          "panel": "escala",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.03
+          ]
+        }
+      }
+    },
+    "0.08": {
+      "G-inh": {
+        "RGG3_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.416,
+            2.469,
+            2.413
+          ],
+          "rho": [
+            1.154,
+            1.139,
+            1.219
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            2.45,
+            2.488,
+            2.57
+          ]
+        },
+        "RGG2_caja_k12": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "I_status": [
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA",
+            "NO_HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.674,
+            1.718,
+            1.73
+          ],
+          "rho": [
+            1.243,
+            1.064,
+            1.084
+          ],
+          "category": [
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO",
+            "NO_GEOMETRICO"
+          ],
+          "D_s": [
+            1.794,
+            1.826,
+            1.767
+          ]
+        },
+        "RGG3_gradiente": {
+          "cls": "G-inh",
+          "panel": "main",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "I_status": [
+            "HOMOGENEIZA",
+            "HOMOGENEIZA",
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE",
+            "CONVERGE",
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.957,
+            2.959,
+            2.975
+          ],
+          "rho": [
+            0.655,
+            0.645,
+            0.692
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)",
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.012,
+            3.002,
+            3.035
+          ]
+        }
+      },
+      "R": {
+        "caveman_K4": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.001
+          ],
+          "rho": [
+            0.009
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.005
+          ]
+        },
+        "caveman_K5": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.009
+          ]
+        },
+        "caveman_K6": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.002
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.016
+          ]
+        },
+        "caveman_K8": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.027
+          ]
+        },
+        "caveman_K10": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.053
+          ]
+        },
+        "caveman_K12": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.008
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.05
+          ]
+        },
+        "caveman_K16": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.004
+          ],
+          "rho": [
+            0.006
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.047
+          ]
+        },
+        "cliques3D_K6_L15": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "CV_CERO"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.882
+          ],
+          "rho": [
+            null
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.141
+          ]
+        },
+        "cliques3D_K8_L13": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            2.913
+          ],
+          "rho": [
+            0.317
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(3)"
+          ],
+          "D_s": [
+            3.213
+          ]
+        },
+        "cliques2D_K6_L58": {
+          "cls": "R",
+          "panel": "main",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.993
+          ],
+          "rho": [
+            0.088
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(2)"
+          ],
+          "D_s": [
+            2.027
+          ]
+        },
+        "caveman_K8_N5e4": {
+          "cls": "R",
+          "panel": "escala",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "I_status": [
+            "HOMOGENEIZA"
+          ],
+          "II_status": [
+            "CONVERGE"
+          ],
+          "D_conv": [
+            1.003
+          ],
+          "rho": [
+            0.007
+          ],
+          "category": [
+            "GEOMETRIA_GRUESA(1)"
+          ],
+          "D_s": [
+            1.03
+          ]
+        }
+      }
+    }
+  }
+}

@@ -72,3 +72,35 @@
 - **Opus:** análisis, decisión y prerregistro.
 - **Haiku:** auditoría de solo lectura de los registros.
 - **Sonnet:** implementación del código de P1-D.3, que reviso antes de ejecutar la corrida oficial.
+
+## 4. Resultado de P1-D.3 y decisión sobre cómo seguir
+
+**P1-D.3: INSTRUMENTO-VÁLIDO** (sensibilidad 15/15, especificidad 33/33, con los tres umbrales; el Nivel III rechaza los retículos de cliques 3D). Detalle en `OMEGA_P1D3_RESULTADOS.md`.
+
+**Alcance:** espacios cerrados homogéneos o casi homogéneos. **No reconoce geometrías con borde**, que dan falso negativo. «D ≈ 3 que converge» puede fabricarse con un anillo y 0.1 % de atajos, y solo el Nivel I y la discordancia con D_s lo desenmascaran.
+
+### Decisión del cerebro
+
+1. **Se cierra la fase de instrumentación.** La batería (Niveles I y II y certificado como Nivel III, con su alcance declarado) es ahora obligatoria para toda dinámica futura. No habrá más rondas P1 salvo que una dinámica produzca un caso fuera de alcance (por ejemplo, con borde).
+2. **No se simula nada más hasta que el Consejo ratifique un mecanismo.** Es lo que pidió el propio Consejo («solo después de ese informe, convocar al Consejo para diseñar la siguiente funcional»). El cuello de botella ya no es la medida: es la **falta de un mecanismo de coherencia mesoscópica**.
+3. **Requisitos de diseño** para el siguiente mecanismo, derivados de todo lo medido:
+
+   | # | Requisito | Origen |
+   |---|---|---|
+   | R1 | Debe producir **localidad** sin cliques ni vacío | C0 lo consiguió; S0/Ω-B no |
+   | R2 | Debe poder distinguir, energética o dinámicamente, una geometría de los **retazos**, que tienen la misma estadística local y un pegado incoherente | C0-T1/T2; conteos (k, c, q) de C0 ≈ RGG3 |
+   | R3 | La «cercanía» debe salir de la propia red, no de coordenadas | Pregunta 3 del Consejo para P3 |
+   | R4 | La escala no puede imponer la dimensión: criterio de meseta C1-D en parámetros | Fase 2 §1.3 |
+   | R5 | A Θ > 0 debe tener un coste por relación que no se anule con N, o una ligadura | C0-Θ FRÁGIL-1/N |
+   | R6 | Se evalúa con la batería P1-D.3 y debe superar el control de retazos **como entrada**: un mecanismo correcto debería *curar* un retazo, no conservarlo | Propuesta nueva |
+
+4. **Candidatos que propongo al Consejo** (no ejecutados; ninguno tiene código):
+   - **Ω-D, cercanía por difusión autoconsistente (recomendado primero).** Las relaciones se reajustan según el núcleo de calor de la propia red, K_τ = exp(−τL). Dos nodos se acercan si sus distribuciones de difusión a tiempo τ se solapan. Por qué lo recomiendo:
+     - responde a R3 (la cercanía nace de la red);
+     - es mesoscópico por construcción (R2), porque el núcleo de calor ve la escala √τ, no solo vecinos comunes;
+     - permite el test R6 de forma directa: ¿un retazo, al iterar, se cura o se congela?
+     - Riesgos que hay que analizar antes de simular: τ podría fijar la escala o la dimensión (R4), puede colapsar a cliques (como C0) o a expansores, y su punto fijo trivial es el grafo completo.
+     - Primer paso: análisis de puntos fijos (tipo C0-L1..L3) sobre T³, RGG3, retazos, caveman y expansores.
+   - **P3, crecimiento contiguo.** Sigue como alternativa y su borrador ya incluye las seis preguntas del Consejo. Ataca R2 por construcción, porque el crecimiento contiguo no puede pegar de forma incoherente. Pero arrastra la cuestión de la causalidad, que el Consejo aplazó.
+
+5. **Siguiente acción concreta:** sesión del Consejo para elegir entre Ω-D y P3, o rechazar ambos. Con la elección se prerregistra el análisis de puntos fijos o de la regla, sin dinámica. Solo después se simula con N ≤ 343 y la batería.

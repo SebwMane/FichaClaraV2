@@ -35,3 +35,18 @@ I → II → III: ninguno sustituye al siguiente. Hay que informar siempre en do
 - **Geometría tipo variedad:** vecindarios de variedad (lo que exige F9).
 
 Además, **la dimensión no se fija**: ningún nivel exige D = 3. D_B ≈ 3 no es requisito.
+
+## Estado del instrumento tras P1-D.3 (VÁLIDO, con alcance)
+
+| Componente | Herramienta |
+|---|---|
+| Observador a N grande | `omega/diagnostics/sampled_growth.py` (BFS muestreado, D_B2, D_s) |
+| Nivel II | Criterio de **convergencia** de D_B2, que sustituye a la meseta de P1-D.2 |
+
+**Resultado:** sensibilidad 15/15 y especificidad 33/33 con N ≈ 2·10⁴. La separación crece con N.
+
+**Alcance:** espacios cerrados homogéneos o casi homogéneos.
+- **Falso negativo con borde:** el RGG en caja sale NO_GEOMÉTRICO.
+- El Nivel II aislado puede dar D ≈ 3 convergente en un anillo con 0.1 % de atajos. Nunca debe usarse solo.
+
+**Informe obligatorio:** NO_GEOMÉTRICO / GEOMETRÍA_GRUESA(d) / GEOMETRÍA_VARIEDAD(d ≥ 3) / VARIEDAD_NO_EVALUABLE (d ≤ 2).
