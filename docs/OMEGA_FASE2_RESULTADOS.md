@@ -158,3 +158,24 @@ Es la firma de un pegado incoherente de vecindarios locales. Coincide con los c�
 | Herramientas | `tools/c0_theta.py`, `tools/c1_local_stats.py`, `tools/c1_ball_growth.py` |
 | Resultados | `results/c0_theta/`, `results/c0_theta_dt/`, `results/c1_local_stats/`, `results/c1_ball_growth/` |
 | Pesos finales (no versionados) | `runs/c0_theta/out/` |
+
+## 6. Veredicto del Consejo (sesión de cierre de la Fase 2)
+
+**C0-Θ: NEGATIVO como mecanismo de geometría robusta.** No se rescata C0 como candidato geométrico. El resultado secundario que se conserva es que puede emerger localidad no trivial sin geometría, y que la diferencia aparece en la escala intermedia.
+
+| Propuesta | Decisión | Motivo |
+|---|---|---|
+| P1 como **diagnóstico** (crecimiento de bolas) | 🟢 Aprobada | Preprueba descriptiva sobre un panel amplio de controles |
+| P1 como **término energético** | 🔴 Todavía no | Riesgo de ingeniería *post hoc*: optimizar el criterio que acabamos de observar |
+| P2 (coste dependiente de N) | 🟡 Secundaria | Estudia la estabilidad, no la geometría |
+| P3 (crecimiento) | 🟡 Preparar, no ejecutar | Cambio conceptual mayor; requiere prerregistro propio |
+| C1 de 4-ciclos | 🔴 Rechazada | No distingue geometría de localidad (T³ frente a Q₆; C0 ≈ RGG3) |
+| Campaña grande adicional a Θ > 0 | 🔴 No | La fragilidad térmica ya está mostrada |
+
+**Otras decisiones:**
+- El crecimiento de bolas (⟨|B_r|⟩, CV(|B_r|), D_B(r) = d ln|B_r| / d ln r) pasa a ser **observador permanente** de Ω, no certificado ni energía.
+- Se adopta el **preflight geométrico A–H** para cualquier funcional futura: localidad, homogeneización intermedia, isotropía, consistencia multiescala, ser variedad, estabilidad, robustez y control no geométrico con las mismas estadísticas locales.
+
+**Pregunta central del programa a partir de ahora:** ¿qué principio dinámico hace que las relaciones locales sean globalmente coherentes como una geometría?
+
+**Estado:** Fase 2 cerrada y congelada en `claude/omega-fase2-congelado`.
