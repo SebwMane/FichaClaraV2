@@ -168,3 +168,33 @@ Solo si C1-A…D pasan, C1 entra en la puerta dinámica de C0 (L4, red-team, F1 
 - Ninguna funcional nueva se simula en esta fase.
 - No se cambian umbrales del certificado ni código congelado.
 - Ni mecánica cuántica, ni coordenadas, ni embedding, ni D = 3 o k = 6 como objetivo.
+
+## 5. Enmiendas
+
+### F2-A1: paso dt (registrada tras el smoke y antes de la corrida oficial; no se ha visto ningún dato de Θ > 0 oficial)
+
+**Qué mostró el smoke.** El brazo de control Θ = 0 con dt = 0.02, aplicado al final C0 de la celda 37 (inicio R, semilla 0), empeora S/LB de 0.9997 a 0.945, un 5.5 %, y la cifra queda estable en el tiempo.
+
+**Diagnóstico.** El déficit es lineal en dt:
+
+| dt | Déficit de S/LB |
+|---|---|
+| 0.02 | 5.5 % |
+| 0.01 | 2.7 % |
+| 0.005 | 1.35 % |
+| 0.0025 | 0.68 % |
+
+Es el sesgo O(dt) de la reflexión en la pared W = 1. Las aristas saturadas rebotan hasta 1 − dt·|G|. No es una inestabilidad.
+
+**Problema con la regla original.** La regla de §2.1 solo permitía dos reducciones, hasta dt = 0.005, y con ese paso el control sigue sin cumplir el criterio del 1 %.
+
+**Enmienda:**
+- dt = 0.0025 (tres reducciones);
+- n_steps = 40 000, es decir, tiempo de integración 100 frente a 400 en el diseño original;
+- el resto del protocolo no cambia.
+
+**Limitaciones que se informarán:**
+- «sobrevive» significa que sobrevive durante un tiempo 100. La observable de estacionariedad indica si sigue derivando;
+- el sesgo de pared (≈ 0.7 % en S) afecta igual a todos los brazos.
+
+Observación del smoke (cuatro corridas de 400 pasos con dt = 0.02, **no oficiales**): con Θ = Θ_N, la celda 37 pasó a DENSO-TRIVIAL en un tiempo de 8. Se registra solo para transparencia y no altera los criterios.
