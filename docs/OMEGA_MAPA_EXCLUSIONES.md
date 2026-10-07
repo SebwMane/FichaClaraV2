@@ -42,4 +42,4 @@
 - A 10⁴–10⁶ nodos da δ ≈ 0.05–0.24 con mucha dispersión, alrededor del corte X1: unas veces excluido, otras no.
 - Ejemplo: espacio de cortes de un orden aleatorio de 2 dimensiones (J3), con ln |L| ~ √n, coherencia INTERMEDIO y grado medio creciente sin saturar.
 - Con pares de instancias independientes de familias de varianza alta, δ mide la varianza entre instancias.
-- Regla de uso propuesta (pendiente del Consejo; no retroactiva): tres tamaños de la misma estructura creciente; δ estable entre pares (≤ 0.02); grado medio saturado (< 10 % entre 8N y 64N), con cálculo de potencia previo.
+- **Regla de uso vigente (adoptada por el Consejo; calibrada en `OMEGA_W6_PRERREGISTRO.md` §4):** tres tamaños de la misma estructura creciente, W5 en ambos pares y grado saturado con |Δk|/k₂ ≤ 0.05. Potencia demostrada frente a J3 (3/3), con un margen de ×5.5. La estabilidad de δ (W6.2) se reporta pero **no decide**: con R_MAX = 200 no se resuelve δ en 2D a 6.4·10⁵ (W4), y de todos modos no separa J3.
