@@ -139,4 +139,13 @@ Hay propiedades intrínsecas de un grafo, definibles con paseos aleatorios **sob
 
 ## 6. Verificación bibliográfica
 
-Pendiente: agente Haiku sobre R1–R4 y el decaimiento 1/log en d_c. Se anota aquí antes de que el Consejo decida.
+Agente Haiku con búsqueda web; revisión del cerebro.
+
+| Id | Resultado | Decisión del cerebro |
+|---|---|---|
+| R1 | Pólya (1921): VERIFICADO. Varopoulos: VERIFICADO **solo para grupos finitamente generados** (grafos de Cayley); en grafos generales hace falta además una condición isoperimétrica | **Corregido.** En grafos generales de crecimiento polinómico solo vale una dirección sin hipótesis extra: un volumen ≲ r² con grado acotado implica recurrencia (criterio tipo Nash-Williams; recuerdo del cerebro). La transitoriedad para d > 2 exige isoperimetría. Consecuencia para W-1: el umbral R1 es fiable en redes y vértice-transitivos, no en cualquier grafo de crecimiento d |
+| R2 | En ℤ^d: VERIFICADO. Krishnapur y Peres, *Recurrent graphs where two independent random walks collide finitely often*, Electron. Commun. Probab. 9 (2004) 72–81, arXiv:math/0406487 | Se añade un matiz importante: en grafos generales, ser recurrente **no** implica colisiones infinitas (el peine es un contraejemplo). R2 depende de algo más que la dimensión de crecimiento, y por tanto sería un mal selector incluso en principio |
+| R3 | Erdős y Taylor (1960) y Lawler, *Intersections of Random Walks* (1991): VERIFICADO (d ≤ 4) | Se mantiene. Cita correcta: Acta Math. Acad. Sci. Hungar. 11 (1960). La URL que dio el agente (Comm. Math. Phys. 86) **no corresponde** y se descarta. El decaimiento en d = 4 es logarítmico. La forma exacta que dio el agente, (π²/8)/log n, **no** se adopta: no hay fuente primaria y depende de la variante (uno o dos lados). W-T5 solo usa que el decaimiento es logarítmico |
+| R4 | DEK(T): VERIFICADO para el caso browniano (d < 2k/(k − 1)). Versión de red: el informe se contradice («también vale» y, en la cita, «se anula si D > 2k/(k − 1)») | Lectura del cerebro, coherente con R3 (k = 2, d ≤ 4): en red, **d ≤ 2k/(k − 1)**, incluido el valor crítico; en el continuo es estricto. Queda como nivel 3 **no verificado con fuente primaria**. La diferencia red/continuo en k = 2 (4 frente a 3) es otra elección discreta, y refuerza W-T4 |
+
+**Efecto:** el veredicto se mantiene y W-T4 sale reforzado. R2 depende de la geometría fina (peine) y R1 solo es un umbral limpio en grafos homogéneos. Las leyes de C3 no son funciones solo de la dimensión de crecimiento: también dependen de la homogeneidad del grafo. W-1, si se aprueba, debe incluir geometrías no homogéneas (peine, retazos) en el panel.
