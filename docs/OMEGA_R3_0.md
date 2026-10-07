@@ -298,7 +298,7 @@ Esta lectura no cambia el veredicto anterior. Distingue niveles.
    - El descenso de δ que predije (≈ 0.03 entre pares) es **menor que el ruido entre pares de una misma estructura**: la semilla 0 sube 0.08, la 1 baja 0.05.
    - La prueba (a) no tenía potencia. Debí calcularla antes de prerregistrar el umbral de 0.02 con 3 semillas. **No se reinterpreta:** el residuo sigue NO CLASIFICADO.
 3. **Lo que el residuo no es (nivel 1).**
-   - No es una dimensión finita estable: δ oscila alrededor del corte X1 (0.125), entre −0.06 y 0.24, y 10 de los 18 pares de J3 medidos en total quedan excluidos por X1.
+   - No es una dimensión finita estable: δ oscila alrededor del corte X1 (0.125), entre −0.06 y 0.24, y 11 de los 18 pares de J3 medidos en total (3 + 9 + 6) quedan excluidos por X1.
    - La coherencia es INTERMEDIO en todos los tamaños de I2.
    - **El grado medio crece sin saturar** en los tres tamaños, unos 2 puntos por paso. En las redes de dimensión finita del mismo cálculo el grado se satura (J1(2): 3.96 → 3.99; J1(3): 5.73 → 5.86).
    - Esta observación es nivel 2 y **no es una regla prerregistrada**: queda como candidata para W6.
