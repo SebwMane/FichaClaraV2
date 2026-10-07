@@ -155,3 +155,34 @@ Si K1, K2 o K3 fallan, **CF-1 es NO INTERPRETABLE**: se documenta y no se lee ni
 - Agente Sonnet: `tools/cf1_growth.py` (reutiliza C_flag de `tools/cf01_completion.py` y la medida de `tools/rc3.py`), tests y `results/cf1/`.
 - Antes de la corrida completa: humo y estimación de coste, reportados al cerebro.
 - Revisión del cerebro y resultados en `docs/OMEGA_CF1_RESULTADOS.md`.
+
+---
+
+## 8. Adenda de ejecución tras el humo (escrita antes de la corrida completa)
+
+**Humo** (`results/cf1_smoke/`; tamaños 200 / 800 / 2000; 1 semilla; 22/22 tests pasan). Lo reviso el cerebro.
+
+- **V0 pasa.** B₇ y B₈ cierran con los tres planificadores, y el relabelado da estructuras isomorfas para w = 3…6.
+- **V1 y V1-R inflan ya a escala de humo.**
+  - Desde S₂, con 2000 elementos: subida mediana en el interior 4, grado medio de Hasse ≈ 7.7, subida máxima 8–9.
+  - Solo 35–48 elementos vienen de ER; el resto son completaciones, porque cada extensión desencadena una cascada.
+  - La construcción explícita de una rejilla producto es un punto fijo sin instancias pendientes (test), pero **el crecimiento desde S₂ no la produce**.
+  - Lectura provisional (nivel 2): la completación de una cubierta nueva en la frontera crea supremos **nuevos** en lugar de identificarlos con elementos ya existentes. Es el riesgo de esquina de CF-T3, que se materializa (fracción de esquinas ≈ 0.5).
+- **Coste.** El tiempo crece entre n² y n³ porque la subida no satura. V1, V1-A, V2, V3 y V7 no alcanzan N₂ en horas, ni N₃ en tiempos razonables. V4 y V5 son baratas.
+- **V5 (PAIR):** no prolifera: forma una hebra fina (r_loc 2, δ₁₂ ≈ 1). Mi predicción de proliferación falla, y K3 podría fallar por la lectura literal («no W6-válida»): una hebra 1D puede ser W6-válida aunque RC-3 la excluya (X3). No se cambia K3.
+
+**Decisiones de ejecución.** No cambian el diseño, la regla ni los criterios. Se toman antes de la corrida completa:
+
+1. **Límite de coste: 1200 s de crecimiento por ejecución.** La ejecución que lo alcance se registra como ABORTADO_COSTE, con el tamaño alcanzado y las instantáneas que haya tomado. Según §3, «no evaluable» en los tamaños no alcanzados.
+2. **Observable de trayectoria, solo para reportar y añadido después del humo:** grado medio, subida máxima y r_loc en n = 500, 1000, 2000, 4000, 8000, 16000, … hasta el tamaño alcanzado. **No decide.** Sirve para documentar la inflación como mecanismo de fallo cuando W6 no sea evaluable.
+3. **Interpretaciones del agente que se confirman:**
+   - la elegibilidad CAUSAL-LOCAL es exacta, calculada por ancestros pendientes;
+   - las instancias degeneradas o bloqueadas por la cota se descartan (son permanentes);
+   - V2 crece cada componente hasta N₁/2;
+   - «A-positivo» en su lectura (al menos 2 semillas W6-válidas y no excluidas), reportando también la estricta;
+   - K1 y K3 cuentan como «no W6-válida» las ejecuciones no evaluables en N₃.
+4. **D1:** no se fija un umbral numérico porque el prerregistro no lo tenía. Se reportan los d_w y el cerebro los juzga, documentándolo. Lo declaro aquí para que no se fije después de ver datos.
+
+**Predicción actualizada (registrada antes de la corrida completa):**
+- La familia V1 terminará **ABORTADO_COSTE antes de N₂**, con el grado creciente en la trayectoria. El desenlace será **CF1-neg por inflación en la frontera**, o NO INTERPRETABLE si fallan K2 o K3.
+- V4 debería mostrar δ ≈ 1/c, si la cota de subida produce el producto de rango c.
