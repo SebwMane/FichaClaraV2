@@ -263,3 +263,96 @@ Si no, el residuo queda **NO CLASIFICADO** y R3-T2(c) queda falsado para J3.
 - Un solo par de tamaños no distingue el crecimiento intermedio de una dimensión finita.
 - Con familias de varianza alta, los pares de instancias independientes miden la varianza y no el exponente.
 - Regla de uso que se propondrá: tres tamaños con la misma estructura creciente y δ estable entre pares, con un descenso < 0.02.
+
+---
+
+## 9. Resultado de la inspección y veredicto de R3-0
+
+Código: `tools/r3_0b_inspect.py`; 10/10 tests pasan. Datos: `results/r3_0b_inspect/`. Revisado por el cerebro.
+
+**I1** (J3, semillas 3–11, par de instancias independientes):
+- δ = 0.146, 0.160, 0.084, 0.031, 0.190, 0.098, 0.087, −0.055, 0.044. Media 0.087, desviación típica 0.075.
+- 6 de 9 quedan excluidos por X1.
+- Predicción (desviación ≥ 0.08 y media en [0.10, 0.25]): **fallida** en las dos partes.
+
+**I2** (misma estructura creciente a N, 8N y 64N):
+
+| Semilla | n | δ(N, 8N) | δ(8N, 64N) | Grado medio | Coherencia |
+|---|---|---|---|---|---|
+| 0 | 39 / 54 / 72 | 0.073 (X1) | 0.153 | 9.4 → 11.4 → 13.3 | INTERMEDIO ×3 |
+| 1 | 34 / 49 / 67 | 0.136 | 0.081 (X1) | 9.9 → 11.7 → 13.9 | INTERMEDIO ×3 |
+| 2 | 39 / 47 / 64 | 0.102 (X1) | 0.092 (X1) | 10.1 → 12.4 → 14.2 | INTERMEDIO ×3 |
+
+Predicción δ(N, 8N) ∈ [0.13, 0.27]: fallida (1 de 3). Descenso medio: −0.005.
+
+**I3:** el ajuste ln |L| ~ √n gana en 3 de 3 semillas, con error cuadrático entre 2 y 6 veces menor que con ln n. Predicción **acertada**.
+
+**Regla congelada:** (a) falla, porque el descenso medio es −0.005 < 0.02, y (b) se cumple. **El residuo queda NO CLASIFICADO y R3-T2(c) queda falsado para J3** en su forma instrumental: «el orden aleatorio de anchura creciente da explosión visible para RC-3».
+
+### 9.1 Lectura del cerebro
+
+Esta lectura no cambia el veredicto anterior. Distingue niveles.
+
+1. **Lo que se sostiene (nivel 1, en estas instancias).** El número de cortes de J3 crece como e^{c√n} (I3). Es superpolinómico, como predice el valor esperado de Lifschitz y Pittel (1981, verificado: J. Combin. Theory A 31, 1–20, doi:10.1016/0097-3165(81)90049-2).
+2. **Lo que falla es el instrumento a estos tamaños, y también mi prueba (a).**
+   - El descenso de δ que predije (≈ 0.03 entre pares) es **menor que el ruido entre pares de una misma estructura**: la semilla 0 sube 0.08, la 1 baja 0.05.
+   - La prueba (a) no tenía potencia. Debí calcularla antes de prerregistrar el umbral de 0.02 con 3 semillas. **No se reinterpreta:** el residuo sigue NO CLASIFICADO.
+3. **Lo que el residuo no es (nivel 1).**
+   - No es una dimensión finita estable: δ oscila alrededor del corte X1 (0.125), entre −0.06 y 0.24, y 10 de los 18 pares de J3 medidos en total quedan excluidos por X1.
+   - La coherencia es INTERMEDIO en todos los tamaños de I2.
+   - **El grado medio crece sin saturar** en los tres tamaños, unos 2 puntos por paso. En las redes de dimensión finita del mismo cálculo el grado se satura (J1(2): 3.96 → 3.99; J1(3): 5.73 → 5.86).
+   - Esta observación es nivel 2 y **no es una regla prerregistrada**: queda como candidata para W6.
+4. **El residuo no abre ninguna vía.** Su generador (intersección de 2 órdenes lineales) introduce el 2 en su construcción y es S2 FAIL como candidato (§3, R3-T2). El residuo afecta a un lema (R3-T2(c)) y al instrumento, no a la búsqueda de un mecanismo.
+
+### 9.2 Punto ciego W6 de RC-3 (confirmado)
+
+**Crecimiento intermedio.**
+- Una geometría cuyo volumen crece como e^{c√r} produce, a 10⁴–10⁶ nodos, δ ≈ 0.05–0.24 con mucha dispersión.
+- RC-3 la excluye unas veces (X1) y otras no, y un par no la distingue de una dimensión finita alta.
+- Regla de uso propuesta, para el futuro y sin efecto retroactivo:
+  - (1) tres tamaños de la misma estructura creciente;
+  - (2) δ estable entre pares, con una diferencia que no supere el ruido medido en las redes del panel RC-3 (≈ 0.02);
+  - (3) grado medio saturado (cambio < 10 % entre 8N y 64N).
+- La parte (3) se apoya solo en la observación de 9.1, y su potencia hay que calcularla antes de usarla.
+
+### 9.3 Veredicto de R3-0
+
+| Afirmación | Estado |
+|---|---|
+| R3-T1 (coalescencia sin defectos ⇒ d = anchura asintótica) | **Corroborado** (nivel 1 en estas instancias; condiciones (i) y (ii)) más la prueba directa (§3) y T-Bir y T-Dil verificados |
+| R3-T2(a) (anchura fija = codificación) | Corroborado (J1) y S2 FAIL por construcción |
+| R3-T2(b) (acoplamiento acotado ⇒ 1D) | Corroborado (J2: X3 ×3) |
+| R3-T2(c) (anchura creciente ⇒ explosión) | **Falsado en su forma instrumental** (J3 NO CLASIFICADO). Sostenido en la forma de crecimiento (I3) y por la cota teórica del valor esperado |
+| R3-T2(d) (percolación transitiva, postes ⇒ 1D) | p = 0.5: X3 ×3. p = 0.1 y 0.02: X1 + X4 a este tamaño. La asintótica 1D (T-Post) no es visible aquí: régimen transitorio explosivo |
+| R3-T3, R3-T4 | Nivel 3 (verificados, con T-CSG debilitado a problema abierto) |
+
+**R3: REDUCIDO, con un lema instrumental falsado.**
+- La conclusión central se mantiene (nivel 2). En la única clase de orden que coalesce sin defectos, d es un recuento: la anchura asintótica. Ninguna construcción natural la fija sin codificarla.
+- Lo que no puedo afirmar es que RC-3 excluya todos los órdenes de anchura creciente: el crecimiento intermedio se le escapa (W6).
+- Síntesis (nivel 2): en grupos, redes rígidas y órdenes, d aparece como el rango de direcciones independientes que conmutan. El «?» de ARQ-0 es ese rango.
+
+### 9.4 Contraste de predicciones (R3-0b e inspección)
+
+Fallidas:
+- J1(4) X4-marginal;
+- J3 (semillas 1 y 2) excluido o abstenido;
+- J4(0.1) X3;
+- I1 (media y dispersión);
+- I2 (rango de δ y descenso).
+
+Acertadas:
+- J1(1–3), J2 ×3, J4(0.5);
+- I3 (forma √n);
+- la hipótesis de crecimiento superpolinómico.
+
+Error de método: un umbral de descenso sin cálculo de potencia (lección 25).
+
+### 9.5 Propuesta al Consejo
+
+- **(a)** Ratificar «R3 REDUCIDO» con el alcance de la tabla 9.3.
+- **(b)** Decidir sobre W6 y su regla de uso, incluido el cálculo de potencia previo del criterio de grado saturado.
+- **(c)** Elegir el siguiente paso. Hay dos opciones:
+  - **W-0:** análisis sin dinámica de si un proceso de hilos que se bifurcan y se fusionan puede autoseleccionar su anchura asintótica sin que esta sea un cociente de tasas (dial).
+  - **Cierre del programa de selección** con el resultado negativo estructurado: A es resoluble dado un recuento; B no tiene mecanismo conocido que no sea un dial.
+
+  **Recomendación del cerebro: W-0.** Es la formulación exacta y mínima de lo que queda abierto, es barato (sin dinámica) y es decisivo. Si W-0 muestra que toda autoselección de anchura se reduce a un cociente de tasas o a un parámetro, el cierre quedará demostrado, no supuesto. Prueba del dial E2 desde el diseño y E6-S-ORD solo si aparece un candidato.

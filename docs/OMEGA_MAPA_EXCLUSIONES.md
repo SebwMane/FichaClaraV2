@@ -35,3 +35,11 @@
 - Ejemplo: inicio denso con B-s, con E/N 7.9 → 2.0 y δ = 0.45.
 - Si además la coherencia se abstiene en N (SIN_VENTANA), X4 no puede activarse.
 - Regla de uso propuesta (pendiente del Consejo; no se aplica retroactivamente): el par solo es válido si E/N difiere < 25 % entre los dos tamaños.
+
+## Punto ciego W6 (tras R3-0)
+
+**Crecimiento intermedio (volumen ~ e^{c√r}).**
+- A 10⁴–10⁶ nodos da δ ≈ 0.05–0.24 con mucha dispersión, alrededor del corte X1: unas veces excluido, otras no.
+- Ejemplo: espacio de cortes de un orden aleatorio de 2 dimensiones (J3), con ln |L| ~ √n, coherencia INTERMEDIO y grado medio creciente sin saturar.
+- Con pares de instancias independientes de familias de varianza alta, δ mide la varianza entre instancias.
+- Regla de uso propuesta (pendiente del Consejo; no retroactiva): tres tamaños de la misma estructura creciente; δ estable entre pares (≤ 0.02); grado medio saturado (< 10 % entre 8N y 64N), con cálculo de potencia previo.
