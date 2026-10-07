@@ -138,6 +138,9 @@ class Grower:
         n = len(self.up)
         self.rank = self._ranks()
         self.maxup = max((len(u) for u in self.up), default=0)
+        self.n_edges = sum(len(u) for u in self.up)
+        self.traj: list[dict] = []
+        self.traj_next = 500
         self.maxm = 2  # mayor |S| visto en una instancia o en un conjunto A (cota de la profundidad de refresco)
         self.jpos: dict[tuple[int, ...], int] = {}
         self.pend: dict[int, list[tuple[int, ...]]] = {}
@@ -324,6 +327,7 @@ class Grower:
         self.up.append([])
         self.down.append(list(L))
         self.rank.append(1 + max(self.rank[l] for l in L))
+        self.n_edges += len(L)
         for l in L:
             self.up[l].append(u)
             if len(self.up[l]) > self.maxup:
@@ -396,14 +400,26 @@ class Grower:
             self.extend()
         return None
 
+    def _traj_point(self) -> None:
+        n = self.n
+        ups = np.fromiter((len(u) for u in self.up), dtype=np.int64, count=n)
+        dns = np.fromiter((len(d) for d in self.down), dtype=np.int64, count=n)
+        inter = ups == dns
+        self.traj.append({"n": n, "mean_hasse_degree": 2.0 * self.n_edges / n, "max_up": int(self.maxup),
+                          "r_loc": float(np.median(ups[inter])) if inter.any() else None})
+
     def run(self, sizes: tuple[int, ...] | list[int], on_snap: Callable[[int], None] | None, max_n: int,
-            deadline: float | None = None, si: int = 0) -> tuple[str, int]:
-        """Crece hasta max_n elementos. Devuelve (status, indice_de_la_siguiente_instantanea)."""
+            deadline: float | None = None, si: int = 0, track: bool = False) -> tuple[str, int]:
+        """Crece hasta max_n elementos. Devuelve (status, indice_de_la_siguiente_instantanea). El tiempo de las
+        instantaneas (on_snap) NO cuenta para el limite de crecimiento. track: trayectoria (solo reporte, §8.2)."""
         ops = 0
         while True:
             while si < len(sizes) and self.n >= sizes[si]:
                 if on_snap is not None:
+                    t0 = time.perf_counter()
                     on_snap(si)
+                    if deadline is not None:
+                        deadline += time.perf_counter() - t0
                 si += 1
             if self.n >= max_n:
                 return "COMPLETO", si
@@ -411,6 +427,10 @@ class Grower:
             if st:
                 return st, si
             ops += 1
+            if track and self.n >= self.traj_next:
+                self._traj_point()
+                while self.traj_next <= self.n:
+                    self.traj_next *= 2
             if len(self.pend) > MAX_PENDING:
                 return "ABORTADO_COSTE", si
             if deadline is not None and ops % 64 == 0 and time.perf_counter() > deadline:
@@ -773,9 +793,11 @@ def run_spec(spec: dict[str, Any], sizes: tuple[int, ...], tau: tuple[float, flo
 
         tg = time.perf_counter()
         # los snapshots se miden dentro del bucle: el reloj de crecimiento los descuenta al final
-        status, _ = g.run(sizes, on_snap, sizes[-1], deadline)
+        status, _ = g.run(sizes, on_snap, sizes[-1], deadline, track=True)
         if variant == "V2" and not snaps and status == "COMPLETO":
             pass
+        if not g.traj or g.traj[-1]["n"] != g.n:
+            g._traj_point()
         n_final = g.n
         secs["growth_plus_measure_s"] = round(time.perf_counter() - tg, 1)
     # V2: la instantanea N1 cae justo tras la coalescencia (n = N1 + 1)
@@ -787,7 +809,9 @@ def run_spec(spec: dict[str, Any], sizes: tuple[int, ...], tau: tuple[float, flo
         "sizes_reached": reached, "evaluable_N3": 2 in reached,
         "n_complete": None if g is None else g.n_complete, "n_extend": None if g is None else g.n_extend,
         "degenerate": None if g is None else len(g.degenerate), "cap_blocked": None if g is None else len(g.cap_blocked),
-        "pending_final": None if g is None else len(g.pend), "coalescence_element": coalescence, "coalescence_down": coal_down,
+        "pending_final": None if g is None else len(g.pend),
+        "trajectory": [] if g is None else g.traj,
+        "final_state": None if g is None else {"mean_hasse_degree": 2.0 * g.n_edges / g.n, "max_up": g.maxup}, "coalescence_element": coalescence, "coalescence_down": coal_down,
         "snapshots": snaps, **ev,
     }
     secs["total_s"] = round(time.perf_counter() - t_start, 1)
