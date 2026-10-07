@@ -1,6 +1,6 @@
 # Proyecto Ω — Documento maestro de bifurcación e investigación
 
-> **Estado (2026-10-07):** el programa de selección dimensional (problema B) está **cerrado** con un resultado negativo estructurado. Véanse `docs/OMEGA_CIERRE_B.md` y `docs/OMEGA_MAPA_NEGATIVO.md`.
+> **Estado (2026-10-07):** el programa de selección dimensional (problema B) está **cerrado** con un resultado negativo estructurado; el problema A sigue abierto, sin candidato. Punto de entrada: `docs/OMEGA_ESTADO.md`.
 
 (Transcripción fiel del documento entregado por el usuario; la notación LaTeX se pasó a texto plano. Las secciones conservan su numeración original 0–51.)
 

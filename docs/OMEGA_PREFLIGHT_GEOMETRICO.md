@@ -98,3 +98,7 @@ Toda propuesta que pretenda **seleccionar** una dimensión debe cumplir, además
   - una exclusión que dependa solo de X4 es «X4-marginal»;
   - todo NO-EXCLUIDO se inspecciona.
 - **Puntos ciegos:** `docs/OMEGA_MAPA_EXCLUSIONES.md`.
+
+## Regla de trazabilidad de d (tras el cierre de B)
+
+Toda estructura que supere RC-3 + W6 debe declarar de qué fuente procede su d (parámetro o escala, inicio, conservación, ley, o «desconocida») antes de cualquier lectura dimensional. «Desconocida» obliga a E6-D completo. Un éxito del problema A no cuenta como progreso del problema B (`docs/OMEGA_CIERRE_B.md` §7).

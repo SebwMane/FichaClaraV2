@@ -75,3 +75,21 @@ El programa B solo se reabre si se presenta, **antes** de mirar ningún resultad
 No reabren el programa:
 - una regla nueva que dé un atractor concreto (la «última trampa» del Consejo);
 - repetir W-1 con más tamaño (valor de la información nulo para esta decisión; W-1 §5).
+
+---
+
+## 7. Ratificación del Consejo y auditoría del acta
+
+**Ratificado** (texto del Consejo, adoptado literalmente):
+
+> **B — PROGRAMA DE SELECCIÓN DIMENSIONAL: CERRADO.** El cierre no constituye una prueba de imposibilidad de emergencia dimensional. Constituye una reducción estructural negativa de las familias investigadas: en ellas, la dimensionalidad efectiva queda asociada al número de direcciones independientes que pueden coexistir. Los mecanismos examinados fijan ese número mediante condición inicial, parámetro/escala, conservación, elección de ley o colapso a una única dirección. […] No se identifica dentro del dominio examinado un mecanismo que genere dimensionalidad sin trasladar su selección a otra fuente de información.
+
+**Correcciones al acta (justificadas):**
+
+1. **Nivel de W-T7.** El acta dice que el caso IV «queda cubierto mediante W-T7». Es correcto con una precisión: W-T7 es un argumento de **nivel 2** dentro del planteamiento de hilos con información local, no un teorema. El propio Consejo lo reconoce en su §3, y así queda en el registro.
+2. **El acta formula el problema A como «¿puede Ω producir estructura geométrica?» y lo da por abierto.** Dos precisiones, según el registro del programa:
+   - **Estado real de A.** Hay instrumentos validados en sus dominios (RC-3 + W5 + W6 y E6-S v1.1), pero **ninguna dinámica de Ω ha producido todavía una estructura no excluida y W6-válida**. Las dinámicas probadas fueron S0, Ω-B, C0, P3 y R1-1, y todas dieron degenerados o fragmentos. Las geometrías de R3 (cajas de cortes) son construcciones dada una anchura, no salidas de una dinámica de Ω.
+   - **A y B no son independientes.** R3-T1 muestra que la coalescencia sin defectos (una solución de A) ata d a la anchura (B). Por tanto, si algún día se resuelve A, su d vendrá de alguna de las fuentes del §2. **Un éxito en A no puede presentarse como progreso en B.**
+3. **«Cerrado» frente a «cerrado provisionalmente».** No hay contradicción. El cierre es firme y su reapertura solo procede por los criterios congelados del §6. «Provisional» significa reabrible por esos criterios, no pendiente de revisión.
+
+**Regla nueva derivada de la corrección 2 (vigente).** **Trazabilidad de d:** todo resultado futuro del problema A que dé una estructura W6-válida debe declarar de qué fuente procede su d (parámetro o escala, inicio, conservación, ley, o «desconocida») antes de cualquier lectura dimensional. «Desconocida» obliga a aplicar E6-D completo (olvido del inicio, dial, orden y representación).
