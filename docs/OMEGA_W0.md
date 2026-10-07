@@ -149,3 +149,11 @@ Agente Haiku con búsqueda web; revisión del cerebro.
 | R4 | DEK(T): VERIFICADO para el caso browniano (d < 2k/(k − 1)). Versión de red: el informe se contradice («también vale» y, en la cita, «se anula si D > 2k/(k − 1)») | Lectura del cerebro, coherente con R3 (k = 2, d ≤ 4): en red, **d ≤ 2k/(k − 1)**, incluido el valor crítico; en el continuo es estricto. Queda como nivel 3 **no verificado con fuente primaria**. La diferencia red/continuo en k = 2 (4 frente a 3) es otra elección discreta, y refuerza W-T4 |
 
 **Efecto:** el veredicto se mantiene y W-T4 sale reforzado. R2 depende de la geometría fina (peine) y R1 solo es un umbral limpio en grafos homogéneos. Las leyes de C3 no son funciones solo de la dimensión de crecimiento: también dependen de la homogeneidad del grafo. W-1, si se aprueba, debe incluir geometrías no homogéneas (peine, retazos) en el panel.
+
+---
+
+## 7. Enmienda del Consejo (tras su revisión; aplicada en W-1)
+
+- La formulación del §4.5 queda **sustituida** por: «Entre las familias examinadas, las rutas sin parámetro continuo no han producido todavía un selector de dimensión; las candidatas basadas en leyes de paseo trasladan la selección a una elección discreta de ley, salvo que exista un principio independiente que determine esa ley».
+- W-0 queda aprobada como **reducción, no como imposibilidad**.
+- W-T4 se lee con la condición explícita del Consejo: una elección de ley es un dial solo si hay varias leyes admisibles, ninguna fijada por un principio independiente previo, y las elecciones dan resultados distintos.
