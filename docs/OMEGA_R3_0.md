@@ -64,8 +64,8 @@ Decisión:
 | T-BFR | Un retículo finito es plano si y solo si su dimensión de orden es ≤ 2 | Baker, Fishburn y Roberts (1971) |
 | T-Whi | El retículo libre con 3 generadores es infinito; el modular libre con 4 generadores es infinito | Whitman (1941); Dedekind (1900) |
 | T-KR | Casi todos los órdenes parciales de n elementos tienen 3 niveles | Kleitman y Rothschild (1975) |
-| T-Post | El orden de percolación transitiva con p fijo tiene «postes» (elementos comparables con todos) con densidad positiva | Alon, Bollobás, Brightwell y Janson (1994) |
-| T-CSG | El crecimiento secuencial clásico con covarianza discreta y causalidad de Bell está parametrizado por una sucesión t_n ≥ 0; la percolación transitiva es el caso t_n = tⁿ. No se conoce ningún modelo CSG que produzca órdenes de tipo variedad | Rideout y Sorkin (2000); revisión de Surya (2019) |
+| T-Post | El orden de percolación transitiva con p fijo tiene «postes» (elementos comparables con todos) con densidad positiva | Bollobás y Brightwell (1997); véase §7 sobre la atribución |
+| T-CSG | El crecimiento secuencial clásico con covarianza discreta y causalidad de Bell está parametrizado por una sucesión t_n ≥ 0; la percolación transitiva es el caso t_n = tⁿ. Que algún modelo CSG produzca órdenes de tipo variedad es un **problema abierto** | Rideout y Sorkin (2000); revisión de Surya (2019) |
 | T-Mat | Los estados globales consistentes de una computación distribuida forman un retículo distributivo | Mattern (1989) |
 
 Todos se usan solo por su contenido combinatorio. No se usa mecánica cuántica: los modelos CSG citados son estocásticos clásicos.
@@ -196,4 +196,17 @@ Si R3-0b corrobora:
 
 ## 7. Verificación bibliográfica
 
-La hace un agente Haiku y la revisa el cerebro. El resultado se anota aquí antes del veredicto.
+Agente Haiku con búsqueda web; revisión del cerebro.
+
+| Id | Resultado del agente | Decisión del cerebro |
+|---|---|---|
+| T-Bir | VERIFICADO. Birkhoff, *Rings of sets*, Duke Math. J. 3 (1937) 443–454, https://doi.org/10.1215/S0012-7094-37-03409-9 | Se mantiene |
+| T-Dil | VERIFICADO. Dilworth, Ann. of Math. 51 (1950) 161–166 (sin URL) | Se mantiene |
+| T-BFR | VERIFICADO. Baker, Fishburn y Roberts, *Partial orders of dimension 2*, Networks 2 (1971) 11–28, https://doi.org/10.1002/net.3230020103 | Se mantiene |
+| T-Whi | VERIFICADO (Whitman, Ann. of Math. 42 (1941) 325–329, https://doi.org/10.2307/1968774). Matiz de Dedekind: el modular libre con **3** generadores es **finito** (28 elementos, 30 con ⊥ y ⊤); con 4 o más es infinito | Lo escrito («con 4 generadores es infinito») era correcto. Se añade el matiz: la frontera 3/4 refuerza que la finitud modular es una excepción de pocos generadores |
+| T-KR | VERIFICADO. Tres niveles con proporciones ≈ 1:2:1 | Se mantiene |
+| T-Post | El agente afirma que Alon, Bollobás, Brightwell y Janson, *Linear extensions of a random partial order*, Ann. Appl. Probab. 4 (1994) 108–123, trata de extensiones lineales y no de postes. Propone Bollobás y Brightwell, *The structure of random graph orders*, SIAM J. Discrete Math. 10 (1997) 318–335 | **Atribución corregida** a Bollobás y Brightwell (1997) como fuente principal. Mi recuerdo es que el artículo de 1994 usa los postes en su análisis, pero no lo puedo confirmar; queda como atribución secundaria no verificada. El enunciado (postes con densidad positiva para p fijo) se mantiene como nivel 3 |
+| T-CSG | Rideout y Sorkin, Phys. Rev. D 61 (2000) 024002, https://arxiv.org/abs/gr-qc/9904062: VERIFICADO. «t_n = tⁿ para la percolación transitiva»: no encontrado textualmente. «Ningún modelo CSG conocido es de tipo variedad»: Surya (Living Rev. Relativ. 22 (2019) 5, https://arxiv.org/abs/1903.11544) lo presenta como problema abierto, no como imposibilidad | **Enunciado debilitado** en §2 a «problema abierto». La correspondencia tⁿ (con t = p/(1 − p)) queda como recuerdo del cerebro, no verificado textualmente. Ninguna conclusión de R3-0 depende de ella: R3-T4 solo usa que el espacio de parámetros es una sucesión infinita (E2) |
+| T-Mat | VERIFICADO. Mattern, *Virtual time and global states of distributed systems* (1989) (sin URL) | Se mantiene |
+
+Efecto en las conclusiones: ninguno. R3-T1 descansa en T-Bir y T-Dil, que están verificados, más la prueba directa del §3. R3-T4 queda con un enunciado más débil (problema abierto), suficiente para el veredicto.
