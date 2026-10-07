@@ -32,6 +32,12 @@ Decisiones de implementacion (lectura mas literal de las ambiguedades)
    fuera de la ventana, n.o de cubiertas superiores fuera de la ventana); se compara config(r) con config(r+1) por isomorfismo (hash WL
    + networkx). Solo se prueban r <= rango_max - 4 para no usar niveles truncados por el limite. Es un certificado empirico (el
    limite trunca el proceso); se informa el primer r con repeticion, si lo hay.
+10. CF-0.1b (§10), planificadores causales. rank(z) = cadena mas larga desde la raiz, que se mantiene incrementalmente al crear
+   (rank[u] = 1 + max rank de sus cubiertas inferiores; los rangos existentes nunca cambian porque un elemento nuevo solo tiene
+   elementos nuevos encima). CAUSAL: entre todas las instancias pendientes, clave (rank z, -aridad, clave de desempate); CAUSAL-INV:
+   (-rank z, -aridad, clave); RONDA-CAUSAL: cada ronda aplica juntas (dedup. por conjunto de cubiertas inferiores) solo las
+   instancias cuya z tiene el menor rango presente. Las permutaciones solo cambian el ultimo desempate (como en §8). ALTA/BAJA/RONDA
+   no cambian (results/cf01 reproducible; ver test). Salida de CF-0.1b: results/cf01b/ (opcion --suite cf01b).
 9. Evaluacion de predicciones/lectura: 'cierra' = termina y es isomorfo a B_w. La lectura CF01-a/b/c se evalua con los ordenes
    ALTA y RONDA (los de la prediccion de cierre) y se informa la dependencia del orden por separado.
 """
@@ -57,6 +63,7 @@ CAP = 5000
 FLAG = 99
 KS = (2, 3, 4, 5, FLAG)
 ORDERS = ("ALTA", "BAJA", "RONDA")
+ORDERS_B = ("CAUSAL", "RONDA-CAUSAL", "CAUSAL-INV")  # CF-0.1b (docs/OMEGA_CF0.md §10)
 WS = (2, 3, 4, 5, 6)
 PERMS = (0, 1, 2, 3)
 
@@ -212,8 +219,11 @@ class Poset:
             if self.n >= self.cap:
                 return False
             self.steps += 1
-            if self.order == "RONDA":
+            if self.order in ("RONDA", "RONDA-CAUSAL"):
                 items = sorted((kk, zs) for m in arities for zs, kk in self.by_arity[m].items())
+                if self.order == "RONDA-CAUSAL":
+                    r0 = min(self.rank[zs[0]] for _, zs in items)
+                    items = [it for it in items if self.rank[it[1][0]] == r0]
                 seen, lowers = set(), []
                 for _, (z, S) in items:
                     L = self.lower_of(S)
@@ -228,16 +238,28 @@ class Poset:
                     return True
             else:
                 chosen = None
-                for m in (reversed(arities) if self.order == "ALTA" else arities):
-                    for zs, kk in sorted(self.by_arity[m].items(), key=lambda it: it[1]):
+                if self.order in ("CAUSAL", "CAUSAL-INV"):
+                    sg = 1 if self.order == "CAUSAL" else -1
+                    cand = sorted(((sg * self.rank[zs[0]], -m, kk, zs) for m in arities
+                                   for zs, kk in self.by_arity[m].items()))
+                    for _, _, _, zs in cand:
                         L = self.lower_of(zs[1])
                         if L is None:
                             self.degenerate += 1
                             continue
                         chosen = L
                         break
-                    if chosen is not None:
-                        break
+                else:
+                    for m in (reversed(arities) if self.order == "ALTA" else arities):
+                        for zs, kk in sorted(self.by_arity[m].items(), key=lambda it: it[1]):
+                            L = self.lower_of(zs[1])
+                            if L is None:
+                                self.degenerate += 1
+                                continue
+                            chosen = L
+                            break
+                        if chosen is not None:
+                            break
                 if chosen is None:
                     return True
                 dirty = self.apply([chosen])
@@ -397,18 +419,47 @@ def _job(args: tuple) -> tuple[dict, float]:
     return run_one(*args)
 
 
+def evaluate_b(recs: list[dict]) -> dict:
+    """Predicciones y lectura congeladas de §10."""
+    d = {(r["w"], r["k_code"], r["order"], r["perm"]): r for r in recs}
+    ws = sorted({r["w"] for r in recs})
+    ks = sorted({r["k_code"] for r in recs})
+
+    def closes(w, k, o, p=0):
+        r = d[(w, k, o, p)]
+        return r["terminated"] and r["boolean"]
+
+    def alta_like(o):
+        bad = [(w, k, closes(w, k, o)) for w in ws for k in ks if closes(w, k, o) != (k == FLAG or w <= k)]
+        return {"violaciones_(w,k,cierra)": bad, "ok": not bad}
+
+    pred = {"CAUSAL": alta_like("CAUSAL"), "RONDA-CAUSAL": alta_like("RONDA-CAUSAL")}
+    inv = [(w, k) for w in ws if w >= 3 for k in ks if closes(w, k, "CAUSAL-INV")]
+    pred["CAUSAL-INV_falla_desde_w3"] = {"cierran_con_w>=3": inv, "ok": not inv,
+                                        "w2": {k: closes(2, k, "CAUSAL-INV") for k in ks if 2 in ws}}
+    var = [(w, k, o) for w in ws for k in ks for o in ORDERS_B
+           if len({(d[(w, k, o, p)]["terminated"], d[(w, k, o, p)]["boolean"]) for p in PERMS if (w, k, o, p) in d}) > 1]
+    pred["Permutaciones_no_cambian_veredicto"] = {"ok": not var, "cambian": var}
+    ok_c, ok_r = pred["CAUSAL"]["ok"], pred["RONDA-CAUSAL"]["ok"]
+    lect = ("CAUSAL y RONDA-CAUSAL reproducen ALTA" if ok_c and ok_r else
+            "Resultados mixtos" if ok_c or ok_r else "Ni CAUSAL ni RONDA-CAUSAL reproducen ALTA")
+    return {"predicciones": pred, "lectura": lect}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--wmax", type=int, default=6)
     ap.add_argument("--cap", type=int, default=CAP)
     ap.add_argument("--jobs", type=int, default=4)
-    ap.add_argument("--out", default=str(Path(__file__).resolve().parent.parent / "results" / "cf01"))
+    ap.add_argument("--suite", choices=("cf01", "cf01b"), default="cf01")
+    ap.add_argument("--out", default=None)
     a = ap.parse_args()
-    out = Path(a.out)
+    orders, ev = (ORDERS, evaluate) if a.suite == "cf01" else (ORDERS_B, evaluate_b)
+    out = Path(a.out or Path(__file__).resolve().parent.parent / "results" / a.suite)
     out.mkdir(parents=True, exist_ok=True)
     recs, times = [], {}
     t0 = time.perf_counter()
-    jobs = [(w, k, o, p, a.cap) for w in range(2, a.wmax + 1) for k in KS for o in ORDERS for p in PERMS]
+    jobs = [(w, k, o, p, a.cap) for w in range(2, a.wmax + 1) for k in KS for o in orders for p in PERMS]
     with mp.Pool(a.jobs) as pool:  # cada corrida es determinista e independiente; imap conserva el orden
         for (w, k, o, p, _), (r, dt) in zip(jobs, pool.imap(_job, jobs)):
             recs.append(r)
@@ -417,7 +468,7 @@ def main() -> None:
     (out / "runs.jsonl").write_text("".join(json.dumps(r, sort_keys=True) + "\n" for r in recs))
     table = [{k: r[k] for k in ("w", "k_code", "order", "terminated", "n", "maximal", "boolean", "ambiguous_joins")}
              for r in recs if r["perm"] == 0]
-    summ = {"cap": a.cap, "master": MASTER_CF, "table_perm0": table, **evaluate(recs),
+    summ = {"cap": a.cap, "master": MASTER_CF, "table_perm0": table, **ev(recs),
             "ambiguous_joins_total": sum(r["ambiguous_joins"] for r in recs),
             "degenerate_skipped_total": sum(r["degenerate_skipped"] for r in recs),
             "runtime_total_s": round(time.perf_counter() - t0, 1), "runtime_per_run_s": times}

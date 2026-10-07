@@ -333,3 +333,51 @@ ALTA gana porque elige la mayor aridad. Pero el mismo conflicto también se resu
 | CAUSAL y RONDA-CAUSAL reproducen ALTA | La coherencia es **procesamiento en orden causal**, una ley local en el tiempo y sin planificador global. CF-1 usará C_flag con un planificador causal |
 | Solo ALTA funciona | La coherencia exige un planificador global por aridad, que choca con la localidad. CF-1 tendría que justificar esa no localidad (criterio 3 de reapertura) o no proceder |
 | Resultados mixtos | Se documentan sin forzar una lectura |
+
+---
+
+## 11. CF-0.1b: resultados (revisados por el cerebro)
+
+- Código: `tools/cf01_completion.py`, ampliado sin cambiar ALTA, BAJA ni RONDA (un test reproduce 8 casos guardados de `results/cf01`); 9/9 tests pasan.
+- Datos: `results/cf01b/` (300 ejecuciones). Tiempo: 34 min.
+- Comprobé la tabla de veredictos en `runs.jsonl`.
+
+| w | CAUSAL | RONDA-CAUSAL | CAUSAL-INV |
+|---|---|---|---|
+| 2 | B₂ para todo k | B₂ | B₂ |
+| 3 | B₃ si k ≥ 3 | B₃ si k ≥ 3 | no cierra |
+| 4 | B₄ si k ≥ 4 | B₄ si k ≥ 4 | no cierra |
+| 5 | B₅ si k ≥ 5 | B₅ si k ≥ 5 | no cierra |
+| 6 | solo flag (B₆) | solo flag | no cierra |
+
+**Predicciones:** las tres acertadas, con 0 violaciones en las 4 variantes de desempate.
+- CAUSAL coincide con ALTA en (terminado, n) caso a caso.
+- RONDA-CAUSAL coincide con CAUSAL.
+- CAUSAL-INV falla desde w = 3. Sus casos sin cierre tienen **certificado de periodicidad**: un tubo periódico desde el rango 2, así que la no terminación queda demostrada (nivel 1).
+
+**Lectura (tabla congelada):** «CAUSAL y RONDA-CAUSAL reproducen ALTA».
+- **La coherencia de la confluencia es procesamiento en orden causal**, no un planificador global por aridad.
+- La simultaneidad no es el problema: RONDA-CAUSAL aplica en paralelo todo lo que está en un mismo nivel.
+- El problema es dejar que el futuro actúe antes de que el pasado esté resuelto. Por eso RONDA falla y CAUSAL-INV también.
+
+### 11.1 Qué queda establecido (nivel 1, para estas reglas y esta semilla)
+
+1. **La compleción por pares no construye productos de rango ≥ 3**, y en w = 3 la no terminación está demostrada.
+2. **Con aridad acotada k, el rango coherente máximo es exactamente k.** k es un dial del rango (W-T4).
+3. **La compleción flag (sin cota de aridad) construye B_w para todo w = 2…6**, sin ambigüedad de supremos, **si y solo si se procesa en orden causal**, en serie o en paralelo por niveles.
+4. **El orden inverso (futuro primero) no termina nunca para w ≥ 3**: tubo periódico demostrado.
+
+### 11.2 Consecuencias para CF-1
+
+- **La regla de CF-1 es C_flag con planificador causal.**
+  - No tiene constante de aridad.
+  - El planificador es causal, no global.
+  - En una estructura que crece, «orden causal» se implementa localmente: una instancia en z espera mientras haya instancias pendientes en el pasado de z. Es una condición sobre el cono pasado, sin reloj global, y debe definirse así en el prerregistro.
+- **Esto no toca B.** El cubo que se cierra es el de la semilla, de modo que d = w₀ (CONSERVADOR por construcción). Lo que CF-0.1 decide es si la coalescencia coherente es posible con una ley local en el tiempo, que es una cuestión del problema A.
+- **Quedan abiertos para CF-1**, sin resolver aquí:
+  - el crecimiento (extensión relacional ER);
+  - la frontera y las esquinas (CF-T3);
+  - varias semillas (CF-T5);
+  - la robustez frente al orden en el crecimiento, no solo en el cierre.
+
+**Lección 31.** La coherencia de la confluencia es causal. Completar coherentemente las cuñas exige resolver el pasado antes que el futuro. Las mismas reglas aplicadas en paralelo sobre niveles distintos, o en orden inverso, proliferan sin fin. El orden causal no se añade a la geometría: es la condición para que la coalescencia local la produzca.

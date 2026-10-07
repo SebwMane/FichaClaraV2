@@ -73,3 +73,28 @@ def test_incremental_matches_full_recompute():
     P.run()
     inc = {zs: kk for m in P.by_arity.values() for zs, kk in m.items()}
     assert inc == P.full_instances()
+
+
+def test_causal_w3_flag_gives_b3():
+    for o in ("CAUSAL", "RONDA-CAUSAL"):
+        r, _ = run_one(3, FLAG, o, 0)
+        assert r["terminated"] and r["n"] == 8 and r["boolean"], o
+
+
+def test_causal_deterministic():
+    for o in ("CAUSAL", "RONDA-CAUSAL", "CAUSAL-INV"):
+        a, _ = run_one(3, 3, o, 1, 300)
+        b, _ = run_one(3, 3, o, 1, 300)
+        assert a == b
+
+
+def test_old_schedulers_reproduce_stored_results():
+    import json
+    from pathlib import Path
+    path = Path(__file__).resolve().parent.parent / "results" / "cf01" / "runs.jsonl"
+    stored = {(r["w"], r["k_code"], r["order"], r["perm"]): r
+              for r in map(json.loads, path.read_text().splitlines())}
+    for key in [(2, 2, "ALTA", 0), (3, 3, "ALTA", 0), (3, 99, "ALTA", 2), (4, 4, "ALTA", 0), (2, 99, "BAJA", 1),
+                (3, 3, "RONDA", 0), (3, 2, "RONDA", 3), (3, 99, "BAJA", 0)]:
+        w, k, o, p = key
+        assert run_one(w, k, o, p)[0] == stored[key], key
