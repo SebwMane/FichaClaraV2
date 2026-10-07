@@ -210,3 +210,56 @@ Agente Haiku con búsqueda web; revisión del cerebro.
 | T-Mat | VERIFICADO. Mattern, *Virtual time and global states of distributed systems* (1989) (sin URL) | Se mantiene |
 
 Efecto en las conclusiones: ninguno. R3-T1 descansa en T-Bir y T-Dil, que están verificados, más la prueba directa del §3. R3-T4 queda con un enunciado más débil (problema abierto), suficiente para el veredicto.
+
+---
+
+## 8. R3-0b: resultado bruto e inspección del residuo (prerregistrada antes de ejecutarla)
+
+**Resultado bruto** (19 pares, `results/r3_0b/`; código `tools/r3_0b.py`; 8/8 tests pasan; revisado por el cerebro):
+
+| Condición | Resultado |
+|---|---|
+| (i) | **Se cumple.** J1(2): δ = 0.489. J1(3): δ = 0.337. J1(4): δ = 0.254, también no excluido |
+| (ii) | **Se cumple.** J2(2, 3, 4): X3 (DOS_EXTREMOS en ambos tamaños) |
+| (iii) | **Falla.** J3, semilla 1: válido por W5, no excluido, δ = 0.239 |
+
+Por la regla congelada, **R3-T1/T2 no quedan corroborados en la forma prerregistrada**. Esto no cambia, sea cual sea la inspección. Hay un residuo que se inspecciona antes de concluir nada.
+
+Predicciones fallidas del cerebro:
+- J1(4) no es X4-marginal: la caja 4D con borde es coherente.
+- J3, semillas 1 y 2: ni excluidos ni abstención.
+- J4(0.1): X1 + X4, no X3. A este tamaño los postes son escasos y domina el régimen explosivo; la advertencia que hice para p = 0.02 también valía para p = 0.1.
+
+**Observación del cerebro sobre los datos.** Para J3, R sigue al número de elementos n y no a |L|:
+
+| Semilla | n en N / 8N | R en N / 8N | δ |
+|---|---|---|---|
+| s0 | 39 / 38 | 9.47 / 9.56 | 0.005 |
+| s1 | 34 / 67 | 8.4 / 13.8 | 0.239 |
+| s2 | 39 / 52 | 8.9 / 12.5 | 0.182 |
+
+- Las dos instancias del par son independientes, y |L| tiene enorme variabilidad a n fijo: con n = 38, s0 alcanza 81 118 cortes, y s1 necesita n = 67 para llegar a 84 055.
+- Por tanto, δ en J3 mide sobre todo la variabilidad entre instancias, no un exponente de una estructura.
+- La dispersión entre semillas (0.005 a 0.239) es dos órdenes de magnitud mayor que la de las redes, en torno a 0.01.
+
+**Hipótesis del cerebro (nivel 2).** El residuo es **crecimiento intermedio** (subexponencial y superpolinómico), no una dimensión finita.
+- Los down-sets de un orden de 2 dimensiones están en biyección con sus anticadenas (sus elementos maximales), es decir, con las subsucesiones monótonas de una permutación aleatoria.
+- Su número esperado crece como e^{2√n} (Lifschitz y Pittel, 1981, nivel 3, sin verificar todavía).
+- La distancia en L(J) está acotada por n. Así que la bola crece como e^{c√r}, y entonces R ∝ (ln N)².
+- Eso da δ(N, 8N) ≈ 2 ln(ln 8N / ln N) / ln 8 ≈ **0.196** a estos tamaños. Coincide con lo observado (0.18–0.24) y tiende a 0 lentamente: δ(8N, 64N) ≈ 0.163.
+
+**Inspección (congelada; se ejecuta después de este commit):**
+- **I1. Más semillas.** J3, semillas 3–11, en el par original de instancias independientes. Predicción: desviación típica de δ ≥ 0.08 y media en [0.10, 0.25].
+- **I2. Misma estructura en crecimiento.** El generador J3 es consistente por prefijos para una clave dada, así que se usa la **misma clave** en los tres tamaños N, 8N y 64N (6.4 × 10⁵ cortes), con semillas 0–2. El orden en 8N contiene al de N. Predicción: δ(N, 8N) ∈ [0.13, 0.27] y **δ(8N, 64N) < δ(N, 8N)**.
+- **I3. Forma del crecimiento.** Con los ensayos de búsqueda de I2, se ajusta ln |L| frente a √n y frente a ln n por mínimos cuadrados. Predicción: el ajuste con √n tiene menor error cuadrático.
+
+**Regla de clasificación del residuo (congelada).** «CRECIMIENTO INTERMEDIO» (degenerado sin d, que pasa a la lista de degenerados) si:
+- (a) en I2, δ(8N, 64N) < δ(N, 8N) en al menos 2 de 3 semillas, con descenso medio ≥ 0.02;
+- y (b) I3 favorece √n en al menos 2 de 3 semillas.
+
+Si no, el residuo queda **NO CLASIFICADO** y R3-T2(c) queda falsado para J3.
+
+**Punto ciego candidato W6 de RC-3** (se decidirá con el resultado):
+- Un solo par de tamaños no distingue el crecimiento intermedio de una dimensión finita.
+- Con familias de varianza alta, los pares de instancias independientes miden la varianza y no el exponente.
+- Regla de uso que se propondrá: tres tamaños con la misma estructura creciente y δ estable entre pares, con un descenso < 0.02.

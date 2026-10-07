@@ -19,6 +19,8 @@ def _bits(m):
 
 
 def _enum(preds, edges=True):
+    if preds and isinstance(preds[0], int):
+        preds = R.masks_to_tuples(preds)
     return R.enumerate_downsets(preds, 10**9, edges)
 
 
@@ -29,7 +31,7 @@ def test_chains_count():
 
 def test_antichain_hypercube():
     k = 6
-    e = _enum([0] * k)
+    e = _enum([()] * k)
     assert e["count"] == 2**k
     a = R.cover_graph(e["count"], e["eu"], e["ev"])
     assert (np.asarray(a.sum(axis=1)).ravel() == k).all()
@@ -84,18 +86,28 @@ def test_determinism_and_prefix():
     key = (R.MASTER_R3, 8, 0, 0)
     assert R.make_poset("J3", 0, 40, key) == R.make_poset("J3", 0, 40, key)
     assert R.make_poset("J4", 0.1, 40, key) == R.make_poset("J4", 0.1, 40, key)
-    big, small = R.make_poset("J4", 0.1, 40, key), R.make_poset("J4", 0.1, 30, key)
+    big, small = (R.poset_j4(n, 0.1, R.rng_from_key(key)) for n in (40, 30))
     mask = (1 << 30) - 1
     assert [b & mask for b in big[:30]] == small
-    assert R.make_poset("J2", 3, 5, key) == R.poset_j2(3, 5)
+    assert R.make_poset("J2", 3, 5, key) == R.covers(R.poset_j2(3, 5))
     # J3 transitivo y estricto
-    p = R.make_poset("J3", 0, 50, key)
+    p = R.poset_j3(50, R.rng_from_key(key))
     assert R.transitive_closure(p) == p
     assert all(not (m >> i & 1) for i, m in enumerate(p))
 
 
 def test_cap_and_choose():
-    r = R.enumerate_downsets([0] * 12, 100)
+    r = R.enumerate_downsets([()] * 12, 100)
     assert not r["complete"]
     ch = R.choose_size("J1", 2, (R.MASTER_R3, 2, 0, 0), 10_000)
     assert ch["found"] and ch["n_param"] == 99  # (n+1)^2 >= 1e4 minimo n=99
+
+
+def test_covers_equivalent_to_closure():
+    key = (R.MASTER_R3, 9, 0, 0)
+    cl = R.poset_j4(14, 0.3, R.rng_from_key(key))
+    cv = R.covers(cl)
+    assert _enum(R.masks_to_tuples(cl), False)["count"] == R.enumerate_downsets(cv, 10**9, False)["count"]
+    rng = R.rng_from_key(key)
+    direct = [0] + [R._row_to_int(rng.random(j) < 0.3) for j in range(1, 14)]
+    assert R.transitive_closure(direct) == cl

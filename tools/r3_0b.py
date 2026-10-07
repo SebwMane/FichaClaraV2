@@ -17,6 +17,12 @@ Decisiones de implementacion (lectura mas literal de las ambiguedades)
   aleatorias se consumen en orden (J3: rng.random((n,2)); J4: para j=0..n-1 una fila rng.random(j)), de modo que el
   poset de n elementos es el subposet inducido por los n primeros del de n+1. Consecuencia: |L| es monotono en n y la
   biseccion es exacta (|L(P')| <= |L(P)| para P' inducido: D -> down-cierre es inyectiva).
+* Representacion para enumerar: predecesores como TUPLAS de indices (no bitmasks) con la relacion de COBERTURA
+  (reduccion transitiva) para J1/J2/J4 y todos los predecesores para J3 (n pequeno). Enumerar down-sets con la cobertura es
+  equivalente a hacerlo con la clausura (un down-set que contiene los predecesores inmediatos contiene toda la clausura).
+  Los posets J2/J4 se construyen con su clausura transitiva en bitmasks (poset_j2/poset_j4, probados), y `covers`
+  extrae la reduccion (requiere etiquetas topologicas: J2 id=k*w+i, J4 labels 0..n-1). Motivo: J4(0.5) necesita n ~ 2e4
+  elementos y J1(1) 8e4; la clausura densa no escala en la enumeracion.
 * J3: orden producto estricto (x<y sii ambas coordenadas estrictamente menores). J4: para i<j, i<j con prob. p y cierre
   transitivo. J2: cadenas x_{i,k} (id = k*w+i), relacion x_{i,k} < x_{j,k+2} para todo i!=j mas el orden de cada cadena,
   con cierre transitivo. J1: las w cadenas con SOLO la relacion de cobertura (predecesor inmediato): para enumerar
@@ -26,7 +32,7 @@ Decisiones de implementacion (lectura mas literal de las ambiguedades)
   conjuntos de addables se actualizan de forma incremental (sucesores de x ya sin predecesores pendientes); es el mismo
   conjunto de minimales. Down-sets = ints de Python, dict -> indice. Arista D ~ D U {x} una vez por (D,x).
 * Tope duro CAP (defecto 2_000_000 down-sets): al superarlo se aborta limpiamente y se registra status CAP_EXCEEDED
-  (explosion de tamano; dato, no error). Si la busqueda no alcanza el objetivo con n <= N_MAX = 20000: SEARCH_FAIL.
+  (explosion de tamano; dato, no error). Si la busqueda no alcanza el objetivo con n <= N_MAX = 200000: SEARCH_FAIL.
   En las pruebas de la busqueda se aborta en cuanto |L| >= objetivo (no hace falta el recuento completo).
 * "Fuera de [objetivo, 1.5*objetivo]" se registra por tamano (out_of_band) y se mide igual.
 * W5: validez si |E/N(8N) - E/N(N)| / (E/N(N)) < 0.25 con E/N = mean_degree/2 de measure (aristas/nodos del grafo L(J)).
@@ -73,7 +79,7 @@ from omega.experiments.v11.gate import head_commit  # noqa: E402
 MASTER_R3 = 20261021
 OUT_FULL = ROOT / "results" / "r3_0b"
 CAP = 2_000_000
-N_MAX = 20_000
+N_MAX = 200_000
 TARGETS = (10_000, 80_000)
 
 # (id_str, id_num, generador, parametro, semillas)
@@ -122,13 +128,30 @@ def transitive_closure(direct: list[int]) -> list[int]:
     return out
 
 
-def poset_j1(w: int, nc: int) -> list[int]:
+def covers(closure: list[int]) -> list[tuple[int, ...]]:
+    """Reduccion transitiva (predecesores inmediatos) desde la clausura; etiquetas topologicas (pred < elemento)."""
+    out = []
+    for m in closure:
+        cov = []
+        while m:
+            i = m.bit_length() - 1
+            cov.append(i)
+            m &= ~(closure[i] | (1 << i))
+        out.append(tuple(cov))
+    return out
+
+
+def masks_to_tuples(masks: list[int]) -> list[tuple[int, ...]]:
+    return [tuple(i for i in range(m.bit_length()) if m >> i & 1) for m in masks]
+
+
+def poset_j1(w: int, nc: int) -> list[tuple[int, ...]]:
     """w cadenas disjuntas de longitud nc; id = k*w+i (cadena i, nivel k); SOLO predecesor inmediato (cobertura)."""
-    return [(1 << ((k - 1) * w + i)) if k > 0 else 0 for k in range(nc) for i in range(w)]
+    return [((k - 1) * w + i,) if k > 0 else () for k in range(nc) for i in range(w)]
 
 
 def poset_j2(w: int, nc: int) -> list[int]:
-    """w cadenas, x_{i,k} < x_{j,k+2} (i!=j) mas orden de cadena; id = k*w+i; cierre transitivo."""
+    """w cadenas, x_{i,k} < x_{j,k+2} (i!=j) mas orden de cadena; id = k*w+i; CIERRE transitivo (bitmasks)."""
     direct = []
     for k in range(nc):
         for i in range(w):
@@ -144,7 +167,7 @@ def poset_j2(w: int, nc: int) -> list[int]:
 
 
 def poset_j3(n: int, rng: np.random.Generator) -> list[int]:
-    """n puntos uniformes en [0,1]^2; x<y sii ambas coordenadas menores (ya transitivo)."""
+    """n puntos uniformes en [0,1]^2; x<y sii ambas coordenadas menores (ya transitivo; bitmasks)."""
     pts = rng.random((n, 2))
     xs, ys = pts[:, 0], pts[:, 1]
     less = (xs[None, :] < xs[:, None]) & (ys[None, :] < ys[:, None])  # less[j,i]: i<j
@@ -152,47 +175,53 @@ def poset_j3(n: int, rng: np.random.Generator) -> list[int]:
 
 
 def poset_j4(n: int, p: float, rng: np.random.Generator) -> list[int]:
-    """Percolacion transitiva: para i<j, i<j con prob p; cierre transitivo. Fila j = rng.random(j) (prefijo-consistente)."""
-    direct = [0]
+    """Percolacion transitiva: para i<j, i<j con prob p; cierre transitivo (bitmasks). Fila j = rng.random(j)
+    (prefijo-consistente). Cierre incremental: se recorre el directo de mayor a menor indice, saltando lo ya alcanzado."""
+    closure = [0]
     for j in range(1, n):
-        direct.append(_row_to_int(rng.random(j) < p))
-    return transitive_closure(direct)  # ya en orden topologico (i<j), cierre directo
+        rem = _row_to_int(rng.random(j) < p)
+        acc = 0
+        while rem:
+            i = rem.bit_length() - 1
+            acc |= closure[i] | (1 << i)
+            rem &= ~acc
+        closure.append(acc)
+    return closure
 
 
-def make_poset(gen: str, par: float | int, n_param: int, key: tuple[int, ...]) -> list[int]:
+def make_poset(gen: str, par: float | int, n_param: int, key: tuple[int, ...]) -> list[tuple[int, ...]]:
+    """Predecesores (cobertura, o todos para J3) como tuplas, listos para enumerate_downsets."""
     if gen == "J1":
         return poset_j1(int(par), n_param)
     if gen == "J2":
-        return poset_j2(int(par), n_param)
+        return covers(poset_j2(int(par), n_param))
     if gen == "J3":
-        return poset_j3(n_param, rng_from_key(key))
+        return masks_to_tuples(poset_j3(n_param, rng_from_key(key)))
     if gen == "J4":
-        return poset_j4(n_param, float(par), rng_from_key(key))
+        return covers(poset_j4(n_param, float(par), rng_from_key(key)))
     raise ValueError(gen)
 
 
 # ------------------------------------------------------------------ enumeracion de down-sets
 
 
-def enumerate_downsets(preds: list[int], limit: int, edges: bool = True) -> dict[str, Any]:
-    """BFS de todos los down-sets desde el vacio. Aborta (complete=False) en cuanto |L| > limit.
-    Devuelve count (<= limit+1 si aborta), complete, y (si edges) eu, ev: aristas D -> D U {x}, una por (D,x)."""
+def enumerate_downsets(preds: list[tuple[int, ...]], limit: int, edges: bool = True) -> dict[str, Any]:
+    """BFS de todos los down-sets desde el vacio (preds[x] = tupla de predecesores de x; cobertura o clausura).
+    Aborta (complete=False) en cuanto |L| > limit. Devuelve count (= limit+1 si aborta), complete y, si edges,
+    eu, ev: aristas D -> D U {x}, una por (D,x)."""
     n = len(preds)
     succ: list[list[int]] = [[] for _ in range(n)]
-    for j, m in enumerate(preds):
-        while m:
-            low = m & -m
-            succ[low.bit_length() - 1].append(j)
-            m ^= low
-    bit = [1 << x for x in range(n)]
+    for j, ps in enumerate(preds):
+        for i in ps:
+            succ[i].append(j)
     idx: dict[int, int] = {0: 0}
-    queue: deque[tuple[int, int, list[int]]] = deque([(0, 0, [x for x in range(n) if preds[x] == 0])])
+    queue: deque[tuple[int, int, list[int]]] = deque([(0, 0, [x for x in range(n) if not preds[x]])])
     eu: list[int] = []
     ev: list[int] = []
     while queue:
         d, i, add = queue.popleft()
         for x in add:
-            d2 = d | bit[x]
+            d2 = d | (1 << x)
             j = idx.get(d2)
             if j is None:
                 j = len(idx)
@@ -201,8 +230,7 @@ def enumerate_downsets(preds: list[int], limit: int, edges: bool = True) -> dict
                     return {"count": j + 1, "complete": False, "eu": None, "ev": None}
                 add2 = [y for y in add if y != x]
                 for y in succ[x]:
-                    py = preds[y]
-                    if py & d2 == py:
+                    if all(d2 >> q & 1 for q in preds[y]):
                         add2.append(y)
                 queue.append((d2, j, add2))
             if edges:
