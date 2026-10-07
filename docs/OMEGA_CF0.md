@@ -68,7 +68,7 @@ Para órdenes disjuntos, L(J₁ ⊔ J₂) ≅ L(J₁) × L(J₂). Es inmediato: 
   - La función de rango hace de tiempo, y las anticadenas de rango fijo son las rebanadas espaciales.
   - **La confluencia coherente produce directamente estructura causal con tiempo.** Ninguna dinámica anterior de Ω lo había hecho.
 
-**CF-T6, escalera de aridad (nivel 2; advertencia de numerología).**
+**CF-T6, escalera de aridad (nivel 2; advertencia de numerología).** *[Enmendado: véase §7. El texto original se conserva como historia.]*
 - La coherencia por pares basta para rango ≤ 2; el rango ≥ 3 necesita la condición de ternas.
 - Si las ternas bastan para todo rango superior (como sugieren la condición del cubo y la teoría de ternas críticas, que es nivel 3 sin verificar), la escalera de aridad **se detiene en 3**.
 - **Esto no selecciona d = 3.** Con la regla de ternas son accesibles todos los rangos ≥ 1, y d sigue siendo w₀.
@@ -178,3 +178,80 @@ Por tanto, con información local:
 3. **La escalera de aridad (CF-T6).** La coherencia local por pares no sostiene rango ≥ 3: hace falta una regla de ternas. Es un hecho estructural verificable sobre qué leyes permiten qué dimensiones, y hay que leerlo con la advertencia de numerología del §3.2.
 4. **Coherencia de rango r_loc · δ (CF-T4).** Responde en parte a la pregunta (q1) que ARQ-0 dejó abierta. Además separa productos abelianos, estructuras nilpotentes y estructuras con defectos con un solo número intrínseco.
 5. **Heisenberg como caso límite.** Es la única vía conocida por la que la dimensión de crecimiento supera al recuento de direcciones locales. No reabre B (fija la presentación), pero es el ejemplo más cercano a «dimensión que no se ve localmente», y merece una nota en el mapa de exclusiones.
+
+---
+
+## 7. Acta del Consejo y enmienda
+
+**Veredicto del Consejo:** CF-0 RATIFICADO CON ENMIENDA; CF-1 autorizable tras la enmienda y el prerregistro, pero **no ejecutar todavía**. Se ordena una microfase CF-0.1 de formalización, sin dinámica nueva.
+
+### 7.1 Ratificado
+
+| Punto | Registro |
+|---|---|
+| Corrección de R3: espacio de configuraciones ≠ espacio físico | Adoptada (lección 29) |
+| SQ no era confluente, con la precisión del Consejo: «SQ no era una prueba contra la confluencia; era una prueba contra una regla concreta que preserva cuadrados sin implementar una condición de confluencia» | Adoptada literalmente |
+| La comprobación CD como contraejemplo constructivo | Adoptada |
+| «Estructura causal con tiempo» rebajado a «una compleción cúbica coherente puede generar una estructura causal de tipo producto en los casos construidos; admite una interpretación causal, no es tiempo físico» | **Sustituye** a la frase del §3.2 |
+| Monogénesis queda en nivel 4 hasta CF-1 | Adoptado |
+| r_loc · δ es un observable, no un certificado (Heisenberg ≈ 1/2) | Adoptado |
+| B sigue congelado. Solo habría señal si inicios w₀ = 1, 2, 3, 4… convergieran a una misma d, olvidando el inicio, sin codificación en la regla | Adoptado (coincide con E6-D, prueba D1) |
+| Red Team: desempates, orden de actualización, definición de interior, simultaneidad | Adoptado como obligación del prerregistro de CF-1. Una sola secuencia de actualización no basta |
+
+### 7.2 CF-T6 enmendado (texto del Consejo, adoptado)
+
+> **CF-T6, escalera de coherencia de orden superior.** La compleción por pares genera correctamente el producto de dos cadenas, pero no basta para construir productos de tres o más cadenas mediante la regla CD ingenua. Para w ≥ 3 se requiere coherencia de orden superior. La literatura sobre complejos cúbicos relaciona esta coherencia con la condición de enlace *flag* de Gromov, y en concurrencia y reescritura aparecen condiciones de cubo relacionadas. Sin embargo, no está demostrado todavía que una condición ternaria particular sea suficiente para todos los w. La suficiencia de ternas, o la necesidad de aridades superiores, queda como cuestión matemática de CF-0.1.
+
+### 7.3 Auditoría del acta: el Consejo tiene razón, y el problema es más fuerte de lo que dice
+
+**Argumento del cerebro (nivel 2).** La condición *flag* exige rellenar cliques de **todo** tamaño. Un enlace con los cuatro triángulos de un tetraedro rellenos y el interior vacío satisface «toda terna se rellena», pero no es *flag*. En términos generativos, con w = 4:
+- La regla de ternas, aplicada en cada esquina x_i, crea un techo de 3-cubo para cada esquina.
+- Sin una identificación de aridad 4, los techos de esquinas distintas son elementos **distintos**.
+- Sus pares comparten cubiertas inferiores sin cubierta común, y vuelve la proliferación.
+
+**Predicción:** la coherencia de aridad acotada k cierra **exactamente hasta w = k**. Es el tercer escenario del Consejo: «la ley necesita una aridad que crece con w». Por W-T4, eso convierte a k en un **dial del rango máximo**. La única regla sin constante sería la compleción *flag* completa (aridad no acotada).
+
+**Riesgo adicional (Red Team).** La comprobación previa ya mostró que, si los pares se completan *antes* que los cubos, la proliferación aparece aunque exista la regla de cubos. **El orden de aplicación puede decidir el resultado.** CF-0.1 lo mide.
+
+---
+
+## 8. CF-0.1: formalización de la completitud (prerregistro; cálculo exacto, sin azar y sin dinámica de crecimiento)
+
+**Reglas.** Todas actúan desde una semilla: una raíz con w cubiertas. Cada elemento nuevo se representa por su conjunto de cubiertas inferiores.
+
+- **C₂:** si z tiene dos cubiertas x, y sin cubierta superior común, se crea un elemento nuevo que cubre x e y.
+- **C_k (k ≥ 3):** C₂, más la regla de aridad m para 3 ≤ m ≤ k. Si z tiene m cubiertas S cuyos m sub-supremos de tamaño m − 1 existen y no tienen cubierta común, se crea un único elemento que los cubre a todos (la regla «7 de 8 → el octavo», generalizada).
+- **C_flag:** C_k sin cota de aridad.
+
+**Órdenes de aplicación** (exigencia del Red Team):
+- **ALTA:** en cada ronda se aplica primero la mayor aridad disponible.
+- **BAJA:** primero los pares.
+- **RONDA:** se calculan todas las aplicaciones posibles sobre el estado actual y se aplican juntas.
+- Dentro de cada orden, los empates se resuelven por identificador y, como prueba de robustez, por 3 permutaciones de identificadores generadas con `rng_from_key((MASTER_CF, w, k, perm))`, con `MASTER_CF = 20261024`.
+
+**Barrido:** w = 2…6, k = 2…5 y flag, con los 3 órdenes. Límite de 5000 elementos.
+
+**Medidas:**
+- si el proceso termina y con cuántos elementos;
+- número de maximales;
+- **isomorfismo con el retículo booleano B_w** (2^w elementos, un techo, función de rango con los coeficientes binomiales);
+- para los que no terminan, el recuento de elementos por nivel de rango, y un **certificado de periodicidad**: si dos niveles consecutivos tienen la misma configuración local salvo isomorfismo, la no terminación queda demostrada por inducción (nivel 1).
+
+**Predicciones del cerebro (congeladas):**
+
+| Regla | Predicción |
+|---|---|
+| C₂ | Cierra en B₂ con w = 2; no termina con w ≥ 3 (certificado de periodicidad con w = 3) |
+| C_k con ALTA y RONDA | Cierra en B_w si y solo si w ≤ k |
+| C_flag con ALTA y RONDA | Cierra en B_w para todo w = 2…6 |
+| Con BAJA | Falla ya con w = 3 para todo k, incluido flag: **dependencia del orden** |
+| Permutaciones de desempate | No cambian el veredicto dentro de un mismo orden |
+
+**Criterio de lectura (congelado):**
+
+| Resultado | Lectura |
+|---|---|
+| **CF01-a** | Ninguna C_k acotada cierra para todo w y C_flag sí. La coherencia exige aridad no acotada: la única ley sin constante es flag (k ↔ rango máximo, W-T4). CF-1 debe usar C_flag |
+| **CF01-b** | C₃ cierra para todo w = 2…6. Las ternas bastan: el Consejo tenía la duda y mi predicción falla |
+| **CF01-c** | Ni siquiera C_flag cierra para algún w. La compleción local generativa no basta: CF-1 no procede en esta forma |
+| **Orden** | Si el veredicto depende del orden, CF-1 debe incluir el orden como variable de E6-D (D3) y el resultado se lee como «coherencia condicionada al orden» |
