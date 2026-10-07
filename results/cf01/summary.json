@@ -1,0 +1,2202 @@
+{
+ "ambiguous_joins_total": 229387,
+ "cap": 5000,
+ "degenerate_skipped_total": 0,
+ "lectura": {
+  "ALTA": {
+   "CF01-a": true,
+   "CF01-b": false,
+   "CF01-c": false,
+   "C_flag_cierra_todo_w": true,
+   "C_k_acotadas_que_cierran_todo_w": []
+  },
+  "RONDA": {
+   "CF01-a": false,
+   "CF01-b": false,
+   "CF01-c": true,
+   "C_flag_cierra_todo_w": false,
+   "C_k_acotadas_que_cierran_todo_w": []
+  },
+  "dependencia_de_orden": {
+   "casos_(w,k)": [
+    [
+     3,
+     3
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     3,
+     5
+    ],
+    [
+     3,
+     99
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     4,
+     99
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     5,
+     99
+    ],
+    [
+     6,
+     99
+    ]
+   ],
+   "hay": true
+  }
+ },
+ "master": 20261024,
+ "predicciones": {
+  "BAJA_falla_w3_todo_k": {
+   "BAJA_cierra_otros": {
+    "w2/k2": true,
+    "w2/k3": true,
+    "w2/k4": true,
+    "w2/k5": true,
+    "w2/k99": true
+   },
+   "cierra_en_w3_por_k": {
+    "2": false,
+    "3": false,
+    "4": false,
+    "5": false,
+    "99": false
+   },
+   "ok": true
+  },
+  "C2_w2_cierra_B2": true,
+  "C2_w3_certificado_periodicidad": {
+   "ALTA": {
+    "first_repeat_r": 2,
+    "last_r_tested": 2,
+    "max_rank": 1667,
+    "periodic": true
+   },
+   "BAJA": {
+    "first_repeat_r": 2,
+    "last_r_tested": 2,
+    "max_rank": 1667,
+    "periodic": true
+   },
+   "RONDA": {
+    "first_repeat_r": 2,
+    "last_r_tested": 2,
+    "max_rank": 1667,
+    "periodic": true
+   }
+  },
+  "C2_w>=3_no_termina": {
+   "ALTA": [],
+   "BAJA": [],
+   "RONDA": []
+  },
+  "Cflag_ALTA_RONDA_cierra_todo_w": {
+   "ok": false,
+   "w_que_fallan": {
+    "ALTA": [],
+    "RONDA": [
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  "Ck_ALTA_RONDA_cierra_sii_w<=k": {
+   "ok": false,
+   "violaciones_(w,cierra)": {
+    "2/ALTA": [],
+    "2/RONDA": [],
+    "3/ALTA": [],
+    "3/RONDA": [
+     [
+      3,
+      false
+     ]
+    ],
+    "4/ALTA": [],
+    "4/RONDA": [
+     [
+      3,
+      false
+     ],
+     [
+      4,
+      false
+     ]
+    ],
+    "5/ALTA": [],
+    "5/RONDA": [
+     [
+      3,
+      false
+     ],
+     [
+      4,
+      false
+     ],
+     [
+      5,
+      false
+     ]
+    ]
+   }
+  },
+  "Permutaciones_no_cambian_veredicto": {
+   "cambian_n_o_maximales_(solo_informativo)": [
+    [
+     3,
+     3,
+     "RONDA",
+     [
+      [
+       5000,
+       4389
+      ],
+      [
+       5000,
+       4481
+      ],
+      [
+       5000,
+       4488
+      ],
+      [
+       5000,
+       4542
+      ]
+     ]
+    ],
+    [
+     3,
+     4,
+     "RONDA",
+     [
+      [
+       5000,
+       4389
+      ],
+      [
+       5000,
+       4477
+      ],
+      [
+       5000,
+       4530
+      ],
+      [
+       5000,
+       4539
+      ]
+     ]
+    ],
+    [
+     3,
+     5,
+     "RONDA",
+     [
+      [
+       5000,
+       4389
+      ],
+      [
+       5000,
+       4448
+      ],
+      [
+       5000,
+       4502
+      ],
+      [
+       5000,
+       4581
+      ]
+     ]
+    ],
+    [
+     3,
+     99,
+     "RONDA",
+     [
+      [
+       5000,
+       4389
+      ],
+      [
+       5000,
+       4465
+      ],
+      [
+       5000,
+       4490
+      ],
+      [
+       5000,
+       4492
+      ]
+     ]
+    ],
+    [
+     4,
+     2,
+     "ALTA",
+     [
+      [
+       5000,
+       3499
+      ],
+      [
+       5000,
+       3615
+      ],
+      [
+       5000,
+       3713
+      ],
+      [
+       5000,
+       4480
+      ]
+     ]
+    ],
+    [
+     4,
+     2,
+     "BAJA",
+     [
+      [
+       5000,
+       3499
+      ],
+      [
+       5000,
+       3615
+      ],
+      [
+       5000,
+       3713
+      ],
+      [
+       5000,
+       4480
+      ]
+     ]
+    ],
+    [
+     4,
+     2,
+     "RONDA",
+     [
+      [
+       5000,
+       4406
+      ],
+      [
+       5000,
+       4409
+      ],
+      [
+       5000,
+       4480
+      ]
+     ]
+    ],
+    [
+     4,
+     3,
+     "ALTA",
+     [
+      [
+       5000,
+       2
+      ],
+      [
+       5000,
+       1503
+      ],
+      [
+       5000,
+       1531
+      ],
+      [
+       5000,
+       1631
+      ]
+     ]
+    ],
+    [
+     4,
+     3,
+     "BAJA",
+     [
+      [
+       5000,
+       3578
+      ],
+      [
+       5000,
+       3740
+      ],
+      [
+       5000,
+       3915
+      ],
+      [
+       5000,
+       4480
+      ]
+     ]
+    ],
+    [
+     4,
+     3,
+     "RONDA",
+     [
+      [
+       5000,
+       4272
+      ],
+      [
+       5000,
+       4421
+      ],
+      [
+       5000,
+       4470
+      ],
+      [
+       5000,
+       4541
+      ]
+     ]
+    ],
+    [
+     4,
+     4,
+     "BAJA",
+     [
+      [
+       5000,
+       3324
+      ],
+      [
+       5000,
+       3456
+      ],
+      [
+       5000,
+       3703
+      ],
+      [
+       5000,
+       4480
+      ]
+     ]
+    ],
+    [
+     4,
+     4,
+     "RONDA",
+     [
+      [
+       5000,
+       4202
+      ],
+      [
+       5000,
+       4464
+      ],
+      [
+       5000,
+       4572
+      ],
+      [
+       5000,
+       4577
+      ]
+     ]
+    ],
+    [
+     4,
+     5,
+     "BAJA",
+     [
+      [
+       5000,
+       3484
+      ],
+      [
+       5000,
+       3737
+      ],
+      [
+       5000,
+       3813
+      ],
+      [
+       5000,
+       4480
+      ]
+     ]
+    ],
+    [
+     4,
+     5,
+     "RONDA",
+     [
+      [
+       5000,
+       4202
+      ],
+      [
+       5000,
+       4500
+      ],
+      [
+       5000,
+       4517
+      ],
+      [
+       5000,
+       4558
+      ]
+     ]
+    ],
+    [
+     4,
+     99,
+     "BAJA",
+     [
+      [
+       5000,
+       3417
+      ],
+      [
+       5000,
+       3482
+      ],
+      [
+       5000,
+       3911
+      ],
+      [
+       5000,
+       4480
+      ]
+     ]
+    ],
+    [
+     4,
+     99,
+     "RONDA",
+     [
+      [
+       5000,
+       4202
+      ],
+      [
+       5000,
+       4473
+      ],
+      [
+       5000,
+       4546
+      ],
+      [
+       5000,
+       4634
+      ]
+     ]
+    ],
+    [
+     5,
+     2,
+     "ALTA",
+     [
+      [
+       5000,
+       3565
+      ],
+      [
+       5000,
+       3604
+      ],
+      [
+       5000,
+       3852
+      ],
+      [
+       5000,
+       4494
+      ]
+     ]
+    ],
+    [
+     5,
+     2,
+     "BAJA",
+     [
+      [
+       5000,
+       3565
+      ],
+      [
+       5000,
+       3604
+      ],
+      [
+       5000,
+       3852
+      ],
+      [
+       5000,
+       4494
+      ]
+     ]
+    ],
+    [
+     5,
+     2,
+     "RONDA",
+     [
+      [
+       5000,
+       4416
+      ],
+      [
+       5000,
+       4419
+      ],
+      [
+       5000,
+       4421
+      ],
+      [
+       5000,
+       4494
+      ]
+     ]
+    ],
+    [
+     5,
+     3,
+     "ALTA",
+     [
+      [
+       5000,
+       1467
+      ],
+      [
+       5000,
+       1500
+      ],
+      [
+       5000,
+       1518
+      ],
+      [
+       5000,
+       1726
+      ]
+     ]
+    ],
+    [
+     5,
+     3,
+     "BAJA",
+     [
+      [
+       5000,
+       3609
+      ],
+      [
+       5000,
+       3630
+      ],
+      [
+       5000,
+       3716
+      ],
+      [
+       5000,
+       4494
+      ]
+     ]
+    ],
+    [
+     5,
+     3,
+     "RONDA",
+     [
+      [
+       5000,
+       4594
+      ],
+      [
+       5000,
+       4607
+      ],
+      [
+       5000,
+       4609
+      ],
+      [
+       5000,
+       4621
+      ]
+     ]
+    ],
+    [
+     5,
+     4,
+     "ALTA",
+     [
+      [
+       5000,
+       2
+      ],
+      [
+       5000,
+       1178
+      ],
+      [
+       5000,
+       1227
+      ],
+      [
+       5000,
+       1366
+      ]
+     ]
+    ],
+    [
+     5,
+     4,
+     "BAJA",
+     [
+      [
+       5000,
+       3668
+      ],
+      [
+       5000,
+       3942
+      ],
+      [
+       5000,
+       3984
+      ],
+      [
+       5000,
+       4494
+      ]
+     ]
+    ],
+    [
+     5,
+     4,
+     "RONDA",
+     [
+      [
+       5000,
+       4589
+      ],
+      [
+       5000,
+       4606
+      ],
+      [
+       5000,
+       4615
+      ],
+      [
+       5000,
+       4618
+      ]
+     ]
+    ],
+    [
+     5,
+     5,
+     "BAJA",
+     [
+      [
+       5000,
+       3476
+      ],
+      [
+       5000,
+       3596
+      ],
+      [
+       5000,
+       3607
+      ],
+      [
+       5000,
+       4494
+      ]
+     ]
+    ],
+    [
+     5,
+     5,
+     "RONDA",
+     [
+      [
+       5000,
+       4589
+      ],
+      [
+       5000,
+       4611
+      ],
+      [
+       5000,
+       4621
+      ],
+      [
+       5000,
+       4636
+      ]
+     ]
+    ],
+    [
+     5,
+     99,
+     "BAJA",
+     [
+      [
+       5000,
+       3261
+      ],
+      [
+       5000,
+       3798
+      ],
+      [
+       5000,
+       3829
+      ],
+      [
+       5000,
+       4494
+      ]
+     ]
+    ],
+    [
+     5,
+     99,
+     "RONDA",
+     [
+      [
+       5000,
+       4589
+      ],
+      [
+       5000,
+       4603
+      ],
+      [
+       5000,
+       4611
+      ],
+      [
+       5000,
+       4622
+      ]
+     ]
+    ],
+    [
+     6,
+     2,
+     "ALTA",
+     [
+      [
+       5000,
+       3419
+      ],
+      [
+       5000,
+       3760
+      ],
+      [
+       5000,
+       3872
+      ],
+      [
+       5000,
+       4528
+      ]
+     ]
+    ],
+    [
+     6,
+     2,
+     "BAJA",
+     [
+      [
+       5000,
+       3419
+      ],
+      [
+       5000,
+       3760
+      ],
+      [
+       5000,
+       3872
+      ],
+      [
+       5000,
+       4528
+      ]
+     ]
+    ],
+    [
+     6,
+     2,
+     "RONDA",
+     [
+      [
+       5000,
+       4506
+      ],
+      [
+       5000,
+       4511
+      ],
+      [
+       5000,
+       4528
+      ]
+     ]
+    ],
+    [
+     6,
+     3,
+     "ALTA",
+     [
+      [
+       5000,
+       1487
+      ],
+      [
+       5000,
+       1521
+      ],
+      [
+       5000,
+       1537
+      ],
+      [
+       5000,
+       1625
+      ]
+     ]
+    ],
+    [
+     6,
+     3,
+     "BAJA",
+     [
+      [
+       5000,
+       3277
+      ],
+      [
+       5000,
+       3544
+      ],
+      [
+       5000,
+       3761
+      ],
+      [
+       5000,
+       4528
+      ]
+     ]
+    ],
+    [
+     6,
+     3,
+     "RONDA",
+     [
+      [
+       5000,
+       4004
+      ],
+      [
+       5000,
+       4581
+      ],
+      [
+       5000,
+       4584
+      ],
+      [
+       5000,
+       4615
+      ]
+     ]
+    ],
+    [
+     6,
+     4,
+     "ALTA",
+     [
+      [
+       5000,
+       1201
+      ],
+      [
+       5000,
+       1259
+      ],
+      [
+       5000,
+       1283
+      ],
+      [
+       5000,
+       1288
+      ]
+     ]
+    ],
+    [
+     6,
+     4,
+     "BAJA",
+     [
+      [
+       5000,
+       3502
+      ],
+      [
+       5000,
+       3814
+      ],
+      [
+       5000,
+       3820
+      ],
+      [
+       5000,
+       4528
+      ]
+     ]
+    ],
+    [
+     6,
+     4,
+     "RONDA",
+     [
+      [
+       5000,
+       4025
+      ],
+      [
+       5000,
+       4465
+      ],
+      [
+       5000,
+       4569
+      ],
+      [
+       5000,
+       4594
+      ]
+     ]
+    ],
+    [
+     6,
+     5,
+     "ALTA",
+     [
+      [
+       5000,
+       2
+      ],
+      [
+       5000,
+       1035
+      ],
+      [
+       5000,
+       1112
+      ],
+      [
+       5000,
+       1370
+      ]
+     ]
+    ],
+    [
+     6,
+     5,
+     "BAJA",
+     [
+      [
+       5000,
+       3756
+      ],
+      [
+       5000,
+       3825
+      ],
+      [
+       5000,
+       4528
+      ]
+     ]
+    ],
+    [
+     6,
+     5,
+     "RONDA",
+     [
+      [
+       5000,
+       4025
+      ],
+      [
+       5000,
+       4453
+      ],
+      [
+       5000,
+       4522
+      ],
+      [
+       5000,
+       4684
+      ]
+     ]
+    ],
+    [
+     6,
+     99,
+     "BAJA",
+     [
+      [
+       5000,
+       3627
+      ],
+      [
+       5000,
+       3696
+      ],
+      [
+       5000,
+       3818
+      ],
+      [
+       5000,
+       4528
+      ]
+     ]
+    ],
+    [
+     6,
+     99,
+     "RONDA",
+     [
+      [
+       5000,
+       4025
+      ],
+      [
+       5000,
+       4540
+      ],
+      [
+       5000,
+       4555
+      ],
+      [
+       5000,
+       4588
+      ]
+     ]
+    ]
+   ],
+   "cambian_veredicto": [],
+   "ok": true
+  }
+ },
+ "runtime_per_run_s": {
+  "w2/k2/ALTA/p0": 0.0,
+  "w2/k2/ALTA/p1": 0.001,
+  "w2/k2/ALTA/p2": 0.001,
+  "w2/k2/ALTA/p3": 0.001,
+  "w2/k2/BAJA/p0": 0.0,
+  "w2/k2/BAJA/p1": 0.0,
+  "w2/k2/BAJA/p2": 0.0,
+  "w2/k2/BAJA/p3": 0.0,
+  "w2/k2/RONDA/p0": 0.0,
+  "w2/k2/RONDA/p1": 0.0,
+  "w2/k2/RONDA/p2": 0.0,
+  "w2/k2/RONDA/p3": 0.0,
+  "w2/k3/ALTA/p0": 0.0,
+  "w2/k3/ALTA/p1": 0.0,
+  "w2/k3/ALTA/p2": 0.0,
+  "w2/k3/ALTA/p3": 0.0,
+  "w2/k3/BAJA/p0": 0.0,
+  "w2/k3/BAJA/p1": 0.0,
+  "w2/k3/BAJA/p2": 0.0,
+  "w2/k3/BAJA/p3": 0.0,
+  "w2/k3/RONDA/p0": 0.0,
+  "w2/k3/RONDA/p1": 0.0,
+  "w2/k3/RONDA/p2": 0.0,
+  "w2/k3/RONDA/p3": 0.0,
+  "w2/k4/ALTA/p0": 0.0,
+  "w2/k4/ALTA/p1": 0.0,
+  "w2/k4/ALTA/p2": 0.0,
+  "w2/k4/ALTA/p3": 0.0,
+  "w2/k4/BAJA/p0": 0.0,
+  "w2/k4/BAJA/p1": 0.0,
+  "w2/k4/BAJA/p2": 0.0,
+  "w2/k4/BAJA/p3": 0.0,
+  "w2/k4/RONDA/p0": 0.0,
+  "w2/k4/RONDA/p1": 0.0,
+  "w2/k4/RONDA/p2": 0.0,
+  "w2/k4/RONDA/p3": 0.0,
+  "w2/k5/ALTA/p0": 0.0,
+  "w2/k5/ALTA/p1": 0.0,
+  "w2/k5/ALTA/p2": 0.0,
+  "w2/k5/ALTA/p3": 0.0,
+  "w2/k5/BAJA/p0": 0.0,
+  "w2/k5/BAJA/p1": 0.0,
+  "w2/k5/BAJA/p2": 0.0,
+  "w2/k5/BAJA/p3": 0.0,
+  "w2/k5/RONDA/p0": 0.0,
+  "w2/k5/RONDA/p1": 0.0,
+  "w2/k5/RONDA/p2": 0.0,
+  "w2/k5/RONDA/p3": 0.0,
+  "w2/k99/ALTA/p0": 0.0,
+  "w2/k99/ALTA/p1": 0.0,
+  "w2/k99/ALTA/p2": 0.0,
+  "w2/k99/ALTA/p3": 0.0,
+  "w2/k99/BAJA/p0": 0.0,
+  "w2/k99/BAJA/p1": 0.0,
+  "w2/k99/BAJA/p2": 0.0,
+  "w2/k99/BAJA/p3": 0.0,
+  "w2/k99/RONDA/p0": 0.0,
+  "w2/k99/RONDA/p1": 0.0,
+  "w2/k99/RONDA/p2": 0.001,
+  "w2/k99/RONDA/p3": 0.0,
+  "w3/k2/ALTA/p0": 19.157,
+  "w3/k2/ALTA/p1": 19.286,
+  "w3/k2/ALTA/p2": 19.572,
+  "w3/k2/ALTA/p3": 19.436,
+  "w3/k2/BAJA/p0": 18.552,
+  "w3/k2/BAJA/p1": 19.957,
+  "w3/k2/BAJA/p2": 19.545,
+  "w3/k2/BAJA/p3": 19.122,
+  "w3/k2/RONDA/p0": 8.304,
+  "w3/k2/RONDA/p1": 8.578,
+  "w3/k2/RONDA/p2": 8.969,
+  "w3/k2/RONDA/p3": 9.167,
+  "w3/k3/ALTA/p0": 0.0,
+  "w3/k3/ALTA/p1": 0.0,
+  "w3/k3/ALTA/p2": 0.0,
+  "w3/k3/ALTA/p3": 0.0,
+  "w3/k3/BAJA/p0": 21.589,
+  "w3/k3/BAJA/p1": 21.798,
+  "w3/k3/BAJA/p2": 22.25,
+  "w3/k3/BAJA/p3": 21.449,
+  "w3/k3/RONDA/p0": 2.263,
+  "w3/k3/RONDA/p1": 1.727,
+  "w3/k3/RONDA/p2": 1.26,
+  "w3/k3/RONDA/p3": 1.356,
+  "w3/k4/ALTA/p0": 0.0,
+  "w3/k4/ALTA/p1": 0.0,
+  "w3/k4/ALTA/p2": 0.0,
+  "w3/k4/ALTA/p3": 0.0,
+  "w3/k4/BAJA/p0": 21.797,
+  "w3/k4/BAJA/p1": 22.437,
+  "w3/k4/BAJA/p2": 22.426,
+  "w3/k4/BAJA/p3": 21.78,
+  "w3/k4/RONDA/p0": 1.635,
+  "w3/k4/RONDA/p1": 1.424,
+  "w3/k4/RONDA/p2": 1.489,
+  "w3/k4/RONDA/p3": 1.173,
+  "w3/k5/ALTA/p0": 0.0,
+  "w3/k5/ALTA/p1": 0.0,
+  "w3/k5/ALTA/p2": 0.0,
+  "w3/k5/ALTA/p3": 0.0,
+  "w3/k5/BAJA/p0": 20.967,
+  "w3/k5/BAJA/p1": 22.389,
+  "w3/k5/BAJA/p2": 22.184,
+  "w3/k5/BAJA/p3": 22.684,
+  "w3/k5/RONDA/p0": 1.547,
+  "w3/k5/RONDA/p1": 0.992,
+  "w3/k5/RONDA/p2": 1.431,
+  "w3/k5/RONDA/p3": 1.283,
+  "w3/k99/ALTA/p0": 0.0,
+  "w3/k99/ALTA/p1": 0.0,
+  "w3/k99/ALTA/p2": 0.0,
+  "w3/k99/ALTA/p3": 0.0,
+  "w3/k99/BAJA/p0": 18.804,
+  "w3/k99/BAJA/p1": 19.536,
+  "w3/k99/BAJA/p2": 19.251,
+  "w3/k99/BAJA/p3": 19.84,
+  "w3/k99/RONDA/p0": 1.602,
+  "w3/k99/RONDA/p1": 1.038,
+  "w3/k99/RONDA/p2": 1.002,
+  "w3/k99/RONDA/p3": 1.033,
+  "w4/k2/ALTA/p0": 44.409,
+  "w4/k2/ALTA/p1": 44.684,
+  "w4/k2/ALTA/p2": 56.639,
+  "w4/k2/ALTA/p3": 45.763,
+  "w4/k2/BAJA/p0": 47.276,
+  "w4/k2/BAJA/p1": 45.394,
+  "w4/k2/BAJA/p2": 55.958,
+  "w4/k2/BAJA/p3": 45.077,
+  "w4/k2/RONDA/p0": 0.659,
+  "w4/k2/RONDA/p1": 0.521,
+  "w4/k2/RONDA/p2": 0.532,
+  "w4/k2/RONDA/p3": 0.663,
+  "w4/k3/ALTA/p0": 42.315,
+  "w4/k3/ALTA/p1": 60.059,
+  "w4/k3/ALTA/p2": 54.1,
+  "w4/k3/ALTA/p3": 57.4,
+  "w4/k3/BAJA/p0": 59.582,
+  "w4/k3/BAJA/p1": 127.7,
+  "w4/k3/BAJA/p2": 159.187,
+  "w4/k3/BAJA/p3": 179.941,
+  "w4/k3/RONDA/p0": 1.647,
+  "w4/k3/RONDA/p1": 1.101,
+  "w4/k3/RONDA/p2": 1.152,
+  "w4/k3/RONDA/p3": 1.122,
+  "w4/k4/ALTA/p0": 0.001,
+  "w4/k4/ALTA/p1": 0.001,
+  "w4/k4/ALTA/p2": 0.001,
+  "w4/k4/ALTA/p3": 0.001,
+  "w4/k4/BAJA/p0": 62.605,
+  "w4/k4/BAJA/p1": 150.341,
+  "w4/k4/BAJA/p2": 110.869,
+  "w4/k4/BAJA/p3": 108.003,
+  "w4/k4/RONDA/p0": 1.647,
+  "w4/k4/RONDA/p1": 1.224,
+  "w4/k4/RONDA/p2": 1.295,
+  "w4/k4/RONDA/p3": 1.232,
+  "w4/k5/ALTA/p0": 0.001,
+  "w4/k5/ALTA/p1": 0.001,
+  "w4/k5/ALTA/p2": 0.001,
+  "w4/k5/ALTA/p3": 0.001,
+  "w4/k5/BAJA/p0": 60.348,
+  "w4/k5/BAJA/p1": 105.286,
+  "w4/k5/BAJA/p2": 141.638,
+  "w4/k5/BAJA/p3": 129.458,
+  "w4/k5/RONDA/p0": 1.537,
+  "w4/k5/RONDA/p1": 1.195,
+  "w4/k5/RONDA/p2": 1.173,
+  "w4/k5/RONDA/p3": 1.173,
+  "w4/k99/ALTA/p0": 0.001,
+  "w4/k99/ALTA/p1": 0.001,
+  "w4/k99/ALTA/p2": 0.001,
+  "w4/k99/ALTA/p3": 0.001,
+  "w4/k99/BAJA/p0": 62.096,
+  "w4/k99/BAJA/p1": 184.016,
+  "w4/k99/BAJA/p2": 129.922,
+  "w4/k99/BAJA/p3": 113.013,
+  "w4/k99/RONDA/p0": 1.71,
+  "w4/k99/RONDA/p1": 2.157,
+  "w4/k99/RONDA/p2": 1.15,
+  "w4/k99/RONDA/p3": 1.217,
+  "w5/k2/ALTA/p0": 46.978,
+  "w5/k2/ALTA/p1": 42.018,
+  "w5/k2/ALTA/p2": 55.876,
+  "w5/k2/ALTA/p3": 57.268,
+  "w5/k2/BAJA/p0": 49.105,
+  "w5/k2/BAJA/p1": 42.323,
+  "w5/k2/BAJA/p2": 56.575,
+  "w5/k2/BAJA/p3": 56.854,
+  "w5/k2/RONDA/p0": 0.748,
+  "w5/k2/RONDA/p1": 0.534,
+  "w5/k2/RONDA/p2": 0.565,
+  "w5/k2/RONDA/p3": 0.56,
+  "w5/k3/ALTA/p0": 24.976,
+  "w5/k3/ALTA/p1": 58.32,
+  "w5/k3/ALTA/p2": 53.039,
+  "w5/k3/ALTA/p3": 56.924,
+  "w5/k3/BAJA/p0": 64.438,
+  "w5/k3/BAJA/p1": 125.246,
+  "w5/k3/BAJA/p2": 125.905,
+  "w5/k3/BAJA/p3": 143.55,
+  "w5/k3/RONDA/p0": 1.392,
+  "w5/k3/RONDA/p1": 1.077,
+  "w5/k3/RONDA/p2": 1.17,
+  "w5/k3/RONDA/p3": 1.163,
+  "w5/k4/ALTA/p0": 86.442,
+  "w5/k4/ALTA/p1": 147.902,
+  "w5/k4/ALTA/p2": 163.738,
+  "w5/k4/ALTA/p3": 141.912,
+  "w5/k4/BAJA/p0": 66.033,
+  "w5/k4/BAJA/p1": 230.967,
+  "w5/k4/BAJA/p2": 103.486,
+  "w5/k4/BAJA/p3": 211.517,
+  "w5/k4/RONDA/p0": 2.135,
+  "w5/k4/RONDA/p1": 1.154,
+  "w5/k4/RONDA/p2": 1.291,
+  "w5/k4/RONDA/p3": 1.406,
+  "w5/k5/ALTA/p0": 0.004,
+  "w5/k5/ALTA/p1": 0.004,
+  "w5/k5/ALTA/p2": 0.004,
+  "w5/k5/ALTA/p3": 0.004,
+  "w5/k5/BAJA/p0": 64.482,
+  "w5/k5/BAJA/p1": 110.131,
+  "w5/k5/BAJA/p2": 139.509,
+  "w5/k5/BAJA/p3": 130.43,
+  "w5/k5/RONDA/p0": 1.922,
+  "w5/k5/RONDA/p1": 1.295,
+  "w5/k5/RONDA/p2": 1.246,
+  "w5/k5/RONDA/p3": 1.379,
+  "w5/k99/ALTA/p0": 0.004,
+  "w5/k99/ALTA/p1": 0.004,
+  "w5/k99/ALTA/p2": 0.004,
+  "w5/k99/ALTA/p3": 0.004,
+  "w5/k99/BAJA/p0": 62.598,
+  "w5/k99/BAJA/p1": 163.509,
+  "w5/k99/BAJA/p2": 125.311,
+  "w5/k99/BAJA/p3": 115.676,
+  "w5/k99/RONDA/p0": 1.835,
+  "w5/k99/RONDA/p1": 1.159,
+  "w5/k99/RONDA/p2": 1.183,
+  "w5/k99/RONDA/p3": 1.195,
+  "w6/k2/ALTA/p0": 46.43,
+  "w6/k2/ALTA/p1": 39.432,
+  "w6/k2/ALTA/p2": 58.761,
+  "w6/k2/ALTA/p3": 63.116,
+  "w6/k2/BAJA/p0": 46.59,
+  "w6/k2/BAJA/p1": 40.124,
+  "w6/k2/BAJA/p2": 57.399,
+  "w6/k2/BAJA/p3": 61.395,
+  "w6/k2/RONDA/p0": 0.545,
+  "w6/k2/RONDA/p1": 0.552,
+  "w6/k2/RONDA/p2": 0.599,
+  "w6/k2/RONDA/p3": 0.531,
+  "w6/k3/ALTA/p0": 25.596,
+  "w6/k3/ALTA/p1": 52.959,
+  "w6/k3/ALTA/p2": 72.348,
+  "w6/k3/ALTA/p3": 50.978,
+  "w6/k3/BAJA/p0": 56.671,
+  "w6/k3/BAJA/p1": 93.099,
+  "w6/k3/BAJA/p2": 86.183,
+  "w6/k3/BAJA/p3": 142.61,
+  "w6/k3/RONDA/p0": 1.228,
+  "w6/k3/RONDA/p1": 1.308,
+  "w6/k3/RONDA/p2": 1.161,
+  "w6/k3/RONDA/p3": 1.425,
+  "w6/k4/ALTA/p0": 56.795,
+  "w6/k4/ALTA/p1": 127.479,
+  "w6/k4/ALTA/p2": 154.763,
+  "w6/k4/ALTA/p3": 191.009,
+  "w6/k4/BAJA/p0": 56.532,
+  "w6/k4/BAJA/p1": 127.272,
+  "w6/k4/BAJA/p2": 120.713,
+  "w6/k4/BAJA/p3": 169.962,
+  "w6/k4/RONDA/p0": 1.297,
+  "w6/k4/RONDA/p1": 1.337,
+  "w6/k4/RONDA/p2": 1.278,
+  "w6/k4/RONDA/p3": 1.242,
+  "w6/k5/ALTA/p0": 163.854,
+  "w6/k5/ALTA/p1": 270.46,
+  "w6/k5/ALTA/p2": 217.276,
+  "w6/k5/ALTA/p3": 192.545,
+  "w6/k5/BAJA/p0": 53.831,
+  "w6/k5/BAJA/p1": 86.983,
+  "w6/k5/BAJA/p2": 149.775,
+  "w6/k5/BAJA/p3": 153.735,
+  "w6/k5/RONDA/p0": 1.263,
+  "w6/k5/RONDA/p1": 1.225,
+  "w6/k5/RONDA/p2": 1.633,
+  "w6/k5/RONDA/p3": 1.247,
+  "w6/k99/ALTA/p0": 0.016,
+  "w6/k99/ALTA/p1": 0.016,
+  "w6/k99/ALTA/p2": 0.016,
+  "w6/k99/ALTA/p3": 0.019,
+  "w6/k99/BAJA/p0": 55.701,
+  "w6/k99/BAJA/p1": 168.103,
+  "w6/k99/BAJA/p2": 128.983,
+  "w6/k99/BAJA/p3": 115.522,
+  "w6/k99/RONDA/p0": 1.568,
+  "w6/k99/RONDA/p1": 1.575,
+  "w6/k99/RONDA/p2": 1.383,
+  "w6/k99/RONDA/p3": 1.363
+ },
+ "runtime_total_s": 2534.2,
+ "table_perm0": [
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 2,
+   "maximal": 1,
+   "n": 4,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 2,
+   "maximal": 1,
+   "n": 4,
+   "order": "BAJA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 2,
+   "maximal": 1,
+   "n": 4,
+   "order": "RONDA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 3,
+   "maximal": 1,
+   "n": 4,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 3,
+   "maximal": 1,
+   "n": 4,
+   "order": "BAJA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 3,
+   "maximal": 1,
+   "n": 4,
+   "order": "RONDA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 4,
+   "maximal": 1,
+   "n": 4,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 4,
+   "maximal": 1,
+   "n": 4,
+   "order": "BAJA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 4,
+   "maximal": 1,
+   "n": 4,
+   "order": "RONDA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 5,
+   "maximal": 1,
+   "n": 4,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 5,
+   "maximal": 1,
+   "n": 4,
+   "order": "BAJA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 5,
+   "maximal": 1,
+   "n": 4,
+   "order": "RONDA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 99,
+   "maximal": 1,
+   "n": 4,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 99,
+   "maximal": 1,
+   "n": 4,
+   "order": "BAJA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 99,
+   "maximal": 1,
+   "n": 4,
+   "order": "RONDA",
+   "terminated": true,
+   "w": 2
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 2,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 2,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 2,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 3,
+   "maximal": 1,
+   "n": 8,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 2,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 1271,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 4389,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 4,
+   "maximal": 1,
+   "n": 8,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 2,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 1502,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 4389,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 5,
+   "maximal": 1,
+   "n": 8,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 5,
+   "maximal": 2,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 1502,
+   "boolean": false,
+   "k_code": 5,
+   "maximal": 4389,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 99,
+   "maximal": 1,
+   "n": 8,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 99,
+   "maximal": 2,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 1502,
+   "boolean": false,
+   "k_code": 99,
+   "maximal": 4389,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 3
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 4480,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 4480,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 4480,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 2136,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 2,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 4480,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 1321,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 4272,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 4,
+   "maximal": 1,
+   "n": 16,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 4480,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 1541,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 4202,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 5,
+   "maximal": 1,
+   "n": 16,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 5,
+   "maximal": 4480,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 1541,
+   "boolean": false,
+   "k_code": 5,
+   "maximal": 4202,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 99,
+   "maximal": 1,
+   "n": 16,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 99,
+   "maximal": 4480,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 1541,
+   "boolean": false,
+   "k_code": 99,
+   "maximal": 4202,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 4
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 4494,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 4494,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 4494,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 4965,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 1726,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 4494,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 1050,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 4594,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 3320,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 2,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 4494,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 810,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 4589,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 5,
+   "maximal": 1,
+   "n": 32,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 5,
+   "maximal": 4494,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 815,
+   "boolean": false,
+   "k_code": 5,
+   "maximal": 4589,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 99,
+   "maximal": 1,
+   "n": 32,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 99,
+   "maximal": 4494,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 815,
+   "boolean": false,
+   "k_code": 99,
+   "maximal": 4589,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 5
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 4528,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 4528,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 2,
+   "maximal": 4528,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 5361,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 1625,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 4528,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 381,
+   "boolean": false,
+   "k_code": 3,
+   "maximal": 4004,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 10370,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 1288,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 4528,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 586,
+   "boolean": false,
+   "k_code": 4,
+   "maximal": 4025,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 4000,
+   "boolean": false,
+   "k_code": 5,
+   "maximal": 2,
+   "n": 5000,
+   "order": "ALTA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 5,
+   "maximal": 4528,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 614,
+   "boolean": false,
+   "k_code": 5,
+   "maximal": 4025,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": true,
+   "k_code": 99,
+   "maximal": 1,
+   "n": 64,
+   "order": "ALTA",
+   "terminated": true,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 0,
+   "boolean": false,
+   "k_code": 99,
+   "maximal": 4528,
+   "n": 5000,
+   "order": "BAJA",
+   "terminated": false,
+   "w": 6
+  },
+  {
+   "ambiguous_joins": 614,
+   "boolean": false,
+   "k_code": 99,
+   "maximal": 4025,
+   "n": 5000,
+   "order": "RONDA",
+   "terminated": false,
+   "w": 6
+  }
+ ]
+}

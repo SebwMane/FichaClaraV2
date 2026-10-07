@@ -255,3 +255,81 @@ Por tanto, con información local:
 | **CF01-b** | C₃ cierra para todo w = 2…6. Las ternas bastan: el Consejo tenía la duda y mi predicción falla |
 | **CF01-c** | Ni siquiera C_flag cierra para algún w. La compleción local generativa no basta: CF-1 no procede en esta forma |
 | **Orden** | Si el veredicto depende del orden, CF-1 debe incluir el orden como variable de E6-D (D3) y el resultado se lee como «coherencia condicionada al orden» |
+
+---
+
+## 9. CF-0.1: resultados (revisados por el cerebro)
+
+- Código: `tools/cf01_completion.py`; 6/6 tests pasan.
+- Datos: `results/cf01/` (300 ejecuciones deterministas). Tiempo total: 42 min.
+- Lo verifiqué en `runs.jsonl` para w = 3 y w = 4.
+
+| w | C₂ | ALTA (mayor aridad primero) | BAJA (pares primero) | RONDA (simultánea) |
+|---|---|---|---|---|
+| 2 | B₂ | B₂ | B₂ | B₂ |
+| 3 | no termina | **B₃ si k ≥ 3** | no termina | no termina (ni con flag) |
+| 4 | no termina | **B₄ si k ≥ 4** | no termina | no termina |
+| 5 | no termina | **B₅ si k ≥ 5** | no termina | no termina |
+| 6 | no termina | **solo flag** (B₆, 64 elementos) | no termina | no termina |
+
+- Las 4 variantes de desempate coinciden en el veredicto en los 75 casos.
+- Hay certificado de periodicidad para C₂ con w = 3 (tubo de anchura 3, periódico desde el rango 2): **la no terminación queda demostrada** en ese caso (nivel 1).
+- En los demás casos que no terminan no hay certificado: los niveles crecen geométricamente y el tope deja pocos niveles. «No termina» significa ahí **> 5000 elementos**.
+
+**Predicciones:**
+
+| Predicción | Resultado |
+|---|---|
+| C₂: B₂ con w = 2 y no terminación con w ≥ 3 (certificado con w = 3) | Acertada |
+| C_k cierra si y solo si w ≤ k (ALTA y RONDA) | Acertada en ALTA; **fallida en RONDA** |
+| C_flag cierra para todo w (ALTA y RONDA) | Acertada en ALTA; **fallida en RONDA** |
+| BAJA falla desde w = 3 | Acertada |
+| Los desempates no cambian el veredicto | Acertada |
+
+**Lectura con los criterios congelados:**
+- Con ALTA se cumple **CF01-a**: ninguna C_k acotada cierra para todo w y flag sí. La aridad acotada es un dial del rango máximo (W-T4, ahora nivel 1 para estas reglas).
+- Con RONDA se cumple **CF01-c**: ni flag cierra.
+- Se aplica la fila **«Orden»**: **coherencia condicionada al orden**. La compleción local solo genera el producto coherente si las completaciones de mayor aridad se aplican antes que las de menor.
+
+### 9.1 Lectura del cerebro: ¿qué es realmente ALTA? (nivel 2)
+
+ALTA es un planificador **global**: compara aridades en todo el estado. Eso choca con la localidad.
+
+En el conflicto que hace fallar a RONDA con w = 3, las dos aplicaciones pendientes son:
+- la terna en la raíz (rango 0);
+- los pares en los átomos (rango 1).
+
+ALTA gana porque elige la mayor aridad. Pero el mismo conflicto también se resuelve eligiendo **primero el z de menor rango**, es decir, «el pasado se resuelve antes que el futuro».
+
+**Hipótesis H-CAUSAL:** la coherencia no exige prioridad por aridad sino **procesamiento en orden causal**.
+- Las completaciones se aplican por rango creciente de la esquina z.
+- Si es cierto, la condición no es un planificador global arbitrario, sino una ley de tipo causal (localidad en el tiempo).
+- Además explicaría por qué RONDA falla: deja que el futuro actúe antes de que el pasado esté resuelto.
+- Merece una prueba propia, prerregistrada a continuación, porque cambia el significado de CF01-a.
+
+---
+
+## 10. CF-0.1b: planificador causal (prerregistro; añadido antes de ejecutarlo)
+
+**Planificadores nuevos:**
+- **CAUSAL:** primero la instancia cuya esquina z tiene menor rango (cadena más larga desde la raíz). Empates por mayor aridad y, después, por identificador.
+- **RONDA-CAUSAL:** en cada ronda se aplican juntas todas las instancias pendientes con el **menor rango de esquina** presente, y solo esas.
+- **CAUSAL-INV** (control): primero la esquina de mayor rango.
+
+**Barrido:** el mismo que en §8 (w = 2…6, k = 2…5 y flag, desempates por identificador y 3 permutaciones; tope de 5000).
+
+**Predicciones (congeladas):**
+
+| Planificador | Predicción |
+|---|---|
+| CAUSAL | Igual que ALTA: C_k cierra si y solo si w ≤ k, y flag cierra para todo w |
+| RONDA-CAUSAL | Igual que CAUSAL (la simultaneidad dentro de un mismo rango no crea el conflicto) |
+| CAUSAL-INV | Falla desde w = 3, como BAJA |
+
+**Lectura (congelada):**
+
+| Resultado | Lectura |
+|---|---|
+| CAUSAL y RONDA-CAUSAL reproducen ALTA | La coherencia es **procesamiento en orden causal**, una ley local en el tiempo y sin planificador global. CF-1 usará C_flag con un planificador causal |
+| Solo ALTA funciona | La coherencia exige un planificador global por aridad, que choca con la localidad. CF-1 tendría que justificar esa no localidad (criterio 3 de reapertura) o no proceder |
+| Resultados mixtos | Se documentan sin forzar una lectura |
