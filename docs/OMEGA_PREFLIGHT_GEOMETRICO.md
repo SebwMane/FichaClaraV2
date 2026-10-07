@@ -77,7 +77,7 @@ Toda propuesta que pretenda **seleccionar** una dimensión debe cumplir, además
 
 - **E2, prueba del dial:** se barre cada parámetro continuo durante ≥ 4 décadas. Si aparecen ≥ 2 enteros, la propuesta es un dial y se rechaza, salvo que el parámetro esté fijado de antemano por un principio independiente.
 - **E5, no identificación:** el nulo de etiquetas permutadas debe quedar en ≤ 5 %.
-- **E6, alfabeto:** d no puede ser una función del tamaño del alfabeto de la regla.
+- **E6, no codificación:** auditoría escrita S0–S2, puerta estática E6-S v1.1 (SELECTOR o DIAL ⇒ FAIL conservador, revisable por transporte) y, tras la dinámica, E6-D (olvido del inicio, dial, orden, representación y tamaño). Véase `docs/OMEGA_E6_PRERREGISTRO.md` y `docs/OMEGA_E6_RESULTADOS.md`.
 - El **problema A** (exclusión de degenerados) va antes que el **B** (selección).
 
 ## Sesgo dimensional de los diagnósticos (tras L-A-0)

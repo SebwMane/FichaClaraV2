@@ -1,4 +1,4 @@
-# Ω — E6: resultados de la calibración estática (E6-S v1)
+# Ω — E6: resultados de la calibración estática (E6-S v1 y v1.1)
 
 Prerregistro: `docs/OMEGA_E6_PRERREGISTRO.md` (commit a1f741f), congelado antes del código.
 Código: `tools/e6_static.py`, `tests/test_e6_static.py` (11/11 pasan). Agente Sonnet; revisión del cerebro.
@@ -87,3 +87,79 @@ Riesgo de sesgo que se reconoce: v1.1 se diseña después de ver qué control fa
 - (i) se añaden controles frescos, ciegos y codificadores;
 - (ii) los codificadores antiguos deben seguir detectándose sobre el panel ampliado, aunque el cierre podría hacerlos fallar;
 - (iii) si v1.1 pasa, su validez se registra como **más débil que una validación ciega** y se somete al Consejo.
+
+---
+
+## 7. E6-S v1.1: resultado
+
+Prerregistro: `docs/OMEGA_E6_1_PRERREGISTRO.md` (commit be471f5).
+Código: `tools/e6_static_v11.py`, que reutiliza v1 sin modificarlo, y `tests/test_e6_static_v11.py` (30/30 tests pasan entre v1 y v1.1).
+Datos: `results/e6_1/`. Panel: 28 + 17 geometrías. Tiempo de ejecución: 97 s.
+
+Verificaciones del cerebro:
+- La re-ejecución de las reglas v1 sobre las geometrías v1 reproduce `results/e6/` con 0 discrepancias (comprobado por el agente con test).
+- Comprobé de forma independiente que T(Z³) de lado 6 tiene 1296 nodos, grado 3, 0 triángulos y 0 cuadrados.
+
+**Veredicto: E6-S v1.1 VÁLIDO** (V1′, V2′ y V3′ se cumplen). Por la forma de su diseño, la validación es **más débil que una ciega** (§6).
+
+| Regla | d = 1 | 2 | 3 | 4 | 5 | 6 | Clase v1.1 | Clase v1 |
+|---|---|---|---|---|---|---|---|---|
+| C-TRIV / C-SQ / C-TRI | 1 | 1 | 1 | 1 | 1 | 1 | CIEGO | CIEGO |
+| P0-LAT(2) | 1 | 1 | 1 | 1 | 1 | 1 | CIEGO | CIEGO |
+| **P0-LAT(3)** | 0 | 1 | 1 | 1 | 1 | 1 | **MONÓTONO {2–6}** | SELECTOR {2} |
+| **P0-DEG(3)** | 1 | 1 | 1 | 1 | 1 | 1 | **CIEGO** | SELECTOR {2} |
+| P0-DEG(4) | .017 | 1 | 1 | .058 | .059 | .060 | SELECTOR {2, 3} | igual |
+| P0-DEG(8) | .118 | .140 | 1 | 1 | .143 | .135 | SELECTOR {3, 4} | igual |
+| P0-DEG(10) | .127 | .099 | **1** | .266 | 1 | .100 | SELECTOR {3, 5} | SELECTOR {5} |
+| P0-DEG(12) | .095 | .065 | 1 | .061 | .278 | 1 | SELECTOR {3, 6} | igual |
+| P0-SQV(4 / 12 / 24 / 40) | — | — | — | — | — | — | SELECTOR {2} / {2, 3} / {4} / {5} | igual |
+| P0-SQF(2/3) | **1** | 1 | .112 | .078 | .054 | .086 | MONÓTONO {1, 2} | SELECTOR {2} |
+| P0-SQF(8/9) | .013 | .034 | .070 | **1** | 1 | .012 | SELECTOR {4, 5} | SELECTOR {5} |
+| C-5CIC (fresco) | 1 | 1 | 1 | 1 | 1 | 1 | CIEGO | — |
+| C-PAR (fresco) | 1 | 1 | 1 | 1 | 1 | 1 | CIEGO | — |
+| P0-S2(8 / 18 / 32 / 50) (fresco) | — | — | — | — | — | — | SELECTOR {2} / {3} / {4} / {5} | — |
+
+Familias DIAL: P0-DEG, P0-SQV, P0-SQF y P0-S2. **P0-LAT ya no es DIAL.**
+
+### 7.1 Lectura
+
+1. **El cierre funcionó en la dirección de la especificidad.**
+   - Los dos falsos SELECTOR de v1 (P0-LAT(3) y P0-DEG(3)) desaparecen.
+   - La sensibilidad se conserva: las cuatro familias codificadoras siguen siendo DIAL.
+   - El codificador fresco P0-S2, que nunca se había evaluado, se detecta con selección limpia, un d por valor.
+   - Las dos reglas ciegas frescas salen CIEGO.
+2. **El panel cerrado también corrige mi comprensión de los codificadores, a nivel 1:**
+   - «Grado = 3» **no** codifica d: existen geometrías cúbicas en todo d, incluida la escalera para d = 1.
+   - El grado codifica d solo dentro de la clase de redes rígidas, lo que coincide con el enunciado de Ω3 en R1-0.
+   - «Grado = 10» ahora selecciona {3, 5}: L(Z³) tiene grado 10. Sigue siendo SELECTOR, pero de un conjunto no contiguo.
+3. **Los SELECTOR siguen siendo relativos al panel.**
+   - El cierre usa solo tres operaciones.
+   - Es esperable que un panel más rico convierta otros SELECTOR en no selectores, como pasó con P0-DEG(10), que ganó d = 3.
+   - Consecuencia de uso: **un FAIL de E6-S es un rechazo conservador.** Un candidato rechazado puede pedir un *transporte* explícito: construir, con operaciones genéricas que conservan d, su motivo de reposo en las dimensiones donde falta. Si lo consigue, el FAIL se revisa ante el Consejo.
+   - **El PASS no tiene esa debilidad.** Si la regla no distingue d en un panel, tampoco lo distingue en ese subconjunto de un panel mayor. CIEGO es monótono bajo ampliación del panel (nivel 1, inmediato por definición de m(d) como máximo).
+
+### 7.2 Contraste de predicciones (v1.1)
+
+| Predicción | Resultado |
+|---|---|
+| E6-S v1.1 VÁLIDO | Acertada |
+| P0-LAT(3) MONÓTONO {2–6} | Acertada |
+| P0-DEG(3) MONÓTONO {2–6} | **Fallida** (sale CIEGO: olvidé que Z¹ □ K₂, la escalera, es cúbica) |
+| Resto de reglas v1, misma clase | **Fallida en 3 reglas** (P0-DEG(10), P0-SQF(2/3), P0-SQF(8/9)); ninguna entra en V1′–V3′ |
+| Sin colisiones en Z^d □ K₂ para c₄ y \|S₂\| | Acertada |
+
+### 7.3 Estado de E6 tras esta fase
+
+| Pieza | Estado |
+|---|---|
+| E6-S (brazo estático) | **VÁLIDO (v1.1)**, validación débil. Puerta utilizable: SELECTOR o DIAL ⇒ FAIL conservador, revisable por transporte |
+| S0–S2 (auditoría escrita) | Definida (prerregistro E6 §3.4) |
+| E6-D (brazo dinámico) | Diseño congelado (§5 del prerregistro E6). Su calibración dinámica se ejecuta con el primer candidato |
+| Definición antigua de E6 en ARQ-0 («d no es función del tamaño del alfabeto») | **Sustituida** por E6 = S0–S2 + E6-S v1.1 + E6-D |
+
+### 7.4 Decisión del cerebro y siguiente paso
+
+- E6 queda definido y su brazo estático calibrado. Se congela como `claude/omega-e6-congelado`.
+- **Siguiente paso: R3-0**, análisis sin dinámica, como R1-0. Se estudian las estructuras de orden capaces de crecimiento y coalescencia sin especificar d, y cada candidato pasa S0–S2.
+- Si el candidato es una regla local sobre grafos sin etiquetas, pasa también E6-S v1.1.
+- Para órdenes (posets), el panel debe ampliarse a geometrías de orden de dimensión conocida antes de usar E6-S: productos de cadenas, d-órdenes aleatorios (intersección de d órdenes lineales) y redes de Minkowski discretas como generador del panel. Esa ampliación es parte del prerregistro de R3-0, no de esta fase.

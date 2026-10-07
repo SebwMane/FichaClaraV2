@@ -112,7 +112,7 @@ Esto enlaza tres resultados previos de Ω:
 | **E3** | Exclusión de degenerados sin d (problema A) | Clique, árboles, 2-árbol, expansores y retazos excluidos por mecanismo, con verificación por B-ter / γ / K |
 | **E4** | Escala | El mismo resultado con N, 2N, 4N y 8N |
 | **E5** | No identificación | Nulo de etiquetas permutadas ≤ 5 % con potencia suficiente (≥ 5 instancias por d y estrato) |
-| **E6** | Alfabeto | Si la regla tiene un alfabeto finito de tipos de movimiento o de bloque, d no puede coincidir con una función de su tamaño, salvo con una justificación independiente (codificación por alfabeto) |
+| **E6** | No codificación (redefinido) | Sustituido por `docs/OMEGA_E6_PRERREGISTRO.md` (S0–S2, brazo estático E6-S, brazo dinámico E6-D) y por la calibración `docs/OMEGA_E6_RESULTADOS.md` (E6-S v1.1 VÁLIDO). Definición original, conservada como historia: «si la regla tiene un alfabeto finito, d no puede coincidir con una función de su tamaño» |
 
 **Orden lógico.** A (E3) antes que B (E1, E2, E5, E6). Ninguna propuesta de selección dimensional se ejecuta mientras no exista una dinámica que alcance los niveles «coherencia» y «un extremo».
 

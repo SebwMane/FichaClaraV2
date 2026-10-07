@@ -57,6 +57,8 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 
 | Origen | Error | Corrección |
 |---|---|---|
+| Cerebro, E6-S v1 | Predijo VÁLIDO y que P0-LAT(3) casi no descansaría; P0-DEG(3) predicho como SELECTOR genuino | El panal hizo SELECTOR a P0-LAT(3): v1 INVÁLIDO. Corregido en v1.1 con panel cerrado; «grado = 3» no codifica d |
+| Cerebro, E6-S v1.1 | Predijo P0-DEG(3) MONÓTONO y las demás clases de v1 sin cambios | P0-DEG(3) CIEGO (escalera cúbica en d = 1); cambian 3 reglas fuera de V1′–V3′ |
 | Cerebro, C0-L4 | Predijo MUERTE; salió CONTINÚA | Fase local real, pero no geométrica |
 | Cerebro, P1-D | Predijo que los retazos homogeneizarían | No homogeneizan |
 | Cerebro, P1-D.2 | Predijo que el retículo de cliques pasaría el Nivel II | La oscilación de período 2 lo impidió |
@@ -105,6 +107,7 @@ La versión fuerte («ninguna regla local sin un entero impuesto puede hacerlo»
 20. **Las reglas de reescritura reversibles son ensembles de equilibrio (clase cerrada).** R1 solo aporta algo si rompe el balance detallado (R1-0, Ω1).
 21. **Con información de radio 1 (vecinos comunes t), geometría y árbol son indistinguibles localmente.** Ninguna regla de umbral sobre t con todas las Z^d como puntos fijos borra la memoria de un inicio arbóreo (R1-T1, censo exacto). Toda regla que apunte a la fracción de cuñas cuadradas ((d−1)/d en Z^d) codifica d (R1-T2).
 22. **Nuclear no es crecer** (R1-1). Una regla de estabilidad ciega a d (presencia de 4-ciclos) forma núcleos ricos en cuadrados que se absorben aislados. El cuello de botella del problema A es la **coalescencia** de dominios, no su formación.
+23. **«Codificar d» es relativo a un panel de referencia** (E6). Un motivo local presente en una sola dimensión del panel hace parecer selectora a cualquier regla que descanse en él; E6-S v1 falló por eso (panal: grado 3 sin ciclos cortos, solo en d = 2). Con el panel cerrado por truncación, grafo de líneas y producto con K₂, «grado = 3» resulta CIEGO. CIEGO es estable al ampliar el panel; SELECTOR no lo es. Por eso un FAIL de E6-S es conservador y revisable, y un PASS es firme dentro de su alcance.
 10. **Un extremo a toda escala separa la dimensión ≥ 2 de árboles, 1D, cliques y expansores, pero no 2 de 3** (CIC-T5). Las propiedades estructurales estudiadas son todas ciegas a la dimensión por construcción: **la selección de dimensión es la frontera abierta**.
 
 ## 7. Lo que queda abierto
