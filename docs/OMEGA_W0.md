@@ -157,3 +157,57 @@ Agente Haiku con búsqueda web; revisión del cerebro.
 - La formulación del §4.5 queda **sustituida** por: «Entre las familias examinadas, las rutas sin parámetro continuo no han producido todavía un selector de dimensión; las candidatas basadas en leyes de paseo trasladan la selección a una elección discreta de ley, salvo que exista un principio independiente que determine esa ley».
 - W-0 queda aprobada como **reducción, no como imposibilidad**.
 - W-T4 se lee con la condición explícita del Consejo: una elección de ley es un dial solo si hay varias leyes admisibles, ninguna fijada por un principio independiente previo, y las elecciones dan resultados distintos.
+
+---
+
+## 8. Adenda tras la sesión del Consejo sobre «R3 reducido» (caso IV y dilema de independencia)
+
+### 8.1 Auditoría del acta
+
+**Desfase.** El acta vota «W-0 aprobado» como paso pendiente. En el repositorio, W-0 ya se ejecutó y se aprobó como reducción (§7), y W-1 también se ejecutó: W1-D (`OMEGA_W1_RESULTADOS.md`). Se toma el acta como revisión de fondo, no como orden de repetir W-0.
+
+**Correspondencia de sus casos con W-0:**
+
+| Caso del Consejo | Categoría de W-0 | Estado |
+|---|---|---|
+| I, dial | C2 (W-T1, W-T2) | Cerrado, nivel 1 |
+| II, condición inicial | C1 / CONSERVADOR (W-T3) | Cerrado, nivel 1 |
+| III, ley elegida | C3 → elección de ley (W-T4), con W-1 descriptivo en N₂ (corte 2 frente a 4) | Reducido |
+| IV, atractor genuino | **No tratado de forma explícita en W-0** | Es la omisión que se cubre aquí |
+
+**Lo genuinamente nuevo del acta es su §13, la «última trampa».** Si w* = 3 sale de una regla concreta, entonces «por qué 3» se responde con «porque la regla tiene su atractor ahí», y el problema solo se ha desplazado. Formalmente:
+- Toda regla sin parámetros es un punto de un espacio discreto de reglas, y su atractor w*(regla) es una función sobre ese espacio.
+- Elegir la regla equivale a elegir w*, que es W-T4 generalizado.
+- **El caso IV solo escapa si w* es universal sobre una clase amplia de reglas** (como los exponentes críticos son universales frente a los detalles microscópicos), no si es el atractor de una regla.
+
+Se adopta esa definición estricta del caso IV.
+
+### 8.2 W-T7: el dilema de independencia (nivel 2)
+
+Para que una dinámica local regule el número de hilos asintóticamente independientes, un hilo tiene que recibir información de los demás. Hay tres casos, exhaustivos según el desfase entre hilos:
+
+1. **Sin comunicación.**
+   - Ningún hilo puede saber cuántos hay, así que w queda fijado por el inicio (C1) o crece con la bifurcación sin cota.
+   - En el segundo caso hay explosión o crecimiento intermedio, como en J3/J4 (R3-0b, nivel 1).
+2. **Comunicación con desfase acotado.**
+   - Los hilos quedan acoplados y el espacio de cortes es un tubo: w_eff = 1 (R3-T1, corolario 2; J2 da X3 en 3/3, nivel 1).
+   - La regulación destruye justo la independencia que define w.
+3. **Comunicación con desfase no acotado** (por ejemplo, difusivo).
+   - El vector de desfases de w hilos es un paseo en ℤ^{w−1}. Los encuentros son eventos de recurrencia (Pólya, nivel 3).
+   - El encuentro de un par es recurrente en una dimensión: un regulador de tipo «fusionar al contactar» lleva a w → 1.
+   - Un evento de sincronización simultánea de m hilos es recurrente si y solo si m − 1 ≤ 2.
+   - Cualquier regulador basado en encuentros hereda un umbral que **depende de la aridad del evento elegido**. Eso es W-T4, una elección de ley.
+   - Un regulador temporal («bifurcar si aislado durante τ») introduce una escala, es decir, C2.
+
+**Mezclas.** Si unos pares tienen desfase acotado y otros no, los hilos se agrupan en racimos acoplados. w_eff es el número de racimos con desfase mutuo no acotado, y el análisis se repite al nivel de racimo.
+
+**Conclusión de W-T7 (nivel 2, no teorema).** En procesos de hilos con información local, toda vía de regulación cae en I (dial o escala), II (inicio) o III (ley o aridad del evento), o colapsa a w = 1. El caso IV requeriría universalidad de w* sobre clases de reglas que escapen al dilema. No conozco ninguna, y el dilema indica dónde tendría que estar: en un mecanismo de información **no local**, que choca con la localidad exigida a Ω desde C0.
+
+### 8.3 Por qué no se ejecuta un «W-2» de búsqueda de universalidad
+
+Un experimento que enumere una gramática de reglas sin parámetros y mida la distribución de w*:
+- Tendría que elegir la gramática. Por la lección 23, cualquier universalidad sería relativa a esa gramática, igual que «codificar d» es relativo al panel.
+- El dilema predice que cada regla cae en I, II o III, o colapsa.
+- Y el Consejo pidió no inventar mecanismos indefinidamente.
+
+**Decisión del cerebro:** no se ejecuta. Si en el futuro aparece un **principio independiente** que proponga una clase de reglas concreta, por ejemplo un principio de aridad mínima o uno no local con justificación propia, esa clase se prerregistraría como fase nueva.
