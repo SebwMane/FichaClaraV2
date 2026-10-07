@@ -1,0 +1,44 @@
+{
+ "w=2": {
+  "fresca": {
+   "elements": 4,
+   "closed": true,
+   "maximal_elements": 1,
+   "boolean_size": 4
+  },
+  "identificacion_ingenua": {
+   "elements": 4,
+   "closed": true,
+   "maximal_elements": 1,
+   "boolean_size": 4
+  }
+ },
+ "w=3": {
+  "fresca": {
+   "elements": 2000,
+   "closed": false,
+   "maximal_elements": 2,
+   "boolean_size": 8
+  },
+  "identificacion_ingenua": {
+   "elements": 5,
+   "closed": true,
+   "maximal_elements": 1,
+   "boolean_size": 8
+  }
+ },
+ "w=4": {
+  "fresca": {
+   "elements": 2000,
+   "closed": false,
+   "maximal_elements": 1743,
+   "boolean_size": 16
+  },
+  "identificacion_ingenua": {
+   "elements": 6,
+   "closed": true,
+   "maximal_elements": 1,
+   "boolean_size": 16
+  }
+ }
+}

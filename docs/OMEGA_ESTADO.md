@@ -8,7 +8,7 @@ Documento de entrada para cualquier trabajo futuro. Resume y enlaza; no sustituy
 |---|---|---|
 | **B: selección dimensional** | **CERRADO** (reducción estructural negativa; no es un teorema de imposibilidad). Reapertura solo por los criterios congelados | `OMEGA_CIERRE_B.md` |
 | **A: exclusión de degenerados** | **ABIERTO, sin candidato.** Los instrumentos están listos, pero ninguna dinámica de Ω ha producido una estructura no excluida y W6-válida | `OMEGA_MAPA_EXCLUSIONES.md` |
-| Dinámica nueva | No autorizada por ahora (Consejo) | — |
+| Dinámica nueva | No autorizada por ahora (Consejo). Propuesta pendiente: CF-1 (confluencia, solo para el problema A) | `OMEGA_CF0.md` |
 
 ## 2. Instrumentos vigentes y su dominio
 
