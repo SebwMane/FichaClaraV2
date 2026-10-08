@@ -1,0 +1,123 @@
+{
+  "step": "ldim1_features",
+  "code_commit": "d7f3c19a2a8ece6345ee5b5f63cab99a906e1201",
+  "smoke": true,
+  "master": 20261014,
+  "n_graphs": 28,
+  "n_sources": 400,
+  "seconds": 2.6,
+  "seconds_by_graph": {
+    "4a9b66857dbf": {
+      "gen": 0.0,
+      "extract": 0.03
+    },
+    "6cabf6bc1559": {
+      "gen": 0.0,
+      "extract": 0.06
+    },
+    "e42466e12a35": {
+      "gen": 0.0,
+      "extract": 0.09
+    },
+    "d7a9bd758bb4": {
+      "gen": 0.0,
+      "extract": 0.13
+    },
+    "5a65c294631f": {
+      "gen": 0.0,
+      "extract": 0.18
+    },
+    "2d9e3dfa305e": {
+      "gen": 0.0,
+      "extract": 0.12
+    },
+    "93e6b44d0e13": {
+      "gen": 0.01,
+      "extract": 0.16
+    },
+    "559e48b457f4": {
+      "gen": 0.01,
+      "extract": 0.17
+    },
+    "c2d62d3c2fd0": {
+      "gen": 0.0,
+      "extract": 0.14
+    },
+    "e3256eb1a7cd": {
+      "gen": 0.01,
+      "extract": 0.17
+    },
+    "e2d756eb91ed": {
+      "gen": 0.02,
+      "extract": 0.19
+    },
+    "b73b7cb37c07": {
+      "gen": 0.0,
+      "extract": 0.2
+    },
+    "5bff5245e096": {
+      "gen": 0.0,
+      "extract": 0.12
+    },
+    "dac561ef5e6c": {
+      "gen": 0.0,
+      "extract": 0.4
+    },
+    "8caaca8c6fca": {
+      "gen": 0.06,
+      "extract": 0.79
+    },
+    "190d4bfd74ab": {
+      "gen": 0.06,
+      "extract": 0.76
+    },
+    "d39544195f57": {
+      "gen": 0.12,
+      "extract": 1.48
+    },
+    "bf378b9cf708": {
+      "gen": 0.03,
+      "extract": 0.83
+    },
+    "165db70a2a29": {
+      "gen": 0.0,
+      "extract": 0.04
+    },
+    "1a61d091a7f2": {
+      "gen": 0.0,
+      "extract": 0.1
+    },
+    "09497bde3a90": {
+      "gen": 0.0,
+      "extract": 0.03
+    },
+    "5b23480a4e09": {
+      "gen": 0.0,
+      "extract": 0.08
+    },
+    "27d9dfd5980c": {
+      "gen": 0.0,
+      "extract": 0.12
+    },
+    "bfdc18193396": {
+      "gen": 0.11,
+      "extract": 0.16
+    },
+    "24b516f35208": {
+      "gen": 0.01,
+      "extract": 0.17
+    },
+    "8c17d6c2a7fc": {
+      "gen": 0.01,
+      "extract": 0.05
+    },
+    "e682a71a8b95": {
+      "gen": 0.01,
+      "extract": 0.18
+    },
+    "c789a74c40b2": {
+      "gen": 0.01,
+      "extract": 0.17
+    }
+  }
+}

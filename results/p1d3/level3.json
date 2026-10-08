@@ -1,0 +1,115 @@
+{
+  "qualifying_families": [
+    "RGG3_gradiente",
+    "cliques3D_K6_L15",
+    "cliques3D_K8_L13"
+  ],
+  "unmapped_families": [],
+  "analogs": {
+    "RGG3_gradiente_n729": {
+      "family": "RGG3_gradiente",
+      "n": 729,
+      "codes": [
+        [],
+        [
+          "\u03a9-F9"
+        ],
+        [
+          "\u03a9-F9"
+        ]
+      ],
+      "errors": [
+        null,
+        null,
+        null
+      ],
+      "passes_all": false,
+      "rejects_F9_or_F4_all": false
+    },
+    "cliques3D_K6_L5": {
+      "family": "cliques3D_K6_L15",
+      "n": 750,
+      "codes": [
+        [
+          "\u03a9-F3",
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ],
+        [
+          "\u03a9-F3",
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ],
+        [
+          "\u03a9-F3",
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ]
+      ],
+      "errors": [
+        null,
+        null,
+        null
+      ],
+      "passes_all": false,
+      "rejects_F9_or_F4_all": true
+    },
+    "cliques3D_K8_L4": {
+      "family": "cliques3D_K8_L13",
+      "n": 512,
+      "codes": [
+        [
+          "\u03a9-F3",
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ],
+        [
+          "\u03a9-F3",
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ],
+        [
+          "\u03a9-F3",
+          "\u03a9-F4",
+          "\u03a9-F5",
+          "\u03a9-F9"
+        ]
+      ],
+      "errors": [
+        null,
+        null,
+        null
+      ],
+      "passes_all": false,
+      "rejects_F9_or_F4_all": true
+    }
+  },
+  "references": {
+    "RGG3_k12_n729": {
+      "family": "RGG3_k12",
+      "n": 729,
+      "codes": [
+        [],
+        [],
+        []
+      ],
+      "errors": [
+        null,
+        null,
+        null
+      ],
+      "passes_all": true,
+      "rejects_F9_or_F4_all": false
+    }
+  },
+  "R_class3_analogs": [
+    "cliques3D_K6_L5",
+    "cliques3D_K8_L4"
+  ],
+  "R_class3_all_rejected": true
+}

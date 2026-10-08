@@ -1,0 +1,2410 @@
+{
+  "step": "c0_theta",
+  "code_commit": "36975ca86f9a4c019ee2b8702a2ef2e2533abb15",
+  "n_tasks": 216,
+  "n_rows": 216,
+  "complete": true,
+  "result": {
+    "theta_S_global": "FRAGIL-1/N",
+    "theta_c_over_theta_N": {
+      "c19_U_n216": 0.1,
+      "c19_R_n216": 0.1,
+      "c19_R_n343": 0.1,
+      "c37_U_n216": 0.1,
+      "c37_R_n216": 0.1,
+      "c37_R_n343": 0.1,
+      "c55_U_n216": 0.0,
+      "c55_R_n216": 0.1,
+      "c55_R_n343": 0.1,
+      "c73_U_n216": 0.0,
+      "c73_R_n216": 0.1,
+      "c73_R_n343": 0.1
+    },
+    "theta_F": {
+      "c19": "FORMA",
+      "c37": "FORMA",
+      "c55": "NO_FORMA",
+      "c73": "NO_FORMA"
+    },
+    "control_theta0_class_ok": true,
+    "control_theta0_S_ok": false,
+    "table": [
+      {
+        "proto": "F",
+        "cell": 19,
+        "n": 216,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.371,
+          0.381,
+          0.3747
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          2.301,
+          2.106,
+          2.19
+        ],
+        "S_over_LB": [
+          0.9095,
+          0.9075,
+          0.908
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 19,
+        "n": 216,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2106,
+          0.251,
+          0.2457
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          15.39,
+          13.872,
+          14.04
+        ],
+        "S_over_LB": [
+          0.7682,
+          0.7694,
+          0.7684
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 19,
+        "n": 216,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2207,
+          0.2401,
+          0.2376
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          15.145,
+          14.346,
+          14.363
+        ],
+        "S_over_LB": [
+          0.6445,
+          0.6452,
+          0.6384
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 37,
+        "n": 216,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.3518,
+          0.3561,
+          0.3558
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          1.885,
+          1.865,
+          1.846
+        ],
+        "S_over_LB": [
+          0.822,
+          0.8217,
+          0.8219
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 37,
+        "n": 216,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.26,
+          0.2837,
+          0.2613
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          10.132,
+          9.55,
+          10.127
+        ],
+        "S_over_LB": [
+          0.543,
+          0.5405,
+          0.5397
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 37,
+        "n": 216,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.3113,
+          0.2703,
+          0.3084
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          8.853,
+          9.929,
+          8.861
+        ],
+        "S_over_LB": [
+          0.2589,
+          0.2503,
+          0.2719
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 55,
+        "n": 216,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL"
+        ],
+        "f_bg": [
+          0.3403,
+          0.3489,
+          0.3422
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          2.312,
+          2.28,
+          2.299
+        ],
+        "S_over_LB": [
+          0.7133,
+          0.711,
+          0.716
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 55,
+        "n": 216,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2645,
+          0.2682,
+          0.2803
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          6.666,
+          6.629,
+          6.441
+        ],
+        "S_over_LB": [
+          0.4121,
+          0.4097,
+          0.4124
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 55,
+        "n": 216,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.198,
+          0.2318,
+          0.2338
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          8.058,
+          7.361,
+          7.321
+        ],
+        "S_over_LB": [
+          0.0168,
+          0.0167,
+          0.002
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 73,
+        "n": 216,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL"
+        ],
+        "f_bg": [
+          0.2824,
+          0.2912,
+          0.2795
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          2.848,
+          2.806,
+          2.817
+        ],
+        "S_over_LB": [
+          0.608,
+          0.6063,
+          0.6125
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 73,
+        "n": 216,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2023,
+          0.1998,
+          0.2028
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          5.934,
+          5.958,
+          5.936
+        ],
+        "S_over_LB": [
+          0.2773,
+          0.28,
+          0.2836
+        ]
+      },
+      {
+        "proto": "F",
+        "cell": 73,
+        "n": 216,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.1416,
+          0.1428,
+          0.1386
+        ],
+        "J": [
+          null,
+          null,
+          null
+        ],
+        "m_rel": [
+          7.065,
+          7.063,
+          7.144
+        ],
+        "S_over_LB": [
+          -0.2379,
+          -0.2438,
+          -0.2449
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "R",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.0199,
+          0.0207,
+          0.0218
+        ],
+        "J": [
+          0.9939,
+          0.9937,
+          0.9941
+        ],
+        "m_rel": [
+          2.265,
+          2.213,
+          2.33
+        ],
+        "S_over_LB": [
+          0.9978,
+          0.9979,
+          0.9978
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "R",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1735,
+          0.1755,
+          0.1754
+        ],
+        "J": [
+          0.5502,
+          0.5706,
+          0.5404
+        ],
+        "m_rel": [
+          2.298,
+          2.188,
+          2.378
+        ],
+        "S_over_LB": [
+          0.9681,
+          0.9683,
+          0.9676
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.3755,
+          0.3763,
+          0.3782
+        ],
+        "J": [
+          0.3174,
+          0.3366,
+          0.3252
+        ],
+        "m_rel": [
+          1.87,
+          1.818,
+          1.847
+        ],
+        "S_over_LB": [
+          0.9106,
+          0.9108,
+          0.9105
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2784,
+          0.2869,
+          0.2959
+        ],
+        "J": [
+          0.0575,
+          0.0558,
+          0.0586
+        ],
+        "m_rel": [
+          12.91,
+          12.676,
+          12.307
+        ],
+        "S_over_LB": [
+          0.7702,
+          0.7689,
+          0.7683
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2497,
+          0.3053,
+          0.2409
+        ],
+        "J": [
+          0.0563,
+          0.0541,
+          0.0552
+        ],
+        "m_rel": [
+          13.898,
+          12.017,
+          14.306
+        ],
+        "S_over_LB": [
+          0.6462,
+          0.645,
+          0.6471
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "U",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.0251,
+          0.0294,
+          0.0273
+        ],
+        "J": [
+          0.9937,
+          0.9858,
+          0.9923
+        ],
+        "m_rel": [
+          3.406,
+          3.227,
+          3.19
+        ],
+        "S_over_LB": [
+          0.9972,
+          0.9977,
+          0.9976
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "U",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1824,
+          0.1794,
+          0.1817
+        ],
+        "J": [
+          0.489,
+          0.5289,
+          0.5296
+        ],
+        "m_rel": [
+          2.856,
+          3.034,
+          3.012
+        ],
+        "S_over_LB": [
+          0.9681,
+          0.9683,
+          0.9687
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "U",
+        "mult": 0.3,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.3695,
+          0.3668,
+          0.3602
+        ],
+        "J": [
+          0.3341,
+          0.34,
+          0.3269
+        ],
+        "m_rel": [
+          2.11,
+          2.11,
+          2.188
+        ],
+        "S_over_LB": [
+          0.9114,
+          0.9123,
+          0.9136
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "U",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2283,
+          0.2807,
+          0.2436
+        ],
+        "J": [
+          0.0823,
+          0.0803,
+          0.081
+        ],
+        "m_rel": [
+          14.637,
+          12.813,
+          14.034
+        ],
+        "S_over_LB": [
+          0.7681,
+          0.7678,
+          0.7687
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 216,
+        "init": "U",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.229,
+          0.2394,
+          0.244
+        ],
+        "J": [
+          0.0837,
+          0.0806,
+          0.0793
+        ],
+        "m_rel": [
+          14.844,
+          14.241,
+          14.13
+        ],
+        "S_over_LB": [
+          0.6479,
+          0.6461,
+          0.6509
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 343,
+        "init": "R",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.0267,
+          0.0267,
+          0.0278
+        ],
+        "J": [
+          0.9922,
+          0.9921,
+          0.9954
+        ],
+        "m_rel": [
+          2.229,
+          2.221,
+          2.317
+        ],
+        "S_over_LB": [
+          0.9961,
+          0.9961,
+          0.996
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 343,
+        "init": "R",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1623,
+          0.1605,
+          0.1617
+        ],
+        "J": [
+          0.5803,
+          0.5813,
+          0.5924
+        ],
+        "m_rel": [
+          2.209,
+          2.14,
+          2.137
+        ],
+        "S_over_LB": [
+          0.9661,
+          0.9661,
+          0.966
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 343,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.354,
+          0.353,
+          0.3517
+        ],
+        "J": [
+          0.3574,
+          0.3484,
+          0.3564
+        ],
+        "m_rel": [
+          1.632,
+          1.582,
+          1.599
+        ],
+        "S_over_LB": [
+          0.9083,
+          0.9095,
+          0.909
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 343,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2651,
+          0.2877,
+          0.3118
+        ],
+        "J": [
+          0.0376,
+          0.0358,
+          0.0372
+        ],
+        "m_rel": [
+          21.23,
+          19.953,
+          18.655
+        ],
+        "S_over_LB": [
+          0.7317,
+          0.7314,
+          0.7316
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 19,
+        "n": 343,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.3478,
+          0.4123,
+          0.3327
+        ],
+        "J": [
+          0.0353,
+          0.034,
+          0.0359
+        ],
+        "m_rel": [
+          17.05,
+          14.257,
+          17.772
+        ],
+        "S_over_LB": [
+          0.6021,
+          0.5994,
+          0.6018
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "R",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.0166,
+          0.0182,
+          0.0181
+        ],
+        "J": [
+          0.9926,
+          0.986,
+          0.9861
+        ],
+        "m_rel": [
+          1.549,
+          1.561,
+          1.573
+        ],
+        "S_over_LB": [
+          0.9931,
+          0.9931,
+          0.9934
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "R",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1566,
+          0.1597,
+          0.1589
+        ],
+        "J": [
+          0.5908,
+          0.5636,
+          0.5526
+        ],
+        "m_rel": [
+          1.745,
+          1.809,
+          1.861
+        ],
+        "S_over_LB": [
+          0.9356,
+          0.9348,
+          0.9349
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.3612,
+          0.36,
+          0.3548
+        ],
+        "J": [
+          0.2951,
+          0.2868,
+          0.3172
+        ],
+        "m_rel": [
+          1.682,
+          1.72,
+          1.795
+        ],
+        "S_over_LB": [
+          0.8211,
+          0.822,
+          0.8227
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2506,
+          0.2576,
+          0.2577
+        ],
+        "J": [
+          0.0559,
+          0.0561,
+          0.0494
+        ],
+        "m_rel": [
+          10.398,
+          10.181,
+          10.186
+        ],
+        "S_over_LB": [
+          0.5418,
+          0.5415,
+          0.5405
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2808,
+          0.2111,
+          0.2097
+        ],
+        "J": [
+          0.0526,
+          0.0546,
+          0.055
+        ],
+        "m_rel": [
+          9.608,
+          11.627,
+          11.605
+        ],
+        "S_over_LB": [
+          0.2595,
+          0.2587,
+          0.2627
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "U",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.019,
+          0.0195,
+          0.0193
+        ],
+        "J": [
+          0.987,
+          0.9888,
+          0.9882
+        ],
+        "m_rel": [
+          1.77,
+          1.743,
+          1.943
+        ],
+        "S_over_LB": [
+          0.9937,
+          0.9937,
+          0.9929
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "U",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1554,
+          0.1579,
+          0.1533
+        ],
+        "J": [
+          0.5061,
+          0.5098,
+          0.5408
+        ],
+        "m_rel": [
+          2.231,
+          2.177,
+          2.275
+        ],
+        "S_over_LB": [
+          0.936,
+          0.935,
+          0.9361
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "U",
+        "mult": 0.3,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.3531,
+          0.353,
+          0.3481
+        ],
+        "J": [
+          0.3215,
+          0.3541,
+          0.3696
+        ],
+        "m_rel": [
+          1.905,
+          1.903,
+          1.97
+        ],
+        "S_over_LB": [
+          0.8217,
+          0.8225,
+          0.823
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "U",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2589,
+          0.2416,
+          0.3115
+        ],
+        "J": [
+          0.058,
+          0.058,
+          0.0662
+        ],
+        "m_rel": [
+          10.166,
+          10.659,
+          8.873
+        ],
+        "S_over_LB": [
+          0.5413,
+          0.5388,
+          0.5414
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 216,
+        "init": "U",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2314,
+          0.3031,
+          0.2374
+        ],
+        "J": [
+          0.0614,
+          0.0569,
+          0.0664
+        ],
+        "m_rel": [
+          11.003,
+          9.066,
+          10.765
+        ],
+        "S_over_LB": [
+          0.2704,
+          0.2584,
+          0.259
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 343,
+        "init": "R",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.0267,
+          0.0277,
+          0.0262
+        ],
+        "J": [
+          0.9784,
+          0.9723,
+          0.9852
+        ],
+        "m_rel": [
+          1.534,
+          1.551,
+          1.56
+        ],
+        "S_over_LB": [
+          0.9875,
+          0.9877,
+          0.9875
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 343,
+        "init": "R",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1538,
+          0.155,
+          0.152
+        ],
+        "J": [
+          0.617,
+          0.6227,
+          0.6398
+        ],
+        "m_rel": [
+          1.596,
+          1.603,
+          1.581
+        ],
+        "S_over_LB": [
+          0.9301,
+          0.93,
+          0.9305
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 343,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.3475,
+          0.3469,
+          0.3453
+        ],
+        "J": [
+          0.3747,
+          0.3725,
+          0.3771
+        ],
+        "m_rel": [
+          1.403,
+          1.391,
+          1.421
+        ],
+        "S_over_LB": [
+          0.8177,
+          0.8185,
+          0.8179
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 343,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2537,
+          0.3344,
+          0.3036
+        ],
+        "J": [
+          0.0343,
+          0.0341,
+          0.0344
+        ],
+        "m_rel": [
+          16.471,
+          13.224,
+          14.319
+        ],
+        "S_over_LB": [
+          0.4672,
+          0.47,
+          0.4703
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 37,
+        "n": 343,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.3617,
+          0.3275,
+          0.26
+        ],
+        "J": [
+          0.0339,
+          0.0343,
+          0.0319
+        ],
+        "m_rel": [
+          12.329,
+          13.556,
+          16.291
+        ],
+        "S_over_LB": [
+          0.1239,
+          0.1194,
+          0.1182
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "R",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.0145,
+          0.014,
+          0.014
+        ],
+        "J": [
+          0.9826,
+          0.9893,
+          0.9904
+        ],
+        "m_rel": [
+          1.276,
+          1.286,
+          1.276
+        ],
+        "S_over_LB": [
+          0.9895,
+          0.9901,
+          0.9897
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "R",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.161,
+          0.1607,
+          0.1584
+        ],
+        "J": [
+          0.5395,
+          0.554,
+          0.5244
+        ],
+        "m_rel": [
+          1.688,
+          1.694,
+          1.715
+        ],
+        "S_over_LB": [
+          0.8979,
+          0.8979,
+          0.8982
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL"
+        ],
+        "f_bg": [
+          0.3461,
+          0.3456,
+          0.3403
+        ],
+        "J": [
+          0.2022,
+          0.1774,
+          0.1872
+        ],
+        "m_rel": [
+          2.282,
+          2.282,
+          2.29
+        ],
+        "S_over_LB": [
+          0.7117,
+          0.7128,
+          0.7167
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.1853,
+          0.2291,
+          0.2764
+        ],
+        "J": [
+          0.0652,
+          0.0649,
+          0.0603
+        ],
+        "m_rel": [
+          8.277,
+          7.377,
+          6.46
+        ],
+        "S_over_LB": [
+          0.4144,
+          0.4087,
+          0.4166
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2215,
+          0.24,
+          0.2346
+        ],
+        "J": [
+          0.0661,
+          0.0637,
+          0.0639
+        ],
+        "m_rel": [
+          7.552,
+          7.196,
+          7.294
+        ],
+        "S_over_LB": [
+          0.0167,
+          0.0237,
+          0.0318
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "U",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.013,
+          0.0097,
+          0.0118
+        ],
+        "J": [
+          0.9868,
+          0.9842,
+          0.9799
+        ],
+        "m_rel": [
+          1.338,
+          1.358,
+          1.366
+        ],
+        "S_over_LB": [
+          0.9914,
+          0.9953,
+          0.993
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "U",
+        "mult": 0.1,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1328,
+          0.1368,
+          0.1351
+        ],
+        "J": [
+          0.3584,
+          0.338,
+          0.3931
+        ],
+        "m_rel": [
+          2.346,
+          2.441,
+          2.328
+        ],
+        "S_over_LB": [
+          0.9033,
+          0.9006,
+          0.9013
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "U",
+        "mult": 0.3,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL"
+        ],
+        "f_bg": [
+          0.3287,
+          0.3292,
+          0.3323
+        ],
+        "J": [
+          0.2655,
+          0.2564,
+          0.3044
+        ],
+        "m_rel": [
+          2.377,
+          2.381,
+          2.348
+        ],
+        "S_over_LB": [
+          0.7201,
+          0.7189,
+          0.7219
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "U",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2212,
+          0.2769,
+          0.2728
+        ],
+        "J": [
+          0.0677,
+          0.0669,
+          0.0657
+        ],
+        "m_rel": [
+          7.576,
+          6.482,
+          6.52
+        ],
+        "S_over_LB": [
+          0.415,
+          0.4121,
+          0.4148
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 216,
+        "init": "U",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.216,
+          0.2303,
+          0.2408
+        ],
+        "J": [
+          0.0717,
+          0.066,
+          0.0699
+        ],
+        "m_rel": [
+          7.662,
+          7.344,
+          7.147
+        ],
+        "S_over_LB": [
+          0.0112,
+          0.0172,
+          0.024
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 343,
+        "init": "R",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.0269,
+          0.026,
+          0.0268
+        ],
+        "J": [
+          0.973,
+          0.9762,
+          0.9626
+        ],
+        "m_rel": [
+          1.272,
+          1.272,
+          1.272
+        ],
+        "S_over_LB": [
+          0.9781,
+          0.9781,
+          0.9778
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 343,
+        "init": "R",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1599,
+          0.1575,
+          0.1593
+        ],
+        "J": [
+          0.6533,
+          0.6809,
+          0.6523
+        ],
+        "m_rel": [
+          1.421,
+          1.373,
+          1.391
+        ],
+        "S_over_LB": [
+          0.8897,
+          0.8896,
+          0.8894
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 343,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.3584,
+          0.3635,
+          0.3597
+        ],
+        "J": [
+          0.3252,
+          0.3213,
+          0.318
+        ],
+        "m_rel": [
+          1.489,
+          1.454,
+          1.499
+        ],
+        "S_over_LB": [
+          0.7137,
+          0.7102,
+          0.7117
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 343,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2908,
+          0.2857,
+          0.2711
+        ],
+        "J": [
+          0.042,
+          0.0401,
+          0.0393
+        ],
+        "m_rel": [
+          9.94,
+          10.052,
+          10.437
+        ],
+        "S_over_LB": [
+          0.2382,
+          0.2381,
+          0.2352
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 55,
+        "n": 343,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.3009,
+          0.3678,
+          0.3188
+        ],
+        "J": [
+          0.0409,
+          0.0374,
+          0.0418
+        ],
+        "m_rel": [
+          9.697,
+          8.036,
+          9.251
+        ],
+        "S_over_LB": [
+          -0.2623,
+          -0.2557,
+          -0.2586
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "R",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.0063,
+          0.0051,
+          0.0055
+        ],
+        "J": [
+          0.9927,
+          0.987,
+          0.9844
+        ],
+        "m_rel": [
+          1.102,
+          1.104,
+          1.1
+        ],
+        "S_over_LB": [
+          0.9864,
+          0.9891,
+          0.988
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "R",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1431,
+          0.1466,
+          0.1395
+        ],
+        "J": [
+          0.5328,
+          0.6432,
+          0.4891
+        ],
+        "m_rel": [
+          1.612,
+          1.501,
+          1.649
+        ],
+        "S_over_LB": [
+          0.8573,
+          0.8579,
+          0.8605
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL"
+        ],
+        "f_bg": [
+          0.2846,
+          0.2807,
+          0.2871
+        ],
+        "J": [
+          0.2049,
+          0.19,
+          0.1833
+        ],
+        "m_rel": [
+          2.809,
+          2.803,
+          2.818
+        ],
+        "S_over_LB": [
+          0.6097,
+          0.6108,
+          0.6082
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2025,
+          0.1878,
+          0.2101
+        ],
+        "J": [
+          0.0743,
+          0.0749,
+          0.0752
+        ],
+        "m_rel": [
+          5.951,
+          6.186,
+          5.748
+        ],
+        "S_over_LB": [
+          0.2856,
+          0.2837,
+          0.2851
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.1438,
+          0.1421,
+          0.1429
+        ],
+        "J": [
+          0.0771,
+          0.0773,
+          0.079
+        ],
+        "m_rel": [
+          7.049,
+          7.101,
+          7.083
+        ],
+        "S_over_LB": [
+          -0.2417,
+          -0.2434,
+          -0.2464
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "U",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.004,
+          0.0039,
+          0.0041
+        ],
+        "J": [
+          0.9862,
+          0.9822,
+          0.984
+        ],
+        "m_rel": [
+          1.201,
+          1.188,
+          1.215
+        ],
+        "S_over_LB": [
+          0.9944,
+          0.9934,
+          0.9942
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "U",
+        "mult": 0.1,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1244,
+          0.1312,
+          0.1198
+        ],
+        "J": [
+          0.4765,
+          0.5265,
+          0.4683
+        ],
+        "m_rel": [
+          1.9,
+          1.794,
+          1.944
+        ],
+        "S_over_LB": [
+          0.8665,
+          0.8653,
+          0.8686
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "U",
+        "mult": 0.3,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL",
+          "DISPERSO_NO_LOCAL"
+        ],
+        "f_bg": [
+          0.2752,
+          0.2817,
+          0.277
+        ],
+        "J": [
+          0.2826,
+          0.2801,
+          0.2928
+        ],
+        "m_rel": [
+          2.792,
+          2.794,
+          2.777
+        ],
+        "S_over_LB": [
+          0.6176,
+          0.6114,
+          0.6164
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "U",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2076,
+          0.2033,
+          0.2012
+        ],
+        "J": [
+          0.0808,
+          0.0765,
+          0.0821
+        ],
+        "m_rel": [
+          5.899,
+          5.927,
+          5.936
+        ],
+        "S_over_LB": [
+          0.279,
+          0.2772,
+          0.2798
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 216,
+        "init": "U",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.1398,
+          0.1402,
+          0.138
+        ],
+        "J": [
+          0.0843,
+          0.0869,
+          0.0856
+        ],
+        "m_rel": [
+          7.142,
+          7.093,
+          7.171
+        ],
+        "S_over_LB": [
+          -0.2355,
+          -0.2454,
+          -0.2391
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 343,
+        "init": "R",
+        "mult": 0.0,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.0212,
+          0.0233,
+          0.0203
+        ],
+        "J": [
+          0.9939,
+          0.9862,
+          0.9835
+        ],
+        "m_rel": [
+          1.061,
+          1.092,
+          1.066
+        ],
+        "S_over_LB": [
+          0.9708,
+          0.9678,
+          0.9721
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 343,
+        "init": "R",
+        "mult": 0.1,
+        "verdict": "SOBREVIVE",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.1486,
+          0.1497,
+          0.1515
+        ],
+        "J": [
+          0.9019,
+          0.9472,
+          0.8701
+        ],
+        "m_rel": [
+          1.136,
+          1.096,
+          1.169
+        ],
+        "S_over_LB": [
+          0.8496,
+          0.8491,
+          0.8484
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 343,
+        "init": "R",
+        "mult": 0.3,
+        "verdict": "MIXTA",
+        "classes": [
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL",
+          "DISPERSO_LOCAL"
+        ],
+        "f_bg": [
+          0.3597,
+          0.361,
+          0.3608
+        ],
+        "J": [
+          0.3177,
+          0.3298,
+          0.3263
+        ],
+        "m_rel": [
+          1.419,
+          1.42,
+          1.408
+        ],
+        "S_over_LB": [
+          0.611,
+          0.6125,
+          0.6128
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 343,
+        "init": "R",
+        "mult": 1.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.3728,
+          0.3037,
+          0.3605
+        ],
+        "J": [
+          0.0426,
+          0.0472,
+          0.0451
+        ],
+        "m_rel": [
+          5.96,
+          7.195,
+          6.133
+        ],
+        "S_over_LB": [
+          0.0539,
+          0.0527,
+          0.0498
+        ]
+      },
+      {
+        "proto": "S",
+        "cell": 73,
+        "n": 343,
+        "init": "R",
+        "mult": 3.0,
+        "verdict": "DESTRUIDA",
+        "classes": [
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL",
+          "DENSO_TRIVIAL"
+        ],
+        "f_bg": [
+          0.2765,
+          0.2727,
+          0.2718
+        ],
+        "J": [
+          0.0463,
+          0.0475,
+          0.0465
+        ],
+        "m_rel": [
+          7.8,
+          7.864,
+          7.903
+        ],
+        "S_over_LB": [
+          -0.5873,
+          -0.585,
+          -0.5751
+        ]
+      }
+    ]
+  }
+}
