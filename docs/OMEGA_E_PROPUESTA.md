@@ -40,3 +40,14 @@
 - **INDETERMINADO:** el control geométrico no tiene ley de área con la regla intrínseca.
 
 **Declaraciones.** (a) G_R = C/2 y el umbral √n/(4π) vienen de un campo sin masa en 2D; aplicarlos a órdenes no geométricos es una convención congelada aquí, no un resultado. (b) El umbral se fijó antes de calcular cualquier familia; no se ajustará. (c) Un DISCRIMINA sería nivel 1 para N ≤ 1600 en 2D, frente a estas familias; no prueba la ruta de Jacobson completa.
+
+## 4. Resultado oficial de E0 y enmienda E-A1 (registrada tras el fallo, antes de ejecutar E1)
+
+**E0 oficial (commit posterior a la auditoría):** E0a **PASA** (a = 0.315, R² lineal 0.990 > logarítmico 0.908). E0b **FALLA**: a = 0.480 ± 0.057, fuera de [0.23, 0.43] (el logarítmico sí ajusta mejor que el lineal: 0.756 frente a 0.668).
+
+**Diagnóstico.** En los tamaños grandes el valor medido coincide con la curva publicada (n ≈ 400: 2.051 frente a 2.044; n ≈ 310: 1.938 frente a 1.999), pero en N = 200 (n ≈ 50) cae a 1.504 frente a 1.684. Con regiones tan pequeñas el umbral √n/(4π) conserva muy pocos modos (efecto de tamaño finito), lo que empina la pendiente. Aun así, la distancia a 1/3 es de 2.6 SE: no se descarta que haya algo más.
+
+| ID | Cambio | ¿Puede crear un positivo? |
+|---|---|---|
+| E-A1a | E0b se repite con N_L ∈ {800, 1200, 1600, 2000, 2400}, 5 semillas, entropía nueva 20261049, misma ventana [0.23, 0.43] y misma condición sobre R². | **Sí**; se declara. El intento fallido queda registrado. |
+| E-A1b | E1 usa la misma malla N_L ∈ {800, 1200, 1600, 2000, 2400} (entropía 20261048 sin cambios). El umbral de «sin regiones extensas» se evalúa en N_L = 2400. | Sí en principio; se registra antes de ejecutar E1. |

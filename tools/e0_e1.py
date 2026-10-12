@@ -25,7 +25,9 @@ from omega.causality.sprinkling import causal_matrix, sprinkle_diamond  # noqa: 
 
 EXPERIMENT_ID = 311
 ENT_E0, ENT_E1 = 20261047, 20261048
-NS = (200, 400, 800, 1200, 1600)
+NS_E0_ORIG = (200, 400, 800, 1200, 1600)
+NS = (800, 1200, 1600, 2000, 2400)  # E-A1: malla de E0b' y de E1
+ENT_E0B = 20261049
 SEEDS = 5
 A_E0A, A_TRUNC = (0.25, 0.40), (0.23, 0.43)
 MIN_REGION = 20
@@ -78,11 +80,11 @@ def fits(n: list[float], s: list[float]) -> dict[str, float]:
     return {"a_lin": al, "b_lin": bl, "r2_lin": r2l, "a_log": ag, "b_log": bg, "r2_log": r2g}
 
 
-def part_e0() -> dict[str, Any]:
+def part_e0(ns: tuple[int, ...] = NS_E0_ORIG, entropy: int = ENT_E0) -> dict[str, Any]:
     rows = []
-    for i, n in enumerate(NS):
+    for i, n in enumerate(ns):
         for s in range(SEEDS):
-            x = sprinkle_diamond(n, 2, rng_for(ENT_E0, i, s))
+            x = sprinkle_diamond(n, 2, rng_for(entropy, i, s))
             u, v = x[:, 0] + x[:, 1], x[:, 0] - x[:, 1]
             region = np.flatnonzero((np.abs(u) <= 0.25) & (np.abs(v) <= 0.25)).astype(np.int64)
             s_un, s_tr = entropies(causal_matrix(x), region)
@@ -90,11 +92,12 @@ def part_e0() -> dict[str, Any]:
     return {"rows": rows}
 
 
-def part_e1(fam: str) -> dict[str, Any]:
+def part_e1(fam: str, ns: tuple[int, ...]) -> dict[str, Any]:
     gen = FAMILIES[fam]
     k = list(FAMILIES).index(fam)
     rows = []
-    for i, n in enumerate(NS):
+    for n in ns:
+        i = NS.index(n)
         for s in range(SEEDS):
             c = gen(n, rng_for(ENT_E1, k, i, s))
             region = interval_closest(c, n // 4)
@@ -121,12 +124,14 @@ def main() -> None:
         e0 = json.loads((OUT / "e0.json").read_text())["data"]["rows"]
         f_un = fits([r["n"] for r in e0], [r["S_untr"] for r in e0])
         e0a = bool(A_E0A[0] <= f_un["a_lin"] <= A_E0A[1] and f_un["r2_lin"] > f_un["r2_log"])
-        e0b, f_tr = area_flag(e0)
-        summary: dict[str, Any] = {"commit": head, "E0a": e0a, "E0b": e0b, "fit_untr": f_un, "fit_tr": f_tr}
+        e0b_orig, _ = area_flag(e0)
+        e0b_rows = [r for p in ("e0b_a", "e0b_b") for r in json.loads((OUT / f"{p}.json").read_text())["data"]["rows"]]
+        e0b, f_tr = area_flag(e0b_rows)  # E-A1a
+        summary: dict[str, Any] = {"commit": head, "E0a": e0a, "E0b_original_fallido": e0b_orig, "E0b": e0b, "fit_untr": f_un, "fit_tr": f_tr}
         if e0a and e0b:
             fam_res = {}
             for fam in FAMILIES:
-                rows = json.loads((OUT / f"e1_{fam}.json").read_text())["data"]["rows"]
+                rows = [r for p in ("a", "b") for r in json.loads((OUT / f"e1_{fam}_{p}.json").read_text())["data"]["rows"]]
                 big = [r["n"] for r in rows if r["N"] == NS[-1]]
                 if max(big) < MIN_REGION:
                     fam_res[fam] = {"ley_area": False, "nota": "no aplicable: sin regiones extensas", "n_max_1600": max(big)}
@@ -145,7 +150,18 @@ def main() -> None:
         (OUT / "summary.json").write_text(json.dumps(summary, indent=2))
         print(json.dumps(summary, indent=2))
         return
-    data = part_e0() if args.part == "e0" else part_e1(args.part.removeprefix("e1_"))
+    if args.part == "e0":
+        data = part_e0()
+    elif args.part == "e0b_a":
+        data = part_e0(NS[:3], ENT_E0B)
+    elif args.part == "e0b_b":
+        data = part_e0(NS[3:], ENT_E0B)
+    elif args.part.startswith("e1_") and args.part.endswith("_a"):
+        data = part_e1(args.part.removeprefix("e1_").removesuffix("_a"), NS[:3])
+    elif args.part.startswith("e1_") and args.part.endswith("_b"):
+        data = part_e1(args.part.removeprefix("e1_").removesuffix("_b"), NS[3:])
+    else:
+        sys.exit("parte desconocida")
     (OUT / f"{args.part}.json").write_text(json.dumps({"commit": head, "seconds": round(time.time() - t0, 1), "data": data}))
     print(args.part, "ok", round(time.time() - t0, 1), "s")
 
