@@ -54,13 +54,14 @@ def sj_both(i_delta: CArr, cutoff: float) -> tuple[CArr, CArr, CArr]:
     return w_full, idt, w_t
 
 
-def ssee(i_delta: CArr, w: CArr, region: npt.NDArray[np.int64], truncate: bool) -> float:
+def ssee(i_delta: CArr, w: CArr, region: npt.NDArray[np.int64], truncate: bool, cutoff: float | None = None) -> float:
     """S = sum lambda ln|lambda|, lambda autovalores de (iDelta_R)^-1 W_R en la imagen (truncada) de iDelta_R."""
     a = i_delta[np.ix_(region, region)]
     b = w[np.ix_(region, region)]
     nu, v = np.linalg.eigh(a)
     if truncate:
-        keep = np.abs(nu) >= math.sqrt(region.size) / (4 * math.pi)
+        thr = cutoff if cutoff is not None else math.sqrt(region.size) / (4 * math.pi)
+        keep = np.abs(nu) >= thr
     else:
         keep = np.abs(nu) > KERNEL_TOL * max(float(np.abs(nu).max()), 1e-300)
     if not np.any(keep):
