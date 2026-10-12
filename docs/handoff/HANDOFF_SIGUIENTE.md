@@ -1,6 +1,7 @@
 # Handoff para la siguiente sesión (orquestador o agente)
 
 - **Estado al cierre:** 2026-10-12, rama `claude/hopeful-galileo-88u1l1`, HEAD tras los resultados de C0-4b.
+- **Actualización 2026-10-12 (10), FASE 4D:** R3-3 ratificada (d = 4). C4 (acción 4D y suavizada) ÉXITO. L4 INCOMPATIBLE en diamantes en los 7 esquemas de ε (`OMEGA_2_C4_L4_RESULTADOS.md`). Siguiente natural: **L4b**, repetir en una región sin borde espacial (toro) para separar volumen y borde. La rama euclídea 4D no se ha iniciado.
 - **Actualización 2026-10-12 (9), CIERRE DEL CICLO 2D:** R3-6 ratificada. L-ε INCOMPATIBLE (D ∝ N^1.25): rama L cerrada en d = 2. Leer primero `OMEGA_2_SINTESIS_2D.md`. Decisiones abiertas del usuario: R3-3 (pasar a d = 4) o desarrollar movimientos no locales para la rama E en 2D.
 - **Actualización 2026-10-12 (8):** Bloque A-S (sándwich): AS-2 PASA; AS-4 NO CONCLUYENTE. Lectura: el sándwich casi no se cancela (exacto ≈ cota ≈ ln del conteo), mientras la geometría con ε fijo se cancela fuertemente, así que con ε fijo la rama L no selecciona geometría (`OMEGA_2_BLOQUE_AS_RESULTADOS.md`). Pendiente del usuario: **R3-6, ¿ε ∝ 1/N (no localidad fija en volumen) en la rama L?**
 - **Actualización 2026-10-12 (7):** Templado paralelo descartado por factibilidad (≈ 100 a 400 réplicas); se usó Wang-Landau (L-3c-EQ, §16). Hallazgo: el mínimo de S en 2-órdenes es un **sándwich** (capas a, 2, a), no la bicapa (EQ-A1). V falló una vez por presupuesto y pasó al repetirse (EQ-A2). L-3c-EQ **INDETERMINADO**: WL trabado en S = −504 sin llegar al sándwich (−538) en N = 32; N = 64 no ejecutado (declarado). Nuevo hueco en la rama L: A-1 no cubre la familia sándwich. Pendientes: (a) extender A-1/A-2 al sándwich (rama L, ejecutable ya); (b) movimientos no locales o population annealing (rama E, desarrollo).
@@ -28,7 +29,7 @@
 |---|---|
 | R3-1 | ¿Adoptar Ω-C como hipótesis candidata? |
 | R3-2 | **RATIFICADA: ambos, criterios separados.** Antes: peso de la compuerta: euclídeo e^{−βS}, lorentziano e^{iS}, o ambos. **Ver `OMEGA_2_C0_RESULTADOS.md` §3: con el euclídeo y el espacio de todos los órdenes, KR gana por mucho.** |
-| R3-3 | ¿Mantener d = 2 hasta cerrar la compuerta? (se usa d = 2 por defecto, sin firma) |
+| R3-3 | **RATIFICADA: d = 4.** |
 | R3-4 | **RATIFICADA.** Antes: ¿Ω-C pasa a usar la acción BD suavizada (escala de no localidad) para la rama lorentziana? Es un cambio de la hipótesis, no del instrumento |
 | R3-6 | **RATIFICADA (resultado: INCOMPATIBLE).** Antes: ¿la rama L usa ε ∝ 1/N (escala de no localidad fija en volumen) en lugar de ε fijo? Cambia la hipótesis |
 | R3-5 | **RATIFICADA.** Antes: ¿la rama E adopta el acoplamiento β = b/N (b fijo)? Cambia la hipótesis; se sugiere por β_c·N ≈ 4.5 en N = 32 y 64 |
