@@ -39,3 +39,28 @@
 - C0-1, C0-2 y C0-3 habilitan los instrumentos de dimensión, volumen y acción 2D para la rama Ω-C.
 - C0-4 bloquea el uso de la bandera «compatible con variedad» como clasificador hasta que C0-4b pase.
 - La rama Ω-C sigue **sin ratificar** (R3-1 a R3-3).
+
+## 5. C0-4b: discriminador por perfil de abundancias (corrida oficial)
+
+- **Commit de ejecución:** `caa6a2b` (árbol limpio, 49 s). Especificación: `OMEGA_2_PROPUESTA_CAUSAL.md` §9, congelada en `9c97244` antes de escribir código.
+- **Decisión: ÉXITO.**
+
+| Celda (N = 1024, 20 semillas) | d̂ | d_ref | D mediana [mín, máx] | Marcadas |
+|---|---|---|---|---|
+| sprinkling 2D | 2.00 | 2 | 0.033 [0.018, 0.056] | 100% |
+| sprinkling 3D | 3.00 | 3 | 0.040 [0.027, 0.073] | 100% |
+| sprinkling 4D | 3.97 | 4 | 0.071 [0.030, **0.208**] | 100% |
+| KR | 2.38 | 2 | 8.44 | 0% |
+| percolación p = 0.05 | 1.22 | 1 | 1.87 [1.81, 1.92] | 0% |
+| percolación p = 0.01 (control nuevo) | 2.70 | 3 | 1.42 [1.39, 1.45] | 0% |
+| capas gruesas, 8 capas (control nuevo) | 1.41 | 1 | 6.93 | 0% |
+
+δ calibrados solo con sprinklings: δ₂ = 0.070, δ₃ = 0.101, δ₄ = 0.215 (δ₁ = δ₂).
+
+**Lectura (nivel 1 sobre instrumentos).** Exigir el perfil completo de tamaños de intervalo de la dimensión estimada separa los cuatro controles de los positivos por un factor ≥ 6 en D. Los dos controles nuevos, que nadie había visto al diseñar el criterio, quedan igual de lejos que los conocidos, lo que reduce la sospecha de que el criterio se ajustó a la percolación con p = 0.05.
+
+**Límites honestos.**
+- En 4D el positivo más alejado quedó en 0.208 frente a δ₄ = 0.215. El clasificador funciona en 4D, pero sin holgura; con N distinto podría no hacerlo.
+- Probado solo en N = 1024 y en espacio-tiempo plano. No dice nada sobre sprinklings curvos ni sobre órdenes que imiten deliberadamente el perfil.
+
+**Consecuencia.** La bandera de C0-4b reemplaza a la de C0-4 como clasificador habilitado para la rama Ω-C (para L-3c, si se ratifica). La de C0-4 queda retirada.

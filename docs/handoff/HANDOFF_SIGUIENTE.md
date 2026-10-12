@@ -1,6 +1,7 @@
 # Handoff para la siguiente sesión (orquestador o agente)
 
-- **Estado al cierre:** 2026-10-11, rama `claude/hopeful-galileo-88u1l1`.
+- **Estado al cierre:** 2026-10-12, rama `claude/hopeful-galileo-88u1l1`, HEAD tras los resultados de C0-4b.
+- **Actualización 2026-10-12:** C0-4b ejecutado con ÉXITO (`OMEGA_2_C0_RESULTADOS.md` §5). La bandera de C0-4b es el clasificador habilitado; la de C0-4 queda retirada. El bloque C0 está **cerrado**: no queda trabajo de instrumentos pendiente que no requiera ratificación.
 - **Leer primero, en este orden:** `docs/OMEGA_MASTER.md` (intuición y reglas), `docs/OMEGA_BLOQUE_L_RESULTADOS.md` (por qué S0 quedó cerrada), `docs/OMEGA_2_PROPUESTA_CAUSAL.md` (hipótesis Ω-C y enmiendas), `docs/OMEGA_2_C0_RESULTADOS.md` (resultados oficiales), `docs/handoff/AUDITORIA_C0.md`.
 
 ## Metodología vigente (no negociable)
@@ -21,13 +22,9 @@
 | R3-2 | Peso de la compuerta: euclídeo e^{−βS}, lorentziano e^{iS}, o ambos. **Ver `OMEGA_2_C0_RESULTADOS.md` §3: con el euclídeo y el espacio de todos los órdenes, KR gana por mucho.** |
 | R3-3 | ¿Mantener d = 2 hasta cerrar la compuerta? |
 
-## Trabajo listo para encargar (no requiere ratificación, solo instrumentos)
+## Trabajo de instrumentos
 
-**C0-4b: discriminador de órdenes no geométricos con validez de constructo.** Propuesta del orquestador para que el Consejo la congele antes de programarla:
-- Añadir un tercer estimador de naturaleza distinta, por ejemplo el escalamiento de la cadena más larga entre los extremos del intervalo máximo, L ≈ m_d · N^{1/d}, medido en dos tamaños.
-- Exigir además que la distribución de abundancias de intervalos N_k / E[N_k] se mantenga dentro de una banda frente a la de un sprinkling de la dimensión estimada (la percolación densa tiene un perfil de N_k muy distinto, ver S_BD = +4413).
-- Controles negativos obligatorios: KR, percolación con dos valores de p, y un orden «capa gruesa» intermedio.
-- Validación antes de correr, al estilo L-A5: si el clasificador no separa sprinklings sin evolucionar de los controles, se vuelve al Consejo.
+Cerrado. C0-4b pasó (ver resultados §5). Mejora opcional, no bloqueante: repetir C0-4b con N = 512 y 2048 para medir el margen en 4D.
 
 ## Trabajo que requiere ratificación
 
