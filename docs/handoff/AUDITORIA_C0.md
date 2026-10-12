@@ -82,3 +82,7 @@
 |---|---|---|---|
 | A-17 | Media | Efecto piso: si la geometría ya se pierde en el b más bajo, b_c queda fijado en 2.0 y dos tamaños con piso producirían un PASA falso. | Enmienda L3cE′-A1. |
 | — | Verificado | Calibración y validación del clasificador idénticas a §11.6 con las entropías de §12; δ determinista entre tramos; comparación «un paso» con tolerancia numérica correcta. | — |
+
+## 9. Auditoría de L-3c-E″ (entrega tras `122bf99`)
+
+**Veredicto: apto sin correcciones.** δ del clasificador idéntico al de L-3c-E′ en N = 32 y 64 (mismas entropías); cálculo de brechas verificado con casos sintéticos (0/0/1 y 1/2/6 pasos); bicapa inicial correcta (N = 8: 16 relaciones, S = −24 = N − N²/2).
