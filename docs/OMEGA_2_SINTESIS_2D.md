@@ -41,3 +41,18 @@ Documento de cierre para quien retome el trabajo. Detalle en `OMEGA_2_PROPUESTA_
 ## Estado de R3-1
 
 Ω-C no se adopta ni se descarta. En d = 2: rama L cerrada, rama E abierta con un problema de método. La pregunta física natural siguiente es d = 4 (R3-3), donde la acción no es topológica y donde se formulan los resultados de supresión de la literatura, con un coste computacional mucho mayor.
+
+---
+
+# Anexo: fase 4D (2026-10-12)
+
+| Prueba | Resultado |
+|---|---|
+| C4 acción 4D y suavizada (referencia independiente por pares) | ÉXITO |
+| L4 compatibilidad lorentziana en diamantes | INCOMPATIBLE (7 esquemas) |
+| C4b instrumento en bloque T³ × [0, T] | ÉXITO |
+| L4b compatibilidad lorentziana sin borde espacial | INCOMPATIBLE; η_int de 0.84 a 1.48, no √N |
+
+**Lección 5.** La dispersión de la acción discreta en geometrías planas 4D crece más rápido que √N incluso lejos de los bordes: las fluctuaciones están correlacionadas a larga distancia por la no localidad. En los esquemas probados, eso impide que la geometría sea coherente en la suma lorentziana donde las capas se cancelan, en 2D y en 4D.
+
+**Estado global de Ω-C.** Rama lorentziana: cerrada en 2D e incompatible en 4D en todo lo probado. Rama euclídea: estable localmente en 2D, equilibrio sin resolver; no iniciada en 4D (exige Metropolis sobre órdenes generales).

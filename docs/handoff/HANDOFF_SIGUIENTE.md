@@ -1,6 +1,7 @@
 # Handoff para la siguiente sesión (orquestador o agente)
 
 - **Estado al cierre:** 2026-10-12, rama `claude/hopeful-galileo-88u1l1`, HEAD tras los resultados de C0-4b.
+- **Actualización 2026-10-12 (11):** L4b INCOMPATIBLE: sin borde espacial la dispersión del interior crece como N^0.84 a N^1.48 (no √N); el borde no era la causa (`OMEGA_2_L4B_RESULTADOS.md`; anexo 4D en `OMEGA_2_SINTESIS_2D.md`). Rama L incompatible en 4D en todo lo probado. Queda: rama euclídea 4D (no iniciada).
 - **Actualización 2026-10-12 (10), FASE 4D:** R3-3 ratificada (d = 4). C4 (acción 4D y suavizada) ÉXITO. L4 INCOMPATIBLE en diamantes en los 7 esquemas de ε (`OMEGA_2_C4_L4_RESULTADOS.md`). Siguiente natural: **L4b**, repetir en una región sin borde espacial (toro) para separar volumen y borde. La rama euclídea 4D no se ha iniciado.
 - **Actualización 2026-10-12 (9), CIERRE DEL CICLO 2D:** R3-6 ratificada. L-ε INCOMPATIBLE (D ∝ N^1.25): rama L cerrada en d = 2. Leer primero `OMEGA_2_SINTESIS_2D.md`. Decisiones abiertas del usuario: R3-3 (pasar a d = 4) o desarrollar movimientos no locales para la rama E en 2D.
 - **Actualización 2026-10-12 (8):** Bloque A-S (sándwich): AS-2 PASA; AS-4 NO CONCLUYENTE. Lectura: el sándwich casi no se cancela (exacto ≈ cota ≈ ln del conteo), mientras la geometría con ε fijo se cancela fuertemente, así que con ε fijo la rama L no selecciona geometría (`OMEGA_2_BLOQUE_AS_RESULTADOS.md`). Pendiente del usuario: **R3-6, ¿ε ∝ 1/N (no localidad fija en volumen) en la rama L?**
