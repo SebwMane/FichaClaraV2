@@ -96,3 +96,12 @@
 | A-18 | Baja | `phase_average` declaraba acciones enteras y el agente silenció mypy con `type: ignore` para pasar acciones suavizadas (reales). | La firma acepta `Sequence[float]`; se quitan los `ignore`. |
 | A-19 | Observación de alcance | A-3 usa ε fijo al crecer N (escala de no localidad fija en unidades de la discreción). La alternativa física, escala fija en unidades de volumen (ε ∝ 1/N), no se prueba aquí. | Se declara como límite en los resultados. |
 | — | Verificado | φ_lead de A-2b coincide con la derivación de §15.1 (L ~ Bin(16, 1/2)); Δ se calcula como S_ε − (εN − 2ε²L) sobre el orden con cierre transitivo completo; la tolerancia del supuesto gaussiano sigue la fórmula de §15.3. | — |
+
+## 11. Auditoría de L-3c-EQ (entrega tras `6894e3f`)
+
+| ID | Gravedad | Hallazgo | Corrección |
+|---|---|---|---|
+| A-20 | **Alta** | La ventana de energía y el criterio de cobertura de §16 suponían que la bicapa es el mínimo de S. La enumeración exacta de N = 8 lo desmiente (S_min = −34, sándwich 3-2-3). Con la ventana original el WL habría excluido la verdadera fase de baja energía. | Enmienda EQ-A1. |
+| — | Verificado | Determinismo por tramos (test), normalización Σg = N!, uso del clasificador de §12, criterio de consistencia con b_c↑ y b_c↓ oficiales. | — |
+
+Smoke de velocidad (no evidencia): 0.04 ms por paso en N = 32.

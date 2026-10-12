@@ -318,3 +318,15 @@ Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido
   - **VENTANA DE EQUILIBRIO ESTABLE con β = b/N:** b*_eq(64) ≥ b*_eq(32)·2^{−1/4}.
   - **SE ANGOSTA EN EQUILIBRIO:** en caso contrario.
 - **Lectura:** con dos tamaños es nivel 1 para N ≤ 64; nada se afirma para N grande. N = 128 queda fuera por coste (declarado).
+
+### 16.1 Enmienda EQ-A1 (registrada ANTES de la corrida oficial)
+
+**Hallazgo de auditoría (A-20).** La enumeración exacta con N = 8 (8! permutaciones) da S_min = −34, por debajo de la bicapa (−24). El mínimo es un **sándwich**: capas de 3, 2 y 3 elementos totalmente relacionadas. Los 12 links aportan −24 y los 9 pares extremo-extremo, con exactamente 2 elementos entre ellos, aportan −2N₂ = −18. Para N par general, el sándwich (N−2)/2, 2, (N−2)/2 tiene S = −N²/2 − N + 6, menor que la bicapa (−N²/2 + N) en 2N − 6. **La suposición de §16 de que la bicapa es el estado fundamental era falsa.**
+
+| ID | Ítem | Cambio | ¿Puede crear un positivo? |
+|---|---|---|---|
+| EQ-A1a | Ventana inferior | S ≥ −N²/2 − 4N (margen de 3N bajo el sándwich). | No. |
+| EQ-A1b | Cobertura | Exigir que el WL visite S ≤ S_sándwich (el mejor estado conocido). Se informa si toca el borde inferior de la ventana (indicaría estados aún más bajos). | No: es al menos tan exigente como antes. |
+| EQ-A1c | Validación N = 8 | Ventana [−64, 48] (la máxima exacta es 42). | No. |
+
+**Consecuencia para resultados anteriores (sin cambiar sus veredictos).** La fase no geométrica a β grande es de tipo sándwich, no bicapa. L-3c-E″ partió de la bicapa, que es no geométrica pero no es el mínimo; su lectura («desde capas las cadenas se congelan») sigue en pie. El valor S_bicapa citado como «mínimo» en L-2c y en la orientación de nivel 4 de L-3c-E″ debe leerse como «bicapa», no como mínimo global.

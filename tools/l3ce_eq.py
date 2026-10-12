@@ -32,7 +32,7 @@ SIGMA0 = {32: 31, 64: 54}
 WL_BUDGET = {32: 6_000_000, 64: 24_000_000}
 PROD_BUDGET = {32: 2_000_000, 64: 6_000_000}
 PROD_EVERY, BLOCKS = 20, 4
-VAL_N, VAL_STEPS, VAL_SMAX_EXTRA, VAL_TOL, VAL_MIN_STATES = 8, 500_000, 32, 0.15, 10
+VAL_N, VAL_STEPS, VAL_SMAX_EXTRA, VAL_TOL, VAL_MIN_STATES = 8, 500_000, 40, 0.15, 10  # EQ-A1: smax 48
 B_SCAN = np.round(np.arange(0.5, 12.0001, 0.01), 2)
 OUT = Path("results") / "l3ce_eq"
 
@@ -42,7 +42,8 @@ def seeded(entropy: int, n: int) -> np.random.Generator:
 
 
 def window(n: int) -> tuple[int, int]:
-    smin = n - n * n // 2
+    # AUDITORIA A-20 / enmienda EQ-A1: la bicapa NO es el minimo; ventana inferior en -N^2/2 - 4N
+    smin = -(n * n // 2) - 4 * n
     smax = n + 2 * ((4 * SIGMA0[n]) // 2)
     return smin, smax
 
@@ -59,7 +60,7 @@ def log_chunk(name: str, head: str, info: dict[str, Any]) -> None:
 def task_validate(head: str) -> None:
     t0 = time.time()
     exact = exact_dos(VAL_N)
-    st = new_state(VAL_N, VAL_N - VAL_N * VAL_N // 2, VAL_N + VAL_SMAX_EXTRA, seeded(ENT_VAL, VAL_N))
+    st = new_state(VAL_N, -(VAL_N * VAL_N // 2) - 4 * VAL_N, VAL_N + VAL_SMAX_EXTRA, seeded(ENT_VAL, VAL_N))
     st = wl_run(st, VAL_STEPS)
     est = normalized_lng(st, float(math.factorial(VAL_N)))
     rows = []
@@ -164,7 +165,9 @@ def task_final() -> None:
         bstars[n] = bs
         res[f"N{n}"] = {
             "b_star": bs, "b_star_blocks": blocks, "b_star_block_sd": float(np.std(blocks, ddof=1)),
-            "ground_state_visited": min(lng) == st.smin, "bins_visitados": len(lng),
+            # EQ-A1: cobertura = alcanzar al menos el mejor estado conocido (sandwich, S = -N^2/2 - N + 6)
+            "ground_state_visited": min(lng) <= -(n * n // 2) - n + 6, "S_min_visitado": min(lng),
+            "S_sandwich": -(n * n // 2) - n + 6, "toca_borde_inferior": min(lng) == st.smin, "bins_visitados": len(lng),
             "peso_sin_phi_en_b_star": missing[i] if i >= 0 else None,
             "consistente": bool(bs <= up[n] + 1e-9 and bs > down[n] / STEP),
             "b_c_up": up[n], "b_c_down": down[n],
