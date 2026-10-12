@@ -105,3 +105,12 @@
 | — | Verificado | Determinismo por tramos (test), normalización Σg = N!, uso del clasificador de §12, criterio de consistencia con b_c↑ y b_c↓ oficiales. | — |
 
 Smoke de velocidad (no evidencia): 0.04 ms por paso en N = 32.
+
+## 12. Auditoría del Bloque A-S (entrega `1af6e5e`)
+
+**Veredicto: apto sin correcciones.**
+
+- f(1, ε) = 1 − 3ε y f(2, ε) = 1 − 6ε + 6ε² coinciden con `smearing_weight` del instrumento validado (C1) en ε = 0.5, 0.25 y 0.1.
+- El factor de etiquetas N!/(a! b! 2!) **sobrecuenta** órdenes (una misma configuración puede surgir de asignaciones de capa distintas, por ejemplo con elementos aislados), así que U sobreestima la contribución del sándwich: la comparación queda del lado conservador, como pide §17.
+- La cota aplica la desigualdad triangular solo sobre α, después de sumar exactamente sobre B; la fase del lado A tiene módulo 1. Correcto.
+- Smoke (no evidencia): U ≥ exacto en N = 8 y 12; 11 s por cota en N = 1024.
