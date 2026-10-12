@@ -62,3 +62,14 @@
 | A-11 | Media | Un ΔS_E = nan se leía como «geometría NO preferida». | Enmienda L2c-A3: INDETERMINADO. |
 | A-12 | Sin corrección | Entropía de L-i elegida por el agente. | Enmienda L2c-A2, declarada. |
 | A-13 | Observación | En el smoke (N = 128) ningún 2-orden aleatorio quedó marcado por C0-4b: δ₂ se calibró en N = 1024 y no vale en N = 128. La corrida oficial usa N = 1024, donde sí vale. Confirma que C0-4b depende del tamaño (ya anotado en sus límites). | — |
+
+## 7. Auditoría de C1 y L-3c-E (entrega del agente tras `d3570d1`)
+
+**Veredicto: apto tras una enmienda.**
+
+| ID | Gravedad | Hallazgo | Corrección |
+|---|---|---|---|
+| A-14 | Media | §11.6 no pedía validar el clasificador recalibrado a N = 32 y 64. | Enmienda L3cE-A1 (solo puede bloquear). Scratchpad: N = 32, δ₂ = 1.59, 98% positivos y 0% capas; N = 64, δ₂ = 0.59, 99% y 0%. |
+| A-15 | Baja | La herramienta tolera cambios en `results/` al exigir árbol limpio, porque escribe por partes. | Se acepta; `final` verifica que todas las partes provienen del mismo commit. |
+| A-16 | Observación | Arrancar siempre desde geometría mide estabilidad y puede sobrestimar β_c si hay histéresis (transición de primer orden). Como ambos N se miden igual, la comparación sigue siendo justa; el valor absoluto de β_c no se interpreta. | — |
+| — | Verificado | El agente detectó y corrigió por su cuenta una colisión de semillas entre las dos mitades de N = 64. | — |

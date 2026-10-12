@@ -23,11 +23,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from omega.causality.estimators import bd_action_2d_smeared, interval_abundances, mm_dimension  # noqa: E402
 from omega.causality.exact import expected_smeared_action_2order  # noqa: E402
 from omega.causality.mcmc import run_chain  # noqa: E402
-from omega.causality.orders import random_2order  # noqa: E402
+from omega.causality.orders import layered_2order, random_2order  # noqa: E402
 from omega.causality.profile import K_MAX, d_ref, profile_distance, reference_abundances  # noqa: E402
 
 EXPERIMENT_ID = 303
 ENT_C1, ENT_CHAIN, ENT_CAL = 20261021, 20261022, 20261023
+ENT_VAL = 20261024  # AUDITORIA A-14 / enmienda L3cE-A1
 C1_N, C1_EPS, C1_M = (64, 256), (0.5, 0.25, 0.1), 200
 BETAS = [0.025 * math.sqrt(2) ** k for k in range(13)]
 THERM, MEAS, EVERY = 1000, 1000, 50
@@ -72,8 +73,19 @@ def flag(c: np.ndarray[Any, Any], delta2: float, ref2: np.ndarray[Any, Any]) -> 
     return bool(profile_distance(interval_abundances(c, K_MAX), ref) <= delta2)
 
 
+def validate_classifier(n: int, delta2: float, ref2: np.ndarray[Any, Any]) -> dict[str, Any]:
+    """Enmienda L3cE-A1: el clasificador recalibrado debe separar 2-ordenes aleatorios de 2-ordenes en capas a este N."""
+    pos = float(np.mean([flag(random_2order(n, rng_for(ENT_VAL, n, s)), delta2, ref2) for s in range(100)]))
+    lay = {
+        str(k): float(np.mean([flag(layered_2order(n, k, rng_for(ENT_VAL, 100 * n + k, s)), delta2, ref2) for s in range(20)]))
+        for k in (2, 4, 8)
+    }
+    return {"pos": pos, "layered": lay, "ok": pos >= 0.9 and all(v <= 0.1 for v in lay.values())}
+
+
 def part_l3ce(n: int, betas: list[float], therm: int, meas: int, every: int, k0: int = 0) -> dict[str, Any]:
     delta2, ref2 = calibrate_delta(n)
+    validation = validate_classifier(n, delta2, ref2)
     rows = []
     for k, beta in enumerate(betas, start=k0):
         rng = rng_for(ENT_CHAIN, 1000 * n + k, 0)
@@ -84,7 +96,7 @@ def part_l3ce(n: int, betas: list[float], therm: int, meas: int, every: int, k0:
             "beta": beta, "flag_fraction": float(np.mean(flags)), "mean_S": float(np.mean(res.actions)),
             "acceptance": res.acceptance, "actions": res.actions,
         })
-    return {"N": n, "delta2": delta2, "rows": rows}
+    return {"N": n, "delta2": delta2, "validation": validation, "rows": rows}
 
 
 def beta_c(rows: list[dict[str, Any]]) -> float:
@@ -120,7 +132,12 @@ def main() -> None:
             "phase": "final", "commits_partes": sorted(commits), "un_solo_commit": len(commits) == 1,
             "C1-2": all(v["ok"] for v in parts["c1"]["data"].values()),
             "beta_c_32": bc32, "beta_c_64": bc64,
-            "L-3c-E": "ventana estable" if bc64 >= bc32 else "ventana que se angosta",
+            "validacion_clasificador": {p: parts[p]["data"]["validation"] for p in ("l3ce32", "l3ce64a")},
+            "L-3c-E": (
+                "INDETERMINADO (clasificador no validado)"
+                if not (parts["l3ce32"]["data"]["validation"]["ok"] and parts["l3ce64a"]["data"]["validation"]["ok"])
+                else ("ventana estable" if bc64 >= bc32 else "ventana que se angosta")
+            ),
         }
         (OUT / "summary.json").write_text(json.dumps(summary, indent=2))
         print(json.dumps(summary, indent=2))

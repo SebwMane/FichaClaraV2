@@ -217,3 +217,9 @@ Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido
 - **Expectativa honesta (nivel 4):** un argumento de conteo (bicapa con S ≈ −N²/2 frente a ~2N ln N de entropía de 2-órdenes) sugiere β_c ∝ ln N / N, es decir, que se angosta.
 - **Lectura preregistrada de «se angosta»:** con β fijo, la geometría no sobrevive al límite N → ∞. Mantener la rama E exigiría un acoplamiento que escale con N, lo cual es un cambio de hipótesis que requiere firma del usuario. **No cierra la rama por sí solo.**
 - **Escala:** nivel 1 para N ∈ {32, 64}; cualquier afirmación sobre N grande es nivel 4.
+
+### 11.7 Enmienda operativa de L-3c-E (registrada ANTES de la corrida oficial)
+
+| ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
+|---|---|---|---|---|
+| L3cE-A1 | Clasificador a N = 32 y 64 | Antes de leer β_c, el clasificador recalibrado debe marcar ≥ 90% de 100 2-órdenes aleatorios y ≤ 10% de 20 2-órdenes en capas para cada k ∈ {2, 4, 8} (entropía 20261024). Si falla en algún N, L-3c-E es INDETERMINADO. | §11.6 recalibraba δ a N pequeño pero no exigía comprobar que siguiera separando geometría de capas (el δ₂ de N = 1024 no vale a N chico, ver A-13). En el scratchpad de auditoría (entropía 5150) sí separa: 98–99% frente a 0%. | No: solo puede bloquear. |
