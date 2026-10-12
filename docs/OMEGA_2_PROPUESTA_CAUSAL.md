@@ -422,3 +422,23 @@ En ese régimen, la fase de la clase geométrica es x · (S_ε/ε²). Se mide D(
 - **INCOMPATIBLE (en los esquemas probados):** η − 2·SE > 0 en todos.
 - **INDETERMINADO:** otro caso.
 - **Expectativa:** ninguna firme. En 2D el resultado fue incompatible; en 4D la acción no es topológica y la literatura introduce el suavizado justamente para reducir fluctuaciones.
+
+## 20. L4b: rama lorentziana 4D sin borde espacial · PROBAR (aprobado por el usuario, preregistrado 2026-10-12)
+
+**Región.** Bloque T³ × [0, T]: espacio 3-toro de lado 1 y tiempo de duración T = 0.4. Relación: Δt > 0 y Δt² ≥ |Δx|², con Δx por imagen mínima. Como T < 1/2, cada cono de luz ve una sola imagen y todo intervalo causal es un diamante sin autointersección. Un 4D sin ningún borde no es posible: cerrar el tiempo crearía curvas causales cerradas. Quedan solo los bordes espaciales t = 0 y t = T.
+
+**Descomposición retardada.** S₄,ε = Σ_x s(x), con s(x) = 1 − ε Σ_{y≺x} f₄(n(y, x), ε): cada par se asigna a su elemento superior. **S_interior** = Σ sobre x con t(x) ≥ T/2. Es una aproximación: los pares casi nulos que llegan cerca de t = 0 siguen contribuyendo; se declara.
+
+### C4b (vota): instrumento en el toro
+
+Con el método de pares de §19.1 adaptado al bloque (v = c₄ τ⁴ / V_bloque, 4·10⁶ pares, entropía 20261041) y 200 sprinklings (entropía 20261042), N = 512, ε ∈ {0.25, 0.05}: |media − ref| ≤ 3·√(SE² + SE_ref²).
+
+### L4b (vota)
+
+- N ∈ {256, 512, 1024, 2048}, 100 sprinklings por N (entropía 20261043); esquemas ε ∈ {1, 0.25, 0.05} fijos y ε = K/N con K ∈ {16, 64}.
+- D_int = sd(S_interior)/ε y D_tot = sd(S₄,ε)/ε; ajustes D ∝ N^η.
+- **COMPATIBLE:** algún esquema con D_int(2048) ≤ 0.477 y η_int + 2·SE ≤ 0.
+- **INCOMPATIBLE:** η_int − 2·SE > 0 en todos los esquemas.
+- **INDETERMINADO:** otro caso, o C4b no aprobado.
+- **Diagnóstico sin voto:** ¿η_int es compatible con 0.5 (dispersión tipo suma de términos locales)? ¿η_tot del toro baja respecto de L4 (diamantes, η ≈ 0.8 a 1.3)?
+- **Expectativa honesta (nivel 2):** INCOMPATIBLE. Si s(x) tiene varianza no nula y correlaciones de corto alcance, sd(S_interior) crece como √N_interior; con λε fijado en la ventana, eso basta para impedir la coherencia. Si el borde era el responsable del exceso medido en L4, se espera η_int ≈ 0.5.
