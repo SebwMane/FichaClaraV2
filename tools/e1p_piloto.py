@@ -49,7 +49,7 @@ def main() -> None:
             idelta = pauli_jordan(c)
             fixed = math.sqrt(n) / (4 * math.pi)
             w_full, idt, w_t = sj_both(idelta, fixed)
-            row = {
+            row: dict[str, Any] = {
                 "N": n, "n_R": int(r.size), "n_Rperp": int(rp.size),
                 "frac_pasado_min": past_a / n, "frac_futuro_min": fut_b / n,
                 "S_R_tr": ssee(idt, w_t, r, True), "S_Rperp_tr": ssee(idt, w_t, rp, True),
