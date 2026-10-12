@@ -27,12 +27,12 @@ from l3ce_prime import STEP, classifier, flag, git_state  # noqa: E402
 from omega.causality.wanglandau import BATCH, WLState, exact_dos, new_state, normalized_lng, prod_run, wl_run  # noqa: E402
 
 EXPERIMENT_ID = 306
-ENT_WL, ENT_PROD, ENT_VAL = 20261032, 20261033, 20261034
+ENT_WL, ENT_PROD, ENT_VAL = 20261032, 20261033, 20261035  # EQ-A2: entropia nueva de validacion (20261034 fallo)
 SIGMA0 = {32: 31, 64: 54}
 WL_BUDGET = {32: 6_000_000, 64: 24_000_000}
 PROD_BUDGET = {32: 2_000_000, 64: 6_000_000}
 PROD_EVERY, BLOCKS = 20, 4
-VAL_N, VAL_STEPS, VAL_SMAX_EXTRA, VAL_TOL, VAL_MIN_STATES = 8, 500_000, 40, 0.15, 10  # EQ-A1: smax 48
+VAL_N, VAL_STEPS, VAL_SMAX_EXTRA, VAL_TOL, VAL_MIN_STATES = 8, 2_000_000, 40, 0.15, 10  # EQ-A1 smax 48; EQ-A2 2e6 pasos
 B_SCAN = np.round(np.arange(0.5, 12.0001, 0.01), 2)
 OUT = Path("results") / "l3ce_eq"
 
@@ -70,6 +70,9 @@ def task_validate(head: str) -> None:
             rows.append({"S": s, "exact": cnt, "abs_dlng": d})
     worst = max(r["abs_dlng"] for r in rows)
     res = {"rows": rows, "max_abs_dlng": worst, "pass": worst <= VAL_TOL, "missing_exact_bins": sorted(set(exact) - set(est))}
+    prev = OUT / "validate.json"
+    if prev.exists():  # EQ-A2: el intento fallido se conserva, no se sobrescribe
+        prev.rename(OUT / "validate_intento1_fallido.json")
     (OUT / "validate.json").write_text(json.dumps({"commit": head, "data": res}, indent=2))
     log_chunk("validate", head, {"seconds": round(time.time() - t0, 1)})
     print("validate", res["pass"], round(worst, 4))
@@ -161,6 +164,11 @@ def task_final() -> None:
             cv, cf = np.array(d["visits"]), np.array(d["flags"])
             blocks.append(b_star(flag_curve(lng, cv - prev_v, cf - prev_f, st.smin, n)[0]))
             prev_v, prev_f = cv, cf
+        sens = []  # EQ-A2: sensibilidad de b* a ruido 0.2 en ln g (sin voto)
+        rs = np.random.Generator(np.random.PCG64(np.random.SeedSequence(20261036, spawn_key=(n,))))
+        for _ in range(10):
+            noisy = {k: val_ + float(rs.normal(0, 0.2)) for k, val_ in lng.items()}
+            sens.append(b_star(flag_curve(noisy, visits, flags, st.smin, n)[0]))
         i = int(np.argmin(np.abs(B_SCAN - bs))) if math.isfinite(bs) else -1
         bstars[n] = bs
         res[f"N{n}"] = {
@@ -170,7 +178,7 @@ def task_final() -> None:
             "S_sandwich": -(n * n // 2) - n + 6, "toca_borde_inferior": min(lng) == st.smin, "bins_visitados": len(lng),
             "peso_sin_phi_en_b_star": missing[i] if i >= 0 else None,
             "consistente": bool(bs <= up[n] + 1e-9 and bs > down[n] / STEP),
-            "b_c_up": up[n], "b_c_down": down[n],
+            "b_c_up": up[n], "b_c_down": down[n], "b_star_sensibilidad_lng02": [min(sens), max(sens)],
             "curve_sample": {str(b): round(c, 3) for b, c in zip(B_SCAN[::50], curve[::50])},
         }
     ok_pre = val["pass"] and all(res[f"N{n}"]["ground_state_visited"] and res[f"N{n}"]["consistente"] for n in (32, 64))

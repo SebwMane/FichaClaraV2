@@ -330,3 +330,16 @@ Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido
 | EQ-A1c | Validación N = 8 | Ventana [−64, 48] (la máxima exacta es 42). | No. |
 
 **Consecuencia para resultados anteriores (sin cambiar sus veredictos).** La fase no geométrica a β grande es de tipo sándwich, no bicapa. L-3c-E″ partió de la bicapa, que es no geométrica pero no es el mínimo; su lectura («desde capas las cadenas se congelan») sigue en pie. El valor S_bicapa citado como «mínimo» en L-2c y en la orientación de nivel 4 de L-3c-E″ debe leerse como «bicapa», no como mínimo global.
+
+### 16.2 Validación V fallida y enmienda EQ-A2 (registrada tras el fallo, antes de cualquier corrida de N = 32 o 64)
+
+**Resultado oficial del primer intento:** V **FALLA** (commit `0ef0f1b`, entropía 20261034, 5·10⁵ pasos): max |Δ ln g| = 0.19 > 0.15, concentrado en la cola de baja energía (S de −30 a −24). Archivo conservado: `results/l3ce_eq/validate_intento1_fallido.json`.
+
+**Diagnóstico de auditoría (scratchpad, entropía 777, no evidencia):** con 5·10⁵ pasos y tres semillas, max |Δ| = 0.24, 0.15 y 0.23, con signos aleatorios; con 2·10⁶ pasos baja a 0.075, 0.068 y 0.080. Es ruido estadístico de un presupuesto insuficiente, no un sesgo del código.
+
+| ID | Cambio | ¿Puede crear un positivo? |
+|---|---|---|
+| EQ-A2a | Validación repetida con 2·10⁶ pasos, entropía nueva 20261035, misma tolerancia 0.15. | **Sí**: convierte un fallo en una nueva oportunidad. Se declara; el primer intento fallido queda registrado. |
+| EQ-A2b | Diagnóstico sin voto: b* recalculado tras sumar ruido gaussiano de desvío 0.2 a ln g (10 réplicas, entropía 20261036). | No. |
+
+**Advertencia preregistrada.** Los presupuestos de N = 32 y 64 dan ≈ 15 000 y 18 600 pasos por bin, del mismo orden que el intento fallido de N = 8 (≈ 13 500). Se espera un error de ln g del orden de 0.2 en las colas. Por el tamaño de la brecha de energía entre fases (ΔS ≈ N²/2), un error así mueve b* en ≈ 0.2·N/ΔS, es decir, menos de 0.01; el diagnóstico EQ-A2b lo comprobará.
