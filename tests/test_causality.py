@@ -223,3 +223,20 @@ def test_slab_torus_relation_and_retarded_sum() -> None:
     assert is_partial_order(c)
     assert retarded_action_4d(c, 1.0).sum() == pytest.approx(bd_action_4d(c))
     assert retarded_action_4d(c, 0.25).sum() == pytest.approx(bd_action_4d_smeared(c, 0.25))
+
+
+def test_general_mcmc_consistency() -> None:
+    from omega.causality.estimators import bd_action_4d, between_counts
+    from omega.causality.mcmc_general import init_state, sweep
+
+    x = sprinkle_diamond(24, 4, _rng(61))
+    x = x[np.argsort(x[:, 0])]
+    st = init_state(causal_matrix(x))
+    assert st.s == pytest.approx(bd_action_4d(st.c))
+    r = _rng(62)
+    for _ in range(20):
+        sweep(st, 0.05, r)
+    assert is_partial_order(st.c)
+    full = between_counts(st.c)
+    assert np.array_equal(st.b[st.c], full[st.c])
+    assert st.s == pytest.approx(bd_action_4d(st.c))
