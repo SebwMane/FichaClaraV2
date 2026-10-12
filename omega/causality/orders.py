@@ -10,6 +10,8 @@ __all__ = [
     "kr_order",
     "transitive_percolation",
     "thick_layer_order",
+    "layered_2order",
+    "random_bipartite",
     "transitive_closure",
     "is_partial_order",
 ]
@@ -78,3 +80,30 @@ def thick_layer_order(n: int, layers: int, p: float, rng: np.random.Generator) -
     adj = (layer[:, None] + 1 == layer[None, :]) & (rng.random((n, n)) < p)
     perm = rng.permutation(n)
     return transitive_closure(adj[np.ix_(perm, perm)])
+
+
+def layered_2order(n: int, k: int, rng: np.random.Generator) -> BoolMatrix:
+    """k antichains apiladas y totalmente relacionadas, construidas como 2-orden; etiquetas permutadas."""
+    if k < 1 or n < k:
+        raise ValueError("se requieren k >= 1 y n >= k")
+    size = n // k
+    layer = np.minimum(np.arange(n) // size, k - 1)
+    u = np.arange(n)
+    v = np.empty(n, dtype=np.int64)
+    for g in range(k):
+        idx = np.flatnonzero(layer == g)
+        v[idx] = idx[::-1]  # dentro del bloque: u creciente, v decreciente
+    perm = rng.permutation(n)
+    u, v = u[perm], v[perm]
+    rel: BoolMatrix = (u[:, None] < u[None, :]) & (v[:, None] < v[None, :])
+    return rel
+
+
+def random_bipartite(n: int, p: float, rng: np.random.Generator) -> BoolMatrix:
+    """n//2 elementos abajo y el resto arriba; cada par abajo-arriba relacionado con prob. p."""
+    lo = n // 2
+    rel = np.zeros((n, n), dtype=bool)
+    rel[:lo, lo:] = rng.random((lo, n - lo)) < p
+    perm = rng.permutation(n)
+    out: BoolMatrix = rel[np.ix_(perm, perm)]
+    return out

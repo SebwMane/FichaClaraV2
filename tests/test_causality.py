@@ -140,3 +140,31 @@ def test_profile_helpers() -> None:
     assert d_ref(2.4) == 2 and d_ref(0.3) == 1 and d_ref(7.0) == 4 and d_ref(float("nan")) is None
     ref2 = reference_abundances(2, 64)
     assert ref2[0] == pytest.approx(expected_abundance_2order(0, 64))
+
+
+def test_layered_2order_action_formula() -> None:
+    from omega.causality.orders import layered_2order
+
+    n, k = 64, 4
+    c = layered_2order(n, k, _rng(12))
+    assert is_partial_order(c)
+    m = n // k
+    # links solo entre capas consecutivas; capas no consecutivas tienen >= m >= 3 elementos entre ellas
+    assert bd_action_2d(c) == n - 2 * (k - 1) * m * m
+
+
+def test_bipartite_all_relations_are_links() -> None:
+    from omega.causality.orders import random_bipartite
+
+    c = random_bipartite(20, 0.5, _rng(13))
+    assert is_partial_order(c)
+    assert bd_action_2d(c) == 20 - 2 * int(c.sum())
+
+
+def test_phase_helpers() -> None:
+    from omega.causality.phase import bipartite_phase_exact, phase_average
+
+    mag, se = phase_average([2, 2, 2, 2], 0.7)
+    assert mag == pytest.approx(1.0) and se == pytest.approx(0.0, abs=1e-12)
+    assert bipartite_phase_exact(8, 0.0) == 1.0
+    assert bipartite_phase_exact(8, math.pi / 2) == pytest.approx(0.0, abs=1e-12)
