@@ -1,0 +1,14 @@
+{
+  "phase": "final",
+  "mode": "full",
+  "commit": "bce9d95302615305508d0f528288278a06cfd4c2",
+  "dirty": false,
+  "seconds": 54.4,
+  "verdicts": {
+    "L-2c-E": "geometria NO preferida a beta->inf",
+    "delta_S_E": -523277.1,
+    "L-i": true,
+    "L-ii_ventana_KR": "(pi/3, 2pi/3) analitica",
+    "L-iii": "INDETERMINADO"
+  }
+}

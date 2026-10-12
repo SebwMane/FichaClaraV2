@@ -1,6 +1,7 @@
 # Handoff para la siguiente sesión (orquestador o agente)
 
 - **Estado al cierre:** 2026-10-12, rama `claude/hopeful-galileo-88u1l1`, HEAD tras los resultados de C0-4b.
+- **Actualización 2026-10-12 (2):** R3-2 ratificada (ambos pesos, criterios separados). L-2c ejecutada (`OMEGA_2_L2C_RESULTADOS.md`): rama E viva, requiere L-3c-E; rama L bloqueada porque la acción sin suavizar cancela también a la geometría (L-iii INDETERMINADO). Próximo encargo autorizado: **L-3c-E** (falta preregistrarlo). Pendiente del usuario: **R3-4, ¿usar la acción suavizada en la rama L?**
 - **Actualización 2026-10-12:** C0-4b ejecutado con ÉXITO (`OMEGA_2_C0_RESULTADOS.md` §5). La bandera de C0-4b es el clasificador habilitado; la de C0-4 queda retirada. El bloque C0 está **cerrado**: no queda trabajo de instrumentos pendiente que no requiera ratificación.
 - **Leer primero, en este orden:** `docs/OMEGA_MASTER.md` (intuición y reglas), `docs/OMEGA_BLOQUE_L_RESULTADOS.md` (por qué S0 quedó cerrada), `docs/OMEGA_2_PROPUESTA_CAUSAL.md` (hipótesis Ω-C y enmiendas), `docs/OMEGA_2_C0_RESULTADOS.md` (resultados oficiales), `docs/handoff/AUDITORIA_C0.md`.
 
@@ -19,8 +20,9 @@
 | ID | Pregunta |
 |---|---|
 | R3-1 | ¿Adoptar Ω-C como hipótesis candidata? |
-| R3-2 | Peso de la compuerta: euclídeo e^{−βS}, lorentziano e^{iS}, o ambos. **Ver `OMEGA_2_C0_RESULTADOS.md` §3: con el euclídeo y el espacio de todos los órdenes, KR gana por mucho.** |
-| R3-3 | ¿Mantener d = 2 hasta cerrar la compuerta? |
+| R3-2 | **RATIFICADA: ambos, criterios separados.** Antes: peso de la compuerta: euclídeo e^{−βS}, lorentziano e^{iS}, o ambos. **Ver `OMEGA_2_C0_RESULTADOS.md` §3: con el euclídeo y el espacio de todos los órdenes, KR gana por mucho.** |
+| R3-3 | ¿Mantener d = 2 hasta cerrar la compuerta? (se usa d = 2 por defecto, sin firma) |
+| R3-4 | ¿Ω-C pasa a usar la acción BD suavizada (escala de no localidad) para la rama lorentziana? Es un cambio de la hipótesis, no del instrumento |
 
 ## Trabajo de instrumentos
 
