@@ -131,7 +131,7 @@ def main() -> None:
         if e0a and e0b:
             fam_res = {}
             for fam in FAMILIES:
-                rows = [r for p in ("a", "b") for r in json.loads((OUT / f"e1_{fam}_{p}.json").read_text())["data"]["rows"]]
+                rows = [r for p in ("a", "b", "c") for r in json.loads((OUT / f"e1_{fam}_{p}.json").read_text())["data"]["rows"]]
                 big = [r["n"] for r in rows if r["N"] == NS[-1]]
                 if max(big) < MIN_REGION:
                     fam_res[fam] = {"ley_area": False, "nota": "no aplicable: sin regiones extensas", "n_max_1600": max(big)}
@@ -159,7 +159,9 @@ def main() -> None:
     elif args.part.startswith("e1_") and args.part.endswith("_a"):
         data = part_e1(args.part.removeprefix("e1_").removesuffix("_a"), NS[:3])
     elif args.part.startswith("e1_") and args.part.endswith("_b"):
-        data = part_e1(args.part.removeprefix("e1_").removesuffix("_b"), NS[3:])
+        data = part_e1(args.part.removeprefix("e1_").removesuffix("_b"), NS[3:4])
+    elif args.part.startswith("e1_") and args.part.endswith("_c"):
+        data = part_e1(args.part.removeprefix("e1_").removesuffix("_c"), NS[4:])
     else:
         sys.exit("parte desconocida")
     (OUT / f"{args.part}.json").write_text(json.dumps({"commit": head, "seconds": round(time.time() - t0, 1), "data": data}))
