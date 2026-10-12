@@ -1,1 +1,4 @@
 {"task": "validate", "commit": "0ef0f1bdf29ec19ad9b36181e86cfdaf3a8dbfdf", "seconds": 12.3}
+{"task": "validate", "commit": "0282d15bd2bd75dff84034566ca187499f89cefb", "seconds": 47.3}
+{"task": "wl32", "commit": "0282d15bd2bd75dff84034566ca187499f89cefb", "t": 3000000, "lnf": 1.0, "one_over_t": false, "seconds": 130.5}
+{"task": "wl32", "commit": "0282d15bd2bd75dff84034566ca187499f89cefb", "t": 6000000, "lnf": 1.0, "one_over_t": false, "seconds": 130.0}
