@@ -240,3 +240,23 @@ def test_general_mcmc_consistency() -> None:
     full = between_counts(st.c)
     assert np.array_equal(st.b[st.c], full[st.c])
     assert st.s == pytest.approx(bd_action_4d(st.c))
+
+
+def test_ssee_full_region_is_zero_and_pairs() -> None:
+    from omega.causality.entropy import pauli_jordan, sj_split, ssee
+
+    c = random_2order(120, _rng(71))
+    idelta = pauli_jordan(c)
+    idt, w = sj_split(idelta, 1e-9)
+    allidx = np.arange(120)
+    assert abs(ssee(idt, w, allidx, truncate=False)) < 1e-6  # vacio puro en la region completa
+    sub = allidx[:40]
+    s = ssee(idt, w, sub, truncate=False)
+    assert s > 0
+
+
+def test_interval_closest_rule() -> None:
+    from omega.causality.entropy import interval_closest
+
+    r = interval_closest(_chain(10), 4)
+    assert r.size == 4 and list(r) == [0, 1, 2, 3]
