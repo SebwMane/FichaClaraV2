@@ -10,7 +10,16 @@ import math
 import numpy as np
 import numpy.typing as npt
 
-__all__ = ["pauli_jordan", "sj_split", "sj_both", "ssee", "interval_closest"]
+__all__ = [
+    "pauli_jordan",
+    "sj_split",
+    "sj_both",
+    "ssee",
+    "interval_closest",
+    "interval_balanced",
+    "causal_complement",
+    "knee_cutoff",
+]
 
 CArr = npt.NDArray[np.complex128]
 KERNEL_TOL = 1e-8
@@ -73,3 +82,46 @@ def interval_closest(c: npt.NDArray[np.bool_], target: int) -> npt.NDArray[np.in
     members = np.flatnonzero(c[a] & c[:, b])
     out: npt.NDArray[np.int64] = np.sort(np.concatenate([[a, b], members])).astype(np.int64)
     return out
+
+
+def interval_balanced(c: npt.NDArray[np.bool_], target: int, tol: float = 0.05) -> npt.NDArray[np.int64]:
+    """E1': entre los intervalos I[a,b] con |I| en target*(1 +- tol), el que maximiza min(|pasado(a)|, |futuro(b)|).
+
+    Empate: menores indices (a, b). Si no hay candidatos, devuelve un arreglo vacio.
+    """
+    cf = c.astype(np.float32)
+    size = np.rint(cf @ cf).astype(np.int64) + 2
+    ok = c & (size >= math.floor(target * (1 - tol))) & (size <= math.ceil(target * (1 + tol)))
+    if not np.any(ok):
+        return np.zeros(0, dtype=np.int64)
+    past = c.sum(axis=0)
+    fut = c.sum(axis=1)
+    score = np.where(ok, np.minimum(past[:, None], fut[None, :]), -1)
+    a, b = np.unravel_index(int(np.argmax(score)), score.shape)
+    members = np.flatnonzero(c[a] & c[:, b])
+    out: npt.NDArray[np.int64] = np.sort(np.concatenate([[a, b], members])).astype(np.int64)
+    return out
+
+
+def causal_complement(c: npt.NDArray[np.bool_], region: npt.NDArray[np.int64]) -> npt.NDArray[np.int64]:
+    """R^perp: elementos fuera de R sin relacion con ningun elemento de R."""
+    related = c[region, :].any(axis=0) | c[:, region].any(axis=1)
+    related[region] = True
+    out: npt.NDArray[np.int64] = np.flatnonzero(~related).astype(np.int64)
+    return out
+
+
+def knee_cutoff(i_delta: CArr, min_dist: float = 0.05) -> float | None:
+    """Rodilla del espectro positivo en log10 (rango) frente a log10 (autovalor): punto de maxima distancia
+    a la recta entre el primer y el ultimo punto. Devuelve el autovalor de la rodilla o None si no hay rodilla."""
+    mu = np.linalg.eigvalsh(i_delta)
+    pos = np.sort(mu[mu > 1e-12])[::-1]
+    if pos.size < 3:
+        return None
+    x = np.log10(np.arange(1, pos.size + 1))
+    y = np.log10(pos)
+    p0, p1 = np.array([x[0], y[0]]), np.array([x[-1], y[-1]])
+    d = p1 - p0
+    dist = np.abs(d[0] * (y - p0[1]) - d[1] * (x - p0[0])) / float(np.hypot(*d))
+    k = int(np.argmax(dist))
+    return float(pos[k]) if float(dist[k]) >= min_dist else None

@@ -260,3 +260,16 @@ def test_interval_closest_rule() -> None:
 
     r = interval_closest(_chain(10), 4)
     assert r.size == 4 and list(r) == [0, 1, 2, 3]
+
+
+def test_e1prime_helpers() -> None:
+    from omega.causality.entropy import causal_complement, interval_balanced, knee_cutoff, pauli_jordan
+
+    c = _chain(12)
+    r = interval_balanced(c, 4)
+    assert r.size == 4
+    assert causal_complement(c, r).size == 0  # en una cadena todo esta relacionado
+    anti = np.zeros((6, 6), dtype=bool)
+    assert interval_balanced(anti, 3).size == 0
+    k = knee_cutoff(pauli_jordan(random_2order(200, _rng(81))))
+    assert k is None or k > 0
