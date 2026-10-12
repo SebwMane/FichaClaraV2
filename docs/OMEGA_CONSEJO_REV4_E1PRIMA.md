@@ -62,3 +62,22 @@ Truncamiento por la «rodilla» del espectro de iΔ en lugar del umbral fijo, co
 ## 5. Escala de afirmación aplicable
 
 Un DISCRIMINA sería nivel 1 para 2D, N ≤ 2400 y estas familias: mostraría que el criterio separa geometría de los rivales conocidos, no que la ruta de Jacobson funcione completa. Un NO DISCRIMINA sería nivel 1 sobre la insuficiencia de esta medida de entropía como criterio de geometría.
+
+## 6. Firmas del usuario (2026-10-12)
+
+| # | Decisión |
+|---|---|
+| R4-1 | Pendiente (se decide al retomar, tras el piloto y el congelamiento). |
+| R4-2 | **Complementariedad: solo informativa, sin voto.** Se mide y se informa para todas las familias, pero no entra en la decisión. |
+| R4-3 | **Rama de la rodilla: incluida** (descriptiva, sin voto). |
+| R4-4 | Pendiente. |
+
+### 6.1 Consecuencias para el diseño
+
+- **Criterio que vota** en E1′: condiciones 1 (forma logarítmica) y 2 (|a − 1/3| ≤ 2·SE(a) + 0.05) de §2.2. La condición 3 pasa a diagnóstico.
+- **Riesgo declarado (nivel 1, cuenta directa).** La condición 2 es más permisiva que la ventana fija de E1. KR tuvo a = 0.436 en E1, a 0.103 de 1/3; pasaría la condición 2 si SE(a) ≥ 0.026. Con R4-2 sin voto, E1′ puede marcar a KR con «ley de área», y en ese caso el resultado sería NO DISCRIMINA. El diagnóstico de complementariedad quedará registrado para interpretar ese caso.
+- **Paso 3 (piloto) se mantiene**, aunque ya no fije una tolerancia que vote: sirve para conocer cuánto difieren S(R) y S(R^⊥) en la geometría y leer bien el diagnóstico.
+
+### 6.2 Regla de rodilla propuesta (a congelar en el paso 4)
+
+Sobre los autovalores positivos de iΔ ordenados de mayor a menor, en escala log-log (log rango frente a log autovalor), la rodilla es el punto de máxima distancia a la recta que une el primer y el último punto. Se truncan los modos por debajo de la rodilla, en la región grande y en la restringida, igual que con el umbral fijo. Si la distancia máxima es menor que 0.05 en unidades de log10, se declara «sin rodilla» y no se trunca. Validación descriptiva: en sprinklings 2D la rodilla debería caer cerca de √N/(4π), como muestra la figura 6 de Sorkin y Yazdi.
