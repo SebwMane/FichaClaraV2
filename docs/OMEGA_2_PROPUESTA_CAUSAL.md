@@ -101,3 +101,28 @@ Origen: auditoría del orquestador (`docs/handoff/AUDITORIA_C0.md`), el smoke (N
 | C-A4 | C0-4, τ | τ = 0.75. Regla: 1.1 × el mayor |d_MM − d_mid| de los sprinklings del piloto (0.677, en d = 4), redondeado hacia arriba a 0.05. | Fijar τ era el único objetivo del piloto. | Ver nota. |
 
 **Nota preregistrada sobre C0-4 (expectativa honesta).** En el piloto, la percolación con p = 0.05 dio d_MM ≈ 1.21 y d_mid ≈ 1.14 en las 10 semillas, con gaps ≤ 0.10. Quedará marcada como «compatible con variedad» para cualquier τ ≥ 0.10, así que **se espera que C0-4 FRACASE en la corrida oficial**. El criterio no se modifica para evitarlo. La lectura preregistrada de ese fracaso es: «la coherencia entre dos estimadores de dimensión no basta para distinguir un orden no geométrico de uno con aproximación de variedad; la percolación transitiva densa se comporta como un objeto coherente de dimensión ≈ 1.2». Es el mismo aviso de M§11 (un D_eff por sí solo no demuestra geometría) aplicado a órdenes. El rediseño (C0-4b) se preregistra en una ronda nueva con entropía nueva.
+
+## 9. C0-4b: discriminador por perfil de abundancias · PROBAR (preregistrado 2026-10-12, sin ratificación necesaria)
+
+**Por qué.** C0-4 fracasó porque dos estimadores de dimensión pueden coincidir en un orden no geométrico. C0-4b exige algo más fuerte: que el orden tenga el **perfil completo de tamaños de intervalo** que tendría un sprinkling de su propia dimensión estimada. Es una prueba de forma, no de un número.
+
+**Declaración de transparencia.** Este diseño se hizo después de ver que la percolación con p = 0.05 engañó a C0-4. Para no ajustar el criterio a ese control: (a) δ se calibra **solo con sprinklings**, nunca con controles; (b) se añaden dos controles que nadie ha visto todavía, percolación con p = 0.01 y un orden de capas gruesas; (c) todas las constantes quedan fijadas aquí antes de escribir código.
+
+**Definición (congelada).**
+1. d̂ = d_MM del orden. Si es nan, la bandera es «no compatible».
+2. d_ref = d̂ redondeado al entero más cercano y recortado a {1, 2, 3, 4}.
+3. Perfil de referencia E_ref[N_k] para k = 0..8 al mismo N:
+   - d_ref = 1: cadena exacta, N_k = N − 1 − k.
+   - d_ref = 2: valor exacto de `omega/causality/exact.py`.
+   - d_ref = 3, 4: media de 40 sprinklings de referencia (entropía 20261015).
+4. Distancia D = max_{k ≤ 8} |ln((N_k + 1) / (E_ref[N_k] + 1))|.
+5. **Calibración de δ (solo positivos):** para d = 2, 3, 4 se generan 40 sprinklings de calibración (entropía 20261016) y δ_d = 1.5 × percentil 95 de su D. Para d_ref = 1 se usa δ_1 = δ_2.
+6. Bandera «compatible con variedad» ⇔ d̂ finito **y** D ≤ δ_{d_ref}.
+
+**Corrida oficial** (entropía 20261017, N = 1024, 20 semillas por celda):
+- Positivos: sprinklings d = 2, 3, 4.
+- Controles: KR; percolación p = 0.05; percolación p = 0.01; capas gruesas (8 capas de N/8, relaciones entre capas consecutivas con p = 0.5, cierre transitivo).
+
+**Éxito:** cada positivo marcado en ≥ 90% de las semillas **y** cada control marcado en ≤ 10%.
+**Fracaso:** cualquier celda fuera. Se vuelve al Consejo; no se recalibra δ ni se cambia K.
+**Escala de afirmación:** un éxito es nivel 1 sobre instrumentos («el clasificador separa estos positivos de estos controles a N = 1024»). No garantiza que separe cualquier orden no geométrico.
