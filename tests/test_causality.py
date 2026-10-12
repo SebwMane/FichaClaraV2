@@ -188,3 +188,15 @@ def test_mcmc_moves_keep_permutation_and_beta0_accepts_all() -> None:
     assert len(res.samples) == 2
     for c in res.samples:
         assert is_partial_order(c)
+
+
+def test_wanglandau_chunking_is_deterministic_and_n4_exact() -> None:
+    from omega.causality.wanglandau import BATCH, exact_dos, new_state, wl_run
+
+    d = exact_dos(4)
+    assert sum(d.values()) == 24
+    a = new_state(4, 4 - 8, 4 + 8, _rng(31))
+    b = new_state(4, 4 - 8, 4 + 8, _rng(31))
+    a = wl_run(a, 2 * BATCH)
+    b = wl_run(wl_run(b, BATCH), BATCH)
+    assert a.lng == b.lng and a.v == b.v and a.t == b.t == 2 * BATCH
