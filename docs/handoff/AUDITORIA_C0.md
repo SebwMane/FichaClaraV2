@@ -118,3 +118,14 @@ Smoke de velocidad (no evidencia): 0.04 ms por paso en N = 32.
 ## 13. Auditoría de L-ε (`435bbbe`)
 
 Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_action_2d_smeared` (validado en C1) a 10⁻⁹; ε = K/N < 1 en toda la malla; constantes iguales a §18.
+
+## 14. Auditoría de C4 y L4 (entrega `832e841`)
+
+**Veredicto: apto tras una corrección menor.**
+
+| ID | Gravedad | Hallazgo | Corrección |
+|---|---|---|---|
+| A-21 | Baja | 4·10⁶ pares generados de una vez en un contenedor de 3 GB. | Generación en tramos de 10⁶ (mismo número de pares y misma secuencia determinista). |
+| — | Verificado | El método de referencia por pares, aplicado a 2D (scratchpad, entropía 9090), reproduce E[S] = 1: 0.66 ± 0.63 (N = 64) y −4.0 ± 5.8 (N = 256). | — |
+| — | Verificado | Cadena de 5 da S₄ = 4; ε → 1 recupera S₄; coeficientes de f₄ en ε = 1 dan (1, −9, 16, −8). | — |
+| — | Observación | En ε = 1 y N = 512 el error de la referencia puede ser grande y restarle potencia a C4; se informa. | — |

@@ -15,8 +15,11 @@ from omega.causality.sprinkling import diamond_volume, interval_volume, sprinkle
 __all__ = ["pair_volume_fractions", "expected_action_4d"]
 
 
-def pair_volume_fractions(pairs: int, rng: np.random.Generator) -> npt.NDArray[np.float64]:
-    """v = V(I(p,q))/V(diamante) para pares relacionados, 0 para no relacionados; orden de cada par al azar."""
+def pair_volume_fractions(pairs: int, rng: np.random.Generator, chunk: int = 1_000_000) -> npt.NDArray[np.float64]:
+    """v = V(I(p,q))/V(diamante) para pares relacionados, 0 si no; se genera en tramos (AUDITORIA A-21: memoria)."""
+    if pairs > chunk:
+        parts = [pair_volume_fractions(min(chunk, pairs - k), rng, chunk) for k in range(0, pairs, chunk)]
+        return np.concatenate(parts)
     p = sprinkle_diamond(pairs, 4, rng)
     q = sprinkle_diamond(pairs, 4, rng)
     dt = np.abs(q[:, 0] - p[:, 0])
