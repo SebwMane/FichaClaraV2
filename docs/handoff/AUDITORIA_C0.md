@@ -143,3 +143,12 @@ Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_ac
 | ID | Gravedad | Hallazgo | Corrección |
 |---|---|---|---|
 | A-22 | **Alta** | Aceptación con atajo «ΔS ≤ 0 acepta», incorrecto para β < 0. La auditoría de §16 no lo vio: la validación P4-0 solo probaba β = 0 y β = 0.01. | Enmienda P4-A1: criterio corregido y validación exacta con β negativo. Lección: validar el muestreador en todo el rango de parámetros que se va a usar, no solo en un punto. |
+
+## 17. Auditoría de Ω-E, E0/E1 (entrega tras `32aae6a`)
+
+**Veredicto: apto sin correcciones.**
+- Convenciones iguales al artículo: C_xy = 1 si x ≺ y, iΔ = (i/2)(C − Cᵀ), W = parte positiva; S = Σ λ ln|λ| con λ de (iΔ_R)⁻¹ W_R en la imagen de iΔ_R.
+- Test de cordura: en la región completa el vacío es puro y S = 0 (< 10⁻⁶).
+- Doble truncamiento: √N_L/(4π) en la región grande (en iΔ y W) y √n_R/(4π) en la restringida, como en el artículo.
+- Regla de intervalo con extremos incluidos (+2) y desempate por índices; test con una cadena.
+- Smoke (no evidencia, semilla 1): N = 1600, n ≈ 400: S sin truncar 123.6 (publicado ≈ 0.32·n − 6.6 ≈ 121); truncado 2.03 (publicado ≈ 2.04). 7 s por corrida.
