@@ -1,6 +1,7 @@
 # Handoff para la siguiente sesión (orquestador o agente)
 
 - **Estado al cierre:** 2026-10-12, rama `claude/hopeful-galileo-88u1l1`, HEAD tras los resultados de C0-4b.
+- **Actualización 2026-10-12 (4):** R3-5 ratificada (β = b/N). L-3c-E′ PASA: b_c = 4.00, 4.76, 6.73 para N = 32, 64, 128 (`OMEGA_2_L3CE_PRIME_RESULTADOS.md`), con riesgo de histéresis. Bloque A (vía analítica de la rama L) preregistrado en §13, sin ejecutar. **Próximos encargos autorizados, en este orden:** (1) preregistrar y correr L-3c-E″ (histéresis, partir de bicapa); (2) ejecutar Bloque A (A-1 derivación con cota, A-2 verificación, A-3 exponente de Var(S_ε/ε²)).
 - **Actualización 2026-10-12 (3):** R3-4 ratificada. C1 (acción suavizada) ÉXITO. Rama L declarada bloqueada por el problema de signo (§11.5). L-3c-E: «ventana que se angosta», β_c·N ≈ 4.5 en N = 32 y 64 (`OMEGA_2_C1_L3CE_RESULTADOS.md`). Pendiente del usuario: **R3-5, ¿acoplamiento β = b/N en la rama E?** Si se firma, el siguiente encargo es L-3c-E′: barrido en b con N ∈ {32, 64, 128} y criterio de b_c estable, preregistrado antes.
 - **Actualización 2026-10-12 (2):** R3-2 ratificada (ambos pesos, criterios separados). L-2c ejecutada (`OMEGA_2_L2C_RESULTADOS.md`): rama E viva, requiere L-3c-E; rama L bloqueada porque la acción sin suavizar cancela también a la geometría (L-iii INDETERMINADO). Próximo encargo autorizado: **L-3c-E** (falta preregistrarlo). Pendiente del usuario: **R3-4, ¿usar la acción suavizada en la rama L?**
 - **Actualización 2026-10-12:** C0-4b ejecutado con ÉXITO (`OMEGA_2_C0_RESULTADOS.md` §5). La bandera de C0-4b es el clasificador habilitado; la de C0-4 queda retirada. El bloque C0 está **cerrado**: no queda trabajo de instrumentos pendiente que no requiera ratificación.
@@ -24,7 +25,7 @@
 | R3-2 | **RATIFICADA: ambos, criterios separados.** Antes: peso de la compuerta: euclídeo e^{−βS}, lorentziano e^{iS}, o ambos. **Ver `OMEGA_2_C0_RESULTADOS.md` §3: con el euclídeo y el espacio de todos los órdenes, KR gana por mucho.** |
 | R3-3 | ¿Mantener d = 2 hasta cerrar la compuerta? (se usa d = 2 por defecto, sin firma) |
 | R3-4 | **RATIFICADA.** Antes: ¿Ω-C pasa a usar la acción BD suavizada (escala de no localidad) para la rama lorentziana? Es un cambio de la hipótesis, no del instrumento |
-| R3-5 | ¿La rama E adopta el acoplamiento β = b/N (b fijo)? Cambia la hipótesis; se sugiere por β_c·N ≈ 4.5 en N = 32 y 64 |
+| R3-5 | **RATIFICADA.** Antes: ¿la rama E adopta el acoplamiento β = b/N (b fijo)? Cambia la hipótesis; se sugiere por β_c·N ≈ 4.5 en N = 32 y 64 |
 
 ## Trabajo de instrumentos
 
