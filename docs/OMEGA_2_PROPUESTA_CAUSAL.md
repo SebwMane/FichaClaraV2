@@ -292,3 +292,29 @@ Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido
 - **Supuesto gaussiano:** N ∈ {16, 32, 64}, ε ∈ {0.25, 0.1}, λε² ∈ {0.02, 0.05, 0.1}, 20 000 muestras (entropía 20261031). Predicción exp(−(λε²)² V̂/2) con V̂ de las mismas muestras. Puntos utilizables: |φ̂| > 3/√M. **Condición:** en todos los utilizables, |φ̂ − pred| ≤ 3·SE(φ̂) + 3·|∂pred/∂V|·SE(V̂), con SE(V̂) = V̂√(2/(M−1)).
 - **A-3 PASA** si se cumplen ambas condiciones. Lectura: condición necesaria (no suficiente) para que la geometría supere a las familias por capas dentro de la ventana.
 - **Sin voto (nivel 4):** N* aproximado a partir del cual la clase geométrica supera a la bicapa en λε² = 1.2, comparando ln N! − (λε²)² V(N)/2 con (N²/4) ln|2cos(λε²)|.
+
+## 16. L-3c-EQ: transición de equilibrio de la rama euclídea por Wang-Landau · PROBAR (preregistrado 2026-10-12)
+
+**Cambio de método respecto de lo recomendado (declarado).** El usuario aprobó «templado paralelo». Antes de programarlo, el orquestador estimó su factibilidad con datos oficiales de L-3c-E′ y L-3c-E″: entre la fase geométrica y la de capas la diferencia de ⟨S⟩ es ≈ 1 700 (N = 64) y ≈ 7 700 (N = 128); para que dos réplicas vecinas intercambien estados se necesita Δβ·ΔS ≲ 1, es decir del orden de 100 y 400 réplicas. Es el caso típico de una transición de primer orden fuerte, donde el método estándar es **Wang-Landau** (estimar la densidad de estados g(S) y reponderar). El objetivo aprobado (localizar el equilibrio) no cambia; cambia la herramienta.
+
+**Sondeo declarado (no es evidencia):** entropía 424242; 0.07 ms por paso en N = 32 y ≈ 0.06 ms por evaluación de S en N = 64. Solo se usó para fijar presupuestos.
+
+### Método (congelado)
+
+- Espacio: 2-órdenes con u = identidad (permutaciones v). Movimiento: transposición de dos valores de v.
+- **Wang-Landau 1/t** (Belardinelli-Pereyra): ln f parte en 1, se divide por 2 cuando el histograma de los bins visitados es plano al 80% (revisión cada 10⁴ pasos), y pasa a ln f = n_vis / t en cuanto ln f ≤ n_vis / t. Bins de S de paso 2 (S ≡ N mod 2).
+- Ventana de energía: S_bicapa = N − N²/2 ≤ S ≤ N + 4σ₀, con σ₀ = 31 (N = 32) y 54 (N = 64) (dispersiones de L-iii). Movimientos fuera de la ventana se rechazan.
+- **Producción multicanónica** con ln g congelado: se registra la bandera C0-4b (clasificador de §12, entropías 20261026/27) cada 20 pasos, por bin. φ(S) = fracción marcada en el bin.
+- ⟨bandera⟩_eq(b) = Σ g(S) e^{−bS/N} φ(S) / Σ g(S) e^{−bS/N}, sobre bins con muestras de producción.
+- **b*_eq(N):** menor b en [0.5, 12] (paso 0.01) donde ⟨bandera⟩_eq < 0.5. Incertidumbre: la producción se divide en 4 bloques y se informa el desvío de b*.
+- Presupuestos: WL de 6·10⁶ pasos (N = 32) y 2.4·10⁷ (N = 64); producción de 2·10⁶ y 6·10⁶. Entropías: WL 20261032, producción 20261033, validación 20261034. Ejecución por tramos con punto de control determinista.
+
+### Criterios
+
+- **V (vota):** con N = 8 se enumeran las 8! = 40 320 permutaciones (g exacto). WL con 5·10⁵ pasos, normalizado a Σg = 8!, debe cumplir max |Δ ln g| ≤ 0.15 en los bins con ≥ 10 estados exactos.
+- **Cobertura (vota):** a cada N el WL debe haber visitado S_bicapa (el estado fundamental). Si no, INDETERMINADO.
+- **Consistencia (vota):** b*_eq(N) ≤ b_c↑(N) y b*_eq(N) > b_c↓(N)/2^{1/4} (la transición de equilibrio debe caer dentro de la histéresis medida). Si no, INDETERMINADO.
+- **Decisión principal:**
+  - **VENTANA DE EQUILIBRIO ESTABLE con β = b/N:** b*_eq(64) ≥ b*_eq(32)·2^{−1/4}.
+  - **SE ANGOSTA EN EQUILIBRIO:** en caso contrario.
+- **Lectura:** con dos tamaños es nivel 1 para N ≤ 64; nada se afirma para N grande. N = 128 queda fuera por coste (declarado).
