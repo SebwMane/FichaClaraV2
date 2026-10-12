@@ -376,3 +376,23 @@ ln|Z_geo|(N) ≈ ln N! − (λε²)² V(N)/2, con V(N) = e^{c} N^γ de los ajust
 - **SOBREVIVE (condicional):** existe λε² en la ventana {1.2, π/2, 1.9} donde U(1024) < ln|Z_geo|(1024) para ambos ε. Como U es cota superior, el sándwich queda suprimido frente a la geometría (condicionado al supuesto gaussiano de la geometría).
 - **NO CONCLUYENTE:** en otro caso; la cota podría ser holgada o el sándwich podría dominar.
 - **Expectativa honesta preregistrada.** Esta familia tiene entropía O(N) (≈ 4^N miembros), así que su supresión por fase probablemente sea O(N), mientras que la cancelación de fase de la geometría crece como N^γ con γ ≈ 1.4–1.6 (A-3). Si ambas cosas se confirman, a N grande el sándwich **no** quedaría suprimido frente a la geometría, y el resultado probable es NO CONCLUYENTE. También se informa, sin voto, el N donde se cruzan las tendencias.
+
+## 18. Ratificación R3-6 y preregistro de L-ε (2026-10-12)
+
+| # | Estado |
+|---|---|
+| R3-6 | **RATIFICADA por el usuario (2026-10-12):** en la rama L la escala de no localidad es fija en volumen: ε = K/N (cada región de no localidad contiene en promedio N/K elementos). |
+
+### 18.1 Corolario analítico (nivel 1, dados los tamaños de clase)
+
+Con λ fijo y ε = K/N, cada link de una familia por capas aporta una fase λε² = λK²/N² → 0. Para la familia bipartita, |Z| = 2^{P}|cos(λK²/N²)|^{P} con P = N²/4, que tiende a 2^{N²/4}: las capas no se cancelan y su conteo supera al de la geometría (≈ N!). **Con λ fijo la rama L no puede seleccionar geometría.** La única posibilidad es mantener λε² = x en la ventana (π/3, 2π/3), es decir λ = xN²/K².
+
+### 18.2 Medición decisiva · PROBAR
+
+En ese régimen, la fase de la clase geométrica es x · (S_ε/ε²). Se mide D(N) = sd(S_ε/ε²) en 2-órdenes aleatorios con ε = K/N.
+
+- Malla: K ∈ {4, 8}; N ∈ {64, 128, 256, 512, 1024}; 200 2-órdenes por N (entropía 20261037). Ajuste ln D = η ln N + c por mínimos cuadrados.
+- **COMPATIBLE:** para algún K, D(1024) ≤ 3/π ≈ 0.955 (con x = π/3, x·D ≤ 1, fase geométrica coherente) **y** η + 2·SE ≤ 0 (no crece con N).
+- **INCOMPATIBLE (estructural):** para ambos K, η − 2·SE > 0. Lectura: dentro de la ventana necesaria para cancelar las capas, la fase de la geometría se dispersa cada vez más con N, y por §18.1 salirse de la ventana deja a las capas sin cancelar. En 2D, con la acción BD suavizada, no hay escalamiento de (λ, ε) que cumpla ambas condiciones.
+- **INDETERMINADO:** cualquier otro caso.
+- **Expectativa honesta:** INCOMPATIBLE. El sondeo de §11.3 (ε = 0.1 fijo) dio D entre 29 y 90, y un argumento de conteo sugiere D ∝ N^{1.5}·(algo), porque S_ε/ε² incluye N/ε − 2·(suma ponderada sobre ≈ N²/4 relaciones).
