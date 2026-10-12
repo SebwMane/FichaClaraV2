@@ -50,3 +50,15 @@
 | V11 | mypy --strict y tests | limpio; 15 tests pasan |
 
 **Observación sin corrección.** En el smoke (N = 128, solo 4 réplicas de referencia) el sprinkling 4D quedó marcado en 2 de 3 semillas. Con N y réplicas tan pequeñas no es evidencia de nada y no motiva ningún cambio; se anota para comparar con la corrida oficial.
+
+## 6. Auditoría de L-2c (entrega `4497916`)
+
+**Veredicto: apto tras tres correcciones.**
+
+| ID | Gravedad | Hallazgo | Corrección |
+|---|---|---|---|
+| A-9 | Baja | δ₂ de C0-4b copiado a mano en la herramienta (coincidía). | Se lee del `summary.json` oficial de C0-4b. |
+| A-10 | Baja | Si φ̂ = 1, ln(−ln φ̂) lanza un error de dominio y aborta L-iii. | Enmienda L2c-A1. |
+| A-11 | Media | Un ΔS_E = nan se leía como «geometría NO preferida». | Enmienda L2c-A3: INDETERMINADO. |
+| A-12 | Sin corrección | Entropía de L-i elegida por el agente. | Enmienda L2c-A2, declarada. |
+| A-13 | Observación | En el smoke (N = 128) ningún 2-orden aleatorio quedó marcado por C0-4b: δ₂ se calibró en N = 1024 y no vale en N = 128. La corrida oficial usa N = 1024, donde sí vale. Confirma que C0-4b depende del tamaño (ya anotado en sus límites). | — |

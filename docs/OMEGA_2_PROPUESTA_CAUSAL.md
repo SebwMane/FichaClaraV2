@@ -165,3 +165,11 @@ La ratificación de R3-2 autoriza la compuerta definida en §5 (L-2c ahora; L-3c
   - **INDETERMINADO:** ningún λ con 3 puntos utilizables.
 - **Declaración de transparencia:** los valores de S de C0-3 (N = 64, 256, 1024; 200 semillas) existen y habrían permitido estimar φ₂; **no se usaron**. Antes de este preregistro solo se comprobó la paridad de S (§10.2).
 - **Escala de afirmación:** L-2c-L compara la clase geométrica solo con KR y con la bicapa (que es un bipartito completo, ver §10.2). Un PASA es nivel 2 para N ≤ 256 y **nivel 4 (extrapolación) para N grande**. No dice nada sobre otras clases no geométricas.
+
+### 10.5 Enmiendas operativas de L-2c (registradas ANTES de la corrida oficial)
+
+| ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
+|---|---|---|---|---|
+| L2c-A1 | L-iii | Un punto con φ̂ ≥ 1 − 10⁻¹² no es utilizable. | −ln φ̂ = 0 no admite el ajuste log-log. Con la dispersión observada de S (57 valores distintos ya en N = 16) es prácticamente imposible. | En teoría sí; en la práctica es inerte. |
+| L2c-A2 | L-i | Entropía 20261020. | §10 no la fijaba; la eligió el agente de código. | No: L-i solo valida el instrumento. |
+| L2c-A3 | L-2c-E | Un ΔS_E indefinido se lee como INDETERMINADO. | El código lo leía como «no preferida». | No: elimina una lectura falsa. |

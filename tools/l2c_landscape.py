@@ -26,7 +26,9 @@ from omega.causality.profile import K_MAX, d_ref, profile_distance, reference_ab
 
 EXPERIMENT_ID = 302
 ENT_E, ENT_LI, ENT_LIII = 20261018, 20261020, 20261019
-DELTA_C04B = {1: 0.0703698385799844, 2: 0.0703698385799844}  # delta_2 oficial de C0-4b (resultados §5)
+_C04B = Path(__file__).resolve().parents[1] / "results" / "c0_4b_validation" / "summary.json"
+_D2 = float(json.loads(_C04B.read_text())["delta"]["2"])  # AUDITORIA A-9: se lee del resultado oficial, no se copia
+DELTA_C04B = {1: _D2, 2: _D2}
 LAYERS = (2, 4, 16, 128)
 LI_N, LI_LAM, LI_M = (8, 12), (0.2, 0.5, 1.0, math.pi / 2), 20000
 LIII_N, LIII_LAM, LIII_M = (16, 32, 64, 128, 256), (1.2, math.pi / 2, 1.9), 20000
@@ -92,6 +94,10 @@ def branch_l_iii(ns: tuple[int, ...], m: int) -> dict[str, Any]:
         for n in ns:
             mag, se = phase_average(acts[n], lam)
             pts.append({"n": n, "phi": mag, "se": se, "usable": mag > thr})
+        # AUDITORIA A-10 (enmienda L2c-A1): phi >= 1 no admite -ln(phi) > 0 y se trata como no utilizable
+        for p in pts:
+            if p["phi"] >= 1 - 1e-12:
+                p["usable"] = False
         use = [p for p in pts if p["usable"]]
         fit: dict[str, Any] = {"points": pts, "n_usable": len(use)}
         if len(use) >= 3:
@@ -143,7 +149,10 @@ def main() -> None:
     if args.mode == "full":
         d = e["delta_S_E"]
         summary["verdicts"] = {
-            "L-2c-E": "geometria preferida a beta->inf" if d > 0 else "geometria NO preferida a beta->inf",
+            # AUDITORIA A-11: un delta nan (sin geometricos marcados o sin referencias validas) era leido como "NO preferida"
+            "L-2c-E": "INDETERMINADO" if not math.isfinite(d) else (
+                "geometria preferida a beta->inf" if d > 0 else "geometria NO preferida a beta->inf"
+            ),
             "delta_S_E": d,
             "L-i": li["pass"],
             "L-ii_ventana_KR": "(pi/3, 2pi/3) analitica",
