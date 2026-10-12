@@ -1,1 +1,1 @@
-{"commit": "807131e59d89f79641696a563b542da589d391ff", "seconds": 89.3, "data": {"a_ok": true, "n_posets_4": 40, "chi2_p": 0.14573089977879908, "pass": true}}
+{"commit": "e6d1ecf592de2f5f72318f96afb2fb6d39ac1f2d", "seconds": 151.5, "data": {"a_ok": true, "n_posets_4": 40, "chi2_p": 0.14573089977879908, "chi2_p_beta_neg": 0.0, "pass": false}}

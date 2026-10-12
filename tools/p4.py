@@ -69,14 +69,22 @@ def p40() -> dict[str, Any]:
     w = np.array([np.exp(-beta_neg * bd_action_4d(_mat(v, pairs))) for v in valid])
     stn = init_state(np.zeros((4, 4), dtype=bool))
     rn = rng_for(ENT_VAL, 4)
-    cn = np.zeros(len(valid))
-    for _ in range(200_000):
+    seq = np.empty(200_000, dtype=np.int64)
+    for t in range(200_000):
         sweep(stn, beta_neg, rn)
         sweep(stn, beta_neg, rn)
-        cn[index[tuple(int(stn.c[i, j]) for i, j in pairs)]] += 1
-    pn = float(chisquare(cn, w / w.sum() * cn.sum()).pvalue)
-    ok = a_ok and len(valid) == 40 and p > 0.001 and pn > 0.001
-    return {"a_ok": a_ok, "n_posets_4": len(valid), "chi2_p": p, "chi2_p_beta_neg": pn, "pass": ok}
+        seq[t] = index[tuple(int(stn.c[i, j]) for i, j in pairs)]
+    cn = np.bincount(seq, minlength=len(valid)).astype(float)
+    pn = float(chisquare(cn, w / w.sum() * cn.sum()).pvalue)  # se informa; no vota (P4-A2)
+    # ENMIENDA P4-A2: medias por bloques (20 bloques) para estados con p >= 0.005
+    pw = w / w.sum()
+    blocks = np.array([np.bincount(b, minlength=len(valid)) / b.size for b in np.array_split(seq, 20)])
+    fm, se = blocks.mean(axis=0), blocks.std(axis=0, ddof=1) / np.sqrt(20)
+    sel = pw >= 0.005
+    worst = float(np.max(np.abs(fm[sel] - pw[sel]) / np.maximum(se[sel], 1e-12)))
+    ok = a_ok and len(valid) == 40 and p > 0.001 and worst <= 4.0
+    return {"a_ok": a_ok, "n_posets_4": len(valid), "chi2_p": p, "chi2_p_beta_neg_informativo": pn,
+            "beta_neg_peor_desvio_en_SE": worst, "pass": ok}
 
 
 def _mat(bits: tuple[int, ...], pairs: list[tuple[int, int]]) -> np.ndarray[Any, Any]:

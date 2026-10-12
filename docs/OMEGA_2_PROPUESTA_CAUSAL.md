@@ -471,3 +471,12 @@ Con el método de pares de §19.1 adaptado al bloque (v = c₄ τ⁴ / V_bloque,
 |---|---|---|
 | P4-A1a | Aceptación correcta para ambos signos: aceptar si −βΔS ≥ 0, o con probabilidad e^{−βΔS}. | Corrige un error; los β < 0 se miden por primera vez. |
 | P4-A1b | P4-0 añade una prueba exacta con β = −0.5 en N = 4: frecuencias frente a e^{−βS₄} de los 40 órdenes (χ², p > 0.001). Se repite P4-0 completo. | No: es más estricto. |
+
+### 21.2 Validación P4-A1b fallida y enmienda P4-A2 (tras el fallo, antes de cualquier corrida de N = 64 o 128)
+
+**Resultado oficial:** la prueba χ² con β = −0.5 FALLA (p ≈ 0; commit posterior a P4-A1).
+**Diagnóstico (scratchpad, entropía 5):** el muestreador es correcto: S se mantiene exacto en 60 000 barridos y las frecuencias coinciden con las exactas (0.4636 y 0.4711 frente a 0.466 en los dos estados dominantes de S₄ = 19; 0.0080 a 0.0091 frente a 0.0085 en los de S₄ = 11). El fallo viene de la prueba: con β = −0.5 dos estados concentran el 93% del peso y casi no se comunican, así que las muestras están fuertemente autocorrelacionadas y la χ² (que supone independencia) no es aplicable.
+
+| ID | Cambio | ¿Puede crear un positivo? |
+|---|---|---|
+| P4-A2 | Para β = −0.5 se usan medias por 20 bloques: en los estados con peso exacto ≥ 0.005, |f − p| ≤ 4·SE_bloques. La χ² se sigue informando sin voto. Mismos datos (misma entropía); cambia solo el análisis. | **Sí**; se declara. |
