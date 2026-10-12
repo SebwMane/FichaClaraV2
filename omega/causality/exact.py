@@ -15,7 +15,7 @@ import math
 from scipy import integrate
 from scipy.stats import binom
 
-__all__ = ["expected_abundance_2order", "expected_bd_action_2order"]
+__all__ = ["expected_abundance_2order", "expected_bd_action_2order", "expected_smeared_action_2order"]
 
 
 def expected_abundance_2order(k: int, n: int) -> float:
@@ -32,3 +32,17 @@ def expected_abundance_2order(k: int, n: int) -> float:
 def expected_bd_action_2order(n: int) -> float:
     e = [expected_abundance_2order(k, n) for k in range(3)]
     return n - 2 * e[0] + 4 * e[1] - 2 * e[2]
+
+
+def expected_smeared_action_2order(n: int, eps: float) -> float:
+    """E[S_eps] exacto para 2-ordenes aleatorios (Rev. 3 §11.2)."""
+    m = n - 2
+
+    def g(b: float, a: float) -> float:
+        x = a * b
+        y = 1 - eps * x
+        ef = y**m - 2 * eps * m * x * y ** (m - 1) + eps * eps * m * (m - 1) * x * x * y ** (m - 2) / 2
+        return float(4 * (1 - a) * (1 - b) * ef)
+
+    val, _ = integrate.dblquad(g, 0, 1, 0, 1, epsabs=1e-12, epsrel=1e-11)
+    return eps * (n - 2 * eps * math.comb(n, 2) * 0.5 * float(val))

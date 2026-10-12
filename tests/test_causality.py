@@ -168,3 +168,23 @@ def test_phase_helpers() -> None:
     assert mag == pytest.approx(1.0) and se == pytest.approx(0.0, abs=1e-12)
     assert bipartite_phase_exact(8, 0.0) == 1.0
     assert bipartite_phase_exact(8, math.pi / 2) == pytest.approx(0.0, abs=1e-12)
+
+
+def test_smeared_action_limit_and_exact_mean() -> None:
+    from omega.causality.estimators import bd_action_2d_smeared
+    from omega.causality.exact import expected_smeared_action_2order
+
+    c = random_2order(40, _rng(21))
+    assert bd_action_2d_smeared(c, 1 - 1e-9) == pytest.approx(bd_action_2d(c), abs=1e-3)
+    assert expected_smeared_action_2order(30, 1 - 1e-9) == pytest.approx(1.0, abs=1e-3)
+
+
+def test_mcmc_moves_keep_permutation_and_beta0_accepts_all() -> None:
+    from omega.causality.mcmc import run_chain
+
+    v0 = _rng(22).permutation(12).astype(np.int64)
+    res = run_chain(v0, 0.0, 2, 4, 2, _rng(23))
+    assert res.acceptance == 1.0
+    assert len(res.samples) == 2
+    for c in res.samples:
+        assert is_partial_order(c)

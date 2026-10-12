@@ -15,6 +15,7 @@ __all__ = [
     "between_counts",
     "interval_abundances",
     "bd_action_2d",
+    "bd_action_2d_smeared",
     "midpoint_dimension",
 ]
 
@@ -81,3 +82,19 @@ def midpoint_dimension(c: BoolMatrix) -> float:
     if best <= 0:
         return float("nan")
     return math.log2(total / best)
+
+
+def smearing_weight(n: npt.NDArray[np.float64], eps: float) -> npt.NDArray[np.float64]:
+    """f(n, eps) = (1-eps)^n [1 - 2 eps n/(1-eps) + eps^2 n(n-1) / (2(1-eps)^2)]  (Rev. 3 §11.2)."""
+    z = 1.0 - eps
+    out: npt.NDArray[np.float64] = z**n * (1 - 2 * eps * n / z + eps * eps * n * (n - 1) / (2 * z * z))
+    return out
+
+
+def bd_action_2d_smeared(c: BoolMatrix, eps: float) -> float:
+    """S_eps = eps (N - 2 eps sum_n N_n f(n, eps)); eps -> 1 recupera bd_action_2d."""
+    if not 0 < eps < 1:
+        raise ValueError("eps debe estar en (0, 1)")
+    b = between_counts(c)
+    vals = b[b >= 0].astype(np.float64)
+    return float(eps * (c.shape[0] - 2 * eps * float(np.sum(smearing_weight(vals, eps)))))
