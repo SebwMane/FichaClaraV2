@@ -85,3 +85,22 @@ Ofrecida la opción de volver a la ventana fija de E1 ([0.23, 0.43]) para atenua
 ### 6.2 Regla de rodilla propuesta (a congelar en el paso 4)
 
 Sobre los autovalores positivos de iΔ ordenados de mayor a menor, en escala log-log (log rango frente a log autovalor), la rodilla es el punto de máxima distancia a la recta que une el primer y el último punto. Se truncan los modos por debajo de la rodilla, en la región grande y en la restringida, igual que con el umbral fijo. Si la distancia máxima es menor que 0.05 en unidades de log10, se declara «sin rodilla» y no se trunca. Validación descriptiva: en sprinklings 2D la rodilla debería caer cerca de √N/(4π), como muestra la figura 6 de Sorkin y Yazdi.
+
+## 7. Paso 3: piloto declarado (2026-10-12)
+
+- **Naturaleza:** piloto, no evidencia. Solo sprinklings 2D (ninguna familia no geométrica fue mirada). Entropía 20261050; N_L ∈ {800, 1200, 1600}, 3 semillas. Ejecutado en `4455d91`; datos en `results/omega_e/piloto_e1p.json`.
+- **Incidencias de proceso (registradas):** el commit `3715b9b` entró con un test mal planteado y un error de tipos, y el `4455d91` con dos errores de tipos en la herramienta; en ambos casos la cadena de comandos no se detuvo ante el error. Se corrigieron en `30043b5` y en el commit siguiente al piloto. Ninguno altera cálculos.
+
+### 7.1 Resultados
+
+| Pieza | Resultado en las 9 corridas |
+|---|---|
+| Regla de región (§2.1) | **Funciona.** Fracciones |pasado(a)|/N y |futuro(b)|/N entre 0.055 y 0.069 (objetivo 0.0625; ventana de V′ [0.045, 0.080]) en 9 de 9. Regiones de 190 a 394 elementos. |
+| Complementariedad (diagnóstico) | **No se cumple en la geometría tal como está implementada.** S(R^⊥) supera a S(R) en 17% a 38% (media ≈ 30%), con R^⊥ de 97 a 231 elementos. |
+| Regla de rodilla (§6.2) | **No ubica la rodilla esperada.** Da autovalores de 0.37 a 0.44, casi constantes con N, mientras el umbral de Sorkin y Yazdi es √N/(4π) = 2.25 a 3.18. Con esa rodilla prácticamente no se trunca. |
+
+### 7.2 Lectura y consecuencias para el paso 4
+
+1. La regla de región queda lista para congelar.
+2. La complementariedad tiene en la geometría una diferencia de base de ≈ 30%. Como es diagnóstico (R4-2), no bloquea; pero se interpretará en comparación con esa base, no contra cero. Causa probable: R^⊥ es la unión de dos cuñas, y el umbral √n/(4π) del segundo truncamiento está calibrado para un solo diamante.
+3. La regla de rodilla de §6.2 **no sirve** como está: el punto de máxima distancia en log-log cae en la cola del espectro, no en el quiebre físico. Antes de congelar hace falta otra regla y verificarla en un segundo piloto declarado, o retirar la rama (lo que revertiría R4-3).
