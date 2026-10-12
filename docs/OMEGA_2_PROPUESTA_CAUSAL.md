@@ -88,3 +88,16 @@ Universo de entradas:
 
 - Un éxito de C0 es **nivel 1 sobre instrumentos**: «los estimadores recuperan valores conocidos en sprinklings y detectan los controles». No dice nada sobre si Ω-C produce geometría.
 - Un fracaso de C0 bloquea toda la rama Ω-C hasta reparar el instrumento.
+
+## 8. Enmiendas operativas del bloque C0 (registradas ANTES de la corrida oficial)
+
+Origen: auditoría del orquestador (`docs/handoff/AUDITORIA_C0.md`), el smoke (N ≤ 128, entropía 20261013) y el piloto declarado de C0-4 (N = 1024, 10 semillas, entropía 20261012). Ningún resultado oficial existía al registrarlas.
+
+| ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
+|---|---|---|---|---|
+| C-A1 | C0-4, control de percolación | p = 0.05 queda congelado. | El handoff no fijaba p; lo eligió el agente de código y solo se había visto en el smoke con N = 128. | Sí en principio; se declara. |
+| C-A2 | C0-3 | Se añade un segundo criterio con voto: las medias de N₀, N₁ y N₂ en N = 1024 deben estar a ≤ 3·SE de su esperanza exacta para 2-órdenes aleatorios (`omega/causality/exact.py`). | La auditoría midió sd(S) ≈ 322 en N = 1024, de modo que 3·SE ≈ 68 y C0-3 casi no tiene potencia. La esperanza exacta (integral independiente del código) da E[S] = 1 para todo N, lo que confirma la fórmula y el valor de literatura. | No: es más estricto. |
+| C-A3 | C0-4, valores indefinidos | Si d_mid o d_MM es nan, la bandera es «no compatible con variedad». | En KR el punto medio de cualquier intervalo máximo está a un link de un extremo, por lo que min(|I(a,m)|, |I(m,b)|) = 0 y d_mid no existe. En un intervalo con aproximación de variedad siempre existe un punto medio con mitades de tamaño extensivo, así que la ausencia es una señal legítima, no un artefacto. | Sí: hace que KR no quede marcado. Se declara; vale en ambos sentidos (un sprinkling con nan también cuenta en contra). |
+| C-A4 | C0-4, τ | τ = 0.75. Regla: 1.1 × el mayor |d_MM − d_mid| de los sprinklings del piloto (0.677, en d = 4), redondeado hacia arriba a 0.05. | Fijar τ era el único objetivo del piloto. | Ver nota. |
+
+**Nota preregistrada sobre C0-4 (expectativa honesta).** En el piloto, la percolación con p = 0.05 dio d_MM ≈ 1.21 y d_mid ≈ 1.14 en las 10 semillas, con gaps ≤ 0.10. Quedará marcada como «compatible con variedad» para cualquier τ ≥ 0.10, así que **se espera que C0-4 FRACASE en la corrida oficial**. El criterio no se modifica para evitarlo. La lectura preregistrada de ese fracaso es: «la coherencia entre dos estimadores de dimensión no basta para distinguir un orden no geométrico de uno con aproximación de variedad; la percolación transitiva densa se comporta como un objeto coherente de dimensión ≈ 1.2». Es el mismo aviso de M§11 (un D_eff por sí solo no demuestra geometría) aplicado a órdenes. El rediseño (C0-4b) se preregistra en una ronda nueva con entropía nueva.

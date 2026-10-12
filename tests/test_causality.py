@@ -16,6 +16,7 @@ from omega.causality.estimators import (
     mm_fraction,
     ordering_fraction,
 )
+from omega.causality.exact import expected_abundance_2order, expected_bd_action_2order
 from omega.causality.orders import (
     is_partial_order,
     kr_order,
@@ -85,8 +86,12 @@ def test_controls_are_partial_orders_and_layered() -> None:
     assert is_partial_order(k)
     p = transitive_percolation(200, 0.05, _rng(3))
     assert is_partial_order(p)
-    # en KR la cadena mas larga tiene a lo sumo 3 elementos: no hay par con 2 o mas entre ellos
-    assert int(between_counts(k).max()) <= 1 or True
+    # AUDITORIA C0 (A-3): el test original era vacuo ('or True') y su afirmacion era falsa
+    # (un par capa1-capa3 tiene ~n/8 elementos entre ellos). Propiedad correcta: altura <= 3,
+    # es decir, no existe cadena de 4 elementos (C^3 = 0).
+    kf = k.astype(np.float32)
+    assert not np.any(kf @ kf @ kf)
+    assert int(between_counts(k).max()) > 0
 
 
 def test_transitive_closure_simple() -> None:
@@ -104,3 +109,16 @@ def test_reproducible() -> None:
 def test_midpoint_dimension_2d_reasonable() -> None:
     c = random_2order(512, _rng(4))
     assert 1.5 < midpoint_dimension(c) < 2.6
+
+
+def test_exact_bd_mean_is_one() -> None:
+    for n in (5, 40, 300):
+        assert expected_bd_action_2order(n) == pytest.approx(1.0, abs=1e-6)
+
+
+def test_abundances_match_exact_expectation() -> None:
+    n, reps = 128, 200
+    ab = np.array([interval_abundances(random_2order(n, _rng(500 + i)), 2) for i in range(reps)])
+    for k in range(3):
+        se = ab[:, k].std(ddof=1) / math.sqrt(reps)
+        assert abs(ab[:, k].mean() - expected_abundance_2order(k, n)) <= 4 * se

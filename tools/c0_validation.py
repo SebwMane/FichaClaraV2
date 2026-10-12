@@ -16,18 +16,21 @@ import subprocess
 import sys
 import time
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 import numpy as np
+import numpy.typing as npt
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from omega.causality.estimators import (  # noqa: E402
     between_counts,
     bd_action_2d,
+    interval_abundances,
     midpoint_dimension,
     mm_dimension,
 )
+from omega.causality.exact import expected_abundance_2order  # noqa: E402
 from omega.causality.orders import kr_order, transitive_percolation  # noqa: E402
 from omega.causality.sprinkling import (  # noqa: E402
     causal_matrix,
@@ -85,14 +88,27 @@ def c0_2(entropy: int, n: int, seeds: int, pairs: int) -> dict[str, Any]:
 def c0_3(entropy: int, ns: list[int], seeds: int) -> dict[str, Any]:
     out: dict[str, Any] = {}
     for n in ns:
-        vals = [bd_action_2d(causal_matrix(sprinkle_diamond(n, 2, rng_for(entropy, 3000 + n, s)))) for s in range(seeds)]
-        out[f"N{n}"] = {"mean": float(np.mean(vals)), "se": float(np.std(vals, ddof=1) / math.sqrt(len(vals))), "values": vals}
+        vals: list[int] = []
+        abund: list[list[int]] = []
+        for s in range(seeds):
+            c = causal_matrix(sprinkle_diamond(n, 2, rng_for(entropy, 3000 + n, s)))
+            vals.append(bd_action_2d(c))
+            abund.append([int(v) for v in interval_abundances(c, 2)])
+        a = np.array(abund, dtype=float)
+        out[f"N{n}"] = {
+            "mean": float(np.mean(vals)),
+            "se": float(np.std(vals, ddof=1) / math.sqrt(len(vals))),
+            "nk_mean": a.mean(0).tolist(),
+            "nk_se": (a.std(0, ddof=1) / math.sqrt(len(vals))).tolist(),
+            "nk_exact": [expected_abundance_2order(k, n) for k in range(3)],
+            "values": vals,
+        }
     return out
 
 
 def c0_4(entropy: int, n: int, seeds: int) -> dict[str, Any]:
     out: dict[str, Any] = {}
-    gens = {
+    gens: dict[str, Callable[[np.random.Generator], npt.NDArray[np.bool_]]] = {
         "sprinkle_d2": lambda r: causal_matrix(sprinkle_diamond(n, 2, r)),
         "sprinkle_d3": lambda r: causal_matrix(sprinkle_diamond(n, 3, r)),
         "sprinkle_d4": lambda r: causal_matrix(sprinkle_diamond(n, 4, r)),
@@ -107,6 +123,42 @@ def c0_4(entropy: int, n: int, seeds: int) -> dict[str, Any]:
             rows.append({"d_mm": dmm, "d_mid": dmid, "gap": abs(dmm - dmid), "S_bd": bd_action_2d(c)})
         out[name] = rows
     return out
+
+
+# --- Criterios congelados (docs/OMEGA_2_PROPUESTA_CAUSAL.md §4 y enmiendas §8) ---
+C01_TOL = 0.10
+C02_BAND = (0.98, 1.02)
+C04_FRAC = 0.90
+TAU_C04: float | None = 0.75  # enmienda C-A4: 1.1 x gap maximo de sprinklings en el piloto, redondeado arriba a 0.05
+
+
+def manifold_flag(row: dict[str, Any], tau: float) -> bool:
+    """C-A3: un d_mid o d_MM indefinido (nan) cuenta como NO compatible con variedad."""
+    gap = row["gap"]
+    return bool(np.isfinite(gap) and gap <= tau)
+
+
+def evaluate(res: dict[str, Any]) -> dict[str, Any]:
+    v: dict[str, Any] = {}
+    c1 = res["c0_1"]
+    v["C0-1"] = all(abs(c1[f"d{d}_N1024"]["mean"] - d) <= C01_TOL for d in (2, 3, 4))
+    c2 = res["c0_2"]
+    v["C0-2"] = all(C02_BAND[0] <= c2[f"d{d}"]["ratio"] <= C02_BAND[1] for d in (2, 3, 4))
+    c3 = res["c0_3"]["N1024"]
+    v["C0-3"] = abs(c3["mean"] - 1.0) <= 3 * c3["se"]
+    v["C0-3-exact (C-A2)"] = all(
+        abs(c3["nk_mean"][k] - c3["nk_exact"][k]) <= 3 * c3["nk_se"][k] for k in range(3)
+    )
+    if TAU_C04 is None:
+        v["C0-4"] = "tau no congelado"
+    else:
+        c4 = res["c0_4"]
+        frac = {k: float(np.mean([manifold_flag(r, TAU_C04) for r in rows])) for k, rows in c4.items()}
+        v["C0-4_fracciones_marcadas"] = frac
+        v["C0-4"] = all(frac[f"sprinkle_d{d}"] >= C04_FRAC for d in (2, 3, 4)) and all(
+            1 - frac[k] >= C04_FRAC for k in ("kr", "percolation")
+        )
+    return v
 
 
 def main() -> None:
@@ -138,6 +190,8 @@ def main() -> None:
     with (out / "runs.jsonl").open("w") as fh:
         fh.write(json.dumps(res) + "\n")
     summary.update({"phase": "final", "seconds": round(time.time() - t0, 1)})
+    if mode == "full":
+        summary["verdicts"] = evaluate(res)
     (out / "summary.json").write_text(json.dumps(summary, indent=2))
     print(json.dumps(summary, indent=2))
 
