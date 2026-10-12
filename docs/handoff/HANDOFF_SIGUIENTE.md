@@ -35,4 +35,4 @@ Cerrado. C0-4b pasó (ver resultados §5). Mejora opcional, no bloqueante: repet
 - `omega/causality/` no depende de Ω-1.1. Ningún archivo de Ω-1.1 cambió.
 - `tools/c0_validation.py --mode full` exige árbol limpio y tarda ~45 s.
 - `omega/causality/exact.py` da E[N_k] y E[S_BD] exactos para 2-órdenes; úsese como prueba de regresión.
-- No se ejecutó la suite completa del repo (~5 min); sí los tests de arquitectura y `tests/test_causality.py`.
+- Suite completa verificada el 2026-10-12 sobre `63b1e8a`, por grupos (el contenedor corta procesos largos): 700 passed, 0 failed (`tests/analytical` + `tests/test_[a-f]*` 398; `test_[g-o]*` 109; `test_[p-z]*` 131; `omega/experiments` 62). Ningún archivo de Ω-1.1 cambió.
