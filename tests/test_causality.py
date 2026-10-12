@@ -210,3 +210,16 @@ def test_bd_action_4d_small_cases() -> None:
     assert bd_action_4d(np.zeros((6, 6), dtype=bool)) == 6
     c = causal_matrix(sprinkle_diamond(60, 4, _rng(41)))
     assert bd_action_4d_smeared(c, 1 - 1e-9) == pytest.approx(bd_action_4d(c), abs=1e-3)
+
+
+def test_slab_torus_relation_and_retarded_sum() -> None:
+    from omega.causality.estimators import bd_action_4d, bd_action_4d_smeared
+    from omega.causality.torus import retarded_action_4d, slab_causal_matrix, sprinkle_slab
+
+    # dos puntos separados espacialmente 0.9 en x estan a 0.1 por la imagen minima
+    x = np.array([[0.0, 0.05, 0.5, 0.5], [0.15, 0.95, 0.5, 0.5]])
+    assert slab_causal_matrix(x)[0, 1]
+    c = slab_causal_matrix(sprinkle_slab(150, _rng(51)))
+    assert is_partial_order(c)
+    assert retarded_action_4d(c, 1.0).sum() == pytest.approx(bd_action_4d(c))
+    assert retarded_action_4d(c, 0.25).sum() == pytest.approx(bd_action_4d_smeared(c, 0.25))
