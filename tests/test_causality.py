@@ -267,7 +267,7 @@ def test_e1prime_helpers() -> None:
 
     c = _chain(12)
     r = interval_balanced(c, 4)
-    assert r.size == 4
+    assert 3 <= r.size <= 5  # la ventana N/4 +- 5% se redondea hacia afuera (floor/ceil)
     assert causal_complement(c, r).size == 0  # en una cadena todo esta relacionado
     anti = np.zeros((6, 6), dtype=bool)
     assert interval_balanced(anti, 3).size == 0

@@ -105,7 +105,7 @@ def interval_balanced(c: npt.NDArray[np.bool_], target: int, tol: float = 0.05) 
 
 def causal_complement(c: npt.NDArray[np.bool_], region: npt.NDArray[np.int64]) -> npt.NDArray[np.int64]:
     """R^perp: elementos fuera de R sin relacion con ningun elemento de R."""
-    related = c[region, :].any(axis=0) | c[:, region].any(axis=1)
+    related: npt.NDArray[np.bool_] = np.asarray(c[region, :].any(axis=0) | c[:, region].any(axis=1), dtype=bool)
     related[region] = True
     out: npt.NDArray[np.int64] = np.flatnonzero(~related).astype(np.int64)
     return out
