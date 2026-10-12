@@ -122,3 +122,21 @@ def test_abundances_match_exact_expectation() -> None:
     for k in range(3):
         se = ab[:, k].std(ddof=1) / math.sqrt(reps)
         assert abs(ab[:, k].mean() - expected_abundance_2order(k, n)) <= 4 * se
+
+
+def test_thick_layer_is_partial_order() -> None:
+    from omega.causality.orders import thick_layer_order
+
+    c = thick_layer_order(160, 8, 0.5, _rng(11))
+    assert is_partial_order(c)
+
+
+def test_profile_helpers() -> None:
+    from omega.causality.profile import chain_abundances, d_ref, profile_distance, reference_abundances
+
+    assert list(chain_abundances(5, 3)) == [4, 3, 2, 1]
+    # una cadena coincide exactamente con su referencia
+    assert profile_distance(interval_abundances(_chain(30), 8), reference_abundances(1, 30)) == 0.0
+    assert d_ref(2.4) == 2 and d_ref(0.3) == 1 and d_ref(7.0) == 4 and d_ref(float("nan")) is None
+    ref2 = reference_abundances(2, 64)
+    assert ref2[0] == pytest.approx(expected_abundance_2order(0, 64))

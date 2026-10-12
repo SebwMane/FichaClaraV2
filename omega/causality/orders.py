@@ -5,7 +5,14 @@ from __future__ import annotations
 import numpy as np
 import numpy.typing as npt
 
-__all__ = ["random_2order", "kr_order", "transitive_percolation", "transitive_closure", "is_partial_order"]
+__all__ = [
+    "random_2order",
+    "kr_order",
+    "transitive_percolation",
+    "thick_layer_order",
+    "transitive_closure",
+    "is_partial_order",
+]
 
 BoolMatrix = npt.NDArray[np.bool_]
 
@@ -60,3 +67,14 @@ def transitive_percolation(n: int, p: float, rng: np.random.Generator) -> BoolMa
     perm = rng.permutation(n)
     out: BoolMatrix = clo[np.ix_(perm, perm)]
     return out
+
+
+def thick_layer_order(n: int, layers: int, p: float, rng: np.random.Generator) -> BoolMatrix:
+    """Capas de tamano n // layers (el resto en la ultima); relaciones entre capas consecutivas con prob. p."""
+    if layers < 2 or n < layers:
+        raise ValueError("se requieren layers >= 2 y n >= layers")
+    size = n // layers
+    layer = np.minimum(np.arange(n) // size, layers - 1)
+    adj = (layer[:, None] + 1 == layer[None, :]) & (rng.random((n, n)) < p)
+    perm = rng.permutation(n)
+    return transitive_closure(adj[np.ix_(perm, perm)])
