@@ -462,3 +462,12 @@ Con el método de pares de §19.1 adaptado al bloque (v = c₄ τ⁴ / V_bloque,
 - **Lectura preregistrada por N:** «VENTANA» si algún β ≠ 0 tiene fracción marcada ≥ 0.5; «SIN VENTANA» si ningún β la tiene. Para ambos N con VENTANA: «se angosta» si el rango de β con fracción ≥ 0.5 en N = 128 está estrictamente contenido en el de N = 64.
 - **Se registra sin voto**, para buscar lo inesperado: para cada β, d_MM, fracción de pares relacionados, altura (cadena más larga) y ⟨S₄⟩ de los estados finales, es decir, **a qué tipo de orden va la dinámica** cuando abandona la geometría.
 - **Expectativa honesta:** SIN VENTANA o una ventana mínima cerca de β = 0, con β > 0 yendo hacia capas. Para β < 0 no hay expectativa.
+
+### 21.1 Error detectado tras la primera corrida de N = 64 y enmienda P4-A1
+
+**Hallazgo (A-22, gravedad alta).** El criterio de aceptación tenía el atajo «si ΔS ≤ 0, aceptar», válido solo para β ≥ 0. Con β < 0 aceptaba siempre los movimientos que bajan S, que es justo lo que ese peso debe castigar. La auditoría previa no lo detectó; apareció al leer la corrida (β = −0.1 daba aceptación 1.00 y S₄ ≈ −430, igual que β > 0). **Las filas con β < 0 de ese primer intento son inválidas** (archivo conservado como `n64_intento1_invalido_beta_negativo.json`). Las filas con β ≥ 0 no cambian: el criterio corregido es idéntico para β ≥ 0 y consume los mismos números aleatorios.
+
+| ID | Cambio | ¿Puede crear un positivo? |
+|---|---|---|
+| P4-A1a | Aceptación correcta para ambos signos: aceptar si −βΔS ≥ 0, o con probabilidad e^{−βΔS}. | Corrige un error; los β < 0 se miden por primera vez. |
+| P4-A1b | P4-0 añade una prueba exacta con β = −0.5 en N = 4: frecuencias frente a e^{−βS₄} de los 40 órdenes (χ², p > 0.001). Se repite P4-0 completo. | No: es más estricto. |

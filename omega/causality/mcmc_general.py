@@ -71,7 +71,8 @@ def sweep(st: GeneralState, beta: float, rng: np.random.Generator) -> tuple[int,
         k1 = b[i, succ]
         k2 = b[pred, j]
         ds += float(np.sum(_c(k1 + sign) - _c(k1)) + np.sum(_c(k2 + sign) - _c(k2)))
-        if ds <= 0 or u[t] < math.exp(-beta * ds):
+        # AUDITORIA A-22: el atajo 'ds <= 0 acepta' solo vale para beta >= 0
+        if -beta * ds >= 0 or u[t] < math.exp(-beta * ds):
             c[i, j] = sign > 0
             b[i, succ] += sign
             b[pred, j] += sign

@@ -63,7 +63,27 @@ def p40() -> dict[str, Any]:
         sweep(st4, 0.0, r4)
         counts[index[tuple(int(st4.c[i, j]) for i, j in pairs)]] += 1
     p = float(chisquare(counts).pvalue)
-    return {"a_ok": a_ok, "n_posets_4": len(valid), "chi2_p": p, "pass": a_ok and len(valid) == 40 and p > 0.001}
+    # ENMIENDA P4-A1: con beta = -0.5 la cadena debe reproducir e^{-beta S4} exacto sobre los 40 ordenes
+    from omega.causality.estimators import bd_action_4d
+    beta_neg = -0.5
+    w = np.array([np.exp(-beta_neg * bd_action_4d(_mat(v, pairs))) for v in valid])
+    stn = init_state(np.zeros((4, 4), dtype=bool))
+    rn = rng_for(ENT_VAL, 4)
+    cn = np.zeros(len(valid))
+    for _ in range(200_000):
+        sweep(stn, beta_neg, rn)
+        sweep(stn, beta_neg, rn)
+        cn[index[tuple(int(stn.c[i, j]) for i, j in pairs)]] += 1
+    pn = float(chisquare(cn, w / w.sum() * cn.sum()).pvalue)
+    ok = a_ok and len(valid) == 40 and p > 0.001 and pn > 0.001
+    return {"a_ok": a_ok, "n_posets_4": len(valid), "chi2_p": p, "chi2_p_beta_neg": pn, "pass": ok}
+
+
+def _mat(bits: tuple[int, ...], pairs: list[tuple[int, int]]) -> np.ndarray[Any, Any]:
+    c = np.zeros((4, 4), dtype=bool)
+    for (i, j), on in zip(pairs, bits):
+        c[i, j] = bool(on)
+    return c
 
 
 def classifier(n: int) -> tuple[float, np.ndarray[Any, Any], dict[str, Any]]:

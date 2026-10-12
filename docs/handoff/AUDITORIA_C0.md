@@ -137,3 +137,9 @@ Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_ac
 ## 16. Auditoría de P4 (entrega `f683d1c`)
 
 **Veredicto: apto sin correcciones.** Actualización incremental verificada por test (tras 20 barridos con β = 0.05, B y S₄ coinciden con el recálculo completo); validez de las propuestas (solo se quita un link; solo se agrega si todo a ≺ i ya cumple a ≺ j y todo b ≻ j ya cumple i ≺ b) implica transitividad; propuesta simétrica; presupuestos y entropías iguales a §21. Riesgo anotado: con N = 64 el redondeo de d_MM a 4 puede fallar en algunos sprinklings, y la validación del clasificador lo detectaría.
+
+### 16.1 Corrección tras la corrida (A-22)
+
+| ID | Gravedad | Hallazgo | Corrección |
+|---|---|---|---|
+| A-22 | **Alta** | Aceptación con atajo «ΔS ≤ 0 acepta», incorrecto para β < 0. La auditoría de §16 no lo vio: la validación P4-0 solo probaba β = 0 y β = 0.01. | Enmienda P4-A1: criterio corregido y validación exacta con β negativo. Lección: validar el muestreador en todo el rango de parámetros que se va a usar, no solo en un punto. |
