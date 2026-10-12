@@ -78,6 +78,10 @@ Un DISCRIMINA sería nivel 1 para 2D, N ≤ 2400 y estas familias: mostraría qu
 - **Riesgo declarado (nivel 1, cuenta directa).** La condición 2 es más permisiva que la ventana fija de E1. KR tuvo a = 0.436 en E1, a 0.103 de 1/3; pasaría la condición 2 si SE(a) ≥ 0.026. Con R4-2 sin voto, E1′ puede marcar a KR con «ley de área», y en ese caso el resultado sería NO DISCRIMINA. El diagnóstico de complementariedad quedará registrado para interpretar ese caso.
 - **Paso 3 (piloto) se mantiene**, aunque ya no fije una tolerancia que vote: sirve para conocer cuánto difieren S(R) y S(R^⊥) en la geometría y leer bien el diagnóstico.
 
+### 6.1b Decisión sobre la condición del coeficiente (2026-10-12)
+
+Ofrecida la opción de volver a la ventana fija de E1 ([0.23, 0.43]) para atenuar el riesgo de KR, el usuario decidió **mantener la condición con incertidumbre** (|a − 1/3| ≤ 2·SE(a) + 0.05). El riesgo de §6.1 queda aceptado y declarado.
+
 ### 6.2 Regla de rodilla propuesta (a congelar en el paso 4)
 
 Sobre los autovalores positivos de iΔ ordenados de mayor a menor, en escala log-log (log rango frente a log autovalor), la rodilla es el punto de máxima distancia a la recta que une el primer y el último punto. Se truncan los modos por debajo de la rodilla, en la región grande y en la restringida, igual que con el umbral fijo. Si la distancia máxima es menor que 0.05 en unidades de log10, se declara «sin rodilla» y no se trunca. Validación descriptiva: en sprinklings 2D la rodilla debería caer cerca de √N/(4π), como muestra la figura 6 de Sorkin y Yazdi.
