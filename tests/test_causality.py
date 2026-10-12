@@ -200,3 +200,13 @@ def test_wanglandau_chunking_is_deterministic_and_n4_exact() -> None:
     a = wl_run(a, 2 * BATCH)
     b = wl_run(wl_run(b, BATCH), BATCH)
     assert a.lng == b.lng and a.v == b.v and a.t == b.t == 2 * BATCH
+
+
+def test_bd_action_4d_small_cases() -> None:
+    from omega.causality.estimators import bd_action_4d, bd_action_4d_smeared
+
+    # cadena de 5: N0=4, N1=3, N2=2, N3=1 -> 5 - 4 + 27 - 32 + 8 = 4
+    assert bd_action_4d(_chain(5)) == 4
+    assert bd_action_4d(np.zeros((6, 6), dtype=bool)) == 6
+    c = causal_matrix(sprinkle_diamond(60, 4, _rng(41)))
+    assert bd_action_4d_smeared(c, 1 - 1e-9) == pytest.approx(bd_action_4d(c), abs=1e-3)

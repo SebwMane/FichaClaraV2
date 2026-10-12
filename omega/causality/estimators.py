@@ -16,6 +16,9 @@ __all__ = [
     "interval_abundances",
     "bd_action_2d",
     "bd_action_2d_smeared",
+    "bd_action_4d",
+    "bd_action_4d_smeared",
+    "smearing_weight_4d",
     "midpoint_dimension",
 ]
 
@@ -98,3 +101,29 @@ def bd_action_2d_smeared(c: BoolMatrix, eps: float) -> float:
     b = between_counts(c)
     vals = b[b >= 0].astype(np.float64)
     return float(eps * (c.shape[0] - 2 * eps * float(np.sum(smearing_weight(vals, eps)))))
+
+
+def bd_action_4d(c: BoolMatrix) -> int:
+    """Accion BD 4D sin suavizar (prefactor absorbido): S4 = N - N0 + 9 N1 - 16 N2 + 8 N3."""
+    n0, n1, n2, n3 = (int(x) for x in interval_abundances(c, 3))
+    return int(c.shape[0]) - n0 + 9 * n1 - 16 * n2 + 8 * n3
+
+
+def smearing_weight_4d(n: npt.NDArray[np.float64], eps: float) -> npt.NDArray[np.float64]:
+    """f4(n, eps) de Benincasa-Dowker (Rev. 3 §19)."""
+    z = 1.0 - eps
+    out: npt.NDArray[np.float64] = z**n * (
+        1 - 9 * eps * n / z + 8 * eps**2 * n * (n - 1) / z**2 - 4 * eps**3 * n * (n - 1) * (n - 2) / (3 * z**3)
+    )
+    return out
+
+
+def bd_action_4d_smeared(c: BoolMatrix, eps: float) -> float:
+    """S4_eps = N - eps sum_n N_n f4(n, eps); eps = 1 se delega en bd_action_4d."""
+    if eps == 1.0:
+        return float(bd_action_4d(c))
+    if not 0 < eps < 1:
+        raise ValueError("eps debe estar en (0, 1]")
+    b = between_counts(c)
+    vals = b[b >= 0].astype(np.float64)
+    return float(c.shape[0] - eps * float(np.sum(smearing_weight_4d(vals, eps))))
