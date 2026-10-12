@@ -442,3 +442,23 @@ Con el método de pares de §19.1 adaptado al bloque (v = c₄ τ⁴ / V_bloque,
 - **INDETERMINADO:** otro caso, o C4b no aprobado.
 - **Diagnóstico sin voto:** ¿η_int es compatible con 0.5 (dispersión tipo suma de términos locales)? ¿η_tot del toro baja respecto de L4 (diamantes, η ≈ 0.8 a 1.3)?
 - **Expectativa honesta (nivel 2):** INCOMPATIBLE. Si s(x) tiene varianza no nula y correlaciones de corto alcance, sd(S_interior) crece como √N_interior; con λε fijado en la ventana, eso basta para impedir la coherencia. Si el borde era el responsable del exceso medido en L4, se espera η_int ≈ 0.5.
+
+## 21. P4: piloto de factibilidad de la rama euclídea en 4D · PILOTO PREREGISTRADO (2026-10-12)
+
+**Pedido del usuario:** intentarlo aunque la expectativa sea desfavorable, por si enseña algo inesperado. Es un **piloto**: nivel 1 solo para N ∈ {64, 128}; sus conclusiones son exploratorias.
+
+**Espacio y dinámica.** Órdenes con etiquetado natural (i ≺ j implica i < j). Movimiento: elegir un par i < j al azar; si es un link, quitarlo; si no están relacionados y agregar i ≺ j deja el conjunto transitivo (todo a ≺ i ya cumple a ≺ j, y todo b ≻ j ya cumple i ≺ b), agregarlo; en otro caso, rechazar. La propuesta es simétrica, así que Metropolis con min(1, e^{−βΔS₄}) muestrea e^{−βS₄} sobre órdenes etiquetados naturalmente (cada orden pesa según su número de extensiones lineales; se declara). Acción sin suavizar S₄ = N − N₀ + 9N₁ − 16N₂ + 8N₃, actualizada en O(N) por movimiento.
+
+**Se prueban β de ambos signos**, porque las familias por capas tienen S₄ muy negativo: β > 0 las favorece; β < 0 las castiga.
+
+### P4-0 (vota): instrumento
+- (a) Tras 2·10⁵ movimientos con β = 0.01 y N = 32 desde un sprinkling 4D: la matriz sigue siendo un orden parcial y los conteos incrementales coinciden con un recálculo completo.
+- (b) Con β = 0 y N = 4, la cadena debe muestrear uniformemente los 40 órdenes etiquetados naturalmente de 4 elementos (enumeración exacta): prueba χ² con 2·10⁵ muestras, p > 0.001.
+
+### P4-1 (estabilidad de la geometría 4D)
+- Inicio: sprinkling 4D en un diamante, etiquetado por tiempo. N ∈ {64, 128}; β ∈ {−0.1, −0.03, −0.01, −0.003, 0, 0.003, 0.01, 0.03, 0.1}; 100 barridos de termalización y 100 de medición (1 barrido = N(N−1)/2 propuestas), una muestra cada 10.
+- Clasificador «geometría 4D»: bandera C0-4b recalibrada a cada N con 40 sprinklings 4D (δ₄ = 1.5 × p95, entropía 20261045) y validada antes de leer (≥ 90% de 100 sprinklings 4D marcados; ≤ 10% de 20 órdenes KR y 20 bicapas). Si no valida a un N, ese N es INDETERMINADO.
+- Entropías: cadenas 20261044, validación 20261046.
+- **Lectura preregistrada por N:** «VENTANA» si algún β ≠ 0 tiene fracción marcada ≥ 0.5; «SIN VENTANA» si ningún β la tiene. Para ambos N con VENTANA: «se angosta» si el rango de β con fracción ≥ 0.5 en N = 128 está estrictamente contenido en el de N = 64.
+- **Se registra sin voto**, para buscar lo inesperado: para cada β, d_MM, fracción de pares relacionados, altura (cadena más larga) y ⟨S₄⟩ de los estados finales, es decir, **a qué tipo de orden va la dinámica** cuando abandona la geometría.
+- **Expectativa honesta:** SIN VENTANA o una ventana mínima cerca de β = 0, con β > 0 yendo hacia capas. Para β < 0 no hay expectativa.
