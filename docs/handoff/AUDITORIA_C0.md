@@ -129,3 +129,7 @@ Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_ac
 | — | Verificado | El método de referencia por pares, aplicado a 2D (scratchpad, entropía 9090), reproduce E[S] = 1: 0.66 ± 0.63 (N = 64) y −4.0 ± 5.8 (N = 256). | — |
 | — | Verificado | Cadena de 5 da S₄ = 4; ε → 1 recupera S₄; coeficientes de f₄ en ε = 1 dan (1, −9, 16, −8). | — |
 | — | Observación | En ε = 1 y N = 512 el error de la referencia puede ser grande y restarle potencia a C4; se informa. | — |
+
+## 15. Auditoría de L4b (entrega `3886c70`)
+
+**Veredicto: apto sin correcciones.** Imagen mínima correcta (test con separación 0.9 → 0.1); con T = 0.4 < 1/2 la relación es transitiva (test de orden parcial); la suma de s(x) reproduce exactamente S₄ y S₄,ε del instrumento validado (tests); la referencia por pares usa v relativo al volumen del bloque, que es lo que requiere `expected_action_4d`; los pares no relacionados quedan enmascarados antes de aplicar coeficientes.
