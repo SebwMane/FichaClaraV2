@@ -133,3 +133,7 @@ Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_ac
 ## 15. Auditoría de L4b (entrega `3886c70`)
 
 **Veredicto: apto sin correcciones.** Imagen mínima correcta (test con separación 0.9 → 0.1); con T = 0.4 < 1/2 la relación es transitiva (test de orden parcial); la suma de s(x) reproduce exactamente S₄ y S₄,ε del instrumento validado (tests); la referencia por pares usa v relativo al volumen del bloque, que es lo que requiere `expected_action_4d`; los pares no relacionados quedan enmascarados antes de aplicar coeficientes.
+
+## 16. Auditoría de P4 (entrega `f683d1c`)
+
+**Veredicto: apto sin correcciones.** Actualización incremental verificada por test (tras 20 barridos con β = 0.05, B y S₄ coinciden con el recálculo completo); validez de las propuestas (solo se quita un link; solo se agrega si todo a ≺ i ya cumple a ≺ j y todo b ≻ j ya cumple i ≺ b) implica transitividad; propuesta simétrica; presupuestos y entropías iguales a §21. Riesgo anotado: con N = 64 el redondeo de d_MM a 4 puede fallar en algunos sprinklings, y la validación del clasificador lo detectaría.
