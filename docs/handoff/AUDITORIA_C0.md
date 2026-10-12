@@ -36,3 +36,17 @@
 - No cambió ninguna tolerancia de C0-1, C0-2 ni C0-3.
 - No eligió τ para salvar la percolación (ningún τ razonable la salva).
 - No ejecutó ninguna dinámica sobre órdenes.
+
+## 5. Auditoría de C0-4b (entrega `e348899`)
+
+**Veredicto: apto para la corrida oficial sin correcciones.**
+
+| # | Verificación | Resultado |
+|---|---|---|
+| V7 | La calibración de δ no usa ningún control (inspección del código de `calibrate`) | cumple |
+| V8 | Constantes de la herramienta frente a §9 (entropías, 40 réplicas, 20 semillas, 1.5 × p95, 90% y 10%, K = 8) | todas coinciden |
+| V9 | Referencia d = 2 exacta coincide con el sprinkling (ya verificado en C0-3 exacto) | cumple |
+| V10 | Flujos aleatorios de referencia, calibración y corrida oficial en entropías distintas | cumple |
+| V11 | mypy --strict y tests | limpio; 15 tests pasan |
+
+**Observación sin corrección.** En el smoke (N = 128, solo 4 réplicas de referencia) el sprinkling 4D quedó marcado en 2 de 3 semillas. Con N y réplicas tan pequeñas no es evidencia de nada y no motiva ningún cambio; se anota para comparar con la corrida oficial.
