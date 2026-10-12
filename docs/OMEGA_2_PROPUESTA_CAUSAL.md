@@ -258,3 +258,19 @@ Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido
 | ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
 |---|---|---|---|---|
 | L3cE′-A1 | Piso de la malla | Si en el b más bajo (2.0) la fracción ya es < 0.5, b_c(N) es solo una cota superior (≤ 2). Un N con piso no puede sostener un PASA (resultado INDETERMINADO), pero un FALLA sigue valiendo si la cota superior ya cae más de un paso respecto del N anterior sin piso. | Con la regla literal, dos N con piso darían b_c = 2.0 en ambos y un PASA falso. | No: solo bloquea positivos. |
+
+## 14. L-3c-E″: prueba de histéresis de la rama euclídea · PROBAR (preregistrado 2026-10-12)
+
+**Orden de ejecución fijado por el usuario:** histéresis primero, Bloque A después.
+
+**Pregunta.** ¿El b_c de L-3c-E′ es una transición real o una metaestabilidad de partir siempre desde geometría?
+
+- **Todo igual a §12** (malla de b, N ∈ {32, 64, 128}, β = b/N, barridos, muestras, clasificador con entropías 20261026 y 20261027) **salvo el inicio:** la cadena parte de la bicapa como 2-orden (u = identidad; v = primera mitad en orden decreciente, segunda mitad en orden decreciente desplazada), que es no geométrica. Entropía de cadena 20261028.
+- **b_c↓(N):** el menor b de la malla con fracción marcada < 0.5, misma definición que b_c↑ de §12. Piso: si en b = 2.0 la fracción ya es < 0.5, b_c↓ ≤ 2 (cota superior).
+- **Brecha H(N):** número de pasos de malla entre b_c↑ (de §12) y b_c↓.
+- **Decisión:**
+  - **SIN HISTÉRESIS RELEVANTE:** H(N) ≤ 1 en los tres N y ningún piso. El PASA de L-3c-E′ se fortalece.
+  - **HISTÉRESIS CRECIENTE:** H(128) ≥ 2 y H(128) > H(32). El PASA de L-3c-E′ se rebaja a «estabilidad metaestable».
+  - **HISTÉRESIS ESTABLE:** cualquier otro caso sin piso. El PASA se mantiene solo si la secuencia conservadora b_c↓ también cumple el criterio de §12 (no cae más de un paso por duplicación); si no, se rebaja.
+  - **INDETERMINADO:** algún piso.
+- **Expectativa:** ninguna fijada; las transiciones de primer orden suelen mostrar histéresis, pero no hay base para predecir su tamaño aquí.
