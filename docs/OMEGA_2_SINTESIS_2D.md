@@ -56,3 +56,9 @@ Documento de cierre para quien retome el trabajo. Detalle en `OMEGA_2_PROPUESTA_
 **Lección 5.** La dispersión de la acción discreta en geometrías planas 4D crece más rápido que √N incluso lejos de los bordes: las fluctuaciones están correlacionadas a larga distancia por la no localidad. En los esquemas probados, eso impide que la geometría sea coherente en la suma lorentziana donde las capas se cancelan, en 2D y en 4D.
 
 **Estado global de Ω-C.** Rama lorentziana: cerrada en 2D e incompatible en 4D en todo lo probado. Rama euclídea: estable localmente en 2D, equilibrio sin resolver; no iniciada en 4D (exige Metropolis sobre órdenes generales).
+
+## Anexo 2: piloto euclídeo 4D (P4)
+
+SIN VENTANA en N = 64 y 128: partiendo de geometría 4D, la dinámica sobre órdenes generales la abandona con todos los β probados (−0.1 a +0.1), incluido β = 0. **Lección 6 (nivel 2):** la acción BD 4D tiene familias no geométricas extremas en ambos sentidos (capas densas con S₄ muy negativa; capas dispersas con capas delgadas, que explotan el término +9N₁, con S₄ muy positiva). La geometría no es extremo de la acción para ningún signo del acoplamiento.
+
+**Estado global final de Ω-C:** rama lorentziana cerrada en 2D e incompatible en 4D en todo lo probado; rama euclídea estable solo localmente en 2D (restringida a 2-órdenes) y sin ventana en el piloto 4D sobre órdenes generales.
