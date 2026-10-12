@@ -396,3 +396,29 @@ En ese régimen, la fase de la clase geométrica es x · (S_ε/ε²). Se mide D(
 - **INCOMPATIBLE (estructural):** para ambos K, η − 2·SE > 0. Lectura: dentro de la ventana necesaria para cancelar las capas, la fase de la geometría se dispersa cada vez más con N, y por §18.1 salirse de la ventana deja a las capas sin cancelar. En 2D, con la acción BD suavizada, no hay escalamiento de (λ, ε) que cumpla ambas condiciones.
 - **INDETERMINADO:** cualquier otro caso.
 - **Expectativa honesta:** INCOMPATIBLE. El sondeo de §11.3 (ε = 0.1 fijo) dio D entre 29 y 90, y un argumento de conteo sugiere D ∝ N^{1.5}·(algo), porque S_ε/ε² incluye N/ε − 2·(suma ponderada sobre ≈ N²/4 relaciones).
+
+## 19. Ratificación R3-3 (d = 4) y plan de la fase 4D (2026-10-12)
+
+| # | Estado |
+|---|---|
+| R3-3 | **RATIFICADA por el usuario (2026-10-12): Ω-C pasa a d = 4.** Los resultados de 2D quedan como antecedente (`OMEGA_2_SINTESIS_2D.md`). |
+
+**Acción 4D (literatura, verificada):** S₄ = N − N₀ + 9N₁ − 16N₂ + 8N₃ (Benincasa y Dowker 2010); el prefactor 4/√6 (ℓ/ℓ_p)² se absorbe en el acoplamiento. **Suavizada:** S₄,ε = N − ε Σ_n N_n f₄(n, ε), con f₄(n, ε) = (1−ε)^n [1 − 9εn/(1−ε) + 8ε²n(n−1)/(1−ε)² − 4ε³n(n−1)(n−2)/(3(1−ε)³)] (revisión de Surya 2019); ε = 1 recupera S₄. Los prefactores dependientes de ε también se absorben en λ.
+
+**Orden de la fase 4D:** (1) C4, validar el instrumento; (2) L4, prueba estructural decisiva de la rama lorentziana (barata); (3) rama euclídea 4D, que exige Metropolis sobre órdenes generales (los sprinklings 4D no son 2-órdenes): se planifica después de L4.
+
+### 19.1 C4: validación de la acción 4D · PROBAR
+
+- **Referencia independiente** (no usa la matriz de orden): con 4·10⁶ pares de puntos uniformes en el diamante 4D (entropía 20261038) se estima E_pares[1_rel · E_K f₄(K, ε)], K ~ Bin(N−2, v), v = V(I)/V(diamante), usando la forma cerrada E_K f₄ = y^M − 9εMv y^{M−1} + 8ε²M(M−1)v² y^{M−2} − (4/3)ε³M(M−1)(M−2)v³ y^{M−3}, y = 1 − εv, M = N − 2. Entonces E[S₄,ε] = N − ε C(N,2) · (ese promedio).
+- **Muestras:** 200 sprinklings por celda (entropía 20261039), N ∈ {128, 512}, ε ∈ {1, 0.25, 0.05}.
+- **Éxito:** en las seis celdas, |media − E_ref| ≤ 3·√(SE_muestra² + SE_ref²). Más tests unitarios exactos (cadena de 5: S₄ = 4).
+
+### 19.2 L4: compatibilidad en la rama lorentziana · PROBAR (requiere C4 aprobado)
+
+- Per link, S₄,ε aporta −ε, así que las familias por capas se suprimen sí y solo sí λε mod 2π ∈ W₄ = (2π/3, 4π/3) (misma derivación que §10.2). Con λε → 0 no se suprimen (corolario de §18.1).
+- En W₄, la fase de la geometría es (λε)·(S₄,ε/ε): se mide D₄(N) = sd(S₄,ε)/ε sobre sprinklings 4D (100 por N, entropía 20261040), N ∈ {128, 256, 512, 1024, 2048}.
+- **Esquemas de ε:** fijos {1, 0.5, 0.25, 0.1, 0.05} y fijos en volumen ε = K/N con K ∈ {16, 64}.
+- **COMPATIBLE:** algún esquema con D₄(2048) ≤ 3/(2π) ≈ 0.477 y η + 2·SE ≤ 0 (D₄ ∝ N^η).
+- **INCOMPATIBLE (en los esquemas probados):** η − 2·SE > 0 en todos.
+- **INDETERMINADO:** otro caso.
+- **Expectativa:** ninguna firme. En 2D el resultado fue incompatible; en 4D la acción no es topológica y la literatura introduce el suavizado justamente para reducir fluctuaciones.
