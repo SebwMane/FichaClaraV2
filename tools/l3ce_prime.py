@@ -109,14 +109,22 @@ def main() -> None:
         rows128 = [r for i in range(len(N128_SPLIT)) for r in parts[f"n128_{i}"]["data"]["rows"]]
         bc = {32: b_c(parts["n32"]["data"]["rows"]), 64: b_c(parts["n64"]["data"]["rows"]), 128: b_c(rows128)}
         val = {32: parts["n32"]["data"]["validation"], 64: parts["n64"]["data"]["validation"], 128: parts["n128_0"]["data"]["validation"]}
+        # AUDITORIA A-17 / enmienda L3cE'-A1: si ya en el b mas bajo la fraccion es < 0.5, b_c es solo una cota superior
+        rows_by_n = {32: parts["n32"]["data"]["rows"], 64: parts["n64"]["data"]["rows"], 128: rows128}
+        floored = {n: min(rows, key=lambda x: x["b"])["flag_fraction"] < 0.5 for n, rows in rows_by_n.items()}
+        pairs = [(32, 64), (64, 128)]
+        fails = [(a, b) for a, b in pairs if not floored[a] and bc[b] < bc[a] / STEP - 1e-9]
         if not all(v["ok"] for v in val.values()) or any(x == float("inf") for x in bc.values()):
             verdict = "INDETERMINADO"
-        elif bc[64] >= bc[32] / STEP - 1e-9 and bc[128] >= bc[64] / STEP - 1e-9:
-            verdict = "PASA (ventana estable con beta = b/N)"
-        else:
+        elif fails:
             verdict = "FALLA"
+        elif any(floored.values()):
+            verdict = "INDETERMINADO (b_c bajo el piso de la malla)"
+        else:
+            verdict = "PASA (ventana estable con beta = b/N)"
         summary = {"phase": "final", "commits_partes": commits, "un_solo_commit": len(commits) == 1,
-                   "b_c": {str(k): v for k, v in bc.items()}, "validacion": {str(k): v for k, v in val.items()}, "L-3c-E'": verdict}
+                   "b_c": {str(k): v for k, v in bc.items()}, "validacion": {str(k): v for k, v in val.items()},
+                   "piso": {str(k): v for k, v in floored.items()}, "L-3c-E'": verdict}
         (OUT / "summary.json").write_text(json.dumps(summary, indent=2))
         print(json.dumps(summary, indent=2))
         return

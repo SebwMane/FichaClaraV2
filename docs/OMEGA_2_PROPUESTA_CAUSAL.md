@@ -252,3 +252,9 @@ Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido
 **A-3 (clase geométrica, vota; nivel 2 con supuesto declarado).** La clase geométrica no admite conteo exacto. Se usa la aproximación de cumulantes −ln|φ| ≈ (λε²)² Var(S_ε/ε²)/2, que es un **supuesto** (nivel 4 hasta verificarse). Se mide Var(S_ε/ε²) ∝ N^γ para N ∈ {64, …, 1024} y ε ∈ {0.25, 0.1}. Además se verifica la aproximación donde |φ| sí es medible (λε² pequeño, N chico).
 - **Condición necesaria para que la rama L viva:** γ + 2·SE < 2. Con la entropía de los 2-órdenes (≈ 2N ln N) y la cancelación de las capas (∝ N²), eso implicaría que la geometría supera a las capas dentro de la ventana.
 - **No es suficiente:** no cubre familias no geométricas que no sean por capas.
+
+### 12.1 Enmienda operativa de L-3c-E′ (registrada ANTES de la corrida oficial)
+
+| ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
+|---|---|---|---|---|
+| L3cE′-A1 | Piso de la malla | Si en el b más bajo (2.0) la fracción ya es < 0.5, b_c(N) es solo una cota superior (≤ 2). Un N con piso no puede sostener un PASA (resultado INDETERMINADO), pero un FALLA sigue valiendo si la cota superior ya cae más de un paso respecto del N anterior sin piso. | Con la regla literal, dos N con piso darían b_c = 2.0 en ambos y un PASA falso. | No: solo bloquea positivos. |

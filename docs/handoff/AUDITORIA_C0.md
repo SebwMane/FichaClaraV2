@@ -73,3 +73,12 @@
 | A-15 | Baja | La herramienta tolera cambios en `results/` al exigir árbol limpio, porque escribe por partes. | Se acepta; `final` verifica que todas las partes provienen del mismo commit. |
 | A-16 | Observación | Arrancar siempre desde geometría mide estabilidad y puede sobrestimar β_c si hay histéresis (transición de primer orden). Como ambos N se miden igual, la comparación sigue siendo justa; el valor absoluto de β_c no se interpreta. | — |
 | — | Verificado | El agente detectó y corrigió por su cuenta una colisión de semillas entre las dos mitades de N = 64. | — |
+
+## 8. Auditoría de L-3c-E′ (entrega `6abac2f`)
+
+**Veredicto: apto tras una corrección.**
+
+| ID | Gravedad | Hallazgo | Corrección |
+|---|---|---|---|
+| A-17 | Media | Efecto piso: si la geometría ya se pierde en el b más bajo, b_c queda fijado en 2.0 y dos tamaños con piso producirían un PASA falso. | Enmienda L3cE′-A1. |
+| — | Verificado | Calibración y validación del clasificador idénticas a §11.6 con las entropías de §12; δ determinista entre tramos; comparación «un paso» con tolerancia numérica correcta. | — |
