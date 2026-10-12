@@ -274,3 +274,21 @@ Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido
   - **HISTÉRESIS ESTABLE:** cualquier otro caso sin piso. El PASA se mantiene solo si la secuencia conservadora b_c↓ también cumple el criterio de §12 (no cae más de un paso por duplicación); si no, se rebaja.
   - **INDETERMINADO:** algún piso.
 - **Expectativa:** ninguna fijada; las transiciones de primer orden suelen mostrar histéresis, pero no hay base para predecir su tamaño aquí.
+
+## 15. Bloque A: detalle congelado antes de ejecutar (2026-10-12)
+
+### 15.1 Corrección de nivel de A-1
+
+§13 decía «nivel 1 con cota de error». Es incorrecto. Con S_ε = εN − 2ε²L + Δ (L = links entre capas consecutivas, Δ = aporte de los pares capa 1–capa 3), la cota disponible es |φ − φ_lead| ≤ E|λΔ|, que es **absoluta**. Para certificar una supresión del orden e^{−cN²} haría falta una cota relativa, que exige el tratamiento de punto silla de P. Carlip, S. Carlip y Surya (2022). Por eso **A-1 queda en nivel 2 (orden dominante), con respaldo de nivel 3 (resultado externo) para KR con la acción BDG.**
+
+### 15.2 A-2 (vota, entropía 20261029)
+
+- **A-2a, código:** bipartito aleatorio (p = 1/2), N ∈ {8, 12}, ε ∈ {0.5, 0.25}, λε² ∈ {0.1, 0.3, 0.6}, 20 000 muestras. Exacto: |cos(λε²)|^{P}, P = (N/2)². Pasa si todos los puntos están a ≤ 3·SE.
+- **A-2b, KR exhaustivo:** N = 8 (capas 2, 4, 2), las 2^16 configuraciones de relaciones entre capas consecutivas, cierre transitivo. Para ε ∈ {0.5, 0.25, 0.1} y λε² ∈ {0.3, π/3 + 0.1, π/2, 2π/3 − 0.1}: φ_enum exacto, φ_lead = e^{iλεN}((1 + e^{−2iλε²})/2)^{16} y B = E|λΔ| exacto. Pasa si |φ_enum − φ_lead| ≤ B en todos los puntos (comprobación de la derivación). Se informa |φ_enum| / |φ_lead| sin voto.
+
+### 15.3 A-3 (vota)
+
+- **Exponente:** 2-órdenes aleatorios, N ∈ {64, 128, 256, 512, 1024}, 200 por N (entropía 20261030), ε ∈ {0.25, 0.1}. Se ajusta ln Var(S_ε/ε²) = γ ln N + c por mínimos cuadrados. **Condición:** γ + 2·SE < 2 para ambos ε.
+- **Supuesto gaussiano:** N ∈ {16, 32, 64}, ε ∈ {0.25, 0.1}, λε² ∈ {0.02, 0.05, 0.1}, 20 000 muestras (entropía 20261031). Predicción exp(−(λε²)² V̂/2) con V̂ de las mismas muestras. Puntos utilizables: |φ̂| > 3/√M. **Condición:** en todos los utilizables, |φ̂ − pred| ≤ 3·SE(φ̂) + 3·|∂pred/∂V|·SE(V̂), con SE(V̂) = V̂√(2/(M−1)).
+- **A-3 PASA** si se cumplen ambas condiciones. Lectura: condición necesaria (no suficiente) para que la geometría supere a las familias por capas dentro de la ventana.
+- **Sin voto (nivel 4):** N* aproximado a partir del cual la clase geométrica supera a la bicapa en λε² = 1.2, comparando ln N! − (λε²)² V(N)/2 con (N²/4) ln|2cos(λε²)|.
