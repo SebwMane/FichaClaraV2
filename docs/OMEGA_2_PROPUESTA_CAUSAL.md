@@ -126,3 +126,42 @@ Origen: auditoría del orquestador (`docs/handoff/AUDITORIA_C0.md`), el smoke (N
 **Éxito:** cada positivo marcado en ≥ 90% de las semillas **y** cada control marcado en ≤ 10%.
 **Fracaso:** cualquier celda fuera. Se vuelve al Consejo; no se recalibra δ ni se cambia K.
 **Escala de afirmación:** un éxito es nivel 1 sobre instrumentos («el clasificador separa estos positivos de estos controles a N = 1024»). No garantiza que separe cualquier orden no geométrico.
+
+## 10. Ratificación R3-2 y preregistro de L-2c (2026-10-12)
+
+### 10.1 Estado de las resoluciones
+
+| # | Estado |
+|---|---|
+| R3-1 | **Pendiente.** Ω-C sigue siendo candidata hasta que la compuerta (L-2c, L-3c) dé su resultado. |
+| R3-2 | **RATIFICADA por el usuario (2026-10-12): opción (c), ambos pesos con criterios separados.** Cada rama tiene su propio veredicto; el resultado de una no puede compensar el de la otra. |
+| R3-3 | **No firmada.** Se usa d = 2 porque es el valor por defecto de §3 y el único con resultados exactos; el usuario puede cambiarlo. |
+
+La ratificación de R3-2 autoriza la compuerta definida en §5 (L-2c ahora; L-3c después de leer L-2c). No autoriza simular Ω-C desde órdenes aleatorios fuera de la compuerta.
+
+### 10.2 Hechos estructurales usados (nivel 1, prueba corta)
+
+- **Paridad.** S = N − 2N₀ + 4N₁ − 2N₂ implica S ≡ N (mod 2) para todo orden. Por eso e^{iλS} no se cancela en λ = π para ninguna clase.
+- **Bipartito completo aleatorio** (n/2 + n/2 elementos, cada par entre capas relacionado con p = 1/2): todas las relaciones son links, S = N − 2·Bin(n²/4, 1/2) y |E e^{iλS}| = |cos λ|^{n²/4} exactamente.
+- **KR de tres capas.** Igual que el bipartito, salvo los pares capa 1–capa 3 con exactamente 1 o 2 vecinos comunes, cuya probabilidad es ≤ C·N^4·(3/4)^{N/2}, despreciable en N = 1024. Con ~2^{N²/4} órdenes en la clase, su peso total es ≈ |2 cos λ|^{N²/4}: **suprimido si y solo si |cos λ| < 1/2, es decir λ mod π ∈ (π/3, 2π/3)**. Nivel 1 para el bipartito; nivel 2 (con cota explícita) para KR.
+
+### 10.3 L-2c-E (rama euclídea, e^{−βS} restringido a 2-órdenes) · PROBAR
+
+- **Pregunta:** en el límite β → ∞ (el análogo exacto de L-2: «gana la menor acción»), ¿es mínima la acción de los 2-órdenes geométricos?
+- **Geométricos:** 2-órdenes aleatorios marcados por C0-4b (N = 1024, 20 semillas, entropía 20261018).
+- **No geométricos (2-órdenes construidos):** k antichains de tamaño N/k apiladas y totalmente relacionadas, k ∈ {2, 4, 16, 128}, etiquetas permutadas. Validación previa: ninguna debe quedar marcada por C0-4b; si alguna queda marcada, se excluye y se informa.
+- **Estadístico:** ΔS_E = min S(no geométricas) − media S(geométricas).
+- **Decisión:** ΔS_E > 0 → «geometría preferida a β → ∞»; ΔS_E < 0 → «geometría no preferida a β → ∞».
+- **Expectativa honesta preregistrada:** «no preferida». La bicapa da S = N − N²/2 ≈ −5·10⁵ frente a S ≈ 1. Coincide con la fase «cristalina» de la literatura de MCMC 2D.
+- **Lectura preregistrada (distinta de L-2):** un «no preferida» **no cierra** la rama euclídea, porque en β = 0 el 2-orden típico es geométrico (C0-4b: 100%). La pregunta pasa a ser si existe una ventana 0 < β < β_c con fase geométrica, y eso solo lo responde L-3c-E (Metropolis sobre 2-órdenes). Un «preferida» cerraría la compuerta E con éxito sin necesidad de L-3c-E.
+
+### 10.4 L-2c-L (rama lorentziana, e^{iλS} sobre todos los órdenes) · PROBAR
+
+- **L-i, instrumento (vota):** el código reproduce |cos λ|^{n²/4} para el bipartito con n ∈ {8, 12}, λ ∈ {0.2, 0.5, 1.0, π/2}, 20 000 muestras: |φ̂ − fórmula| ≤ 3·SE en todos los puntos. Si falla, se audita el código.
+- **L-ii, ventana de supresión de KR:** analítica, §10.2. Ventana W = (π/3, 2π/3).
+- **L-iii, coherencia de la clase geométrica (vota):** para 2-órdenes aleatorios con N ∈ {16, 32, 64, 128, 256}, 20 000 muestras por N (entropía 20261019), se estima |φ₂(λ)| = |media de e^{iλS}| en λ ∈ {1.2, π/2, 1.9} (dentro de W). Solo se usan puntos con |φ̂₂| > 3/√M. Se ajusta −ln|φ₂(λ)| ≈ c·N^b por mínimos cuadrados en log-log.
+  - **PASA:** en al menos uno de los tres λ hay ≥ 3 puntos utilizables y el ajuste da b < 2 con su extremo superior (b + 2·SE) < 2. Lectura: dentro de W, la cancelación de fase de la clase geométrica crece más lento que la de KR (∝ N²), así que la clase geométrica **domina a KR** asintóticamente.
+  - **NO PASA:** b + 2·SE ≥ 2 en todos los λ utilizables.
+  - **INDETERMINADO:** ningún λ con 3 puntos utilizables.
+- **Declaración de transparencia:** los valores de S de C0-3 (N = 64, 256, 1024; 200 semillas) existen y habrían permitido estimar φ₂; **no se usaron**. Antes de este preregistro solo se comprobó la paridad de S (§10.2).
+- **Escala de afirmación:** L-2c-L compara la clase geométrica solo con KR y con la bicapa (que es un bipartito completo, ver §10.2). Un PASA es nivel 2 para N ≤ 256 y **nivel 4 (extrapolación) para N grande**. No dice nada sobre otras clases no geométricas.
