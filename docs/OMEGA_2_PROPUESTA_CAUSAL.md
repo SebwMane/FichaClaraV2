@@ -223,3 +223,32 @@ Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido
 | ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
 |---|---|---|---|---|
 | L3cE-A1 | Clasificador a N = 32 y 64 | Antes de leer β_c, el clasificador recalibrado debe marcar ≥ 90% de 100 2-órdenes aleatorios y ≤ 10% de 20 2-órdenes en capas para cada k ∈ {2, 4, 8} (entropía 20261024). Si falla en algún N, L-3c-E es INDETERMINADO. | §11.6 recalibraba δ a N pequeño pero no exigía comprobar que siguiera separando geometría de capas (el δ₂ de N = 1024 no vale a N chico, ver A-13). En el scratchpad de auditoría (entropía 5150) sí separa: 98–99% frente a 0%. | No: solo puede bloquear. |
+
+## 12. Ratificación R3-5 y preregistro de L-3c-E′ (2026-10-12)
+
+| # | Estado |
+|---|---|
+| R3-5 | **RATIFICADA por el usuario (2026-10-12):** en la rama euclídea el acoplamiento es β = b/N con b fijo. Es un supuesto nuevo de la hipótesis que queda por justificar físicamente. |
+
+**Pregunta.** Con β = b/N, ¿la ventana geométrica deja de angostarse al crecer N?
+
+- **Dinámica, movimiento, inicio y clasificador:** idénticos a §11.6, con la enmienda L3cE-A1 (validación del clasificador a cada N, entropía 20261027).
+- **Malla:** N ∈ {32, 64, 128}; b = 2.0 · 2^{k/4}, k = 0..8 (2.0 a 8.0, pasos de ≈ 19%); β = b/N; 1000 barridos de termalización y 1000 de medición, una muestra cada 50. Entropías: cadena 20261025, calibración 20261026, validación 20261027.
+- **b_c(N):** el menor b de la malla con fracción marcada < 0.5; si no existe, b_c > 8.
+- **Decisión:**
+  - **PASA (ventana estable con β = b/N):** b_c(64) ≥ b_c(32)·2^{−1/4} y b_c(128) ≥ b_c(64)·2^{−1/4}. Es decir, b_c no cae más de un paso al duplicar N.
+  - **FALLA:** b_c cae más de un paso en alguna duplicación.
+  - **INDETERMINADO:** el clasificador no se valida en algún N, o b_c > 8 en algún N.
+- **Declaraciones.** (a) b_c(32) y b_c(64) se pueden anticipar por L-3c-E (β_c·N ≈ 4.5, con resolución de un paso de √2); la información nueva es N = 128 y la malla más fina. (b) **Potencia limitada:** un escalamiento β_c ∝ ln N / N daría b_c creciendo ≈ 17% por duplicación, menos de un paso; la prueba no distingue entre «1/N» y «ln N / N». Solo detecta un angostamiento más rápido que 1/N. (c) La parte con N = 128 se ejecuta en cinco tramos por el límite de tiempo del entorno; `final` verifica un único commit.
+
+## 13. Bloque A: vía analítica para la rama lorentziana (preregistrado, sin ejecutar)
+
+**Método de referencia.** Loomis y Carlip (2017) y sus extensiones (Mathur, Singh y Surya 2020; P. Carlip, S. Carlip y Surya 2022): en vez de muestrear, se cuenta exactamente cuántos órdenes de una familia tienen cada valor de acción y se suma la fase de forma cerrada. En órdenes por capas la acción depende casi solo del número de links, y la suma se factoriza par por par.
+
+**A-1 (derivación, nivel 1 con cota de error).** Para cualquier familia por capas (bicapa, KR, k capas) con la acción suavizada S_ε, los pares entre capas no consecutivas tienen n ≳ N/k elementos entre ellos y f(n, ε) ≤ C n² (1−ε)^n, despreciable a ε fijo. Sumando sobre todos los grafos de relaciones entre capas consecutivas, cada par aporta (1 + e^{−2iλε²}), de modo que el peso de la familia es ≈ |2 cos(λε²)|^{P}, con P el número de pares entre capas consecutivas (∝ N²). **Supresión universal de las familias por capas ⇔ λε² mod π ∈ (π/3, 2π/3).** Hay que escribir la cota explícita del término despreciado.
+
+**A-2 (verificación numérica, vota).** Para bicapa y KR con N ≤ 16 y λε² pequeño (donde la fase es medible), el promedio de fase de S_ε coincide con la fórmula de A-1 más su corrección exacta a N chico, a ≤ 3·SE.
+
+**A-3 (clase geométrica, vota; nivel 2 con supuesto declarado).** La clase geométrica no admite conteo exacto. Se usa la aproximación de cumulantes −ln|φ| ≈ (λε²)² Var(S_ε/ε²)/2, que es un **supuesto** (nivel 4 hasta verificarse). Se mide Var(S_ε/ε²) ∝ N^γ para N ∈ {64, …, 1024} y ε ∈ {0.25, 0.1}. Además se verifica la aproximación donde |φ| sí es medible (λε² pequeño, N chico).
+- **Condición necesaria para que la rama L viva:** γ + 2·SE < 2. Con la entropía de los 2-órdenes (≈ 2N ln N) y la cancelación de las capas (∝ N²), eso implicaría que la geometría supera a las capas dentro de la ventana.
+- **No es suficiente:** no cubre familias no geométricas que no sean por capas.
