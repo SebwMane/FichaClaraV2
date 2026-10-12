@@ -114,3 +114,7 @@ Smoke de velocidad (no evidencia): 0.04 ms por paso en N = 32.
 - El factor de etiquetas N!/(a! b! 2!) **sobrecuenta** órdenes (una misma configuración puede surgir de asignaciones de capa distintas, por ejemplo con elementos aislados), así que U sobreestima la contribución del sándwich: la comparación queda del lado conservador, como pide §17.
 - La cota aplica la desigualdad triangular solo sobre α, después de sumar exactamente sobre B; la fase del lado A tiene módulo 1. Correcto.
 - Smoke (no evidencia): U ≥ exacto en N = 8 y 12; 11 s por cota en N = 1024.
+
+## 13. Auditoría de L-ε (`435bbbe`)
+
+Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_action_2d_smeared` (validado en C1) a 10⁻⁹; ε = K/N < 1 en toda la malla; constantes iguales a §18.
