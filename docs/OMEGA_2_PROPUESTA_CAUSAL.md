@@ -173,3 +173,47 @@ La ratificación de R3-2 autoriza la compuerta definida en §5 (L-2c ahora; L-3c
 | L2c-A1 | L-iii | Un punto con φ̂ ≥ 1 − 10⁻¹² no es utilizable. | −ln φ̂ = 0 no admite el ajuste log-log. Con la dispersión observada de S (57 valores distintos ya en N = 16) es prácticamente imposible. | En teoría sí; en la práctica es inerte. |
 | L2c-A2 | L-i | Entropía 20261020. | §10 no la fijaba; la eligió el agente de código. | No: L-i solo valida el instrumento. |
 | L2c-A3 | L-2c-E | Un ΔS_E indefinido se lee como INDETERMINADO. | El código lo leía como «no preferida». | No: elimina una lectura falsa. |
+
+## 11. Ratificación R3-4, sondeo de la acción suavizada y preregistro de C1 y L-3c-E (2026-10-12)
+
+### 11.1 Resolución
+
+| # | Estado |
+|---|---|
+| R3-4 | **RATIFICADA por el usuario (2026-10-12):** la rama lorentziana de Ω-C usa la acción BD suavizada con escala de no localidad ε. Es un parámetro nuevo de la hipótesis. La rama euclídea conserva la acción sin suavizar, tal como se preregistró L-2c-E, para no cambiar la definición de la rama a mitad de la compuerta. |
+
+### 11.2 Acción suavizada (definición congelada)
+
+S_ε = ε · ( N − 2ε · Σ_n N_n f(n, ε) ),  f(n, ε) = (1−ε)^n [1 − 2εn/(1−ε) + ε² n(n−1) / (2(1−ε)²)].
+
+Normalizada para que ε → 1 dé exactamente S = N − 2N₀ + 4N₁ − 2N₂ (la literatura usa un factor 2 global distinto). Para 2-órdenes aleatorios, con x = ab y M = N − 2:
+
+E[S_ε] = ε ( N − 2ε · C(N,2) · ½ ∫∫ 4(1−a)(1−b) [ (1−εx)^M − 2εMx(1−εx)^{M−1} + ε² M(M−1) x² (1−εx)^{M−2} / 2 ] da db ).
+
+### 11.3 Sondeo declarado (no es evidencia)
+
+Entropía 31337, 150 2-órdenes por celda, N ∈ {64, 128, 256}, ε ∈ {0.5, 0.25, 0.1}. Se registró la media y la dispersión de S_ε y de S_ε/ε². Hallazgo que motiva §11.5: sd(S_ε) baja mucho con ε (0.90 en N = 256, ε = 0.1), pero sd(S_ε/ε²) queda entre 29 y 90, igual que la acción sin suavizar.
+
+### 11.4 C1: validación del instrumento suavizado · PROBAR
+
+- **C1-1:** S_ε con ε = 1 − 10⁻⁹ coincide con S en ≤ 10⁻³ (test unitario).
+- **C1-2:** para N ∈ {64, 256} y ε ∈ {0.5, 0.25, 0.1}, 200 2-órdenes (entropía 20261021): |media(S_ε) − E[S_ε]| ≤ 3·SE en las seis celdas.
+- **Fracaso:** se audita fórmula y código; la rama L no usa S_ε hasta que pase.
+
+### 11.5 Rama L: lectura estructural (nivel 2; no se ejecuta prueba nueva)
+
+Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido sí y solo sí λε² mod π ∈ (π/3, 2π/3). En esa misma ventana la fase de la clase geométrica es λS_ε = (λε²)(S_ε/ε²), con sd(S_ε/ε²) ≫ 1, así que también se cancela. Comparar ambas cancelaciones exige medir promedios de fase exponencialmente pequeños: el **problema de signo**. El muestreo Monte Carlo no puede decidir la rama L. Decidirla exige un método analítico (como el de Loomis y Carlip para KR) o una continuación analítica, que es otra hipótesis. **Estado de la rama L: bloqueada por método, no por resultado.**
+
+### 11.6 L-3c-E: estabilidad de la geometría bajo e^{−βS} en 2-órdenes · PROBAR
+
+- **Dinámica:** Metropolis sobre 2-órdenes con u fijo y v una permutación; movimiento = transponer dos valores de v elegidos al azar; aceptación min(1, e^{−βΔS}) con la acción sin suavizar.
+- **Inicio:** un 2-orden aleatorio (geométrico). Es una prueba de estabilidad, como L-3b.
+- **Malla:** N ∈ {32, 64}; β = 0.025·(√2)^k, k = 0..12 (0.025 a 1.6); una cadena por celda; 1000 barridos de termalización (1 barrido = N movimientos) y 1000 de medición, una muestra cada 50 barridos (20 muestras). Entropía 20261022.
+- **Clasificador:** bandera C0-4b recalibrada a cada N con la regla de §9 (δ = 1.5 × p95 de 40 2-órdenes aleatorios, entropía 20261023; referencia exacta d = 2; d_ref = 1 usa δ₂).
+- **β_c(N):** el menor β de la malla con fracción marcada < 0.5. Si no existe, β_c > 1.6.
+- **Decisión:**
+  - **Ventana estable:** β_c(64) ≥ β_c(32).
+  - **Ventana que se angosta:** β_c(64) < β_c(32).
+- **Expectativa honesta (nivel 4):** un argumento de conteo (bicapa con S ≈ −N²/2 frente a ~2N ln N de entropía de 2-órdenes) sugiere β_c ∝ ln N / N, es decir, que se angosta.
+- **Lectura preregistrada de «se angosta»:** con β fijo, la geometría no sobrevive al límite N → ∞. Mantener la rama E exigiría un acoplamiento que escale con N, lo cual es un cambio de hipótesis que requiere firma del usuario. **No cierra la rama por sí solo.**
+- **Escala:** nivel 1 para N ∈ {32, 64}; cualquier afirmación sobre N grande es nivel 4.
