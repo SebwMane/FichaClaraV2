@@ -48,7 +48,7 @@ def a2a(m: int) -> dict[str, Any]:
             acts = [bd_action_2d_smeared(c, eps) for c in orders]
             for x in (0.1, 0.3, 0.6):
                 lam = x / eps**2
-                phi, se = phase_average(acts, lam)  # type: ignore[arg-type]
+                phi, se = phase_average(acts, lam)
                 exact = abs(math.cos(x)) ** ((n // 2) * (n - n // 2))
                 rows.append({"n": n, "eps": eps, "lam_eps2": x, "phi": phi, "se": se, "exact": exact, "ok": abs(phi - exact) <= 3 * se})
     return {"rows": rows, "pass": all(r["ok"] for r in rows)}
@@ -128,7 +128,7 @@ def a3_gauss(m: int) -> dict[str, Any]:
             se_v = v * math.sqrt(2 / (m - 1))
             for x in (0.02, 0.05, 0.1):
                 lam = x / e**2
-                phi, se = phase_average(acts, lam)  # type: ignore[arg-type]
+                phi, se = phase_average(acts, lam)
                 pred = math.exp(-x * x * v / 2)
                 tol = 3 * se + 3 * abs(-x * x / 2 * pred) * se_v
                 usable = phi > thr

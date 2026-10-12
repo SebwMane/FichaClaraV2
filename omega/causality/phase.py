@@ -10,7 +10,7 @@ import numpy as np
 __all__ = ["phase_average", "bipartite_phase_exact"]
 
 
-def phase_average(actions: Sequence[int], lam: float) -> tuple[float, float]:
+def phase_average(actions: Sequence[float], lam: float) -> tuple[float, float]:
     """(|media de e^{i lam S}|, SE aproximado) con SE = sqrt(var cos + var sin) / sqrt(M)."""
     s = np.asarray(actions, dtype=np.float64)
     m = s.size

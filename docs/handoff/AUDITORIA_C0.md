@@ -86,3 +86,13 @@
 ## 9. Auditoría de L-3c-E″ (entrega tras `122bf99`)
 
 **Veredicto: apto sin correcciones.** δ del clasificador idéntico al de L-3c-E′ en N = 32 y 64 (mismas entropías); cálculo de brechas verificado con casos sintéticos (0/0/1 y 1/2/6 pasos); bicapa inicial correcta (N = 8: 16 relaciones, S = −24 = N − N²/2).
+
+## 10. Auditoría del Bloque A (entrega tras `4cce482`)
+
+**Veredicto: apto tras una corrección menor.**
+
+| ID | Gravedad | Hallazgo | Corrección |
+|---|---|---|---|
+| A-18 | Baja | `phase_average` declaraba acciones enteras y el agente silenció mypy con `type: ignore` para pasar acciones suavizadas (reales). | La firma acepta `Sequence[float]`; se quitan los `ignore`. |
+| A-19 | Observación de alcance | A-3 usa ε fijo al crecer N (escala de no localidad fija en unidades de la discreción). La alternativa física, escala fija en unidades de volumen (ε ∝ 1/N), no se prueba aquí. | Se declara como límite en los resultados. |
+| — | Verificado | φ_lead de A-2b coincide con la derivación de §15.1 (L ~ Bin(16, 1/2)); Δ se calcula como S_ε − (εN − 2ε²L) sobre el orden con cierre transitivo completo; la tolerancia del supuesto gaussiano sigue la fórmula de §15.3. | — |
