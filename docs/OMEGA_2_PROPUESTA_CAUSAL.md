@@ -343,3 +343,36 @@ Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido
 | EQ-A2b | Diagnóstico sin voto: b* recalculado tras sumar ruido gaussiano de desvío 0.2 a ln g (10 réplicas, entropía 20261036). | No. |
 
 **Advertencia preregistrada.** Los presupuestos de N = 32 y 64 dan ≈ 15 000 y 18 600 pasos por bin, del mismo orden que el intento fallido de N = 8 (≈ 13 500). Se espera un error de ln g del orden de 0.2 en las colas. Por el tamaño de la brecha de energía entre fases (ΔS ≈ N²/2), un error así mueve b* en ≈ 0.2·N/ΔS, es decir, menos de 0.01; el diagnóstico EQ-A2b lo comprobará.
+
+## 17. Bloque A-S: la familia sándwich en la rama lorentziana · PROBAR (preregistrado 2026-10-12)
+
+**Motivo.** L-3c-EQ mostró que el mínimo de S es un sándwich (capas a, 2, b). A-1 supone que los pares no consecutivos tienen muchos elementos entre ellos; en el sándwich tienen 0, 1 o 2, así que A-1 no lo cubre.
+
+**Familia Σ_N** (N par): capas A y B de a = b = (N−2)/2 elementos y capa central M = {m₁, m₂}; cada relación A–M y M–B presente con p = 1/2 (las 4^{N−2} configuraciones equiprobables); cierre transitivo. Las etiquetas de capa se cuentan con el factor N!/(a! b! 2!), lo cual favorece al sándwich y hace conservadora la comparación.
+
+### AS-1 (derivación exacta, nivel 1)
+
+Cada elemento de A tiene un tipo t = (x₁, x₂) ∈ {0,1}² según con qué elementos de M se relaciona; igual u = (y₁, y₂) para B. Un par (a, b) tiene n = x·y elementos entre ellos (0, 1 o 2). Con f₁ = f(1, ε) = 1 − 3ε y f₂ = f(2, ε) = 1 − 6ε + 6ε²:
+
+S_ε = εN − 2ε² (L + f₁ N₁ + f₂ N₂), sin aproximaciones.
+
+Fijando los conteos de tipos α de A, la suma sobre B se factoriza por elemento:
+
+Z_Σ = e^{iλεN} Σ_α M(α) e^{−2iλε² Σ_t α_t |t|} G(α)^b, con G(α) = Σ_u exp(−2iλε² [|u| + f₁ n₁(u, α) + f₂ n₂(u, α)]).
+
+### AS-2 (vota, verificación)
+
+- Para N ∈ {6, 8}, enumerar todas las configuraciones, construir el orden con cierre transitivo y calcular S_ε con el instrumento general: debe coincidir con la fórmula de AS-1 en todas (|dif| < 10⁻⁹), para ε ∈ {0.5, 0.25, 0.1}.
+- La suma Z por enumeración y por la fórmula de tipos deben coincidir (|dif| < 10⁻⁹ |Z_max-term|) para λε² ∈ {0.3, 1.2}.
+
+### AS-3 (cota rigurosa, nivel 1)
+
+U(N) = ln[N!/(a!b!2!)] + ln Σ_α M(α) |G(α)|^b ≥ ln|Z_Σ| (desigualdad triangular tras sumar exactamente sobre B). Se calcula para N ∈ {64, 256, 1024}, ε ∈ {0.25, 0.1}, λε² ∈ {0.3, 1.2, π/2, 1.9}. Para medir qué tan holgada es, se calcula también ln|Z_Σ| exacto con aritmética de 80 dígitos (mpmath) para N ∈ {8, 12, 16, 20, 24}.
+
+### AS-4 (comparación con la geometría; nivel 4 por el supuesto gaussiano)
+
+ln|Z_geo|(N) ≈ ln N! − (λε²)² V(N)/2, con V(N) = e^{c} N^γ de los ajustes oficiales de A-3.
+
+- **SOBREVIVE (condicional):** existe λε² en la ventana {1.2, π/2, 1.9} donde U(1024) < ln|Z_geo|(1024) para ambos ε. Como U es cota superior, el sándwich queda suprimido frente a la geometría (condicionado al supuesto gaussiano de la geometría).
+- **NO CONCLUYENTE:** en otro caso; la cota podría ser holgada o el sándwich podría dominar.
+- **Expectativa honesta preregistrada.** Esta familia tiene entropía O(N) (≈ 4^N miembros), así que su supresión por fase probablemente sea O(N), mientras que la cancelación de fase de la geometría crece como N^γ con γ ≈ 1.4–1.6 (A-3). Si ambas cosas se confirman, a N grande el sándwich **no** quedaría suprimido frente a la geometría, y el resultado probable es NO CONCLUYENTE. También se informa, sin voto, el N donde se cruzan las tendencias.
