@@ -165,3 +165,7 @@ Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_ac
 ## 19. Auditoría de la herramienta E1″
 
 **Veredicto: apto sin correcciones.** El control geométrico usa la condición más estricta de Rev. 5 (|a_g − 1/3| ≤ 2·SE_g, sin el +0.05 de E1′); la comparación con cada familia es simétrica en los errores; las ventanas espectrales son las de C5-A; la etiqueta sigue C5-B; la guarda exige «C5 DECISIÓN: EJECUTAR». Prueba con una semilla fuera del rango oficial (99): la corrida produce región, entropía, rodilla y β.
+
+## 20. Auditoría de la herramienta F5
+
+**Veredicto: apto sin correcciones.** La interpolación de d_spec reproduce exactamente cada dimensión en los nodos de la curva y extrapola en ambos extremos; con la curva de F4, β_L = −0.271 da d_spec ≈ 3.6, coherente con la cuenta previa del Consejo. Las 10 estructuras de prueba son órdenes parciales válidos (N = 300, semilla 6060, fuera del rango oficial). Firma de 4D con las ventanas de F3 sin cambios; 3D y 5D con la regla de F3 sobre la calibración. La guarda exige la firma R8-1.
