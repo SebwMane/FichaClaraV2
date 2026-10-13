@@ -152,3 +152,18 @@ Con la rodilla como umbral, la entropía de la región fue de 4.35 a 26.57 (con 
 4. Ninguna regla de rodilla puede cumplir el propósito de R4-3 (comprobar si el caso de KR es un artefacto del umbral), porque ni siquiera en la geometría la rodilla visible es el umbral.
 
 **Recomendación del Consejo.** Retirar la rama de rodilla y reemplazarla, con el mismo propósito y también sin voto, por un **barrido del umbral**: calcular la entropía truncada con c · √n/(4π) para c ∈ {0.5, 1, 2} en todas las familias. Si la ley logarítmica de KR aparece solo con c = 1 y la de la geometría es estable, el caso KR sería un artefacto del umbral; si ambas son igual de estables, no. Esto requiere que el usuario revise R4-3.
+
+## 9. R4-3 revisada por el usuario (2026-10-12)
+
+| # | Decisión |
+|---|---|
+| R4-3 (revisada) | **Se incluyen dos mediciones, ambas sin voto:** (a) barrido del umbral, como diagnóstico de si el comportamiento logarítmico de una familia depende del umbral; (b) la rodilla R-rodilla-2 **solo como descriptor espectral**. |
+
+**Declaración.** La regla R-rodilla-2 fue **rechazada** por su propio criterio (§8.4) para el propósito de truncar. Se conserva únicamente para registrar la posición de la rodilla y la pendiente β del espectro de cada familia; **no se usa para truncar** ni para ninguna decisión.
+
+### 9.1 Especificación para el paso 4 (congelamiento)
+
+- **Barrido del umbral:** entropía con doble truncamiento usando c · √N_L/(4π) en la región grande y c · √n_R/(4π) en la restringida, con c ∈ {0.5, 1, 2}. El caso c = 1 es el que vota en el criterio de §2.2; c = 0.5 y c = 2 se informan.
+- **Lectura preregistrada del barrido (sin voto):** para cada familia se ajusta la forma logarítmica con cada c. Si una familia no geométrica muestra forma logarítmica con c = 1 pero no con c = 0.5 ni c = 2, mientras la geometría la muestra en los tres, su caso se lee como «dependiente del umbral». Si ambas la muestran en los tres, «robusto».
+- **Descriptor espectral:** por corrida se registran la rodilla (o «sin rodilla») y β del espectro de iΔ de la región grande.
+- **Implementación:** una sola diagonalización de iΔ por corrida, reutilizada para los tres umbrales y para el descriptor. Costo estimado de E1′: 60 a 80 minutos en tramos.

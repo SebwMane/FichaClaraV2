@@ -1,6 +1,7 @@
 # Handoff para la siguiente sesión (orquestador o agente)
 
 - **Estado al cierre:** 2026-10-12, rama `claude/hopeful-galileo-88u1l1`, HEAD tras los resultados de C0-4b.
+- **Actualización 2026-10-12 (18):** paso 3 hecho (piloto 1: regla de región OK, complementariedad con base ≈ 30%, rodilla geométrica falla). Piloto 2: R-rodilla-2 RECHAZADA (rodilla visible λ ≈ 0.4 a 0.6, no √N/4π). R4-3 revisada (Rev. 4 §9): barrido del umbral c ∈ {0.5, 1, 2} y rodilla solo como descriptor, ambos sin voto. Siguiente: paso 4, congelar E1′ (falta decidir R4-1 al ejecutar).
 - **Actualización 2026-10-12 (17):** el usuario mantiene la condición del coeficiente con incertidumbre (Rev. 4 §6.1b); riesgo de KR aceptado. Próximo: paso 3, piloto declarado.
 - **Actualización 2026-10-12 (16):** suite completa verificada (711 passed, mypy limpio en 104 archivos). Firmas: R4-2 complementariedad SOLO INFORMATIVA; R4-3 rama de rodilla INCLUIDA (regla propuesta en Rev. 4 §6.2). Riesgo anotado: el criterio que vota es más permisivo que en E1 y KR podría pasarlo. Siguientes pasos: piloto declarado (paso 3), congelar E1′ (paso 4), V′, E1′. R4-1 y R4-4 pendientes.
 - **Actualización 2026-10-12 (15):** diseño de E1′ entregado al Consejo (`OMEGA_CONSEJO_REV4_E1PRIMA.md`): regla de región que maximiza min(|pasado(a)|, |futuro(b)|), criterio con complementariedad, compuerta V′ y rama secundaria por rodilla. **No ejecutado; no congelado.** Decisiones R4-1 a R4-4 pendientes del usuario.
