@@ -161,3 +161,7 @@ Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_ac
 - `sj_from_eig` y `knee_from_spectrum` equivalen a las funciones originales (test).
 - La guarda funciona: la etapa e1 se niega a correr sin «R4-1 FIRMADA» en el preregistro.
 - Identificación de extremos: el elemento sin predecesores dentro de R es a, y el sin sucesores es b.
+
+## 19. Auditoría de la herramienta E1″
+
+**Veredicto: apto sin correcciones.** El control geométrico usa la condición más estricta de Rev. 5 (|a_g − 1/3| ≤ 2·SE_g, sin el +0.05 de E1′); la comparación con cada familia es simétrica en los errores; las ventanas espectrales son las de C5-A; la etiqueta sigue C5-B; la guarda exige «C5 DECISIÓN: EJECUTAR». Prueba con una semilla fuera del rango oficial (99): la corrida produce región, entropía, rodilla y β.
