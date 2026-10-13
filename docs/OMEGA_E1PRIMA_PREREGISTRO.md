@@ -52,3 +52,23 @@ DISCRIMINA o NO DISCRIMINA son nivel 1 para 2D, N ≤ 2400 y estas familias. No 
 ## 9. Aprobación del usuario (2026-10-12)
 
 El usuario aprobó la decisión de congelamiento de §2 (tamaño de región N/8). No se modifica ningún criterio. R4-1 sigue pendiente.
+
+## 10. Resultado de la compuerta V′ (paso 5, 2026-10-12)
+
+- **Ejecución:** commit `552c5f4`, 50 corridas (5 tamaños × 10 semillas), entropía 20261052. Datos: `results/omega_e1p/vprima_*.json` y `vprima_summary.json`.
+- **Veredicto según §6: PASA.**
+
+| Condición | Resultado |
+|---|---|
+| Forma | 98% de las corridas dentro de [0.085, 0.125] (pasado 0.096 a 0.125; futuro 0.094 a 0.126) |
+| Forma logarítmica (c = 1) | R² log 0.518 > lineal 0.488 |
+| Coeficiente (c = 1) | a = 0.529 ± 0.074; |a − 1/3| = 0.196 frente al límite 2·SE + 0.05 = 0.198: **pasa por 0.002** |
+
+**Diagnósticos (sin voto):** barrido del umbral: c = 0.5 no pasa (a = 1.01 ± 0.17); c = 1 pasa al límite; c = 2 pasa con holgura (a = 0.337 ± 0.043, casi exactamente 1/3). Complementariedad media 24%. Rodilla mediana 0.45 y β = −1.004, como en el piloto 2.
+
+### 10.1 Lectura obligatoria antes de firmar R4-1
+
+1. **El paso fue frágil.** Con la ventana fija de E1 ([0.23, 0.43]) la geometría habría fallado. Pasó por la condición con incertidumbre que el usuario decidió mantener (Rev. 4 §6.1b).
+2. **Con regiones de N/8, el umbral c = 1 da un coeficiente alto (0.53) y el umbral c = 2 recupera 1/3.** Sugiere que el umbral √n/(4π) calibrado con regiones de N/4 no se traslada sin más a regiones más pequeñas (nivel 2, interpretación).
+3. **La lectura del barrido de §5 suponía que la geometría pasaría con los tres umbrales; no pasa con c = 0.5.** La categoría «robusto» queda inaplicable tal como estaba escrita; el barrido seguirá informándose, pero su lectura debe hacerse comparando familias umbral por umbral.
+4. **Consecuencia previsible para E1′:** el control geométrico de E1′, con semillas nuevas, puede quedar fuera del criterio (INDETERMINADO), y KR, que en E1 tuvo a = 0.436, puede entrar (NO DISCRIMINA). Ningún resultado de E1′ está decidido de antemano, pero el margen es estrecho.
