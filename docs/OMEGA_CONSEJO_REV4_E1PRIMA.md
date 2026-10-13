@@ -131,3 +131,24 @@ Sobre los autovalores positivos de iΔ ordenados de mayor a menor (λ₁ ≥ λ�
 ### 8.3 Alcance de la validación
 
 Aceptar significa solo que, en la geometría, la regla recupera el umbral de Sorkin y Yazdi sin conocerlo. Su utilidad está en los órdenes no geométricos, donde podría dar otro umbral o ninguno; eso se verá en E1′.
+
+### 8.4 Resultado del piloto 2 y evaluación del Consejo (2026-10-12)
+
+- **Ejecución:** commit de la herramienta posterior a `114257c`; datos en `results/omega_e/piloto2_e1p.json`. Piloto declarado, solo sprinklings 2D.
+- **Veredicto según §8.2: RECHAZA (0 de 9).**
+
+| N_L | Rodilla de la región grande | Umbral de Sorkin y Yazdi √N/(4π) | β ajustado |
+|---|---|---|---|
+| 800 | 0.40 a 0.57 | 2.25 | −0.98 a −1.02 |
+| 1200 | 0.41 a 0.58 | 2.76 | −0.98 a −1.01 |
+| 1600 | 0.40 a 0.53 | 3.18 | −0.99 a −1.02 |
+
+Con la rodilla como umbral, la entropía de la región fue de 4.35 a 26.57 (con el umbral fijo, 1.71 a 2.10): casi no hay truncamiento y la entropía vuelve hacia la ley de volumen.
+
+**Evaluación (nivel 1 para estas 9 corridas; nivel 2 en la interpretación).**
+1. El espectro del orden sigue la ley de potencias del continuo con gran precisión (β ≈ −1.00) **mucho más abajo** que √N/(4π): la desviación visible aparece en λ ≈ 0.4 a 0.6, casi sin depender de N.
+2. Dos reglas distintas (la de máxima distancia del piloto 1 y la de ley de potencias del piloto 2) ubican el quiebre visible en el mismo lugar, así que el resultado no parece un artefacto de la regla.
+3. Por lo tanto, en estos tamaños **el umbral que produce la ley de área no coincide con ningún quiebre visible del espectro**. El umbral de Sorkin y Yazdi proviene de un argumento de longitud de onda del continuo, no de una característica espectral detectable, al menos con N entre 800 y 1600.
+4. Ninguna regla de rodilla puede cumplir el propósito de R4-3 (comprobar si el caso de KR es un artefacto del umbral), porque ni siquiera en la geometría la rodilla visible es el umbral.
+
+**Recomendación del Consejo.** Retirar la rama de rodilla y reemplazarla, con el mismo propósito y también sin voto, por un **barrido del umbral**: calcular la entropía truncada con c · √n/(4π) para c ∈ {0.5, 1, 2} en todas las familias. Si la ley logarítmica de KR aparece solo con c = 1 y la de la geometría es estable, el caso KR sería un artefacto del umbral; si ambas son igual de estables, no. Esto requiere que el usuario revise R4-3.
