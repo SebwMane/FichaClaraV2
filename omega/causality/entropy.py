@@ -19,6 +19,7 @@ __all__ = [
     "interval_balanced",
     "causal_complement",
     "knee_cutoff",
+    "knee_powerlaw",
 ]
 
 CArr = npt.NDArray[np.complex128]
@@ -126,3 +127,21 @@ def knee_cutoff(i_delta: CArr, min_dist: float = 0.05) -> float | None:
     dist = np.abs(d[0] * (y - p0[1]) - d[1] * (x - p0[0])) / float(np.hypot(*d))
     k = int(np.argmax(dist))
     return float(pos[k]) if float(dist[k]) >= min_dist else None
+
+
+def knee_powerlaw(i_delta: CArr, n_elements: int) -> tuple[float | None, float]:
+    """R-rodilla-2 (Consejo Rev. 4 §8.1). Devuelve (umbral o None si no hay rodilla, pendiente beta ajustada)."""
+    mu = np.linalg.eigvalsh(i_delta)
+    pos = np.sort(mu[mu > 1e-12])[::-1]
+    k_ref = max(6, math.ceil(math.sqrt(n_elements) / 4))
+    if pos.size <= k_ref + 3:
+        return None, float("nan")
+    ranks = np.arange(1, pos.size + 1, dtype=np.float64)
+    x = np.log(ranks[1:k_ref])
+    y = np.log(pos[1:k_ref])
+    beta, alpha = np.polyfit(x, y, 1)
+    dev = np.abs(np.log(pos) - (alpha + beta * np.log(ranks))) > math.log(1.3)
+    for k in range(k_ref, pos.size - 2):
+        if dev[k] and dev[k + 1] and dev[k + 2]:
+            return float(pos[k]), float(beta)
+    return None, float(beta)

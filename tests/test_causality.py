@@ -273,3 +273,16 @@ def test_e1prime_helpers() -> None:
     assert interval_balanced(anti, 3).size == 0
     k = knee_cutoff(pauli_jordan(random_2order(200, _rng(81))))
     assert k is None or k > 0
+
+
+def test_knee_powerlaw_synthetic() -> None:
+    from omega.causality.entropy import knee_powerlaw
+
+    # espectro sintetico: 1/k hasta el rango 40 y luego cae mucho mas rapido
+    k = np.arange(1, 201, dtype=float)
+    lam = np.where(k <= 40, 100 / k, 100 / 40 * (40 / k) ** 10)
+    m = np.diag(np.concatenate([lam, -lam])).astype(np.complex128)
+    thr, beta = knee_powerlaw(m, 1600)
+    assert beta == pytest.approx(-1.0, abs=1e-6)
+    # rango 41: cae 20% (bajo el umbral de 30%); rango 42: cae 36% -> rodilla en lambda_42 = 2.5 (40/42)^10
+    assert thr == pytest.approx(2.5 * (40 / 42) ** 10, rel=1e-9)
