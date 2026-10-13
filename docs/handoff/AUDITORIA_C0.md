@@ -152,3 +152,12 @@ Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_ac
 - Doble truncamiento: √N_L/(4π) en la región grande (en iΔ y W) y √n_R/(4π) en la restringida, como en el artículo.
 - Regla de intervalo con extremos incluidos (+2) y desempate por índices; test con una cadena.
 - Smoke (no evidencia, semilla 1): N = 1600, n ≈ 400: S sin truncar 123.6 (publicado ≈ 0.32·n − 6.6 ≈ 121); truncado 2.03 (publicado ≈ 2.04). 7 s por corrida.
+
+## 18. Auditoría de la herramienta E1′ (paso 4)
+
+**Veredicto: apto sin correcciones.** Comprobaciones en scratchpad (semilla 4242, no evidencia, nada escrito en `results/`):
+- La decisión de congelamiento N/8 cumple su propósito: con N = 800 tienen región de 100 ± 5% la geometría (95), **KR (99)**, la percolación (95) y las capas gruesas (105); bicapa y sándwich no (0), como se esperaba.
+- Corrida completa de geometría: fracciones de forma 0.114 y 0.116 (ventana de V′ [0.085, 0.125]); entropías 4.83 / 1.95 / 1.03 para c = 0.5 / 1 / 2; complemento 2.50; rodilla 0.48 y β = −0.999, coherentes con el piloto 2.
+- `sj_from_eig` y `knee_from_spectrum` equivalen a las funciones originales (test).
+- La guarda funciona: la etapa e1 se niega a correr sin «R4-1 FIRMADA» en el preregistro.
+- Identificación de extremos: el elemento sin predecesores dentro de R es a, y el sin sucesores es b.
