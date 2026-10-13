@@ -72,3 +72,7 @@ El usuario aprobó la decisión de congelamiento de §2 (tamaño de región N/8)
 2. **Con regiones de N/8, el umbral c = 1 da un coeficiente alto (0.53) y el umbral c = 2 recupera 1/3.** Sugiere que el umbral √n/(4π) calibrado con regiones de N/4 no se traslada sin más a regiones más pequeñas (nivel 2, interpretación).
 3. **La lectura del barrido de §5 suponía que la geometría pasaría con los tres umbrales; no pasa con c = 0.5.** La categoría «robusto» queda inaplicable tal como estaba escrita; el barrido seguirá informándose, pero su lectura debe hacerse comparando familias umbral por umbral.
 4. **Consecuencia previsible para E1′:** el control geométrico de E1′, con semillas nuevas, puede quedar fuera del criterio (INDETERMINADO), y KR, que en E1 tuvo a = 0.436, puede entrar (NO DISCRIMINA). Ningún resultado de E1′ está decidido de antemano, pero el margen es estrecho.
+
+## 11. Firma
+
+R4-1 FIRMADA por el usuario (2026-10-12), tras leer §10.1. E1′ se ejecuta tal como está congelado.
