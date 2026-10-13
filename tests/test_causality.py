@@ -286,3 +286,15 @@ def test_knee_powerlaw_synthetic() -> None:
     assert beta == pytest.approx(-1.0, abs=1e-6)
     # rango 41: cae 20% (bajo el umbral de 30%); rango 42: cae 36% -> rodilla en lambda_42 = 2.5 (40/42)^10
     assert thr == pytest.approx(2.5 * (40 / 42) ** 10, rel=1e-9)
+
+
+def test_sj_from_eig_and_knee_from_spectrum_match() -> None:
+    from omega.causality.entropy import knee_from_spectrum, knee_powerlaw, pauli_jordan, sj_both, sj_from_eig
+
+    c = random_2order(150, _rng(91))
+    idelta = pauli_jordan(c)
+    mu, u = np.linalg.eigh(idelta)
+    _, idt_a, w_a = sj_both(idelta, 0.7)
+    idt_b, w_b = sj_from_eig(mu, u, 0.7)
+    assert np.allclose(idt_a, idt_b) and np.allclose(w_a, w_b)
+    assert knee_from_spectrum(mu, 150)[1] == pytest.approx(knee_powerlaw(idelta, 150)[1])

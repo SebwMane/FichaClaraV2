@@ -20,6 +20,8 @@ __all__ = [
     "causal_complement",
     "knee_cutoff",
     "knee_powerlaw",
+    "sj_from_eig",
+    "knee_from_spectrum",
 ]
 
 CArr = npt.NDArray[np.complex128]
@@ -140,6 +142,30 @@ def knee_powerlaw(i_delta: CArr, n_elements: int) -> tuple[float | None, float]:
     x = np.log(ranks[1:k_ref])
     y = np.log(pos[1:k_ref])
     beta, alpha = np.polyfit(x, y, 1)
+    dev = np.abs(np.log(pos) - (alpha + beta * np.log(ranks))) > math.log(1.3)
+    for k in range(k_ref, pos.size - 2):
+        if dev[k] and dev[k + 1] and dev[k + 2]:
+            return float(pos[k]), float(beta)
+    return None, float(beta)
+
+
+def sj_from_eig(mu: npt.NDArray[np.float64], u: CArr, cutoff: float) -> tuple[CArr, CArr]:
+    """(iDelta truncado, W truncado) a partir de una diagonalizacion ya hecha de iDelta."""
+    keep = np.abs(mu) >= cutoff
+    kp = keep & (mu > 0)
+    idt: CArr = (u[:, keep] * mu[keep]) @ u[:, keep].conj().T
+    w: CArr = (u[:, kp] * mu[kp]) @ u[:, kp].conj().T
+    return idt, w
+
+
+def knee_from_spectrum(mu: npt.NDArray[np.float64], n_elements: int) -> tuple[float | None, float]:
+    """R-rodilla-2 sobre autovalores ya calculados (mismo algoritmo que knee_powerlaw)."""
+    pos = np.sort(mu[mu > 1e-12])[::-1]
+    k_ref = max(6, math.ceil(math.sqrt(n_elements) / 4))
+    if pos.size <= k_ref + 3:
+        return None, float("nan")
+    ranks = np.arange(1, pos.size + 1, dtype=np.float64)
+    beta, alpha = np.polyfit(np.log(ranks[1:k_ref]), np.log(pos[1:k_ref]), 1)
     dev = np.abs(np.log(pos) - (alpha + beta * np.log(ranks))) > math.log(1.3)
     for k in range(k_ref, pos.size - 2):
         if dev[k] and dev[k + 1] and dev[k + 2]:
