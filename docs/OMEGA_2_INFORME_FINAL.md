@@ -23,3 +23,14 @@ Ninguna rama de Ω-C seleccionó geometría.
 ## Decisión pendiente del usuario
 
 R3-1 (adoptar Ω-C) sigue abierta. Caminos planteados: volver a Ω-0.2 con lo aprendido, otra acción dentro de Ω-C, cerrar huecos de 2D, ampliar 4D, o cerrar el programa como portafolio.
+
+## Anexo: ruta entrópica Ω-E (caso 3 de Ω-0.2)
+
+| Prueba | Resultado |
+|---|---|
+| E0 (reproducir Sorkin y Yazdi) | Ley de volumen reproducida; ley de área reproducida tras E0b′ (a = 0.347 ± 0.092) |
+| E1 | Indeterminado: regiones descentradas |
+| E1′ | **DISCRIMINA, dependiente del criterio** (rebajado por R5-4) |
+| E1″ (réplica simétrica) | DISCRIMINA PARCIAL (solo huella): con criterio simétrico, KR es indistinguible de la geometría en la entropía; la huella espectral sí separa (nivel 2) |
+
+La firma espectral (pendiente ≈ −2/d y rodilla baja) está en evaluación: `OMEGA_CONSEJO_REV6_FIRMA.md`, pruebas F1 y F2.

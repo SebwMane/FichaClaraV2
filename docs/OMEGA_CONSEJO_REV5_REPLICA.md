@@ -63,7 +63,7 @@ Un DISCRIMINA en E1″ sería nivel 1 para 2D, N ≤ 2400 y KR, con criterio sim
 | R5-1 | **Delegada al Consejo por el usuario.** |
 | R5-2 | **Firmada: la huella espectral vota como criterio secundario.** |
 | R5-3 | **Firmada: se repiten percolación y capas gruesas.** |
-| R5-4 | Pendiente (se decide si el resultado lo requiere). |
+| R5-4 | **Firmada (2026-10-12): E1′ se rebaja a «DISCRIMINA, dependiente del criterio»** en el informe final y en sus resultados. |
 
 **Declaración.** Todos los roles los ejecuta la misma instancia, con argumentos separados y escritos antes de votar, como en los handoffs de código.
 

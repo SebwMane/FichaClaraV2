@@ -2,6 +2,8 @@
 
 - **Fecha:** 2026-10-12. **Commit de ejecución:** `495d5af` (300 corridas, 6 familias × 5 tamaños × 10 semillas, entropía 20261053). **Especificación:** `OMEGA_E1PRIMA_PREREGISTRO.md`, congelado en el paso 4, con V′ aprobada y R4-1 firmada. **Datos:** `results/omega_e1p/e1_*.json` y `e1_summary.json`.
 
+> **R5-4 (usuario, 2026-10-12): resultado rebajado a «DISCRIMINA, dependiente del criterio».** La réplica simétrica E1″ (`OMEGA_E1DOBLEPRIMA_RESULTADOS.md`) mostró que KR es indistinguible de la geometría cuando los errores se tratan igual. El veredicto original se conserva abajo sin cambios.
+
 ## 1. Resultado oficial: **DISCRIMINA**
 
 | Familia | ¿Cumple el criterio (c = 1)? | Coeficiente a ± SE | R² log / lineal |
