@@ -54,3 +54,22 @@ El discriminador C0-4b (validado en N = 1024) compara la cantidad de intervalos 
 ## 5. Escala de afirmación
 
 Cualquier resultado de F5 es nivel 1 para N ≤ 2400 y estas estructuras. Si algún brazo separa al orden producto, la combinación «firma + ese brazo» sería el primer criterio que reconoce estructura lorentziana en 4D sin competencia.
+
+## 6. Firmas y congelamiento (2026-10-12)
+
+| # | Decisión |
+|---|---|
+| R8-1 | **Firmada: ejecutar F5**, en el orden calibración → prueba. |
+| R8-2 | **Firmada: el brazo C vota junto al A; el brazo B solo se informa.** |
+
+### 6.1 Detalles operativos congelados
+
+- **Referencias de perfil (brazo C):** 20 sprinklings lorentzianos por (d, N), d ∈ {2, 3, 4, 5}, N ∈ {1600, 2400}, entropía 20261068; referencia = media de N_k, k = 0..8.
+- **Calibración (entropía 20261066):** 10 sprinklings por (d, N). Por corrida: β_L y rodilla, d_MM, d_mid y la distancia de perfil D a la referencia de su d.
+- **Dimensión asignada a cada estructura:** d* = d_MM redondeada y recortada a {2, 3, 4, 5}.
+- **Firma (requisito común a los brazos):** en 4D, las ventanas de F3 sin cambios; en 3D y 5D, ventanas con la misma regla de F3 calculadas sobre la calibración de esa dimensión.
+- **Brazo A:** d_spec por interpolación lineal de β_L entre las medianas de calibración de dimensiones vecinas en el mismo N (extrapolación lineal con el tramo extremo si cae fuera); τ_A = max(0.15, 3 × 1.4826 × MAD de (d_MM − d_spec) en la calibración 4D).
+- **Brazo C:** D ≤ δ(d*, N), con δ = 1.5 × percentil 95 de D en la calibración de esa dimensión y ese N (10 valores; con tan pocos, el percentil 95 queda cerca del máximo: se declara).
+- **Brazo B (sin voto):** |d_MM − d_mid| ≤ τ_B = max(0.15, 3 × 1.4826 × MAD de (d_MM − d_mid) en la calibración 4D).
+- **Clasificación por brazo:** «espacio-tiempo de dimensión d*» si pasa la firma para d* y la condición del brazo, con mediana por estructura de cada cantidad y de la decisión.
+- **Veredicto por brazo:** PASA si las cuatro positivas quedan clasificadas como espacio-tiempo de su dimensión verdadera y ninguna negativa queda clasificada como espacio-tiempo. Los brazos A y C se informan por separado.
