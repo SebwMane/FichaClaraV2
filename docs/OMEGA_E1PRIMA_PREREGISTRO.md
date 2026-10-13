@@ -48,3 +48,7 @@ Ajustes sobre las corridas de una familia (n_R frente a S truncada):
 ## 8. Escala de afirmación
 
 DISCRIMINA o NO DISCRIMINA son nivel 1 para 2D, N ≤ 2400 y estas familias. No prueban ni refutan la ruta de Jacobson completa.
+
+## 9. Aprobación del usuario (2026-10-12)
+
+El usuario aprobó la decisión de congelamiento de §2 (tamaño de región N/8). No se modifica ningún criterio. R4-1 sigue pendiente.
