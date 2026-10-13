@@ -104,3 +104,30 @@ Sobre los autovalores positivos de iΔ ordenados de mayor a menor, en escala log
 1. La regla de región queda lista para congelar.
 2. La complementariedad tiene en la geometría una diferencia de base de ≈ 30%. Como es diagnóstico (R4-2), no bloquea; pero se interpretará en comparación con esa base, no contra cero. Causa probable: R^⊥ es la unión de dos cuñas, y el umbral √n/(4π) del segundo truncamiento está calibrado para un solo diamante.
 3. La regla de rodilla de §6.2 **no sirve** como está: el punto de máxima distancia en log-log cae en la cola del espectro, no en el quiebre físico. Antes de congelar hace falta otra regla y verificarla en un segundo piloto declarado, o retirar la rama (lo que revertiría R4-3).
+
+## 8. Rediseño de la regla de rodilla, sometido a evaluación del Consejo (2026-10-12)
+
+**Pedido del usuario:** someter el rediseño al Consejo, implementarlo y probarlo en un segundo piloto. Esta sección se escribe y se registra **antes** de implementar y de correr el piloto.
+
+### 8.1 Regla propuesta (R-rodilla-2)
+
+Sobre los autovalores positivos de iΔ ordenados de mayor a menor (λ₁ ≥ λ₂ ≥ …):
+
+1. **Tramo de referencia:** rangos k = 2 … K, con K = max(6, ⌈√N/4⌉). Se omite k = 1 porque el primer modo suele apartarse de la ley de potencias.
+2. **Ajuste:** ln λ_k = α + β ln k por mínimos cuadrados en ese tramo. En el diamante continuo se espera β ≈ −1.
+3. **Rodilla:** el primer rango k > K en el que |ln λ_k − (α + β ln k)| > ln 1.3 durante 3 rangos seguidos. El umbral de truncamiento es λ en ese rango.
+4. **Sin rodilla:** si eso no ocurre en todo el espectro positivo, no se trunca.
+5. La misma regla se aplica al espectro de iΔ restringido a la región (segundo truncamiento).
+
+**Motivación:** en el diamante continuo el espectro grande decae como una ley de potencias, y el espectro del orden coincide con él hasta el quiebre; la regla busca dónde se aparta, en vez del punto geométrico de máxima distancia que falló en el piloto 1.
+
+### 8.2 Criterio de aceptación del piloto 2 (congelado aquí)
+
+- Solo sprinklings 2D, N_L ∈ {800, 1200, 1600}, 3 semillas, entropía 20261051 (declarada; no es evidencia).
+- **Acepta** si en al menos 8 de 9 corridas la rodilla de la región grande cae en [0.5, 2.0] × √N_L/(4π) **y** la de la región restringida (regla de §2.1) cae en [0.5, 2.0] × √n_R/(4π).
+- **Rechaza** en otro caso. Si rechaza, el Consejo recomienda retirar la rama de rodilla, lo que requiere que el usuario revierta R4-3.
+- Se informa además β ajustado y la entropía truncada con la rodilla frente a la del umbral fijo.
+
+### 8.3 Alcance de la validación
+
+Aceptar significa solo que, en la geometría, la regla recupera el umbral de Sorkin y Yazdi sin conocerlo. Su utilidad está en los órdenes no geométricos, donde podría dar otro umbral o ninguno; eso se verá en E1′.
