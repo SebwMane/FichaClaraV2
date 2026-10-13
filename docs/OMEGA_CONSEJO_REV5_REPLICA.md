@@ -55,3 +55,37 @@ E1′ mostró que la pendiente espectral separa a las familias con claridad (geo
 ## 8. Escala de afirmación
 
 Un DISCRIMINA en E1″ sería nivel 1 para 2D, N ≤ 2400 y KR, con criterio simétrico, y daría solidez real al caso 3. Un NO DISCRIMINA sería nivel 1 sobre la insuficiencia de la entropía truncada para separar la geometría de KR con esta precisión.
+
+## 9. Firmas del usuario y deliberación del Consejo sobre R5-1 (2026-10-12)
+
+| # | Decisión |
+|---|---|
+| R5-1 | **Delegada al Consejo por el usuario.** |
+| R5-2 | **Firmada: la huella espectral vota como criterio secundario.** |
+| R5-3 | **Firmada: se repiten percolación y capas gruesas.** |
+| R5-4 | Pendiente (se decide si el resultado lo requiere). |
+
+**Declaración.** Todos los roles los ejecuta la misma instancia, con argumentos separados y escritos antes de votar, como en los handoffs de código.
+
+### 9.1 Insumo previo: la huella espectral solo en la geometría (E1′, 50 corridas)
+
+β: mediana −1.0044, MAD 0.0049, rango [−1.022, −0.984]. Rodilla: mediana 0.453, MAD 0.024, rango [0.381, 0.571]; las 50 corridas tienen rodilla.
+
+### 9.2 Argumentos
+
+**Físico teórico (a favor).** El coeficiente 1/3 corresponde a la carga central de un campo sin masa en 2D. Que KR muestre una ley logarítmica limpia con ≈ 0.43 sugiere un «coeficiente efectivo» distinto, no una imitación de la geometría. La réplica decide si esa diferencia es real con la precisión disponible. Un NO DISCRIMINA también es información: diría que la entropía truncada sola no basta.
+
+**Estadístico (a favor, con advertencia).** La potencia está bien calculada: con 150 corridas de geometría el umbral de distinción baja a ≈ 0.07. Advierte que la geometría varió entre réplicas (V′ 0.529 ± 0.074 frente a E1′ 0.375 ± 0.059, diferencia de 1.6σ combinada), así que la réplica debe ser independiente y no mezclarse con datos anteriores.
+
+**Metodólogo (a favor, con condiciones).** Exige dos cosas antes de congelar: (1) que los límites de la huella espectral salgan de una regla aplicada solo a la geometría, no a mano, y (2) que la combinación de los dos criterios quede escrita antes de correr. Recuerda que la huella sigue sin ser ciega (sus valores en las demás familias ya se vieron), así que su resultado se reporta en nivel 2.
+
+**Escéptico (a favor, con condiciones).** Cuestiona el valor de una corrida cuya expectativa es NO DISCRIMINA, pero reconoce que solo la réplica puede resolver R5-4. Condiciona su voto a que no se cambie nada después de ver los datos y a que un NO DISCRIMINA se publique con la misma visibilidad que el DISCRIMINA de E1′.
+
+**Orquestador (presidencia).** Sintetiza: hay acuerdo en ejecutar y en las condiciones.
+
+### 9.3 Decisión
+
+**C5 DECISIÓN: EJECUTAR** (4 votos a favor, con las enmiendas C5-A y C5-B; sin votos en contra).
+
+- **C5-A (límites de la huella por regla, solo con geometría):** β ∈ mediana_geo ± max(0.10, 6·MAD_geo) = [−1.104, −0.904]; rodilla ∈ [0.5, 2] × mediana_geo = [0.227, 0.906]. Una familia es «compatible espectralmente» si su β mediano y su rodilla mediana caen ambos en esas ventanas.
+- **C5-B (combinación de criterios):** se informan los dos veredictos por separado y una etiqueta combinada: «DISCRIMINA (entropía y huella)» si ambos discriminan; «DISCRIMINA PARCIAL (solo entropía)» o «(solo huella)» si uno; «NO DISCRIMINA» si ninguno; «INDETERMINADO» si el control geométrico falla en el criterio principal.
