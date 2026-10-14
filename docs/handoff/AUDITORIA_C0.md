@@ -199,3 +199,13 @@ Código de un subagente (`omega/causality/kasner.py`, `tests/test_kasner.py`) de
 - **Errores del handoff corregidos por el agente, aceptados:** (1) el handoff decía que p = (1, 0, 0) no cumple Σp² = 1; sí lo cumple (lo corrigió el orquestador antes del lanzamiento); (2) el handoff pedía «densidad en t ∝ t» para la marginal, lo cual es falso (es ∝ t·área de la sección); el test verifica la densidad por 4-volumen coordenado contra puntos uniformes reponderados.
 - **Verificación independiente del orquestador:** con p = (−2/7, 3/7, 6/7) (parametrización de Lifshitz-Khalatnikov con u = 2; solo para auditoría), 600 puntos en t ∈ [0.3, 1.0] y semilla 860001: en los 14 478 pares unidos por una recta de coordenadas causal en todo instante (condición suficiente), ninguno quedó sin relacionar; sin reflexividad ni simetría.
 - **Tests:** 11 passed; mypy estricto limpio. **Apto.** Los exponentes y tiempos de la confirmación los fija el guardián de reserva a ciegas.
+
+## 24. Auditoría de la herramienta exploratoria de F6 (2026-10-14)
+
+Código de un subagente (`tools/f6_exploracion.py`, `tests/test_f6_exploracion.py`) desde `HANDOFF_F6_EXPLORACION_AGENTE_CODIGO.md`.
+
+- **Coincide con `OMEGA_F6_EXPLORACION.md`:** rejilla m, regla m ≤ 0.1·m_max, mínimo 30 y máximo 300 intervalos, r sin puntas, perfil k ≤ ⌊m/2⌋ con puntas, referencia exacta con las mismas convenciones, nula de 30 diamantes, dilución q = 0.5 en N = 8000, ajuste b + A·x con bootstrap de realizaciones completas y B·x² aparte.
+- **Generadores:** AdS con z = x₃ + 0.7 ∈ [0.2, 1.2] y aceptación (0.2/z)⁴; FRW polvo con potencia 8 = 2d y radiación con 4 = d; la caja usa la relación de Minkowski sin periodicidad; la fracción recortada usa la proyección espacial del diamante (esferoide con focos en las puntas).
+- **Decisiones del agente aceptadas:** el perfil local usa B global (correcto: el intervalo de un orden es convexo); una celda entra en el ajuste si al menos la mitad de sus realizaciones son medibles; max-T con la nula dentro de la misma muestra (descriptor sin voto); la familia 4 del spawn_key para el bootstrap.
+- **Limitación para la lectura:** x = √(m/N) presupone el volumen de la región; entre estructuras con regiones de volumen distinto (bloque, caja) no se compara x directamente. Como el ajuste es por estructura, no afecta.
+- **Tests:** las 6 pruebas nuevas pasan, incluida la identidad de C y B por bloques con las funciones originales; mypy sin errores nuevos. **Apto para la corrida exploratoria.**
