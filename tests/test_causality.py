@@ -347,3 +347,70 @@ def test_f5prima_de_sitter_and_frw() -> None:
     # ambas densidades crecen con t: de Sitter (0.5/|t - 1|)^d y FRW ((t + 1)/1.5)^(2d)
     assert np.mean(f.de_sitter_points(400, 4, _rng(431))[:, 0]) > 0.05
     assert np.mean(f.frw_points(400, 4, _rng(432))[:, 0]) > 0.05
+
+
+def _f7() -> ModuleType:
+    """tools/f7.py (F7); se importa por ruta igual que _f5prima."""
+    tools = str(Path(__file__).resolve().parents[1] / "tools")
+    if tools not in sys.path:
+        sys.path.insert(0, tools)
+    return importlib.import_module("f7")
+
+
+def test_f7_lp_cone() -> None:
+    f, g = _f7(), _f5prima()
+    t_half = 0.5
+    for p, seed in ((1.5, 501), (3.0, 502), (6.0, 503)):
+        x = f.sprinkle_lp(300, p, _rng(seed))
+        assert x.shape == (300, 4)
+        nx = np.sum(np.abs(x[:, 1:]) ** p, axis=1) ** (1 / p)
+        assert np.all(np.abs(x[:, 0]) <= t_half) and np.all(nx <= t_half - np.abs(x[:, 0]))
+        c = f.lp_matrix(x, p)
+        assert is_partial_order(c) and np.count_nonzero(c) > 0
+        assert np.array_equal(c, f.lp_cone(p)(300, _rng(seed)))
+    # sobre los mismos puntos: octaedrica ⊆ L^1.5 ⊆ L^3 ⊆ L^6 ⊆ cubica, con mas relaciones al crecer p
+    x = sprinkle_diamond(300, 4, _rng(504))
+    chain = [g.polyhedral_matrix(x, "l1")] + [f.lp_matrix(x, p) for p in (1.5, 3.0, 6.0)] + [g.polyhedral_matrix(x, "max")]
+    for lo, hi in zip(chain, chain[1:]):
+        assert not np.any(lo & ~hi)
+        assert np.count_nonzero(hi) > np.count_nonzero(lo)
+    for bad in (0.5, math.inf):
+        with pytest.raises(ValueError):
+            f.lp_cone(bad)
+
+
+def test_f7_de_sitter_strong_and_radiation() -> None:
+    f, g = _f7(), _f5prima()
+    for d in (3, 4):
+        # la version estandar reproduce exactamente a f5prima.de_sitter(d) y frw_power_points(2d) a frw_points
+        assert np.array_equal(f.de_sitter_eta(d)(250, _rng(511 + d)), g.de_sitter(d)(250, _rng(511 + d)))
+        assert np.array_equal(f.frw_power_points(250, d, 2.0 * d, _rng(521 + d)), g.frw_points(250, d, _rng(521 + d)))
+    cases = (
+        (f.de_sitter_eta_points(250, 4, _rng(531), -1.2, -0.2), f.de_sitter_eta(4, -1.2, -0.2)(250, _rng(531))),
+        (f.frw_power_points(250, 4, 4.0, _rng(532)), f.frw_radiation(4)(250, _rng(532))),
+    )
+    for x, c in cases:
+        assert x.shape == (250, 4)
+        assert np.all(np.linalg.norm(x[:, 1:], axis=1) <= 0.5 - np.abs(x[:, 0]))
+        assert np.array_equal(c, causal_matrix(x)) and is_partial_order(c)
+        assert np.mean(x[:, 0]) > 0.02  # ambas densidades crecen con t (medias ≈ 0.12 y 0.06)
+    # mas curvatura: el de Sitter fuerte se concentra mas arriba que el estandar
+    strong, std = f.de_sitter_eta_points(600, 4, _rng(533), -1.2, -0.2), f.de_sitter_eta_points(600, 4, _rng(533))
+    assert np.mean(strong[:, 0]) > np.mean(std[:, 0])
+    with pytest.raises(ValueError):
+        f.de_sitter_eta_points(10, 4, _rng(534), -1.5, 0.5)
+
+
+def test_f7_shape_distance_shift_invariant() -> None:
+    f = _f7()
+    ref = np.array([100.0, 80, 60, 45, 30, 20, 12, 7, 3])
+    nk = np.array([120.0, 70, 66, 40, 33, 18, 15, 5, 4])
+    v = f.log_ratio(nk, ref)
+    assert f.shape_distance(nk, ref) == pytest.approx(float(np.max(np.abs(v - v.mean()))))
+    for c in (-0.7, 0.3, 2.0):
+        # sumar c a todos los v_k equivale a N_k + 1 -> (N_k + 1) e^c
+        shifted = (nk + 1) * math.exp(c) - 1
+        assert np.allclose(f.log_ratio(shifted, ref), v + c)
+        assert f.shape_distance(shifted, ref) == pytest.approx(f.shape_distance(nk, ref), abs=1e-12)
+    assert f.shape_distance((ref + 1) * 1.7 - 1, ref) == pytest.approx(0.0, abs=1e-12)
+    assert len(f.TEST) == 17 and list(f.TEST).index("cono_p6_4d") == 10 and f.TEST["cono_p6_4d"][0] == "informativa"

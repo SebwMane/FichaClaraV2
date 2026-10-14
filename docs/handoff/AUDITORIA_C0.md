@@ -180,3 +180,13 @@ Primera auditoría con roles separados de verdad: el código lo escribió un sub
 - **Precisión de lectura:** «las 10 corridas planas con espectro (ambos N juntos)» se implementó como semillas 0 a 9 en cada N, es decir 20 corridas por dimensión para curva y ventanas. Es la lectura coherente con §6.2 («para las semillas 0 a 9»); queda anotada.
 - **Verificación:** `python -m pytest tests/test_causality.py` 31 passed. `python -m mypy` da 6 errores `call-overload` (`.max()` sin argumentos) en `torus.py`, `mcmc_general.py` y una línea previa de `tests/test_causality.py`; son idénticos sin los cambios (comprobado con `git stash`) y vienen de los stubs de numpy 2.5 instalados en este contenedor, más nuevos que los de la verificación del 2026-10-12. `tools/f5prima.py` no aporta errores. Se deja como deuda técnica.
 - **Veredicto:** apto para la corrida oficial.
+
+## 22. Auditoría de la herramienta F7 (2026-10-14)
+
+Código escrito por un subagente desde `HANDOFF_F7_AGENTE_CODIGO.md`; revisado por el orquestador.
+
+- **Coincide con Rev. 10 §8:** constantes (319; 20261072 a 20261074), 17 estructuras en el orden de §8.1, δ_forma y δ con FRW en d ∈ {3, 4}, d* y firma como F5′, p = 6 con `correcto = None` excluido del veredicto.
+- **Generadores:** de Sitter fuerte con η = t − 0.7 ∈ [−1.2, −0.2] y aceptación (0.2/|η|)^4; FRW de radiación con exponente d; calibración FRW con exponente 2d (reproduce a F5′, con test). Cono L^p: orden parcial para p ≥ 1 (desigualdad de Minkowski); test de monotonía en p entre octaédrico y cúbico. D_forma invariante ante desplazamientos (test).
+- **Decisiones del agente aceptadas:** reescribir `rng_for` y las partes con las constantes de F7 en vez de importarlas; no calcular las brechas τ_A y τ_B (no las pide §8).
+- **Verificación:** 34 tests pasan; mypy sin errores nuevos (los 6 previos de §21).
+- **Veredicto:** apto para la corrida oficial.
