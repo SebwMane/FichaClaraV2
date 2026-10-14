@@ -16,10 +16,10 @@
    - `kasner_causal_matrix(coords, p, K, ...)`.
    - `sprinkle_kasner_interval(n, p, t_lo, t_hi, rng, ...)`: n puntos uniformes en volumen propio (densidad ∝ t en coordenadas) dentro del intervalo causal J⁺(a) ∩ J⁻(b), con a = (t_lo, 0) y b = (t_hi, 0). Por rechazo: caja de coordenadas que contenga el intervalo, aceptación ∝ t, y pertenencia con la misma relación.
    - `kasner_exponents(...)` o validación de (p₁, p₂, p₃) que cumpla las dos sumas con tolerancia.
-   - No elijas los exponentes ni los tiempos de la prueba: los decide otra persona a ciegas. Solo exige la condición de vacío o el caso plano de abajo.
+   - No elijas los exponentes ni los tiempos de la prueba: los decide otra persona a ciegas. Solo exige la condición de vacío.
 2. **Tests en `tests/test_kasner.py`** (rápidos):
    - irreflexividad, antisimetría y transitividad sobre unos cientos de puntos (`is_partial_order`);
-   - **límite plano:** p = (1, 0, 0) (región de Milne, plana; no cumple Σp² = 1 con tres exponentes no nulos, así que permite saltar la validación de vacío con un parámetro explícito). La relación debe coincidir con la de Minkowski tras T = t·cosh x₁, X = t·sinh x₁ (y, z iguales), salvo una fracción ínfima de pares en el borde por la discretización en K direcciones; acotar esa fracción;
+   - **límite plano:** p = (1, 0, 0) cumple las dos condiciones de vacío y es el Kasner plano trivial (región de Milne). La relación debe coincidir con la de Minkowski tras T = t·cosh x₁, X = t·sinh x₁ (y, z iguales), salvo una fracción ínfima de pares en el borde por la discretización en K direcciones; acotar esa fracción;
    - los puntos muestreados están dentro del intervalo y su densidad en t es ∝ t (prueba estadística simple);
    - la convergencia en K: con K = 200 y K = 800 las relaciones difieren en menos de una fracción pequeña de los pares.
 3. **Rendimiento:** medir el tiempo con N = 2400 y N = 4000. Debe ser viable por bloques.
