@@ -111,3 +111,21 @@ con O_plano,d exacto (m puntos uniformes en un diamante plano) y A ∝ R (nivel 
 | R11-2 | ¿Qué vota en F6: el intercepto bajo recorrido de tamaños, o el perfil local con max-T? |
 | R11-3 | ¿Autorizar la fase exploratoria (§6.1), incluyendo impostores ya vistos, antes de congelar nada? |
 | R11-4 | ¿Incluir en la confirmación una positiva no conformemente plana (requiere desarrollo) y el conjunto de reserva con hash? |
+
+## 8. Firmas y decisión del Consejo (2026-10-14)
+
+| # | Decisión |
+|---|---|
+| R11-1 | **Delegada al Consejo** por el usuario. Decisión en §8.1. |
+| R11-2 | **Firmada:** primero se explora la rama del **intercepto al achicar los diamantes**; según su resultado, se prueba el **perfil local**; se comparan ambos resultados y lo que descubran. |
+| R11-3 | **Firmada:** fase exploratoria sin voto, que puede mirar impostores ya vistos, antes de congelar nada. Protocolo: `OMEGA_F6_EXPLORACION.md`. |
+| R11-4 | **Firmada:** la confirmación incluirá una positiva no conformemente plana (Kasner de vacío, requiere desarrollo) y habrá conjunto de reserva sellado con hash. |
+
+### 8.1 Decisión del Consejo sobre R11-1: zona gris ε₀ = 0.20 (incluye p = 1.5 y p = 3)
+
+- **Argumento (físico y estadístico).** El usuario fijó un criterio geométrico: «casi redondo». La medida ε no distingue p menores ni mayores que 2; mide cuánto se aparta el cono del redondo. p = 1.5 (0.20) y p = 3 (0.17) se apartan casi lo mismo. Fijar ε₀ = 0.17 haría depender la frontera de una diferencia de 0.03, menor que la resolución demostrada del instrumento (F7): sería diseñar una prueba que se sabe que fallará por una distinción que el usuario declaró irrelevante.
+- **Objeción (escéptico y sobreajuste), aceptada como condición.** Es la segunda reducción de alcance después de ver F7. Se registra así y cuenta en el presupuesto de intentos. Para que la frontera no quede «a medida»:
+  1. ε₀ = 0.20 se fija **hoy, antes de cualquier dato de la exploración**, y no se mueve.
+  2. Los conos con ε ≤ 0.20 se informan como **«zona gris»**: no votan ni como positivas ni como negativas.
+  3. La confirmación debe incluir negativas a ciegas **cerca de la frontera por fuera** (ε entre 0.25 y 0.35, por ejemplo un cono de sección cilíndrica, ε ≈ 0.29), y ninguna positiva puede caer en la zona gris.
+- **¿Puede crear un positivo?** Sí. Vale solo hacia adelante. F7 sigue FALLA.
