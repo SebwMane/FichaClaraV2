@@ -1,0 +1,490 @@
+{
+  "commit": "c1cae17c801800a0bc3ac4317839a4c65d1c71ab",
+  "curva_beta_L": {
+    "1600": {
+      "2": -0.061607701076022765,
+      "3": -0.21890471665491273,
+      "4": -0.3144731802983892,
+      "5": -0.3211597259158045
+    },
+    "2400": {
+      "2": -0.048602306126253575,
+      "3": -0.21969021158168217,
+      "4": -0.3134721411998565,
+      "5": -0.34224957080211216
+    }
+  },
+  "ventanas": {
+    "2": {
+      "beta": [
+        -0.11157181759505069,
+        -0.00568783338148713
+      ],
+      "rodilla": [
+        1.4585941217021487,
+        5.834376486808595
+      ]
+    },
+    "3": {
+      "beta": [
+        -0.2692421387019244,
+        -0.16924213870192445
+      ],
+      "rodilla": [
+        1.855870254069901,
+        7.423481016279604
+      ]
+    },
+    "4": {
+      "beta": [
+        -0.363,
+        -0.263
+      ],
+      "rodilla": [
+        1.511,
+        6.046
+      ]
+    },
+    "5": {
+      "beta": [
+        -0.3992928110746514,
+        -0.2740343846066329
+      ],
+      "rodilla": [
+        1.7736617953406368,
+        7.094647181362547
+      ]
+    }
+  },
+  "delta_forma": {
+    "2,1600": 0.04868988109969457,
+    "2,2400": 0.04535236034421369,
+    "3,1600": 0.047168331120303185,
+    "3,2400": 0.03848156831130807,
+    "4,1600": 0.08035724300498928,
+    "4,2400": 0.05150648491206006,
+    "5,1600": 0.1887103196035282,
+    "5,2400": 0.11042185782733963
+  },
+  "delta": {
+    "2,1600": 0.052977597660379724,
+    "2,2400": 0.048068431124505206,
+    "3,1600": 0.08826091760972804,
+    "3,2400": 0.07671321293829292,
+    "4,1600": 0.19332158020152118,
+    "4,2400": 0.14329224230193996,
+    "5,1600": 0.37542690190599537,
+    "5,2400": 0.2523858209506341
+  },
+  "veredicto": "FALLA",
+  "detalle": {
+    "diamante_4d": {
+      "papel": "positiva",
+      "d_verdadera": 4,
+      "d_spec_mediana": 4.078321215596266,
+      "d_estrella": 4,
+      "beta_L": -0.3153185295173996,
+      "rodilla_L": 2.970634438825539,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 0.34521235581607035,
+      "razon_D_delta": 0.2610054127794629,
+      "clasificado": true,
+      "clasif_D_info": true,
+      "correcto": true
+    },
+    "diamante_3d": {
+      "papel": "positiva",
+      "d_verdadera": 3,
+      "d_spec_mediana": 2.9933895124191316,
+      "d_estrella": 3,
+      "beta_L": -0.21855923710743233,
+      "rodilla_L": 3.8091469490844996,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.2692421387019244,
+          -0.16924213870192445
+        ],
+        "rodilla": [
+          1.855870254069901,
+          7.423481016279604
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 0.42916456427910804,
+      "razon_D_delta": 0.2846847162919926,
+      "clasificado": true,
+      "clasif_D_info": true,
+      "correcto": true
+    },
+    "de_sitter_4d": {
+      "papel": "positiva",
+      "d_verdadera": 4,
+      "d_spec_mediana": 4.157560984608175,
+      "d_estrella": 4,
+      "beta_L": -0.3170533509653337,
+      "rodilla_L": 2.974697456514233,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 0.7241059034658498,
+      "razon_D_delta": 0.9702130879944396,
+      "clasificado": true,
+      "clasif_D_info": true,
+      "correcto": true
+    },
+    "de_sitter_3d": {
+      "papel": "positiva",
+      "d_verdadera": 3,
+      "d_spec_mediana": 2.9962778272781456,
+      "d_estrella": 3,
+      "beta_L": -0.21905339284695674,
+      "rodilla_L": 3.763918182212354,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.2692421387019244,
+          -0.16924213870192445
+        ],
+        "rodilla": [
+          1.855870254069901,
+          7.423481016279604
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 0.5245672945969825,
+      "razon_D_delta": 0.6203092458612135,
+      "clasificado": true,
+      "clasif_D_info": true,
+      "correcto": true
+    },
+    "de_sitter_4d_fuerte": {
+      "papel": "positiva",
+      "d_verdadera": 4,
+      "d_spec_mediana": 3.9519985212468414,
+      "d_estrella": 4,
+      "beta_L": -0.3089704698978595,
+      "rodilla_L": 3.1446816145860286,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 1.545546567477034,
+      "razon_D_delta": 2.031186898683872,
+      "clasificado": false,
+      "clasif_D_info": false,
+      "correcto": false
+    },
+    "frw_radiacion_4d": {
+      "papel": "positiva",
+      "d_verdadera": 4,
+      "d_spec_mediana": 4.0171617449546915,
+      "d_estrella": 4,
+      "beta_L": -0.313776898630743,
+      "rodilla_L": 3.0287609476161106,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 0.4947124384814911,
+      "razon_D_delta": 0.5546838905139624,
+      "clasificado": true,
+      "clasif_D_info": true,
+      "correcto": true
+    },
+    "cono_cubico_4d": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 3.693231245871961,
+      "d_estrella": 4,
+      "beta_L": -0.2849527888204852,
+      "rodilla_L": 3.125615248091227,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 3.047349165583002,
+      "razon_D_delta": 1.134335883233312,
+      "clasificado": false,
+      "clasif_D_info": false,
+      "correcto": true
+    },
+    "cono_octaedrico_4d": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 3.780602413058908,
+      "d_estrella": 4,
+      "beta_L": -0.2928966121429497,
+      "rodilla_L": 3.207533836408974,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 2.6477738365123824,
+      "razon_D_delta": 0.8032445140450956,
+      "clasificado": false,
+      "clasif_D_info": true,
+      "correcto": true
+    },
+    "cono_p1_5_4d": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 3.9541109487026356,
+      "d_estrella": 4,
+      "beta_L": -0.30916857742084225,
+      "rodilla_L": 3.0914014671023726,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 0.5796482371922974,
+      "razon_D_delta": 0.3761428539850118,
+      "clasificado": true,
+      "clasif_D_info": true,
+      "correcto": false
+    },
+    "cono_p3_4d": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 3.940008957752048,
+      "d_estrella": 4,
+      "beta_L": -0.30784606549803817,
+      "rodilla_L": 3.079111392326463,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 0.41127147029821604,
+      "razon_D_delta": 0.33695311449951865,
+      "clasificado": true,
+      "clasif_D_info": true,
+      "correcto": false
+    },
+    "cono_p6_4d": {
+      "papel": "informativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 3.75036728770366,
+      "d_estrella": 4,
+      "beta_L": -0.29006110374488714,
+      "rodilla_L": 3.223688796682124,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 1.4864390170342143,
+      "razon_D_delta": 0.6678199608898165,
+      "clasificado": false,
+      "clasif_D_info": true,
+      "correcto": null
+    },
+    "producto_3": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 2.806373834540979,
+      "d_estrella": 3,
+      "beta_L": -0.18757645033568457,
+      "rodilla_L": 3.887865540498264,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.2692421387019244,
+          -0.16924213870192445
+        ],
+        "rodilla": [
+          1.855870254069901,
+          7.423481016279604
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 5.475666680983371,
+      "razon_D_delta": 3.058923133819991,
+      "clasificado": false,
+      "clasif_D_info": false,
+      "correcto": true
+    },
+    "producto_4": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 3.508150517274582,
+      "d_estrella": 4,
+      "beta_L": -0.2673941398609727,
+      "rodilla_L": 3.387473785747358,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 6.340430226736322,
+      "razon_D_delta": 2.120389088973744,
+      "clasificado": false,
+      "clasif_D_info": false,
+      "correcto": true
+    },
+    "producto_5": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 3.5825774632568868,
+      "d_estrella": 4,
+      "beta_L": -0.274449570118294,
+      "rodilla_L": 4.119068044724548,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.363,
+          -0.263
+        ],
+        "rodilla": [
+          1.511,
+          6.046
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 3.420438527276292,
+      "razon_D_delta": 3.2935457560366013,
+      "clasificado": false,
+      "clasif_D_info": false,
+      "correcto": true
+    },
+    "kr": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 1.7931621437265097,
+      "d_estrella": 2,
+      "beta_L": -0.023028769287124565,
+      "rodilla_L": 10.909045885580008,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.11157181759505069,
+          -0.00568783338148713
+        ],
+        "rodilla": [
+          1.4585941217021487,
+          5.834376486808595
+        ]
+      },
+      "firma": false,
+      "razon_Dforma_deltaforma": 240.08147383939294,
+      "razon_D_delta": 183.23398842835746,
+      "clasificado": false,
+      "clasif_D_info": false,
+      "correcto": true
+    },
+    "percolacion_005": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 2.2794949751312465,
+      "d_estrella": 2,
+      "beta_L": -0.09851754519945716,
+      "rodilla_L": 1.5478968039246024,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.11157181759505069,
+          -0.00568783338148713
+        ],
+        "rodilla": [
+          1.4585941217021487,
+          5.834376486808595
+        ]
+      },
+      "firma": true,
+      "razon_Dforma_deltaforma": 13.239618065475337,
+      "razon_D_delta": 10.928403675475261,
+      "clasificado": false,
+      "clasif_D_info": false,
+      "correcto": true
+    },
+    "capas_gruesas": {
+      "papel": "negativa",
+      "d_verdadera": 0,
+      "d_spec_mediana": 100.76898973505104,
+      "d_estrella": 5,
+      "beta_L": -1.3115958969460504,
+      "rodilla_L": 10.449028028589508,
+      "ventana_d_estrella": {
+        "beta": [
+          -0.3992928110746514,
+          -0.2740343846066329
+        ],
+        "rodilla": [
+          1.7736617953406368,
+          7.094647181362547
+        ]
+      },
+      "firma": false,
+      "razon_Dforma_deltaforma": 60.97966049671935,
+      "razon_D_delta": 30.786589468941123,
+      "clasificado": false,
+      "clasif_D_info": false,
+      "correcto": true
+    }
+  }
+}
