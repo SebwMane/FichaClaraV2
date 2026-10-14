@@ -111,3 +111,46 @@ El perfil y Myrheim-Meyer solo valen en intervalos. El bloque T³ × [0, T] es �
 ## 6. Convenciones previstas
 
 F7: EXPERIMENT_ID 319, entropías 20261072 (referencias), 20261073 (calibración), 20261074 (prueba). F6: EXPERIMENT_ID 320, entropías 20261075 a 20261077. Se congelan al firmar.
+
+## 7. Firmas (2026-10-14)
+
+| # | Decisión |
+|---|---|
+| R10-1 | **Firmada: ejecutar F7.** |
+| R10-2 | **Firmada: el cono p = 3 vota.** p = 6 solo se informa. |
+| R10-3 | **Firmada: F6 solo si F7 PASA.** Si F7 falla, F6 se pospone y vuelve al Consejo. |
+| R10-4 | **Firmada: en F6 la firma espectral no vota y «no medible» cuenta como rechazo.** |
+
+## 8. F7: detalles operativos congelados
+
+- **EXPERIMENT_ID = 319.** Entropías: referencias 20261072, calibración 20261073, prueba 20261074. spawn_key igual que F5′ (`tools/f5prima.py`): referencias `(319, d, N, s)`, calibración `(319, familia, d, N, s)` con 0 = plana y 1 = FRW, prueba `(319, índice, N, s)`.
+- **Referencias y calibración:** idénticas a F5′ (Rev. 9 §6.2) con las entropías nuevas: 20 referencias planas por (d, N); 40 planas por (d, N) con espectro, d_MM y d_mid en las semillas 0 a 9; 20 FRW (a ∝ η², η = t + 1, aceptación (η/1.5)^{2d}) por (d, N), d ∈ {3, 4}.
+- **Distancias:** v_k = ln((N_k + 1)/(ref_k + 1)), k = 0..8, con la referencia de (d*, N). D = max_k |v_k| (F5′, informativa); **D_forma = max_k |v_k − media_k(v)|** (vota).
+- **Umbrales:** δ_forma(d, N) = 1.5 × p95 de D_forma sobre las 40 planas más las 20 FRW si d ∈ {3, 4}; δ(d, N) igual con D (informativo).
+- **d\*, firma y ventanas:** exactamente como F5′ (mediana de d_spec por estructura; ventanas de F3 en 4D; regla de F3 en 2D, 3D y 5D).
+- **Clasificación que vota:** firma para d* **y** mediana sobre las 10 corridas de D_forma/δ_forma(d*, N) ≤ 1.
+- **Veredicto:** **PASA** si las seis positivas quedan clasificadas como espacio-tiempo con d* igual a su dimensión verdadera y ninguna negativa con voto queda clasificada como espacio-tiempo. **FALLA** en otro caso. El cono p = 6 se informa con su clasificación, sin voto.
+
+### 8.1 Estructuras de prueba (5 semillas por N ∈ {1600, 2400}; el índice es el de spawn_key)
+
+| # | Nombre | Papel | d verdadera | Construcción |
+|---|---|---|---|---|
+| 0 | diamante_4d | positiva | 4 | `sprinkle_diamond(n, 4)` |
+| 1 | diamante_3d | positiva | 3 | `sprinkle_diamond(n, 3)` |
+| 2 | de_sitter_4d | positiva | 4 | η = t − 1 ∈ [−1.5, −0.5], aceptación (0.5/|η|)^4 |
+| 3 | de_sitter_3d | positiva | 3 | ídem con exponente 3 |
+| 4 | de_sitter_4d_fuerte | positiva | 4 | η = t − 0.7 ∈ [−1.2, −0.2], aceptación (0.2/|η|)^4 |
+| 5 | frw_radiacion_4d | positiva | 4 | a ∝ η: η = t + 1 ∈ [0.5, 1.5], aceptación (η/1.5)^4 |
+| 6 | cono_cubico_4d | negativa | | L^∞ (F5′) |
+| 7 | cono_octaedrico_4d | negativa | | L^1 (F5′) |
+| 8 | cono_p1_5_4d | negativa | | L^1.5 |
+| 9 | cono_p3_4d | negativa | | L^3 |
+| 10 | cono_p6_4d | informativa | | L^6 |
+| 11 | producto_3 | negativa | | `random_dorder(3)` |
+| 12 | producto_4 | negativa | | `random_dorder(4)` |
+| 13 | producto_5 | negativa | | `random_dorder(5)` |
+| 14 | kr | negativa | | `kr_order(n)` |
+| 15 | percolacion_005 | negativa | | `transitive_percolation(n, 0.05)` |
+| 16 | capas_gruesas | negativa | | `thick_layer_order(n, 8, 0.5)` |
+
+Cono L^p: uniforme en {|t| ≤ 0.5, ‖x‖_p ≤ 0.5 − |t|} (1 + 3 dimensiones), x ≺ y si Δt > 0 y Δt ≥ ‖Δx‖_p. En todas las construcciones conformes la relación es la de Minkowski en (t, x).
