@@ -54,3 +54,14 @@
 - **EXPERIMENT_ID 321.**
 - **spawn_key:** (321, familia, índice, N, realización), con familias 0 = referencia, 1 = nula, 2 = calibración, 3 = vistas y 4 = bootstrap. Las selladas usan la asignación de su archivo.
 - La corrida oficial se hace sobre un árbol git limpio, después de la auditoría de la herramienta.
+
+## 7. Apertura del sello y aclaraciones (2026-10-14, después de congelar §1 a §6)
+
+- **Apertura:** se abrió `CONFIRMACION_CIEGA.md` después del commit f7ce889. El SHA-256 coincide con el registrado. Copia en el repositorio: `docs/SELLADO_F6_CONFIRMACION_CIEGA.md`.
+- **Aclaración A1 (entropías). ¿Puede crear un positivo? No:** todas son entropías nuevas y no usadas, así que su asignación no puede sesgar el resultado. Donde el archivo sellado y este preregistro difieren, manda el preregistro:
+  - selladas: 20261076 para la generación y 20261077 para el azar auxiliar (las del archivo);
+  - referencia exacta por m: 20261078 (el preregistro no la fijaba; se toma la del archivo);
+  - calibración, nula y bootstrap: 20261080 (preregistro);
+  - estructuras ya vistas: 20261081 (preregistro);
+  - 20261079 queda reservada y no se usa.
+- **Aclaración A2 («no medible»). ¿Puede crear un positivo? Sí, para una negativa. Se aplica igual porque estaba escrito antes de abrir:** el archivo sellado dice que una estructura no medible «cuenta como fallo de su papel salvo que el preregistro diga otra cosa». El preregistro (§1) dice que una estructura no medible **no** se clasifica como espacio-tiempo. Así, una negativa no medible cuenta como rechazada y una positiva no medible, como fallo. Se informará explícitamente cada estructura no medible.
