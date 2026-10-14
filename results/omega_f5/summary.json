@@ -1,0 +1,226 @@
+{
+  "commit": "4c83090e6bc156faea0277975471faba57ada7a4",
+  "tau_A": 0.7298435876317496,
+  "tau_B": 0.3628331415874199,
+  "curva_beta_L": {
+    "1600": {
+      "2": -0.06075915487886456,
+      "3": -0.21690563911768437,
+      "4": -0.31310921387448887,
+      "5": -0.31565701546390534
+    },
+    "2400": {
+      "2": -0.04727645885399033,
+      "3": -0.21886345033820445,
+      "4": -0.31158354571476377,
+      "5": -0.3364509001102963
+    }
+  },
+  "veredictos": {
+    "A": "FALLA",
+    "C": "FALLA",
+    "B_info": "FALLA"
+  },
+  "detalle": {
+    "diamante_4d": {
+      "papel": "positiva",
+      "d_estrella": 4,
+      "beta_L": -0.31000433215819345,
+      "rodilla_L": 3.07212680661123,
+      "firma": true,
+      "brecha_A": 0.06927135986024568,
+      "razon_C": 0.33922659957130835,
+      "brecha_B": 0.13082240159877578,
+      "clasificado": {
+        "A": true,
+        "C": true,
+        "B_info": true
+      },
+      "correcto": {
+        "A": true,
+        "C": true,
+        "B_info": true
+      }
+    },
+    "bloque_4d": {
+      "papel": "positiva",
+      "d_estrella": 5,
+      "beta_L": -0.25919029208658473,
+      "rodilla_L": 3.67767633898867,
+      "firma": false,
+      "brecha_A": 2.093363507523873,
+      "razon_C": 4.513982689352146,
+      "brecha_B": 1.0400050867546495,
+      "clasificado": {
+        "A": false,
+        "C": false,
+        "B_info": false
+      },
+      "correcto": {
+        "A": false,
+        "C": false,
+        "B_info": false
+      }
+    },
+    "de_sitter_4d": {
+      "papel": "positiva",
+      "d_estrella": 4,
+      "beta_L": -0.3092252121451845,
+      "rodilla_L": 3.1642676061967943,
+      "firma": true,
+      "brecha_A": 0.16903631232652194,
+      "razon_C": 1.2074275367969713,
+      "brecha_B": 0.12400177859596351,
+      "clasificado": {
+        "A": true,
+        "C": false,
+        "B_info": true
+      },
+      "correcto": {
+        "A": true,
+        "C": false,
+        "B_info": true
+      }
+    },
+    "diamante_3d": {
+      "papel": "positiva",
+      "d_estrella": 3,
+      "beta_L": -0.21652348259366844,
+      "rodilla_L": 3.7695234866495273,
+      "firma": true,
+      "brecha_A": 0.03856905666343757,
+      "razon_C": 0.4291221450831623,
+      "brecha_B": 0.0643510997268062,
+      "clasificado": {
+        "A": true,
+        "C": true,
+        "B_info": true
+      },
+      "correcto": {
+        "A": true,
+        "C": true,
+        "B_info": true
+      }
+    },
+    "producto_3": {
+      "papel": "negativa",
+      "d_estrella": 3,
+      "beta_L": -0.19127120775661027,
+      "rodilla_L": 3.774346471690368,
+      "firma": true,
+      "brecha_A": 0.0787732274406665,
+      "razon_C": 4.934725398324048,
+      "brecha_B": 0.159610124808643,
+      "clasificado": {
+        "A": true,
+        "C": false,
+        "B_info": true
+      },
+      "correcto": {
+        "A": false,
+        "C": true,
+        "B_info": false
+      }
+    },
+    "producto_4": {
+      "papel": "negativa",
+      "d_estrella": 4,
+      "beta_L": -0.27357779621807904,
+      "rodilla_L": 3.303537823709234,
+      "firma": true,
+      "brecha_A": 0.1372595612991403,
+      "razon_C": 2.366073233528967,
+      "brecha_B": 0.2967598981241035,
+      "clasificado": {
+        "A": true,
+        "C": false,
+        "B_info": true
+      },
+      "correcto": {
+        "A": false,
+        "C": true,
+        "B_info": false
+      }
+    },
+    "producto_5": {
+      "papel": "negativa",
+      "d_estrella": 5,
+      "beta_L": -0.27024528402835435,
+      "rodilla_L": 4.096964113625116,
+      "firma": true,
+      "brecha_A": 1.0393630968270693,
+      "razon_C": 2.483743883818706,
+      "brecha_B": 0.630683825792056,
+      "clasificado": {
+        "A": false,
+        "C": false,
+        "B_info": false
+      },
+      "correcto": {
+        "A": true,
+        "C": true,
+        "B_info": true
+      }
+    },
+    "kr": {
+      "papel": "negativa",
+      "d_estrella": 2,
+      "beta_L": -0.022173480653156108,
+      "rodilla_L": 10.886415329379332,
+      "firma": false,
+      "brecha_A": 0.5661260168820353,
+      "razon_C": 203.27082700196746,
+      "brecha_B": NaN,
+      "clasificado": {
+        "A": false,
+        "C": false,
+        "B_info": false
+      },
+      "correcto": {
+        "A": true,
+        "C": true,
+        "B_info": true
+      }
+    },
+    "percolacion_005": {
+      "papel": "negativa",
+      "d_estrella": 2,
+      "beta_L": -0.10225290913066581,
+      "rodilla_L": 1.5332701254276961,
+      "firma": true,
+      "brecha_A": 1.1818514938735696,
+      "razon_C": 11.959923225891636,
+      "brecha_B": 0.03793690554582951,
+      "clasificado": {
+        "A": false,
+        "C": false,
+        "B_info": true
+      },
+      "correcto": {
+        "A": true,
+        "C": true,
+        "B_info": false
+      }
+    },
+    "capas_gruesas": {
+      "papel": "negativa",
+      "d_estrella": 2,
+      "beta_L": -1.312171157252587,
+      "rodilla_L": 10.44048699756114,
+      "firma": false,
+      "brecha_A": 233.71929656837142,
+      "razon_C": 203.27082700196746,
+      "brecha_B": 0.7149960877606656,
+      "clasificado": {
+        "A": false,
+        "C": false,
+        "B_info": false
+      },
+      "correcto": {
+        "A": true,
+        "C": true,
+        "B_info": true
+      }
+    }
+  }
+}
