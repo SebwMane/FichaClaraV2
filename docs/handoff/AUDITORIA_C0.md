@@ -190,3 +190,12 @@ Código escrito por un subagente desde `HANDOFF_F7_AGENTE_CODIGO.md`; revisado p
 - **Decisiones del agente aceptadas:** reescribir `rng_for` y las partes con las constantes de F7 en vez de importarlas; no calcular las brechas τ_A y τ_B (no las pide §8).
 - **Verificación:** 34 tests pasan; mypy sin errores nuevos (los 6 previos de §21).
 - **Veredicto:** apto para la corrida oficial.
+
+## 23. Auditoría del generador Kasner (R11-4, 2026-10-14)
+
+Código de un subagente (`omega/causality/kasner.py`, `tests/test_kasner.py`) desde `HANDOFF_KASNER_AGENTE_CODIGO.md`.
+
+- **Física:** relación causal por la función soporte del conjunto alcanzable (suma integral de elipsoides de velocidades), implementada como dominancia de claves A = u·x − H, B = −u·x − H sobre K direcciones ±u. Es exactamente transitiva también en coma flotante. El poliedro contiene al cono verdadero: la discretización solo agrega pares de borde (en el límite plano p = (1, 0, 0), con K = 400, 0 pares faltantes y 5·10⁻⁴ de más; baja como 1/K).
+- **Errores del handoff corregidos por el agente, aceptados:** (1) el handoff decía que p = (1, 0, 0) no cumple Σp² = 1; sí lo cumple (lo corrigió el orquestador antes del lanzamiento); (2) el handoff pedía «densidad en t ∝ t» para la marginal, lo cual es falso (es ∝ t·área de la sección); el test verifica la densidad por 4-volumen coordenado contra puntos uniformes reponderados.
+- **Verificación independiente del orquestador:** con p = (−2/7, 3/7, 6/7) (parametrización de Lifshitz-Khalatnikov con u = 2; solo para auditoría), 600 puntos en t ∈ [0.3, 1.0] y semilla 860001: en los 14 478 pares unidos por una recta de coordenadas causal en todo instante (condición suficiente), ninguno quedó sin relacionar; sin reflexividad ni simetría.
+- **Tests:** 11 passed; mypy estricto limpio. **Apto.** Los exponentes y tiempos de la confirmación los fija el guardián de reserva a ciegas.
