@@ -209,3 +209,13 @@ Código de un subagente (`tools/f6_exploracion.py`, `tests/test_f6_exploracion.p
 - **Decisiones del agente aceptadas:** el perfil local usa B global (correcto: el intervalo de un orden es convexo); una celda entra en el ajuste si al menos la mitad de sus realizaciones son medibles; max-T con la nula dentro de la misma muestra (descriptor sin voto); la familia 4 del spawn_key para el bootstrap.
 - **Limitación para la lectura:** x = √(m/N) presupone el volumen de la región; entre estructuras con regiones de volumen distinto (bloque, caja) no se compara x directamente. Como el ajuste es por estructura, no afecta.
 - **Tests:** las 6 pruebas nuevas pasan, incluida la identidad de C y B por bloques con las funciones originales; mypy sin errores nuevos. **Apto para la corrida exploratoria.**
+
+## 25. Auditoría de la herramienta confirmatoria de F6 (2026-10-14)
+
+Código de un subagente (`tools/f6_confirmacion.py`, `tests/test_f6_confirmacion.py`) desde `HANDOFF_F6_CONFIRMACION_AGENTE_CODIGO.md`.
+
+- **Coincide con el preregistro (§1 a §7):** instrumento importado de la exploración; 15 grupos de calibración (10 planos, 3 de Sitter, 2 FRW polvo); b_plano = mediana de los planos; τ_b = 1.5 × max |b − b_plano|; «no medible» = no espacio-tiempo; zona gris sin voto; entropías según A1; el SHA-256 del sello se verifica en `sellada_*` y en `final`.
+- **Generadores sellados, revisados contra el archivo:** C0 Kasner p = (−6/19, 10/19, 15/19), t ∈ [1.0, 1.9], k = 800. C1 con A = diag(1/c)·Rᵀ, c = (0.70, 1.00, 1.45), R = R_z(0.6)R_y(0.9)R_x(0.3). C2 con los modos en el orden indicado y aceptación exp(φ − 0.35). C3 max(‖(x, y)‖₂, |z|). C4 max(‖x‖₂, ‖x‖_∞/0.79). C5 con exactamente round(0.13·|L|) links borrados y verificación de orden parcial y cierre en cada realización. C6 por suma de potencias, equivalente a la norma gauge, con test contra bisección. C7 ((x² + y²)² + z⁴)^{1/4}.
+- **Regla agregada por el agente, aceptada:** si un grupo de calibración no fuera medible, el veredicto es FALLA. Solo puede crear un negativo; se declara.
+- **Riesgo anotado antes de correr (no cambia nada):** C1 se muestrea en un diamante de coordenadas que, en sus ejes propios, no es un diamante causal; sus intervalos de borde pueden quedar recortados, como en la caja de la exploración.
+- **Tests:** pasan (confirmatoria, exploratoria y Kasner); mypy sin errores nuevos. **Apto para la corrida oficial.**
