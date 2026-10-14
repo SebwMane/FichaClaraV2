@@ -1,6 +1,7 @@
 # Handoff para la siguiente sesión (orquestador o agente)
 
 - **Estado al cierre:** 2026-10-12, rama `claude/hopeful-galileo-88u1l1`, HEAD tras los resultados de C0-4b.
+- **Actualización 2026-10-12 (30):** el usuario pasa a Claude Code. Documento de contexto: `docs/CONTEXTO_NUEVO_CHAT.md`.
 - **Actualización 2026-10-12 (29):** F5′ preparada por el Consejo (`OMEGA_CONSEJO_REV9_F5PRIMA.md`), no ejecutada: alcance acotado a regiones con forma de intervalo (el bloque no admite un intervalo útil), d* por vía espectral, umbral del perfil con 40 planos + 20 FRW, de Sitter 3D/4D a ciegas, impostores nuevos (conos cúbico y octaédrico). Pendientes R9-1 y R9-2.
 - **Actualización 2026-10-12 (28):** F5 ejecutada (R8-1, R8-2): brazos A, C y B FALLAN según criterio. Pero el brazo C (perfil de intervalos) rechazó los seis negativos, incluidos los tres órdenes producto; falló en el bloque 4D por un error de diseño (d* de Myrheim-Meyer fuera de un intervalo) y en de Sitter 4D por un umbral justo (razón 1.21). Propuesta F5′: medir dentro del mayor intervalo y calibrar con más muestras y curvatura (`OMEGA_F5_RESULTADOS.md`).
 - **Actualización 2026-10-12 (27):** F5 preparada por el Consejo (`OMEGA_CONSEJO_REV8_F5.md`), no ejecutada. Cuenta previa: el brazo A (Myrheim-Meyer frente a dimensión espectral) probablemente no separa al orden producto (≈ 3.7 frente a ≈ 3.6). Brazos propuestos: B (punto medio) y C (perfil de intervalos). Pendientes R8-1 y R8-2.
