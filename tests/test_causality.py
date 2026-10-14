@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+import importlib
 import math
+import sys
+from pathlib import Path
+from types import ModuleType
 
 import numpy as np
 import pytest
@@ -298,3 +302,48 @@ def test_sj_from_eig_and_knee_from_spectrum_match() -> None:
     idt_b, w_b = sj_from_eig(mu, u, 0.7)
     assert np.allclose(idt_a, idt_b) and np.allclose(w_a, w_b)
     assert knee_from_spectrum(mu, 150)[1] == pytest.approx(knee_powerlaw(idelta, 150)[1])
+
+
+def _f5prima() -> ModuleType:
+    """tools/f5prima.py (F5′); se importa por ruta igual que la ejecuta el orquestador."""
+    tools = str(Path(__file__).resolve().parents[1] / "tools")
+    if tools not in sys.path:
+        sys.path.insert(0, tools)
+    return importlib.import_module("f5prima")
+
+
+def test_f5prima_polyhedral_cones() -> None:
+    f = _f5prima()
+    t_half = 0.5
+    for norm, seed in (("max", 401), ("l1", 402)):
+        x = f.sprinkle_polyhedral(300, norm, _rng(seed))
+        assert x.shape == (300, 4)
+        nx = np.max(np.abs(x[:, 1:]), axis=1) if norm == "max" else np.sum(np.abs(x[:, 1:]), axis=1)
+        assert np.all(np.abs(x[:, 0]) <= t_half) and np.all(nx <= t_half - np.abs(x[:, 0]))
+        c = f.polyhedral_matrix(x, norm)
+        assert is_partial_order(c) and np.count_nonzero(c) > 0
+        assert np.array_equal(c, f.polyhedral_cone(norm)(300, _rng(seed)))
+    # definicion: octaedrica ⊆ Minkowski ⊆ cubica sobre los mismos puntos
+    x = sprinkle_diamond(300, 4, _rng(403))
+    mink, cub, octa = causal_matrix(x), f.polyhedral_matrix(x, "max"), f.polyhedral_matrix(x, "l1")
+    assert not np.any(mink & ~cub) and not np.any(octa & ~mink)
+    assert np.count_nonzero(cub) > np.count_nonzero(mink) > np.count_nonzero(octa) > 0
+    with pytest.raises(ValueError):
+        f.polyhedral_cone("l2")
+
+
+def test_f5prima_de_sitter_and_frw() -> None:
+    f = _f5prima()
+    de_sitter_4d = importlib.import_module("f3f4").de_sitter_4d
+    assert np.array_equal(f.de_sitter(4)(250, _rng(411)), de_sitter_4d(250, _rng(411)))
+    for d in (2, 3, 4, 5):
+        for pts, gen in ((f.de_sitter_points, f.de_sitter(d)), (f.frw_points, f.frw(d))):
+            x = pts(250, d, _rng(420 + d))
+            assert x.shape == (250, d)
+            r = np.linalg.norm(x[:, 1:], axis=1)
+            assert np.all(r <= 0.5 - np.abs(x[:, 0]))
+            c = gen(250, _rng(420 + d))
+            assert np.array_equal(c, causal_matrix(x)) and is_partial_order(c)
+    # ambas densidades crecen con t: de Sitter (0.5/|t - 1|)^d y FRW ((t + 1)/1.5)^(2d)
+    assert np.mean(f.de_sitter_points(400, 4, _rng(431))[:, 0]) > 0.05
+    assert np.mean(f.frw_points(400, 4, _rng(432))[:, 0]) > 0.05

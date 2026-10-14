@@ -169,3 +169,14 @@ Apto sin correcciones: el cálculo de S_ε de la herramienta coincide con `bd_ac
 ## 20. Auditoría de la herramienta F5
 
 **Veredicto: apto sin correcciones.** La interpolación de d_spec reproduce exactamente cada dimensión en los nodos de la curva y extrapola en ambos extremos; con la curva de F4, β_L = −0.271 da d_spec ≈ 3.6, coherente con la cuenta previa del Consejo. Las 10 estructuras de prueba son órdenes parciales válidos (N = 300, semilla 6060, fuera del rango oficial). Firma de 4D con las ventanas de F3 sin cambios; 3D y 5D con la regla de F3 sobre la calibración. La guarda exige la firma R8-1.
+
+## 21. Auditoría de la herramienta F5′ (2026-10-14)
+
+Primera auditoría con roles separados de verdad: el código lo escribió un subagente a partir de `HANDOFF_F5PRIMA_AGENTE_CODIGO.md`; el orquestador lo revisó como código ajeno.
+
+- **Coincide con Rev. 9 §6:** constantes (EXPERIMENT_ID 318, entropías 20261069 a 20261071, N, semillas), orden e índices de las 12 estructuras (spawn_key), δ con FRW solo en d ∈ {3, 4}, d* desde la mediana de d_spec por estructura, ventanas de F3 en 4D, veredicto único y brazos A y B sin voto.
+- **Física de los generadores:** de Sitter con factor conforme a^d = (0.5/|η|)^d; FRW con a ∝ η², densidad η^{2d}; relación de Minkowski en coordenadas conformes. Conos poliédricos: Δt ≥ norma(Δx) es transitiva por la desigualdad triangular; la región muestreada es el intervalo propio entre (−T, 0) y (T, 0). Test: octaédrica ⊆ Minkowski ⊆ cúbica sobre los mismos puntos.
+- **Decisiones del agente aceptadas:** lotes de rechazo 32× en los conos (solo consumo del generador); `round` de Python para d* (igual que F5); d* = None si todas las d_spec son NaN (protección, no criterio).
+- **Precisión de lectura:** «las 10 corridas planas con espectro (ambos N juntos)» se implementó como semillas 0 a 9 en cada N, es decir 20 corridas por dimensión para curva y ventanas. Es la lectura coherente con §6.2 («para las semillas 0 a 9»); queda anotada.
+- **Verificación:** `python -m pytest tests/test_causality.py` 31 passed. `python -m mypy` da 6 errores `call-overload` (`.max()` sin argumentos) en `torus.py`, `mcmc_general.py` y una línea previa de `tests/test_causality.py`; son idénticos sin los cambios (comprobado con `git stash`) y vienen de los stubs de numpy 2.5 instalados en este contenedor, más nuevos que los de la verificación del 2026-10-12. `tools/f5prima.py` no aporta errores. Se deja como deuda técnica.
+- **Veredicto:** apto para la corrida oficial.
