@@ -70,7 +70,7 @@ Otras líneas abiertas, sin preparar: **F6** (comprometida por R9-2) (perfil med
 
 **Herramientas (`tools/`):** una por prueba (`c0_validation.py` … `f5.py`), ejecutadas por partes (`--part`) para respetar el límite de tiempo de cada comando, y con `final` para calcular el veredicto. Resultados en `results/<prueba>/` (están versionados).
 
-**Convenciones:** RNG solo con `Generator(PCG64(SeedSequence(entropía, spawn_key=(EXPERIMENT_ID, …))))`. EXPERIMENT_ID usados: 300 a 319 (el próximo libre es **320**). Entropías usadas: 20261011 a 20261074 (la próxima libre es **20261075**). Nunca reutilizar una entropía oficial.
+**Convenciones:** RNG solo con `Generator(PCG64(SeedSequence(entropía, spawn_key=(EXPERIMENT_ID, …))))`. EXPERIMENT_ID usados: 300 a 320 (el próximo libre es **321**). Entropías usadas: 20261011 a 20261075; reservadas 20261076 a 20261079 (confirmación sellada) y 20261090 a 20261099 (reserva) (la próxima libre es **20261080**). Nunca reutilizar una entropía oficial.
 
 ## 8. Trampas técnicas aprendidas
 
