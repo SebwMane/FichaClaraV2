@@ -22,7 +22,7 @@ Recorrido hasta hoy, en una línea por etapa:
 
 ## 3. Estado actual y lo pendiente
 
-**Actualización 2026-10-14:** F5′ ejecutada (R9-1 y R9-2 firmadas) y **FALLA** (`docs/OMEGA_F5PRIMA_RESULTADOS.md`): las cuatro positivas quedan bien, incluido de Sitter 3D y 4D a ciegas, pero el cono octaédrico 4D pasa como espacio-tiempo. Rama de trabajo actual: `claude/hopeful-galileo-d7ffri`. Próximo libre: EXPERIMENT_ID 319, entropía 20261072.
+**Actualización 2026-10-14:** F5′ ejecutada (R9-1 y R9-2 firmadas) y **FALLA** (`docs/OMEGA_F5PRIMA_RESULTADOS.md`): las cuatro positivas quedan bien, incluido de Sitter 3D y 4D a ciegas, pero el cono octaédrico 4D pasa como espacio-tiempo. Rama de trabajo actual: `claude/hopeful-galileo-d7ffri`. F7 ejecutada y FALLA (`docs/OMEGA_F7_RESULTADOS.md`); F6 preparada (Rev. 10) y pospuesta. Próximo libre: EXPERIMENT_ID 320, entropía 20261075.
 
 Otras líneas abiertas, sin preparar: **F6** (comprometida por R9-2) (perfil medido solo en el interior, para regiones con bordes y topología distintos); el riesgo del imitador de 2-órdenes con más de 400 capas en 2D; la etapa E2 (justificar el truncamiento desde el sustrato); y la pregunta que Sebastían no ha respondido: qué parte de Ω-0.2 quiere conservar sobre todo.
 
@@ -60,6 +60,7 @@ Otras líneas abiertas, sin preparar: **F6** (comprometida por R9-2) (perfil med
 | Rev. 7 (H1 a H3) | Con matriz causal la pendiente es frágil fuera de 2D; con links es estable pero no −2/d | `OMEGA_CONSEJO_REV7_DIMENSION.md` |
 | F3 (firma 4D con links) | Falla: el orden producto 4D la imita | `OMEGA_F3F4_RESULTADOS.md` |
 | F4 (β_L frente a d) | Estable y monótona: −0.05, −0.22, −0.31, −0.34 de 2D a 5D | ídem |
+| F7 (distancia de forma) | Falla: rechaza conos con aristas, pero acepta conos p = 1.5 y 3 y rechaza de Sitter fuerte | `OMEGA_F7_RESULTADOS.md` |
 | F5′ (perfil con d* espectral) | Falla: positivas bien (incluido de Sitter a ciegas), pero el cono octaédrico pasa | `OMEGA_F5PRIMA_RESULTADOS.md` |
 | F5 (brazos A, C, B) | Fallan; C rechazó a todos los impostores y falló por diseño en el bloque y por umbral justo en de Sitter | `OMEGA_F5_RESULTADOS.md` |
 
@@ -69,7 +70,7 @@ Otras líneas abiertas, sin preparar: **F6** (comprometida por R9-2) (perfil med
 
 **Herramientas (`tools/`):** una por prueba (`c0_validation.py` … `f5.py`), ejecutadas por partes (`--part`) para respetar el límite de tiempo de cada comando, y con `final` para calcular el veredicto. Resultados en `results/<prueba>/` (están versionados).
 
-**Convenciones:** RNG solo con `Generator(PCG64(SeedSequence(entropía, spawn_key=(EXPERIMENT_ID, …))))`. EXPERIMENT_ID usados: 300 a 318 (el próximo libre es **319**). Entropías usadas: 20261011 a 20261071 (la próxima libre es **20261072**). Nunca reutilizar una entropía oficial.
+**Convenciones:** RNG solo con `Generator(PCG64(SeedSequence(entropía, spawn_key=(EXPERIMENT_ID, …))))`. EXPERIMENT_ID usados: 300 a 319 (el próximo libre es **320**). Entropías usadas: 20261011 a 20261074 (la próxima libre es **20261075**). Nunca reutilizar una entropía oficial.
 
 ## 8. Trampas técnicas aprendidas
 
