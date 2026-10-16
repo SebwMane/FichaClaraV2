@@ -1,0 +1,47 @@
+{
+  "phase": "final",
+  "commits_partes": [
+    "399b1363c0f9e08889d9fd0e24936297224bff1b"
+  ],
+  "un_solo_commit": true,
+  "b_c": {
+    "32": 4.0,
+    "64": 4.756828460010884,
+    "128": 6.727171322029716
+  },
+  "validacion": {
+    "32": {
+      "pos": 1.0,
+      "layered": {
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0
+      },
+      "ok": true
+    },
+    "64": {
+      "pos": 0.97,
+      "layered": {
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0
+      },
+      "ok": true
+    },
+    "128": {
+      "pos": 1.0,
+      "layered": {
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0
+      },
+      "ok": true
+    }
+  },
+  "piso": {
+    "32": false,
+    "64": false,
+    "128": false
+  },
+  "L-3c-E'": "PASA (ventana estable con beta = b/N)"
+}

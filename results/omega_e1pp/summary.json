@@ -1,0 +1,64 @@
+{
+  "commit": "f1b05d0eb20a9688d2d466a6123fe4f9fe697def",
+  "ajustes": {
+    "geometrico": {
+      "pasa": true,
+      "a": 0.379987477632007,
+      "se": 0.04186828239055476,
+      "r2_log": 0.3575548216130964,
+      "r2_lin": 0.35301850883725017
+    },
+    "kr": {
+      "pasa": false,
+      "a": 0.40676569782929567,
+      "se": 0.00872308889915403,
+      "r2_log": 0.9784021466989871,
+      "r2_lin": 0.9568031523934286
+    },
+    "percolacion": {
+      "pasa": false,
+      "a": -5.958752713535225,
+      "se": 0.2916904455156116,
+      "r2_log": 0.8968445681191326,
+      "r2_lin": 0.8274885056811013
+    },
+    "capas_gruesas": {
+      "pasa": false,
+      "a": 77.08790876097751,
+      "se": 2.101028824758929,
+      "r2_log": 0.9655715714035324,
+      "r2_lin": 0.9922660185910362
+    }
+  },
+  "control_valido": true,
+  "coincide_con_geometria": {
+    "kr": true,
+    "percolacion": false,
+    "capas_gruesas": false
+  },
+  "principal": "NO DISCRIMINA",
+  "huella": {
+    "geometrico": {
+      "beta_mediana": -1.004972984548806,
+      "rodilla_mediana": 0.4515646793021315,
+      "compatible": true
+    },
+    "kr": {
+      "beta_mediana": -0.024310660202140233,
+      "rodilla_mediana": 9.748682111772865,
+      "compatible": false
+    },
+    "percolacion": {
+      "beta_mediana": -1.6472967227918154,
+      "rodilla_mediana": 11.789462680856577,
+      "compatible": false
+    },
+    "capas_gruesas": {
+      "beta_mediana": -1.132077609526886,
+      "rodilla_mediana": 9.37353911595165,
+      "compatible": false
+    }
+  },
+  "secundario": "DISCRIMINA",
+  "E1_doble_prima": "DISCRIMINA PARCIAL (solo huella)"
+}

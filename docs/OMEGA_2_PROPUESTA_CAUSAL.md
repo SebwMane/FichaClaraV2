@@ -1,0 +1,482 @@
+# Consejo Ω, Revisión 3: hipótesis candidata Ω-C (orden causal y acción discreta)
+
+- **Fecha:** 2026-10-11.
+- **Rama:** `claude/hopeful-galileo-88u1l1`, base `ec448e4`.
+- **Naturaleza:** documento de decisión. Separa lo que se ejecuta ahora (bloque C0, validación de instrumentos, sin dinámica) de lo que **requiere ratificación del usuario** (la hipótesis dinámica Ω-C y su compuerta).
+- **Versión del simulador:** Ω-1.1 sigue intacto. Nada de este documento toca S0, el certificado, D_eff ni ningún umbral de `settings11.py`.
+- **Principio rector:** «No queremos demostrar que Ω es correcta; queremos descubrir qué puede producir Ω y dónde los experimentos pueden demostrar que estamos equivocados.»
+
+## 1. Por qué existe este documento
+
+El bloque L terminó en la rama «SÍ» (`docs/OMEGA_BLOQUE_L_RESULTADOS.md` §3). La consecuencia preregistrada fue:
+
+> «No implementar nuevas dinámicas dentro de esta familia; el siguiente intento legítimo requiere una nueva hipótesis dinámica que pase L-2 antes de simularse.»
+
+La hipótesis nueva debía venir de un documento del usuario. En la conversación del 2026-10-11 el usuario y el orquestador revisaron la literatura de espacio-tiempo emergente y el usuario aprobó seguir la recomendación de trabajar con **orden causal y una acción discreta**. Este documento la formaliza como candidata. No la da por aprobada.
+
+## 2. Diagnóstico del bloque L que motiva el cambio
+
+Nivel 2 (explicación propuesta, ya con soporte computacional): la recompensa por triángulo de S0 exige codegrado extensivo, por lo que apaga o colapsa en cliques cualquier geometría de grado acotado. Dos lecciones independientes de la literatura apuntan en la misma dirección:
+
+1. **Un funcional que solo premia densidad local de relaciones no tiene por qué seleccionar variedades.** En conjuntos causales, el número de órdenes de N elementos crece como e^{N²/4} (Kleitman y Rothschild) y casi todos son de tres capas, sin geometría. La selección tiene que venir de una acción construida para que su límite continuo sea Einstein-Hilbert, no de un premio genérico.
+2. **Existe una acción con esa propiedad.** La acción de Benincasa-Dowker (BD) se calcula solo contando intervalos de orden y, en promedio sobre sprinklings, tiende a la acción de Einstein-Hilbert más términos de borde (Benincasa y Dowker 2010; Dowker y Glaser 2013). En 2D, su media sobre una región causalmente convexa de Minkowski dividida con líneas nulas es la suma alternada de vértices, aristas y caras del teselado (Benincasa, Dowker y Schmitzer 2011), es decir, 1 para un intervalo causal.
+
+## 3. Hipótesis candidata Ω-C (REQUIERE RATIFICACIÓN)
+
+- **Estado:** Ω-C = (V, ≺), un orden parcial finito sobre V. No hay coordenadas, pesos ni métrica. El orden no es geometría: no define distancias ni dimensión por sí mismo (compatible con M§2 y M§6).
+- **Acción:** S_BD en la dimensión de prueba (primero d = 2, por coste y porque allí existen resultados exactos).
+- **Pregunta de bifurcación:** ¿la acción BD distingue órdenes con aproximación de variedad de los órdenes no geométricos dominantes por entropía, y en qué sentido?
+- **Advertencia preregistrada (lección de L-2):** en el bloque L el criterio fue «menor acción gana». Para Ω-C ese criterio **no se traslada directamente**. La suma cuántica usa el peso e^{iS} (lorentziano), no e^{-S}. Un orden con acción muy negativa no gana por eso; puede quedar suprimido por interferencia. La compuerta L-2c debe definirse para el peso que se vaya a usar, y esa elección es del usuario (§6).
+
+## 4. Bloque C0: validación de instrumentos causales (se ejecuta ahora)
+
+Equivalente a M§22 (Experimento 0): si los instrumentos no recuperan lo conocido, nada de lo que midan sobre Ω-C es confiable. **C0 no simula ninguna dinámica ni dice nada sobre Ω.**
+
+Universo de entradas:
+- **Sprinklings:** N puntos uniformes en un diamante causal de Minkowski de dimensión d ∈ {2, 3, 4}. La relación se calcula una vez desde las coordenadas y después **las coordenadas se descartan**: todo estimador recibe solo la matriz de orden. Las coordenadas solo sirven como referencia en C0-2.
+- **Controles no geométricos:** órdenes de Kleitman-Rothschild (KR, tres capas N/4, N/2, N/4, relaciones entre capas consecutivas con p = 1/2, cierre transitivo) y percolación transitiva (aristas i<j con probabilidad p, cierre transitivo).
+
+### C0-1 Dimensión de Myrheim-Meyer · PROBAR
+- Estimador: fracción de pares relacionados r = R / C(N,2), invertida con r(d) = Γ(d+1)Γ(d/2) / (2Γ(3d/2)).
+- Malla: d ∈ {2, 3, 4}, N ∈ {256, 1024}, 20 semillas por celda.
+- **Éxito:** en N = 1024, |media(d_MM) − d| ≤ 0.10 para los tres d. Justificación: la esperanza de r es exactamente r(d) para N fijo (sin sesgo de tamaño), así que la tolerancia solo cubre varianza.
+- **Fracaso:** cualquier d fuera de tolerancia. Se audita el estimador antes de seguir.
+
+### C0-2 Número = volumen · PROBAR
+- Para 200 pares relacionados (p, q) por semilla, elegidos al azar, se compara el número de elementos estrictamente dentro de I(p, q), contado **solo con el orden**, con el valor esperado (N − 2)·V(I)/V(diamante), donde V(I) = c_d τ^d se calcula con coordenadas.
+- Malla: d ∈ {2, 3, 4}, N = 1024, 20 semillas.
+- **Éxito:** la razón agregada Σ conteos / Σ esperados está en [0.98, 1.02] para los tres d.
+- Es la versión discreta de ∫ d^dx √(−g) ≈ N/ρ.
+
+### C0-3 Acción BD 2D sobre el diamante plano · PROBAR
+- S = N − 2N₀ + 4N₁ − 2N₂, donde N_k es el número de pares relacionados con exactamente k elementos estrictamente entre ellos (N₀ son los links).
+- Malla: d = 2, N ∈ {64, 256, 1024}, 200 semillas por N.
+- **Valor de literatura:** 1 (suma alternada V − E + F del intervalo sin dividir).
+- **Éxito:** en N = 1024, |media(S) − 1| ≤ 3·SE.
+- **Fracaso:** se audita primero la fórmula y la definición de N_k. No es una falsación de nada físico.
+
+### C0-4 Discriminación de órdenes no geométricos · PROBAR
+- Segundo estimador independiente: dimensión de punto medio. En el intervalo más grande I(a, b) se busca m que maximiza min(|I(a,m)|, |I(m,b)|) y d_mid = log₂(|I(a,b)| / min).
+- Bandera «compatible con variedad»: |d_MM − d_mid| ≤ τ.
+- **Éxito:** sprinklings d = 2, 3, 4 con N = 1024 marcados en ≥ 90% de las semillas, **y** KR y percolación transitiva (N = 1024) no marcados en ≥ 90%.
+- **τ queda PENDIENTE de un piloto declarado** (el sesgo de tamaño finito de d_mid no tiene valor cerrado conocido). El piloto usa otra entropía y no cuenta como evidencia. τ se congela en una enmienda registrada antes de la corrida oficial.
+
+### C0-D Acción BD de los controles · DIAGNÓSTICO (sin voto)
+- Se registra S_BD de KR y de la percolación con N = 1024. Sirve para diseñar L-2c y para comprobar la advertencia de §3.
+
+### Semillas y reproducibilidad
+- `PCG64(SeedSequence(entropy, spawn_key=(EXPERIMENT_ID, celda, semilla)))`, como en `omega.config.seeds`.
+- Entropía oficial: 20261011. Entropía del piloto: 20261012 (distinta, declarada).
+- `summary.json` en fase «preregistered» antes de calcular y «final» después. Modo full exige árbol git limpio.
+
+## 5. Compuerta de Ω-C (definida aquí, ejecución sujeta a ratificación)
+
+- **L-2c (paisaje):** comparar S_BD de órdenes con aproximación de variedad frente a KR y percolación a N fijo, bajo el peso que el usuario elija. Sin dinámica.
+- **L-3c (estabilidad):** partir de un sprinkling 2D y aplicar una dinámica Metropolis sobre órdenes 2D con el peso elegido; medir si la bandera de C0-4 persiste.
+- Solo si L-2c y L-3c no excluyen la geometría se discute simular desde órdenes aleatorios.
+
+## 6. Resoluciones que requieren firma del usuario
+
+| # | Resolución | Estado |
+|---|---|---|
+| R3-1 | Adoptar Ω-C como hipótesis candidata (no como hipótesis aceptada) | propuesta |
+| R3-2 | Peso de la compuerta: (a) euclídeo e^{-βS} como en la literatura de MCMC 2D, (b) lorentziano e^{iS} vía medidas de interferencia, o (c) ambos con criterios separados | propuesta |
+| R3-3 | Mantener d = 2 hasta que L-2c y L-3c estén cerrados | propuesta |
+| R3-4 | C0 se ejecuta sin esperar R3-1 a R3-3, porque solo valida instrumentos | **aprobada por el usuario en chat (2026-10-11)** |
+
+## 7. Escala de afirmación aplicable a C0
+
+- Un éxito de C0 es **nivel 1 sobre instrumentos**: «los estimadores recuperan valores conocidos en sprinklings y detectan los controles». No dice nada sobre si Ω-C produce geometría.
+- Un fracaso de C0 bloquea toda la rama Ω-C hasta reparar el instrumento.
+
+## 8. Enmiendas operativas del bloque C0 (registradas ANTES de la corrida oficial)
+
+Origen: auditoría del orquestador (`docs/handoff/AUDITORIA_C0.md`), el smoke (N ≤ 128, entropía 20261013) y el piloto declarado de C0-4 (N = 1024, 10 semillas, entropía 20261012). Ningún resultado oficial existía al registrarlas.
+
+| ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
+|---|---|---|---|---|
+| C-A1 | C0-4, control de percolación | p = 0.05 queda congelado. | El handoff no fijaba p; lo eligió el agente de código y solo se había visto en el smoke con N = 128. | Sí en principio; se declara. |
+| C-A2 | C0-3 | Se añade un segundo criterio con voto: las medias de N₀, N₁ y N₂ en N = 1024 deben estar a ≤ 3·SE de su esperanza exacta para 2-órdenes aleatorios (`omega/causality/exact.py`). | La auditoría midió sd(S) ≈ 322 en N = 1024, de modo que 3·SE ≈ 68 y C0-3 casi no tiene potencia. La esperanza exacta (integral independiente del código) da E[S] = 1 para todo N, lo que confirma la fórmula y el valor de literatura. | No: es más estricto. |
+| C-A3 | C0-4, valores indefinidos | Si d_mid o d_MM es nan, la bandera es «no compatible con variedad». | En KR el punto medio de cualquier intervalo máximo está a un link de un extremo, por lo que min(|I(a,m)|, |I(m,b)|) = 0 y d_mid no existe. En un intervalo con aproximación de variedad siempre existe un punto medio con mitades de tamaño extensivo, así que la ausencia es una señal legítima, no un artefacto. | Sí: hace que KR no quede marcado. Se declara; vale en ambos sentidos (un sprinkling con nan también cuenta en contra). |
+| C-A4 | C0-4, τ | τ = 0.75. Regla: 1.1 × el mayor |d_MM − d_mid| de los sprinklings del piloto (0.677, en d = 4), redondeado hacia arriba a 0.05. | Fijar τ era el único objetivo del piloto. | Ver nota. |
+
+**Nota preregistrada sobre C0-4 (expectativa honesta).** En el piloto, la percolación con p = 0.05 dio d_MM ≈ 1.21 y d_mid ≈ 1.14 en las 10 semillas, con gaps ≤ 0.10. Quedará marcada como «compatible con variedad» para cualquier τ ≥ 0.10, así que **se espera que C0-4 FRACASE en la corrida oficial**. El criterio no se modifica para evitarlo. La lectura preregistrada de ese fracaso es: «la coherencia entre dos estimadores de dimensión no basta para distinguir un orden no geométrico de uno con aproximación de variedad; la percolación transitiva densa se comporta como un objeto coherente de dimensión ≈ 1.2». Es el mismo aviso de M§11 (un D_eff por sí solo no demuestra geometría) aplicado a órdenes. El rediseño (C0-4b) se preregistra en una ronda nueva con entropía nueva.
+
+## 9. C0-4b: discriminador por perfil de abundancias · PROBAR (preregistrado 2026-10-12, sin ratificación necesaria)
+
+**Por qué.** C0-4 fracasó porque dos estimadores de dimensión pueden coincidir en un orden no geométrico. C0-4b exige algo más fuerte: que el orden tenga el **perfil completo de tamaños de intervalo** que tendría un sprinkling de su propia dimensión estimada. Es una prueba de forma, no de un número.
+
+**Declaración de transparencia.** Este diseño se hizo después de ver que la percolación con p = 0.05 engañó a C0-4. Para no ajustar el criterio a ese control: (a) δ se calibra **solo con sprinklings**, nunca con controles; (b) se añaden dos controles que nadie ha visto todavía, percolación con p = 0.01 y un orden de capas gruesas; (c) todas las constantes quedan fijadas aquí antes de escribir código.
+
+**Definición (congelada).**
+1. d̂ = d_MM del orden. Si es nan, la bandera es «no compatible».
+2. d_ref = d̂ redondeado al entero más cercano y recortado a {1, 2, 3, 4}.
+3. Perfil de referencia E_ref[N_k] para k = 0..8 al mismo N:
+   - d_ref = 1: cadena exacta, N_k = N − 1 − k.
+   - d_ref = 2: valor exacto de `omega/causality/exact.py`.
+   - d_ref = 3, 4: media de 40 sprinklings de referencia (entropía 20261015).
+4. Distancia D = max_{k ≤ 8} |ln((N_k + 1) / (E_ref[N_k] + 1))|.
+5. **Calibración de δ (solo positivos):** para d = 2, 3, 4 se generan 40 sprinklings de calibración (entropía 20261016) y δ_d = 1.5 × percentil 95 de su D. Para d_ref = 1 se usa δ_1 = δ_2.
+6. Bandera «compatible con variedad» ⇔ d̂ finito **y** D ≤ δ_{d_ref}.
+
+**Corrida oficial** (entropía 20261017, N = 1024, 20 semillas por celda):
+- Positivos: sprinklings d = 2, 3, 4.
+- Controles: KR; percolación p = 0.05; percolación p = 0.01; capas gruesas (8 capas de N/8, relaciones entre capas consecutivas con p = 0.5, cierre transitivo).
+
+**Éxito:** cada positivo marcado en ≥ 90% de las semillas **y** cada control marcado en ≤ 10%.
+**Fracaso:** cualquier celda fuera. Se vuelve al Consejo; no se recalibra δ ni se cambia K.
+**Escala de afirmación:** un éxito es nivel 1 sobre instrumentos («el clasificador separa estos positivos de estos controles a N = 1024»). No garantiza que separe cualquier orden no geométrico.
+
+## 10. Ratificación R3-2 y preregistro de L-2c (2026-10-12)
+
+### 10.1 Estado de las resoluciones
+
+| # | Estado |
+|---|---|
+| R3-1 | **Pendiente.** Ω-C sigue siendo candidata hasta que la compuerta (L-2c, L-3c) dé su resultado. |
+| R3-2 | **RATIFICADA por el usuario (2026-10-12): opción (c), ambos pesos con criterios separados.** Cada rama tiene su propio veredicto; el resultado de una no puede compensar el de la otra. |
+| R3-3 | **No firmada.** Se usa d = 2 porque es el valor por defecto de §3 y el único con resultados exactos; el usuario puede cambiarlo. |
+
+La ratificación de R3-2 autoriza la compuerta definida en §5 (L-2c ahora; L-3c después de leer L-2c). No autoriza simular Ω-C desde órdenes aleatorios fuera de la compuerta.
+
+### 10.2 Hechos estructurales usados (nivel 1, prueba corta)
+
+- **Paridad.** S = N − 2N₀ + 4N₁ − 2N₂ implica S ≡ N (mod 2) para todo orden. Por eso e^{iλS} no se cancela en λ = π para ninguna clase.
+- **Bipartito completo aleatorio** (n/2 + n/2 elementos, cada par entre capas relacionado con p = 1/2): todas las relaciones son links, S = N − 2·Bin(n²/4, 1/2) y |E e^{iλS}| = |cos λ|^{n²/4} exactamente.
+- **KR de tres capas.** Igual que el bipartito, salvo los pares capa 1–capa 3 con exactamente 1 o 2 vecinos comunes, cuya probabilidad es ≤ C·N^4·(3/4)^{N/2}, despreciable en N = 1024. Con ~2^{N²/4} órdenes en la clase, su peso total es ≈ |2 cos λ|^{N²/4}: **suprimido si y solo si |cos λ| < 1/2, es decir λ mod π ∈ (π/3, 2π/3)**. Nivel 1 para el bipartito; nivel 2 (con cota explícita) para KR.
+
+### 10.3 L-2c-E (rama euclídea, e^{−βS} restringido a 2-órdenes) · PROBAR
+
+- **Pregunta:** en el límite β → ∞ (el análogo exacto de L-2: «gana la menor acción»), ¿es mínima la acción de los 2-órdenes geométricos?
+- **Geométricos:** 2-órdenes aleatorios marcados por C0-4b (N = 1024, 20 semillas, entropía 20261018).
+- **No geométricos (2-órdenes construidos):** k antichains de tamaño N/k apiladas y totalmente relacionadas, k ∈ {2, 4, 16, 128}, etiquetas permutadas. Validación previa: ninguna debe quedar marcada por C0-4b; si alguna queda marcada, se excluye y se informa.
+- **Estadístico:** ΔS_E = min S(no geométricas) − media S(geométricas).
+- **Decisión:** ΔS_E > 0 → «geometría preferida a β → ∞»; ΔS_E < 0 → «geometría no preferida a β → ∞».
+- **Expectativa honesta preregistrada:** «no preferida». La bicapa da S = N − N²/2 ≈ −5·10⁵ frente a S ≈ 1. Coincide con la fase «cristalina» de la literatura de MCMC 2D.
+- **Lectura preregistrada (distinta de L-2):** un «no preferida» **no cierra** la rama euclídea, porque en β = 0 el 2-orden típico es geométrico (C0-4b: 100%). La pregunta pasa a ser si existe una ventana 0 < β < β_c con fase geométrica, y eso solo lo responde L-3c-E (Metropolis sobre 2-órdenes). Un «preferida» cerraría la compuerta E con éxito sin necesidad de L-3c-E.
+
+### 10.4 L-2c-L (rama lorentziana, e^{iλS} sobre todos los órdenes) · PROBAR
+
+- **L-i, instrumento (vota):** el código reproduce |cos λ|^{n²/4} para el bipartito con n ∈ {8, 12}, λ ∈ {0.2, 0.5, 1.0, π/2}, 20 000 muestras: |φ̂ − fórmula| ≤ 3·SE en todos los puntos. Si falla, se audita el código.
+- **L-ii, ventana de supresión de KR:** analítica, §10.2. Ventana W = (π/3, 2π/3).
+- **L-iii, coherencia de la clase geométrica (vota):** para 2-órdenes aleatorios con N ∈ {16, 32, 64, 128, 256}, 20 000 muestras por N (entropía 20261019), se estima |φ₂(λ)| = |media de e^{iλS}| en λ ∈ {1.2, π/2, 1.9} (dentro de W). Solo se usan puntos con |φ̂₂| > 3/√M. Se ajusta −ln|φ₂(λ)| ≈ c·N^b por mínimos cuadrados en log-log.
+  - **PASA:** en al menos uno de los tres λ hay ≥ 3 puntos utilizables y el ajuste da b < 2 con su extremo superior (b + 2·SE) < 2. Lectura: dentro de W, la cancelación de fase de la clase geométrica crece más lento que la de KR (∝ N²), así que la clase geométrica **domina a KR** asintóticamente.
+  - **NO PASA:** b + 2·SE ≥ 2 en todos los λ utilizables.
+  - **INDETERMINADO:** ningún λ con 3 puntos utilizables.
+- **Declaración de transparencia:** los valores de S de C0-3 (N = 64, 256, 1024; 200 semillas) existen y habrían permitido estimar φ₂; **no se usaron**. Antes de este preregistro solo se comprobó la paridad de S (§10.2).
+- **Escala de afirmación:** L-2c-L compara la clase geométrica solo con KR y con la bicapa (que es un bipartito completo, ver §10.2). Un PASA es nivel 2 para N ≤ 256 y **nivel 4 (extrapolación) para N grande**. No dice nada sobre otras clases no geométricas.
+
+### 10.5 Enmiendas operativas de L-2c (registradas ANTES de la corrida oficial)
+
+| ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
+|---|---|---|---|---|
+| L2c-A1 | L-iii | Un punto con φ̂ ≥ 1 − 10⁻¹² no es utilizable. | −ln φ̂ = 0 no admite el ajuste log-log. Con la dispersión observada de S (57 valores distintos ya en N = 16) es prácticamente imposible. | En teoría sí; en la práctica es inerte. |
+| L2c-A2 | L-i | Entropía 20261020. | §10 no la fijaba; la eligió el agente de código. | No: L-i solo valida el instrumento. |
+| L2c-A3 | L-2c-E | Un ΔS_E indefinido se lee como INDETERMINADO. | El código lo leía como «no preferida». | No: elimina una lectura falsa. |
+
+## 11. Ratificación R3-4, sondeo de la acción suavizada y preregistro de C1 y L-3c-E (2026-10-12)
+
+### 11.1 Resolución
+
+| # | Estado |
+|---|---|
+| R3-4 | **RATIFICADA por el usuario (2026-10-12):** la rama lorentziana de Ω-C usa la acción BD suavizada con escala de no localidad ε. Es un parámetro nuevo de la hipótesis. La rama euclídea conserva la acción sin suavizar, tal como se preregistró L-2c-E, para no cambiar la definición de la rama a mitad de la compuerta. |
+
+### 11.2 Acción suavizada (definición congelada)
+
+S_ε = ε · ( N − 2ε · Σ_n N_n f(n, ε) ),  f(n, ε) = (1−ε)^n [1 − 2εn/(1−ε) + ε² n(n−1) / (2(1−ε)²)].
+
+Normalizada para que ε → 1 dé exactamente S = N − 2N₀ + 4N₁ − 2N₂ (la literatura usa un factor 2 global distinto). Para 2-órdenes aleatorios, con x = ab y M = N − 2:
+
+E[S_ε] = ε ( N − 2ε · C(N,2) · ½ ∫∫ 4(1−a)(1−b) [ (1−εx)^M − 2εMx(1−εx)^{M−1} + ε² M(M−1) x² (1−εx)^{M−2} / 2 ] da db ).
+
+### 11.3 Sondeo declarado (no es evidencia)
+
+Entropía 31337, 150 2-órdenes por celda, N ∈ {64, 128, 256}, ε ∈ {0.5, 0.25, 0.1}. Se registró la media y la dispersión de S_ε y de S_ε/ε². Hallazgo que motiva §11.5: sd(S_ε) baja mucho con ε (0.90 en N = 256, ε = 0.1), pero sd(S_ε/ε²) queda entre 29 y 90, igual que la acción sin suavizar.
+
+### 11.4 C1: validación del instrumento suavizado · PROBAR
+
+- **C1-1:** S_ε con ε = 1 − 10⁻⁹ coincide con S en ≤ 10⁻³ (test unitario).
+- **C1-2:** para N ∈ {64, 256} y ε ∈ {0.5, 0.25, 0.1}, 200 2-órdenes (entropía 20261021): |media(S_ε) − E[S_ε]| ≤ 3·SE en las seis celdas.
+- **Fracaso:** se audita fórmula y código; la rama L no usa S_ε hasta que pase.
+
+### 11.5 Rama L: lectura estructural (nivel 2; no se ejecuta prueba nueva)
+
+Con S_ε, los links de KR aportan −2ε² cada uno, así que KR queda suprimido sí y solo sí λε² mod π ∈ (π/3, 2π/3). En esa misma ventana la fase de la clase geométrica es λS_ε = (λε²)(S_ε/ε²), con sd(S_ε/ε²) ≫ 1, así que también se cancela. Comparar ambas cancelaciones exige medir promedios de fase exponencialmente pequeños: el **problema de signo**. El muestreo Monte Carlo no puede decidir la rama L. Decidirla exige un método analítico (como el de Loomis y Carlip para KR) o una continuación analítica, que es otra hipótesis. **Estado de la rama L: bloqueada por método, no por resultado.**
+
+### 11.6 L-3c-E: estabilidad de la geometría bajo e^{−βS} en 2-órdenes · PROBAR
+
+- **Dinámica:** Metropolis sobre 2-órdenes con u fijo y v una permutación; movimiento = transponer dos valores de v elegidos al azar; aceptación min(1, e^{−βΔS}) con la acción sin suavizar.
+- **Inicio:** un 2-orden aleatorio (geométrico). Es una prueba de estabilidad, como L-3b.
+- **Malla:** N ∈ {32, 64}; β = 0.025·(√2)^k, k = 0..12 (0.025 a 1.6); una cadena por celda; 1000 barridos de termalización (1 barrido = N movimientos) y 1000 de medición, una muestra cada 50 barridos (20 muestras). Entropía 20261022.
+- **Clasificador:** bandera C0-4b recalibrada a cada N con la regla de §9 (δ = 1.5 × p95 de 40 2-órdenes aleatorios, entropía 20261023; referencia exacta d = 2; d_ref = 1 usa δ₂).
+- **β_c(N):** el menor β de la malla con fracción marcada < 0.5. Si no existe, β_c > 1.6.
+- **Decisión:**
+  - **Ventana estable:** β_c(64) ≥ β_c(32).
+  - **Ventana que se angosta:** β_c(64) < β_c(32).
+- **Expectativa honesta (nivel 4):** un argumento de conteo (bicapa con S ≈ −N²/2 frente a ~2N ln N de entropía de 2-órdenes) sugiere β_c ∝ ln N / N, es decir, que se angosta.
+- **Lectura preregistrada de «se angosta»:** con β fijo, la geometría no sobrevive al límite N → ∞. Mantener la rama E exigiría un acoplamiento que escale con N, lo cual es un cambio de hipótesis que requiere firma del usuario. **No cierra la rama por sí solo.**
+- **Escala:** nivel 1 para N ∈ {32, 64}; cualquier afirmación sobre N grande es nivel 4.
+
+### 11.7 Enmienda operativa de L-3c-E (registrada ANTES de la corrida oficial)
+
+| ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
+|---|---|---|---|---|
+| L3cE-A1 | Clasificador a N = 32 y 64 | Antes de leer β_c, el clasificador recalibrado debe marcar ≥ 90% de 100 2-órdenes aleatorios y ≤ 10% de 20 2-órdenes en capas para cada k ∈ {2, 4, 8} (entropía 20261024). Si falla en algún N, L-3c-E es INDETERMINADO. | §11.6 recalibraba δ a N pequeño pero no exigía comprobar que siguiera separando geometría de capas (el δ₂ de N = 1024 no vale a N chico, ver A-13). En el scratchpad de auditoría (entropía 5150) sí separa: 98–99% frente a 0%. | No: solo puede bloquear. |
+
+## 12. Ratificación R3-5 y preregistro de L-3c-E′ (2026-10-12)
+
+| # | Estado |
+|---|---|
+| R3-5 | **RATIFICADA por el usuario (2026-10-12):** en la rama euclídea el acoplamiento es β = b/N con b fijo. Es un supuesto nuevo de la hipótesis que queda por justificar físicamente. |
+
+**Pregunta.** Con β = b/N, ¿la ventana geométrica deja de angostarse al crecer N?
+
+- **Dinámica, movimiento, inicio y clasificador:** idénticos a §11.6, con la enmienda L3cE-A1 (validación del clasificador a cada N, entropía 20261027).
+- **Malla:** N ∈ {32, 64, 128}; b = 2.0 · 2^{k/4}, k = 0..8 (2.0 a 8.0, pasos de ≈ 19%); β = b/N; 1000 barridos de termalización y 1000 de medición, una muestra cada 50. Entropías: cadena 20261025, calibración 20261026, validación 20261027.
+- **b_c(N):** el menor b de la malla con fracción marcada < 0.5; si no existe, b_c > 8.
+- **Decisión:**
+  - **PASA (ventana estable con β = b/N):** b_c(64) ≥ b_c(32)·2^{−1/4} y b_c(128) ≥ b_c(64)·2^{−1/4}. Es decir, b_c no cae más de un paso al duplicar N.
+  - **FALLA:** b_c cae más de un paso en alguna duplicación.
+  - **INDETERMINADO:** el clasificador no se valida en algún N, o b_c > 8 en algún N.
+- **Declaraciones.** (a) b_c(32) y b_c(64) se pueden anticipar por L-3c-E (β_c·N ≈ 4.5, con resolución de un paso de √2); la información nueva es N = 128 y la malla más fina. (b) **Potencia limitada:** un escalamiento β_c ∝ ln N / N daría b_c creciendo ≈ 17% por duplicación, menos de un paso; la prueba no distingue entre «1/N» y «ln N / N». Solo detecta un angostamiento más rápido que 1/N. (c) La parte con N = 128 se ejecuta en cinco tramos por el límite de tiempo del entorno; `final` verifica un único commit.
+
+## 13. Bloque A: vía analítica para la rama lorentziana (preregistrado, sin ejecutar)
+
+**Método de referencia.** Loomis y Carlip (2017) y sus extensiones (Mathur, Singh y Surya 2020; P. Carlip, S. Carlip y Surya 2022): en vez de muestrear, se cuenta exactamente cuántos órdenes de una familia tienen cada valor de acción y se suma la fase de forma cerrada. En órdenes por capas la acción depende casi solo del número de links, y la suma se factoriza par por par.
+
+**A-1 (derivación, nivel 1 con cota de error).** Para cualquier familia por capas (bicapa, KR, k capas) con la acción suavizada S_ε, los pares entre capas no consecutivas tienen n ≳ N/k elementos entre ellos y f(n, ε) ≤ C n² (1−ε)^n, despreciable a ε fijo. Sumando sobre todos los grafos de relaciones entre capas consecutivas, cada par aporta (1 + e^{−2iλε²}), de modo que el peso de la familia es ≈ |2 cos(λε²)|^{P}, con P el número de pares entre capas consecutivas (∝ N²). **Supresión universal de las familias por capas ⇔ λε² mod π ∈ (π/3, 2π/3).** Hay que escribir la cota explícita del término despreciado.
+
+**A-2 (verificación numérica, vota).** Para bicapa y KR con N ≤ 16 y λε² pequeño (donde la fase es medible), el promedio de fase de S_ε coincide con la fórmula de A-1 más su corrección exacta a N chico, a ≤ 3·SE.
+
+**A-3 (clase geométrica, vota; nivel 2 con supuesto declarado).** La clase geométrica no admite conteo exacto. Se usa la aproximación de cumulantes −ln|φ| ≈ (λε²)² Var(S_ε/ε²)/2, que es un **supuesto** (nivel 4 hasta verificarse). Se mide Var(S_ε/ε²) ∝ N^γ para N ∈ {64, …, 1024} y ε ∈ {0.25, 0.1}. Además se verifica la aproximación donde |φ| sí es medible (λε² pequeño, N chico).
+- **Condición necesaria para que la rama L viva:** γ + 2·SE < 2. Con la entropía de los 2-órdenes (≈ 2N ln N) y la cancelación de las capas (∝ N²), eso implicaría que la geometría supera a las capas dentro de la ventana.
+- **No es suficiente:** no cubre familias no geométricas que no sean por capas.
+
+### 12.1 Enmienda operativa de L-3c-E′ (registrada ANTES de la corrida oficial)
+
+| ID | Ítem | Cambio | Motivo | ¿Puede crear un positivo? |
+|---|---|---|---|---|
+| L3cE′-A1 | Piso de la malla | Si en el b más bajo (2.0) la fracción ya es < 0.5, b_c(N) es solo una cota superior (≤ 2). Un N con piso no puede sostener un PASA (resultado INDETERMINADO), pero un FALLA sigue valiendo si la cota superior ya cae más de un paso respecto del N anterior sin piso. | Con la regla literal, dos N con piso darían b_c = 2.0 en ambos y un PASA falso. | No: solo bloquea positivos. |
+
+## 14. L-3c-E″: prueba de histéresis de la rama euclídea · PROBAR (preregistrado 2026-10-12)
+
+**Orden de ejecución fijado por el usuario:** histéresis primero, Bloque A después.
+
+**Pregunta.** ¿El b_c de L-3c-E′ es una transición real o una metaestabilidad de partir siempre desde geometría?
+
+- **Todo igual a §12** (malla de b, N ∈ {32, 64, 128}, β = b/N, barridos, muestras, clasificador con entropías 20261026 y 20261027) **salvo el inicio:** la cadena parte de la bicapa como 2-orden (u = identidad; v = primera mitad en orden decreciente, segunda mitad en orden decreciente desplazada), que es no geométrica. Entropía de cadena 20261028.
+- **b_c↓(N):** el menor b de la malla con fracción marcada < 0.5, misma definición que b_c↑ de §12. Piso: si en b = 2.0 la fracción ya es < 0.5, b_c↓ ≤ 2 (cota superior).
+- **Brecha H(N):** número de pasos de malla entre b_c↑ (de §12) y b_c↓.
+- **Decisión:**
+  - **SIN HISTÉRESIS RELEVANTE:** H(N) ≤ 1 en los tres N y ningún piso. El PASA de L-3c-E′ se fortalece.
+  - **HISTÉRESIS CRECIENTE:** H(128) ≥ 2 y H(128) > H(32). El PASA de L-3c-E′ se rebaja a «estabilidad metaestable».
+  - **HISTÉRESIS ESTABLE:** cualquier otro caso sin piso. El PASA se mantiene solo si la secuencia conservadora b_c↓ también cumple el criterio de §12 (no cae más de un paso por duplicación); si no, se rebaja.
+  - **INDETERMINADO:** algún piso.
+- **Expectativa:** ninguna fijada; las transiciones de primer orden suelen mostrar histéresis, pero no hay base para predecir su tamaño aquí.
+
+## 15. Bloque A: detalle congelado antes de ejecutar (2026-10-12)
+
+### 15.1 Corrección de nivel de A-1
+
+§13 decía «nivel 1 con cota de error». Es incorrecto. Con S_ε = εN − 2ε²L + Δ (L = links entre capas consecutivas, Δ = aporte de los pares capa 1–capa 3), la cota disponible es |φ − φ_lead| ≤ E|λΔ|, que es **absoluta**. Para certificar una supresión del orden e^{−cN²} haría falta una cota relativa, que exige el tratamiento de punto silla de P. Carlip, S. Carlip y Surya (2022). Por eso **A-1 queda en nivel 2 (orden dominante), con respaldo de nivel 3 (resultado externo) para KR con la acción BDG.**
+
+### 15.2 A-2 (vota, entropía 20261029)
+
+- **A-2a, código:** bipartito aleatorio (p = 1/2), N ∈ {8, 12}, ε ∈ {0.5, 0.25}, λε² ∈ {0.1, 0.3, 0.6}, 20 000 muestras. Exacto: |cos(λε²)|^{P}, P = (N/2)². Pasa si todos los puntos están a ≤ 3·SE.
+- **A-2b, KR exhaustivo:** N = 8 (capas 2, 4, 2), las 2^16 configuraciones de relaciones entre capas consecutivas, cierre transitivo. Para ε ∈ {0.5, 0.25, 0.1} y λε² ∈ {0.3, π/3 + 0.1, π/2, 2π/3 − 0.1}: φ_enum exacto, φ_lead = e^{iλεN}((1 + e^{−2iλε²})/2)^{16} y B = E|λΔ| exacto. Pasa si |φ_enum − φ_lead| ≤ B en todos los puntos (comprobación de la derivación). Se informa |φ_enum| / |φ_lead| sin voto.
+
+### 15.3 A-3 (vota)
+
+- **Exponente:** 2-órdenes aleatorios, N ∈ {64, 128, 256, 512, 1024}, 200 por N (entropía 20261030), ε ∈ {0.25, 0.1}. Se ajusta ln Var(S_ε/ε²) = γ ln N + c por mínimos cuadrados. **Condición:** γ + 2·SE < 2 para ambos ε.
+- **Supuesto gaussiano:** N ∈ {16, 32, 64}, ε ∈ {0.25, 0.1}, λε² ∈ {0.02, 0.05, 0.1}, 20 000 muestras (entropía 20261031). Predicción exp(−(λε²)² V̂/2) con V̂ de las mismas muestras. Puntos utilizables: |φ̂| > 3/√M. **Condición:** en todos los utilizables, |φ̂ − pred| ≤ 3·SE(φ̂) + 3·|∂pred/∂V|·SE(V̂), con SE(V̂) = V̂√(2/(M−1)).
+- **A-3 PASA** si se cumplen ambas condiciones. Lectura: condición necesaria (no suficiente) para que la geometría supere a las familias por capas dentro de la ventana.
+- **Sin voto (nivel 4):** N* aproximado a partir del cual la clase geométrica supera a la bicapa en λε² = 1.2, comparando ln N! − (λε²)² V(N)/2 con (N²/4) ln|2cos(λε²)|.
+
+## 16. L-3c-EQ: transición de equilibrio de la rama euclídea por Wang-Landau · PROBAR (preregistrado 2026-10-12)
+
+**Cambio de método respecto de lo recomendado (declarado).** El usuario aprobó «templado paralelo». Antes de programarlo, el orquestador estimó su factibilidad con datos oficiales de L-3c-E′ y L-3c-E″: entre la fase geométrica y la de capas la diferencia de ⟨S⟩ es ≈ 1 700 (N = 64) y ≈ 7 700 (N = 128); para que dos réplicas vecinas intercambien estados se necesita Δβ·ΔS ≲ 1, es decir del orden de 100 y 400 réplicas. Es el caso típico de una transición de primer orden fuerte, donde el método estándar es **Wang-Landau** (estimar la densidad de estados g(S) y reponderar). El objetivo aprobado (localizar el equilibrio) no cambia; cambia la herramienta.
+
+**Sondeo declarado (no es evidencia):** entropía 424242; 0.07 ms por paso en N = 32 y ≈ 0.06 ms por evaluación de S en N = 64. Solo se usó para fijar presupuestos.
+
+### Método (congelado)
+
+- Espacio: 2-órdenes con u = identidad (permutaciones v). Movimiento: transposición de dos valores de v.
+- **Wang-Landau 1/t** (Belardinelli-Pereyra): ln f parte en 1, se divide por 2 cuando el histograma de los bins visitados es plano al 80% (revisión cada 10⁴ pasos), y pasa a ln f = n_vis / t en cuanto ln f ≤ n_vis / t. Bins de S de paso 2 (S ≡ N mod 2).
+- Ventana de energía: S_bicapa = N − N²/2 ≤ S ≤ N + 4σ₀, con σ₀ = 31 (N = 32) y 54 (N = 64) (dispersiones de L-iii). Movimientos fuera de la ventana se rechazan.
+- **Producción multicanónica** con ln g congelado: se registra la bandera C0-4b (clasificador de §12, entropías 20261026/27) cada 20 pasos, por bin. φ(S) = fracción marcada en el bin.
+- ⟨bandera⟩_eq(b) = Σ g(S) e^{−bS/N} φ(S) / Σ g(S) e^{−bS/N}, sobre bins con muestras de producción.
+- **b*_eq(N):** menor b en [0.5, 12] (paso 0.01) donde ⟨bandera⟩_eq < 0.5. Incertidumbre: la producción se divide en 4 bloques y se informa el desvío de b*.
+- Presupuestos: WL de 6·10⁶ pasos (N = 32) y 2.4·10⁷ (N = 64); producción de 2·10⁶ y 6·10⁶. Entropías: WL 20261032, producción 20261033, validación 20261034. Ejecución por tramos con punto de control determinista.
+
+### Criterios
+
+- **V (vota):** con N = 8 se enumeran las 8! = 40 320 permutaciones (g exacto). WL con 5·10⁵ pasos, normalizado a Σg = 8!, debe cumplir max |Δ ln g| ≤ 0.15 en los bins con ≥ 10 estados exactos.
+- **Cobertura (vota):** a cada N el WL debe haber visitado S_bicapa (el estado fundamental). Si no, INDETERMINADO.
+- **Consistencia (vota):** b*_eq(N) ≤ b_c↑(N) y b*_eq(N) > b_c↓(N)/2^{1/4} (la transición de equilibrio debe caer dentro de la histéresis medida). Si no, INDETERMINADO.
+- **Decisión principal:**
+  - **VENTANA DE EQUILIBRIO ESTABLE con β = b/N:** b*_eq(64) ≥ b*_eq(32)·2^{−1/4}.
+  - **SE ANGOSTA EN EQUILIBRIO:** en caso contrario.
+- **Lectura:** con dos tamaños es nivel 1 para N ≤ 64; nada se afirma para N grande. N = 128 queda fuera por coste (declarado).
+
+### 16.1 Enmienda EQ-A1 (registrada ANTES de la corrida oficial)
+
+**Hallazgo de auditoría (A-20).** La enumeración exacta con N = 8 (8! permutaciones) da S_min = −34, por debajo de la bicapa (−24). El mínimo es un **sándwich**: capas de 3, 2 y 3 elementos totalmente relacionadas. Los 12 links aportan −24 y los 9 pares extremo-extremo, con exactamente 2 elementos entre ellos, aportan −2N₂ = −18. Para N par general, el sándwich (N−2)/2, 2, (N−2)/2 tiene S = −N²/2 − N + 6, menor que la bicapa (−N²/2 + N) en 2N − 6. **La suposición de §16 de que la bicapa es el estado fundamental era falsa.**
+
+| ID | Ítem | Cambio | ¿Puede crear un positivo? |
+|---|---|---|---|
+| EQ-A1a | Ventana inferior | S ≥ −N²/2 − 4N (margen de 3N bajo el sándwich). | No. |
+| EQ-A1b | Cobertura | Exigir que el WL visite S ≤ S_sándwich (el mejor estado conocido). Se informa si toca el borde inferior de la ventana (indicaría estados aún más bajos). | No: es al menos tan exigente como antes. |
+| EQ-A1c | Validación N = 8 | Ventana [−64, 48] (la máxima exacta es 42). | No. |
+
+**Consecuencia para resultados anteriores (sin cambiar sus veredictos).** La fase no geométrica a β grande es de tipo sándwich, no bicapa. L-3c-E″ partió de la bicapa, que es no geométrica pero no es el mínimo; su lectura («desde capas las cadenas se congelan») sigue en pie. El valor S_bicapa citado como «mínimo» en L-2c y en la orientación de nivel 4 de L-3c-E″ debe leerse como «bicapa», no como mínimo global.
+
+### 16.2 Validación V fallida y enmienda EQ-A2 (registrada tras el fallo, antes de cualquier corrida de N = 32 o 64)
+
+**Resultado oficial del primer intento:** V **FALLA** (commit `0ef0f1b`, entropía 20261034, 5·10⁵ pasos): max |Δ ln g| = 0.19 > 0.15, concentrado en la cola de baja energía (S de −30 a −24). Archivo conservado: `results/l3ce_eq/validate_intento1_fallido.json`.
+
+**Diagnóstico de auditoría (scratchpad, entropía 777, no evidencia):** con 5·10⁵ pasos y tres semillas, max |Δ| = 0.24, 0.15 y 0.23, con signos aleatorios; con 2·10⁶ pasos baja a 0.075, 0.068 y 0.080. Es ruido estadístico de un presupuesto insuficiente, no un sesgo del código.
+
+| ID | Cambio | ¿Puede crear un positivo? |
+|---|---|---|
+| EQ-A2a | Validación repetida con 2·10⁶ pasos, entropía nueva 20261035, misma tolerancia 0.15. | **Sí**: convierte un fallo en una nueva oportunidad. Se declara; el primer intento fallido queda registrado. |
+| EQ-A2b | Diagnóstico sin voto: b* recalculado tras sumar ruido gaussiano de desvío 0.2 a ln g (10 réplicas, entropía 20261036). | No. |
+
+**Advertencia preregistrada.** Los presupuestos de N = 32 y 64 dan ≈ 15 000 y 18 600 pasos por bin, del mismo orden que el intento fallido de N = 8 (≈ 13 500). Se espera un error de ln g del orden de 0.2 en las colas. Por el tamaño de la brecha de energía entre fases (ΔS ≈ N²/2), un error así mueve b* en ≈ 0.2·N/ΔS, es decir, menos de 0.01; el diagnóstico EQ-A2b lo comprobará.
+
+## 17. Bloque A-S: la familia sándwich en la rama lorentziana · PROBAR (preregistrado 2026-10-12)
+
+**Motivo.** L-3c-EQ mostró que el mínimo de S es un sándwich (capas a, 2, b). A-1 supone que los pares no consecutivos tienen muchos elementos entre ellos; en el sándwich tienen 0, 1 o 2, así que A-1 no lo cubre.
+
+**Familia Σ_N** (N par): capas A y B de a = b = (N−2)/2 elementos y capa central M = {m₁, m₂}; cada relación A–M y M–B presente con p = 1/2 (las 4^{N−2} configuraciones equiprobables); cierre transitivo. Las etiquetas de capa se cuentan con el factor N!/(a! b! 2!), lo cual favorece al sándwich y hace conservadora la comparación.
+
+### AS-1 (derivación exacta, nivel 1)
+
+Cada elemento de A tiene un tipo t = (x₁, x₂) ∈ {0,1}² según con qué elementos de M se relaciona; igual u = (y₁, y₂) para B. Un par (a, b) tiene n = x·y elementos entre ellos (0, 1 o 2). Con f₁ = f(1, ε) = 1 − 3ε y f₂ = f(2, ε) = 1 − 6ε + 6ε²:
+
+S_ε = εN − 2ε² (L + f₁ N₁ + f₂ N₂), sin aproximaciones.
+
+Fijando los conteos de tipos α de A, la suma sobre B se factoriza por elemento:
+
+Z_Σ = e^{iλεN} Σ_α M(α) e^{−2iλε² Σ_t α_t |t|} G(α)^b, con G(α) = Σ_u exp(−2iλε² [|u| + f₁ n₁(u, α) + f₂ n₂(u, α)]).
+
+### AS-2 (vota, verificación)
+
+- Para N ∈ {6, 8}, enumerar todas las configuraciones, construir el orden con cierre transitivo y calcular S_ε con el instrumento general: debe coincidir con la fórmula de AS-1 en todas (|dif| < 10⁻⁹), para ε ∈ {0.5, 0.25, 0.1}.
+- La suma Z por enumeración y por la fórmula de tipos deben coincidir (|dif| < 10⁻⁹ |Z_max-term|) para λε² ∈ {0.3, 1.2}.
+
+### AS-3 (cota rigurosa, nivel 1)
+
+U(N) = ln[N!/(a!b!2!)] + ln Σ_α M(α) |G(α)|^b ≥ ln|Z_Σ| (desigualdad triangular tras sumar exactamente sobre B). Se calcula para N ∈ {64, 256, 1024}, ε ∈ {0.25, 0.1}, λε² ∈ {0.3, 1.2, π/2, 1.9}. Para medir qué tan holgada es, se calcula también ln|Z_Σ| exacto con aritmética de 80 dígitos (mpmath) para N ∈ {8, 12, 16, 20, 24}.
+
+### AS-4 (comparación con la geometría; nivel 4 por el supuesto gaussiano)
+
+ln|Z_geo|(N) ≈ ln N! − (λε²)² V(N)/2, con V(N) = e^{c} N^γ de los ajustes oficiales de A-3.
+
+- **SOBREVIVE (condicional):** existe λε² en la ventana {1.2, π/2, 1.9} donde U(1024) < ln|Z_geo|(1024) para ambos ε. Como U es cota superior, el sándwich queda suprimido frente a la geometría (condicionado al supuesto gaussiano de la geometría).
+- **NO CONCLUYENTE:** en otro caso; la cota podría ser holgada o el sándwich podría dominar.
+- **Expectativa honesta preregistrada.** Esta familia tiene entropía O(N) (≈ 4^N miembros), así que su supresión por fase probablemente sea O(N), mientras que la cancelación de fase de la geometría crece como N^γ con γ ≈ 1.4–1.6 (A-3). Si ambas cosas se confirman, a N grande el sándwich **no** quedaría suprimido frente a la geometría, y el resultado probable es NO CONCLUYENTE. También se informa, sin voto, el N donde se cruzan las tendencias.
+
+## 18. Ratificación R3-6 y preregistro de L-ε (2026-10-12)
+
+| # | Estado |
+|---|---|
+| R3-6 | **RATIFICADA por el usuario (2026-10-12):** en la rama L la escala de no localidad es fija en volumen: ε = K/N (cada región de no localidad contiene en promedio N/K elementos). |
+
+### 18.1 Corolario analítico (nivel 1, dados los tamaños de clase)
+
+Con λ fijo y ε = K/N, cada link de una familia por capas aporta una fase λε² = λK²/N² → 0. Para la familia bipartita, |Z| = 2^{P}|cos(λK²/N²)|^{P} con P = N²/4, que tiende a 2^{N²/4}: las capas no se cancelan y su conteo supera al de la geometría (≈ N!). **Con λ fijo la rama L no puede seleccionar geometría.** La única posibilidad es mantener λε² = x en la ventana (π/3, 2π/3), es decir λ = xN²/K².
+
+### 18.2 Medición decisiva · PROBAR
+
+En ese régimen, la fase de la clase geométrica es x · (S_ε/ε²). Se mide D(N) = sd(S_ε/ε²) en 2-órdenes aleatorios con ε = K/N.
+
+- Malla: K ∈ {4, 8}; N ∈ {64, 128, 256, 512, 1024}; 200 2-órdenes por N (entropía 20261037). Ajuste ln D = η ln N + c por mínimos cuadrados.
+- **COMPATIBLE:** para algún K, D(1024) ≤ 3/π ≈ 0.955 (con x = π/3, x·D ≤ 1, fase geométrica coherente) **y** η + 2·SE ≤ 0 (no crece con N).
+- **INCOMPATIBLE (estructural):** para ambos K, η − 2·SE > 0. Lectura: dentro de la ventana necesaria para cancelar las capas, la fase de la geometría se dispersa cada vez más con N, y por §18.1 salirse de la ventana deja a las capas sin cancelar. En 2D, con la acción BD suavizada, no hay escalamiento de (λ, ε) que cumpla ambas condiciones.
+- **INDETERMINADO:** cualquier otro caso.
+- **Expectativa honesta:** INCOMPATIBLE. El sondeo de §11.3 (ε = 0.1 fijo) dio D entre 29 y 90, y un argumento de conteo sugiere D ∝ N^{1.5}·(algo), porque S_ε/ε² incluye N/ε − 2·(suma ponderada sobre ≈ N²/4 relaciones).
+
+## 19. Ratificación R3-3 (d = 4) y plan de la fase 4D (2026-10-12)
+
+| # | Estado |
+|---|---|
+| R3-3 | **RATIFICADA por el usuario (2026-10-12): Ω-C pasa a d = 4.** Los resultados de 2D quedan como antecedente (`OMEGA_2_SINTESIS_2D.md`). |
+
+**Acción 4D (literatura, verificada):** S₄ = N − N₀ + 9N₁ − 16N₂ + 8N₃ (Benincasa y Dowker 2010); el prefactor 4/√6 (ℓ/ℓ_p)² se absorbe en el acoplamiento. **Suavizada:** S₄,ε = N − ε Σ_n N_n f₄(n, ε), con f₄(n, ε) = (1−ε)^n [1 − 9εn/(1−ε) + 8ε²n(n−1)/(1−ε)² − 4ε³n(n−1)(n−2)/(3(1−ε)³)] (revisión de Surya 2019); ε = 1 recupera S₄. Los prefactores dependientes de ε también se absorben en λ.
+
+**Orden de la fase 4D:** (1) C4, validar el instrumento; (2) L4, prueba estructural decisiva de la rama lorentziana (barata); (3) rama euclídea 4D, que exige Metropolis sobre órdenes generales (los sprinklings 4D no son 2-órdenes): se planifica después de L4.
+
+### 19.1 C4: validación de la acción 4D · PROBAR
+
+- **Referencia independiente** (no usa la matriz de orden): con 4·10⁶ pares de puntos uniformes en el diamante 4D (entropía 20261038) se estima E_pares[1_rel · E_K f₄(K, ε)], K ~ Bin(N−2, v), v = V(I)/V(diamante), usando la forma cerrada E_K f₄ = y^M − 9εMv y^{M−1} + 8ε²M(M−1)v² y^{M−2} − (4/3)ε³M(M−1)(M−2)v³ y^{M−3}, y = 1 − εv, M = N − 2. Entonces E[S₄,ε] = N − ε C(N,2) · (ese promedio).
+- **Muestras:** 200 sprinklings por celda (entropía 20261039), N ∈ {128, 512}, ε ∈ {1, 0.25, 0.05}.
+- **Éxito:** en las seis celdas, |media − E_ref| ≤ 3·√(SE_muestra² + SE_ref²). Más tests unitarios exactos (cadena de 5: S₄ = 4).
+
+### 19.2 L4: compatibilidad en la rama lorentziana · PROBAR (requiere C4 aprobado)
+
+- Per link, S₄,ε aporta −ε, así que las familias por capas se suprimen sí y solo sí λε mod 2π ∈ W₄ = (2π/3, 4π/3) (misma derivación que §10.2). Con λε → 0 no se suprimen (corolario de §18.1).
+- En W₄, la fase de la geometría es (λε)·(S₄,ε/ε): se mide D₄(N) = sd(S₄,ε)/ε sobre sprinklings 4D (100 por N, entropía 20261040), N ∈ {128, 256, 512, 1024, 2048}.
+- **Esquemas de ε:** fijos {1, 0.5, 0.25, 0.1, 0.05} y fijos en volumen ε = K/N con K ∈ {16, 64}.
+- **COMPATIBLE:** algún esquema con D₄(2048) ≤ 3/(2π) ≈ 0.477 y η + 2·SE ≤ 0 (D₄ ∝ N^η).
+- **INCOMPATIBLE (en los esquemas probados):** η − 2·SE > 0 en todos.
+- **INDETERMINADO:** otro caso.
+- **Expectativa:** ninguna firme. En 2D el resultado fue incompatible; en 4D la acción no es topológica y la literatura introduce el suavizado justamente para reducir fluctuaciones.
+
+## 20. L4b: rama lorentziana 4D sin borde espacial · PROBAR (aprobado por el usuario, preregistrado 2026-10-12)
+
+**Región.** Bloque T³ × [0, T]: espacio 3-toro de lado 1 y tiempo de duración T = 0.4. Relación: Δt > 0 y Δt² ≥ |Δx|², con Δx por imagen mínima. Como T < 1/2, cada cono de luz ve una sola imagen y todo intervalo causal es un diamante sin autointersección. Un 4D sin ningún borde no es posible: cerrar el tiempo crearía curvas causales cerradas. Quedan solo los bordes espaciales t = 0 y t = T.
+
+**Descomposición retardada.** S₄,ε = Σ_x s(x), con s(x) = 1 − ε Σ_{y≺x} f₄(n(y, x), ε): cada par se asigna a su elemento superior. **S_interior** = Σ sobre x con t(x) ≥ T/2. Es una aproximación: los pares casi nulos que llegan cerca de t = 0 siguen contribuyendo; se declara.
+
+### C4b (vota): instrumento en el toro
+
+Con el método de pares de §19.1 adaptado al bloque (v = c₄ τ⁴ / V_bloque, 4·10⁶ pares, entropía 20261041) y 200 sprinklings (entropía 20261042), N = 512, ε ∈ {0.25, 0.05}: |media − ref| ≤ 3·√(SE² + SE_ref²).
+
+### L4b (vota)
+
+- N ∈ {256, 512, 1024, 2048}, 100 sprinklings por N (entropía 20261043); esquemas ε ∈ {1, 0.25, 0.05} fijos y ε = K/N con K ∈ {16, 64}.
+- D_int = sd(S_interior)/ε y D_tot = sd(S₄,ε)/ε; ajustes D ∝ N^η.
+- **COMPATIBLE:** algún esquema con D_int(2048) ≤ 0.477 y η_int + 2·SE ≤ 0.
+- **INCOMPATIBLE:** η_int − 2·SE > 0 en todos los esquemas.
+- **INDETERMINADO:** otro caso, o C4b no aprobado.
+- **Diagnóstico sin voto:** ¿η_int es compatible con 0.5 (dispersión tipo suma de términos locales)? ¿η_tot del toro baja respecto de L4 (diamantes, η ≈ 0.8 a 1.3)?
+- **Expectativa honesta (nivel 2):** INCOMPATIBLE. Si s(x) tiene varianza no nula y correlaciones de corto alcance, sd(S_interior) crece como √N_interior; con λε fijado en la ventana, eso basta para impedir la coherencia. Si el borde era el responsable del exceso medido en L4, se espera η_int ≈ 0.5.
+
+## 21. P4: piloto de factibilidad de la rama euclídea en 4D · PILOTO PREREGISTRADO (2026-10-12)
+
+**Pedido del usuario:** intentarlo aunque la expectativa sea desfavorable, por si enseña algo inesperado. Es un **piloto**: nivel 1 solo para N ∈ {64, 128}; sus conclusiones son exploratorias.
+
+**Espacio y dinámica.** Órdenes con etiquetado natural (i ≺ j implica i < j). Movimiento: elegir un par i < j al azar; si es un link, quitarlo; si no están relacionados y agregar i ≺ j deja el conjunto transitivo (todo a ≺ i ya cumple a ≺ j, y todo b ≻ j ya cumple i ≺ b), agregarlo; en otro caso, rechazar. La propuesta es simétrica, así que Metropolis con min(1, e^{−βΔS₄}) muestrea e^{−βS₄} sobre órdenes etiquetados naturalmente (cada orden pesa según su número de extensiones lineales; se declara). Acción sin suavizar S₄ = N − N₀ + 9N₁ − 16N₂ + 8N₃, actualizada en O(N) por movimiento.
+
+**Se prueban β de ambos signos**, porque las familias por capas tienen S₄ muy negativo: β > 0 las favorece; β < 0 las castiga.
+
+### P4-0 (vota): instrumento
+- (a) Tras 2·10⁵ movimientos con β = 0.01 y N = 32 desde un sprinkling 4D: la matriz sigue siendo un orden parcial y los conteos incrementales coinciden con un recálculo completo.
+- (b) Con β = 0 y N = 4, la cadena debe muestrear uniformemente los 40 órdenes etiquetados naturalmente de 4 elementos (enumeración exacta): prueba χ² con 2·10⁵ muestras, p > 0.001.
+
+### P4-1 (estabilidad de la geometría 4D)
+- Inicio: sprinkling 4D en un diamante, etiquetado por tiempo. N ∈ {64, 128}; β ∈ {−0.1, −0.03, −0.01, −0.003, 0, 0.003, 0.01, 0.03, 0.1}; 100 barridos de termalización y 100 de medición (1 barrido = N(N−1)/2 propuestas), una muestra cada 10.
+- Clasificador «geometría 4D»: bandera C0-4b recalibrada a cada N con 40 sprinklings 4D (δ₄ = 1.5 × p95, entropía 20261045) y validada antes de leer (≥ 90% de 100 sprinklings 4D marcados; ≤ 10% de 20 órdenes KR y 20 bicapas). Si no valida a un N, ese N es INDETERMINADO.
+- Entropías: cadenas 20261044, validación 20261046.
+- **Lectura preregistrada por N:** «VENTANA» si algún β ≠ 0 tiene fracción marcada ≥ 0.5; «SIN VENTANA» si ningún β la tiene. Para ambos N con VENTANA: «se angosta» si el rango de β con fracción ≥ 0.5 en N = 128 está estrictamente contenido en el de N = 64.
+- **Se registra sin voto**, para buscar lo inesperado: para cada β, d_MM, fracción de pares relacionados, altura (cadena más larga) y ⟨S₄⟩ de los estados finales, es decir, **a qué tipo de orden va la dinámica** cuando abandona la geometría.
+- **Expectativa honesta:** SIN VENTANA o una ventana mínima cerca de β = 0, con β > 0 yendo hacia capas. Para β < 0 no hay expectativa.
+
+### 21.1 Error detectado tras la primera corrida de N = 64 y enmienda P4-A1
+
+**Hallazgo (A-22, gravedad alta).** El criterio de aceptación tenía el atajo «si ΔS ≤ 0, aceptar», válido solo para β ≥ 0. Con β < 0 aceptaba siempre los movimientos que bajan S, que es justo lo que ese peso debe castigar. La auditoría previa no lo detectó; apareció al leer la corrida (β = −0.1 daba aceptación 1.00 y S₄ ≈ −430, igual que β > 0). **Las filas con β < 0 de ese primer intento son inválidas** (archivo conservado como `n64_intento1_invalido_beta_negativo.json`). Las filas con β ≥ 0 no cambian: el criterio corregido es idéntico para β ≥ 0 y consume los mismos números aleatorios.
+
+| ID | Cambio | ¿Puede crear un positivo? |
+|---|---|---|
+| P4-A1a | Aceptación correcta para ambos signos: aceptar si −βΔS ≥ 0, o con probabilidad e^{−βΔS}. | Corrige un error; los β < 0 se miden por primera vez. |
+| P4-A1b | P4-0 añade una prueba exacta con β = −0.5 en N = 4: frecuencias frente a e^{−βS₄} de los 40 órdenes (χ², p > 0.001). Se repite P4-0 completo. | No: es más estricto. |
+
+### 21.2 Validación P4-A1b fallida y enmienda P4-A2 (tras el fallo, antes de cualquier corrida de N = 64 o 128)
+
+**Resultado oficial:** la prueba χ² con β = −0.5 FALLA (p ≈ 0; commit posterior a P4-A1).
+**Diagnóstico (scratchpad, entropía 5):** el muestreador es correcto: S se mantiene exacto en 60 000 barridos y las frecuencias coinciden con las exactas (0.4636 y 0.4711 frente a 0.466 en los dos estados dominantes de S₄ = 19; 0.0080 a 0.0091 frente a 0.0085 en los de S₄ = 11). El fallo viene de la prueba: con β = −0.5 dos estados concentran el 93% del peso y casi no se comunican, así que las muestras están fuertemente autocorrelacionadas y la χ² (que supone independencia) no es aplicable.
+
+| ID | Cambio | ¿Puede crear un positivo? |
+|---|---|---|
+| P4-A2 | Para β = −0.5 se usan medias por 20 bloques: en los estados con peso exacto ≥ 0.005, |f − p| ≤ 4·SE_bloques. La χ² se sigue informando sin voto. Mismos datos (misma entropía); cambia solo el análisis. | **Sí**; se declara. |

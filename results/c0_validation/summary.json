@@ -1,0 +1,22 @@
+{
+  "phase": "final",
+  "mode": "full",
+  "commit": "bdae5f8005b5b16a2ee29df7488045812be83c6a",
+  "dirty": false,
+  "entropy": 20261011,
+  "seconds": 43.2,
+  "verdicts": {
+    "C0-1": true,
+    "C0-2": true,
+    "C0-3": true,
+    "C0-3-exact (C-A2)": true,
+    "C0-4_fracciones_marcadas": {
+      "sprinkle_d2": 1.0,
+      "sprinkle_d3": 1.0,
+      "sprinkle_d4": 1.0,
+      "kr": 0.0,
+      "percolation": 1.0
+    },
+    "C0-4": false
+  }
+}

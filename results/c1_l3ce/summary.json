@@ -1,0 +1,31 @@
+{
+  "phase": "final",
+  "commits_partes": [
+    "157fe07a83bf8d681328a56d6d11da1117216b3e"
+  ],
+  "un_solo_commit": true,
+  "C1-2": true,
+  "beta_c_32": 0.14142135623730956,
+  "beta_c_64": 0.07071067811865477,
+  "validacion_clasificador": {
+    "l3ce32": {
+      "pos": 0.98,
+      "layered": {
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0
+      },
+      "ok": true
+    },
+    "l3ce64a": {
+      "pos": 0.99,
+      "layered": {
+        "2": 0.0,
+        "4": 0.0,
+        "8": 0.0
+      },
+      "ok": true
+    }
+  },
+  "L-3c-E": "ventana que se angosta"
+}

@@ -1,0 +1,15 @@
+plano 1000 1
+plano 2000 8
+plano 4000 49
+dS_fuerte 1000 51
+dS_fuerte 2000 59
+dS_fuerte 4000 104
+AdS_fuerte 1000 105
+AdS_fuerte 2000 111
+AdS_fuerte 4000 152
+FRW_rad 1000 154
+FRW_rad 2000 159
+FRW_rad 4000 201
+FRW_polvo 1000 202
+FRW_polvo 2000 208
+FRW_polvo 4000 250

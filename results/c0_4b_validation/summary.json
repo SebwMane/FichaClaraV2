@@ -1,0 +1,24 @@
+{
+  "phase": "final",
+  "mode": "full",
+  "commit": "caa6a2b90914cc7a785bb0b2b74bdb8c07f8ce40",
+  "dirty": false,
+  "N": 1024,
+  "seconds": 49.2,
+  "delta": {
+    "2": 0.0703698385799844,
+    "3": 0.10117205736607607,
+    "4": 0.21507694558825197,
+    "1": 0.0703698385799844
+  },
+  "flag_fraction": {
+    "sprinkle_d2": 1.0,
+    "sprinkle_d3": 1.0,
+    "sprinkle_d4": 1.0,
+    "kr": 0.0,
+    "percolation_p05": 0.0,
+    "percolation_p01": 0.0,
+    "thick_layers_8": 0.0
+  },
+  "verdict_C0-4b": true
+}

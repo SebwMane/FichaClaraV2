@@ -1,0 +1,1 @@
+{"commit": "3240c7a62a6115cf22e6ad7fa3a9f3bf0727eebc", "seconds": 126.2, "data": {"N": 128, "delta2": 0.31554612351173594, "rows": [{"k": 0, "b": 2.0, "flag_fraction": 0.25, "mean_S": -3514.5, "acceptance": 0.110984375}, {"k": 1, "b": 2.378414230005442, "flag_fraction": 0.0, "mean_S": -7156.9, "acceptance": 0.00451171875}]}}

@@ -1,0 +1,106 @@
+{
+  "commit": "19d380e574415987dc68e9f284eae8b5ff82e283",
+  "F1": "PASA",
+  "F1_detalle": {
+    "de_sitter_2d": {
+      "papel": "positiva",
+      "beta_mediana": -0.9996641276856142,
+      "rodilla_mediana": 0.47563094455635857,
+      "con_rodilla": 10,
+      "compatible": true,
+      "correcto": true
+    },
+    "cilindro_2d": {
+      "papel": "positiva",
+      "beta_mediana": -1.045516691283249,
+      "rodilla_mediana": 0.3661733611831657,
+      "con_rodilla": 10,
+      "compatible": true,
+      "correcto": true
+    },
+    "capas_200": {
+      "papel": "negativa",
+      "beta_mediana": -1.1508342222909516,
+      "rodilla_mediana": 1.6197254943191737,
+      "con_rodilla": 10,
+      "compatible": false,
+      "correcto": true
+    },
+    "capas_400": {
+      "papel": "negativa",
+      "beta_mediana": -1.1480584469065978,
+      "rodilla_mediana": 0.7037392993070862,
+      "con_rodilla": 10,
+      "compatible": false,
+      "correcto": true
+    },
+    "orden_d3": {
+      "papel": "negativa",
+      "beta_mediana": -0.7082772720941006,
+      "rodilla_mediana": 1.508169330121054,
+      "con_rodilla": 10,
+      "compatible": false,
+      "correcto": true
+    },
+    "orden_d4": {
+      "papel": "negativa",
+      "beta_mediana": -0.5632879008740311,
+      "rodilla_mediana": 3.592663801529004,
+      "con_rodilla": 10,
+      "compatible": false,
+      "correcto": true
+    },
+    "percolacion_002": {
+      "papel": "negativa",
+      "beta_mediana": -0.9047451648233631,
+      "rodilla_mediana": 12.84681445280332,
+      "con_rodilla": 10,
+      "compatible": false,
+      "correcto": true
+    },
+    "percolacion_010": {
+      "papel": "negativa",
+      "beta_mediana": -1.6338124056666454,
+      "rodilla_mediana": 5.364706747447209,
+      "con_rodilla": 10,
+      "compatible": false,
+      "correcto": true
+    }
+  },
+  "F2": "FALLA",
+  "F2_detalle": {
+    "2": {
+      "objetivo": -1.0,
+      "beta_por_N": {
+        "400": -0.9938603653480013,
+        "800": -0.9941279967986233,
+        "1600": -1.0045279755733083,
+        "2400": -1.006075622437535
+      },
+      "pasa": true,
+      "rodilla_2400": 0.4457286328913487
+    },
+    "3": {
+      "objetivo": -0.6666666666666666,
+      "beta_por_N": {
+        "400": -0.7389661099120305,
+        "800": -0.7135717273815558,
+        "1600": -0.7444515875786161,
+        "2400": -0.7664596131110937
+      },
+      "pasa": false,
+      "rodilla_2400": 1.012867017587879
+    },
+    "4": {
+      "objetivo": -0.5,
+      "beta_por_N": {
+        "400": -0.4688213398000978,
+        "800": -0.6412066602816323,
+        "1600": -0.6733006306700383,
+        "2400": -0.6324665115484908
+      },
+      "pasa": false,
+      "rodilla_2400": 1.5124025720023553
+    }
+  }
+}

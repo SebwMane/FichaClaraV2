@@ -1,0 +1,158 @@
+{
+  "commit": "f97848edeaf6fbafcb42045db517eedebaed45b4",
+  "AS-2": true,
+  "comparacion": {
+    "N64_eps0.25_x1.2000": {
+      "U": 129.63165478226907,
+      "geo": -399.289782288631,
+      "sandwich_suprimido": false
+    },
+    "N128_eps0.25_x1.2000": {
+      "U": 261.996385471498,
+      "geo": -1106.238499793534,
+      "sandwich_suprimido": false
+    },
+    "N256_eps0.25_x1.2000": {
+      "U": 527.774816603173,
+      "geo": -3081.950769932153,
+      "sandwich_suprimido": false
+    },
+    "N512_eps0.25_x1.2000": {
+      "U": 1061.008411580856,
+      "geo": -8580.177872066448,
+      "sandwich_suprimido": false
+    },
+    "N1024_eps0.25_x1.2000": {
+      "U": 2125.358061769502,
+      "geo": -23792.795834405682,
+      "sandwich_suprimido": false
+    },
+    "N64_eps0.25_x1.5708": {
+      "U": 128.62792165169563,
+      "geo": -830.554223635994,
+      "sandwich_suprimido": false
+    },
+    "N128_eps0.25_x1.5708": {
+      "U": 262.54979955783284,
+      "geo": -2249.6816849535917,
+      "sandwich_suprimido": false
+    },
+    "N256_eps0.25_x1.5708": {
+      "U": 529.1602376496561,
+      "geo": -6113.645925702902,
+      "sandwich_suprimido": false
+    },
+    "N512_eps0.25_x1.5708": {
+      "U": 1062.1149595632528,
+      "geo": -16618.33458751117,
+      "sandwich_suprimido": false
+    },
+    "N1024_eps0.25_x1.5708": {
+      "U": 2127.738048893116,
+      "geo": -45104.952915589114,
+      "sandwich_suprimido": false
+    },
+    "N64_eps0.25_x1.9000": {
+      "U": 129.38816893881904,
+      "geo": -1310.174379818951,
+      "sandwich_suprimido": false
+    },
+    "N128_eps0.25_x1.9000": {
+      "U": 262.20520123831716,
+      "geo": -3521.3339392860553,
+      "sandwich_suprimido": false
+    },
+    "N256_eps0.25_x1.9000": {
+      "U": 528.5463918637671,
+      "geo": -9485.271231900364,
+      "sandwich_suprimido": false
+    },
+    "N512_eps0.25_x1.9000": {
+      "U": 1060.4494289391932,
+      "geo": -25557.773153881288,
+      "sandwich_suprimido": false
+    },
+    "N1024_eps0.25_x1.9000": {
+      "U": 2125.7694139199534,
+      "geo": -68806.74496674453,
+      "sandwich_suprimido": false
+    },
+    "N64_eps0.1_x1.2000": {
+      "U": 129.36093781214473,
+      "geo": -461.58781721373094,
+      "sandwich_suprimido": false
+    },
+    "N128_eps0.1_x1.2000": {
+      "U": 261.4334630448008,
+      "geo": -1463.7436016333168,
+      "sandwich_suprimido": false
+    },
+    "N256_eps0.1_x1.2000": {
+      "U": 527.9690405021216,
+      "geo": -4595.247025987001,
+      "sandwich_suprimido": false
+    },
+    "N512_eps0.1_x1.2000": {
+      "U": 1060.650840778659,
+      "geo": -14254.720307106032,
+      "sandwich_suprimido": false
+    },
+    "N1024_eps0.1_x1.2000": {
+      "U": 2125.0472131477536,
+      "geo": -43724.79705469155,
+      "sandwich_suprimido": false
+    },
+    "N64_eps0.1_x1.5708": {
+      "U": 128.48856300479315,
+      "geo": -937.3002235797414,
+      "sandwich_suprimido": false
+    },
+    "N128_eps0.1_x1.5708": {
+      "U": 263.35894671138874,
+      "geo": -2862.257019420574,
+      "sandwich_suprimido": false
+    },
+    "N256_eps0.1_x1.5708": {
+      "U": 528.1966555872431,
+      "geo": -8706.638180722166,
+      "sandwich_suprimido": false
+    },
+    "N512_eps0.1_x1.5708": {
+      "U": 1060.9756417221042,
+      "geo": -26341.509759565855,
+      "sandwich_suprimido": false
+    },
+    "N1024_eps0.1_x1.5708": {
+      "U": 2125.512564833109,
+      "geo": -79257.8985694523,
+      "sandwich_suprimido": false
+    },
+    "N64_eps0.1_x1.9000": {
+      "U": 129.2979010137496,
+      "geo": -1466.3520923742362,
+      "sandwich_suprimido": false
+    },
+    "N128_eps0.1_x1.9000": {
+      "U": 262.0812541291565,
+      "geo": -4417.579368203844,
+      "sandwich_suprimido": false
+    },
+    "N256_eps0.1_x1.9000": {
+      "U": 528.0242866338186,
+      "geo": -13279.02087381564,
+      "sandwich_suprimido": false
+    },
+    "N512_eps0.1_x1.9000": {
+      "U": 1060.597095753116,
+      "geo": -39783.535786168024,
+      "sandwich_suprimido": false
+    },
+    "N1024_eps0.1_x1.9000": {
+      "U": 2124.721232530051,
+      "geo": -118775.1646926001,
+      "sandwich_suprimido": false
+    }
+  },
+  "AS-4": "NO CONCLUYENTE",
+  "x_en_ventana_que_suprimen": []
+}
