@@ -1,0 +1,1383 @@
+{
+  "step": "cic_l0b",
+  "code_commit": "ff823c60dcd11d83bda108073da59a4445dc759b",
+  "smoke": false,
+  "n_graphs": 58,
+  "seconds": 142.1,
+  "evaluation": {
+    "L_CIC_0b": {
+      "all": {
+        "verdict": "REDUNDANCIA-PARCIAL",
+        "sensitivity": 1.0,
+        "exclusion": 0.8695652173913043,
+        "n_V": 23,
+        "n_X": 23
+      },
+      "new": {
+        "verdict": "REDUNDANCIA-PARCIAL",
+        "sensitivity": 1.0,
+        "exclusion": 0.75,
+        "n_V": 6,
+        "n_X": 12
+      },
+      "repeated": {
+        "verdict": "REDUNDANCIA-VALIDA",
+        "sensitivity": 1.0,
+        "exclusion": 1.0,
+        "n_V": 17,
+        "n_X": 11
+      },
+      "density_independence": {
+        "families": [
+          "RGG3_k8",
+          "RGG3_k12",
+          "RGG3_k20"
+        ],
+        "states": [
+          "CONEXO"
+        ],
+        "same_state": true
+      },
+      "dimension_independence": {
+        "d2": {
+          "families": [
+            "RGG2_k12",
+            "RGG2_caja_k12",
+            "RGG_S2_k12",
+            "cuadrado_141"
+          ],
+          "states": [
+            "CONEXO"
+          ],
+          "same_state": true
+        },
+        "d3": {
+          "families": [
+            "RGG3_k12",
+            "RGG3_k8",
+            "RGG3_k20",
+            "RGG3_caja_k12",
+            "T3_27"
+          ],
+          "states": [
+            "CONEXO"
+          ],
+          "same_state": true
+        },
+        "same_state": true
+      }
+    },
+    "RC1": {
+      "all": {
+        "verdict": "RC1-INVALIDA",
+        "sensitivity": 0.6956521739130435,
+        "specificity": 0.9705882352941176,
+        "n_V": 23,
+        "n_nongeometric": 34
+      },
+      "new": {
+        "verdict": "RC1-INVALIDA",
+        "sensitivity": 0.5,
+        "specificity": 1.0,
+        "n_V": 6,
+        "n_nongeometric": 12
+      },
+      "repeated": {
+        "verdict": "RC1-PARCIAL",
+        "sensitivity": 0.7647058823529411,
+        "specificity": 0.9545454545454546,
+        "n_V": 17,
+        "n_nongeometric": 22
+      }
+    }
+  },
+  "by_family": {
+    "RGG2_k12": {
+      "group": "V",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        26,
+        25,
+        25
+      ],
+      "locality": [
+        1.0,
+        1.0,
+        0.999
+      ],
+      "coherence_status": [
+        "COHERENTE",
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.122,
+        0.104,
+        0.098
+      ],
+      "f_neg": [
+        0.17,
+        0.147,
+        0.167
+      ],
+      "level2": [
+        "CONVERGE",
+        "CONVERGE",
+        "CONVERGE"
+      ],
+      "rc1_geometric": 3,
+      "rc1_fail": {}
+    },
+    "RGG3_k12": {
+      "group": "V",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        10,
+        10,
+        10
+      ],
+      "locality": [
+        0.998,
+        0.999,
+        0.999
+      ],
+      "coherence_status": [
+        "COHERENTE",
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        -0.025,
+        -0.014,
+        -0.02
+      ],
+      "f_neg": [
+        0.337,
+        0.323,
+        0.34
+      ],
+      "level2": [
+        "CONVERGE",
+        "CONVERGE",
+        "CONVERGE"
+      ],
+      "rc1_geometric": 3,
+      "rc1_fail": {}
+    },
+    "RGG3_k8": {
+      "group": "V",
+      "new": true,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        13,
+        13,
+        13
+      ],
+      "locality": [
+        0.976,
+        0.984,
+        0.984
+      ],
+      "coherence_status": [
+        "INTERMEDIO",
+        "INTERMEDIO",
+        "INTERMEDIO"
+      ],
+      "kappa_median": [
+        -0.014,
+        -0.022,
+        0.0
+      ],
+      "f_neg": [
+        0.37,
+        0.377,
+        0.323
+      ],
+      "level2": [
+        "CONVERGE",
+        "CONVERGE",
+        "CONVERGE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "ii_coherence": 3
+      }
+    },
+    "RGG3_k20": {
+      "group": "V",
+      "new": true,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        7,
+        8,
+        8
+      ],
+      "locality": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "coherence_status": [
+        "COHERENTE",
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        -0.027,
+        -0.017,
+        -0.026
+      ],
+      "f_neg": [
+        0.35,
+        0.28,
+        0.323
+      ],
+      "level2": [
+        "CONVERGE",
+        "CONVERGE",
+        "CONVERGE"
+      ],
+      "rc1_geometric": 3,
+      "rc1_fail": {}
+    },
+    "RGG_S2_k12": {
+      "group": "V",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        27,
+        27,
+        27
+      ],
+      "locality": [
+        0.998,
+        0.998,
+        1.0
+      ],
+      "coherence_status": [
+        "COHERENTE",
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.077,
+        0.103,
+        0.101
+      ],
+      "f_neg": [
+        0.17,
+        0.2,
+        0.197
+      ],
+      "level2": [
+        "CONVERGE",
+        "CONVERGE",
+        "CONVERGE"
+      ],
+      "rc1_geometric": 3,
+      "rc1_fail": {}
+    },
+    "RGG3_caja_k12": {
+      "group": "V",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        12,
+        12,
+        12
+      ],
+      "locality": [
+        0.997,
+        0.995,
+        0.995
+      ],
+      "coherence_status": [
+        "COHERENTE",
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        -0.028,
+        0.0,
+        -0.012
+      ],
+      "f_neg": [
+        0.36,
+        0.313,
+        0.353
+      ],
+      "level2": [
+        "NO_CONVERGE",
+        "NO_CONVERGE",
+        "NO_CONVERGE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "iv_level2": 3
+      }
+    },
+    "RGG2_caja_k12": {
+      "group": "V",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        30,
+        30,
+        29
+      ],
+      "locality": [
+        1.0,
+        0.999,
+        0.999
+      ],
+      "coherence_status": [
+        "COHERENTE",
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.084,
+        0.12,
+        0.099
+      ],
+      "f_neg": [
+        0.15,
+        0.18,
+        0.19
+      ],
+      "level2": [
+        "CONVERGE",
+        "CONVERGE",
+        "CONVERGE"
+      ],
+      "rc1_geometric": 3,
+      "rc1_fail": {}
+    },
+    "cuadrado_141": {
+      "group": "V",
+      "new": false,
+      "n": 1,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0
+      ],
+      "c_med": [
+        1.0
+      ],
+      "f2_med": [
+        1.0
+      ],
+      "r_w": [
+        49
+      ],
+      "locality": [
+        1.0
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.0
+      ],
+      "level2": [
+        "CONVERGE"
+      ],
+      "rc1_geometric": 1,
+      "rc1_fail": {}
+    },
+    "T3_27": {
+      "group": "V",
+      "new": false,
+      "n": 1,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0
+      ],
+      "c_med": [
+        1.0
+      ],
+      "f2_med": [
+        1.0
+      ],
+      "r_w": [
+        14
+      ],
+      "locality": [
+        1.0
+      ],
+      "coherence_status": [
+        "INTERMEDIO"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.0
+      ],
+      "level2": [
+        "CONVERGE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "ii_coherence": 1
+      }
+    },
+    "arbol_prufer": {
+      "group": "X",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "RAMIFICADO",
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "f_med": [
+        0.463,
+        0.492,
+        0.495
+      ],
+      "c_med": [
+        21.0,
+        18.0,
+        22.0
+      ],
+      "f2_med": [
+        0.733,
+        0.75,
+        0.739
+      ],
+      "r_w": [
+        123,
+        97,
+        119
+      ],
+      "locality": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coherence_status": [
+        "COHERENTE",
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.0,
+        -0.167,
+        0.0
+      ],
+      "f_neg": [
+        0.47,
+        0.523,
+        0.47
+      ],
+      "level2": [
+        "CONVERGE",
+        "CONVERGE",
+        "CONVERGE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "i_locality": 3,
+        "iii_curvature": 3
+      }
+    },
+    "arbol_binario_sub8": {
+      "group": "X",
+      "new": false,
+      "n": 1,
+      "annulus_status": [
+        "RAMIFICADO"
+      ],
+      "f_med": [
+        0.403
+      ],
+      "c_med": [
+        8.0
+      ],
+      "f2_med": [
+        0.778
+      ],
+      "r_w": [
+        113
+      ],
+      "locality": [
+        0.0
+      ],
+      "coherence_status": [
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        0.0
+      ],
+      "f_neg": [
+        0.18
+      ],
+      "level2": [
+        "CRUCE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "i_locality": 1,
+        "ii_coherence": 1,
+        "iv_level2": 1
+      }
+    },
+    "cactus_triangulos": {
+      "group": "X",
+      "new": false,
+      "n": 1,
+      "annulus_status": [
+        "RAMIFICADO"
+      ],
+      "f_med": [
+        0.773
+      ],
+      "c_med": [
+        8.0
+      ],
+      "f2_med": [
+        0.914
+      ],
+      "r_w": [
+        20
+      ],
+      "locality": [
+        1.0
+      ],
+      "coherence_status": [
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        0.25
+      ],
+      "f_neg": [
+        0.44
+      ],
+      "level2": [
+        "CRUCE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "ii_coherence": 1,
+        "iii_curvature": 1,
+        "iv_level2": 1
+      }
+    },
+    "arbol_cliques_K6": {
+      "group": "X",
+      "new": true,
+      "n": 3,
+      "annulus_status": [
+        "RAMIFICADO",
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "f_med": [
+        0.879,
+        0.841,
+        0.861
+      ],
+      "c_med": [
+        4.0,
+        5.0,
+        5.0
+      ],
+      "f2_med": [
+        0.957,
+        0.944,
+        0.944
+      ],
+      "r_w": [
+        9,
+        10,
+        10
+      ],
+      "locality": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "coherence_status": [
+        "DEGENERADO",
+        "DEGENERADO",
+        "DEGENERADO"
+      ],
+      "kappa_median": [
+        0.6,
+        0.6,
+        0.1
+      ],
+      "f_neg": [
+        0.11,
+        0.133,
+        0.12
+      ],
+      "level2": [
+        "NO_CONVERGE",
+        "NO_CONVERGE",
+        "NO_CONVERGE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "ii_coherence": 3,
+        "iii_curvature": 2,
+        "iv_level2": 3
+      }
+    },
+    "2arbol": {
+      "group": "X",
+      "new": true,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        0.999,
+        0.998,
+        0.998
+      ],
+      "c_med": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        5,
+        5,
+        5
+      ],
+      "locality": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "coherence_status": [
+        "INCOHERENTE",
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        0.05,
+        0.018,
+        0.051
+      ],
+      "f_neg": [
+        0.36,
+        0.357,
+        0.403
+      ],
+      "level2": [
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "ii_coherence": 3,
+        "iv_level2": 3
+      }
+    },
+    "grafo_triangulos_k12": {
+      "group": "X",
+      "new": true,
+      "n": 3,
+      "annulus_status": [
+        "SIN_VENTANA",
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "f_med": [
+        null,
+        null,
+        null
+      ],
+      "c_med": [
+        null,
+        null,
+        null
+      ],
+      "f2_med": [
+        null,
+        null,
+        null
+      ],
+      "r_w": [
+        3,
+        3,
+        3
+      ],
+      "locality": [
+        0.249,
+        0.253,
+        0.234
+      ],
+      "coherence_status": [
+        "SIN_VENTANA",
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "kappa_median": [
+        -0.792,
+        -0.784,
+        -0.784
+      ],
+      "f_neg": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "level2": [
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "i_locality": 3,
+        "ii_coherence": 3,
+        "iii_curvature": 3,
+        "iv_level2": 3
+      }
+    },
+    "ER_k12": {
+      "group": "X",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "SIN_VENTANA",
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "f_med": [
+        null,
+        null,
+        null
+      ],
+      "c_med": [
+        null,
+        null,
+        null
+      ],
+      "f2_med": [
+        null,
+        null,
+        null
+      ],
+      "r_w": [
+        3,
+        3,
+        3
+      ],
+      "locality": [
+        0.094,
+        0.093,
+        0.081
+      ],
+      "coherence_status": [
+        "SIN_VENTANA",
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "kappa_median": [
+        -0.804,
+        -0.804,
+        -0.802
+      ],
+      "f_neg": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "level2": [
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "i_locality": 3,
+        "ii_coherence": 3,
+        "iii_curvature": 3,
+        "iv_level2": 3
+      }
+    },
+    "RR_k12": {
+      "group": "X",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "SIN_VENTANA",
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "f_med": [
+        null,
+        null,
+        null
+      ],
+      "c_med": [
+        null,
+        null,
+        null
+      ],
+      "f2_med": [
+        null,
+        null,
+        null
+      ],
+      "r_w": [
+        3,
+        3,
+        3
+      ],
+      "locality": [
+        0.055,
+        0.065,
+        0.063
+      ],
+      "coherence_status": [
+        "SIN_VENTANA",
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "kappa_median": [
+        -0.792,
+        -0.792,
+        -0.833
+      ],
+      "f_neg": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "level2": [
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "i_locality": 3,
+        "ii_coherence": 3,
+        "iii_curvature": 3,
+        "iv_level2": 3
+      }
+    },
+    "cliques_K12_enlazadas": {
+      "group": "X",
+      "new": true,
+      "n": 3,
+      "annulus_status": [
+        "RAMIFICADO",
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "f_med": [
+        0.556,
+        0.45,
+        0.56
+      ],
+      "c_med": [
+        3.0,
+        4.0,
+        4.0
+      ],
+      "f2_med": [
+        0.815,
+        0.717,
+        0.808
+      ],
+      "r_w": [
+        10,
+        9,
+        10
+      ],
+      "locality": [
+        0.968,
+        0.968,
+        0.971
+      ],
+      "coherence_status": [
+        "INCOHERENTE",
+        "DEGENERADO",
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        0.462,
+        0.462,
+        0.462
+      ],
+      "f_neg": [
+        0.033,
+        0.02,
+        0.04
+      ],
+      "level2": [
+        "CRUCE",
+        "CRUCE",
+        "CRUCE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "ii_coherence": 3,
+        "iii_curvature": 3,
+        "iv_level2": 3
+      }
+    },
+    "anillo_k12": {
+      "group": "U",
+      "new": false,
+      "n": 1,
+      "annulus_status": [
+        "DOS_EXTREMOS"
+      ],
+      "f_med": [
+        0.5
+      ],
+      "c_med": [
+        2.0
+      ],
+      "f2_med": [
+        1.0
+      ],
+      "r_w": [
+        416
+      ],
+      "locality": [
+        1.0
+      ],
+      "coherence_status": [
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        0.167
+      ],
+      "f_neg": [
+        0.0
+      ],
+      "level2": [
+        "CONVERGE"
+      ],
+      "rc1_geometric": 1,
+      "rc1_fail": {}
+    },
+    "caveman_K8": {
+      "group": "U",
+      "new": false,
+      "n": 1,
+      "annulus_status": [
+        "DOS_EXTREMOS"
+      ],
+      "f_med": [
+        0.5
+      ],
+      "c_med": [
+        2.0
+      ],
+      "f2_med": [
+        1.0
+      ],
+      "r_w": [
+        625
+      ],
+      "locality": [
+        0.968
+      ],
+      "coherence_status": [
+        "INTERMEDIO"
+      ],
+      "kappa_median": [
+        0.473
+      ],
+      "f_neg": [
+        0.04
+      ],
+      "level2": [
+        "CONVERGE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "ii_coherence": 1,
+        "iii_curvature": 1
+      }
+    },
+    "C100xRR200_k4": {
+      "group": "U",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        16,
+        16,
+        16
+      ],
+      "locality": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "coherence_status": [
+        "COHERENTE",
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "kappa_median": [
+        -0.25,
+        -0.25,
+        -0.25
+      ],
+      "f_neg": [
+        0.637,
+        0.677,
+        0.643
+      ],
+      "level2": [
+        "CONVERGE",
+        "CONVERGE",
+        "CONVERGE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "iii_curvature": 3
+      }
+    },
+    "WS_b0.001": {
+      "group": "U",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "RAMIFICADO",
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "f_med": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "c_med": [
+        3.0,
+        4.0,
+        3.0
+      ],
+      "f2_med": [
+        0.842,
+        0.784,
+        0.831
+      ],
+      "r_w": [
+        43,
+        35,
+        40
+      ],
+      "locality": [
+        0.999,
+        0.999,
+        0.998
+      ],
+      "coherence_status": [
+        "INCOHERENTE",
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        0.25,
+        0.167,
+        0.167
+      ],
+      "f_neg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "level2": [
+        "CONVERGE",
+        "CONVERGE",
+        "CONVERGE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "ii_coherence": 3
+      }
+    },
+    "Heisenberg_Z27": {
+      "group": "E",
+      "new": false,
+      "n": 1,
+      "annulus_status": [
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0
+      ],
+      "c_med": [
+        1.0
+      ],
+      "f2_med": [
+        1.0
+      ],
+      "r_w": [
+        10
+      ],
+      "locality": [
+        0.0
+      ],
+      "coherence_status": [
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        -0.5
+      ],
+      "f_neg": [
+        1.0
+      ],
+      "level2": [
+        "CONVERGE"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "i_locality": 1,
+        "ii_coherence": 1,
+        "iii_curvature": 1
+      }
+    },
+    "retazos_b2": {
+      "group": "E",
+      "new": false,
+      "n": 3,
+      "annulus_status": [
+        "CONEXO",
+        "CONEXO",
+        "CONEXO"
+      ],
+      "f_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "f2_med": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "r_w": [
+        4,
+        4,
+        4
+      ],
+      "locality": [
+        0.88,
+        0.895,
+        0.903
+      ],
+      "coherence_status": [
+        "INCOHERENTE",
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "kappa_median": [
+        -0.131,
+        -0.069,
+        -0.108
+      ],
+      "f_neg": [
+        0.547,
+        0.447,
+        0.517
+      ],
+      "level2": [
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D",
+        "SIN_VENTANA_D"
+      ],
+      "rc1_geometric": 0,
+      "rc1_fail": {
+        "ii_coherence": 3,
+        "iii_curvature": 3,
+        "iv_level2": 3
+      }
+    }
+  },
+  "heisenberg_excluded_from_verdicts": true
+}

@@ -1,0 +1,433 @@
+{
+ "master": 20261020,
+ "head_commit": "dbcde1287e055e2fa99fc2485b310fa9bb8edf06",
+ "families": {
+  "C-TRIV": {
+   "members": {
+    "C-TRIV": "CIEGO"
+   },
+   "DIAL": false
+  },
+  "C-SQ": {
+   "members": {
+    "C-SQ": "CIEGO"
+   },
+   "DIAL": false
+  },
+  "C-TRI": {
+   "members": {
+    "C-TRI": "CIEGO"
+   },
+   "DIAL": false
+  },
+  "P0-LAT": {
+   "members": {
+    "P0-LAT(1)": "CIEGO",
+    "P0-LAT(2)": "CIEGO",
+    "P0-LAT(3)": "MONOTONO"
+   },
+   "DIAL": false
+  },
+  "P0-DEG": {
+   "members": {
+    "P0-DEG(2)": "MONOTONO",
+    "P0-DEG(3)": "CIEGO",
+    "P0-DEG(4)": "SELECTOR",
+    "P0-DEG(6)": "MONOTONO",
+    "P0-DEG(8)": "SELECTOR",
+    "P0-DEG(10)": "SELECTOR",
+    "P0-DEG(12)": "SELECTOR"
+   },
+   "DIAL": true
+  },
+  "P0-SQV": {
+   "members": {
+    "P0-SQV(4)": "SELECTOR",
+    "P0-SQV(12)": "SELECTOR",
+    "P0-SQV(24)": "SELECTOR",
+    "P0-SQV(40)": "SELECTOR"
+   },
+   "DIAL": true
+  },
+  "P0-SQF": {
+   "members": {
+    "P0-SQF(2/3)": "MONOTONO",
+    "P0-SQF(4/5)": "SELECTOR",
+    "P0-SQF(6/7)": "SELECTOR",
+    "P0-SQF(8/9)": "SELECTOR"
+   },
+   "DIAL": true
+  },
+  "C-5CIC": {
+   "members": {
+    "C-5CIC": "CIEGO"
+   },
+   "DIAL": false
+  },
+  "C-PAR": {
+   "members": {
+    "C-PAR": "CIEGO"
+   },
+   "DIAL": false
+  },
+  "P0-S2": {
+   "members": {
+    "P0-S2(8)": "SELECTOR",
+    "P0-S2(18)": "SELECTOR",
+    "P0-S2(32)": "SELECTOR",
+    "P0-S2(50)": "SELECTOR"
+   },
+   "DIAL": true
+  }
+ },
+ "rule_classes": {
+  "C-TRIV": {
+   "class": "CIEGO",
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Q": []
+  },
+  "C-SQ": {
+   "class": "CIEGO",
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Q": []
+  },
+  "C-TRI": {
+   "class": "CIEGO",
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Q": []
+  },
+  "P0-LAT(1)": {
+   "class": "CIEGO",
+   "R": [],
+   "Q": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-LAT(2)": {
+   "class": "CIEGO",
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Q": []
+  },
+  "P0-LAT(3)": {
+   "class": "MONOTONO",
+   "R": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Q": [
+    1
+   ]
+  },
+  "P0-DEG(2)": {
+   "class": "MONOTONO",
+   "R": [
+    1
+   ],
+   "Q": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-DEG(3)": {
+   "class": "CIEGO",
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Q": []
+  },
+  "P0-DEG(4)": {
+   "class": "SELECTOR",
+   "R": [
+    2,
+    3
+   ],
+   "Q": [
+    1,
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-DEG(6)": {
+   "class": "MONOTONO",
+   "R": [
+    1,
+    2,
+    3
+   ],
+   "Q": [
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-DEG(8)": {
+   "class": "SELECTOR",
+   "R": [
+    3,
+    4
+   ],
+   "Q": [
+    1,
+    2,
+    5,
+    6
+   ]
+  },
+  "P0-DEG(10)": {
+   "class": "SELECTOR",
+   "R": [
+    3,
+    5
+   ],
+   "Q": [
+    1,
+    2,
+    4,
+    6
+   ]
+  },
+  "P0-DEG(12)": {
+   "class": "SELECTOR",
+   "R": [
+    3,
+    6
+   ],
+   "Q": [
+    1,
+    2,
+    4,
+    5
+   ]
+  },
+  "P0-SQV(4)": {
+   "class": "SELECTOR",
+   "R": [
+    2
+   ],
+   "Q": [
+    1,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-SQV(12)": {
+   "class": "SELECTOR",
+   "R": [
+    2,
+    3
+   ],
+   "Q": [
+    1,
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-SQV(24)": {
+   "class": "SELECTOR",
+   "R": [
+    4
+   ],
+   "Q": [
+    1,
+    2,
+    3,
+    5,
+    6
+   ]
+  },
+  "P0-SQV(40)": {
+   "class": "SELECTOR",
+   "R": [
+    5
+   ],
+   "Q": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ]
+  },
+  "P0-SQF(2/3)": {
+   "class": "MONOTONO",
+   "R": [
+    1,
+    2
+   ],
+   "Q": [
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-SQF(4/5)": {
+   "class": "SELECTOR",
+   "R": [
+    2,
+    3
+   ],
+   "Q": [
+    1,
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-SQF(6/7)": {
+   "class": "SELECTOR",
+   "R": [
+    3,
+    4
+   ],
+   "Q": [
+    1,
+    2,
+    5,
+    6
+   ]
+  },
+  "P0-SQF(8/9)": {
+   "class": "SELECTOR",
+   "R": [
+    4,
+    5
+   ],
+   "Q": [
+    1,
+    2,
+    3,
+    6
+   ]
+  },
+  "C-5CIC": {
+   "class": "CIEGO",
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Q": []
+  },
+  "C-PAR": {
+   "class": "CIEGO",
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Q": []
+  },
+  "P0-S2(8)": {
+   "class": "SELECTOR",
+   "R": [
+    2
+   ],
+   "Q": [
+    1,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-S2(18)": {
+   "class": "SELECTOR",
+   "R": [
+    3
+   ],
+   "Q": [
+    1,
+    2,
+    4,
+    5,
+    6
+   ]
+  },
+  "P0-S2(32)": {
+   "class": "SELECTOR",
+   "R": [
+    4
+   ],
+   "Q": [
+    1,
+    2,
+    3,
+    5,
+    6
+   ]
+  },
+  "P0-S2(50)": {
+   "class": "SELECTOR",
+   "R": [
+    5
+   ],
+   "Q": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ]
+  }
+ },
+ "V1p": true,
+ "V2p": true,
+ "V3p": true,
+ "verdict": "VALIDO",
+ "runtime_s": 96.7052755355835
+}

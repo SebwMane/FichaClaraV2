@@ -1,0 +1,2249 @@
+{
+  "step": "rc3",
+  "code_commit": "cfa54a66ea68dc19fc08574d74ea97afb8bba07f",
+  "smoke": true,
+  "n_pairs": 57,
+  "seconds_this_run": 45.4,
+  "pair_seconds_total": 135.5,
+  "evaluation": {
+    "new": {
+      "n_V": 9,
+      "n_X_U": 18,
+      "FE": 0.0,
+      "FE_by_d": {
+        "2": {
+          "n": 1,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "3": {
+          "n": 2,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "4": {
+          "n": 2,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "5": {
+          "n": 3,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "6": {
+          "n": 1,
+          "excluded": 0,
+          "FE": 0.0
+        }
+      },
+      "EP": 0.7222222222222222,
+      "EP_by_family": {
+        "clique": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "4arbol": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "BA_m3": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "RR_k3": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "ER_k4": {
+          "n": 2,
+          "excluded": 0,
+          "non_excluded": [
+            "ER_k4_s0",
+            "ER_k4_s1"
+          ],
+          "EP": 0.0
+        },
+        "arbol_cubos_5": {
+          "n": 1,
+          "excluded": 0,
+          "non_excluded": [
+            "arbol_cubos_5_s0"
+          ],
+          "EP": 0.0
+        },
+        "arbol_binario_x_C10": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "RGG3_k12_atajos0.1pc": {
+          "n": 2,
+          "excluded": 0,
+          "non_excluded": [
+            "RGG3_k12_atajos0.1pc_s0",
+            "RGG3_k12_atajos0.1pc_s1"
+          ],
+          "EP": 0.0
+        },
+        "cuadrado_WS_b0.01": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "cilindro_CxC5": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "RGG1_anillo_k10": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        }
+      },
+      "valid_conditions": {
+        "FE<=0.05": true,
+        "per_d_max1": true,
+        "EP>=0.90": false,
+        "families_all_but_one": false
+      },
+      "verdict": "RC3-INVALIDA",
+      "V_excluded": [],
+      "XU_not_excluded": [
+        "ER_k4_s0",
+        "ER_k4_s1",
+        "arbol_cubos_5_s0",
+        "RGG3_k12_atajos0.1pc_s0",
+        "RGG3_k12_atajos0.1pc_s1"
+      ]
+    },
+    "repeated": {
+      "n_V": 16,
+      "n_X_U": 13,
+      "FE": 0.0,
+      "FE_by_d": {
+        "2": {
+          "n": 4,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "3": {
+          "n": 7,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "4": {
+          "n": 5,
+          "excluded": 0,
+          "FE": 0.0
+        }
+      },
+      "EP": 0.5384615384615384,
+      "EP_by_family": {
+        "apoloniana": {
+          "n": 2,
+          "excluded": 1,
+          "non_excluded": [
+            "apoloniana_s0"
+          ],
+          "EP": 0.5
+        },
+        "arbol_prufer": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "arbol_binario_sub10": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "retazos_b3": {
+          "n": 2,
+          "excluded": 0,
+          "non_excluded": [
+            "retazos_b3_s0",
+            "retazos_b3_s1"
+          ],
+          "EP": 0.0
+        },
+        "cactus": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "2arbol": {
+          "n": 2,
+          "excluded": 1,
+          "non_excluded": [
+            "2arbol_s1"
+          ],
+          "EP": 0.5
+        },
+        "escalera_CxP4": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "tubo_CxRR": {
+          "n": 2,
+          "excluded": 0,
+          "non_excluded": [
+            "tubo_CxRR_s0",
+            "tubo_CxRR_s1"
+          ],
+          "EP": 0.0
+        }
+      },
+      "valid_conditions": {
+        "FE<=0.05": true,
+        "per_d_max1": true,
+        "EP>=0.90": false,
+        "families_all_but_one": false
+      },
+      "verdict": "RC3-INVALIDA",
+      "V_excluded": [],
+      "XU_not_excluded": [
+        "apoloniana_s0",
+        "retazos_b3_s0",
+        "retazos_b3_s1",
+        "2arbol_s1",
+        "tubo_CxRR_s0",
+        "tubo_CxRR_s1"
+      ]
+    },
+    "all": {
+      "n_V": 25,
+      "n_X_U": 31,
+      "FE": 0.0,
+      "FE_by_d": {
+        "2": {
+          "n": 5,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "3": {
+          "n": 9,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "4": {
+          "n": 7,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "5": {
+          "n": 3,
+          "excluded": 0,
+          "FE": 0.0
+        },
+        "6": {
+          "n": 1,
+          "excluded": 0,
+          "FE": 0.0
+        }
+      },
+      "EP": 0.6451612903225806,
+      "EP_by_family": {
+        "clique": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "4arbol": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "apoloniana": {
+          "n": 2,
+          "excluded": 1,
+          "non_excluded": [
+            "apoloniana_s0"
+          ],
+          "EP": 0.5
+        },
+        "BA_m3": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "RR_k3": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "ER_k4": {
+          "n": 2,
+          "excluded": 0,
+          "non_excluded": [
+            "ER_k4_s0",
+            "ER_k4_s1"
+          ],
+          "EP": 0.0
+        },
+        "arbol_prufer": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "arbol_binario_sub10": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "arbol_cubos_5": {
+          "n": 1,
+          "excluded": 0,
+          "non_excluded": [
+            "arbol_cubos_5_s0"
+          ],
+          "EP": 0.0
+        },
+        "arbol_binario_x_C10": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "RGG3_k12_atajos0.1pc": {
+          "n": 2,
+          "excluded": 0,
+          "non_excluded": [
+            "RGG3_k12_atajos0.1pc_s0",
+            "RGG3_k12_atajos0.1pc_s1"
+          ],
+          "EP": 0.0
+        },
+        "cuadrado_WS_b0.01": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "retazos_b3": {
+          "n": 2,
+          "excluded": 0,
+          "non_excluded": [
+            "retazos_b3_s0",
+            "retazos_b3_s1"
+          ],
+          "EP": 0.0
+        },
+        "cactus": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "2arbol": {
+          "n": 2,
+          "excluded": 1,
+          "non_excluded": [
+            "2arbol_s1"
+          ],
+          "EP": 0.5
+        },
+        "cilindro_CxC5": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "RGG1_anillo_k10": {
+          "n": 2,
+          "excluded": 2,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "escalera_CxP4": {
+          "n": 1,
+          "excluded": 1,
+          "non_excluded": [],
+          "EP": 1.0
+        },
+        "tubo_CxRR": {
+          "n": 2,
+          "excluded": 0,
+          "non_excluded": [
+            "tubo_CxRR_s0",
+            "tubo_CxRR_s1"
+          ],
+          "EP": 0.0
+        }
+      },
+      "valid_conditions": {
+        "FE<=0.05": true,
+        "per_d_max1": true,
+        "EP>=0.90": false,
+        "families_all_but_one": false
+      },
+      "verdict": "RC3-INVALIDA",
+      "V_excluded": [],
+      "XU_not_excluded": [
+        "apoloniana_s0",
+        "ER_k4_s0",
+        "ER_k4_s1",
+        "arbol_cubos_5_s0",
+        "RGG3_k12_atajos0.1pc_s0",
+        "RGG3_k12_atajos0.1pc_s1",
+        "retazos_b3_s0",
+        "retazos_b3_s1",
+        "2arbol_s1",
+        "tubo_CxRR_s0",
+        "tubo_CxRR_s1"
+      ]
+    },
+    "Heisenberg_V_ext": [
+      {
+        "id": "Heisenberg_s0",
+        "verdict": "EXCLUIDO(X4)",
+        "delta": 0.2732551427795842,
+        "coherence": [
+          "INCOHERENTE",
+          "INCOHERENTE"
+        ]
+      }
+    ]
+  },
+  "verdict_new": "RC3-INVALIDA",
+  "guards": {},
+  "by_pair": [
+    {
+      "id": "toro_cuadrado_s0",
+      "family": "toro_cuadrado",
+      "group": "V",
+      "d": 2,
+      "new": false,
+      "n_giant": [
+        1024,
+        8100
+      ],
+      "R": [
+        15.5,
+        44.5
+      ],
+      "delta": 0.5099487088651282,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 12,
+      "r_w": [
+        10,
+        31
+      ],
+      "coherence": [
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG2_k8_s0",
+      "family": "RGG2_k8",
+      "group": "V",
+      "d": 2,
+      "new": false,
+      "n_giant": [
+        999,
+        7986
+      ],
+      "R": [
+        11.349097282109772,
+        31.70621232743535
+      ],
+      "delta": 0.4942411694157109,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 10,
+      "r_w": [
+        7,
+        22
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG2_k8_s1",
+      "family": "RGG2_k8",
+      "group": "V",
+      "d": 2,
+      "new": false,
+      "n_giant": [
+        1000,
+        7995
+      ],
+      "R": [
+        11.443075805820904,
+        31.5483843277888
+      ],
+      "delta": 0.4878437509079312,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 10,
+      "r_w": [
+        8,
+        22
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "triangular_caja_s0",
+      "family": "triangular_caja",
+      "group": "V",
+      "d": 2,
+      "new": true,
+      "n_giant": [
+        1024,
+        8100
+      ],
+      "R": [
+        16.58698940998487,
+        48.2778875279863
+      ],
+      "delta": 0.5165758269131745,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 12,
+      "r_w": [
+        10,
+        30
+      ],
+      "coherence": [
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "panal_hexagonal_s0",
+      "family": "panal_hexagonal",
+      "group": "V",
+      "d": 2,
+      "new": false,
+      "n_giant": [
+        1024,
+        8100
+      ],
+      "R": [
+        18.244444444444444,
+        52.22047244094488
+      ],
+      "delta": 0.5084811276016509,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 12,
+      "r_w": [
+        12,
+        36
+      ],
+      "coherence": [
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "T3_s0",
+      "family": "T3",
+      "group": "V",
+      "d": 3,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        7.0,
+        14.5
+      ],
+      "delta": 0.35020869102332275,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 4,
+      "r_w": [
+        5,
+        10
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "INTERMEDIO"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG3_k8_s0",
+      "family": "RGG3_k8",
+      "group": "V",
+      "d": 3,
+      "new": false,
+      "n_giant": [
+        1000,
+        7998
+      ],
+      "R": [
+        6.184384275927451,
+        12.213867958923254
+      ],
+      "delta": 0.32731211674921995,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        4,
+        9
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "INTERMEDIO"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG3_k8_s1",
+      "family": "RGG3_k8",
+      "group": "V",
+      "d": 3,
+      "new": false,
+      "n_giant": [
+        998,
+        7993
+      ],
+      "R": [
+        6.265935372563648,
+        12.26213245151488
+      ],
+      "delta": 0.32269453366737016,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        4,
+        9
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "INTERMEDIO"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "FCC_s0",
+      "family": "FCC",
+      "group": "V",
+      "d": 3,
+      "new": true,
+      "n_giant": [
+        864,
+        6912
+      ],
+      "R": [
+        4.488095238095238,
+        9.585828343313374
+      ],
+      "delta": 0.36493327162259237,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 2,
+      "r_w": [
+        3,
+        7
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "BCC_s0",
+      "family": "BCC",
+      "group": "V",
+      "d": 3,
+      "new": true,
+      "n_giant": [
+        1024,
+        8192
+      ],
+      "R": [
+        5.784403669724771,
+        12.168307086614174
+      ],
+      "delta": 0.35762944222606546,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        4,
+        9
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "INTERMEDIO"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG3_k12_caja_s0",
+      "family": "RGG3_k12_caja",
+      "group": "V",
+      "d": 3,
+      "new": false,
+      "n_giant": [
+        999,
+        7998
+      ],
+      "R": [
+        6.585030782761653,
+        12.938963604652123
+      ],
+      "delta": 0.32470280634306586,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        4,
+        9
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG3_k12_caja_s1",
+      "family": "RGG3_k12_caja",
+      "group": "V",
+      "d": 3,
+      "new": false,
+      "n_giant": [
+        999,
+        7996
+      ],
+      "R": [
+        6.778982649842272,
+        13.091784365590325
+      ],
+      "delta": 0.3164308778936368,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        5,
+        9
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "T3_diag20_s0",
+      "family": "T3_diag20",
+      "group": "V",
+      "d": 3,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        5.471854470828361,
+        10.785705262560874
+      ],
+      "delta": 0.32633958314794675,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        4,
+        8
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "T3_diag20_s1",
+      "family": "T3_diag20",
+      "group": "V",
+      "d": 3,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        5.459282225146655,
+        10.782840765874315
+      ],
+      "delta": 0.32731804115863306,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        4,
+        8
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "T4_s0",
+      "family": "T4",
+      "group": "V",
+      "d": 4,
+      "new": false,
+      "n_giant": [
+        1296,
+        10000
+      ],
+      "R": [
+        5.5,
+        9.5
+      ],
+      "delta": 0.2674805652556897,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 2,
+      "r_w": [
+        4,
+        7
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "INTERMEDIO"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG4_k8_s0",
+      "family": "RGG4_k8",
+      "group": "V",
+      "d": 4,
+      "new": false,
+      "n_giant": [
+        1000,
+        7996
+      ],
+      "R": [
+        4.770895535267418,
+        8.0
+      ],
+      "delta": 0.24863976782683303,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 2,
+      "r_w": [
+        3,
+        6
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG4_k8_s1",
+      "family": "RGG4_k8",
+      "group": "V",
+      "d": 4,
+      "new": false,
+      "n_giant": [
+        1000,
+        7993
+      ],
+      "R": [
+        4.87898639734316,
+        8.086923968162603
+      ],
+      "delta": 0.24310553570955315,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 2,
+      "r_w": [
+        3,
+        6
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "T4_diag20_s0",
+      "family": "T4_diag20",
+      "group": "V",
+      "d": 4,
+      "new": true,
+      "n_giant": [
+        1296,
+        10000
+      ],
+      "R": [
+        4.184060831205015,
+        6.922807873955158
+      ],
+      "delta": 0.24643398861165955,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        3,
+        5
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INTERMEDIO"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "T4_diag20_s1",
+      "family": "T4_diag20",
+      "group": "V",
+      "d": 4,
+      "new": true,
+      "n_giant": [
+        1296,
+        10000
+      ],
+      "R": [
+        4.194423577505634,
+        6.920523670508923
+      ],
+      "delta": 0.24506186404505664,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        3,
+        5
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INTERMEDIO"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG4_k16_s0",
+      "family": "RGG4_k16",
+      "group": "V",
+      "d": 4,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        3.313087188764907,
+        5.697543243636099
+      ],
+      "delta": 0.2607212662814411,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        2,
+        4
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG4_k16_s1",
+      "family": "RGG4_k16",
+      "group": "V",
+      "d": 4,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        3.327596527985633,
+        5.68809895430428
+      ],
+      "delta": 0.2578220154811395,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        2,
+        4
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "T5_s0",
+      "family": "T5",
+      "group": "V",
+      "d": 5,
+      "new": true,
+      "n_giant": [
+        1024,
+        7776
+      ],
+      "R": [
+        4.5,
+        7.0
+      ],
+      "delta": 0.21793872934742056,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        3,
+        5
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG5_k16_s0",
+      "family": "RGG5_k16",
+      "group": "V",
+      "d": 5,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        2.9601099187695206,
+        4.656025251204021
+      ],
+      "delta": 0.2178160445189391,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        2,
+        3
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG5_k16_s1",
+      "family": "RGG5_k16",
+      "group": "V",
+      "d": 5,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        2.9845481746683125,
+        4.667291239970849
+      ],
+      "delta": 0.21502431785109175,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        2,
+        3
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "T6_s0",
+      "family": "T6",
+      "group": "V",
+      "d": 6,
+      "new": true,
+      "n_giant": [
+        729,
+        4096
+      ],
+      "R": [
+        3.5479166666666666,
+        5.5
+      ],
+      "delta": 0.25397684774115403,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        2,
+        4
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "Heisenberg_s0",
+      "family": "Heisenberg",
+      "group": "E",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        5.719858156028369,
+        10.096230158730158
+      ],
+      "delta": 0.2732551427795842,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        4,
+        8
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "exclusions": [
+        "X4"
+      ],
+      "verdict": "EXCLUIDO(X4)"
+    },
+    {
+      "id": "clique_s0",
+      "family": "clique",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        100,
+        800
+      ],
+      "R": [
+        0.494949494949495,
+        0.49937421777221525
+      ],
+      "delta": 0.004280006419590116,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        0,
+        0
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [
+        "X1"
+      ],
+      "verdict": "EXCLUIDO(X1)"
+    },
+    {
+      "id": "4arbol_s0",
+      "family": "4arbol",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        2.2585983268641963,
+        2.8360132965160134
+      ],
+      "delta": 0.10947885816862984,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        1,
+        2
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [
+        "X1"
+      ],
+      "verdict": "EXCLUIDO(X1)"
+    },
+    {
+      "id": "4arbol_s1",
+      "family": "4arbol",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        2.448117477772801,
+        2.6769270960012252
+      ],
+      "delta": 0.04296835285903131,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        1,
+        2
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [
+        "X1"
+      ],
+      "verdict": "EXCLUIDO(X1)"
+    },
+    {
+      "id": "apoloniana_s0",
+      "family": "apoloniana",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        3.313866617496519,
+        4.730021473232142
+      ],
+      "delta": 0.17111039918806126,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        2,
+        3
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "apoloniana_s1",
+      "family": "apoloniana",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        3.7402517322974234,
+        4.775153914166623
+      ],
+      "delta": 0.1174706211201957,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        3,
+        3
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [
+        "X1"
+      ],
+      "verdict": "EXCLUIDO(X1)"
+    },
+    {
+      "id": "BA_m3_s0",
+      "family": "BA_m3",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        3.052154689085991,
+        3.6424164171738185
+      ],
+      "delta": 0.08502259481219338,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        2,
+        3
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [
+        "X1"
+      ],
+      "verdict": "EXCLUIDO(X1)"
+    },
+    {
+      "id": "BA_m3_s1",
+      "family": "BA_m3",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        3.0713467645374566,
+        3.6763936221819233
+      ],
+      "delta": 0.08647327812514209,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        2,
+        3
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [
+        "X1"
+      ],
+      "verdict": "EXCLUIDO(X1)"
+    },
+    {
+      "id": "RR_k3_s0",
+      "family": "RR_k3",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        7.821770307611501,
+        10.829252882640974
+      ],
+      "delta": 0.15645554598305192,
+      "annulus": [
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        6,
+        9
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "exclusions": [
+        "X2",
+        "X4"
+      ],
+      "verdict": "EXCLUIDO(X2,X4)"
+    },
+    {
+      "id": "RR_k3_s1",
+      "family": "RR_k3",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        7.829995749032044,
+        10.836918964307884
+      ],
+      "delta": 0.15629040471546704,
+      "annulus": [
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "n_scales_8N": 3,
+      "r_w": [
+        6,
+        9
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "exclusions": [
+        "X2",
+        "X4"
+      ],
+      "verdict": "EXCLUIDO(X2,X4)"
+    },
+    {
+      "id": "ER_k4_s0",
+      "family": "ER_k4",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        983,
+        7854
+      ],
+      "R": [
+        4.619446114667705,
+        6.2268200436750165
+      ],
+      "delta": 0.14367982117086975,
+      "annulus": [
+        "SIN_VENTANA",
+        "RAMIFICADO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        3,
+        5
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "ER_k4_s1",
+      "family": "ER_k4",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        984,
+        7834
+      ],
+      "R": [
+        4.6538292554685645,
+        6.17082181384507
+      ],
+      "delta": 0.13599792331908742,
+      "annulus": [
+        "SIN_VENTANA",
+        "RAMIFICADO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        3,
+        5
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "arbol_prufer_s0",
+      "family": "arbol_prufer",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        33.90390037593985,
+        98.0
+      ],
+      "delta": 0.5104434985499063,
+      "annulus": [
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "n_scales_8N": 12,
+      "r_w": [
+        22,
+        65
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "COHERENTE"
+      ],
+      "exclusions": [
+        "X2"
+      ],
+      "verdict": "EXCLUIDO(X2)"
+    },
+    {
+      "id": "arbol_prufer_s1",
+      "family": "arbol_prufer",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        34.481562572021204,
+        75.0
+      ],
+      "delta": 0.37368848076673994,
+      "annulus": [
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "n_scales_8N": 12,
+      "r_w": [
+        22,
+        56
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "COHERENTE"
+      ],
+      "exclusions": [
+        "X2"
+      ],
+      "verdict": "EXCLUIDO(X2)"
+    },
+    {
+      "id": "arbol_binario_sub10_s0",
+      "family": "arbol_binario_sub10",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1261,
+        10221
+      ],
+      "R": [
+        79.75077112893275,
+        136.33274193548388
+      ],
+      "delta": 0.25623991889047176,
+      "annulus": [
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "n_scales_8N": 12,
+      "r_w": [
+        63,
+        118
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "INCOHERENTE"
+      ],
+      "exclusions": [
+        "X2"
+      ],
+      "verdict": "EXCLUIDO(X2)"
+    },
+    {
+      "id": "arbol_cubos_5_s0",
+      "family": "arbol_cubos_5",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        11.70932158875106,
+        29.71547277656524
+      ],
+      "delta": 0.4478522809189399,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 10,
+      "r_w": [
+        7,
+        22
+      ],
+      "coherence": [
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "arbol_binario_x_C10_s0",
+      "family": "arbol_binario_x_C10",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        10.06018104821477,
+        15.834261331686825
+      ],
+      "delta": 0.21813109944931522,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 6,
+      "r_w": [
+        8,
+        14
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "exclusions": [
+        "X4"
+      ],
+      "verdict": "EXCLUIDO(X4)"
+    },
+    {
+      "id": "RGG3_k12_atajos0.1pc_s0",
+      "family": "RGG3_k12_atajos0.1pc",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        4.708197658865961,
+        8.518463954635793
+      ],
+      "delta": 0.28513947305336074,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 2,
+      "r_w": [
+        3,
+        7
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "RGG3_k12_atajos0.1pc_s1",
+      "family": "RGG3_k12_atajos0.1pc",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        4.787176147054566,
+        8.567498007572027
+      ],
+      "delta": 0.27989968645381746,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 2,
+      "r_w": [
+        3,
+        7
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "cuadrado_WS_b0.01_s0",
+      "family": "cuadrado_WS_b0.01",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1024,
+        8100
+      ],
+      "R": [
+        10.022067903996563,
+        17.412952668949465
+      ],
+      "delta": 0.2671109648493075,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 6,
+      "r_w": [
+        7,
+        14
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "exclusions": [
+        "X4"
+      ],
+      "verdict": "EXCLUIDO(X4)"
+    },
+    {
+      "id": "cuadrado_WS_b0.01_s1",
+      "family": "cuadrado_WS_b0.01",
+      "group": "X",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1024,
+        8100
+      ],
+      "R": [
+        11.047430830039525,
+        17.51563243786993
+      ],
+      "delta": 0.2228544432537795,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 6,
+      "r_w": [
+        8,
+        14
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "exclusions": [
+        "X4"
+      ],
+      "verdict": "EXCLUIDO(X4)"
+    },
+    {
+      "id": "retazos_b3_s0",
+      "family": "retazos_b3",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        2.804194411536419,
+        4.244294965871464
+      ],
+      "delta": 0.19931284985492578,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        2,
+        3
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "retazos_b3_s1",
+      "family": "retazos_b3",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        2.8218166958914597,
+        4.2544743454913
+      ],
+      "delta": 0.1974522063532698,
+      "annulus": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "n_scales_8N": 0,
+      "r_w": [
+        2,
+        3
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "SIN_VENTANA"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "cactus_s0",
+      "family": "cactus",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        999,
+        7999
+      ],
+      "R": [
+        12.644307819839735,
+        18.693643494263476
+      ],
+      "delta": 0.18794078035502443,
+      "annulus": [
+        "RAMIFICADO",
+        "RAMIFICADO"
+      ],
+      "n_scales_8N": 7,
+      "r_w": [
+        11,
+        16
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "INCOHERENTE"
+      ],
+      "exclusions": [
+        "X2",
+        "X4"
+      ],
+      "verdict": "EXCLUIDO(X2,X4)"
+    },
+    {
+      "id": "2arbol_s0",
+      "family": "2arbol",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        4.649300991755288,
+        5.344856090779289
+      ],
+      "delta": 0.06704575882125773,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        3,
+        4
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [
+        "X1"
+      ],
+      "verdict": "EXCLUIDO(X1)"
+    },
+    {
+      "id": "2arbol_s1",
+      "family": "2arbol",
+      "group": "X",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        4.252836179524586,
+        5.806885541807315
+      ],
+      "delta": 0.1497797715612328,
+      "annulus": [
+        "SIN_VENTANA",
+        "CONEXO"
+      ],
+      "n_scales_8N": 1,
+      "r_w": [
+        3,
+        5
+      ],
+      "coherence": [
+        "SIN_VENTANA",
+        "INCOHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "cilindro_CxC5_s0",
+      "family": "cilindro_CxC5",
+      "group": "U",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        50.7,
+        200.0
+      ],
+      "delta": 0.6599807825529156,
+      "annulus": [
+        "DOS_EXTREMOS",
+        "DOS_EXTREMOS"
+      ],
+      "n_scales_8N": 12,
+      "r_w": [
+        25,
+        200
+      ],
+      "coherence": [
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [
+        "X3"
+      ],
+      "verdict": "EXCLUIDO(X3)"
+    },
+    {
+      "id": "RGG1_anillo_k10_s0",
+      "family": "RGG1_anillo_k10",
+      "group": "U",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        425,
+        1203
+      ],
+      "R": [
+        27.0,
+        75.0
+      ],
+      "delta": 0.9818994913747903,
+      "annulus": [
+        "DOS_EXTREMOS",
+        "DOS_EXTREMOS"
+      ],
+      "n_scales_8N": 12,
+      "r_w": [
+        12,
+        36
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "INTERMEDIO"
+      ],
+      "exclusions": [
+        "X3"
+      ],
+      "verdict": "EXCLUIDO(X3)"
+    },
+    {
+      "id": "RGG1_anillo_k10_s1",
+      "family": "RGG1_anillo_k10",
+      "group": "U",
+      "d": null,
+      "new": true,
+      "n_giant": [
+        582,
+        492
+      ],
+      "R": [
+        38.0,
+        31.0
+      ],
+      "delta": 1.2119581942484081,
+      "annulus": [
+        "DOS_EXTREMOS",
+        "DOS_EXTREMOS"
+      ],
+      "n_scales_8N": 6,
+      "r_w": [
+        18,
+        14
+      ],
+      "coherence": [
+        "INTERMEDIO",
+        "INTERMEDIO"
+      ],
+      "exclusions": [
+        "X3"
+      ],
+      "verdict": "EXCLUIDO(X3)"
+    },
+    {
+      "id": "escalera_CxP4_s0",
+      "family": "escalera_CxP4",
+      "group": "U",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        63.0,
+        200.0
+      ],
+      "delta": 0.5555254220916028,
+      "annulus": [
+        "DOS_EXTREMOS",
+        "DOS_EXTREMOS"
+      ],
+      "n_scales_8N": 12,
+      "r_w": [
+        31,
+        251
+      ],
+      "coherence": [
+        "COHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [
+        "X3"
+      ],
+      "verdict": "EXCLUIDO(X3)"
+    },
+    {
+      "id": "tubo_CxRR_s0",
+      "family": "tubo_CxRR",
+      "group": "U",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        5.516742151511632,
+        23.0336
+      ],
+      "delta": 0.68728381861275,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 5,
+      "r_w": [
+        4,
+        13
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    },
+    {
+      "id": "tubo_CxRR_s1",
+      "family": "tubo_CxRR",
+      "group": "U",
+      "d": null,
+      "new": false,
+      "n_giant": [
+        1000,
+        8000
+      ],
+      "R": [
+        5.5551216736921045,
+        23.031475
+      ],
+      "delta": 0.6839054639744974,
+      "annulus": [
+        "CONEXO",
+        "CONEXO"
+      ],
+      "n_scales_8N": 5,
+      "r_w": [
+        4,
+        13
+      ],
+      "coherence": [
+        "INCOHERENTE",
+        "COHERENTE"
+      ],
+      "exclusions": [],
+      "verdict": "NO-EXCLUIDO"
+    }
+  ],
+  "heisenberg_excluded_from_FE": true
+}

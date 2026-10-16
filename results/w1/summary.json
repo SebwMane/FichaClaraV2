@@ -1,0 +1,1679 @@
+{
+  "step": "w1",
+  "code_commit": "a41e1ed810939289b216fcf6099bbb959e8ec563",
+  "smoke": false,
+  "n_cells": 33,
+  "seconds_this_run": 915.7,
+  "cell_seconds_total": 2614.8,
+  "analysis": {
+    "outcome": "W1-D",
+    "valid_laws": [],
+    "subclasses": [
+      "L1: RESOLUBLE/INESTABLE-N/NA",
+      "L2: RESOLUBLE/INESTABLE-N/NA",
+      "L3: RESOLUBLE/INESTABLE-N/NA",
+      "L4: NO_RESUELTA/NA/NA"
+    ],
+    "laws": {
+      "L1": {
+        "res": {
+          "status": "RESOLUBLE",
+          "dc": [
+            2.0,
+            2.0
+          ]
+        },
+        "res_N1": {
+          "status": "NO_RESUELTA",
+          "dc": null
+        },
+        "stab": "INESTABLE-N",
+        "univ": "NA",
+        "univ_detail": []
+      },
+      "L2": {
+        "res": {
+          "status": "RESOLUBLE",
+          "dc": [
+            2.0,
+            2.0
+          ]
+        },
+        "res_N1": {
+          "status": "NO_RESUELTA",
+          "dc": null
+        },
+        "stab": "INESTABLE-N",
+        "univ": "NA",
+        "univ_detail": []
+      },
+      "L3": {
+        "res": {
+          "status": "RESOLUBLE",
+          "dc": [
+            4.0,
+            4.0
+          ]
+        },
+        "res_N1": {
+          "status": "NO_RESUELTA",
+          "dc": null
+        },
+        "stab": "INESTABLE-N",
+        "univ": "NA",
+        "univ_detail": []
+      },
+      "L4": {
+        "res": {
+          "status": "NO_RESUELTA",
+          "dc": null
+        },
+        "res_N1": {
+          "status": "NO_RESUELTA",
+          "dc": null
+        },
+        "stab": "NA",
+        "univ": "NA",
+        "univ_detail": []
+      }
+    },
+    "table5": {
+      "L1": {
+        "detecta_dimension": "RESOLUBLE, d_c=[2.0, 2.0]",
+        "robusta_heterogeneidad": "NA",
+        "robusta_N": "INESTABLE-N",
+        "caminantes": "1 paseo(s); d_c=[2.0, 2.0]",
+        "red_vs_continuo": "No se mide (W-1 solo redes); nivel 3: R4 da 3 en continuo y 4 en red para k=2",
+        "depende_de_la_ley": "comparar d_c entre leyes (ver 'dc_by_law')",
+        "genera_dimension": "Solo medirla (Omega-1)"
+      },
+      "L2": {
+        "detecta_dimension": "RESOLUBLE, d_c=[2.0, 2.0]",
+        "robusta_heterogeneidad": "NA",
+        "robusta_N": "INESTABLE-N",
+        "caminantes": "2 paseo(s); d_c=[2.0, 2.0]",
+        "red_vs_continuo": "No se mide (W-1 solo redes); nivel 3: R4 da 3 en continuo y 4 en red para k=2",
+        "depende_de_la_ley": "comparar d_c entre leyes (ver 'dc_by_law')",
+        "genera_dimension": "Solo medirla (Omega-1)"
+      },
+      "L3": {
+        "detecta_dimension": "RESOLUBLE, d_c=[4.0, 4.0]",
+        "robusta_heterogeneidad": "NA",
+        "robusta_N": "INESTABLE-N",
+        "caminantes": "2 paseo(s); d_c=[4.0, 4.0]",
+        "red_vs_continuo": "No se mide (W-1 solo redes); nivel 3: R4 da 3 en continuo y 4 en red para k=2",
+        "depende_de_la_ley": "comparar d_c entre leyes (ver 'dc_by_law')",
+        "genera_dimension": "Solo medirla (Omega-1)"
+      },
+      "L4": {
+        "detecta_dimension": "NO_RESUELTA, d_c=None",
+        "robusta_heterogeneidad": "NA",
+        "robusta_N": "NA",
+        "caminantes": "3 paseo(s); d_c=None",
+        "red_vs_continuo": "No se mide (W-1 solo redes); nivel 3: R4 da 3 en continuo y 4 en red para k=2",
+        "depende_de_la_ley": "comparar d_c entre leyes (ver 'dc_by_law')",
+        "genera_dimension": "Solo medirla (Omega-1)"
+      }
+    },
+    "dc_by_law": {
+      "L1": [
+        2.0,
+        2.0
+      ],
+      "L2": [
+        2.0,
+        2.0
+      ],
+      "L3": [
+        4.0,
+        4.0
+      ],
+      "L4": null
+    },
+    "anomalies": [
+      "semillas discrepan: RGG2_k8 N1 L2: ['AMBIGUA', 'CRECE']",
+      "semillas discrepan: RGG2_k8 N2 L2: ['AMBIGUA', 'CRECE']",
+      "semillas discrepan: RGG3_k8 N1 L1: ['ACOTADA', 'AMBIGUA']",
+      "semillas discrepan: RGG3_k8 N2 L4: ['AMBIGUA', 'CRECE']"
+    ],
+    "geometry_classes": {
+      "Z1_N1": {
+        "cls": {
+          "L1": "CRECE",
+          "L2": "CRECE",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "CRECE",
+            "L2": "CRECE",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "Z1_N2": {
+        "cls": {
+          "L1": "CRECE",
+          "L2": "CRECE",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "CRECE",
+            "L2": "CRECE",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "Z2_N1": {
+        "cls": {
+          "L1": "AMBIGUA",
+          "L2": "AMBIGUA",
+          "L3": "CRECE",
+          "L4": "INSUFICIENTE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "AMBIGUA",
+            "L2": "AMBIGUA",
+            "L3": "CRECE",
+            "L4": "INSUFICIENTE"
+          }
+        }
+      },
+      "Z2_N2": {
+        "cls": {
+          "L1": "AMBIGUA",
+          "L2": "AMBIGUA",
+          "L3": "CRECE",
+          "L4": "INSUFICIENTE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "AMBIGUA",
+            "L2": "AMBIGUA",
+            "L3": "CRECE",
+            "L4": "INSUFICIENTE"
+          }
+        }
+      },
+      "triangular_N1": {
+        "cls": {
+          "L1": "AMBIGUA",
+          "L2": "AMBIGUA",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "AMBIGUA",
+            "L2": "AMBIGUA",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "triangular_N2": {
+        "cls": {
+          "L1": "AMBIGUA",
+          "L2": "AMBIGUA",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "AMBIGUA",
+            "L2": "AMBIGUA",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "RGG2_k8_N1": {
+        "cls": {
+          "L1": "CRECE",
+          "L2": "AMBIGUA",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "CRECE",
+            "L2": "CRECE",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          },
+          "1": {
+            "L1": "CRECE",
+            "L2": "AMBIGUA",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "RGG2_k8_N2": {
+        "cls": {
+          "L1": "CRECE",
+          "L2": "AMBIGUA",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "CRECE",
+            "L2": "AMBIGUA",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          },
+          "1": {
+            "L1": "CRECE",
+            "L2": "CRECE",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "Z3_N1": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "CRECE",
+          "L4": "AMBIGUA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "AMBIGUA"
+          }
+        }
+      },
+      "Z3_N2": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "CRECE",
+          "L4": "AMBIGUA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "AMBIGUA"
+          }
+        }
+      },
+      "FCC_N1": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "CRECE",
+          "L4": "ACOTADA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "ACOTADA"
+          }
+        }
+      },
+      "FCC_N2": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "CRECE",
+          "L4": "ACOTADA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "ACOTADA"
+          }
+        }
+      },
+      "BCC_N1": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "CRECE",
+          "L4": "ACOTADA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "ACOTADA"
+          }
+        }
+      },
+      "BCC_N2": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "CRECE",
+          "L4": "AMBIGUA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "AMBIGUA"
+          }
+        }
+      },
+      "RGG3_k8_N1": {
+        "cls": {
+          "L1": "AMBIGUA",
+          "L2": "ACOTADA",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          },
+          "1": {
+            "L1": "AMBIGUA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "RGG3_k8_N2": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "CRECE",
+          "L4": "AMBIGUA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          },
+          "1": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "AMBIGUA"
+          }
+        }
+      },
+      "Z4_N1": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "AMBIGUA",
+          "L4": "ACOTADA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "AMBIGUA",
+            "L4": "ACOTADA"
+          }
+        }
+      },
+      "Z4_N2": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "AMBIGUA",
+          "L4": "ACOTADA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "AMBIGUA",
+            "L4": "ACOTADA"
+          }
+        }
+      },
+      "Z5_N1": {
+        "cls": {
+          "L1": "INSUFICIENTE",
+          "L2": "INSUFICIENTE",
+          "L3": "INSUFICIENTE",
+          "L4": "INSUFICIENTE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "INSUFICIENTE",
+            "L2": "INSUFICIENTE",
+            "L3": "INSUFICIENTE",
+            "L4": "INSUFICIENTE"
+          }
+        }
+      },
+      "Z5_N2": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "ACOTADA",
+          "L4": "ACOTADA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "ACOTADA",
+            "L4": "ACOTADA"
+          }
+        }
+      },
+      "Z6_N1": {
+        "cls": {
+          "L1": "INSUFICIENTE",
+          "L2": "INSUFICIENTE",
+          "L3": "INSUFICIENTE",
+          "L4": "INSUFICIENTE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "INSUFICIENTE",
+            "L2": "INSUFICIENTE",
+            "L3": "INSUFICIENTE",
+            "L4": "INSUFICIENTE"
+          }
+        }
+      },
+      "Z6_N2": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "ACOTADA",
+          "L4": "ACOTADA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "ACOTADA",
+            "L4": "ACOTADA"
+          }
+        }
+      },
+      "peine1_N2": {
+        "cls": {
+          "L1": "CRECE",
+          "L2": "CRECE",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "CRECE",
+            "L2": "CRECE",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "peine2_N2": {
+        "cls": {
+          "L1": "CRECE",
+          "L2": "CRECE",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "CRECE",
+            "L2": "CRECE",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "cilindro_CxC10_N2": {
+        "cls": {
+          "L1": "CRECE",
+          "L2": "CRECE",
+          "L3": "CRECE",
+          "L4": "CRECE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "CRECE",
+            "L2": "CRECE",
+            "L3": "CRECE",
+            "L4": "CRECE"
+          }
+        }
+      },
+      "Z3_diluido_p0.6_N2": {
+        "cls": {
+          "L1": "ACOTADA",
+          "L2": "ACOTADA",
+          "L3": "CRECE",
+          "L4": "AMBIGUA"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "AMBIGUA"
+          },
+          "1": {
+            "L1": "ACOTADA",
+            "L2": "ACOTADA",
+            "L3": "CRECE",
+            "L4": "AMBIGUA"
+          }
+        }
+      },
+      "retazos_b3_N2": {
+        "cls": {
+          "L1": "INSUFICIENTE",
+          "L2": "INSUFICIENTE",
+          "L3": "INSUFICIENTE",
+          "L4": "INSUFICIENTE"
+        },
+        "by_seed": {
+          "0": {
+            "L1": "INSUFICIENTE",
+            "L2": "INSUFICIENTE",
+            "L3": "INSUFICIENTE",
+            "L4": "INSUFICIENTE"
+          },
+          "1": {
+            "L1": "INSUFICIENTE",
+            "L2": "INSUFICIENTE",
+            "L3": "INSUFICIENTE",
+            "L4": "INSUFICIENTE"
+          }
+        }
+      }
+    },
+    "predictions": {
+      "critico_AMBIGUO_L1(d=2)": {
+        "classes": [
+          "AMBIGUA",
+          "AMBIGUA",
+          "CRECE"
+        ],
+        "match": false
+      },
+      "critico_AMBIGUO_L2(d=2)": {
+        "classes": [
+          "AMBIGUA",
+          "AMBIGUA",
+          "AMBIGUA"
+        ],
+        "match": true
+      },
+      "critico_AMBIGUO_L3(d=4)": {
+        "classes": [
+          "AMBIGUA"
+        ],
+        "match": true
+      },
+      "critico_AMBIGUO_L4(d=3)": {
+        "classes": [
+          "AMBIGUA",
+          "ACOTADA",
+          "AMBIGUA",
+          "AMBIGUA"
+        ],
+        "match": false
+      },
+      "Z5/Z6_INSUFICIENTE_N2_y_L3_NO_RESUELTA": {
+        "Z5_Z6": {
+          "Z5": "ACOTADA",
+          "Z6": "ACOTADA"
+        },
+        "L3": "RESOLUBLE",
+        "match": false
+      },
+      "L1_RESOLUBLE_con_2_en_dc": {
+        "res": "RESOLUBLE",
+        "dc": [
+          2.0,
+          2.0
+        ],
+        "match": true
+      },
+      "L2_RESOLUBLE_con_2_en_dc": {
+        "res": "RESOLUBLE",
+        "dc": [
+          2.0,
+          2.0
+        ],
+        "match": true
+      },
+      "L4_RESOLUBLE_con_3_en_dc": {
+        "res": "NO_RESUELTA",
+        "dc": null,
+        "match": false
+      },
+      "L2_NO_UNIVERSAL_y_peine1_ACOTADA": {
+        "L2_univ": "NA",
+        "peine1_L2": "CRECE",
+        "match": false
+      },
+      "L1_UNIVERSAL_y_peine1_CRECE": {
+        "L1_univ": "NA",
+        "peine1_L1": "CRECE",
+        "match": false
+      },
+      "desenlace_W1-C(alt_W1-D)": {
+        "outcome": "W1-D",
+        "match": false,
+        "alt_match": true
+      }
+    }
+  },
+  "cells": [
+    {
+      "id": "Z1_n0_s0",
+      "geom": "Z1",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 125000,
+      "T_max": 40000,
+      "laws": {
+        "L1": {
+          "a": 0.5130247899259714,
+          "se": 0.018365442283281987,
+          "cls": "CRECE"
+        },
+        "L2": {
+          "a": 0.5231391610031493,
+          "se": 0.01933906290093321,
+          "cls": "CRECE"
+        },
+        "L3": {
+          "a": 0.4892998122180622,
+          "se": 0.011786655406117995,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.4730507068328328,
+          "se": 0.012976559035210285,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "Z1_n1_s0",
+      "geom": "Z1",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1000000,
+      "T_max": 40000,
+      "laws": {
+        "L1": {
+          "a": 0.49406910261834674,
+          "se": 0.020505467224848906,
+          "cls": "CRECE"
+        },
+        "L2": {
+          "a": 0.4662637474844731,
+          "se": 0.02074056490841123,
+          "cls": "CRECE"
+        },
+        "L3": {
+          "a": 0.4585471373732617,
+          "se": 0.012638124396469348,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.4641650439013636,
+          "se": 0.014311364144862582,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "Z2_n0_s0",
+      "geom": "Z2",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 125316,
+      "T_max": 31152,
+      "laws": {
+        "L1": {
+          "a": 0.091902727553597,
+          "se": 0.014383983640007572,
+          "cls": "AMBIGUA"
+        },
+        "L2": {
+          "a": 0.09339416594014079,
+          "se": 0.014061328572654339,
+          "cls": "AMBIGUA"
+        },
+        "L3": {
+          "a": 0.8283116809079991,
+          "se": 0.023766746404976245,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.7453907597719676,
+          "se": 0.030019619199254416,
+          "cls": "INSUFICIENTE"
+        }
+      }
+    },
+    {
+      "id": "Z2_n1_s0",
+      "geom": "Z2",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1000000,
+      "T_max": 40000,
+      "laws": {
+        "L1": {
+          "a": 0.09544780559870564,
+          "se": 0.013966539167790093,
+          "cls": "AMBIGUA"
+        },
+        "L2": {
+          "a": 0.06723901693658023,
+          "se": 0.012063847200151858,
+          "cls": "AMBIGUA"
+        },
+        "L3": {
+          "a": 0.7874890448858795,
+          "se": 0.024107801148976035,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.6472488843968197,
+          "se": 0.0313221498784019,
+          "cls": "INSUFICIENTE"
+        }
+      }
+    },
+    {
+      "id": "triangular_n0_s0",
+      "geom": "triangular",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 125316,
+      "T_max": 20741,
+      "laws": {
+        "L1": {
+          "a": 0.0882002400056843,
+          "se": 0.013004559168527932,
+          "cls": "AMBIGUA"
+        },
+        "L2": {
+          "a": 0.07257469994897096,
+          "se": 0.011071044236722671,
+          "cls": "AMBIGUA"
+        },
+        "L3": {
+          "a": 0.7843447724500059,
+          "se": 0.023646861440119682,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.6860637693530686,
+          "se": 0.028067741421430144,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "triangular_n1_s0",
+      "geom": "triangular",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1000000,
+      "T_max": 40000,
+      "laws": {
+        "L1": {
+          "a": 0.09020843071873968,
+          "se": 0.013499069345912253,
+          "cls": "AMBIGUA"
+        },
+        "L2": {
+          "a": 0.06787239644284018,
+          "se": 0.010875918243070694,
+          "cls": "AMBIGUA"
+        },
+        "L3": {
+          "a": 0.7736454650678173,
+          "se": 0.02333123791218661,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.6867068756584961,
+          "se": 0.028258360398669725,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "RGG2_k8_n0_s0",
+      "geom": "RGG2_k8",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 124860,
+      "T_max": 14735,
+      "laws": {
+        "L1": {
+          "a": 0.12705270749805042,
+          "se": 0.016782895822342676,
+          "cls": "CRECE"
+        },
+        "L2": {
+          "a": 0.11653086751182574,
+          "se": 0.013707562130473114,
+          "cls": "CRECE"
+        },
+        "L3": {
+          "a": 0.6881929561497468,
+          "se": 0.019420395948269227,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.5551158918656577,
+          "se": 0.02719239654957922,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "RGG2_k8_n0_s1",
+      "geom": "RGG2_k8",
+      "size_idx": 0,
+      "seed": 1,
+      "N_giant": 124913,
+      "T_max": 14765,
+      "laws": {
+        "L1": {
+          "a": 0.13442594735897356,
+          "se": 0.016655319667986626,
+          "cls": "CRECE"
+        },
+        "L2": {
+          "a": 0.09940591887664983,
+          "se": 0.013664590899819886,
+          "cls": "AMBIGUA"
+        },
+        "L3": {
+          "a": 0.699398613914559,
+          "se": 0.02153175385466031,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.580775047527459,
+          "se": 0.024647768591592907,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "RGG2_k8_n1_s0",
+      "geom": "RGG2_k8",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 999108,
+      "T_max": 40000,
+      "laws": {
+        "L1": {
+          "a": 0.12153014933508163,
+          "se": 0.017715432782940334,
+          "cls": "CRECE"
+        },
+        "L2": {
+          "a": 0.09669054473639738,
+          "se": 0.01245980037184745,
+          "cls": "AMBIGUA"
+        },
+        "L3": {
+          "a": 0.7364630132602062,
+          "se": 0.02126602695674069,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.6448052405719363,
+          "se": 0.028586121733495656,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "RGG2_k8_n1_s1",
+      "geom": "RGG2_k8",
+      "size_idx": 1,
+      "seed": 1,
+      "N_giant": 999100,
+      "T_max": 40000,
+      "laws": {
+        "L1": {
+          "a": 0.1616419781368887,
+          "se": 0.021580580791888054,
+          "cls": "CRECE"
+        },
+        "L2": {
+          "a": 0.12019649949842945,
+          "se": 0.016063643021596873,
+          "cls": "CRECE"
+        },
+        "L3": {
+          "a": 0.755411202589918,
+          "se": 0.022242236931703453,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.6102192672563918,
+          "se": 0.026867975503717396,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "Z3_n0_s0",
+      "geom": "Z3",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 125000,
+      "T_max": 1369,
+      "laws": {
+        "L1": {
+          "a": 0.019621359265849406,
+          "se": 0.005909883526863127,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.013521135504772012,
+          "se": 0.005032387186922832,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.3612337684609866,
+          "se": 0.021173459341726344,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.06020530369015616,
+          "se": 0.010196155524657274,
+          "cls": "AMBIGUA"
+        }
+      }
+    },
+    {
+      "id": "Z3_n1_s0",
+      "geom": "Z3",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1000000,
+      "T_max": 5550,
+      "laws": {
+        "L1": {
+          "a": 0.009113214378689567,
+          "se": 0.004233642961411293,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.0023328467832860983,
+          "se": 0.0016329927179297636,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.4123182438166194,
+          "se": 0.026693478052204737,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.0762533049703922,
+          "se": 0.012790256378849896,
+          "cls": "AMBIGUA"
+        }
+      }
+    },
+    {
+      "id": "FCC_n0_s0",
+      "geom": "FCC",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 119164,
+      "T_max": 657,
+      "laws": {
+        "L1": {
+          "a": 0.027502834376076694,
+          "se": 0.007819171983000897,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.014368501399536625,
+          "se": 0.004539277541323799,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.3274322595220952,
+          "se": 0.018265336546323077,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.04655744512929979,
+          "se": 0.007847144613569383,
+          "cls": "ACOTADA"
+        }
+      }
+    },
+    {
+      "id": "FCC_n1_s0",
+      "geom": "FCC",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1000188,
+      "T_max": 2769,
+      "laws": {
+        "L1": {
+          "a": 0.010216383269784753,
+          "se": 0.0040743025758588755,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.0032933463644327704,
+          "se": 0.0015588149745071756,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.43307086292249664,
+          "se": 0.02633239194390719,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.0444601483855916,
+          "se": 0.0074887825278225845,
+          "cls": "ACOTADA"
+        }
+      }
+    },
+    {
+      "id": "BCC_n0_s0",
+      "geom": "BCC",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 128000,
+      "T_max": 975,
+      "laws": {
+        "L1": {
+          "a": 0.025515783351984112,
+          "se": 0.009006151193685641,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.012493820287983817,
+          "se": 0.004635237048099535,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.35554404072703566,
+          "se": 0.020597576394890956,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.042731699846041964,
+          "se": 0.00847721183850584,
+          "cls": "ACOTADA"
+        }
+      }
+    },
+    {
+      "id": "BCC_n1_s0",
+      "geom": "BCC",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 986078,
+      "T_max": 3868,
+      "laws": {
+        "L1": {
+          "a": 0.00451216275767831,
+          "se": 0.0030827570639769997,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.008659411075731507,
+          "se": 0.0054176360473825215,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.41425378191746803,
+          "se": 0.02340124947678449,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.05649318789980914,
+          "se": 0.009164770666740913,
+          "cls": "AMBIGUA"
+        }
+      }
+    },
+    {
+      "id": "RGG3_k8_n0_s0",
+      "geom": "RGG3_k8",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 124939,
+      "T_max": 870,
+      "laws": {
+        "L1": {
+          "a": 0.044134146872094215,
+          "se": 0.010227478761636608,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.02779295051601011,
+          "se": 0.00719833615627357,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.3959727168274225,
+          "se": 0.019256999491880512,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.1440170903453529,
+          "se": 0.014784968819905086,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "RGG3_k8_n0_s1",
+      "geom": "RGG3_k8",
+      "size_idx": 0,
+      "seed": 1,
+      "N_giant": 124941,
+      "T_max": 873,
+      "laws": {
+        "L1": {
+          "a": 0.05514507368376484,
+          "se": 0.011642389755883165,
+          "cls": "AMBIGUA"
+        },
+        "L2": {
+          "a": 0.03275825912235689,
+          "se": 0.007207188781444654,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.4003942302594351,
+          "se": 0.022570504867316616,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.1286931644516805,
+          "se": 0.013450428170438546,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "RGG3_k8_n1_s0",
+      "geom": "RGG3_k8",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 999549,
+      "T_max": 3341,
+      "laws": {
+        "L1": {
+          "a": 0.01939063929632768,
+          "se": 0.005401433733729834,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.017756503057032906,
+          "se": 0.005474947050759054,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.4416815796081195,
+          "se": 0.02424006957232819,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.1164556994209831,
+          "se": 0.014687614918048096,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "RGG3_k8_n1_s1",
+      "geom": "RGG3_k8",
+      "size_idx": 1,
+      "seed": 1,
+      "N_giant": 999547,
+      "T_max": 3345,
+      "laws": {
+        "L1": {
+          "a": 0.02947177270279789,
+          "se": 0.007347968981795125,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.014068641059469053,
+          "se": 0.00529562510046508,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.38436231535438214,
+          "se": 0.02299004290011584,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.09845029874098701,
+          "se": 0.012825832029674378,
+          "cls": "AMBIGUA"
+        }
+      }
+    },
+    {
+      "id": "Z4_n0_s0",
+      "geom": "Z4",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 130321,
+      "T_max": 340,
+      "laws": {
+        "L1": {
+          "a": 0.014190214115930357,
+          "se": 0.007887252840122181,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.005463104389773222,
+          "se": 0.0030259367075382536,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.09988333413829635,
+          "se": 0.010671330673487136,
+          "cls": "AMBIGUA"
+        },
+        "L4": {
+          "a": 0.0013674824722237893,
+          "se": 0.0010120986226856417,
+          "cls": "ACOTADA"
+        }
+      }
+    },
+    {
+      "id": "Z4_n1_s0",
+      "geom": "Z4",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1048576,
+      "T_max": 992,
+      "laws": {
+        "L1": {
+          "a": 0.005265403881957426,
+          "se": 0.004142757169660417,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.0008764858753838768,
+          "se": 0.0008448308253389458,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.08463815676891144,
+          "se": 0.00998678795068888,
+          "cls": "AMBIGUA"
+        },
+        "L4": {
+          "a": 0.00676706079954269,
+          "se": 0.0030324045999694537,
+          "cls": "ACOTADA"
+        }
+      }
+    },
+    {
+      "id": "Z5_n0_s0",
+      "geom": "Z5",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 100000,
+      "T_max": 144,
+      "laws": {
+        "L1": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L2": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L3": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L4": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        }
+      }
+    },
+    {
+      "id": "Z5_n1_s0",
+      "geom": "Z5",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1048576,
+      "T_max": 380,
+      "laws": {
+        "L1": {
+          "a": 0.0019433066476120728,
+          "se": 0.001142472855509933,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.0,
+          "se": 0.0,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.020537809167342373,
+          "se": 0.0046430796267309124,
+          "cls": "ACOTADA"
+        },
+        "L4": {
+          "a": 0.0006915778543789374,
+          "se": 0.0006380560144193895,
+          "cls": "ACOTADA"
+        }
+      }
+    },
+    {
+      "id": "Z6_n0_s0",
+      "geom": "Z6",
+      "size_idx": 0,
+      "seed": 0,
+      "N_giant": 117649,
+      "T_max": 96,
+      "laws": {
+        "L1": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L2": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L3": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L4": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        }
+      }
+    },
+    {
+      "id": "Z6_n1_s0",
+      "geom": "Z6",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1000000,
+      "T_max": 210,
+      "laws": {
+        "L1": {
+          "a": 0.003278741319212313,
+          "se": 0.0026592209386857414,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.0,
+          "se": 2.9631976683955604e-33,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.007191634366086306,
+          "se": 0.0023773281279271786,
+          "cls": "ACOTADA"
+        },
+        "L4": {
+          "a": 0.0006964496445931907,
+          "se": 0.0007267722966004148,
+          "cls": "ACOTADA"
+        }
+      }
+    },
+    {
+      "id": "peine1_n1_s0",
+      "geom": "peine1",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 999000,
+      "T_max": 40000,
+      "laws": {
+        "L1": {
+          "a": 0.4912312623466735,
+          "se": 0.02033122267056288,
+          "cls": "CRECE"
+        },
+        "L2": {
+          "a": 0.452981912961857,
+          "se": 0.020730770227782466,
+          "cls": "CRECE"
+        },
+        "L3": {
+          "a": 0.47402568569385367,
+          "se": 0.012748033975086436,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.4545478958294577,
+          "se": 0.013884835286547829,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "peine2_n1_s0",
+      "geom": "peine2",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1010000,
+      "T_max": 22223,
+      "laws": {
+        "L1": {
+          "a": 0.49148071700182117,
+          "se": 0.02374044509494516,
+          "cls": "CRECE"
+        },
+        "L2": {
+          "a": 0.4294279978216463,
+          "se": 0.0224317238392199,
+          "cls": "CRECE"
+        },
+        "L3": {
+          "a": 0.4158635632711921,
+          "se": 0.012420669342674728,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.424724312167783,
+          "se": 0.012062609897132348,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "cilindro_CxC10_n1_s0",
+      "geom": "cilindro_CxC10",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 1000000,
+      "T_max": 40000,
+      "laws": {
+        "L1": {
+          "a": 0.44730213875336894,
+          "se": 0.02050279158523209,
+          "cls": "CRECE"
+        },
+        "L2": {
+          "a": 0.4475665363488901,
+          "se": 0.01836925603734714,
+          "cls": "CRECE"
+        },
+        "L3": {
+          "a": 0.6431554629046439,
+          "se": 0.012684522772977854,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.6987217528745531,
+          "se": 0.017500378500220456,
+          "cls": "CRECE"
+        }
+      }
+    },
+    {
+      "id": "Z3_diluido_p0.6_n1_s0",
+      "geom": "Z3_diluido_p0.6",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 995426,
+      "T_max": 5659,
+      "laws": {
+        "L1": {
+          "a": 0.005632140053073742,
+          "se": 0.0023184138658862577,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.017615026388619084,
+          "se": 0.006910610628087071,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.4259115853697857,
+          "se": 0.02474869957484667,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.07694159836523584,
+          "se": 0.011701902560068905,
+          "cls": "AMBIGUA"
+        }
+      }
+    },
+    {
+      "id": "Z3_diluido_p0.6_n1_s1",
+      "geom": "Z3_diluido_p0.6",
+      "size_idx": 1,
+      "seed": 1,
+      "N_giant": 995602,
+      "T_max": 5664,
+      "laws": {
+        "L1": {
+          "a": 0.006611313101344142,
+          "se": 0.0036544322166198804,
+          "cls": "ACOTADA"
+        },
+        "L2": {
+          "a": 0.002869337012482667,
+          "se": 0.0015238266865691909,
+          "cls": "ACOTADA"
+        },
+        "L3": {
+          "a": 0.3850125197113956,
+          "se": 0.024561746773937784,
+          "cls": "CRECE"
+        },
+        "L4": {
+          "a": 0.07201215324678088,
+          "se": 0.013315086983886983,
+          "cls": "AMBIGUA"
+        }
+      }
+    },
+    {
+      "id": "retazos_b3_n1_s0",
+      "geom": "retazos_b3",
+      "size_idx": 1,
+      "seed": 0,
+      "N_giant": 999993,
+      "T_max": 121,
+      "laws": {
+        "L1": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L2": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L3": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L4": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        }
+      }
+    },
+    {
+      "id": "retazos_b3_n1_s1",
+      "geom": "retazos_b3",
+      "size_idx": 1,
+      "seed": 1,
+      "N_giant": 999993,
+      "T_max": 117,
+      "laws": {
+        "L1": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L2": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L3": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        },
+        "L4": {
+          "a": null,
+          "se": null,
+          "cls": "INSUFICIENTE"
+        }
+      }
+    }
+  ]
+}

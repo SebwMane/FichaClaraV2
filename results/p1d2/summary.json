@@ -1,0 +1,1006 @@
+{
+  "step": "p1d2_panel",
+  "code_commit": "383b34438995c313f1b99f855f64fb50d9c25c81",
+  "n_graphs": 64,
+  "result": {
+    "0.15": {
+      "delta": 0.15,
+      "verdict": "SEPARA-PARCIAL",
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "nongeo_evaluable": 11,
+      "nongeo_total": 23,
+      "R_families_passing_joint": [
+        "caveman_K4"
+      ],
+      "by_family": {
+        "RGG2_k12": {
+          "cls": "G",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "evaluable": 3,
+          "D_plat": [
+            1.96,
+            1.95,
+            1.92
+          ],
+          "rho": [
+            0.202,
+            0.211,
+            0.228
+          ]
+        },
+        "RGG3_k12": {
+          "cls": "G",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "evaluable": 3,
+          "D_plat": [
+            2.84,
+            2.84,
+            2.85
+          ],
+          "rho": [
+            0.375,
+            0.359,
+            0.384
+          ]
+        },
+        "RGG3_k8": {
+          "cls": "G",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "evaluable": 3,
+          "D_plat": [
+            2.86,
+            2.87,
+            2.86
+          ],
+          "rho": [
+            0.416,
+            0.438,
+            0.479
+          ]
+        },
+        "anillo_k12": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            0.99
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "cuadrado_64": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            1.87
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "triangular_64": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            1.87
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "T3_16": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            2.66
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "caveman_K4": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            1.04
+          ],
+          "rho": [
+            0.14
+          ]
+        },
+        "caveman_K8": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 1,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            0.085
+          ]
+        },
+        "caveman_K16": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 1,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            0.064
+          ]
+        },
+        "reticulo_cliques_3D_K8": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 1,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            0.501
+          ]
+        },
+        "retazos_8": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.32,
+            1.346,
+            1.322
+          ]
+        },
+        "retazos_27": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.161,
+            1.127,
+            1.126
+          ]
+        },
+        "retazos_64": {
+          "cls": "L",
+          "n": 3,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.028,
+            0.994,
+            1.017
+          ]
+        },
+        "RGG3_atajos1": {
+          "cls": "L",
+          "n": 3,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 2,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            0.999,
+            1.082,
+            1.007
+          ]
+        },
+        "WS_b0.003": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "evaluable": 3,
+          "D_plat": [
+            2.77,
+            2.62,
+            2.63
+          ],
+          "rho": [
+            5.422,
+            5.006,
+            6.149
+          ]
+        },
+        "WS_b0.01": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 3,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            2.607,
+            2.361,
+            2.797
+          ]
+        },
+        "WS_b0.03": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 3,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.43,
+            1.594,
+            1.452
+          ]
+        },
+        "ER_k12": {
+          "cls": "NL",
+          "n": 1,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "RR_k12": {
+          "cls": "NL",
+          "n": 1,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            null
+          ]
+        }
+      }
+    },
+    "0.1": {
+      "delta": 0.1,
+      "verdict": "SEPARA-PARCIAL",
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "nongeo_evaluable": 11,
+      "nongeo_total": 23,
+      "R_families_passing_joint": [
+        "caveman_K4"
+      ],
+      "by_family": {
+        "RGG2_k12": {
+          "cls": "G",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "evaluable": 3,
+          "D_plat": [
+            1.96,
+            1.95,
+            1.95
+          ],
+          "rho": [
+            0.202,
+            0.211,
+            0.228
+          ]
+        },
+        "RGG3_k12": {
+          "cls": "G",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "evaluable": 3,
+          "D_plat": [
+            2.84,
+            2.84,
+            2.85
+          ],
+          "rho": [
+            0.375,
+            0.359,
+            0.384
+          ]
+        },
+        "RGG3_k8": {
+          "cls": "G",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "evaluable": 3,
+          "D_plat": [
+            2.86,
+            2.87,
+            2.86
+          ],
+          "rho": [
+            0.416,
+            0.438,
+            0.479
+          ]
+        },
+        "anillo_k12": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            0.99
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "cuadrado_64": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            1.88
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "triangular_64": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            1.89
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "T3_16": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            2.66
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "caveman_K4": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            1.04
+          ],
+          "rho": [
+            0.14
+          ]
+        },
+        "caveman_K8": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 1,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            0.085
+          ]
+        },
+        "caveman_K16": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 1,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            0.064
+          ]
+        },
+        "reticulo_cliques_3D_K8": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 1,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            0.501
+          ]
+        },
+        "retazos_8": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.32,
+            1.346,
+            1.322
+          ]
+        },
+        "retazos_27": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.161,
+            1.127,
+            1.126
+          ]
+        },
+        "retazos_64": {
+          "cls": "L",
+          "n": 3,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.028,
+            0.994,
+            1.017
+          ]
+        },
+        "RGG3_atajos1": {
+          "cls": "L",
+          "n": 3,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 2,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            0.999,
+            1.082,
+            1.007
+          ]
+        },
+        "WS_b0.003": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "evaluable": 3,
+          "D_plat": [
+            2.83,
+            2.67,
+            2.68
+          ],
+          "rho": [
+            5.422,
+            5.006,
+            6.149
+          ]
+        },
+        "WS_b0.01": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 3,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            2.607,
+            2.361,
+            2.797
+          ]
+        },
+        "WS_b0.03": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 3,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.43,
+            1.594,
+            1.452
+          ]
+        },
+        "ER_k12": {
+          "cls": "NL",
+          "n": 1,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "RR_k12": {
+          "cls": "NL",
+          "n": 1,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            null
+          ]
+        }
+      }
+    },
+    "0.25": {
+      "delta": 0.25,
+      "verdict": "SEPARA-PARCIAL",
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "nongeo_evaluable": 11,
+      "nongeo_total": 23,
+      "R_families_passing_joint": [
+        "caveman_K4"
+      ],
+      "by_family": {
+        "RGG2_k12": {
+          "cls": "G",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "evaluable": 3,
+          "D_plat": [
+            1.93,
+            1.92,
+            1.92
+          ],
+          "rho": [
+            0.202,
+            0.211,
+            0.228
+          ]
+        },
+        "RGG3_k12": {
+          "cls": "G",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "evaluable": 3,
+          "D_plat": [
+            2.75,
+            2.75,
+            2.76
+          ],
+          "rho": [
+            0.375,
+            0.359,
+            0.384
+          ]
+        },
+        "RGG3_k8": {
+          "cls": "G",
+          "n": 3,
+          "I": 3,
+          "II": 3,
+          "joint": 3,
+          "evaluable": 3,
+          "D_plat": [
+            2.77,
+            2.78,
+            2.77
+          ],
+          "rho": [
+            0.416,
+            0.438,
+            0.479
+          ]
+        },
+        "anillo_k12": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            0.99
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "cuadrado_64": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            1.85
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "triangular_64": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            1.86
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "T3_16": {
+          "cls": "G",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            2.59
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "caveman_K4": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 1,
+          "joint": 1,
+          "evaluable": 1,
+          "D_plat": [
+            1.04
+          ],
+          "rho": [
+            0.14
+          ]
+        },
+        "caveman_K8": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 1,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            0.085
+          ]
+        },
+        "caveman_K16": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 1,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            0.064
+          ]
+        },
+        "reticulo_cliques_3D_K8": {
+          "cls": "R",
+          "n": 1,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 1,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            0.501
+          ]
+        },
+        "retazos_8": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.32,
+            1.346,
+            1.322
+          ]
+        },
+        "retazos_27": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.161,
+            1.127,
+            1.126
+          ]
+        },
+        "retazos_64": {
+          "cls": "L",
+          "n": 3,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.028,
+            0.994,
+            1.017
+          ]
+        },
+        "RGG3_atajos1": {
+          "cls": "L",
+          "n": 3,
+          "I": 1,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 2,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            0.999,
+            1.082,
+            1.007
+          ]
+        },
+        "WS_b0.003": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 3,
+          "joint": 0,
+          "evaluable": 3,
+          "D_plat": [
+            2.7,
+            2.56,
+            2.57
+          ],
+          "rho": [
+            5.422,
+            5.006,
+            6.149
+          ]
+        },
+        "WS_b0.01": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 1,
+          "joint": 0,
+          "evaluable": 3,
+          "D_plat": [
+            null,
+            3.48,
+            null
+          ],
+          "rho": [
+            2.607,
+            2.361,
+            2.797
+          ]
+        },
+        "WS_b0.03": {
+          "cls": "L",
+          "n": 3,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 3,
+          "D_plat": [
+            null,
+            null,
+            null
+          ],
+          "rho": [
+            1.43,
+            1.594,
+            1.452
+          ]
+        },
+        "ER_k12": {
+          "cls": "NL",
+          "n": 1,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            null
+          ]
+        },
+        "RR_k12": {
+          "cls": "NL",
+          "n": 1,
+          "I": 0,
+          "II": 0,
+          "joint": 0,
+          "evaluable": 0,
+          "D_plat": [
+            null
+          ],
+          "rho": [
+            null
+          ]
+        }
+      }
+    }
+  }
+}
