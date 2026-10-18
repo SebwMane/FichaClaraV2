@@ -1,0 +1,227 @@
+{
+  "step": "ldim1_features",
+  "code_commit": "8d70c23baef54d5d8441293612b637031c40fd86",
+  "smoke": false,
+  "master": 20261014,
+  "n_graphs": 54,
+  "n_sources": 400,
+  "seconds": 49.4,
+  "seconds_by_graph": {
+    "4a9b66857dbf": {
+      "gen": 0.0,
+      "extract": 0.24
+    },
+    "6cabf6bc1559": {
+      "gen": 0.01,
+      "extract": 0.46
+    },
+    "e42466e12a35": {
+      "gen": 0.0,
+      "extract": 1.0
+    },
+    "d7a9bd758bb4": {
+      "gen": 0.02,
+      "extract": 1.62
+    },
+    "e215ce66419a": {
+      "gen": 0.02,
+      "extract": 1.7
+    },
+    "e8778b73c501": {
+      "gen": 0.02,
+      "extract": 1.66
+    },
+    "5a65c294631f": {
+      "gen": 0.03,
+      "extract": 2.14
+    },
+    "0889ee9f9923": {
+      "gen": 0.03,
+      "extract": 2.23
+    },
+    "747143e088a6": {
+      "gen": 0.03,
+      "extract": 2.13
+    },
+    "2d9e3dfa305e": {
+      "gen": 0.0,
+      "extract": 1.19
+    },
+    "93e6b44d0e13": {
+      "gen": 0.05,
+      "extract": 1.75
+    },
+    "6c964e996ebc": {
+      "gen": 0.05,
+      "extract": 1.83
+    },
+    "22fb91024c82": {
+      "gen": 0.05,
+      "extract": 1.68
+    },
+    "559e48b457f4": {
+      "gen": 0.06,
+      "extract": 2.13
+    },
+    "683ab72b4e9c": {
+      "gen": 0.07,
+      "extract": 2.16
+    },
+    "b217483f4fc2": {
+      "gen": 0.06,
+      "extract": 2.06
+    },
+    "c2d62d3c2fd0": {
+      "gen": 0.01,
+      "extract": 1.35
+    },
+    "e3256eb1a7cd": {
+      "gen": 0.12,
+      "extract": 1.67
+    },
+    "24313ea9a511": {
+      "gen": 0.12,
+      "extract": 1.76
+    },
+    "613cc83125e9": {
+      "gen": 0.12,
+      "extract": 1.68
+    },
+    "e2d756eb91ed": {
+      "gen": 0.17,
+      "extract": 2.22
+    },
+    "20c69fef49a0": {
+      "gen": 0.17,
+      "extract": 2.32
+    },
+    "f0e8f915e944": {
+      "gen": 0.16,
+      "extract": 2.33
+    },
+    "b73b7cb37c07": {
+      "gen": 0.01,
+      "extract": 1.16
+    },
+    "5bff5245e096": {
+      "gen": 0.02,
+      "extract": 1.7
+    },
+    "dac561ef5e6c": {
+      "gen": 0.09,
+      "extract": 5.49
+    },
+    "8caaca8c6fca": {
+      "gen": 0.03,
+      "extract": 6.54
+    },
+    "190d4bfd74ab": {
+      "gen": 0.21,
+      "extract": 7.07
+    },
+    "d39544195f57": {
+      "gen": 0.04,
+      "extract": 4.96
+    },
+    "bf378b9cf708": {
+      "gen": 0.28,
+      "extract": 14.16
+    },
+    "72aa9907966c": {
+      "gen": 0.27,
+      "extract": 15.18
+    },
+    "1a0d95296f11": {
+      "gen": 0.28,
+      "extract": 14.8
+    },
+    "165db70a2a29": {
+      "gen": 0.0,
+      "extract": 0.03
+    },
+    "1a61d091a7f2": {
+      "gen": 0.01,
+      "extract": 1.15
+    },
+    "dbc20c2a45a1": {
+      "gen": 0.01,
+      "extract": 1.11
+    },
+    "48647bf8de8e": {
+      "gen": 0.01,
+      "extract": 1.1
+    },
+    "09497bde3a90": {
+      "gen": 0.0,
+      "extract": 0.64
+    },
+    "5b23480a4e09": {
+      "gen": 0.08,
+      "extract": 0.97
+    },
+    "27d9dfd5980c": {
+      "gen": 0.01,
+      "extract": 1.39
+    },
+    "7cdd0d936548": {
+      "gen": 0.01,
+      "extract": 1.36
+    },
+    "7fa237e5680b": {
+      "gen": 0.01,
+      "extract": 1.36
+    },
+    "bfdc18193396": {
+      "gen": 0.88,
+      "extract": 1.8
+    },
+    "463ef6605499": {
+      "gen": 1.07,
+      "extract": 1.82
+    },
+    "c2bec455cd2b": {
+      "gen": 0.78,
+      "extract": 1.8
+    },
+    "24b516f35208": {
+      "gen": 0.08,
+      "extract": 1.89
+    },
+    "29d6465f7a42": {
+      "gen": 0.09,
+      "extract": 1.86
+    },
+    "d8a4faad4ef7": {
+      "gen": 0.09,
+      "extract": 1.8
+    },
+    "8c17d6c2a7fc": {
+      "gen": 0.06,
+      "extract": 0.46
+    },
+    "e682a71a8b95": {
+      "gen": 0.05,
+      "extract": 1.55
+    },
+    "f5f0788ba903": {
+      "gen": 0.04,
+      "extract": 1.55
+    },
+    "b2f1a7e79c74": {
+      "gen": 0.04,
+      "extract": 1.58
+    },
+    "c789a74c40b2": {
+      "gen": 0.06,
+      "extract": 1.95
+    },
+    "e417e9286801": {
+      "gen": 0.05,
+      "extract": 1.92
+    },
+    "1993bdb4a890": {
+      "gen": 0.06,
+      "extract": 1.96
+    }
+  }
+}
