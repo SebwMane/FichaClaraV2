@@ -60,6 +60,7 @@ Otras líneas abiertas, sin preparar: **F6** (comprometida por R9-2) (perfil med
 | Rev. 7 (H1 a H3) | Con matriz causal la pendiente es frágil fuera de 2D; con links es estable pero no −2/d | `OMEGA_CONSEJO_REV7_DIMENSION.md` |
 | F3 (firma 4D con links) | Falla: el orden producto 4D la imita | `OMEGA_F3F4_RESULTADOS.md` |
 | F4 (β_L frente a d) | Estable y monótona: −0.05, −0.22, −0.31, −0.34 de 2D a 5D | ídem |
+| F6 intento 2 (intercepto + colapso, a ciegas) | Falla: 13/13 positivas bien; atrapa C5 y D4; fallan gemelos y tres conos con deformaciones parciales. Línea cerrada, vuelve al Consejo | `OMEGA_F6_INTENTO2_RESULTADOS.md` |
 | F6 confirmatoria (intercepto al achicar, a ciegas) | Falla por 1 de 20: Minkowski con links borrados pasa; Kasner y demás positivas selladas, bien | `OMEGA_F6_CONFIRMACION_RESULTADOS.md` |
 | F7 (distancia de forma) | Falla: rechaza conos con aristas, pero acepta conos p = 1.5 y 3 y rechaza de Sitter fuerte | `OMEGA_F7_RESULTADOS.md` |
 | F5′ (perfil con d* espectral) | Falla: positivas bien (incluido de Sitter a ciegas), pero el cono octaédrico pasa | `OMEGA_F5PRIMA_RESULTADOS.md` |
@@ -71,7 +72,7 @@ Otras líneas abiertas, sin preparar: **F6** (comprometida por R9-2) (perfil med
 
 **Herramientas (`tools/`):** una por prueba (`c0_validation.py` … `f5.py`), ejecutadas por partes (`--part`) para respetar el límite de tiempo de cada comando, y con `final` para calcular el veredicto. Resultados en `results/<prueba>/` (están versionados).
 
-**Convenciones:** RNG solo con `Generator(PCG64(SeedSequence(entropía, spawn_key=(EXPERIMENT_ID, …))))`. EXPERIMENT_ID usados: 300 a 321 (el próximo libre es **322**). Entropías usadas: 20261011 a 20261081 (20261079 reservada sin uso); reservadas 20261090 a 20261099 (reserva sellada) (la próxima libre es **20261082**). Nunca reutilizar una entropía oficial.
+**Convenciones:** RNG solo con `Generator(PCG64(SeedSequence(entropía, spawn_key=(EXPERIMENT_ID, …))))`. EXPERIMENT_ID usados: 300 a 322 (el próximo libre es **323**). Entropías usadas: 20261011 a 20261086 (20261079 reservada sin uso); reservadas 20261090 a 20261099 (reserva sellada, sin abrir) (la próxima libre es **20261087**). Nunca reutilizar una entropía oficial.
 
 ## 8. Trampas técnicas aprendidas
 
