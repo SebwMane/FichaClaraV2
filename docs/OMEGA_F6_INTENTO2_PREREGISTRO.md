@@ -70,3 +70,9 @@ Una estructura es **«espacio-tiempo 4D»** si cumple las dos condiciones:
 `CONFIRMACION_CIEGA_2.md`, SHA-256 `b64503ffb0d5f5772a0ab8c8dcf80e689371d75ec6f93a6d93f9912c930866cf`.
 - **Contenido:** 4 positivas, 5 negativas, 0 en zona gris.
 - **Aviso del guardián:** para fijar la intensidad de un defecto hizo una prueba previa que solo contó relaciones (sin Δr, sin intercepto y sin K), con semillas ajenas a las entropías oficiales.
+
+## 8. Apertura del sello (después de c0709bd)
+
+- Hash verificado. Copia en `docs/SELLADO_F6_INTENTO2_CIEGA.md` (D0 a D8: 4 positivas y 5 negativas).
+- **Aclaración B1 (no medible). ¿Puede crear un positivo? Sí, para una negativa. Se aplica porque estaba escrito antes de abrir:** como en A2, el preregistro (§3) manda: no medible = no espacio-tiempo.
+- **Aclaración B2 (verificaciones de D4 y D5). ¿Puede crear un positivo? No:** el preregistro no permite rehacer realizaciones. Si falla una verificación obligatoria, se detiene la corrida y se informa como error de implementación antes de cualquier veredicto.
