@@ -64,3 +64,9 @@ Una estructura es **«espacio-tiempo 4D»** si cumple las dos condiciones:
   - 20261086: referencia del perfil local (solo para la rama 2, informativa).
 - **spawn_key:** (322, familia, índice, N, realización), con familias 1 = nula, 2 = calibración, 3 = vistas, 4 = bootstrap y 5 = referencia del perfil. Las selladas usan (322, k, N, s).
 - La corrida oficial se hace sobre un árbol limpio, después de la auditoría, en tandas de menos de 2 horas.
+
+## 7. Hash del conjunto sellado nuevo (registrado antes de abrirlo)
+
+`CONFIRMACION_CIEGA_2.md`, SHA-256 `b64503ffb0d5f5772a0ab8c8dcf80e689371d75ec6f93a6d93f9912c930866cf`.
+- **Contenido:** 4 positivas, 5 negativas, 0 en zona gris.
+- **Aviso del guardián:** para fijar la intensidad de un defecto hizo una prueba previa que solo contó relaciones (sin Δr, sin intercepto y sin K), con semillas ajenas a las entropías oficiales.
