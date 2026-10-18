@@ -73,3 +73,12 @@ El consejo analizó los documentos, el prerregistro, el resumen JSON, el código
 | R14-2 | ¿Ejecutar R14-A (auditoría de inferencia de F6 sobre datos ya publicados, sin corridas nuevas)? |
 | R14-3 | ¿Preparar R14-B y R14-C como preregistros exploratorios (sin voto)? |
 | R14-4 | ¿Abrir un PR nuevo desde `claude/hopeful-galileo-d7ffri` hacia la rama predeterminada para integrar el cierre de F6 y este dictamen? |
+
+## 4. Firmas (2026-10-18)
+
+| # | Decisión |
+|---|---|
+| R14-1 | **Firmada:** la emergencia efectiva (H_E) es la prioridad situacional del programa; la compatibilidad microscópica (H_L) queda como hipótesis separada. |
+| R14-2 | **Firmada y ejecutada:** auditoría R14-A en `OMEGA_R14A_AUDITORIA.md` (sin corridas nuevas; figura `docs/figuras/r14a_auditoria.png`). |
+| R14-3 | **Firmada:** preregistros exploratorios sin voto, preparados y no ejecutados: `OMEGA_R14B_PREREGISTRO.md` y `OMEGA_R14C_PREREGISTRO.md`. |
+| R14-4 | **Firmada:** PR nuevo desde `claude/hopeful-galileo-d7ffri` hacia la rama predeterminada. |
