@@ -1,5 +1,7 @@
 # R14-B: compatibilidad microscópica (H_L) frente a emergencia efectiva (H_E). Preregistro exploratorio (2026-10-18)
 
+> **Versión histórica v1 (2026-10-18).** Por la Rev. 15 (acta de la sesión 2 del Consejo), esta versión **no se ejecuta**. Queda en espera de una v2 con las enmiendas del acta. Se conserva sin cambios para la trazabilidad.
+
 - **Mandato:** Rev. 14, R14-3 firmada (preparar R14-B como preregistro exploratorio, **sin voto**). **Estado:** PREPARADO, **no ejecutado**. Su ejecución requiere una orden del usuario.
 - **Prioridad del programa (R14-1, firmada):** emergencia efectiva (H_E) como prioridad situacional; compatibilidad microscópica (H_L) como hipótesis separada.
 - **Lo que esta fase no puede hacer:** no da veredictos, no usa conjuntos sellados y no reabre F6. Cualquier regla que proponga se congela después en un preregistro confirmatorio con controles ciegos nuevos.

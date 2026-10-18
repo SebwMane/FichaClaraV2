@@ -1,5 +1,7 @@
 # R14-C: observables causales multivariables. Preregistro exploratorio (2026-10-18)
 
+> **Versión histórica v1 (2026-10-18).** Por la Rev. 15 (acta de la sesión 2 del Consejo), esta versión **no se ejecuta**. Queda en espera de una v2 con las enmiendas del acta. Se conserva sin cambios para la trazabilidad.
+
 - **Mandato:** Rev. 14, R14-3 firmada (preparar R14-C como preregistro exploratorio, **sin voto**). **Estado:** PREPARADO, **no ejecutado**. Su ejecución requiere una orden del usuario.
 - **Motivo (R14-A §5 y §6):** b y K no contienen la información necesaria. Promediar r sobre todas las direcciones diluye los defectos localizados del cono (una tapa, dos puntas, pliegues). Hacen falta observables que vean **distribuciones**, no solo promedios.
 - **Lo que esta fase no puede hacer:** no da veredictos. D5 a D8 y C0 a C7 son **ejemplos vistos**: sirven para explorar, no para confirmar. Una confirmación futura necesitará familias generadoras nuevas, bandas preregistradas y un guardián nuevo.
