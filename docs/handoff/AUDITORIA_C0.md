@@ -219,3 +219,21 @@ Código de un subagente (`tools/f6_confirmacion.py`, `tests/test_f6_confirmacion
 - **Regla agregada por el agente, aceptada:** si un grupo de calibración no fuera medible, el veredicto es FALLA. Solo puede crear un negativo; se declara.
 - **Riesgo anotado antes de correr (no cambia nada):** C1 se muestrea en un diamante de coordenadas que, en sus ejes propios, no es un diamante causal; sus intervalos de borde pueden quedar recortados, como en la caja de la exploración.
 - **Tests:** pasan (confirmatoria, exploratoria y Kasner); mypy sin errores nuevos. **Apto para la corrida oficial.**
+
+## 26. Auditoría de la herramienta del intento 2 de F6 (2026-10-18)
+
+Código de un subagente (`tools/f6_intento2.py`, `tests/test_f6_intento2.py`) desde `HANDOFF_F6_INTENTO2_AGENTE_CODIGO.md`.
+
+- **Coincide con el preregistro:** Δr = r − 1/10; 30 realizaciones por N; K con 4 pares y seⱼ entre realizaciones; τ_b y τ_K = 1.5 × max sobre los 15 grupos; dos condiciones; no medible = no espacio-tiempo; entropías y familias de §6. `final` exige el mismo commit en todas las partes y realizaciones 0 a 29 completas.
+- **Generadores sellados revisados contra el sello:**
+  - D0: Kasner (6/7, −2/7, 3/7), t ∈ [0.70, 1.35], K = 800.
+  - D1: cizalla con b = (0.25, −0.15, 0.10).
+  - D2: aceptación exp(4(t − 0.5)).
+  - D3: frw_power_points con potencia 2, que es (η/1.5)².
+  - D4: δ² = (π/24/n)^{1/2}, candidatos espaciales a menos de δ, q = 0.10 con aux y cierre iterado.
+  - D5: gemelos con φ y la permutación.
+  - D6: región {t + T ≥ F(x), T − t ≥ F(−x)} con el gauge no par.
+  - D7: gauge algebraico, equivalente a la fórmula cerrada (con test), caja con z ∈ [−L·T, L·T].
+  - D8: 0.68‖x‖₂ + 0.32‖x‖₁.
+- **Decisiones del agente aceptadas:** el mismo generador como puntos y como auxiliar para C2 y C5 vistas (un solo spawn_key para las vistas); el manejo del conteo de gemelos de D5 (aclaración B3).
+- **Tests:** pasan; mypy sin errores nuevos. **Apto para la corrida oficial.**
