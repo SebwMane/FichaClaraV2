@@ -55,3 +55,9 @@
 - **Entropías:** 20261104 para las cadenas, 20261105 para la calibración del clasificador y 20261106 para su validación.
 - **Próximos libres:** EXPERIMENT_ID 330 y entropía 20261107.
 - **Herramienta:** agente de código con auditoría del orquestador; pruebas exactas de la actualización incremental de S_ε (enumeración con N ≤ 5 y balance detallado) antes de correr; corrida oficial sobre árbol limpio; tandas de menos de 2 horas.
+
+## 7. Aclaración A1 (2026-10-19, antes de correr cualquier cadena)
+
+- **Qué pasó:** al calibrar el clasificador con las semillas oficiales, N = 32 **no valida** (marca 82 de 100 sprinklings 4D, por debajo del 90%; KR y bicapas: 0%). N = 64 y 128 validan (98% y 99%; KR y bicapas: 0%).
+- **Aclaración:** §3 dice que «ese N queda INDETERMINADO». Se aplica solo a la **bandera de fase**: con N = 32, las fracciones marcadas se informan como INDETERMINADAS y no se interpretan. Las cadenas de N = 32 sí corren, porque el criterio de mezcla de §4 usa S_ε, la fracción de relaciones y la altura, que no dependen del clasificador.
+- **Por qué no es sobreajuste:** se decide sin haber visto ninguna cadena, y no cambia ninguna regla de mezcla ni ninguna predicción.
