@@ -91,3 +91,30 @@ Las tres revisiones independientes coinciden: **sí a R17-1, R17-2 y R17-3 con l
 - **Anticadena:** se excluye del soporte del candidato S_SJ^max, como propone §5.1.
 - **Regiones sin modos:** variante **(ii)**. El truncamiento de la región conserva siempre al menos el modo de mayor |ν|. No hay más exclusiones del soporte, así que el soporte es «todos los órdenes menos la anticadena». Si el truncamiento global deja W sin componentes en la región, el valor resultante es el que da la fórmula (puede ser 0) y se registra, sin imputarlo.
 - **Orden de trabajo:** R17-1 y R17-3 en paralelo; R17-2 cuando R17-1 esté auditado. Todo con N ≤ 64 es desarrollo técnico, sin evidencia. ES-E1 sigue en pausa hasta una nueva revisión del Consejo.
+
+## 7. Dictamen del Consejo sobre R17-1 y R17-3 (2026-10-19, texto pegado por el usuario; el comienzo llegó cortado)
+
+- **Las tres revisiones coinciden:** no adoptar un selector universal y no reanudar R17-2. El templado paralelo queda en pausa hasta que exista un selector validado.
+- **R17-1:** el intervalo máximo queda descartado. Favorece los órdenes fragmentados, no las regiones de tamaño controlado.
+- **R17-3:** conserva el S original y lo acelera de 1.4 a 5.7 veces. El costo cúbico deja abierta la brecha en la escala útil.
+- **Cuestión previa:** la entropía SJ se define para una **región**, y los estudios fundacionales la aplican a regiones espaciotemporales concretas (diamantes causales), con una ley de área que depende del truncamiento geométrico (Sorkin y Yazdi, arXiv:1611.10281; estudio en 1+1D, doi:10.1088/1361-6382/ac5fc0). Extenderla a todo orden abstracto con una región asignada por algoritmo es una **decisión física y operacional**, no una reparación técnica.
+- **Pasos recomendados:**
+  1. auditar E1′ en su dominio original (sprinklings 2D): cuándo existe la región, su tamaño, los modos que sobreviven al corte y la estabilidad espectral, con altura 2, KR y cadenas como controles descriptivos, sin ponderar;
+  2. estimar la viabilidad de escala con R17-3. Si costo y validez no coinciden, registrarlo como resultado de factibilidad;
+  3. decidir qué significa Ω-E para órdenes sin región geométrica adecuada (restringir el observable a su dominio o proponer una extensión, con definición y firma nuevas);
+  4. R17-2 y ES-E1 siguen en pausa.
+
+### 7.1 Nota del orquestador: lo que ya se sabe del dominio original
+
+- **E1′** (`OMEGA_E1PRIMA_RESULTADOS.md`) ya midió E1′ en sprinklings 2D con N de 800 a 2400 y regiones N/8. La geometría da un coeficiente de 0.375 ± 0.059 (compatible con 1/3, con R² = 0.46). Pero el coeficiente depende del umbral: 1.02, 0.375 y 0.415 con c = 0.5, 1 y 2.
+- **E1″** (`OMEGA_E1DOBLEPRIMA_RESULTADOS.md`, R5-4 firmada) mostró que, con errores tratados de forma simétrica, **KR es indistinguible de la geometría** (0.407 ± 0.009 frente a 0.380 ± 0.042).
+- **Consecuencia para el paso 3 (nivel 2):** aun en su dominio válido, la ley de área de E1′ no separa KR de la geometría. Un peso exp(λ·S) construido sobre ese instrumento difícilmente puede seleccionar geometría frente a KR, que es justo lo que H_sel pregunta. La auditoría del paso 1 debe incluir esta comparación, y el paso 3 debe considerarla antes de cualquier extensión.
+
+### 7.2 Plan propuesto para los pasos 1 y 2 (descriptivo, sin pesos; espera firma)
+
+- **A-E1′ (paso 1):** se usa la evaluación exacta de R17-3.
+  - **Muestras:** sprinklings 2D del diamante con N ∈ {64, 128, 256, 512, 1024, 2048}, 30 por N. Controles: altura 2, KR de 3 capas, cadena total y sprinklings 3D y 4D, con 10 por N.
+  - **Se mide:** si la región N/8 ± 5% existe, su |R| y su posición, los modos que sobreviven a los cortes global y de región (y su fracción de |R|), el margen mínimo al umbral, S con c ∈ {0.5, 1, 2}, y el coeficiente de la ley de área por tramo de N.
+  - **Pregunta:** ¿desde qué N el instrumento se estabiliza (coeficiente y modos), y KR se separa en algún tramo?
+  - **Convenciones:** EXPERIMENT_ID 328 y entropía 20261103.
+- **Escala (paso 2):** costo por evaluación medido con R17-3 hasta N = 2048, y proyección del costo por barrido y del costo de cadenas de 1000 barridos en la N mínima que salga de A-E1′. Si la cifra es inalcanzable, se registra como incompatibilidad de factibilidad.
