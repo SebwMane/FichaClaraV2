@@ -50,6 +50,7 @@
 
 ## 4. Lectura para el paso 3 (nivel 2; la decisión es del usuario)
 
-- **El instrumento de Ω-E es de 2D y en su dominio no separa la geometría de KR por el coeficiente.** Un peso exp(λ·S) basado en él no tiene cómo preferir la geometría frente a KR. Para H_sel en 4D tampoco reconoce la geometría 4D.
+- **El instrumento de Ω-E es de 2D y en su dominio no separa la geometría de KR por el coeficiente.** Para H_sel en 4D tampoco reconoce la geometría 4D.
+- **Corrección (Consejo, paso 3):** en una versión anterior de este párrafo escribí que un peso exp(λ·S) «no tiene cómo preferir la geometría frente a KR». Eso no se sigue de los datos. El S bruto sí difiere (2.20 en sprinklings 2D con N = 2048 frente a 0.79 en KR), y A-E1′ no midió probabilidades de fase ni multiplicidades bajo μ_λ. **La selección entrópica queda sin probar, no refutada.** Lo que no clasifica por sí solo es el coeficiente de área.
 - **Observación nueva (exploratoria, se congela solo como hipótesis):** el **número de modos de la región** separa por completo a KR (2 modos) de las geometrías (de 14 a 71 con N ≥ 256). No se usa para nada sin un preregistro nuevo con controles nuevos.
 - **Opciones que quedan sobre la mesa:** (a) restringir Ω-E a reconocer sprinklings 2D, sin papel en la selección; (b) proponer un observable entrópico nuevo, con hipótesis y calibración propias, que cuente modos o use la dimensión correcta; (c) priorizar Ω-C (Benincasa-Dowker euclídea, R16-4), cuyo instrumento sí tiene versión 4D y actualización incremental exacta (`mcmc_general.py`).

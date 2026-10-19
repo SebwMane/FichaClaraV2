@@ -122,3 +122,23 @@ Las tres revisiones independientes coinciden: **sí a R17-1, R17-2 y R17-3 con l
 ### 7.3 Firma del usuario (2026-10-19)
 
 **Plan de los pasos 1 y 2 firmado** (§7.2), con orden de ejecutarlo. Es descriptivo y sin pesos. El paso 3 queda para después de los resultados.
+
+## 8. Dictamen del Consejo sobre el paso 3 (2026-10-19, texto pegado por el usuario)
+
+- **Voto unánime por (c): priorizar Ω-C**, con la acción de Benincasa-Dowker euclídea. El primer trabajo es **auditar √ε**. Todavía no se recomienda ninguna corrida oficial de selección.
+- **Corrección al argumento del orquestador** (aceptada y aplicada en `OMEGA_A_E1P_RESULTADOS.md` §4): coeficientes de área parecidos no demuestran que e^{λS} no pueda favorecer órdenes geométricos. El S bruto difiere (unos 2.20 frente a 0.79 con N = 2048), y A-E1′ no midió probabilidades ni multiplicidades de fase. La selección entrópica queda **sin probar, no refutada**.
+- **Razón de priorizar (c):**
+  - E1′ solo está validado en 2D;
+  - no reconoce la ley buscada en 3D y 4D;
+  - la escala válida y la escala con mezcla no se solapan.
+- **Estado de Ω-E:**
+  - Ω-E / E1′ queda como herramienta descriptiva en 2D;
+  - el conteo de modos no se usa como criterio: podría estudiarse como hipótesis nueva, con preregistro propio.
+- **Secuencia:**
+  1. auditar la derivación de √ε (dónde entra, signo, unidades, normalización y límites) y congelar fórmula y código;
+  2. comparar la acción BD completa con la actualización incremental en órdenes pequeños, con movimientos de agregar y quitar relaciones;
+  3. después, preregistrar el peso, sus parámetros, los controles y observables de fase independientes de la acción, y probar la mezcla.
+
+  Cualquier piloto previo se etiqueta como diagnóstico.
+- **La aceleración de R17-3 es para S_SJ;** no se atribuye a Ω-C.
+- **Ejecución por el orquestador:** los pasos 1 y 2 son auditorías ya pendientes (la de √ε desde la Rev. 15 §4, antes de ES-C, firmada en R16-4) y no cambian la hipótesis, así que empiezan ahora. El paso 3 (el preregistro del peso) espera la firma del usuario.
