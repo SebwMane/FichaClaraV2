@@ -90,3 +90,19 @@ donde S_SJ(C) es la entropía de entrelazamiento de Sorkin-Yazdi, con doble trun
 | R16-2 | ¿Aceptar que los 2-órdenes (E-a) sirvan solo como calibración y que la evidencia de H_sel venga de órdenes generales (E-b)? |
 | R16-3 | ¿Ejecutar ES-0 (factibilidad: mezcla y costo, piloto declarado) antes de preregistrar ES-E1? |
 | R16-4 | Para ES-C, ¿solo la rama euclídea (β = b/N), o también el «peso» lorentziano con su problema de signo declarado? |
+
+## 7. Firmas del usuario y verificación del acta de la sesión 3 (2026-10-19)
+
+**Firmadas R16-1 a R16-4**, con los matices del Consejo (`docs/consejo_rev16/ACTA_SESION3.md`), y orden de ejecutar ES-0.
+
+| # | Decisión firmada |
+|---|---|
+| R16-1 | μ_λ ∝ exp(λ·S_SJ) se adopta como **ensamble exploratorio nuevo** del proyecto, no como dinámica física derivada de Ω-E. Extender la ley de área de Sorkin y Yazdi (sprinklings 1+1D, truncamiento espectral) a órdenes generales es hipótesis del proyecto. |
+| R16-2 | E-a (2-órdenes) solo calibra; E-b (órdenes generales) es la evidencia. **Medida de etiquetado declarada:** E-b muestrea órdenes con etiquetado natural fijo, así que con λ = 0 cada orden sin etiquetas pesa según su número de extensiones lineales, no uniforme. El control KR de ES-E1 se genera con esa misma medida. |
+| R16-3 | ES-0 antes de preregistrar ES-E1, solo costo y mezcla, con un muestreador nuevo que use S_SJ (`mcmc_general.py` está escrito para la acción BD 4D). |
+| R16-4 | ES-C empieza por la rama euclídea. La lorentziana queda como estudio posterior independiente. |
+
+**Verificación del orquestador:**
+- **«R15-2 sigue pendiente» está desactualizado.** R15-2 cerró en el commit a7d1fd9 (`docs/consejo_rev15/VERIFICACION_R15_2.md`), y R14-C v2 quedó preparada con las fórmulas verificadas. El Consejo deliberó con una copia anterior.
+- **El cálculo de barridos del Consejo coincide** con §2.2: N(N−1)/2 = 8128 propuestas por barrido en N = 128, y 10⁵ propuestas son 12,3 barridos.
+- **Corrección a §1 de este documento (error mío):** escribí que la región de E1′ tiene |R| ≈ N/4. E1′ congeló **N/8 ± 5%** (`OMEGA_E1PRIMA_PREREGISTRO.md` §2), porque KR no tiene intervalos de N/4. ES-0 usa N/8, que es el instrumento real. Consecuencia: con N ∈ {32, 64, 128}, la región tiene unos 4, 8 y 16 elementos. ES-0 mide si S_SJ tiene sentido con regiones tan chicas.
