@@ -50,3 +50,20 @@ La sesión cotejó documentos, resúmenes, prerregistros y código versionados; 
 | R15-1 | ¿Redactar R14-B v2 y R14-C v2 con las enmiendas 1 a 4, conservando las versiones actuales como históricas, y volver a decidir después si se ejecutan? |
 | R15-2 | ¿Verificar antes las citas nuevas (Müller; Eichhorn et al.) y las fórmulas pendientes de R14-C con un agente aparte? |
 | R15-3 | ¿Abrir el diseño de la prueba de H_E y H_sel con una dinámica de Ω (enmienda 5)? Requiere elegir qué ensamble o dinámica de Ω se usa (por ejemplo, la acción de Benincasa-Dowker de Ω-C o la ruta entrópica de Ω-E). |
+
+## 4. Firmas y verificación (2026-10-19)
+
+| # | Decisión |
+|---|---|
+| R15-1 | **Firmada:** `OMEGA_R14B_V2_PREREGISTRO.md` y `OMEGA_R14C_V2_PREREGISTRO.md` preparadas, no ejecutadas; las v1 quedan históricas. |
+| R15-2 | **Firmada y hecha:** `docs/consejo_rev15/VERIFICACION_R15_2.md` (verificador independiente). |
+| R15-3 | **Firmada:** diseño en `OMEGA_CONSEJO_REV16_ES_DISENO.md` (Ω-E primero, luego Ω-C). |
+
+**Correcciones a las citas del acta (§2), por la verificación:**
+- **Müller (arXiv:2503.01719, v4 del 3/9/2026):** la versión finita que resulta falsa es la de la distancia d⁻ (teorema 3), y la verdadera es la «uniforme a escala de Planck» para d× (teorema 6). El autor advierte que estas versiones muy probablemente no coinciden con lo que la teoría física espera.
+- **Eichhorn, Mack, Le y Wagner (arXiv:2605.27514):** el resultado es en **2D** (sprinklings con frontera de caja, n = 2048), y **solo el espectro del Laplaciano** separa las nueve clases. El grado de links y las abundancias separan bien las clases no manifold-like, pero detectan mal los cambios de topología o de frontera.
+- **Boguñá y Krioukov:** Phys. Rev. D 113, 024046 (2026).
+- **Carlip:** Gen. Relativ. Gravit. 56, 95 (2024), que es una **revisión**.
+- **Glaser y Surya:** las abundancias de intervalos son una condición **necesaria** de manifoldlikeness, no suficiente.
+
+**Hallazgo lateral (auditoría pendiente, no cambia nada todavía):** la acción de Benincasa-Dowker suavizada en 4D se implementó sin el factor √ε, tanto en `estimators.bd_action_4d_smeared` (que no usa ninguna herramienta) como en `tools/c4_l4.py` (L4). Equivale a cambiar el acoplamiento global para cada ε, un factor que la teoría deja libre. Por eso puede afectar a las comparaciones **entre** esquemas de ε de L4 y L-ε, no a cada esquema por separado. Antes de ES-C hay que auditarlo.
