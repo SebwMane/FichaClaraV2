@@ -51,3 +51,13 @@ ES-C0 mostró que las cadenas quedan en mesetas de capas, porque mover un elemen
 - **Clasificador:** reutiliza el de ES-C0 (sus archivos oficiales de `results/omega_esc0/`).
 - **Próximos libres:** EXPERIMENT_ID 331 y entropía 20261108.
 - **Herramienta:** agente de código con auditoría; árbol limpio.
+
+## 6. Resultado de la prueba corta, antes de la corrida oficial (2026-10-19)
+
+- **El núcleo es correcto.** Hay 23 pruebas: enumeración exacta con N = 4 y 5 (balance detallado, estacionariedad e irreducibilidad con 6 pares de ε y β, incluido β negativo, y p_R ∈ {0.1, 0.5, 1}); simetría de la propuesta R; ΔS exacto; y variación total menor que 0.02 en una cadena larga.
+- **Pero R casi nunca es aplicable.** En la prueba corta de 30 barridos, desde el barrido 6 en adelante:
+  - N = 64: 0 de 40 365 propuestas R fueron aplicables;
+  - N = 128: 0 de 163 198;
+  - desde el inicio KR, ni una sola vez.
+- **Causa estructural:** en los órdenes en capas donde se asientan las cadenas, el pasado de casi todo elemento tiene varios elementos máximos (o su futuro varios mínimos). Ese pasado no es «principal», así que el paso 4 de §1 rechaza el movimiento. Tal como está escrito, R no puede cruzar las mesetas.
+- **Decisión del orquestador:** **no se ejecuta la corrida oficial.** Mediría lo mismo que ES-C0 con un costo nulo de R. El código y las pruebas se conservan (commit siguiente) como desarrollo verificado. El rediseño vuelve al usuario.
