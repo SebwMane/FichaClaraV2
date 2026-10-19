@@ -118,3 +118,7 @@ Las tres revisiones independientes coinciden: **sí a R17-1, R17-2 y R17-3 con l
   - **Pregunta:** ¿desde qué N el instrumento se estabiliza (coeficiente y modos), y KR se separa en algún tramo?
   - **Convenciones:** EXPERIMENT_ID 328 y entropía 20261103.
 - **Escala (paso 2):** costo por evaluación medido con R17-3 hasta N = 2048, y proyección del costo por barrido y del costo de cadenas de 1000 barridos en la N mínima que salga de A-E1′. Si la cifra es inalcanzable, se registra como incompatibilidad de factibilidad.
+
+### 7.3 Firma del usuario (2026-10-19)
+
+**Plan de los pasos 1 y 2 firmado** (§7.2), con orden de ejecutarlo. Es descriptivo y sin pesos. El paso 3 queda para después de los resultados.
