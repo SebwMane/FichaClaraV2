@@ -400,7 +400,7 @@ def cmd_figure(args: argparse.Namespace) -> None:
             if col == 1:  # los inicios difieren entre Ea y Eb
                 ax.legend(fontsize=6, loc="best")
     fig.suptitle("ES-0: trazas de las 4 cadenas por celda (piloto, no es evidencia)", fontsize=10)
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0, 1, 0.985))
     fig_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(fig_path, dpi=110)
     print(fig_path)
