@@ -63,3 +63,8 @@
 - **EXPERIMENT_ID 331.** Entropía 20261108 para la fase A y 20261109 para la fase B.
 - **Próximos libres:** EXPERIMENT_ID 332 y entropía 20261110.
 - **Herramienta:** agente de código con auditoría; corrida sobre árbol limpio, aunque es no oficial, para que sea reproducible.
+
+## 7. Aclaración antes de la corrida (2026-10-19)
+
+- **Convención de Wang-Landau:** W[h] += ln f después de **cada propuesta** (aceptada, rechazada o inválida), solo dentro de la ventana. Es la convención estándar de Wang y Landau (2001). La planilla de §3 (ln f desde 1, partido por 2 con histograma plano) no se cambia.
+- **Hallazgo de la prueba corta (no oficial), declarado antes de correr:** la planilla no alcanzó la planitud en ninguna prueba corta. Tampoco lo hizo una variante más suave (ln f por barrido), que no se adopta. Con N = 32, la cadena nunca volvió a h ≤ 2 después de los primeros barridos. La previsión es que la fase A congele un W no convergido y que el veredicto sea «no convergido». Se corre igual, porque es el resultado preregistrado; no se cambia la planilla a la vista de la prueba corta.
