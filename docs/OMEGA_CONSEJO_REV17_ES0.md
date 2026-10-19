@@ -38,3 +38,49 @@
 | R17-4 | Normalización o residualización por \|R\| solo como **variante de ensamble** (nueva versión de R16-1), con referencia independiente y validación separada | requiere firma propia y preregistro |
 
 **Secuencia:** R17-1 → R17-2, y R17-3 en paralelo. ES-E1 se reabre con un preregistro nuevo, con semillas y controles KR nuevos alineados con la medida de etiquetado natural.
+
+## 4. Dictamen del Consejo sobre R17-1 a R17-4 (2026-10-19, texto pegado por el usuario)
+
+Las tres revisiones independientes coinciden: **sí a R17-1, R17-2 y R17-3 con límites explícitos; R17-4 va a una propuesta y un preregistro separados.** El Consejo aclara que su dictamen **no registra una firma en nombre del usuario**.
+
+- **Precisión clave:** el prototipo de intervalo máximo no cambia R16-1 por sí solo. Pero ponderar órdenes con S_SJ^max en el templado paralelo **sí crea un ensamble distinto** del firmado en R16-1. Ese piloto valida el método, no prueba H_sel. ES-E1 sigue en pausa.
+- **R17-1:**
+  - fijar reglas reproducibles para anticadenas, empates y casos sin modos;
+  - no asignar cero por defecto;
+  - definir el soporte antes de muestrear;
+  - mantener el candidato separado del E1′ firmado.
+- **R17-2:**
+  - empezar solo después de fijar el objetivo y su soporte;
+  - verificar balance detallado, intercambios y viajes completos entre valores de λ;
+  - medir la mezcla también en la estructura, no solo en S;
+  - el paso perezoso ayuda con la paridad, pero no demuestra mezcla.
+- **R17-3:**
+  - investigar en paralelo, comparando estado por estado con el cálculo completo;
+  - dejar explícito si se acelera el S original o el candidato;
+  - una aproximación que cambie el valor o los pesos requiere otra definición.
+- **Orden:** R17-1 y R17-3 en paralelo; R17-2 después; revisión del Consejo antes de cualquier nuevo preregistro de ES-E1. N ≤ 64 sigue siendo solo desarrollo técnico.
+- **Corrección factual confirmada** (§2): una cadena, la que parte del orden vacío, en cada una de las dos celdas de E-b con N = 64 y λ ≠ 0.
+
+## 5. Especificación propuesta por el orquestador para R17-1 y R17-3 (borrador; espera firma, nada implementado)
+
+### 5.1 R17-1: candidato S_SJ^max (separado de E1′)
+
+| Caso | Regla propuesta |
+|---|---|
+| Región | Entre todos los intervalos I[a, b] con a < b (con extremos), el de mayor \|I\|. Así existe región en todo orden con al menos una relación, incluidos los de altura 2 de la trampa de ES-0 (sus links dan \|I\| = 2). |
+| Empates | Igual que E1′: se maximiza min(\|pasado(a)\|, \|futuro(b)\|); si persiste el empate, los menores índices (a, b). |
+| Anticadena | Es el único orden sin relaciones (un solo estado con etiquetado natural). **Soporte declarado:** todos los órdenes de N elementos **menos la anticadena**. Es una exclusión de un estado, explícita y verificable, no una imputación. La conectividad del espacio sin la anticadena se prueba (los movimientos de quitar un link nunca la necesitan como paso intermedio salvo desde órdenes con una sola relación, que se conectan entre sí pasando por órdenes de dos relaciones; se verifica por enumeración para N ≤ 5). |
+| Sin modos tras el truncamiento | No se imputa cero. Se proponen dos variantes, a elegir antes de muestrear: **(i)** el soporte excluye además los órdenes sin modos, con la fracción medida en muestreo uniforme y conectividad verificada; **(ii)** el truncamiento de la región se aplica con un mínimo de un modo (el de mayor \|ν\|). Recomiendo **(i)** si la fracción sin modos es pequeña en la medida base; si no lo es, el candidato se descarta. |
+| Registro | Cada evaluación guarda \|R\|, número de modos conservados y la forma del intervalo (altura y fracción de relaciones dentro de R). |
+
+**Pruebas antes de muestrear:** enumeración exacta para N ≤ 5 (soporte, conectividad y balance detallado con el peso nuevo); comparación de S_SJ^max con S_SJ de E1′ en sprinklings 2D donde ambas regiones existen, solo descriptiva.
+
+### 5.2 R17-3: aceleración exacta de S_SJ original (E1′)
+
+- **Objetivo:** el **S original de E1′** (el candidato comparte la parte global y se beneficia después). Criterio de aceptación: diferencia con el cálculo completo ≤ 1e-9 en cada estado de cadenas de prueba (E-a y E-b, N = 32 a 256), incluidas las propuestas rechazadas.
+- **Paso 1, perfil:** medir cuánto tiempo va a la diagonalización global, a `interval_balanced` (producto de matrices) y a `ssee`, con N de 64 a 512.
+- **Paso 2, candidatos exactos:**
+  - conteos de intervalos actualizados en O(N) por movimiento (ya existe en `mcmc_general.py`);
+  - actualización de bajo rango de la diagonalización global: agregar o quitar una relación cambia iΔ en rango 2;
+  - recálculo de `ssee` solo cuando cambian la región o los modos que la afectan.
+- **Límite declarado:** el truncamiento hace discontinuo a S, porque un modo puede cruzar el umbral. Una actualización exacta debe reproducir esos saltos; si un método solo los aproxima, deja de ser R17-3 y pasa a ser un sustituto con hipótesis propia.
