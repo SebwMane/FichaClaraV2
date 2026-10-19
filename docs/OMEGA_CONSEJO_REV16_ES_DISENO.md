@@ -1,7 +1,7 @@
 # Consejo Ω, Revisión 16: diseño de la prueba de emergencia y selección (ES) con dinámicas de Ω (2026-10-19)
 
 - **Mandato:** R15-3 firmada. Diseñar la prueba de H_E (emergencia efectiva) y H_sel (selección de fase) con una dinámica de Ω; **primero la ruta entrópica de Ω-E y luego la acción de Benincasa-Dowker de Ω-C**.
-- **Estado:** DISEÑO. Nada preregistrado ni ejecutado. Las decisiones de §6 son del usuario.
+- **Estado (actualizado 2026-10-19):** R16-1 a R16-4 firmadas (§7); ES-0 ejecutado (`OMEGA_ES0_RESULTADOS.md`); **ES-E1 en pausa** por la Rev. 17 (`OMEGA_CONSEJO_REV17_ES0.md`). El texto de §1 a §6 es el diseño original, con la corrección de §7.
 - **Requisitos (Rev. 15, enmienda 5):**
   - un ensamble o dinámica de Ω;
   - un mapa de grano grueso justificado por el modelo;
@@ -18,7 +18,7 @@ En el repositorio, Ω-E es un **criterio de reconocimiento** (la entropía de en
 
   μ_λ(C) ∝ exp(λ · S_SJ(C)),
 
-donde S_SJ(C) es la entropía de entrelazamiento de Sorkin-Yazdi, con doble truncamiento, de la región intrínseca de E1′ (`interval_balanced`, |R| ≈ N/4), exactamente el instrumento de Ω-E.
+donde S_SJ(C) es la entropía de entrelazamiento de Sorkin-Yazdi, con doble truncamiento, de la región intrínseca de E1′ (`interval_balanced`, |R| ≈ N/8 ± 5%; corregido, ver §7), exactamente el instrumento de Ω-E.
 - **λ = 0** es la medida de conteo puro (la «entropía de Boltzmann» de los microestados, OMEGA_MASTER, línea 24).
 - **λ > 0** favorece los órdenes con más entrelazamiento; **λ < 0**, los que tienen menos.
 - **Justificación:** es la única forma de convertir el objeto de Ω-E en una dinámica sin agregar ingredientes externos. La ruta de Jacobson pide que el sustrato aporte una entropía, y aquí esa entropía pesa directamente a los microestados.
