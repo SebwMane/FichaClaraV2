@@ -57,3 +57,26 @@ Dado un orden C de una familia ya vista, ¿cómo cambian sus observables bajo la
 - **EXPERIMENT_ID 323; entropía 20261088** (reasignadas de v1, que nunca corrió).
 - Costo: unas 3 a 4 horas, incluidas las referencias por geometría.
 - Herramienta: agente de código con handoff y auditoría; árbol limpio.
+
+## 8. Orden de ejecución y aclaración A1 (2026-10-19, antes de mirar datos)
+
+- **Orden del usuario:** «Ejecuta R14-B v2 y luego R14-C v2».
+- **Generadores:** los mismos de F6 y F7, citados en `tools/r14b.py` (tabla de estructuras). Las estructuras que estaban selladas en F6 (C0, C4, C5, D0, D2 y D4 a D8) se regeneran con la entropía de este experimento. Son vistas y sus semillas no coinciden con las de F6.
+- **Vector de Mahalanobis (p = 14):**
+  - fracción de relaciones;
+  - r₁₀, r₂₀ y r₄₀ (media por sub-intervalo);
+  - N_k/N_pares para k = 0 a 8;
+  - √(pares gemelos).
+
+  d_MM se informa, pero queda fuera del vector: es función monótona de la fracción de relaciones y volvería singular la covarianza. Cada componente se estandariza con las 40 referencias de ajuste, y la covarianza se encoge con Ledoit-Wolf porque p = 14 está cerca de n = 40. Para los gemelos se usa un piso de desviación de 0.5.
+- **Banda:** radio = máx(percentil 95 de las 40 de ajuste, 19.ª de las 20 de validación), que es la lectura literal de §3 («la banda que contiene el 95% de los 20»). Se informan las dos coberturas y el margen. Con datos gaussianos sintéticos, esta regla cubre cerca del 90% de los puntos nuevos (19/21); se declara así. La distancia se informa como D/radio, de modo que estar en banda significa D/radio ≤ 1.
+- **Sub-intervalos:** el instrumento de F6 sin cambios. Se toman hasta 300 intervalos con exactamente m elementos interiores, con m ≤ 0.1·m_max y al menos 30 intervalos. Si un m no se puede medir en un N efectivo (sobre todo m = 40 con N ≈ 1000), esa componente se quita y la banda se recalcula sin ella. Se registra cuáles se quitaron.
+- **Referencias por q:** N ~ Binomial(8000, q), que es exactamente la distribución de Φ_q aplicada a un sprinkling de 8000 elementos.
+- **Objetivo principal:**
+  - cada geometría se compara con su propia referencia;
+  - defectos, conos y producto se comparan con la referencia plana;
+  - además, toda estructura se compara con las 8 referencias.
+- **Etiquetas:** por q se toma la mediana de D/radio sobre las 10 realizaciones, con bootstrap emparejado de 1000 réplicas.
+  - **Estado en un q:** «dentro» si el extremo superior del IC 95% es ≤ 1; «fuera» si el inferior es > 1; si no, ambiguo.
+  - **«Crece»:** el IC de mediana(1/8) − mediana(1/2) queda entero por encima de 0.
+  - Las etiquetas de §2 y §6 se aplican sobre esos estados.
