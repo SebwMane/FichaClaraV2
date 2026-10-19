@@ -226,7 +226,7 @@ def test_slab_torus_relation_and_retarded_sum() -> None:
     c = slab_causal_matrix(sprinkle_slab(150, _rng(51)))
     assert is_partial_order(c)
     assert retarded_action_4d(c, 1.0).sum() == pytest.approx(bd_action_4d(c))
-    assert retarded_action_4d(c, 0.25).sum() == pytest.approx(bd_action_4d_smeared(c, 0.25))
+    assert math.sqrt(0.25) * retarded_action_4d(c, 0.25).sum() == pytest.approx(bd_action_4d_smeared(c, 0.25))
 
 
 def test_general_mcmc_consistency() -> None:
@@ -414,3 +414,25 @@ def test_f7_shape_distance_shift_invariant() -> None:
         assert f.shape_distance(shifted, ref) == pytest.approx(f.shape_distance(nk, ref), abs=1e-12)
     assert f.shape_distance((ref + 1) * 1.7 - 1, ref) == pytest.approx(0.0, abs=1e-12)
     assert len(f.TEST) == 17 and list(f.TEST).index("cono_p6_4d") == 10 and f.TEST["cono_p6_4d"][0] == "informativa"
+
+
+def test_bd_action_4d_smeared_sqrt_eps_frozen() -> None:
+    """Formula congelada (auditoria de sqrt(eps)): Dowker-Glaser 2013 ec. 42 con d = 4."""
+    from omega.causality.estimators import (
+        bd_action_4d,
+        bd_action_4d_smeared,
+        between_counts,
+        smearing_weight_4d,
+    )
+
+    c = causal_matrix(sprinkle_diamond(80, 4, _rng(61)))
+    n = c.shape[0]
+    b = between_counts(c)
+    vals = b[b >= 0].astype(np.float64)
+    for eps in (0.05, 0.25, 0.7):
+        # DG13 ec. 42 / zeta_4: eps^(2/d) N + eps^((d+2)/d) (beta_d/alpha_d) sum f, con beta_4/alpha_4 = -1
+        dg = eps**0.5 * n - eps**1.5 * float(np.sum(smearing_weight_4d(vals, eps)))
+        assert bd_action_4d_smeared(c, eps) == pytest.approx(dg, rel=1e-12)
+        sin_raiz = n - eps * float(np.sum(smearing_weight_4d(vals, eps)))
+        assert bd_action_4d_smeared(c, eps) / sin_raiz == pytest.approx(math.sqrt(eps), rel=1e-12)
+    assert bd_action_4d_smeared(c, 1 - 1e-7) == pytest.approx(bd_action_4d(c), abs=1e-3)

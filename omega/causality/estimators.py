@@ -119,11 +119,15 @@ def smearing_weight_4d(n: npt.NDArray[np.float64], eps: float) -> npt.NDArray[np
 
 
 def bd_action_4d_smeared(c: BoolMatrix, eps: float) -> float:
-    """S4_eps = N - eps sum_n N_n f4(n, eps); eps = 1 se delega en bd_action_4d."""
+    """S4_eps = sqrt(eps) (N - eps sum_n N_n f4(n, eps)) (BD 2010 ec. 8; Dowker-Glaser 2013 ec. 42, d = 4).
+
+    Prefactor (4/sqrt(6)) (l/l_p)^2 absorbido como en bd_action_4d; eps = (l/l_k)^4; eps = 1 da bd_action_4d.
+    Corregido en la auditoria de sqrt(eps) (docs/omega_c/AUDITORIA_SQRT_EPS.md); antes devolvia S4_eps / sqrt(eps).
+    """
     if eps == 1.0:
         return float(bd_action_4d(c))
     if not 0 < eps < 1:
         raise ValueError("eps debe estar en (0, 1]")
     b = between_counts(c)
     vals = b[b >= 0].astype(np.float64)
-    return float(c.shape[0] - eps * float(np.sum(smearing_weight_4d(vals, eps))))
+    return float(math.sqrt(eps) * (c.shape[0] - eps * float(np.sum(smearing_weight_4d(vals, eps)))))
