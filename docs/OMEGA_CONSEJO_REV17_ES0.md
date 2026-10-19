@@ -84,3 +84,10 @@ Las tres revisiones independientes coinciden: **sí a R17-1, R17-2 y R17-3 con l
   - actualización de bajo rango de la diagonalización global: agregar o quitar una relación cambia iΔ en rango 2;
   - recálculo de `ssee` solo cuando cambian la región o los modos que la afectan.
 - **Límite declarado:** el truncamiento hace discontinuo a S, porque un modo puede cruzar el umbral. Una actualización exacta debe reproducir esos saltos; si un método solo los aproxima, deja de ser R17-3 y pasa a ser un sustituto con hipótesis propia.
+
+## 6. Firmas del usuario (2026-10-19)
+
+- **R17-1, R17-2 y R17-3 firmadas** con los límites del Consejo (§4). R17-4 queda para una propuesta y un preregistro separados.
+- **Anticadena:** se excluye del soporte del candidato S_SJ^max, como propone §5.1.
+- **Regiones sin modos:** variante **(ii)**. El truncamiento de la región conserva siempre al menos el modo de mayor |ν|. No hay más exclusiones del soporte, así que el soporte es «todos los órdenes menos la anticadena». Si el truncamiento global deja W sin componentes en la región, el valor resultante es el que da la fórmula (puede ser 0) y se registra, sin imputarlo.
+- **Orden de trabajo:** R17-1 y R17-3 en paralelo; R17-2 cuando R17-1 esté auditado. Todo con N ≤ 64 es desarrollo técnico, sin evidencia. ES-E1 sigue en pausa hasta una nueva revisión del Consejo.
