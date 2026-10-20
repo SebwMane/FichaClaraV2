@@ -86,3 +86,12 @@ Para cada estructura X, cada realización y cada q se construyen dos órdenes co
   - pruebas que verifiquen que el control conserva la fracción de defecto en cada q;
   - pruebas que verifiquen que el control de un sprinkling tiene la distribución de Φ_q.
 - **Costo estimado:** de 1 a 2 horas, con árbol limpio y un solo commit.
+
+## 8. Firma de R19-4 y orden de ejecución (2026-10-20)
+
+- **Firma del usuario:** «Firmo R19-4, lanza al guardián y ejecuta». Se adopta la propuesta de §6.
+- **Protocolo de sellado:**
+  1. El guardián escribe `sellado_r19.py` fuera del repositorio, con las familias y sus generadores, y entrega su hash sha256.
+  2. El hash se registra en `docs/SELLADO_R19.md` **antes** de congelar el código.
+  3. Después de congelar el código del ejecutor (commit propio), el archivo sellado se copia al repositorio, se verifica que su hash coincida y se corre sobre el árbol limpio.
+- **Separación:** el agente que escribe el ejecutor no ve el archivo sellado; trabaja con una interfaz genérica y familias de prueba. El guardián no ve los resultados de R14-B, R14-C ni el informe de la sesión 8.
