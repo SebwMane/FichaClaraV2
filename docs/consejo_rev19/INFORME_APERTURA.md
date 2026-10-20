@@ -153,3 +153,11 @@ z = (media de la estructura − media de la referencia)/desviación estándar de
 - La tabla de §2.2 y la comparación de caídas de §1.3 se calcularon **después** de ver los datos: sirven para generar hipótesis, no para confirmarlas.
 - Con N ≤ 8000 no se resuelven los conos «redondos casi en todas partes» (D6 a D8), con ningún observable probado.
 - El piso de error de Wald en R14-C se agregó después de una prueba corta no oficial. Solo vuelve más conservadoras las pruebas, y está declarado en la aclaración A1.
+
+## 7. Firmas del usuario (2026-10-20)
+
+- **R19-1, R19-2 y R19-3 aprobadas.**
+  - Se prepara (b) con el control de defecto reinyectado: `docs/OMEGA_R19_GEMELOS_PREREGISTRO.md`.
+  - λ_max solo queda retirado como candidato; (a), si sigue, se reformula con las geometrías curvas como nulo.
+  - Las familias se arman por mecanismo y se informa por estructura (regla de diseño).
+- **R19-4** (familias nuevas y guardián): pendiente. Hay una propuesta en el preregistro de (b), §6.
