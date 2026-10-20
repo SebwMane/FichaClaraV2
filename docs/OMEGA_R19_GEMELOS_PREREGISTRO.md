@@ -95,3 +95,21 @@ Para cada estructura X, cada realización y cada q se construyen dos órdenes co
   2. El hash se registra en `docs/SELLADO_R19.md` **antes** de congelar el código.
   3. Después de congelar el código del ejecutor (commit propio), el archivo sellado se copia al repositorio, se verifica que su hash coincida y se corre sobre el árbol limpio.
 - **Separación:** el agente que escribe el ejecutor no ve el archivo sellado; trabaja con una interfaz genérica y familias de prueba. El guardián no ve los resultados de R14-B, R14-C ni el informe de la sesión 8.
+
+## 9. Aclaración A1 (2026-10-20, antes de abrir el archivo sellado y de correr)
+
+- **Ejecutor:** `tools/r19.py`. Reutiliza la medición, el vector, las bandas y la dilución de `tools/r14b.py`.
+- **Copias:** n_originales = round(frac·N/k) y n_copias = k·n_originales (`docs/SELLADO_R19.md`). D5 se construye con el mismo generador, con k = 1 y frac = 0.10.
+- **Control de copias en q:**
+  1. Se toma N_c ~ Binomial(N₀, q), con la misma distribución que el total diluido observado.
+  2. n_copias = k·round(frac·N_c/k).
+  3. La base del control es un subconjunto uniforme, de tamaño N_c − n_copias, de la base de la misma realización, con el orden inducido.
+  4. Se agregan copias nuevas con un generador auxiliar aparte.
+- **Control de región:** generar(Binomial(N₀, q)) con un generador nuevo.
+- **Semillas:**
+  - 20261110: todo lo visible, las diluciones, los controles y el bootstrap;
+  - 20261111: solo los puntos de las estructuras selladas;
+  - 20261112: referencias y validación nueva.
+- **Cobertura de §4:** se generan 20 sprinklings planos nuevos por q, aparte de los de validación, y se exige que al menos 16 de 20 queden en banda en cada q.
+  - **Riesgo declarado, sin cambiar la regla firmada:** el radio A1 cubre cerca del 90% de los puntos nuevos. La probabilidad de que algún q falle por azar es del 13% al 16%, y en ese caso el veredicto sería INDETERMINADO. Lo dejo dicho antes de correr; no modifico la regla.
+- **Procedencia:** el archivo sellado se commitea al repositorio en su propio commit, después del commit del ejecutor y antes de correr, con verificación del hash. Cada parte registra el sha256 del preregistro y del archivo sellado.
