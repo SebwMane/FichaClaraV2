@@ -49,3 +49,15 @@ No es un retoque retrospectivo, porque no hay datos de R20. El costo es una sens
 | R21-2 | Visibilidad (propuesta mayoritaria del Consejo) | **Copias:** D_obs/radio(q = 1) ≥ 2.0 y D_ctrl/radio(q = 1/8) ≥ 1.5. **Regiones:** D_obs/radio(q = 1) ≥ 2.0, y con q = 1/8, tanto D_obs/radio como D_ctrl/radio con mediana ≥ 1.25. Medianas por brazo sobre 10 realizaciones de selección, con la banda plana del mismo q. Se informan cada cantidad, la semilla, la banda y N. |
 | R21-3 | N del control | **(a)** emparejado: el control usa el mismo N realizado que el observado diluido, en copias y en regiones; **(b)** sorteos Binomial independientes, como en R19 |
 | R21-4 | Inferencia | FALLA = una contradicción observada en el conjunto, sin afirmar control del error familiar. Bootstrap percentil de la mediana, remuestreando realizaciones completas (observado y control emparejados, los 4 q juntos), 2000 réplicas. Un L no finito excluye esa realización y se cuenta; si más del 10% de una estructura son no finitos, la estructura no es evaluable. Los IC son condicionales al instrumento ajustado. |
+
+## 5. Recomendación del usuario (2026-10-21) y propagación al preregistro
+
+- **El usuario recomienda aprobar** R21-1(c), R21-2 y R21-3(a), y R21-4 con una enmienda para los L no finitos:
+  - tratarlos como límites extendidos (−∞ / +∞);
+  - si D_obs = D_ctrl = 0 o L no está definido, la estructura queda **no evaluable**;
+  - no hay exclusiones selectivas.
+
+  También pidió precisar R21-3(a): N es el tamaño total del orden ya diluido, y el control se genera condicionado a ese N, conservando la regla de copias.
+- **Verificación:** con el gate de 87/100, el fallo es de 0.0119 por q; 0.0468 con independencia y 0.0476 por la cota de unión (4 × 0.0119). Coincide.
+- **Propagado** al preregistro (versión 2): §1 control emparejado, §2 cobertura corregida, §3 visibilidad por brazo y §4 inferencia y no finitos. La cifra errónea de la versión 1 (0.045) queda corregida y explicada en el texto.
+- **Estado:** el texto de la recomendación se lee como recomendación, no como firma. **Antes de lanzar al guardián se pide la firma explícita** de la versión 2.
