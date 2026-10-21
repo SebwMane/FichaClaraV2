@@ -104,3 +104,9 @@ Si la regla falla en algún q, el resultado es **INDETERMINADO**, sin recalibrar
 - **Próximos libres:** EXPERIMENT_ID 334 y entropía 20261117.
 - **Costo estimado:** 300 referencias por q (unas 1 a 1.5 h de CPU) más hasta 18 estructuras × 30 realizaciones (unas 6 a 7 h de CPU). Son unas 2 a 2.5 h de pared con 4 núcleos, en tandas de menos de 2 horas.
 - **Código:** se extiende `tools/r19.py` con los tres conjuntos de referencias, el radio conforme, la regla de cobertura simultánea, la lectura de los requisitos sellados y el informe de no identificables. Lleva pruebas de la cobertura conforme con datos sintéticos.
+
+## 8. Firma de la versión 2 y orden de ejecución (2026-10-21)
+
+- **Firma del usuario:** «Lo firmo, lanza el guardián, todo lo demás aprobado, corre sin problema».
+- **Interfaz del archivo sellado:** es la misma de `docs/R19_INTERFAZ_SELLADO.md`, con un agregado: `IDENTIFICABLES: dict[str, dict]`, con `{"identificable": bool, "medidas": {...}, "semillas": ..., "N": ...}` por estructura del universo, calculado por el guardián con la entropía 20261114 y la banda de §2.
+- **Separación de agentes:** el guardián nuevo y el agente del ejecutor trabajan por separado. El ejecutor no ve el archivo sellado. El guardián no lee resultados de R14-B, R14-C ni R19, ni actas o informes del Consejo; solo puede leer el código (incluido `tools/sellado_r19.py`, para no repetir los conos de R19).
