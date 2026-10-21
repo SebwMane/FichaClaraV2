@@ -48,3 +48,16 @@ No se reinterpreta nada: el resultado oficial es INDETERMINADO.
    - **(ii)** fijar la cobertura de calibración con un criterio coherente con el radio, por ejemplo 15 de 20 cuando el radio cubre el 90%, o calcular el radio con más referencias.
 
    Una repetición necesita guardián nuevo, familias nuevas y semillas nuevas.
+
+## 5. Errata (2026-10-21): error de semillas en las estructuras de copias selladas
+
+- **Hallazgo:** lo detectó el agente que escribió el ejecutor de R20, y el orquestador lo verificó en `tools/r19.py`, línea 327.
+  - Las estructuras selladas se armaban como `{"k": 100 + j, ..., **e}`. En las de tipo copias, la entrada `e` trae su propio campo `k` (el número de copias), que **pisa** el índice de semilla.
+  - Por eso, S1a y S1b (k = 1) compartieron el índice de semilla 1, y S2a y S2b (k = 2) el índice 2.
+- **Consecuencias:**
+  1. S1a y S1b usaron las **mismas semillas** de puntos base, dilución, controles y bootstrap en cada realización. Lo mismo pasó con S2a y S2b. Solo difieren en la fracción de copias, así que **no son réplicas independientes** del mecanismo.
+  2. Esas estructuras compartieron las claves de dilución y de control con las visibles de índice 1 (de Sitter) e índice 2 (D7). Las entropías y los tipos de clave coinciden en parte; esto introduce correlación, no sesgo.
+  3. Dentro de cada estructura, las 20 realizaciones siguen siendo independientes entre sí, porque la realización entra en la clave. **Las medianas y los IC de cada estructura no están sesgados.**
+- **Efecto sobre el veredicto: ninguno.** INDETERMINADO se debió a la cobertura con q = 1/8 y a la familia A2 de regiones, que no usa el campo `k`.
+- **Efecto sobre la lectura de nivel 2:** «4 estructuras selladas de copias separan» equivale, en independencia, a **2 pares correlacionados** (gemelos y tripletes), no a 4 réplicas independientes. La lectura queda debilitada en ese sentido.
+- **Corrección:** `tools/r20.py` usa un campo `idx` separado, cubierto por una prueba. `tools/r19.py` no se modifica, para conservar la reproducibilidad de R19.
