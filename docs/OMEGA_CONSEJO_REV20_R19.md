@@ -61,3 +61,8 @@
 |---|---|
 | R20-1 | ¿Autorizar la **preparación** del preregistro corregido, sin autorizar su ejecución? |
 | R20-2 | Alcance: **(A) acotado** a estructuras autosemejantes detectables con q = 1, con filtro previo y excluidos informados como no identificables; o **(B) amplio**, que incluya los invisibles y por eso exige antes desarrollar y calibrar otro estadístico en un piloto aparte. |
+
+## 5. Firmas del usuario (2026-10-21)
+
+- **R20-1 y R20-2 (opción A, acotada) firmadas.**
+- Preregistro preparado: `docs/OMEGA_R20_REPETICION_PREREGISTRO.md`. No ejecutado. La ejecución requiere el sellado del guardián nuevo y una orden explícita.
