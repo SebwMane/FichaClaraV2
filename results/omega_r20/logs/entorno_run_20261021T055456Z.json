@@ -1,0 +1,20 @@
+{
+  "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "plataforma": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+  "maquina": "x86_64",
+  "cpus": 4,
+  "argv": [
+    "tools/r20.py",
+    "run",
+    "--workers",
+    "4",
+    "--budget-min",
+    "110"
+  ],
+  "cmd": "run",
+  "utc": "20261021T055456Z",
+  "commit": "c2e227d2ca40984cc2019ffd5281f8485ab7c6c6",
+  "dirty": false
+}

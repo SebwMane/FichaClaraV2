@@ -1,0 +1,229 @@
+"""R20: archivo sellado del guardián (interfaz: docs/R19_INTERFAZ_SELLADO.md más el agregado IDENTIFICABLES de
+docs/OMEGA_R20_REPETICION_PREREGISTRO.md §8).
+
+Autocontenido: solo depende de numpy.
+
+- «se_desvanece»: entradas {"tipo": "copias", "k", "frac"}; el ejecutor implementa el generador y el control.
+- «autosemejante»: entradas {"tipo": "region", "generar"}; generar(n, rng) -> C (bool n×n), un sprinkling de Poisson
+  de n puntos en el diamante de gauge {t + T ≥ F(x) y T − t ≥ F(−x)} (T = 0.5) con la relación
+  C[i, j] ⇔ Δt > 0 y Δt ≥ F(x_j − x_i). F es el gauge (funcional de Minkowski) de un cuerpo convexo con el origen
+  en su interior: positivamente homogéneo, subaditivo y positivo fuera del origen, así que la relación es un orden
+  parcial estricto. La región y la relación no dependen de n. Muestreo por rechazo en una caja fija que contiene la
+  región; la relación se construye por bloques de filas.
+- IDENTIFICABLES: requisitos de visibilidad de §3, calculados por el guardián con la entropía 20261114 (ver el
+  recibo). Solo votan las estructuras con "identificable": True.
+"""
+
+from __future__ import annotations
+
+import math
+from typing import Any, Callable
+
+import numpy as np
+import numpy.typing as npt
+
+Bool = npt.NDArray[np.bool_]
+Float = npt.NDArray[np.float64]
+Gauge = Callable[[Float, Float, Float], Float]
+
+T_HALF = 0.5
+BLOCK_ROWS = 1024
+
+
+# --- Gauges poliédricos: F(x) = max_i a_i·x (caras {a_i·x ≤ 1}) ------------------------------------------
+
+def _poly(normals: Float) -> Gauge:
+    a = np.asarray(normals, dtype=np.float64)
+
+    def g(dx: Float, dy: Float, dz: Float) -> Float:
+        out: Float = a[0, 0] * dx + a[0, 1] * dy + a[0, 2] * dz
+        for v in a[1:]:
+            out = np.maximum(out, v[0] * dx + v[1] * dy + v[2] * dz)
+        return out
+
+    return g
+
+
+def _ngon_normals(m: int) -> Float:
+    """Normales unitarias exteriores de las aristas del m-gono regular en el plano xy (circunradio 1)."""
+    ang = 2.0 * math.pi * (np.arange(m) + 0.5) / m
+    return np.stack([np.cos(ang), np.sin(ang)], axis=1)
+
+
+_TRI = _ngon_normals(3)          # apotema 1/2
+_HEX = _ngon_normals(6)          # apotema √3/2
+
+# Prisma triangular: triángulo equilátero (circunradio 1) × [−1, 1].
+_N_PRISMA3 = np.vstack([np.column_stack([_TRI / 0.5, np.zeros(3)]), [[0.0, 0.0, 1.0], [0.0, 0.0, -1.0]]])
+
+# Prisma hexagonal: hexágono regular (circunradio 1) × [−1, 1].
+_N_PRISMA6 = np.vstack([np.column_stack([_HEX / (math.sqrt(3.0) / 2.0), np.zeros(6)]),
+                        [[0.0, 0.0, 1.0], [0.0, 0.0, -1.0]]])
+
+# Pirámide de base cuadrada: base [−1, 1]² en z = −h0, ápice (0, 0, h1); h0 = 0.5, h1 = 1.5.
+_H0, _H1 = 0.5, 1.5
+_B = (_H1 + _H0) / _H1
+_N_PIRAMIDE4 = np.array([[0.0, 0.0, -1.0 / _H0],
+                         [_B, 0.0, 1.0 / _H1], [-_B, 0.0, 1.0 / _H1],
+                         [0.0, _B, 1.0 / _H1], [0.0, -_B, 1.0 / _H1]])
+
+# Bipirámide triangular: triángulo equilátero (circunradio 1) en z = 0, ápices (0, 0, ±1.2).
+_HB = 1.2
+_N_BIPIR3 = np.vstack([np.column_stack([_TRI / 0.5, np.full(3, 1.0 / _HB)]),
+                       np.column_stack([_TRI / 0.5, np.full(3, -1.0 / _HB)])])
+
+_prisma3 = _poly(_N_PRISMA3)
+_prisma6 = _poly(_N_PRISMA6)
+_piramide4 = _poly(_N_PIRAMIDE4)
+_bipir3 = _poly(_N_BIPIR3)
+
+
+# --- Gauges curvos -------------------------------------------------------------------------------------------
+
+_C_LENTE = 0.75
+
+
+def _bola_desplazada(dx: Float, dy: Float, dz: Float, cz: float) -> Float:
+    """Gauge de la bola de radio 1 con centro (0, 0, cz), |cz| < 1."""
+    s = 1.0 - cz * cz
+    xc = dz * cz
+    r2 = dx * dx + dy * dy + dz * dz
+    out: Float = (-xc + np.sqrt(xc * xc + r2 * s)) / s
+    return out
+
+
+def _lente(dx: Float, dy: Float, dz: Float) -> Float:
+    """Lente: intersección de las bolas de radio 1 con centros (0, 0, ±0.75)."""
+    out: Float = np.maximum(_bola_desplazada(dx, dy, dz, _C_LENTE), _bola_desplazada(dx, dy, dz, -_C_LENTE))
+    return out
+
+
+def _tricilindro(dx: Float, dy: Float, dz: Float) -> Float:
+    """Sólido de Steinmetz de tres cilindros: max(√(x²+y²), √(y²+z²), √(z²+x²))."""
+    x2, y2, z2 = dx * dx, dy * dy, dz * dz
+    out: Float = np.sqrt(np.maximum(np.maximum(x2 + y2, y2 + z2), z2 + x2))
+    return out
+
+
+_L_CAPS = 1.2
+
+
+def _capsula(dx: Float, dy: Float, dz: Float) -> Float:
+    """Cápsula: puntos a distancia ≤ 1 del segmento {(0, 0, z): |z| ≤ L}, L = 1.2.
+    F = ρ si |z| ≤ Lρ; si no, F = (ρ² + z²)/(L|z| + √(z² − (L² − 1)ρ²))."""
+    rho2 = dx * dx + dy * dy
+    rho = np.sqrt(rho2)
+    az = np.abs(dz)
+    cap = az > _L_CAPS * rho
+    num = rho2 + az * az
+    den = _L_CAPS * az + np.sqrt(np.maximum(az * az - (_L_CAPS * _L_CAPS - 1.0) * rho2, 0.0))
+    with np.errstate(invalid="ignore", divide="ignore"):
+        f_cap = np.where(den > 0, num / np.where(den > 0, den, 1.0), 0.0)
+    out: Float = np.where(cap, f_cap, rho)
+    return out
+
+
+_A_ALM = 3.0
+
+
+def _almohada(dx: Float, dy: Float, dz: Float) -> Float:
+    """Intersección de dos elipsoides prolatos ortogonales (semiejes 3 en x, o 3 en y; 1 en los demás)."""
+    x2, y2, z2 = dx * dx, dy * dy, dz * dz
+    ia = 1.0 / (_A_ALM * _A_ALM)
+    out: Float = np.sqrt(np.maximum(x2 * ia + y2 + z2, x2 + y2 * ia + z2))
+    return out
+
+
+# --- Sprinkling y relación ------------------------------------------------------------------------------------
+
+def _in_region(x: Float, g: Gauge) -> Bool:
+    out: Bool = (x[:, 0] + T_HALF >= g(x[:, 1], x[:, 2], x[:, 3])) & (T_HALF - x[:, 0] >= g(-x[:, 1], -x[:, 2], -x[:, 3]))
+    return out
+
+
+def _box_for(g: Gauge, n_dir: int = 400_000) -> tuple[Float, Float]:
+    """Caja que contiene la región. Un punto (t, x) de la región cumple F(x) ≤ t + T y F(−x) ≤ T − t, luego
+    F(x) + F(−x) ≤ 2T y |x_i| ≤ 2T·max_u |u_i|/(F(u) + F(−u)). El máximo se estima en n_dir direcciones fijas
+    (semilla interna fija, ajena al análisis) y se amplía un 15%."""
+    u = np.random.default_rng(0).standard_normal((n_dir, 3))
+    u /= np.linalg.norm(u, axis=1, keepdims=True)
+    s = g(u[:, 0], u[:, 1], u[:, 2]) + g(-u[:, 0], -u[:, 1], -u[:, 2])
+    h = 1.15 * 2.0 * T_HALF * np.max(np.abs(u) / s[:, None], axis=0)
+    lo = np.array([-T_HALF, -h[0], -h[1], -h[2]])
+    return lo, -lo
+
+
+def _sprinkle(n: int, g: Gauge, box: tuple[Float, Float], rng: np.random.Generator) -> Float:
+    if n < 0:
+        raise ValueError("n debe ser >= 0")
+    out = np.empty((n, 4), dtype=np.float64)
+    filled = 0
+    while filled < n:
+        batch = max(64, 32 * (n - filled))
+        cand = rng.uniform(box[0], box[1], size=(batch, 4))
+        ok = cand[_in_region(cand, g)]
+        take = min(len(ok), n - filled)
+        out[filled: filled + take] = ok[:take]
+        filled += take
+    return out
+
+
+def _relation(x: Float, g: Gauge, block: int = BLOCK_ROWS) -> Bool:
+    n = x.shape[0]
+    t = x[:, 0]
+    c = np.empty((n, n), dtype=np.bool_)
+    for lo in range(0, n, block):
+        hi = min(n, lo + block)
+        dt = t[None, :] - t[lo:hi, None]
+        d = [x[None, :, k] - x[lo:hi, None, k] for k in (1, 2, 3)]
+        c[lo:hi] = (dt > 0) & (dt >= g(d[0], d[1], d[2]))
+    return c
+
+
+def _region_gen(g: Gauge) -> Callable[[int, np.random.Generator], Bool]:
+    box = _box_for(g)
+
+    def generar(n: int, rng: np.random.Generator) -> Bool:
+        return _relation(_sprinkle(int(n), g, box, rng), g)
+
+    generar.gauge = g  # type: ignore[attr-defined]
+    generar.box = box  # type: ignore[attr-defined]
+    return generar
+
+
+# --- Tablas selladas ---------------------------------------------------------------------------------------------
+
+ESTRUCTURAS: dict[str, dict[str, Any]] = {
+    "G1a_gemelos_07": {"tipo": "copias", "k": 1, "frac": 0.07},
+    "G1b_gemelos_12": {"tipo": "copias", "k": 1, "frac": 0.12},
+    "G1c_gemelos_17": {"tipo": "copias", "k": 1, "frac": 0.17},
+    "G1d_gemelos_23": {"tipo": "copias", "k": 1, "frac": 0.23},
+    "G2a_tripletes_07": {"tipo": "copias", "k": 2, "frac": 0.07},
+    "G2b_tripletes_12": {"tipo": "copias", "k": 2, "frac": 0.12},
+    "G2c_tripletes_17": {"tipo": "copias", "k": 2, "frac": 0.17},
+    "G2d_tripletes_23": {"tipo": "copias", "k": 2, "frac": 0.23},
+    "P1a_cono_prisma_triangular": {"tipo": "region", "generar": _region_gen(_prisma3)},
+    "P1b_cono_prisma_hexagonal": {"tipo": "region", "generar": _region_gen(_prisma6)},
+    "P1c_cono_piramide_cuadrada": {"tipo": "region", "generar": _region_gen(_piramide4)},
+    "P1d_cono_bipiramide_triangular": {"tipo": "region", "generar": _region_gen(_bipir3)},
+    "S1a_cono_lente": {"tipo": "region", "generar": _region_gen(_lente)},
+    "S1b_cono_tricilindro": {"tipo": "region", "generar": _region_gen(_tricilindro)},
+    "S1c_cono_capsula": {"tipo": "region", "generar": _region_gen(_capsula)},
+    "S1d_cono_almohada": {"tipo": "region", "generar": _region_gen(_almohada)},
+}
+
+FAMILIAS: list[dict[str, Any]] = [
+    {"nombre": "G1_gemelos", "tipo": "se_desvanece",
+     "estructuras": ["G1a_gemelos_07", "G1b_gemelos_12", "G1c_gemelos_17", "G1d_gemelos_23"]},
+    {"nombre": "G2_tripletes", "tipo": "se_desvanece",
+     "estructuras": ["G2a_tripletes_07", "G2b_tripletes_12", "G2c_tripletes_17", "G2d_tripletes_23"]},
+    {"nombre": "P1_conos_poliedricos", "tipo": "autosemejante",
+     "estructuras": ["P1a_cono_prisma_triangular", "P1b_cono_prisma_hexagonal", "P1c_cono_piramide_cuadrada",
+                     "P1d_cono_bipiramide_triangular"]},
+    {"nombre": "S1_conos_suaves", "tipo": "autosemejante",
+     "estructuras": ["S1a_cono_lente", "S1b_cono_tricilindro", "S1c_cono_capsula", "S1d_cono_almohada"]},
+]
+
+# --- IDENTIFICABLES (BEGIN) ---
+IDENTIFICABLES: dict[str, dict[str, Any]] = {}
+# --- IDENTIFICABLES (END) ---

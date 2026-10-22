@@ -42,3 +42,5 @@ Todas las regiones medidas son **diamantes causales, con borde**. La literatura 
 |---|---|---|
 | Lorentziana | Cerrada (L-ε) | Incompatible en diamantes; pendiente L4b (sin borde) |
 | Euclídea | Estable localmente; equilibrio no resuelto | No iniciada (requiere Metropolis sobre órdenes generales) |
+
+> **Nota de unidades (2026-10-19, auditoría de √ε, `docs/omega_c/AUDITORIA_SQRT_EPS.md`):** la acción 4D suavizada de esta corrida está en unidades del repositorio de entonces, sin el factor √ε (S_ε/√ε). D₄ y D_int son invariantes ante ese factor, porque numerador y denominador cambian igual, así que los veredictos no cambian. Desde el commit de la corrección, `bd_action_4d_smeared` incluye √ε.

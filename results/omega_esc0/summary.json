@@ -1,0 +1,4370 @@
+{
+  "spec": "docs/OMEGA_ESC_PREREGISTRO.md",
+  "experiment_id": 329,
+  "criterio": {
+    "rhat": 1.05,
+    "ess": 200.0,
+    "rhat_no_estimable": 1.5,
+    "observables": [
+      "S",
+      "rel_frac",
+      "height"
+    ],
+    "mitad": "final",
+    "flag_every": 1,
+    "salida_sprinkling_mediciones": 10
+  },
+  "clasificador": {
+    "32": {
+      "estado": "INDETERMINADO",
+      "validacion": {
+        "pos": 0.82,
+        "kr": 0.0,
+        "bicapa": 0.0,
+        "ok": false
+      },
+      "delta4": 1.7465481666511993,
+      "commit": "33aa25f29e0bb1168c8b8292be221c2ee175b39d",
+      "dirty": false,
+      "official": true
+    },
+    "64": {
+      "estado": "VALIDADO",
+      "validacion": {
+        "pos": 0.98,
+        "kr": 0.0,
+        "bicapa": 0.0,
+        "ok": true
+      },
+      "delta4": 2.8510103982938144,
+      "commit": "33aa25f29e0bb1168c8b8292be221c2ee175b39d",
+      "dirty": false,
+      "official": true
+    },
+    "128": {
+      "estado": "VALIDADO",
+      "validacion": {
+        "pos": 0.99,
+        "kr": 0.0,
+        "bicapa": 0.0,
+        "ok": true
+      },
+      "delta4": 2.166008420823505,
+      "commit": "33aa25f29e0bb1168c8b8292be221c2ee175b39d",
+      "dirty": false,
+      "official": true
+    }
+  },
+  "cells": {
+    "e0_N32_b0": {
+      "eps": 1.0,
+      "N": 32,
+      "b": -12,
+      "beta": -0.375,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.1799716368660564,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 1139.669,
+          "rel_frac_mitad_final": 0.43633669354838706,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 2.5148125,
+          "accept_rate": 0.013985887096774193,
+          "valid_frac": 0.3652318548387097,
+          "accept_per_valid": 0.038293174353454223,
+          "s_per_sweep": 0.004823236449503156,
+          "measure_s_per_sweep": 0.00013270018999901367,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.0796779722339143,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 580.964,
+          "rel_frac_mitad_final": 0.9516209677419353,
+          "height_mitad_final": 17.002,
+          "links_per_N_mitad_final": 1.93725,
+          "accept_rate": 8.266129032258065e-05,
+          "valid_frac": 0.1667600806451613,
+          "accept_per_valid": 0.0004956899157327144,
+          "s_per_sweep": 0.0023017588344996513,
+          "measure_s_per_sweep": 0.00010869145199978902,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.2664161895519057,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 1051.513,
+          "rel_frac_mitad_final": 0.4083407258064516,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 2.48409375,
+          "accept_rate": 0.009766129032258064,
+          "valid_frac": 0.36826915322580644,
+          "accept_per_valid": 0.026518998256337543,
+          "s_per_sweep": 0.004737595038996915,
+          "measure_s_per_sweep": 0.0001314769640044915,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.322316757577453,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 770.028,
+          "rel_frac_mitad_final": 0.3911149193548387,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 2.92734375,
+          "accept_rate": 0.008317540322580644,
+          "valid_frac": 0.4393104838709677,
+          "accept_per_valid": 0.01893317056604466,
+          "s_per_sweep": 0.005318225532505267,
+          "measure_s_per_sweep": 0.00013415145149224373,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.00803805443548387,
+      "valid_frac": 0.3348928931451613,
+      "s_per_sweep": 0.004295203963876247,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 15.057995102821419,
+          "tau": [
+            109.83980928744673,
+            1.0,
+            18.55047972495381,
+            130.9910227935702
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1070.6452399366015
+        },
+        "rel_frac": {
+          "rhat": 70.18668090337556,
+          "tau": [
+            61.89161815360916,
+            1.0,
+            9.712959081009844,
+            120.32754166835284
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1127.4231625738892
+        },
+        "height": {
+          "rhat": 269.4389407635254,
+          "tau": [
+            1000.0,
+            1.0,
+            1000.0,
+            1000.0
+          ],
+          "ventana_sokal": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "ess": 1003.0
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N32_b1": {
+      "eps": 1.0,
+      "N": 32,
+      "b": -4,
+      "beta": -0.125,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.078989308815526,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 1433.86,
+          "rel_frac_mitad_final": 0.4713407258064516,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 2.1915,
+          "accept_rate": 0.07899899193548388,
+          "valid_frac": 0.34542943548387095,
+          "accept_per_valid": 0.22869791575469992,
+          "s_per_sweep": 0.004644114935499829,
+          "measure_s_per_sweep": 0.00012288149500000144,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.1669687968580407,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 699.137,
+          "rel_frac_mitad_final": 0.8999899193548385,
+          "height_mitad_final": 14.113,
+          "links_per_N_mitad_final": 1.87059375,
+          "accept_rate": 0.00458266129032258,
+          "valid_frac": 0.17638104838709678,
+          "accept_per_valid": 0.025981596845173458,
+          "s_per_sweep": 0.0024111316390010417,
+          "measure_s_per_sweep": 0.00011347846950320673,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.0310349681273188,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 1523.934,
+          "rel_frac_mitad_final": 0.4886834677419355,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 2.09115625,
+          "accept_rate": 0.05608165322580645,
+          "valid_frac": 0.3348457661290323,
+          "accept_per_valid": 0.16748503012039126,
+          "s_per_sweep": 0.004488684280500365,
+          "measure_s_per_sweep": 0.00011920213550229164,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.0559267021304657,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 1366.723,
+          "rel_frac_mitad_final": 0.47955040322580644,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 2.31903125,
+          "accept_rate": 0.06232560483870968,
+          "valid_frac": 0.3758528225806452,
+          "accept_per_valid": 0.16582449590447532,
+          "s_per_sweep": 0.004680083947996082,
+          "measure_s_per_sweep": 0.00012631250849744902,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.05049722782258065,
+      "valid_frac": 0.3081272681451613,
+      "s_per_sweep": 0.004056003700749329,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 5.922587756528649,
+          "tau": [
+            35.26904495429931,
+            27.568637084483324,
+            117.98810950643107,
+            103.4477665817198
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 82.76872255833636
+        },
+        "rel_frac": {
+          "rhat": 16.28589153708135,
+          "tau": [
+            32.03478915480194,
+            95.16301907096741,
+            117.30438928032387,
+            97.15553151012924
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 60.541951719560394
+        },
+        "height": {
+          "rhat": 15.898595857676174,
+          "tau": [
+            1000.0,
+            59.19728594987038,
+            1000.0,
+            1000.0
+          ],
+          "ventana_sokal": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "ess": 19.89266634363648
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N32_b2": {
+      "eps": 1.0,
+      "N": 32,
+      "b": 0,
+      "beta": 0.0,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.472047436137662,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 12.152,
+          "rel_frac_mitad_final": 0.3493548387096774,
+          "height_mitad_final": 4.561,
+          "links_per_N_mitad_final": 3.17553125,
+          "accept_rate": 0.4131370967741935,
+          "valid_frac": 0.4131370967741935,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.005990772490499694,
+          "measure_s_per_sweep": 0.00013806424750146106,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.458945354597776,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 15.359,
+          "rel_frac_mitad_final": 0.35278629032258063,
+          "height_mitad_final": 4.496,
+          "links_per_N_mitad_final": 3.23703125,
+          "accept_rate": 0.414625,
+          "valid_frac": 0.414625,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.0054066217265065,
+          "measure_s_per_sweep": 0.00012082269499296672,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.492954633548197,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 12.59,
+          "rel_frac_mitad_final": 0.3436552419354839,
+          "height_mitad_final": 4.502,
+          "links_per_N_mitad_final": 3.20103125,
+          "accept_rate": 0.41302116935483874,
+          "valid_frac": 0.41302116935483874,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.005679948939999576,
+          "measure_s_per_sweep": 0.00012119499200071004,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.479924791251017,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 23.646,
+          "rel_frac_mitad_final": 0.347491935483871,
+          "height_mitad_final": 4.509,
+          "links_per_N_mitad_final": 3.20265625,
+          "accept_rate": 0.4151411290322581,
+          "valid_frac": 0.4151411290322581,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.005839792693000163,
+          "measure_s_per_sweep": 0.00013328515849684664,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.4139810987903226,
+      "valid_frac": 0.4139810987903226,
+      "s_per_sweep": 0.005729283962501484,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.0015995420451624,
+          "tau": [
+            1.3744094781257825,
+            1.5636539819372817,
+            1.3114810012805243,
+            1.9262037505424132
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 2648.7655089179893
+        },
+        "rel_frac": {
+          "rhat": 1.007315663842412,
+          "tau": [
+            10.50311159929702,
+            9.773980740415471,
+            7.75754364352537,
+            8.904357570137408
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 438.73368733116183
+        },
+        "height": {
+          "rhat": 1.0002584584136547,
+          "tau": [
+            2.837705285557848,
+            4.4071002170305125,
+            6.025831935072999,
+            5.3368916230139405
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 932.6311601176373
+        }
+      },
+      "mezcla": true
+    },
+    "e0_N32_b3": {
+      "eps": 1.0,
+      "N": 32,
+      "b": 4,
+      "beta": 0.125,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4058562084709436,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -847.48,
+          "rel_frac_mitad_final": 0.36674596774193546,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 3.97775,
+          "accept_rate": 0.2194788306451613,
+          "valid_frac": 0.45776612903225805,
+          "accept_per_valid": 0.4794562479079682,
+          "s_per_sweep": 0.00591639097099619,
+          "measure_s_per_sweep": 0.0001404490554991753,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.0635848497896563,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -923.671,
+          "rel_frac_mitad_final": 0.9613044354838708,
+          "height_mitad_final": 15.9,
+          "links_per_N_mitad_final": 1.87521875,
+          "accept_rate": 5.544354838709678e-05,
+          "valid_frac": 0.1562570564516129,
+          "accept_per_valid": 0.00035482268542710974,
+          "s_per_sweep": 0.0023542032820039367,
+          "measure_s_per_sweep": 0.0001243211375044666,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.327505737839212,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1073.664,
+          "rel_frac_mitad_final": 0.3900100806451613,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 3.85484375,
+          "accept_rate": 0.15347681451612905,
+          "valid_frac": 0.4477973790322581,
+          "accept_per_valid": 0.34273718807334286,
+          "s_per_sweep": 0.0057316803719961625,
+          "measure_s_per_sweep": 0.00013339528500614506,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.2552300498786177,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1592.731,
+          "rel_frac_mitad_final": 0.411945564516129,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 3.21684375,
+          "accept_rate": 0.015194556451612903,
+          "valid_frac": 0.4538024193548387,
+          "accept_per_valid": 0.03348275770150076,
+          "s_per_sweep": 0.005295730447001688,
+          "measure_s_per_sweep": 0.0001358529954993628,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.09705141129032258,
+      "valid_frac": 0.37890574596774196,
+      "s_per_sweep": 0.004824501267999494,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 4.789163932580867,
+          "tau": [
+            17.87465002841653,
+            1.0,
+            107.80399837457307,
+            130.14091110659203
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1072.9052238609286
+        },
+        "rel_frac": {
+          "rhat": 23.688132233154928,
+          "tau": [
+            44.78074347619307,
+            74.33198288038349,
+            115.45121167581516,
+            90.35071593588614
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 55.51383474506886
+        },
+        "height": {
+          "rhat": 40.13575623520041,
+          "tau": [
+            1000.0,
+            76.18822222222211,
+            1000.0,
+            1000.0
+          ],
+          "ventana_sokal": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "ess": 16.125388292737014
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N32_b4": {
+      "eps": 1.0,
+      "N": 32,
+      "b": 12,
+      "beta": 0.375,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.652673988133278,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -117.936,
+          "rel_frac_mitad_final": 0.30229032258064514,
+          "height_mitad_final": 2.0,
+          "links_per_N_mitad_final": 4.6855,
+          "accept_rate": 0.4154193548387097,
+          "valid_frac": 0.5166260080645161,
+          "accept_per_valid": 0.804100738936922,
+          "s_per_sweep": 0.006937396218500908,
+          "measure_s_per_sweep": 0.00013509501400449153,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.0656882137626287,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -925.178,
+          "rel_frac_mitad_final": 0.9600362903225805,
+          "height_mitad_final": 16.0,
+          "links_per_N_mitad_final": 1.9118125,
+          "accept_rate": 0.003289314516129032,
+          "valid_frac": 0.15834274193548387,
+          "accept_per_valid": 0.02077338358501617,
+          "s_per_sweep": 0.002351953867000475,
+          "measure_s_per_sweep": 0.00012062640550220749,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4343046611143055,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -969.516,
+          "rel_frac_mitad_final": 0.3585625,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 3.8356875,
+          "accept_rate": 0.0944899193548387,
+          "valid_frac": 0.40732560483870967,
+          "accept_per_valid": 0.2319763801547763,
+          "s_per_sweep": 0.005129976595505468,
+          "measure_s_per_sweep": 0.00012429855999698702,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.494605907803182,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1106.594,
+          "rel_frac_mitad_final": 0.3419717741935484,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 3.0818125,
+          "accept_rate": 0.0036582661290322583,
+          "valid_frac": 0.4982711693548387,
+          "accept_per_valid": 0.007341918124159139,
+          "s_per_sweep": 0.005882077748499114,
+          "measure_s_per_sweep": 0.00014407757199319347,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.12921421370967742,
+      "valid_frac": 0.3951413810483871,
+      "s_per_sweep": 0.005075351107376491,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 87.70024038022405,
+          "tau": [
+            1.4090890189557763,
+            1.4953323977921222,
+            2.3043666554309508,
+            1.307987515458454
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 2576.918012601203
+        },
+        "rel_frac": {
+          "rhat": 32.67074499940619,
+          "tau": [
+            1.4090890189557772,
+            1.4953323977921218,
+            1.4012365419637334,
+            1.5264599203615647
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 2747.191936845061
+        },
+        "height": {
+          "rhat": "inf",
+          "tau": [
+            1000.0,
+            1000.0,
+            1000.0,
+            1000.0
+          ],
+          "ventana_sokal": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "ess": 4.0
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N64_b0": {
+      "eps": 1.0,
+      "N": 64,
+      "b": -12,
+      "beta": -0.1875,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.344779489556276,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 4130.984,
+          "rel_frac_mitad_final": 0.38437797619047614,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 4.48540625,
+          "accept_rate": 0.0792529761904762,
+          "valid_frac": 0.2741999007936508,
+          "accept_per_valid": 0.2890335698922008,
+          "s_per_sweep": 0.019756850654002164,
+          "measure_s_per_sweep": 0.0002353728449961636,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.0438083301734118,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 1442.812,
+          "rel_frac_mitad_final": 0.9732668650793653,
+          "height_mitad_final": 31.826,
+          "links_per_N_mitad_final": 1.94678125,
+          "accept_rate": 0.0003382936507936508,
+          "valid_frac": 0.08435019841269842,
+          "accept_per_valid": 0.004010585122022935,
+          "s_per_sweep": 0.008021135899999763,
+          "measure_s_per_sweep": 0.00022104468199563598,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.386652166967111,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 3970.63,
+          "rel_frac_mitad_final": 0.3720882936507936,
+          "height_mitad_final": 4.996,
+          "links_per_N_mitad_final": 4.18284375,
+          "accept_rate": 0.039470734126984125,
+          "valid_frac": 0.29395386904761905,
+          "accept_per_valid": 0.13427526657453204,
+          "s_per_sweep": 0.01894589062800219,
+          "measure_s_per_sweep": 0.00022610072000202308,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.453978453825851,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 3313.674,
+          "rel_frac_mitad_final": 0.35316170634920635,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 4.0103125,
+          "accept_rate": 0.017878472222222223,
+          "valid_frac": 0.333343253968254,
+          "accept_per_valid": 0.05363382042201125,
+          "s_per_sweep": 0.019267128271997534,
+          "measure_s_per_sweep": 0.00022077707900484712,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.03423511904761905,
+      "valid_frac": 0.24646180555555555,
+      "s_per_sweep": 0.016497751363500412,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 16.191377386389476,
+          "tau": [
+            51.36543411337162,
+            9.888569931954716,
+            65.24902016980161,
+            69.83189820617386
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 75.12060320248695
+        },
+        "rel_frac": {
+          "rhat": 65.89509764245378,
+          "tau": [
+            34.85383156551299,
+            50.71669476690644,
+            48.63606944188736,
+            69.2973334670479
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 41.700032553154465
+        },
+        "height": {
+          "rhat": 70.66126898594247,
+          "tau": [
+            500.0,
+            52.00868932213394,
+            1.0,
+            500.0
+          ],
+          "ventana_sokal": [
+            false,
+            true,
+            true,
+            false
+          ],
+          "ess": 511.61377813047886
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N64_b1": {
+      "eps": 1.0,
+      "N": 64,
+      "b": -4,
+      "beta": -0.0625,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.6933323285777715,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 1405.564,
+          "rel_frac_mitad_final": 0.29250396825396824,
+          "height_mitad_final": 3.168,
+          "links_per_N_mitad_final": 6.140625,
+          "accept_rate": 0.29936954365079366,
+          "valid_frac": 0.35790079365079364,
+          "accept_per_valid": 0.8364595691366101,
+          "s_per_sweep": 0.02368136977799395,
+          "measure_s_per_sweep": 0.00022696562700866708,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.6102297628662012,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 3267.642,
+          "rel_frac_mitad_final": 0.6651656746031747,
+          "height_mitad_final": 9.784,
+          "links_per_N_mitad_final": 3.783,
+          "accept_rate": 0.0767514880952381,
+          "valid_frac": 0.20899751984126985,
+          "accept_per_valid": 0.3672363583717624,
+          "s_per_sweep": 0.014688278850002689,
+          "measure_s_per_sweep": 0.0002386154030009493,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3550910848665843,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 1114.936,
+          "rel_frac_mitad_final": 0.3814355158730159,
+          "height_mitad_final": 4.374,
+          "links_per_N_mitad_final": 6.16340625,
+          "accept_rate": 0.26722371031746034,
+          "valid_frac": 0.3704548611111111,
+          "accept_per_valid": 0.7213394622923074,
+          "s_per_sweep": 0.022168072394000548,
+          "measure_s_per_sweep": 0.00023727674099836805,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3404848622695122,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 1099.216,
+          "rel_frac_mitad_final": 0.385813492063492,
+          "height_mitad_final": 4.496,
+          "links_per_N_mitad_final": 6.112875,
+          "accept_rate": 0.2925595238095238,
+          "valid_frac": 0.39275049603174605,
+          "accept_per_valid": 0.7448991834904677,
+          "s_per_sweep": 0.022421120053000322,
+          "measure_s_per_sweep": 0.00023094635599818503,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.23397606646825397,
+      "valid_frac": 0.3325259176587302,
+      "s_per_sweep": 0.02073971026874938,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 4.823300708302496,
+          "tau": [
+            31.698743039832728,
+            52.00313204206222,
+            68.98083190616717,
+            24.436798405558623
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 53.09763749763672
+        },
+        "rel_frac": {
+          "rhat": 13.344720422115937,
+          "tau": [
+            24.012423288919024,
+            28.984523052378798,
+            18.53466742383098,
+            18.366140020050647
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 92.2736270690553
+        },
+        "height": {
+          "rhat": 5.4592950598076175,
+          "tau": [
+            14.336967032967031,
+            53.55434887982502,
+            38.44066268925009,
+            21.807344790802393
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 80.14630441437959
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N64_b2": {
+      "eps": 1.0,
+      "N": 64,
+      "b": 0,
+      "beta": 0.0,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.817761266869922,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -414.882,
+          "rel_frac_mitad_final": 0.26479960317460316,
+          "height_mitad_final": 3.11,
+          "links_per_N_mitad_final": 7.8381875,
+          "accept_rate": 0.49349503968253966,
+          "valid_frac": 0.49349503968253966,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.028171573272998556,
+          "measure_s_per_sweep": 0.0002388591069998256,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.385281514893066,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -389.164,
+          "rel_frac_mitad_final": 0.37254265873015874,
+          "height_mitad_final": 3.13,
+          "links_per_N_mitad_final": 7.7295,
+          "accept_rate": 0.48097569444444443,
+          "valid_frac": 0.48097569444444443,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.026140971172002536,
+          "measure_s_per_sweep": 0.00023842304700110616,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.8212855256440377,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -422.638,
+          "rel_frac_mitad_final": 0.2640625,
+          "height_mitad_final": 3.048,
+          "links_per_N_mitad_final": 7.85296875,
+          "accept_rate": 0.49702380952380953,
+          "valid_frac": 0.49702380952380953,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.028561227280998764,
+          "measure_s_per_sweep": 0.0002321546640021097,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3422849200839737,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -412.068,
+          "rel_frac_mitad_final": 0.3851785714285714,
+          "height_mitad_final": 3.124,
+          "links_per_N_mitad_final": 7.941,
+          "accept_rate": 0.5037465277777777,
+          "valid_frac": 0.5037465277777777,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.02630869962699785,
+          "measure_s_per_sweep": 0.00023121516400397013,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.4938102678571429,
+      "valid_frac": 0.4938102678571429,
+      "s_per_sweep": 0.027295617838249426,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.0314727348104715,
+          "tau": [
+            5.307857508685878,
+            2.157032430142595,
+            1.5570579493358037,
+            1.4778481799727259
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 985.4480860055736
+        },
+        "rel_frac": {
+          "rhat": 7.294949554570248,
+          "tau": [
+            2.264153336572137,
+            5.334098138212569,
+            1.3445682743515244,
+            28.44805329091852
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 704.012128808558
+        },
+        "height": {
+          "rhat": 1.0095641641719904,
+          "tau": [
+            1.9636159346271702,
+            1.8930327144120254,
+            1.1785378151260502,
+            2.416879658270732
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1149.891565951913
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N64_b3": {
+      "eps": 1.0,
+      "N": 64,
+      "b": 4,
+      "beta": 0.0625,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.864836617825139,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -613.21,
+          "rel_frac_mitad_final": 0.25499702380952377,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 7.73759375,
+          "accept_rate": 0.43209771825396825,
+          "valid_frac": 0.4660426587301587,
+          "accept_per_valid": 0.9271634477224009,
+          "s_per_sweep": 0.02622120171599863,
+          "measure_s_per_sweep": 0.00021936368800152194,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.1612866582869696,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -2054.684,
+          "rel_frac_mitad_final": 0.9033402777777777,
+          "height_mitad_final": 24.508,
+          "links_per_N_mitad_final": 2.22140625,
+          "accept_rate": 0.00830109126984127,
+          "valid_frac": 0.09769246031746032,
+          "accept_per_valid": 0.08497166764831326,
+          "s_per_sweep": 0.009152739006997536,
+          "measure_s_per_sweep": 0.00022811832199818127,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.8412676320666796,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -485.43,
+          "rel_frac_mitad_final": 0.25986309523809525,
+          "height_mitad_final": 3.004,
+          "links_per_N_mitad_final": 7.7404375,
+          "accept_rate": 0.4469092261904762,
+          "valid_frac": 0.47899900793650796,
+          "accept_per_valid": 0.9330065799420502,
+          "s_per_sweep": 0.02662866872200334,
+          "measure_s_per_sweep": 0.00021607249299563592,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.348392455112383,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -544.598,
+          "rel_frac_mitad_final": 0.38336805555555553,
+          "height_mitad_final": 3.01,
+          "links_per_N_mitad_final": 8.0823125,
+          "accept_rate": 0.44792906746031746,
+          "valid_frac": 0.5069087301587302,
+          "accept_per_valid": 0.8836483587884861,
+          "s_per_sweep": 0.025538546355000333,
+          "measure_s_per_sweep": 0.00022416044100259568,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.3338092757936508,
+      "valid_frac": 0.3874107142857143,
+      "s_per_sweep": 0.02188528894999996,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 9.3550013463775,
+          "tau": [
+            16.10090237639502,
+            13.485679320694215,
+            44.650749204261665,
+            22.813072755549918
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 101.24580573677875
+        },
+        "rel_frac": {
+          "rhat": 32.95161186248239,
+          "tau": [
+            2.584051851895373,
+            68.92761300339414,
+            8.304503232726924,
+            2.90724938958575
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 432.9407231056733
+        },
+        "height": {
+          "rhat": 25.502181453152556,
+          "tau": [
+            500.0,
+            61.114269044465885,
+            1.0,
+            4.56460606060606
+          ],
+          "ventana_sokal": [
+            false,
+            true,
+            true,
+            true
+          ],
+          "ess": 618.7198732858426
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N64_b4": {
+      "eps": 1.0,
+      "N": 64,
+      "b": 12,
+      "beta": 0.1875,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.8823067826669777,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -442.732,
+          "rel_frac_mitad_final": 0.2514345238095238,
+          "height_mitad_final": 2.01,
+          "links_per_N_mitad_final": 7.9199375,
+          "accept_rate": 0.41060416666666666,
+          "valid_frac": 0.45443055555555556,
+          "accept_per_valid": 0.9035575659402794,
+          "s_per_sweep": 0.026295309436993874,
+          "measure_s_per_sweep": 0.00022084963100633105,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.0340956615708632,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -2098.0,
+          "rel_frac_mitad_final": 0.9791666666666665,
+          "height_mitad_final": 31.0,
+          "links_per_N_mitad_final": 2.03125,
+          "accept_rate": 2.5793650793650793e-05,
+          "valid_frac": 0.08414384920634921,
+          "accept_per_valid": 0.0003065423205253664,
+          "s_per_sweep": 0.007695016057994963,
+          "measure_s_per_sweep": 0.0002170499469953029,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.6130725030509168,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -2905.106,
+          "rel_frac_mitad_final": 0.31156845238095243,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 7.02684375,
+          "accept_rate": 0.1933422619047619,
+          "valid_frac": 0.4222217261904762,
+          "accept_per_valid": 0.4579164214243673,
+          "s_per_sweep": 0.022876767070992628,
+          "measure_s_per_sweep": 0.00022463821300448218,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.773556656831903,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -4162.894,
+          "rel_frac_mitad_final": 0.27422321428571433,
+          "height_mitad_final": 3.002,
+          "links_per_N_mitad_final": 4.5443125,
+          "accept_rate": 0.014354166666666666,
+          "valid_frac": 0.4796046626984127,
+          "accept_per_valid": 0.0299291641284416,
+          "s_per_sweep": 0.0236491619530002,
+          "measure_s_per_sweep": 0.00024198294600046212,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.15458159722222223,
+      "valid_frac": 0.3601001984126984,
+      "s_per_sweep": 0.020129063629745418,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 45.46031224208896,
+          "tau": [
+            17.993402503550406,
+            500.0,
+            36.86669870011685,
+            24.565735463174036
+          ],
+          "ventana_sokal": [
+            true,
+            false,
+            true,
+            true
+          ],
+          "ess": 62.703891079869855
+        },
+        "rel_frac": {
+          "rhat": 70.06720283932796,
+          "tau": [
+            14.186442596581017,
+            500.0,
+            40.567369168861354,
+            59.893453182118556
+          ],
+          "ventana_sokal": [
+            true,
+            false,
+            true,
+            true
+          ],
+          "ess": 56.91825226873587
+        },
+        "height": {
+          "rhat": 238.6121596830193,
+          "tau": [
+            2.370585858585859,
+            500.0,
+            500.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            false,
+            false,
+            true
+          ],
+          "ess": 712.918325606763
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N128_b0": {
+      "eps": 1.0,
+      "N": 128,
+      "b": -12,
+      "beta": -0.09375,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.633814203995058,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 10357.36,
+          "rel_frac_mitad_final": 0.30651082677165353,
+          "height_mitad_final": 3.048,
+          "links_per_N_mitad_final": 9.459625,
+          "accept_rate": 0.22951451771653544,
+          "valid_frac": 0.2923395669291339,
+          "accept_per_valid": 0.7850956342566251,
+          "s_per_sweep": 0.09142204083800334,
+          "measure_s_per_sweep": 0.0004588870699967629,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.050127007879706,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 3366.288,
+          "rel_frac_mitad_final": 0.9694379921259841,
+          "height_mitad_final": 53.636,
+          "links_per_N_mitad_final": 2.249,
+          "accept_rate": 0.002669783464566929,
+          "valid_frac": 0.049910187007874016,
+          "accept_per_valid": 0.05349175438164025,
+          "s_per_sweep": 0.034684973985992656,
+          "measure_s_per_sweep": 0.00047814412000207084,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.5515793921452956,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 10866.096,
+          "rel_frac_mitad_final": 0.32706348425196846,
+          "height_mitad_final": 5.0,
+          "links_per_N_mitad_final": 8.36709375,
+          "accept_rate": 0.12044808070866142,
+          "valid_frac": 0.25812007874015747,
+          "accept_per_valid": 0.46663584366062916,
+          "s_per_sweep": 0.083672905169999,
+          "measure_s_per_sweep": 0.00048565987999882055,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4096080252220604,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1817.04,
+          "rel_frac_mitad_final": 0.36547883858267716,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 15.20790625,
+          "accept_rate": 0.4795329724409449,
+          "valid_frac": 0.5038831200787401,
+          "accept_per_valid": 0.9516750082162106,
+          "s_per_sweep": 0.11354638868599887,
+          "measure_s_per_sweep": 0.00047843230000626136,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.20804133858267718,
+      "valid_frac": 0.2760632381889764,
+      "s_per_sweep": 0.08083157716999846,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 20.08032092746783,
+          "tau": [
+            34.26671353090251,
+            19.311247241043045,
+            33.1850074499856,
+            1.380416720341222
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 208.87978780889003
+        },
+        "rel_frac": {
+          "rhat": 80.61046546280052,
+          "tau": [
+            31.998434158839338,
+            31.878199994983184,
+            32.91616964410798,
+            1.314102794883293
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 213.49415266826526
+        },
+        "height": {
+          "rhat": 35.386065053733795,
+          "tau": [
+            5.064302521008406,
+            8.142066746348611,
+            250.0,
+            250.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "ess": 82.069874196165
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N128_b1": {
+      "eps": 1.0,
+      "N": 128,
+      "b": -4,
+      "beta": -0.03125,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.9451953089770577,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -672.036,
+          "rel_frac_mitad_final": 0.2389488188976378,
+          "height_mitad_final": 3.024,
+          "links_per_N_mitad_final": 14.28009375,
+          "accept_rate": 0.4348939468503937,
+          "valid_frac": 0.44639566929133856,
+          "accept_per_valid": 0.974234242775688,
+          "s_per_sweep": 0.11453622407600096,
+          "measure_s_per_sweep": 0.00045429735200013964,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.096276627720341,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -193.972,
+          "rel_frac_mitad_final": 0.46501181102362205,
+          "height_mitad_final": 5.312,
+          "links_per_N_mitad_final": 13.29628125,
+          "accept_rate": 0.3526208169291339,
+          "valid_frac": 0.3805991633858268,
+          "accept_per_valid": 0.926488681142133,
+          "s_per_sweep": 0.09461378286400123,
+          "measure_s_per_sweep": 0.00048067498600175897,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.798783151448869,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1377.492,
+          "rel_frac_mitad_final": 0.2687623031496063,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 15.22821875,
+          "accept_rate": 0.4632064468503937,
+          "valid_frac": 0.47429010826771656,
+          "accept_per_valid": 0.9766310508608234,
+          "s_per_sweep": 0.11352862816999869,
+          "measure_s_per_sweep": 0.00045019068399869866,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3810027419067383,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1885.156,
+          "rel_frac_mitad_final": 0.3737052165354331,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 15.73028125,
+          "accept_rate": 0.4962062007874016,
+          "valid_frac": 0.5040930118110236,
+          "accept_per_valid": 0.9843544527719447,
+          "s_per_sweep": 0.11623231711000108,
+          "measure_s_per_sweep": 0.00047412089400131663,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.4367318528543307,
+      "valid_frac": 0.4513444881889764,
+      "s_per_sweep": 0.10972773805500048,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 7.561262613045417,
+          "tau": [
+            26.647746040497264,
+            16.700613907541463,
+            1.3782319603262003,
+            1.2348292376901506
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 408.2001267928568
+        },
+        "rel_frac": {
+          "rhat": 23.930089877280505,
+          "tau": [
+            1.3215336409898875,
+            2.3680576391672883,
+            1.0,
+            1.258781918595865
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 743.3505979550096
+        },
+        "height": {
+          "rhat": 5.532609514192167,
+          "tau": [
+            4.829508196721312,
+            30.510697674418687,
+            250.0,
+            250.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "ess": 61.95895260082252
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N128_b2": {
+      "eps": 1.0,
+      "N": 128,
+      "b": 0,
+      "beta": 0.0,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.9941853740198283,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1734.416,
+          "rel_frac_mitad_final": 0.2296771653543307,
+          "height_mitad_final": 2.036,
+          "links_per_N_mitad_final": 14.5810625,
+          "accept_rate": 0.45589566929133857,
+          "valid_frac": 0.45589566929133857,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.10457724507399825,
+          "measure_s_per_sweep": 0.00042827086600527765,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.8519544967212926,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1138.232,
+          "rel_frac_mitad_final": 0.5582057086614173,
+          "height_mitad_final": 5.128,
+          "links_per_N_mitad_final": 11.8333125,
+          "accept_rate": 0.3560076279527559,
+          "valid_frac": 0.3560076279527559,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.08772980604600934,
+          "measure_s_per_sweep": 0.0004510434119988531,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.921239269001127,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1852.064,
+          "rel_frac_mitad_final": 0.24361023622047245,
+          "height_mitad_final": 2.0,
+          "links_per_N_mitad_final": 15.46925,
+          "accept_rate": 0.4858668799212598,
+          "valid_frac": 0.4858668799212598,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.10813045240799601,
+          "measure_s_per_sweep": 0.0004229585639986908,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.367074440453836,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1918.472,
+          "rel_frac_mitad_final": 0.37776870078740155,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 15.9883125,
+          "accept_rate": 0.5042337598425197,
+          "valid_frac": 0.5042337598425197,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.11378944673199658,
+          "measure_s_per_sweep": 0.00047701289200085737,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.4505009842519685,
+      "valid_frac": 0.4505009842519685,
+      "s_per_sweep": 0.10355673756500004,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 4.302495380047184,
+          "tau": [
+            1.1328776353417145,
+            12.364988833649845,
+            1.3653514854215536,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 673.9983774404607
+        },
+        "rel_frac": {
+          "rhat": 35.26102671388076,
+          "tau": [
+            1.1379440459716488,
+            10.870222383657879,
+            1.3653514854215554,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 675.7961015540044
+        },
+        "height": {
+          "rhat": 7.16052861234214,
+          "tau": [
+            1.3991959428307976,
+            1.5328394495412847,
+            250.0,
+            250.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "ess": 343.7700569999433
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N128_b3": {
+      "eps": 1.0,
+      "N": 128,
+      "b": 4,
+      "beta": 0.03125,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 3.0688110865224845,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1626.168,
+          "rel_frac_mitad_final": 0.21620669291338585,
+          "height_mitad_final": 2.04,
+          "links_per_N_mitad_final": 13.72665625,
+          "accept_rate": 0.41661294291338585,
+          "valid_frac": 0.42330142716535435,
+          "accept_per_valid": 0.984199240014951,
+          "s_per_sweep": 0.11205202906600062,
+          "measure_s_per_sweep": 0.0004523853819996475,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.4858532596794243,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -9334.948,
+          "rel_frac_mitad_final": 0.7260246062992126,
+          "height_mitad_final": 10.708,
+          "links_per_N_mitad_final": 6.68121875,
+          "accept_rate": 0.10343971456692913,
+          "valid_frac": 0.17213385826771654,
+          "accept_per_valid": 0.6009260212250126,
+          "s_per_sweep": 0.05653171025399524,
+          "measure_s_per_sweep": 0.000455213348000143,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.644851196577327,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -2394.764,
+          "rel_frac_mitad_final": 0.30379872047244094,
+          "height_mitad_final": 4.784,
+          "links_per_N_mitad_final": 15.39796875,
+          "accept_rate": 0.4530588090551181,
+          "valid_frac": 0.4694279035433071,
+          "accept_per_valid": 0.9651296943265776,
+          "s_per_sweep": 0.11575648332799438,
+          "measure_s_per_sweep": 0.000520413572009602,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3542020014410876,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -1949.348,
+          "rel_frac_mitad_final": 0.38156348425196845,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 16.22928125,
+          "accept_rate": 0.4961520669291339,
+          "valid_frac": 0.5040007381889764,
+          "accept_per_valid": 0.9844272623725808,
+          "s_per_sweep": 0.11749896463800724,
+          "measure_s_per_sweep": 0.0004877615019895529,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.36731588336614174,
+      "valid_frac": 0.3922159817913386,
+      "s_per_sweep": 0.10045979682149937,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 17.2363895598525,
+          "tau": [
+            8.38849392876138,
+            34.88872164337115,
+            2.82188683296364,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 375.5615725687784
+        },
+        "rel_frac": {
+          "rhat": 54.626068626896455,
+          "tau": [
+            11.59638214212004,
+            26.333059166699247,
+            2.747477401140236,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 372.0447767818803
+        },
+        "height": {
+          "rhat": 9.038462563008204,
+          "tau": [
+            1.7100000000000009,
+            9.064067753798147,
+            1.6743159486016634,
+            250.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "ess": 324.0949757087873
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e0_N128_b4": {
+      "eps": 1.0,
+      "N": 128,
+      "b": 12,
+      "beta": 0.09375,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.9785786021230605,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -2451.552,
+          "rel_frac_mitad_final": 0.23259399606299214,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 14.3260625,
+          "accept_rate": 0.39041904527559057,
+          "valid_frac": 0.4278634350393701,
+          "accept_per_valid": 0.912485184062681,
+          "s_per_sweep": 0.10877090844600798,
+          "measure_s_per_sweep": 0.00044904188599639383,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.0215478965661138,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -4245.844,
+          "rel_frac_mitad_final": 0.9868120078740157,
+          "height_mitad_final": 59.816,
+          "links_per_N_mitad_final": 2.06853125,
+          "accept_rate": 0.00016609251968503937,
+          "valid_frac": 0.0427869094488189,
+          "accept_per_valid": 0.0038818536282391914,
+          "s_per_sweep": 0.030638828344007378,
+          "measure_s_per_sweep": 0.0004416033579936993,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.6160739428410302,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -13092.32,
+          "rel_frac_mitad_final": 0.31079478346456696,
+          "height_mitad_final": 5.0,
+          "links_per_N_mitad_final": 11.370875,
+          "accept_rate": 0.15316830708661416,
+          "valid_frac": 0.36088287401574803,
+          "accept_per_valid": 0.42442664397515933,
+          "s_per_sweep": 0.08842846607399542,
+          "measure_s_per_sweep": 0.00044527994000191027,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3270371160511902,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -2015.304,
+          "rel_frac_mitad_final": 0.38967814960629926,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 16.7445625,
+          "accept_rate": 0.48026008858267716,
+          "valid_frac": 0.5037974901574803,
+          "accept_per_valid": 0.953280034071933,
+          "s_per_sweep": 0.1112424506959992,
+          "measure_s_per_sweep": 0.0004633709459990314,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.25600338336614176,
+      "valid_frac": 0.3338326771653543,
+      "s_per_sweep": 0.0847701633900025,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 0,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 39.80191090049095,
+          "tau": [
+            1.8722021880878943,
+            3.0671402978114983,
+            26.24563824213072,
+            1.2009843801456017
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 432.7297029833311
+        },
+        "rel_frac": {
+          "rhat": 97.67605492278578,
+          "tau": [
+            1.4152386276208149,
+            30.219493966618426,
+            24.246311164896532,
+            1.2102997477162836
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 401.7927073820289
+        },
+        "height": {
+          "rhat": 151.9206419062924,
+          "tau": [
+            250.0,
+            16.2141960784315,
+            250.0,
+            250.0
+          ],
+          "ventana_sokal": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "ess": 18.418587439716227
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N32_b0": {
+      "eps": 0.25,
+      "N": 32,
+      "b": -12,
+      "beta": -0.375,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4533896989739974,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 15.621209606022148,
+          "rel_frac_mitad_final": 0.35426411290322585,
+          "height_mitad_final": 4.748,
+          "links_per_N_mitad_final": 2.98740625,
+          "accept_rate": 0.36877620967741936,
+          "valid_frac": 0.3876320564516129,
+          "accept_per_valid": 0.9513563275782707,
+          "s_per_sweep": 0.005646365871005628,
+          "measure_s_per_sweep": 0.00013119767600187516,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4628238694350357,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 15.210643955468688,
+          "rel_frac_mitad_final": 0.3518709677419355,
+          "height_mitad_final": 4.666,
+          "links_per_N_mitad_final": 3.0209375,
+          "accept_rate": 0.37255645161290324,
+          "valid_frac": 0.3919788306451613,
+          "accept_per_valid": 0.950450438866072,
+          "s_per_sweep": 0.006111559921498383,
+          "measure_s_per_sweep": 0.00014875825750641525,
+          "s_drift_final": 3.552713678800501e-15
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4641610456097123,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 15.278455639304877,
+          "rel_frac_mitad_final": 0.3515141129032259,
+          "height_mitad_final": 4.66,
+          "links_per_N_mitad_final": 3.012875,
+          "accept_rate": 0.3721048387096774,
+          "valid_frac": 0.3914969758064516,
+          "accept_per_valid": 0.9504667001403319,
+          "s_per_sweep": 0.0060909531314982815,
+          "measure_s_per_sweep": 0.00014213712749779007,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.453939873653165,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 15.302434452216968,
+          "rel_frac_mitad_final": 0.35427217741935485,
+          "height_mitad_final": 4.721,
+          "links_per_N_mitad_final": 3.01646875,
+          "accept_rate": 0.37150806451612906,
+          "valid_frac": 0.3908568548387097,
+          "accept_per_valid": 0.9504964795089367,
+          "s_per_sweep": 0.006097047379000287,
+          "measure_s_per_sweep": 0.0001418528409949431,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.3712363911290323,
+      "valid_frac": 0.3904911794354839,
+      "s_per_sweep": 0.005986481575750645,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 0,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.0040046510852179,
+          "tau": [
+            2.5393177599066488,
+            7.77487529074817,
+            6.339398018264481,
+            6.9108309597185285
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 824.8700733572008
+        },
+        "rel_frac": {
+          "rhat": 1.0053010273623613,
+          "tau": [
+            6.506422616138002,
+            9.890877930072985,
+            11.870799538909864,
+            6.464114791774389
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 493.7380961094909
+        },
+        "height": {
+          "rhat": 1.003370686140718,
+          "tau": [
+            3.21619254072977,
+            4.884811247045327,
+            3.552353728489485,
+            4.674405842496332
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1011.0772894808719
+        }
+      },
+      "mezcla": true
+    },
+    "e1_N32_b1": {
+      "eps": 0.25,
+      "N": 32,
+      "b": -4,
+      "beta": -0.125,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.455459589628379,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 14.041668857249583,
+          "rel_frac_mitad_final": 0.35401411290322576,
+          "height_mitad_final": 4.683,
+          "links_per_N_mitad_final": 3.12153125,
+          "accept_rate": 0.3989868951612903,
+          "valid_frac": 0.40560887096774195,
+          "accept_per_valid": 0.9836739867383762,
+          "s_per_sweep": 0.006474979906998669,
+          "measure_s_per_sweep": 0.0001598674325000502,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.49921533183962,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 13.625329481648416,
+          "rel_frac_mitad_final": 0.3419274193548387,
+          "height_mitad_final": 4.539,
+          "links_per_N_mitad_final": 3.1049375,
+          "accept_rate": 0.39694052419354836,
+          "valid_frac": 0.4034717741935484,
+          "accept_per_valid": 0.9838123744515845,
+          "s_per_sweep": 0.0064244323500022345,
+          "measure_s_per_sweep": 0.00014879302899612412,
+          "s_drift_final": -3.552713678800501e-15
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4677480067564455,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 13.274441762379595,
+          "rel_frac_mitad_final": 0.3504475806451613,
+          "height_mitad_final": 4.55,
+          "links_per_N_mitad_final": 3.153,
+          "accept_rate": 0.4006179435483871,
+          "valid_frac": 0.40738709677419355,
+          "accept_per_valid": 0.9833839773537097,
+          "s_per_sweep": 0.006162754134006036,
+          "measure_s_per_sweep": 0.00013778994849189985,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.467850478994979,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 13.87520807946218,
+          "rel_frac_mitad_final": 0.35030040322580647,
+          "height_mitad_final": 4.551,
+          "links_per_N_mitad_final": 3.12303125,
+          "accept_rate": 0.3954122983870968,
+          "valid_frac": 0.40199395161290324,
+          "accept_per_valid": 0.9836274819573798,
+          "s_per_sweep": 0.0060400431895002386,
+          "measure_s_per_sweep": 0.0001359214219974092,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.39798941532258064,
+      "valid_frac": 0.4046154233870968,
+      "s_per_sweep": 0.006275552395126794,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.0060132925495942,
+          "tau": [
+            3.559878223726133,
+            5.547675332108069,
+            5.9141154991818485,
+            7.175705023085287
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 769.6102880071655
+        },
+        "rel_frac": {
+          "rhat": 1.0143455997930098,
+          "tau": [
+            12.799839606842838,
+            8.51495574856272,
+            9.392338928099011,
+            5.894658719955755
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 471.68125920701556
+        },
+        "height": {
+          "rhat": 1.006641553142091,
+          "tau": [
+            3.9106723308761593,
+            3.342131413297448,
+            4.135296442687748,
+            4.227150028199363
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1033.3074015607551
+        }
+      },
+      "mezcla": true
+    },
+    "e1_N32_b2": {
+      "eps": 0.25,
+      "N": 32,
+      "b": 0,
+      "beta": 0.0,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4589979095269063,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 12.62907052722152,
+          "rel_frac_mitad_final": 0.3528850806451613,
+          "height_mitad_final": 4.522,
+          "links_per_N_mitad_final": 3.21859375,
+          "accept_rate": 0.4155483870967742,
+          "valid_frac": 0.4155483870967742,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.005912810358500337,
+          "measure_s_per_sweep": 0.00013302901350607498,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4734611502099813,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 12.883192989609228,
+          "rel_frac_mitad_final": 0.3492157258064516,
+          "height_mitad_final": 4.51,
+          "links_per_N_mitad_final": 3.18340625,
+          "accept_rate": 0.40860584677419354,
+          "valid_frac": 0.40860584677419354,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.006427597355500211,
+          "measure_s_per_sweep": 0.00015215937949687941,
+          "s_drift_final": -7.105427357601002e-15
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4801942039833067,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 12.745456675749804,
+          "rel_frac_mitad_final": 0.3472096774193548,
+          "height_mitad_final": 4.484,
+          "links_per_N_mitad_final": 3.19690625,
+          "accept_rate": 0.41005342741935485,
+          "valid_frac": 0.41005342741935485,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.00643246977650324,
+          "measure_s_per_sweep": 0.0001494224939947344,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4909914366292494,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 12.57692447878854,
+          "rel_frac_mitad_final": 0.34449596774193547,
+          "height_mitad_final": 4.479,
+          "links_per_N_mitad_final": 3.20046875,
+          "accept_rate": 0.41482459677419353,
+          "valid_frac": 0.41482459677419353,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.006426933573501628,
+          "measure_s_per_sweep": 0.0001514921114955996,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.412258064516129,
+      "valid_frac": 0.412258064516129,
+      "s_per_sweep": 0.0062999527660013545,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.0048103827669705,
+          "tau": [
+            6.868632209845282,
+            8.83326469139142,
+            9.070285171648752,
+            8.545013324902527
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 486.0752565554933
+        },
+        "rel_frac": {
+          "rhat": 1.0152991882301095,
+          "tau": [
+            18.51907522870161,
+            20.9746383544486,
+            11.266117012244989,
+            16.188153320806023
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 252.2102986296328
+        },
+        "height": {
+          "rhat": 0.9997220258560993,
+          "tau": [
+            5.54871555696319,
+            3.80502374965074,
+            2.561569056223981,
+            4.88752461706092
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1038.020615824196
+        }
+      },
+      "mezcla": true
+    },
+    "e1_N32_b3": {
+      "eps": 0.25,
+      "N": 32,
+      "b": 4,
+      "beta": 0.125,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.518183122845095,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 11.853476106795624,
+          "rel_frac_mitad_final": 0.33751814516129036,
+          "height_mitad_final": 4.422,
+          "links_per_N_mitad_final": 3.2261875,
+          "accept_rate": 0.4121582661290323,
+          "valid_frac": 0.4191118951612903,
+          "accept_per_valid": 0.9834086574193223,
+          "s_per_sweep": 0.006120714992996909,
+          "measure_s_per_sweep": 0.00013134819051106205,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4848731242421755,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 11.299948537799752,
+          "rel_frac_mitad_final": 0.34619354838709676,
+          "height_mitad_final": 4.384,
+          "links_per_N_mitad_final": 3.30225,
+          "accept_rate": 0.416,
+          "valid_frac": 0.42307157258064515,
+          "accept_per_valid": 0.9832851625139687,
+          "s_per_sweep": 0.0061147037819914655,
+          "measure_s_per_sweep": 0.00013501431300642252,
+          "s_drift_final": 0.0
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.500655124147518,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 11.153199188872648,
+          "rel_frac_mitad_final": 0.34166129032258064,
+          "height_mitad_final": 4.381,
+          "links_per_N_mitad_final": 3.3004375,
+          "accept_rate": 0.41874193548387095,
+          "valid_frac": 0.4259264112903226,
+          "accept_per_valid": 0.9831321195023183,
+          "s_per_sweep": 0.006459530853006754,
+          "measure_s_per_sweep": 0.00014606388149604753,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4969681524785075,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 10.451286297122348,
+          "rel_frac_mitad_final": 0.343125,
+          "height_mitad_final": 4.278,
+          "links_per_N_mitad_final": 3.36021875,
+          "accept_rate": 0.41978225806451613,
+          "valid_frac": 0.4271945564516129,
+          "accept_per_valid": 0.982648893167869,
+          "s_per_sweep": 0.0064970232420027965,
+          "measure_s_per_sweep": 0.00014136339400079123,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.41667061491935486,
+      "valid_frac": 0.4238261088709677,
+      "s_per_sweep": 0.006297993217499481,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.0157518335521,
+          "tau": [
+            7.828776654297929,
+            6.410869449217743,
+            16.616416876466168,
+            7.550904776655649
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 476.33486700097137
+        },
+        "rel_frac": {
+          "rhat": 1.0117020678174784,
+          "tau": [
+            14.14128989582706,
+            15.165524542764896,
+            17.15343322852777,
+            13.87817194946316
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 267.006905443932
+        },
+        "height": {
+          "rhat": 1.008599481712332,
+          "tau": [
+            8.100793347013271,
+            3.9520781847539723,
+            5.629567704652466,
+            6.561267189975689
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 706.5192472615931
+        }
+      },
+      "mezcla": true
+    },
+    "e1_N32_b4": {
+      "eps": 0.25,
+      "N": 32,
+      "b": 12,
+      "beta": 0.375,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.494853657003585,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 7.5819170319763645,
+          "rel_frac_mitad_final": 0.3449334677419355,
+          "height_mitad_final": 4.128,
+          "links_per_N_mitad_final": 3.593625,
+          "accept_rate": 0.4242368951612903,
+          "valid_frac": 0.44773891129032256,
+          "accept_per_valid": 0.9475095518026283,
+          "s_per_sweep": 0.006314852531500037,
+          "measure_s_per_sweep": 0.00013920644250379154,
+          "s_drift_final": 2.1316282072803006e-14
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.5035759499610637,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 7.658009408982072,
+          "rel_frac_mitad_final": 0.34138508064516127,
+          "height_mitad_final": 4.077,
+          "links_per_N_mitad_final": 3.5630625,
+          "accept_rate": 0.4234838709677419,
+          "valid_frac": 0.4465997983870968,
+          "accept_per_valid": 0.9482401749780487,
+          "s_per_sweep": 0.006676904713002841,
+          "measure_s_per_sweep": 0.00014682071649372119,
+          "s_drift_final": 1.0658141036401503e-14
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.4598403708490895,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 7.408856554848933,
+          "rel_frac_mitad_final": 0.35277217741935474,
+          "height_mitad_final": 4.105,
+          "links_per_N_mitad_final": 3.60959375,
+          "accept_rate": 0.4271834677419355,
+          "valid_frac": 0.4512056451612903,
+          "accept_per_valid": 0.9467600246650998,
+          "s_per_sweep": 0.00652503679749725,
+          "measure_s_per_sweep": 0.00013974972849678126,
+          "s_drift_final": 3.530509218307998e-14
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.527494068162141,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": 6.831993076671884,
+          "rel_frac_mitad_final": 0.3357116935483871,
+          "height_mitad_final": 3.978,
+          "links_per_N_mitad_final": 3.63365625,
+          "accept_rate": 0.43724092741935483,
+          "valid_frac": 0.46066633064516127,
+          "accept_per_valid": 0.9491488705219692,
+          "s_per_sweep": 0.005907369874502137,
+          "measure_s_per_sweep": 0.00012540027749855654,
+          "s_drift_final": 7.105427357601002e-15
+        }
+      },
+      "accept_rate": 0.42803629032258067,
+      "valid_frac": 0.4515526713709677,
+      "s_per_sweep": 0.0063560409791255665,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.0059041279683754,
+          "tau": [
+            8.239858856988866,
+            15.945936633782019,
+            10.799268611672133,
+            9.175953143035615
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 385.6525708175175
+        },
+        "rel_frac": {
+          "rhat": 1.0634013194468872,
+          "tau": [
+            41.98674741445859,
+            27.75587144020533,
+            28.323368879893085,
+            46.33701788311956
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 116.73300412016964
+        },
+        "height": {
+          "rhat": 1.0062781396088027,
+          "tau": [
+            13.775430096489444,
+            6.327986755462246,
+            5.1462900250021555,
+            6.905983155613109
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 569.7378717613593
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": 4634,
+      "horas_cpu_estimadas": 0.032726548774742084
+    },
+    "e1_N64_b0": {
+      "eps": 0.25,
+      "N": 64,
+      "b": -12,
+      "beta": -0.1875,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.88525483860587,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -29.693898140767647,
+          "rel_frac_mitad_final": 0.250905753968254,
+          "height_mitad_final": 2.424,
+          "links_per_N_mitad_final": 7.76753125,
+          "accept_rate": 0.48776835317460315,
+          "valid_frac": 0.49386507936507934,
+          "accept_per_valid": 0.9876550773779871,
+          "s_per_sweep": 0.0272793397859989,
+          "measure_s_per_sweep": 0.0002144178369967449,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.373439207270835,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -46.02430447664355,
+          "rel_frac_mitad_final": 0.37597519841269844,
+          "height_mitad_final": 3.192,
+          "links_per_N_mitad_final": 7.6215625,
+          "accept_rate": 0.4757018849206349,
+          "valid_frac": 0.48918353174603174,
+          "accept_per_valid": 0.9724405137325922,
+          "s_per_sweep": 0.026965324192996378,
+          "measure_s_per_sweep": 0.00023748735400226905,
+          "s_drift_final": 9.237055564881302e-14
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.8263508756150597,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -29.915035776589065,
+          "rel_frac_mitad_final": 0.26300099206349203,
+          "height_mitad_final": 3.14,
+          "links_per_N_mitad_final": 7.7165,
+          "accept_rate": 0.48737301587301585,
+          "valid_frac": 0.49427678571428574,
+          "accept_per_valid": 0.9860325832796434,
+          "s_per_sweep": 0.02724103191300196,
+          "measure_s_per_sweep": 0.00021635639299756804,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.375171057239724,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -48.43743127713703,
+          "rel_frac_mitad_final": 0.37548809523809523,
+          "height_mitad_final": 3.158,
+          "links_per_N_mitad_final": 7.73946875,
+          "accept_rate": 0.4921498015873016,
+          "valid_frac": 0.50459375,
+          "accept_per_valid": 0.9753386790607327,
+          "s_per_sweep": 0.027106875510001828,
+          "measure_s_per_sweep": 0.0002439428439929543,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.48574826388888886,
+      "valid_frac": 0.4954797867063492,
+      "s_per_sweep": 0.027148142850499768,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 2.2332726321900638,
+          "tau": [
+            3.391433778060656,
+            2.0708355341403397,
+            2.910352113364965,
+            1.9388319618233871
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 818.5664519432
+        },
+        "rel_frac": {
+          "rhat": 7.148278766670839,
+          "tau": [
+            14.61580144538039,
+            3.0524572912403176,
+            5.484249757713946,
+            7.6322573397801285
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 354.69359732210637
+        },
+        "height": {
+          "rhat": 1.3102868211666592,
+          "tau": [
+            21.72248561074397,
+            5.316040800313848,
+            3.7440531561461805,
+            3.7506792146486667
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 383.92688317628335
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N64_b1": {
+      "eps": 0.25,
+      "N": 64,
+      "b": -4,
+      "beta": -0.0625,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.889944669933401,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -30.21740625,
+          "rel_frac_mitad_final": 0.2498998015873016,
+          "height_mitad_final": 2.206,
+          "links_per_N_mitad_final": 7.83403125,
+          "accept_rate": 0.48824603174603176,
+          "valid_frac": 0.49019444444444443,
+          "accept_per_valid": 0.9960252248459875,
+          "s_per_sweep": 0.02671931288599717,
+          "measure_s_per_sweep": 0.00021386239099933845,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.5356507249752345,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -36.72502396518609,
+          "rel_frac_mitad_final": 0.3315644841269841,
+          "height_mitad_final": 4.17,
+          "links_per_N_mitad_final": 7.662875,
+          "accept_rate": 0.4734017857142857,
+          "valid_frac": 0.4782331349206349,
+          "accept_per_valid": 0.9898975021729706,
+          "s_per_sweep": 0.027732351399997014,
+          "measure_s_per_sweep": 0.00025984409200009397,
+          "s_drift_final": -2.3021584638627246e-12
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.764578939837994,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -33.58236294253169,
+          "rel_frac_mitad_final": 0.27631051587301586,
+          "height_mitad_final": 3.148,
+          "links_per_N_mitad_final": 7.72121875,
+          "accept_rate": 0.4875575396825397,
+          "valid_frac": 0.48991765873015874,
+          "accept_per_valid": 0.9951826209862769,
+          "s_per_sweep": 0.026559681541001055,
+          "measure_s_per_sweep": 0.00021575911300101324,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3625250420708483,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -52.31936007916071,
+          "rel_frac_mitad_final": 0.3791656746031746,
+          "height_mitad_final": 3.08,
+          "links_per_N_mitad_final": 7.9315625,
+          "accept_rate": 0.5027167658730158,
+          "valid_frac": 0.5063660714285714,
+          "accept_per_valid": 0.9927931475636588,
+          "s_per_sweep": 0.027098554062997438,
+          "measure_s_per_sweep": 0.00023629917000312161,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.48798053075396824,
+      "valid_frac": 0.4911778273809524,
+      "s_per_sweep": 0.027027474972498168,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 2.4039042259458063,
+          "tau": [
+            2.300473061706065,
+            1.700373618068193,
+            3.3096726937568253,
+            1.1071803403876532
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1114.0695766447386
+        },
+        "rel_frac": {
+          "rhat": 5.106220702010998,
+          "tau": [
+            1.303405670877456,
+            55.230192246123025,
+            14.656983343604352,
+            1.3644536272237016
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 793.2239186725939
+        },
+        "height": {
+          "rhat": 2.306216947802923,
+          "tau": [
+            2.4396487073595754,
+            1.9844962095106826,
+            2.1420611597513006,
+            1.9591304347826086
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 945.5359615099876
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N64_b2": {
+      "eps": 0.25,
+      "N": 64,
+      "b": 0,
+      "beta": 0.0,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.9086955352341786,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -29.1991875,
+          "rel_frac_mitad_final": 0.24616865079365077,
+          "height_mitad_final": 2.234,
+          "links_per_N_mitad_final": 7.7126875,
+          "accept_rate": 0.4852698412698413,
+          "valid_frac": 0.4852698412698413,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.02640222361499832,
+          "measure_s_per_sweep": 0.0002088935980016231,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3569577297396824,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -46.968395829162866,
+          "rel_frac_mitad_final": 0.38080059523809523,
+          "height_mitad_final": 3.17,
+          "links_per_N_mitad_final": 7.707125,
+          "accept_rate": 0.4811736111111111,
+          "valid_frac": 0.4811736111111111,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.026376629985002408,
+          "measure_s_per_sweep": 0.00023726625699327996,
+          "s_drift_final": -3.694822225952521e-13
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.880107930444926,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -30.809515625,
+          "rel_frac_mitad_final": 0.25188888888888894,
+          "height_mitad_final": 2.188,
+          "links_per_N_mitad_final": 7.9011875,
+          "accept_rate": 0.49602232142857144,
+          "valid_frac": 0.49602232142857144,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.02854092110700435,
+          "measure_s_per_sweep": 0.0002288988749996861,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3512844186032673,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -52.51577524056395,
+          "rel_frac_mitad_final": 0.38249007936507934,
+          "height_mitad_final": 3.122,
+          "links_per_N_mitad_final": 7.9633125,
+          "accept_rate": 0.504827380952381,
+          "valid_frac": 0.504827380952381,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.028526017316002482,
+          "measure_s_per_sweep": 0.0002518887520025146,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.4918232886904762,
+      "valid_frac": 0.4918232886904762,
+      "s_per_sweep": 0.02746144800575189,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 2.849968587373485,
+          "tau": [
+            1.721844528137245,
+            1.7081100021945392,
+            1.9583402326122594,
+            2.5926232337809627
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1031.2805715561283
+        },
+        "rel_frac": {
+          "rhat": 8.934536603512015,
+          "tau": [
+            1.0,
+            1.5421807270750323,
+            1.3918401971115784,
+            2.564590441655173
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1378.4157631497462
+        },
+        "height": {
+          "rhat": 1.6510107970228856,
+          "tau": [
+            3.171546807703465,
+            2.3982108890420393,
+            2.0823595011005134,
+            2.2277175398633258
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 830.697743646558
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N64_b3": {
+      "eps": 0.25,
+      "N": 64,
+      "b": 4,
+      "beta": 0.0625,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.817943873725534,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -33.36862326563722,
+          "rel_frac_mitad_final": 0.26482341269841264,
+          "height_mitad_final": 2.87,
+          "links_per_N_mitad_final": 7.9479375,
+          "accept_rate": 0.4967594246031746,
+          "valid_frac": 0.4987752976190476,
+          "accept_per_valid": 0.9959583543421336,
+          "s_per_sweep": 0.029057655728001917,
+          "measure_s_per_sweep": 0.00023259773999734535,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.356282935723506,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -50.14026477888535,
+          "rel_frac_mitad_final": 0.38099603174603175,
+          "height_mitad_final": 3.116,
+          "links_per_N_mitad_final": 7.83,
+          "accept_rate": 0.47988938492063493,
+          "valid_frac": 0.4844880952380952,
+          "accept_per_valid": 0.9905081046104954,
+          "s_per_sweep": 0.026616922647002186,
+          "measure_s_per_sweep": 0.00023853248000114036,
+          "s_drift_final": -1.1368683772161603e-13
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.6896540921177965,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -38.280690715931684,
+          "rel_frac_mitad_final": 0.2932619047619048,
+          "height_mitad_final": 3.078,
+          "links_per_N_mitad_final": 7.90625,
+          "accept_rate": 0.4953497023809524,
+          "valid_frac": 0.49771279761904763,
+          "accept_per_valid": 0.9952520906647372,
+          "s_per_sweep": 0.027429083449997962,
+          "measure_s_per_sweep": 0.00022423842299895114,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3509095798192745,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -54.1019953117804,
+          "rel_frac_mitad_final": 0.38259722222222226,
+          "height_mitad_final": 3.064,
+          "links_per_N_mitad_final": 8.04146875,
+          "accept_rate": 0.504266369047619,
+          "valid_frac": 0.507529761904762,
+          "accept_per_valid": 0.9935700463261596,
+          "s_per_sweep": 0.027382074380006772,
+          "measure_s_per_sweep": 0.00024261721599327756,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.4940662202380952,
+      "valid_frac": 0.4971264880952381,
+      "s_per_sweep": 0.027621434051252208,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 2.680147958035717,
+          "tau": [
+            18.73546339632359,
+            1.0220175420671809,
+            1.179521954306011,
+            1.5936768974511781
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1253.5561767785073
+        },
+        "rel_frac": {
+          "rhat": 6.825278762304476,
+          "tau": [
+            29.153880684966776,
+            1.1654783877060142,
+            1.3778495112057438,
+            1.3222209731962948
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1187.1947098311905
+        },
+        "height": {
+          "rhat": 1.0868736430567592,
+          "tau": [
+            44.91167978290367,
+            1.954123888282104,
+            1.771421102397241,
+            2.257512820512822
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 770.7440413259155
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N64_b4": {
+      "eps": 0.25,
+      "N": 64,
+      "b": 12,
+      "beta": 0.1875,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.89169881762624,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -30.44284375,
+          "rel_frac_mitad_final": 0.24955555555555553,
+          "height_mitad_final": 2.134,
+          "links_per_N_mitad_final": 7.83878125,
+          "accept_rate": 0.4797862103174603,
+          "valid_frac": 0.4855724206349206,
+          "accept_per_valid": 0.9880837336068337,
+          "s_per_sweep": 0.02660646588099894,
+          "measure_s_per_sweep": 0.0002126303119964632,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3709043230637006,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -51.06486527562272,
+          "rel_frac_mitad_final": 0.3767251984126984,
+          "height_mitad_final": 3.098,
+          "links_per_N_mitad_final": 7.94725,
+          "accept_rate": 0.46850198412698413,
+          "valid_frac": 0.48170039682539684,
+          "accept_per_valid": 0.9726003698867686,
+          "s_per_sweep": 0.027069703445998357,
+          "measure_s_per_sweep": 0.00024094407800180306,
+          "s_drift_final": 2.842170943040401e-14
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.686506464002632,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -38.63705760680604,
+          "rel_frac_mitad_final": 0.29399702380952386,
+          "height_mitad_final": 3.088,
+          "links_per_N_mitad_final": 7.933,
+          "accept_rate": 0.48907093253968253,
+          "valid_frac": 0.496,
+          "accept_per_valid": 0.9860301059267793,
+          "s_per_sweep": 0.02721333632799974,
+          "measure_s_per_sweep": 0.00023731701700125996,
+          "s_drift_final": 0.0
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.341539525384014,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -55.71583719795049,
+          "rel_frac_mitad_final": 0.38537599206349205,
+          "height_mitad_final": 3.034,
+          "links_per_N_mitad_final": 8.13490625,
+          "accept_rate": 0.49831349206349207,
+          "valid_frac": 0.5076041666666666,
+          "accept_per_valid": 0.981697008785045,
+          "s_per_sweep": 0.026651988091004115,
+          "measure_s_per_sweep": 0.00023651974399945176,
+          "s_drift_final": 0.0
+        }
+      },
+      "accept_rate": 0.48391815476190475,
+      "valid_frac": 0.49271924603174605,
+      "s_per_sweep": 0.026885373436500288,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 3.303061806824262,
+          "tau": [
+            1.4674011849226773,
+            1.788449807420994,
+            1.4778053874453314,
+            1.1821114286034726
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1381.6216862934516
+        },
+        "rel_frac": {
+          "rhat": 7.563954213500075,
+          "tau": [
+            1.3872369786210297,
+            20.823941462793087,
+            1.520178948363875,
+            1.1945680198013164
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1131.9095030564529
+        },
+        "height": {
+          "rhat": 1.8387296653766398,
+          "tau": [
+            1.4663604839543627,
+            1.5759652472962582,
+            3.1927240829346086,
+            1.5780026793326023
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 1131.7084753653169
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N128_b0": {
+      "eps": 0.25,
+      "N": 128,
+      "b": -12,
+      "beta": -0.09375,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 3.0607993254736736,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -156.7485,
+          "rel_frac_mitad_final": 0.21761171259842518,
+          "height_mitad_final": 2.088,
+          "links_per_N_mitad_final": 13.80971875,
+          "accept_rate": 0.43378543307086614,
+          "valid_frac": 0.4363523622047244,
+          "accept_per_valid": 0.994117302079245,
+          "s_per_sweep": 0.110098710483996,
+          "measure_s_per_sweep": 0.00043517882000151074,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.923138446535493,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -306.81410695201464,
+          "rel_frac_mitad_final": 0.5295497047244094,
+          "height_mitad_final": 5.012,
+          "links_per_N_mitad_final": 13.2225625,
+          "accept_rate": 0.39798228346456693,
+          "valid_frac": 0.40274876968503937,
+          "accept_per_valid": 0.9881651128960618,
+          "s_per_sweep": 0.0978514988479983,
+          "measure_s_per_sweep": 0.0004607078959948012,
+          "s_drift_final": -1.3415046851150692e-11
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.8249364879181793,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -183.8332230569776,
+          "rel_frac_mitad_final": 0.2632002952755905,
+          "height_mitad_final": 3.032,
+          "links_per_N_mitad_final": 15.37471875,
+          "accept_rate": 0.48233390748031496,
+          "valid_frac": 0.4848700787401575,
+          "accept_per_valid": 0.99476937973481,
+          "s_per_sweep": 0.11140849260400136,
+          "measure_s_per_sweep": 0.00043384549399615933,
+          "s_drift_final": -5.400124791776761e-13
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.364846579176987,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -206.47066956418357,
+          "rel_frac_mitad_final": 0.37842273622047246,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 16.02984375,
+          "accept_rate": 0.5023902559055118,
+          "valid_frac": 0.5038927165354331,
+          "accept_per_valid": 0.997018292623375,
+          "s_per_sweep": 0.11149559337599703,
+          "measure_s_per_sweep": 0.0004685698720045366,
+          "s_drift_final": -1.9895196601282805e-13
+        }
+      },
+      "accept_rate": 0.454122969980315,
+      "valid_frac": 0.45696598179133857,
+      "s_per_sweep": 0.10771357382799818,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 12.086124953397169,
+          "tau": [
+            1.0,
+            1.047681625504802,
+            1.159312987490034,
+            1.165113663690056
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 918.8384074294496
+        },
+        "rel_frac": {
+          "rhat": 33.44382099626642,
+          "tau": [
+            1.0466239813201224,
+            1.0447160858981857,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 978.1627091342992
+        },
+        "height": {
+          "rhat": 6.57140037942155,
+          "tau": [
+            2.94883572567783,
+            1.0,
+            1.692644628099174,
+            250.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "ess": 483.47708878012793
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N128_b1": {
+      "eps": 0.25,
+      "N": 128,
+      "b": -4,
+      "beta": -0.03125,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 3.0065573834063044,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -166.906,
+          "rel_frac_mitad_final": 0.22739271653543305,
+          "height_mitad_final": 2.036,
+          "links_per_N_mitad_final": 14.4363125,
+          "accept_rate": 0.4542408956692913,
+          "valid_frac": 0.4551240157480315,
+          "accept_per_valid": 0.9980596056279547,
+          "s_per_sweep": 0.1099208746219997,
+          "measure_s_per_sweep": 0.000426436047997413,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.9755770859385462,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -301.4215170134663,
+          "rel_frac_mitad_final": 0.509242125984252,
+          "height_mitad_final": 5.012,
+          "links_per_N_mitad_final": 13.49628125,
+          "accept_rate": 0.409564468503937,
+          "valid_frac": 0.410835875984252,
+          "accept_per_valid": 0.9969053153469886,
+          "s_per_sweep": 0.09492700008399925,
+          "measure_s_per_sweep": 0.00047383650200299597,
+          "s_drift_final": -1.233502189279534e-11
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.8418583104720954,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -186.85492790665847,
+          "rel_frac_mitad_final": 0.25965403543307086,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 15.49584375,
+          "accept_rate": 0.48700049212598423,
+          "valid_frac": 0.48788853346456695,
+          "accept_per_valid": 0.9981798274038609,
+          "s_per_sweep": 0.11279537595200463,
+          "measure_s_per_sweep": 0.0004530318639990583,
+          "s_drift_final": 2.6432189770275727e-12
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3665513064267647,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -206.96147988638714,
+          "rel_frac_mitad_final": 0.3779242125984252,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 15.9981875,
+          "accept_rate": 0.5035511811023622,
+          "valid_frac": 0.5040816929133858,
+          "accept_per_valid": 0.9989475677881545,
+          "s_per_sweep": 0.10962763024199786,
+          "measure_s_per_sweep": 0.00044188888199960273,
+          "s_drift_final": -3.325340003357269e-12
+        }
+      },
+      "accept_rate": 0.4635892593503937,
+      "valid_frac": 0.46448252952755903,
+      "s_per_sweep": 0.10681772022500036,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 12.408992078066975,
+          "tau": [
+            1.365576970917905,
+            9.394937052422055,
+            1.561941808637751,
+            1.1838693710053252
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 580.9120035703949
+        },
+        "rel_frac": {
+          "rhat": 30.325573531623316,
+          "tau": [
+            1.5747440987072596,
+            13.186421897611806,
+            1.1873966641911191,
+            1.2006297796399483
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 596.4835400665964
+        },
+        "height": {
+          "rhat": 11.09619455788036,
+          "tau": [
+            1.7638727524204705,
+            1.4769338731443993,
+            250.0,
+            250.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "ess": 313.00317605901773
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N128_b2": {
+      "eps": 0.25,
+      "N": 128,
+      "b": 0,
+      "beta": 0.0,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 3.010219496006671,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -166.07325,
+          "rel_frac_mitad_final": 0.2267194881889764,
+          "height_mitad_final": 2.072,
+          "links_per_N_mitad_final": 14.38984375,
+          "accept_rate": 0.4495962106299213,
+          "valid_frac": 0.4495962106299213,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.10383623011600003,
+          "measure_s_per_sweep": 0.0004093131639938292,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.8454851540831947,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -293.1706877025152,
+          "rel_frac_mitad_final": 0.5608715551181103,
+          "height_mitad_final": 5.076,
+          "links_per_N_mitad_final": 12.391375,
+          "accept_rate": 0.37587475393700787,
+          "valid_frac": 0.37587475393700787,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.08864928544599389,
+          "measure_s_per_sweep": 0.000454278384000645,
+          "s_drift_final": -1.6484591469634324e-11
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.8739228051914587,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -186.33084116232726,
+          "rel_frac_mitad_final": 0.253054625984252,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 15.57678125,
+          "accept_rate": 0.4891225393700787,
+          "valid_frac": 0.4891225393700787,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.11158085924999886,
+          "measure_s_per_sweep": 0.0004248810319936638,
+          "s_drift_final": -2.3305801732931286e-12
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3652196756221966,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -206.76544778162986,
+          "rel_frac_mitad_final": 0.3783159448818898,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 16.0230625,
+          "accept_rate": 0.5040187007874016,
+          "valid_frac": 0.5040187007874016,
+          "accept_per_valid": 1.0,
+          "s_per_sweep": 0.10882478291999814,
+          "measure_s_per_sweep": 0.00044965662600679934,
+          "s_drift_final": 3.240074875066057e-12
+        }
+      },
+      "accept_rate": 0.4546530511811024,
+      "valid_frac": 0.4546530511811024,
+      "s_per_sweep": 0.10322278943299773,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 8.313920682413752,
+          "tau": [
+            1.344446864709465,
+            1.9131489327541042,
+            1.1911450017845162,
+            1.3464890497290076
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 712.1748341020393
+        },
+        "rel_frac": {
+          "rhat": 36.56809777298146,
+          "tau": [
+            1.315690776532016,
+            24.11803913025439,
+            1.1883731932694785,
+            1.7645075355638968
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 552.4341545711318
+        },
+        "height": {
+          "rhat": 6.31379778287713,
+          "tau": [
+            2.0059693486590042,
+            3.1464790345673945,
+            250.0,
+            250.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "ess": 206.08191621635936
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N128_b3": {
+      "eps": 0.25,
+      "N": 128,
+      "b": 4,
+      "beta": 0.03125,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.9726579601257828,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -173.27125,
+          "rel_frac_mitad_final": 0.23371555118110238,
+          "height_mitad_final": 2.048,
+          "links_per_N_mitad_final": 14.83634375,
+          "accept_rate": 0.46108120078740156,
+          "valid_frac": 0.46198080708661415,
+          "accept_per_valid": 0.9980527193220736,
+          "s_per_sweep": 0.10876743624599748,
+          "measure_s_per_sweep": 0.00041849593000324603,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.8450059857400294,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -280.3881614516727,
+          "rel_frac_mitad_final": 0.5610851377952756,
+          "height_mitad_final": 5.788,
+          "links_per_N_mitad_final": 12.3699375,
+          "accept_rate": 0.3676532972440945,
+          "valid_frac": 0.3699948326771654,
+          "accept_per_valid": 0.9936714374735229,
+          "s_per_sweep": 0.08788998020199824,
+          "measure_s_per_sweep": 0.00046123825400036365,
+          "s_drift_final": 2.0406787371030077e-11
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.821174061852354,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -185.03841689101367,
+          "rel_frac_mitad_final": 0.26398523622047243,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 15.427125,
+          "accept_rate": 0.4828078248031496,
+          "valid_frac": 0.48366781496062994,
+          "accept_per_valid": 0.9982219404912226,
+          "s_per_sweep": 0.11288147649400343,
+          "measure_s_per_sweep": 0.00047174607400029346,
+          "s_drift_final": -5.087485988042317e-12
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.368789697616625,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -207.18135525943578,
+          "rel_frac_mitad_final": 0.37726427165354337,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 15.95628125,
+          "accept_rate": 0.5031998031496063,
+          "valid_frac": 0.5037071850393701,
+          "accept_per_valid": 0.998992704680748,
+          "s_per_sweep": 0.10897288453199644,
+          "measure_s_per_sweep": 0.0004527748140030781,
+          "s_drift_final": 2.2737367544323206e-12
+        }
+      },
+      "accept_rate": 0.453685531496063,
+      "valid_frac": 0.4548376599409449,
+      "s_per_sweep": 0.1046279443684989,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 5.846427786885495,
+          "tau": [
+            2.6029486765306484,
+            29.71155175545571,
+            1.163599828397928,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 569.3096524777986
+        },
+        "rel_frac": {
+          "rhat": 33.244315819330886,
+          "tau": [
+            2.4849436989352434,
+            28.181550917671164,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 609.4769529654527
+        },
+        "height": {
+          "rhat": 6.592641686800589,
+          "tau": [
+            3.0781960784313736,
+            28.959966761304567,
+            250.0,
+            250.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "ess": 91.84900529874751
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "e1_N128_b4": {
+      "eps": 0.25,
+      "N": 128,
+      "b": 12,
+      "beta": 0.09375,
+      "chains": 4,
+      "commits": [
+        "33aa25f29e0bb1168c8b8292be221c2ee175b39d"
+      ],
+      "dirty": false,
+      "official": true,
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 3.0044113576950995,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -167.0755,
+          "rel_frac_mitad_final": 0.22778100393700787,
+          "height_mitad_final": 2.108,
+          "links_per_N_mitad_final": 14.45534375,
+          "accept_rate": 0.44611146653543304,
+          "valid_frac": 0.44877239173228345,
+          "accept_per_valid": 0.9940706575407211,
+          "s_per_sweep": 0.10956985522400418,
+          "measure_s_per_sweep": 0.00043082775799257436,
+          "s_drift_final": 0.0
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 1.7443345588288883,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -270.20097131575375,
+          "rel_frac_mitad_final": 0.6039404527559056,
+          "height_mitad_final": 6.06,
+          "links_per_N_mitad_final": 11.73671875,
+          "accept_rate": 0.3426825787401575,
+          "valid_frac": 0.35086638779527557,
+          "accept_per_valid": 0.9766754259177051,
+          "s_per_sweep": 0.08931541734200436,
+          "measure_s_per_sweep": 0.0004807275779962765,
+          "s_drift_final": -1.028865881380625e-11
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 500,
+          "flag_inicial": 1,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.775752026755863,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -190.13015357949777,
+          "rel_frac_mitad_final": 0.2737593503937008,
+          "height_mitad_final": 4.0,
+          "links_per_N_mitad_final": 15.5009375,
+          "accept_rate": 0.48338139763779525,
+          "valid_frac": 0.48588188976377955,
+          "accept_per_valid": 0.994853703793735,
+          "s_per_sweep": 0.11012536573399392,
+          "measure_s_per_sweep": 0.00046187663399496157,
+          "s_drift_final": -1.1368683772161603e-12
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 500,
+          "flag_inicial": 0,
+          "flag_frac_mitad_final": 0.0,
+          "d_mm_mitad_final": 2.3675401312552755,
+          "d_mm_nan_frac": 0.0,
+          "S_mitad_final": -207.1135613072414,
+          "rel_frac_mitad_final": 0.3776323818897638,
+          "height_mitad_final": 3.0,
+          "links_per_N_mitad_final": 15.97965625,
+          "accept_rate": 0.5027089074803149,
+          "valid_frac": 0.5042423720472441,
+          "accept_per_valid": 0.9969588740416574,
+          "s_per_sweep": 0.10961847433200136,
+          "measure_s_per_sweep": 0.0004518381139964731,
+          "s_drift_final": 1.2818190953112207e-11
+        }
+      },
+      "accept_rate": 0.4437210875984252,
+      "valid_frac": 0.4474407603346457,
+      "s_per_sweep": 0.10465727815800097,
+      "sprinkling_4d_barrido_salida": 1,
+      "sprinkling_4d_flag_inicial": 1,
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 5.740246733317576,
+          "tau": [
+            1.1588433881709586,
+            2.779071144505292,
+            1.509932010229778,
+            1.3901749268149826
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 651.094310629141
+        },
+        "rel_frac": {
+          "rhat": 42.86453201128136,
+          "tau": [
+            1.0489446666049216,
+            2.064999937297765,
+            1.6734901008450018,
+            1.166820767088908
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 723.0459711978057
+        },
+        "height": {
+          "rhat": 8.095924365672973,
+          "tau": [
+            3.558832087693074,
+            2.0868652482269496,
+            250.0,
+            250.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "ess": 192.04467096328437
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    }
+  }
+}

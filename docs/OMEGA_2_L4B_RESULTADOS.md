@@ -28,3 +28,5 @@ D_int = sd(acción de la mitad superior del bloque)/ε; se necesitaba ≤ 0.477 
 ## 4. Conclusión para la rama lorentziana 4D
 
 En diamantes y en bloques con espacio toroidal, para los siete esquemas de ε probados, la geometría no puede ser coherente donde las familias por capas se cancelan. La rama lorentziana queda **incompatible en 4D en todo lo probado**. Esto no refuta la teoría de conjuntos causales en general: se ajusta a un problema conocido de la literatura (las fluctuaciones de la acción y el papel de la no localidad), y lo cuantifica con datos propios.
+
+> **Nota de unidades (2026-10-19, auditoría de √ε, `docs/omega_c/AUDITORIA_SQRT_EPS.md`):** la acción 4D suavizada de esta corrida está en unidades del repositorio de entonces, sin el factor √ε (S_ε/√ε). D₄ y D_int son invariantes ante ese factor, porque numerador y denominador cambian igual, así que los veredictos no cambian. Desde el commit de la corrección, `bd_action_4d_smeared` incluye √ε.

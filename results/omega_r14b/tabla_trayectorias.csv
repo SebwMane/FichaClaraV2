@@ -1,0 +1,321 @@
+estructura,familia,objetivo,principal,q,N_media,mediana_D_radio,ic95_lo,ic95_hi,frac_en_banda,estado,etiqueta
+plana,geometria,plana,True,1.0,8000.0,0.9122370135116187,0.7160171148227277,1.0038926189680666,0.8,ambiguo,converge a banda
+plana,geometria,plana,True,0.5,4017.9,0.7531006175082394,0.5665673176897577,0.8649402618183267,1.0,dentro,converge a banda
+plana,geometria,plana,True,0.25,2012.4,0.5771186054658408,0.5112927369142981,0.6166543825895668,1.0,dentro,converge a banda
+plana,geometria,plana,True,0.125,980.9,0.7302841203515594,0.6482945427790593,0.8377680559530607,1.0,dentro,converge a banda
+de_sitter,geometria,de_sitter,True,1.0,8000.0,0.6246656215836544,0.47705203140062147,0.7328481489403151,1.0,dentro,en banda microscópica
+de_sitter,geometria,de_sitter,True,0.5,3994.1,0.6865646675028461,0.5428847499210041,0.7487755144890305,1.0,dentro,en banda microscópica
+de_sitter,geometria,de_sitter,True,0.25,2008.3,0.8456019537573164,0.7438064207940863,0.9643521590778513,0.8,dentro,en banda microscópica
+de_sitter,geometria,de_sitter,True,0.125,1010.0,1.0281195935419825,0.7806396772636577,1.1229092591473377,0.5,ambiguo,en banda microscópica
+de_sitter_fuerte,geometria,de_sitter_fuerte,True,1.0,8000.0,0.8212459014571134,0.6970355037656814,1.0052377536149468,0.8,ambiguo,converge a banda
+de_sitter_fuerte,geometria,de_sitter_fuerte,True,0.5,3981.6,0.8918299536454821,0.6742789737803865,1.1302969889417962,0.7,ambiguo,converge a banda
+de_sitter_fuerte,geometria,de_sitter_fuerte,True,0.25,2005.9,0.7396796896884774,0.5818272275825824,0.9073474018949749,0.9,dentro,converge a banda
+de_sitter_fuerte,geometria,de_sitter_fuerte,True,0.125,1003.7,0.8119282030811872,0.6776740698920414,0.8507083081840942,0.9,dentro,converge a banda
+anti_de_sitter,geometria,anti_de_sitter,True,1.0,8000.0,0.7595738220295052,0.6606617511394615,0.832042844778879,0.9,dentro,en banda microscópica
+anti_de_sitter,geometria,anti_de_sitter,True,0.5,3997.7,0.623142288122893,0.5163194670355483,0.7273456475076404,1.0,dentro,en banda microscópica
+anti_de_sitter,geometria,anti_de_sitter,True,0.25,1991.8,0.84686175113954,0.66170907254966,0.9313979293776483,0.9,dentro,en banda microscópica
+anti_de_sitter,geometria,anti_de_sitter,True,0.125,981.3,0.6138093442288282,0.5255503809280796,0.8260854510623186,1.0,dentro,en banda microscópica
+frw_polvo,geometria,frw_polvo,True,1.0,8000.0,0.8619555519139439,0.7385369128707883,0.9214511992508129,1.0,dentro,en banda microscópica
+frw_polvo,geometria,frw_polvo,True,0.5,4012.1,0.6788283046311906,0.6061607301597314,0.8276699279228839,1.0,dentro,en banda microscópica
+frw_polvo,geometria,frw_polvo,True,0.25,1992.4,0.7692930271572758,0.626531739165775,0.9788586726663279,0.8,dentro,en banda microscópica
+frw_polvo,geometria,frw_polvo,True,0.125,1002.4,0.7292389098588691,0.6895249192846132,0.8115159239200189,1.0,dentro,en banda microscópica
+D2_frw_exponencial,geometria,D2_frw_exponencial,True,1.0,8000.0,0.8150180536296949,0.6717344290518055,0.9974959041795184,0.8,dentro,en banda microscópica
+D2_frw_exponencial,geometria,D2_frw_exponencial,True,0.5,3974.1,0.6717463040185823,0.603588866534182,0.7207356697279957,1.0,dentro,en banda microscópica
+D2_frw_exponencial,geometria,D2_frw_exponencial,True,0.25,1991.3,0.8295843158877444,0.7031363035798865,0.8507638047108166,0.9,dentro,en banda microscópica
+D2_frw_exponencial,geometria,D2_frw_exponencial,True,0.125,998.5,0.8151795439637546,0.6979361417086037,0.8727988590634129,1.0,dentro,en banda microscópica
+C0_kasner,geometria,C0_kasner,True,1.0,8000.0,0.8436662822046648,0.752793412381089,0.9705254213778184,0.8,dentro,en banda microscópica
+C0_kasner,geometria,C0_kasner,True,0.5,4043.7,0.7564542423418572,0.6691163224565839,0.8898684190945626,0.9,dentro,en banda microscópica
+C0_kasner,geometria,C0_kasner,True,0.25,1985.6,0.6880461689988328,0.5723644133883453,0.8741743360601195,0.9,dentro,en banda microscópica
+C0_kasner,geometria,C0_kasner,True,0.125,989.2,0.736812391097733,0.5581063865397718,0.9082116057614134,1.0,dentro,en banda microscópica
+D0_kasner,geometria,D0_kasner,True,1.0,8000.0,0.6526154409140305,0.5651010734107318,0.8734929114270523,0.8,dentro,en banda microscópica
+D0_kasner,geometria,D0_kasner,True,0.5,4008.7,0.6917324235984651,0.5885899292023012,0.8099498134189268,0.9,dentro,en banda microscópica
+D0_kasner,geometria,D0_kasner,True,0.25,2007.3,0.6835497303825566,0.6294306813482945,0.7736208954188226,1.0,dentro,en banda microscópica
+D0_kasner,geometria,D0_kasner,True,0.125,995.7,0.8833632831479792,0.6970074097274874,1.0906944729450534,0.7,ambiguo,en banda microscópica
+C5_links_borrados,defecto,plana,True,1.0,8000.0,4.327387914540395,4.201926539703717,4.411917927360834,0.0,fuera,indeterminada
+C5_links_borrados,defecto,plana,True,0.5,3998.7,2.1163047555396486,2.0203980541169373,2.1852077001731667,0.0,fuera,indeterminada
+C5_links_borrados,defecto,plana,True,0.25,1992.3,0.9445067112867456,0.8509860900890156,1.0785963337923046,0.7,ambiguo,indeterminada
+C5_links_borrados,defecto,plana,True,0.125,1019.5,0.9481248691056027,0.7303884192052693,1.095551217835817,0.7,ambiguo,indeterminada
+C5_links_borrados,defecto,de_sitter,False,1.0,8000.0,3.6436337689715543,3.562535939249104,3.6783182417844436,0.0,fuera,no converge
+C5_links_borrados,defecto,de_sitter,False,0.5,3998.7,2.313882317638395,2.074474423861027,2.354759810719579,0.0,fuera,no converge
+C5_links_borrados,defecto,de_sitter,False,0.25,1992.3,1.643153646488182,1.5455147163689398,1.9018931831948476,0.0,fuera,no converge
+C5_links_borrados,defecto,de_sitter,False,0.125,1019.5,1.3291202839472898,1.1144594001210752,1.4812432497942372,0.2,fuera,no converge
+C5_links_borrados,defecto,de_sitter_fuerte,False,1.0,8000.0,6.426070918556007,6.285084428433322,6.577122339325688,0.0,fuera,no converge
+C5_links_borrados,defecto,de_sitter_fuerte,False,0.5,3998.7,3.52209859652909,3.3870741865241802,3.777903061511821,0.0,fuera,no converge
+C5_links_borrados,defecto,de_sitter_fuerte,False,0.25,1992.3,2.3843897378459533,2.2864211798122227,2.4567050266289083,0.0,fuera,no converge
+C5_links_borrados,defecto,de_sitter_fuerte,False,0.125,1019.5,1.7805486485987,1.417473323023594,1.9041303555117661,0.0,fuera,no converge
+C5_links_borrados,defecto,anti_de_sitter,False,1.0,8000.0,7.405625684857789,6.925372299175841,7.823601238027265,0.0,fuera,no converge
+C5_links_borrados,defecto,anti_de_sitter,False,0.5,3998.7,3.675163284002171,3.5290508477043496,3.9185922873065424,0.0,fuera,no converge
+C5_links_borrados,defecto,anti_de_sitter,False,0.25,1992.3,3.1686023954433304,2.787028832948839,3.4723205061314806,0.0,fuera,no converge
+C5_links_borrados,defecto,anti_de_sitter,False,0.125,1019.5,2.514664188754013,1.998784068831669,2.8346312683914445,0.0,fuera,no converge
+C5_links_borrados,defecto,frw_polvo,False,1.0,8000.0,4.048507853842551,3.9119803327405007,4.236471503521958,0.0,fuera,indeterminada
+C5_links_borrados,defecto,frw_polvo,False,0.5,3998.7,1.988722726471708,1.811801604376242,2.1047247309768364,0.0,fuera,indeterminada
+C5_links_borrados,defecto,frw_polvo,False,0.25,1992.3,1.0537945128431065,0.9538051414935108,1.192419411335588,0.4,ambiguo,indeterminada
+C5_links_borrados,defecto,frw_polvo,False,0.125,1019.5,0.9771756667730713,0.759554941517677,1.1105237237409302,0.6,ambiguo,indeterminada
+C5_links_borrados,defecto,D2_frw_exponencial,False,1.0,8000.0,3.9191545455713177,3.7895140687176254,4.033745412336155,0.0,fuera,no converge
+C5_links_borrados,defecto,D2_frw_exponencial,False,0.5,3998.7,1.8485427159365746,1.7579762285472458,1.9861023103851732,0.0,fuera,no converge
+C5_links_borrados,defecto,D2_frw_exponencial,False,0.25,1992.3,1.3146202976135473,1.2427613813637306,1.3881062448711234,0.0,fuera,no converge
+C5_links_borrados,defecto,D2_frw_exponencial,False,0.125,1019.5,1.0225024038640993,0.8891212138062143,1.1160942619605492,0.5,ambiguo,no converge
+C5_links_borrados,defecto,C0_kasner,False,1.0,8000.0,4.5943009737148435,4.4596041253984104,4.734497967601176,0.0,fuera,no converge
+C5_links_borrados,defecto,C0_kasner,False,0.5,3998.7,1.965537616364232,1.8585767148987966,2.1500355266931876,0.0,fuera,no converge
+C5_links_borrados,defecto,C0_kasner,False,0.25,1992.3,1.1098473209135875,1.0136705320730417,1.3134973920190096,0.2,fuera,no converge
+C5_links_borrados,defecto,C0_kasner,False,0.125,1019.5,0.9742150468972011,0.7569572035311556,1.1723780592236117,0.5,ambiguo,no converge
+C5_links_borrados,defecto,D0_kasner,False,1.0,8000.0,3.802648268290122,3.721464485853605,3.8702728119763083,0.0,fuera,no converge
+C5_links_borrados,defecto,D0_kasner,False,0.5,3998.7,2.114786737211986,1.9978430333429764,2.243551274418036,0.0,fuera,no converge
+C5_links_borrados,defecto,D0_kasner,False,0.25,1992.3,1.3327096373821492,1.1194083890363475,1.4106520496010009,0.1,fuera,no converge
+C5_links_borrados,defecto,D0_kasner,False,0.125,1019.5,0.9986272508624049,0.8339629005764192,1.130746797035877,0.5,ambiguo,no converge
+D4_relaciones_agregadas,defecto,plana,True,1.0,8000.0,30.23140499948731,29.71493286557035,30.808506425500784,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,plana,True,0.5,4011.0,10.277967391097157,10.0267008394397,10.402642519427907,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,plana,True,0.25,1998.6,4.287911404567791,4.022733836787,4.5563989551691,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,plana,True,0.125,995.4,2.2710482089072395,2.0804250122871712,2.6314032573716255,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,de_sitter,False,1.0,8000.0,23.003521840374695,22.724255975074332,23.44871352742709,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,de_sitter,False,0.5,4011.0,10.842539371490858,10.452200412641144,10.963039852671743,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,de_sitter,False,0.25,1998.6,5.509985813400069,5.435485938776131,5.894729497239585,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,de_sitter,False,0.125,995.4,2.758382790633584,2.4085064565798056,3.023032371104818,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,de_sitter_fuerte,False,1.0,8000.0,23.68840700584925,23.340601686810885,24.222167154261683,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,de_sitter_fuerte,False,0.5,4011.0,11.372981200790237,11.284677332839808,11.65835446323738,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,de_sitter_fuerte,False,0.25,1998.6,4.5898897409394905,4.298501253927359,4.815770849367223,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,de_sitter_fuerte,False,0.125,995.4,2.101124880509167,1.9472973829331988,2.3092589091303135,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,anti_de_sitter,False,1.0,8000.0,31.541722443633308,31.118446523142687,32.31309324148829,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,anti_de_sitter,False,0.5,4011.0,11.799105189168342,11.38552251721647,11.96954400805702,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,anti_de_sitter,False,0.25,1998.6,6.703687696740648,6.131421195392089,6.897587566799144,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,anti_de_sitter,False,0.125,995.4,3.7687049012549494,3.565929096558031,3.9167333569339604,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,frw_polvo,False,1.0,8000.0,30.423604915910737,29.887094969421604,31.010294304321175,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,frw_polvo,False,0.5,4011.0,10.953716374131407,10.574008294982743,11.055982564449241,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,frw_polvo,False,0.25,1998.6,4.641976946552232,4.561173135669735,4.981680338773636,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,frw_polvo,False,0.125,995.4,2.3043589074965674,2.093502428774822,2.587489124603329,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,D2_frw_exponencial,False,1.0,8000.0,28.868635089235454,28.36915081157101,29.38158142555464,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,D2_frw_exponencial,False,0.5,4011.0,9.411801010538511,9.045961758761468,9.475716263625326,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,D2_frw_exponencial,False,0.25,1998.6,4.608960316221819,4.378033851700017,4.777113183627682,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,D2_frw_exponencial,False,0.125,995.4,2.332713886678591,2.051714393456149,2.6794087537321905,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,C0_kasner,False,1.0,8000.0,26.004344005102716,25.665982776582613,26.431837188283573,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,C0_kasner,False,0.5,4011.0,11.835439567398023,11.431872783269931,11.97139824946678,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,C0_kasner,False,0.25,1998.6,4.816850313374546,4.697605394310828,5.2591609186101005,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,C0_kasner,False,0.125,995.4,2.365297051114788,2.1857118120201093,2.6976960764016256,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,D0_kasner,False,1.0,8000.0,26.19618598181117,25.70694293102925,26.743025297015222,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,D0_kasner,False,0.5,4011.0,10.615480730959135,10.414516038848994,10.744939560820491,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,D0_kasner,False,0.25,1998.6,4.914360208035529,4.721729855772133,5.095470722676995,0.0,fuera,no converge
+D4_relaciones_agregadas,defecto,D0_kasner,False,0.125,995.4,2.5530533268080005,2.2229277209560623,2.9142306782111165,0.0,fuera,no converge
+D5_gemelos,defecto,plana,True,1.0,8000.0,5.401064062875813,5.126054415172077,5.489052758564998,0.0,fuera,converge a banda
+D5_gemelos,defecto,plana,True,0.5,3998.1,1.7072066793978469,1.565386749459604,1.910678742445862,0.0,fuera,converge a banda
+D5_gemelos,defecto,plana,True,0.25,2006.4,0.6630021132596613,0.5847143044751173,0.7015789628829662,1.0,dentro,converge a banda
+D5_gemelos,defecto,plana,True,0.125,998.1,0.7413227216592402,0.6917150949546484,0.9594049214623805,0.8,dentro,converge a banda
+D5_gemelos,defecto,de_sitter,False,1.0,8000.0,4.592683168143224,4.512767828472954,4.7050525786148345,0.0,fuera,no converge
+D5_gemelos,defecto,de_sitter,False,0.5,3998.1,2.5429845715468464,2.4083686021262127,2.6167089948422126,0.0,fuera,no converge
+D5_gemelos,defecto,de_sitter,False,0.25,2006.4,1.0965386421231562,1.0420145476263438,1.4026038222617623,0.1,fuera,no converge
+D5_gemelos,defecto,de_sitter,False,0.125,998.1,1.3044792464718848,1.1939391220946503,1.6148520359316376,0.1,fuera,no converge
+D5_gemelos,defecto,de_sitter_fuerte,False,1.0,8000.0,7.698054218998468,7.540798162301156,7.7618967370339025,0.0,fuera,no converge
+D5_gemelos,defecto,de_sitter_fuerte,False,0.5,3998.1,3.690999550642233,3.5443189858257598,3.8555909959180266,0.0,fuera,no converge
+D5_gemelos,defecto,de_sitter_fuerte,False,0.25,2006.4,2.1612811360577835,2.011183964553559,2.412093039781821,0.0,fuera,no converge
+D5_gemelos,defecto,de_sitter_fuerte,False,0.125,998.1,1.718564467415014,1.6433511431315042,2.0506603775491765,0.0,fuera,no converge
+D5_gemelos,defecto,anti_de_sitter,False,1.0,8000.0,8.282295411749857,7.8329959016731765,8.56055210205258,0.0,fuera,no converge
+D5_gemelos,defecto,anti_de_sitter,False,0.5,3998.1,3.7757108993160453,3.394968799364455,3.8656547749755146,0.0,fuera,no converge
+D5_gemelos,defecto,anti_de_sitter,False,0.25,2006.4,2.8574506913320237,2.526668868403502,3.0050750325521483,0.0,fuera,no converge
+D5_gemelos,defecto,anti_de_sitter,False,0.125,998.1,2.331020794420471,1.8332379226048645,2.4847954502879603,0.0,fuera,no converge
+D5_gemelos,defecto,frw_polvo,False,1.0,8000.0,5.628839759494009,5.496210895137211,5.763954140135224,0.0,fuera,indeterminada
+D5_gemelos,defecto,frw_polvo,False,0.5,3998.1,1.6363123200808714,1.526363294533211,1.849953784658813,0.0,fuera,indeterminada
+D5_gemelos,defecto,frw_polvo,False,0.25,2006.4,0.9158017968337278,0.7741720046328954,1.0780321203166279,0.7,ambiguo,indeterminada
+D5_gemelos,defecto,frw_polvo,False,0.125,998.1,0.8348696123153339,0.7214584107849723,1.016802575314568,0.6,ambiguo,indeterminada
+D5_gemelos,defecto,D2_frw_exponencial,False,1.0,8000.0,5.918162389933471,5.773709470727734,5.977255343593659,0.0,fuera,indeterminada
+D5_gemelos,defecto,D2_frw_exponencial,False,0.5,3998.1,1.7179504143007278,1.471825763302919,1.8043238621530062,0.0,fuera,indeterminada
+D5_gemelos,defecto,D2_frw_exponencial,False,0.25,2006.4,0.8811901233547879,0.6453075285928309,1.0511315368734513,0.6,ambiguo,indeterminada
+D5_gemelos,defecto,D2_frw_exponencial,False,0.125,998.1,0.8480394345081785,0.7144700788952246,1.0400815430872814,0.8,ambiguo,indeterminada
+D5_gemelos,defecto,C0_kasner,False,1.0,8000.0,5.733087033696869,5.588395961128741,5.868189955716879,0.0,fuera,converge a banda
+D5_gemelos,defecto,C0_kasner,False,0.5,3998.1,1.8997998248050083,1.7248672109304004,2.1239449807427278,0.0,fuera,converge a banda
+D5_gemelos,defecto,C0_kasner,False,0.25,2006.4,0.8272616699070665,0.5950717163623972,0.8878936688590126,1.0,dentro,converge a banda
+D5_gemelos,defecto,C0_kasner,False,0.125,998.1,0.7134554039433301,0.6438510522078795,0.9136354468781424,0.8,dentro,converge a banda
+D5_gemelos,defecto,D0_kasner,False,1.0,8000.0,5.178833530363663,4.981686640276328,5.222734796985745,0.0,fuera,indeterminada
+D5_gemelos,defecto,D0_kasner,False,0.5,3998.1,1.8834680001941386,1.6825551963184573,2.0204084616360443,0.0,fuera,indeterminada
+D5_gemelos,defecto,D0_kasner,False,0.25,2006.4,0.8652321593236756,0.8034645306045286,1.0070418810921624,0.7,ambiguo,indeterminada
+D5_gemelos,defecto,D0_kasner,False,0.125,998.1,0.8984770663484638,0.8134148027848743,1.04887727465718,0.7,ambiguo,indeterminada
+D6_cono_tapa_plana,cono,plana,True,1.0,8000.0,1.0460513820441264,0.9112012962237579,1.2612853300818516,0.5,ambiguo,converge a banda
+D6_cono_tapa_plana,cono,plana,True,0.5,3989.4,0.6436614198028648,0.578631004994163,0.9174697651020316,0.8,dentro,converge a banda
+D6_cono_tapa_plana,cono,plana,True,0.25,2011.0,0.6296537027084786,0.49238899251968854,0.7815216529943392,0.9,dentro,converge a banda
+D6_cono_tapa_plana,cono,plana,True,0.125,997.8,0.7980579229325345,0.5560392360855715,0.8990270197135259,0.9,dentro,converge a banda
+D6_cono_tapa_plana,cono,de_sitter,False,1.0,8000.0,1.6521061976836031,1.5657007304454083,1.771499330861994,0.0,fuera,no converge
+D6_cono_tapa_plana,cono,de_sitter,False,0.5,3989.4,1.2838653314824886,1.1278309355588692,1.3365209205301463,0.2,fuera,no converge
+D6_cono_tapa_plana,cono,de_sitter,False,0.25,2011.0,1.2308147197352024,1.1439052374175627,1.4349692264015435,0.0,fuera,no converge
+D6_cono_tapa_plana,cono,de_sitter,False,0.125,997.8,0.9930325346261926,0.8321108808505292,1.1464701497100536,0.5,ambiguo,no converge
+D6_cono_tapa_plana,cono,de_sitter_fuerte,False,1.0,8000.0,5.6040424422006865,5.472863735635855,5.7998310646635085,0.0,fuera,no converge
+D6_cono_tapa_plana,cono,de_sitter_fuerte,False,0.5,3989.4,3.285115296162531,3.124073301343216,3.4417247635763437,0.0,fuera,no converge
+D6_cono_tapa_plana,cono,de_sitter_fuerte,False,0.25,2011.0,2.085581546834037,2.052855803882558,2.266491475463855,0.0,fuera,no converge
+D6_cono_tapa_plana,cono,de_sitter_fuerte,False,0.125,997.8,1.4331133814982862,1.3028134512592513,1.5540088648761503,0.1,fuera,no converge
+D6_cono_tapa_plana,cono,anti_de_sitter,False,1.0,8000.0,7.135019265973496,6.9085650283411555,7.424096143830078,0.0,fuera,no converge
+D6_cono_tapa_plana,cono,anti_de_sitter,False,0.5,3989.4,3.3398971447123165,3.0120494099339976,3.6186871444397797,0.0,fuera,no converge
+D6_cono_tapa_plana,cono,anti_de_sitter,False,0.25,2011.0,2.806927570329182,2.541222159233386,3.094036608369565,0.0,fuera,no converge
+D6_cono_tapa_plana,cono,anti_de_sitter,False,0.125,997.8,2.754220166020536,2.513670728539667,3.105166614579151,0.0,fuera,no converge
+D6_cono_tapa_plana,cono,frw_polvo,False,1.0,8000.0,1.1210899191869517,0.9753405308374155,1.3563952675993214,0.3,ambiguo,indeterminada
+D6_cono_tapa_plana,cono,frw_polvo,False,0.5,3989.4,0.7527438057888449,0.6476177043023028,0.9285596176563036,0.9,dentro,indeterminada
+D6_cono_tapa_plana,cono,frw_polvo,False,0.25,2011.0,0.7429301928269766,0.6255777944805068,0.8757271370089725,0.9,dentro,indeterminada
+D6_cono_tapa_plana,cono,frw_polvo,False,0.125,997.8,0.8507835497831705,0.6602187759523773,1.2199577233149683,0.6,ambiguo,indeterminada
+D6_cono_tapa_plana,cono,D2_frw_exponencial,False,1.0,8000.0,1.0685564853897414,0.9738362312867395,1.2903570531811888,0.4,ambiguo,converge a banda
+D6_cono_tapa_plana,cono,D2_frw_exponencial,False,0.5,3989.4,0.5991368974264042,0.5099016904173896,0.8603033692940811,1.0,dentro,converge a banda
+D6_cono_tapa_plana,cono,D2_frw_exponencial,False,0.25,2011.0,0.7872313344173101,0.6782376986860631,0.8932414005360052,0.9,dentro,converge a banda
+D6_cono_tapa_plana,cono,D2_frw_exponencial,False,0.125,997.8,0.7662269075782748,0.6134776343213714,0.984706426994657,0.8,dentro,converge a banda
+D6_cono_tapa_plana,cono,C0_kasner,False,1.0,8000.0,1.0239855150245831,0.8650593156622519,1.1222664144692969,0.4,ambiguo,converge a banda
+D6_cono_tapa_plana,cono,C0_kasner,False,0.5,3989.4,0.7217759852940622,0.6246910057917376,0.967896939443937,0.9,dentro,converge a banda
+D6_cono_tapa_plana,cono,C0_kasner,False,0.25,2011.0,0.7754828232192654,0.619246360882514,0.8824618542759561,0.9,dentro,converge a banda
+D6_cono_tapa_plana,cono,C0_kasner,False,0.125,997.8,0.7056789207655321,0.5519603665421644,0.9652987332897283,0.8,dentro,converge a banda
+D6_cono_tapa_plana,cono,D0_kasner,False,1.0,8000.0,0.9242361976248166,0.7651843648437057,1.0571393974237773,0.7,ambiguo,indeterminada
+D6_cono_tapa_plana,cono,D0_kasner,False,0.5,3989.4,0.676719642436505,0.5494309281622045,0.8399560129696111,0.9,dentro,indeterminada
+D6_cono_tapa_plana,cono,D0_kasner,False,0.25,2011.0,0.803642036717901,0.6731950882025823,0.9110336804294232,0.9,dentro,indeterminada
+D6_cono_tapa_plana,cono,D0_kasner,False,0.125,997.8,0.8715506501322943,0.5550940263850663,1.0795982515005296,0.7,ambiguo,indeterminada
+D7_cono_huso,cono,plana,True,1.0,8000.0,1.9052516527661998,1.7360216645599258,2.0608383771393552,0.0,fuera,converge a banda
+D7_cono_huso,cono,plana,True,0.5,3995.1,1.02432494778418,0.9336686262086695,1.0945000245524152,0.4,ambiguo,converge a banda
+D7_cono_huso,cono,plana,True,0.25,2015.5,0.6534709909195774,0.5866317092008767,0.7759665236125318,0.9,dentro,converge a banda
+D7_cono_huso,cono,plana,True,0.125,999.1,0.7363959025792814,0.6409251702773602,0.8847296378420801,1.0,dentro,converge a banda
+D7_cono_huso,cono,de_sitter,False,1.0,8000.0,2.1490045350903992,2.0715218878124193,2.227325189582628,0.0,fuera,no converge
+D7_cono_huso,cono,de_sitter,False,0.5,3995.1,1.5663330558928243,1.3809497484523654,1.7583121383164309,0.0,fuera,no converge
+D7_cono_huso,cono,de_sitter,False,0.25,2015.5,1.406851519701679,1.317663406430858,1.5208131394702027,0.0,fuera,no converge
+D7_cono_huso,cono,de_sitter,False,0.125,999.1,1.439096047975517,1.1520030838389832,1.5065742136229874,0.1,fuera,no converge
+D7_cono_huso,cono,de_sitter_fuerte,False,1.0,8000.0,5.904590289118188,5.820973890676319,6.1100822446878205,0.0,fuera,no converge
+D7_cono_huso,cono,de_sitter_fuerte,False,0.5,3995.1,3.6022689770605014,3.517329632171601,3.89736369544093,0.0,fuera,no converge
+D7_cono_huso,cono,de_sitter_fuerte,False,0.25,2015.5,2.228486563176899,2.0974362302038503,2.3105068839525953,0.0,fuera,no converge
+D7_cono_huso,cono,de_sitter_fuerte,False,0.125,999.1,1.8177738695193617,1.461733960692379,1.9319743476588624,0.0,fuera,no converge
+D7_cono_huso,cono,anti_de_sitter,False,1.0,8000.0,7.2777113030139144,6.948539771621533,7.570425729138887,0.0,fuera,no converge
+D7_cono_huso,cono,anti_de_sitter,False,0.5,3995.1,3.3690279048638256,3.227053485972153,3.4341410115621605,0.0,fuera,no converge
+D7_cono_huso,cono,anti_de_sitter,False,0.25,2015.5,2.661670056576639,2.548388963157854,2.94175689322322,0.0,fuera,no converge
+D7_cono_huso,cono,anti_de_sitter,False,0.125,999.1,2.0313067464080894,1.8936611672759152,2.5012056438793406,0.0,fuera,no converge
+D7_cono_huso,cono,frw_polvo,False,1.0,8000.0,2.1840630783538186,1.8163182046032935,2.2667946397600134,0.0,fuera,converge a banda
+D7_cono_huso,cono,frw_polvo,False,0.5,3995.1,0.9990709800941624,0.9166732475990834,1.0976577468383801,0.5,ambiguo,converge a banda
+D7_cono_huso,cono,frw_polvo,False,0.25,2015.5,0.7928250995670075,0.6489576578632674,0.8492269744065778,0.9,dentro,converge a banda
+D7_cono_huso,cono,frw_polvo,False,0.125,999.1,0.7282590702306293,0.6390204076552554,0.804353878457839,1.0,dentro,converge a banda
+D7_cono_huso,cono,D2_frw_exponencial,False,1.0,8000.0,2.0791631671277235,1.918002524193063,2.2088310519094563,0.0,fuera,indeterminada
+D7_cono_huso,cono,D2_frw_exponencial,False,0.5,3995.1,0.9252903611404554,0.822380322408721,1.0203583116045114,0.8,ambiguo,indeterminada
+D7_cono_huso,cono,D2_frw_exponencial,False,0.25,2015.5,0.8093465307338139,0.7654376171619774,1.017167452508735,0.7,ambiguo,indeterminada
+D7_cono_huso,cono,D2_frw_exponencial,False,0.125,999.1,0.8307460557271704,0.6928931873312147,0.894204128803349,1.0,dentro,indeterminada
+D7_cono_huso,cono,C0_kasner,False,1.0,8000.0,1.7151348656727707,1.5433507974109246,1.8533718112495083,0.0,fuera,converge a banda
+D7_cono_huso,cono,C0_kasner,False,0.5,3995.1,1.0072926486151703,0.9453123703147748,1.1646612393514815,0.4,ambiguo,converge a banda
+D7_cono_huso,cono,C0_kasner,False,0.25,2015.5,0.7712160360880214,0.6994162705541338,0.8281765219018905,0.9,dentro,converge a banda
+D7_cono_huso,cono,C0_kasner,False,0.125,999.1,0.731644011850386,0.5890233481450986,0.821735444362972,1.0,dentro,converge a banda
+D7_cono_huso,cono,D0_kasner,False,1.0,8000.0,1.6014524687353493,1.4300693903301218,1.7337538665546637,0.0,fuera,converge a banda
+D7_cono_huso,cono,D0_kasner,False,0.5,3995.1,1.029013284639781,0.8842395437752779,1.1062151741506594,0.5,ambiguo,converge a banda
+D7_cono_huso,cono,D0_kasner,False,0.25,2015.5,0.7744426853945292,0.7126587883167583,0.9626233725589988,0.8,dentro,converge a banda
+D7_cono_huso,cono,D0_kasner,False,0.125,999.1,0.8412149383156136,0.7596605297494378,0.9273800686164698,0.9,dentro,converge a banda
+D8_cono_suma_normas,cono,plana,True,1.0,8000.0,1.9934669150919144,1.8156528773439753,2.171347989768026,0.0,fuera,converge a banda
+D8_cono_suma_normas,cono,plana,True,0.5,3985.3,1.0874250853039529,0.8727905940142962,1.1245792207048049,0.4,ambiguo,converge a banda
+D8_cono_suma_normas,cono,plana,True,0.25,1997.5,0.6561590791062551,0.5576957876459993,0.7567094732827091,1.0,dentro,converge a banda
+D8_cono_suma_normas,cono,plana,True,0.125,979.5,0.7537522872368234,0.5796945995401018,0.8820543085759833,0.9,dentro,converge a banda
+D8_cono_suma_normas,cono,de_sitter,False,1.0,8000.0,2.076395652618346,2.0096955353832064,2.303635794844683,0.0,fuera,no converge
+D8_cono_suma_normas,cono,de_sitter,False,0.5,3985.3,1.5005070189024603,1.4547916065826547,1.7933997420317125,0.0,fuera,no converge
+D8_cono_suma_normas,cono,de_sitter,False,0.25,1997.5,1.311594628959897,1.0478341412937735,1.5407396575317596,0.1,fuera,no converge
+D8_cono_suma_normas,cono,de_sitter,False,0.125,979.5,1.1231102812562994,0.9830581382754332,1.352061926351113,0.3,ambiguo,no converge
+D8_cono_suma_normas,cono,de_sitter_fuerte,False,1.0,8000.0,5.866902905869342,5.5706913898624135,6.1334666014778225,0.0,fuera,no converge
+D8_cono_suma_normas,cono,de_sitter_fuerte,False,0.5,3985.3,3.5734455030665675,3.477291213189389,3.9559330563453714,0.0,fuera,no converge
+D8_cono_suma_normas,cono,de_sitter_fuerte,False,0.25,1997.5,2.1357936072823036,1.9584837127082515,2.3619838667423014,0.0,fuera,no converge
+D8_cono_suma_normas,cono,de_sitter_fuerte,False,0.125,979.5,1.5734088734515597,1.4874761817772928,1.7906828213046144,0.0,fuera,no converge
+D8_cono_suma_normas,cono,anti_de_sitter,False,1.0,8000.0,7.44729017193876,7.127160699335882,7.865892455752303,0.0,fuera,no converge
+D8_cono_suma_normas,cono,anti_de_sitter,False,0.5,3985.3,3.3006914580430298,3.064143797114138,3.5326383318914787,0.0,fuera,no converge
+D8_cono_suma_normas,cono,anti_de_sitter,False,0.25,1997.5,2.9288137174676256,2.839427184140065,3.0983969488528023,0.0,fuera,no converge
+D8_cono_suma_normas,cono,anti_de_sitter,False,0.125,979.5,2.4240189974830364,2.165786962800427,2.709997371236115,0.0,fuera,no converge
+D8_cono_suma_normas,cono,frw_polvo,False,1.0,8000.0,2.0173747766094414,1.8838951379358393,2.2509254798740495,0.0,fuera,converge a banda
+D8_cono_suma_normas,cono,frw_polvo,False,0.5,3985.3,0.9550331415750872,0.8383507470243479,1.1295154786698878,0.5,ambiguo,converge a banda
+D8_cono_suma_normas,cono,frw_polvo,False,0.25,1997.5,0.7734080883966421,0.7364294717981013,0.960829467251664,1.0,dentro,converge a banda
+D8_cono_suma_normas,cono,frw_polvo,False,0.125,979.5,0.796252889738499,0.7206854297257395,0.8705609640134622,0.9,dentro,converge a banda
+D8_cono_suma_normas,cono,D2_frw_exponencial,False,1.0,8000.0,2.0633943623637743,1.9676740775469514,2.2351238003660954,0.0,fuera,converge a banda
+D8_cono_suma_normas,cono,D2_frw_exponencial,False,0.5,3985.3,0.9510810855603542,0.8693199532239247,1.0555625265535067,0.7,ambiguo,converge a banda
+D8_cono_suma_normas,cono,D2_frw_exponencial,False,0.25,1997.5,0.8579511585139727,0.6963618986059068,0.9884351823919801,0.8,dentro,converge a banda
+D8_cono_suma_normas,cono,D2_frw_exponencial,False,0.125,979.5,0.722380904259132,0.6586801219816869,0.9508269558374122,0.8,dentro,converge a banda
+D8_cono_suma_normas,cono,C0_kasner,False,1.0,8000.0,1.778651123871092,1.6175540887142243,1.9019283624621932,0.0,fuera,converge a banda
+D8_cono_suma_normas,cono,C0_kasner,False,0.5,3985.3,1.0274881036802506,0.9038420527644379,1.127931683207665,0.4,ambiguo,converge a banda
+D8_cono_suma_normas,cono,C0_kasner,False,0.25,1997.5,0.8031001479820874,0.6589177070079194,0.9693051492718747,0.8,dentro,converge a banda
+D8_cono_suma_normas,cono,C0_kasner,False,0.125,979.5,0.7697149717831855,0.6072140832373797,0.897080088091365,0.9,dentro,converge a banda
+D8_cono_suma_normas,cono,D0_kasner,False,1.0,8000.0,1.5909883463765975,1.4471750157186154,1.6883723821537278,0.0,fuera,indeterminada
+D8_cono_suma_normas,cono,D0_kasner,False,0.5,3985.3,1.021229714277284,0.8809327876105821,1.1268482790778376,0.5,ambiguo,indeterminada
+D8_cono_suma_normas,cono,D0_kasner,False,0.25,1997.5,0.8721620672885003,0.7095679013665003,0.9475959985732987,0.9,dentro,indeterminada
+D8_cono_suma_normas,cono,D0_kasner,False,0.125,979.5,0.8149085382987155,0.6502814358570717,1.1034614312621804,0.8,ambiguo,indeterminada
+C4_cono_esfera_cubo,cono,plana,True,1.0,8000.0,5.216770959741231,5.137451685731649,5.411019443329373,0.0,fuera,indeterminada
+C4_cono_esfera_cubo,cono,plana,True,0.5,3985.2,2.120276428426877,2.022176439440137,2.219117669174671,0.0,fuera,indeterminada
+C4_cono_esfera_cubo,cono,plana,True,0.25,2000.4,0.8495957304473818,0.7555633993959097,1.0288135868660353,0.8,ambiguo,indeterminada
+C4_cono_esfera_cubo,cono,plana,True,0.125,1005.5,0.8917800801633012,0.7530892198508049,0.998083739703208,0.8,dentro,indeterminada
+C4_cono_esfera_cubo,cono,de_sitter,False,1.0,8000.0,4.278240983729306,4.073229632557258,4.380944241957854,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,de_sitter,False,0.5,3985.2,2.449093374442235,2.3688430818775763,2.593865175841853,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,de_sitter,False,0.25,2000.4,1.807963185678095,1.6442297189471833,1.962643229368067,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,de_sitter,False,0.125,1005.5,1.3797301464287173,1.2875222754659694,1.695634740851645,0.1,fuera,no converge
+C4_cono_esfera_cubo,cono,de_sitter_fuerte,False,1.0,8000.0,7.3442066516164015,7.202201121632237,7.413103717581401,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,de_sitter_fuerte,False,0.5,3985.2,4.626456046475437,4.323750571796405,4.7633667000335915,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,de_sitter_fuerte,False,0.25,2000.4,2.4262756788126336,2.1785193150817364,2.498507447542784,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,de_sitter_fuerte,False,0.125,1005.5,1.6657921870296466,1.4991955038506823,1.899786017116755,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,anti_de_sitter,False,1.0,8000.0,9.322013769394257,8.877378358627677,9.690760781744983,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,anti_de_sitter,False,0.5,3985.2,3.869762956362724,3.7316971685355615,4.248912600580791,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,anti_de_sitter,False,0.25,2000.4,2.90512880104746,2.7154426246819514,3.1253529381667597,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,anti_de_sitter,False,0.125,1005.5,2.428464190080109,2.079534046921942,2.7416182430792864,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,frw_polvo,False,1.0,8000.0,5.344622903619079,5.215366489259767,5.639243027766161,0.0,fuera,indeterminada
+C4_cono_esfera_cubo,cono,frw_polvo,False,0.5,3985.2,2.3234799685626504,2.1870772193093675,2.3625375901791434,0.0,fuera,indeterminada
+C4_cono_esfera_cubo,cono,frw_polvo,False,0.25,2000.4,1.0787374719453606,0.893406370545228,1.2542009472886737,0.3,ambiguo,indeterminada
+C4_cono_esfera_cubo,cono,frw_polvo,False,0.125,1005.5,0.9290387965909925,0.7884915045423195,1.071110895746179,0.6,ambiguo,indeterminada
+C4_cono_esfera_cubo,cono,D2_frw_exponencial,False,1.0,8000.0,5.401517406136769,5.227975275838248,5.548690622328736,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,D2_frw_exponencial,False,0.5,3985.2,1.999337564940374,1.879373702392205,2.0824130274318517,0.0,fuera,no converge
+C4_cono_esfera_cubo,cono,D2_frw_exponencial,False,0.25,2000.4,1.252398720595345,1.0667092825565816,1.4560215203797333,0.2,fuera,no converge
+C4_cono_esfera_cubo,cono,D2_frw_exponencial,False,0.125,1005.5,0.9722051567082701,0.8675567245395406,1.0603802530558026,0.6,ambiguo,no converge
+C4_cono_esfera_cubo,cono,C0_kasner,False,1.0,8000.0,4.495164062505035,4.403058933944756,4.6908268171634475,0.0,fuera,indeterminada
+C4_cono_esfera_cubo,cono,C0_kasner,False,0.5,3985.2,2.32999096276541,2.2472952305721847,2.4040409324364593,0.0,fuera,indeterminada
+C4_cono_esfera_cubo,cono,C0_kasner,False,0.25,2000.4,1.0914367582233013,0.9486170226330934,1.2392799404212158,0.3,ambiguo,indeterminada
+C4_cono_esfera_cubo,cono,C0_kasner,False,0.125,1005.5,0.9248621881975749,0.7606718232027175,1.043051452151766,0.7,ambiguo,indeterminada
+C4_cono_esfera_cubo,cono,D0_kasner,False,1.0,8000.0,4.190678732787687,4.052436799318047,4.365566690028708,0.0,fuera,indeterminada
+C4_cono_esfera_cubo,cono,D0_kasner,False,0.5,3985.2,2.18317108218836,2.1222482962121454,2.2359072775897113,0.0,fuera,indeterminada
+C4_cono_esfera_cubo,cono,D0_kasner,False,0.25,2000.4,1.1546085313296006,0.9479004835035187,1.217594627543205,0.3,ambiguo,indeterminada
+C4_cono_esfera_cubo,cono,D0_kasner,False,0.125,1005.5,1.0726170033359739,0.8034720723630357,1.1043197298546352,0.3,ambiguo,indeterminada
+cono_octaedrico,cono,plana,True,1.0,8000.0,13.892053588330782,13.541971925104102,14.12491594911633,0.0,fuera,no converge
+cono_octaedrico,cono,plana,True,0.5,3996.9,5.08310921832647,4.950978952110146,5.2792203250161975,0.0,fuera,no converge
+cono_octaedrico,cono,plana,True,0.25,2015.0,2.1540798289153837,2.0671173979655397,2.290934759072859,0.0,fuera,no converge
+cono_octaedrico,cono,plana,True,0.125,997.4,1.4782050726485894,1.3333206296991633,1.6613263005380359,0.0,fuera,no converge
+cono_octaedrico,cono,de_sitter,False,1.0,8000.0,10.09981326631403,10.019458933891968,10.281198453320624,0.0,fuera,no converge
+cono_octaedrico,cono,de_sitter,False,0.5,3996.9,5.380031912231796,5.22068321142141,5.599462639502599,0.0,fuera,no converge
+cono_octaedrico,cono,de_sitter,False,0.25,2015.0,3.4010922955577305,3.3098039621893376,3.5494972208996245,0.0,fuera,no converge
+cono_octaedrico,cono,de_sitter,False,0.125,997.4,2.240341495552988,1.891680557866415,2.3542870000284792,0.0,fuera,no converge
+cono_octaedrico,cono,de_sitter_fuerte,False,1.0,8000.0,11.9353069676533,11.848903455801977,12.145899387460418,0.0,fuera,no converge
+cono_octaedrico,cono,de_sitter_fuerte,False,0.5,3996.9,7.220128797205232,7.09206833018206,7.3122905982965305,0.0,fuera,no converge
+cono_octaedrico,cono,de_sitter_fuerte,False,0.25,2015.0,3.158554419719531,2.980018664714723,3.1945015985387823,0.0,fuera,no converge
+cono_octaedrico,cono,de_sitter_fuerte,False,0.125,997.4,1.9297436962660595,1.822070678259825,2.0477106395123235,0.0,fuera,no converge
+cono_octaedrico,cono,anti_de_sitter,False,1.0,8000.0,16.491198795906165,16.363900677281173,17.108899215050865,0.0,fuera,no converge
+cono_octaedrico,cono,anti_de_sitter,False,0.5,3996.9,6.703867449125738,6.526038258759323,7.029424373839599,0.0,fuera,no converge
+cono_octaedrico,cono,anti_de_sitter,False,0.25,2015.0,4.608123532193581,4.465525333007188,4.745137582920352,0.0,fuera,no converge
+cono_octaedrico,cono,anti_de_sitter,False,0.125,997.4,2.658720239689035,2.374249903524822,2.898546515116933,0.0,fuera,no converge
+cono_octaedrico,cono,frw_polvo,False,1.0,8000.0,14.069144044859367,13.929167576216505,14.313392695555933,0.0,fuera,no converge
+cono_octaedrico,cono,frw_polvo,False,0.5,3996.9,5.593751178769514,5.517204619428892,5.875444601692044,0.0,fuera,no converge
+cono_octaedrico,cono,frw_polvo,False,0.25,2015.0,2.527032007750833,2.4225041672865304,2.6900335252157097,0.0,fuera,no converge
+cono_octaedrico,cono,frw_polvo,False,0.125,997.4,1.344945903227324,1.159866991387096,1.6133963824902875,0.0,fuera,no converge
+cono_octaedrico,cono,D2_frw_exponencial,False,1.0,8000.0,13.593606458669557,13.34612250899067,13.821346212692315,0.0,fuera,no converge
+cono_octaedrico,cono,D2_frw_exponencial,False,0.5,3996.9,4.761420788147095,4.651272271982231,4.950819167491344,0.0,fuera,no converge
+cono_octaedrico,cono,D2_frw_exponencial,False,0.25,2015.0,2.8618534905618143,2.773495395032626,3.0073656385663288,0.0,fuera,no converge
+cono_octaedrico,cono,D2_frw_exponencial,False,0.125,997.4,1.488537802458148,1.348404294953796,1.718587228811038,0.0,fuera,no converge
+cono_octaedrico,cono,C0_kasner,False,1.0,8000.0,11.785298129042669,11.60877455587971,12.021895056635945,0.0,fuera,no converge
+cono_octaedrico,cono,C0_kasner,False,0.5,3996.9,5.770479690930946,5.613928417691186,6.001656809068894,0.0,fuera,no converge
+cono_octaedrico,cono,C0_kasner,False,0.25,2015.0,2.678619754787638,2.6088860713660202,2.7998870189828833,0.0,fuera,no converge
+cono_octaedrico,cono,C0_kasner,False,0.125,997.4,1.5745680720268425,1.388223956380051,1.7580066285351736,0.0,fuera,no converge
+cono_octaedrico,cono,D0_kasner,False,1.0,8000.0,11.043382546126116,10.824077765791735,11.126576863618679,0.0,fuera,no converge
+cono_octaedrico,cono,D0_kasner,False,0.5,3996.9,5.302500088713986,5.202849296064179,5.515710863818551,0.0,fuera,no converge
+cono_octaedrico,cono,D0_kasner,False,0.25,2015.0,2.8269638592330004,2.7684679963100427,2.9540184225504795,0.0,fuera,no converge
+cono_octaedrico,cono,D0_kasner,False,0.125,997.4,1.7239097340971838,1.431141792045973,1.9137517730013571,0.0,fuera,no converge
+producto_4,producto,plana,True,1.0,8000.0,24.11469528814028,23.86113167178747,24.37663544361801,0.0,fuera,no converge
+producto_4,producto,plana,True,0.5,4023.8,10.332245361562176,10.072084214464782,10.65842483514713,0.0,fuera,no converge
+producto_4,producto,plana,True,0.25,1979.5,5.116726929655853,4.8402255958004385,5.249047793990579,0.0,fuera,no converge
+producto_4,producto,plana,True,0.125,1005.3,3.653439775459823,3.3818876365221553,3.847257808717156,0.0,fuera,no converge
+producto_4,producto,de_sitter,False,1.0,8000.0,17.307911919879622,17.202019907751964,17.60358458761024,0.0,fuera,no converge
+producto_4,producto,de_sitter,False,0.5,4023.8,10.41846571692459,10.128925776917932,10.611969627369884,0.0,fuera,no converge
+producto_4,producto,de_sitter,False,0.25,1979.5,6.443663554832831,6.18013118869248,6.549355816787127,0.0,fuera,no converge
+producto_4,producto,de_sitter,False,0.125,1005.3,4.26952811479769,4.007256541957996,4.431068628039901,0.0,fuera,no converge
+producto_4,producto,de_sitter_fuerte,False,1.0,8000.0,19.200558218773793,19.030047462553547,19.377466841189406,0.0,fuera,no converge
+producto_4,producto,de_sitter_fuerte,False,0.5,4023.8,11.071537849612437,10.985886341282276,11.27400119356142,0.0,fuera,no converge
+producto_4,producto,de_sitter_fuerte,False,0.25,1979.5,5.637618778595657,5.473046392046383,5.745655891207653,0.0,fuera,no converge
+producto_4,producto,de_sitter_fuerte,False,0.125,1005.3,3.1377635688340018,2.9378244402309233,3.2599918860668695,0.0,fuera,no converge
+producto_4,producto,anti_de_sitter,False,1.0,8000.0,30.57786805820821,30.277903373308824,30.950899507828513,0.0,fuera,no converge
+producto_4,producto,anti_de_sitter,False,0.5,4023.8,13.412272964153509,13.071703244603452,13.783813372140648,0.0,fuera,no converge
+producto_4,producto,anti_de_sitter,False,0.25,1979.5,9.57730217743316,9.036060978466256,10.02159617153563,0.0,fuera,no converge
+producto_4,producto,anti_de_sitter,False,0.125,1005.3,5.886783530821104,5.787025944528148,6.576883022512883,0.0,fuera,no converge
+producto_4,producto,frw_polvo,False,1.0,8000.0,24.935424319067405,24.8585963020774,25.396241874896887,0.0,fuera,no converge
+producto_4,producto,frw_polvo,False,0.5,4023.8,11.250199854798069,11.018025537533848,11.449846239708453,0.0,fuera,no converge
+producto_4,producto,frw_polvo,False,0.25,1979.5,5.4446561425601345,5.072148575051501,5.631069616320839,0.0,fuera,no converge
+producto_4,producto,frw_polvo,False,0.125,1005.3,4.1085390436803415,3.917862123223472,4.499917392600285,0.0,fuera,no converge
+producto_4,producto,D2_frw_exponencial,False,1.0,8000.0,23.517545504648183,23.379404419269388,23.910283529813633,0.0,fuera,no converge
+producto_4,producto,D2_frw_exponencial,False,0.5,4023.8,9.880331725892809,9.715530347860534,10.26451786860063,0.0,fuera,no converge
+producto_4,producto,D2_frw_exponencial,False,0.25,1979.5,6.609462884646635,6.353250864301891,6.835303987747223,0.0,fuera,no converge
+producto_4,producto,D2_frw_exponencial,False,0.125,1005.3,3.5917379613394074,3.397314319604401,3.888423337594282,0.0,fuera,no converge
+producto_4,producto,C0_kasner,False,1.0,8000.0,21.449884712075082,21.254174458700213,21.790329376303024,0.0,fuera,no converge
+producto_4,producto,C0_kasner,False,0.5,4023.8,10.880219924555043,10.674097438798348,11.113357509507583,0.0,fuera,no converge
+producto_4,producto,C0_kasner,False,0.25,1979.5,5.99207466778745,5.660442716952023,6.18301451386856,0.0,fuera,no converge
+producto_4,producto,C0_kasner,False,0.125,1005.3,3.79630480621402,3.5393392894207953,3.9246324240885913,0.0,fuera,no converge
+producto_4,producto,D0_kasner,False,1.0,8000.0,20.352931244109556,20.09432547190579,20.6295918647429,0.0,fuera,no converge
+producto_4,producto,D0_kasner,False,0.5,4023.8,10.803910896509771,10.546805049277364,11.03506284871679,0.0,fuera,no converge
+producto_4,producto,D0_kasner,False,0.25,1979.5,6.137627155154558,5.91530347272932,6.450285305419628,0.0,fuera,no converge
+producto_4,producto,D0_kasner,False,0.125,1005.3,4.161302678598127,3.9048954279194565,4.476500232414372,0.0,fuera,no converge
