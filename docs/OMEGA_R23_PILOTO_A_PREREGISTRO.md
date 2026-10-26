@@ -96,3 +96,14 @@ Siempre se informan los cuatro q. **No se infiere velocidad de decaimiento** de 
   3. u y el AUC dan 0.5 en promedio con datos nulos sintéticos;
   4. la regla de componentes por par reproduce el D de la máscara completa cuando no falta nada.
 - **Costo estimado:** 400 conjuntos nulos (unos 10 min de pared) más 8 familias × 30 padres × unos 50 s, en total unos 50 a 60 min de pared con 4 núcleos, en tandas de menos de 2 horas.
+
+## 9. Aclaración A1 (2026-10-26, después de escribir y auditar el código, antes de correr)
+
+Ningún dato del piloto se generó todavía. Las mediciones de tiempo y de componentes usaron una entropía de prueba, no 20261119.
+
+1. **Costo corregido.** Un padre cuesta en promedio unos 123 s, no 50: generar el control Z con q = 1 es otro orden completo de N₀, y C5 y D4 tardan en construirse (de 158 a 256 s por padre). Total estimado: **unas 2.2 a 2.3 h de pared con 4 núcleos**, en dos tandas de menos de 2 h. El código reanuda.
+2. **KR y capas_6 se miden con 11 componentes.** No tienen ningún intervalo con exactamente 10 o 20 elementos interiores: su estructura en capas solo produce intervalos grandes. Pasa en el 100% de las muestras, con N = 8000 y con N ≈ 1000. Por la regla de §2, sus pares usan |S| = 11, con la banda, el radio y la nula recalculados en esas 11. **Consecuencia declarada:** la ausencia de r₁₀ y r₂₀ es, en sí misma, una señal no geométrica que el instrumento descarta, así que la distancia de esas dos familias queda subestimada. Las demás familias tienen las 13 componentes.
+3. **La regla de |S| < 10 no puede activarse con este vector:** frac_rel, el perfil y √gemelos siempre son finitos, así que |S| ≥ 11. Por eso la vía «INDETERMINADO por más del 20% de no evaluables» no se activará en la práctica. Se evalúa con q = 1 y con q = 1/8, los dos q que usa la lectura.
+4. **Lecturas superpuestas.** «Visible, lejos e igual que el control» cumple a la vez «efecto de tamaño o familia» y «sin acercamiento». Se informa la primera, en el orden de la tabla de §6, y la segunda queda registrada como «también cumple». Es el caso que se predijo para KR, producto_4 y capas_6.
+5. **Detalles fijados por el código:** el bootstrap de cada familia usa la clave (334, 7, f); el margen de «igual» es un intervalo cerrado [−ln 1.3, ln 1.3] y el de «mejora» es estricto; AUC y Δ se calculan sobre los padres evaluables de cada q. Las 100 referencias de validación de R20 no se usan.
+6. **Código:** `tools/r23.py` y `tests/test_r23.py` (11 pruebas pasan), escritos por el agente de código y auditados por el orquestador.
