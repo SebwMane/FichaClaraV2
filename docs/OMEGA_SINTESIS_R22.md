@@ -1,6 +1,6 @@
-# Ω: síntesis del programa después de R20 (borrador, 2026-10-26)
+# Ω: síntesis del programa después de R20 (2026-10-26)
 
-- **Mandato:** fase 2 del dictamen del Consejo, sesión 11 (`docs/OMEGA_CONSEJO_REV22_R20.md`). El Consejo recomendó redactarla ya; el usuario pidió adoptar los pasos prudentes. **Es un borrador:** la opción (d) queda aprobada formalmente cuando el usuario la firme (R22-3).
+- **Mandato:** fase 2 del dictamen del Consejo, sesión 11 (`docs/OMEGA_CONSEJO_REV22_R20.md`). **Aprobada por el usuario el 2026-10-26 (R22-3).**
 - **Alcance:** la fase causal del programa, desde la Revisión 14 (2026-10-18), cuando se separaron H_rec, H_E, H_L y H_sel. Lo anterior está resumido en `OMEGA_ESTADO.md` (fase de grafos, problema B cerrado), `OMEGA_MAPA_NEGATIVO.md` y `OMEGA_2_SINTESIS_2D.md` (Ω-C en dos dimensiones).
 - **Regla de lectura:** cada afirmación lleva su escalón (§1) y su documento. Lo que no está en la tabla de hechos (§2) no está establecido.
 
@@ -80,4 +80,4 @@ Dos ejes independientes. El primero dice **sobre qué** se afirma; el segundo, *
 
 ## 8. Decisiones pendientes del usuario
 
-Las de la sesión 11 (R22-1 a R22-4), en `OMEGA_CONSEJO_REV22_R20.md` §5.
+R22-1 a R22-4 quedaron firmadas (`OMEGA_CONSEJO_REV22_R20.md` §6). Pendiente: la firma del preregistro del piloto (a) (`OMEGA_R23_PILOTO_A_PREREGISTRO.md`).

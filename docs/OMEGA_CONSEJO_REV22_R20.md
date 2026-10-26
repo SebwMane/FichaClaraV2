@@ -61,3 +61,13 @@ Verifiqué cada afirmación técnica contra los datos de R20 (`tools/r22_auditor
 | R22-2 | Registrar S1 → S2 como desviación material; la afirmación sobre conos suaves vale solo para S2 | **sí** |
 | R22-3 | Aprobar la síntesis (d) y la salida del gate de la fase 3 | **sí**: (i) para la cobertura y el alcance precisado de R20; (ii), instrumento congelado con una sola banda, como requisito de entrada de cualquier confirmatoria nueva; el piloto (a) puede usar el instrumento actual porque es exploratorio |
 | R22-4 | Autorizar el preregistro de (a) como piloto exploratorio, con blanco geométrico en un diamante de Minkowski 3+1 independiente | **sí**, si 3+1 es la dimensión física objetivo del proyecto |
+
+## 6. Firmas del usuario (2026-10-26)
+
+- **Firma:** «Apruebo tus recomendaciones continúa».
+- **Queda firmado:**
+  - **R22-1:** PASA computacional de R20 para las 14 votantes, bajo la métrica y el procedimiento ejecutados; la afirmación robusta a la banda vale para 12 (sin S2b ni S2d).
+  - **R22-2:** S1 → S2 registrado como desviación material; la afirmación sobre conos suaves vale solo para S2.
+  - **R22-3:** síntesis (d) aprobada (`OMEGA_SINTESIS_R22.md` deja de ser borrador). Salida del gate: (i) para la cobertura y el alcance precisado de R20; (ii), instrumento congelado con una sola banda, como requisito de entrada de cualquier confirmatoria nueva; el piloto (a) usa el instrumento actual porque es exploratorio.
+  - **R22-4:** preparar el preregistro de (a) como piloto exploratorio, con blanco en un diamante de Minkowski 3+1. **Interpretación del orquestador:** la recomendación aprobada era condicional («si 3+1 es la dimensión física objetivo»); la aprobación se toma como confirmación de que 3+1 es la dimensión objetivo.
+- **Siguiente paso:** preregistro del piloto (a) en `OMEGA_R23_PILOTO_A_PREREGISTRO.md`. No se ejecuta hasta la firma del usuario.
