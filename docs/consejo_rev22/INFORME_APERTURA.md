@@ -28,6 +28,13 @@
   | Corrida, con un solo commit y el árbol limpio | c2e227d |
   | Resultados | 7b28bf6 |
 
+> **Nota de corrección (2026-10-26, después de la auditoría pedida por el Consejo en la sesión 11):**
+> - **Lectura 1 de §2.2, exagerada.** Las copias diluidas con q = 1/8 quedan mayormente en banda (del 63% al 87% de las realizaciones), pero su distribución de D todavía se distingue de la plana (Mann-Whitney, p de 0.000 a 0.04 en las 6 votantes). «Se vuelve indistinguible del plano» no es correcto; «queda cerca de la distribución plana» sí lo es.
+> - **Lectura 2 de §2.2, precisada.** El «piso cerca de 0.8» es la distribución nula de D/radio de un punto plano (mediana de 0.72 en validación; 0.74 para una raíz de χ² con 13 grados). Es un piso estadístico, no una saturación técnica.
+> - **«Vector de 14 componentes»:** con q = 1/8 se usaron 13 (sin r₄₀).
+>
+> Detalle en `docs/OMEGA_R22_AUDITORIA.md` y en la adenda A1 de `docs/OMEGA_R20_RESULTADOS.md`.
+
 ## 1. Veredicto oficial: **PASA**
 
 | Condición (§4, versión 2) | Resultado |

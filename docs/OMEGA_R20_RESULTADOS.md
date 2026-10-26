@@ -45,3 +45,19 @@ En la figura, los conos tienen las curvas del observado y del control superpuest
 ## 4. Relación con R19-(b)
 
 R19-(b) sigue INDETERMINADO, y este resultado no lo modifica. R20 corrige sus dos causas (la cobertura y las estructuras invisibles) y además el error de semillas de R19 (errata en `OMEGA_R19_GEMELOS_RESULTADOS.md` §5). El patrón de nivel 2 que había mostrado R19 se confirma aquí de forma preregistrada.
+
+## 5. Adenda A1 (2026-10-26): aclaraciones pedidas por el Consejo, sesión 11
+
+No cambian los datos, el criterio aplicado ni el veredicto. Fuentes: `docs/OMEGA_CONSEJO_REV22_R20.md` y `docs/OMEGA_R22_AUDITORIA.md`.
+
+1. **Componentes.** «Vector de 14 componentes» es el inventario nominal (frac_rel, r₁₀, r₂₀, r₄₀, perfil N_k/N_pares con k de 0 a 8 y √gemelos). La banda usa las componentes finitas en las 300 referencias de cada q (regla declarada en `tools/r20.py`, commit 3cda6bd, antes de correr):
+
+   | q | 1 | 1/2 | 1/4 | 1/8 |
+   |---|---|---|---|---|
+   | Componentes usadas | 14 | 14 | 14 | **13** (sin r₄₀) |
+
+   **El estadístico que votó (q = 1/8) usó 13 componentes.** Con N ≈ 1000, r₄₀ no es medible en 37, 49 y 44 de las 100 referencias de ajuste, calibración y validación: m = 40 supera el límite de localidad (0.1·m_max) de R14-B. Fijar la máscara solo con las 100 de ajuste da la misma máscara en los 4 q.
+2. **Comparación entre q.** Con un vector común de 13 componentes en los 4 q, la cobertura de validación queda en 91, 92, 99 y 95 de 100; L₁/₈ no cambia (es la misma máscara) y las medianas de L en los otros q cambian como mucho 0.03.
+3. **Máscara del guardián.** También excluyó r₄₀ con q = 1/8 (recibo, §3), pero calculó D con su propia banda y por par. La reproducción de su selección con la métrica del ejecutor está en `OMEGA_R22_AUDITORIA.md` §4.
+4. **Gate y garantía.** Las coberturas 92, 92, 100 y 95 de 100 son el resultado empírico de un diagnóstico. El riesgo Beta-Binomial (0.0476 como mucho) es la probabilidad de que ese diagnóstico falle por azar. Ninguno de los dos certifica una cobertura mínima de la banda ya calibrada.
+5. **Formulación del PASA.** PASA computacional para las 14 votantes del universo final, **bajo la métrica y el procedimiento ejecutados**. No es evidencia de emergencia física. Para los conos suaves vale solo para las 4 estructuras S2 que votaron; el reemplazo S1 → S2 es una desviación material respecto del universo inicial del guardián (firma pendiente, R22-2).
