@@ -25,22 +25,23 @@ Verifiqué cada afirmación técnica contra los datos de R20 (`tools/r22_auditor
 | Punto del dictamen | Verificación | Juicio |
 |---|---|---|
 | 14 nominales y 13 usados con q = 1/8, sin r₄₀ | **Correcto.** Las máscaras cambian solo con q = 1/8. r₄₀ falta en el 43% de las referencias planas de ese tamaño (límite de localidad), así que no es un caso de borde. | adoptado (adenda A1) |
-| Máscaras del guardián y del ejecutor | Las dos excluyen r₄₀ con q = 1/8; difieren en la banda y en el D por par. Reproduje la selección con las dos métricas sobre las mismas realizaciones (§4 de la auditoría). | adoptado |
+| Máscaras del guardián y del ejecutor | Las dos excluyen r₄₀ con q = 1/8. Reproduje la selección del guardián **exactamente** con sus semillas. Con la banda del ejecutor, **S2b y S2d dejan de ser identificables** (1.17 y 1.21 contra 1.25). La causa es el ruido de la muestra plana de la banda, no la máscara: con bandas remuestreadas, S2b pasa el 67% de las veces y S2d el 39% (auditoría §4). | adoptado; **hallazgo principal** |
 | La garantía bajo el selector real | La máscara es una función simétrica de las 300 referencias y coincide con la que da el conjunto de ajuste solo, así que calibración y validación siguen siendo intercambiables dado la máscara. El gate vale. | adoptado, con la conclusión de la auditoría §3 |
 | Borde cercano a 0.8 | Es la distribución nula de D/radio de un punto plano, no una saturación. Además mostró que **mi lectura 1 de la sesión 11 estaba exagerada** (las copias diluidas todavía se distinguen de la plana). | adoptado, con corrección propia |
 | Separar gate empírico y riesgo Beta-Binomial | Correcto; la Rev. 21 ya lo decía, pero el informe de apertura no lo separaba. | adoptado (adenda A1) |
 | Unidad independiente = el padre en (a) | Correcto. En R20 la unidad fue la realización y el bootstrap ya remuestreaba los 4 q juntos; (a) debe hacer lo mismo por padre. | adoptado para el preregistro de (a) |
 | Márgenes de R20 no trasladables | Correcto: ±ln 1.3 se fijó con el ruido del borde de la banda de R19 y quedó holgado en R20. | adoptado |
 
-**No encontré errores en el dictamen.** Tengo cinco refinamientos (§3).
+**No encontré errores en el dictamen.** Su pedido de reproducir la selección del guardián fue el que encontró la única fragilidad real: la identificabilidad de dos estructuras depende de la banda. Tengo seis refinamientos (§3).
 
 ## 3. Refinamientos del orquestador
 
 1. **El blanco 3+1 ya existe en el instrumento.** Las referencias de R20 son sprinklings nuevos de un diamante causal de Minkowski 4D (`r14b.GEN["plana"]`, de `diamante_4d`), y las bases de copias también son 4D. Elegir 3+1 como blanco de (a) no agrega un supuesto nuevo al instrumento: hace explícito uno que ya estaba. Igual es una decisión del usuario (R22-4), porque fija la dimensión física objetivo.
 2. **«Entrar en banda» es un criterio débil de proximidad.** En R20, las copias con q = 1/8 quedaron entre el 63% y el 87% de las veces en banda, y aun así su distribución se distingue de la plana. Para (a) propongo definir la proximidad como **distribución de D compatible con la nula plana del mismo N** (prueba de dos muestras con un margen preregistrado), no como pertenencia a la banda.
 3. **El piso nulo limita lo que se puede medir.** Una distancia de Mahalanobis a una referencia no baja de la distribución de un punto plano típico. Para (a) y (c) conviene usar un estadístico de **exceso sobre la nula** (por ejemplo, el rango de D del descendiente entre las D planas del mismo N, o D² menos su media nula), que no tiene techo.
-4. **Comparar D entre q exige un vector común.** La auditoría muestra que pasar a un vector común de 13 componentes en los 4 q no cambia nada material en R20, así que (a) puede fijarlo desde el principio sin costo.
-5. **Selección por visibilidad en (a).** Para órdenes no geométricos la visibilidad con q = 1 es casi segura (R14-C: percolación separa en 49 de 49 observables). El riesgo es el opuesto: familias que **nunca** se acercan, porque nada en Φ_q las transforma en 4D (por ejemplo, KR diluido sigue en 3 capas). El preregistro de (a) debe declarar la predicción por familia antes de correr, para que «no se acerca» sea un resultado y no una sorpresa.
+4. **Una sola banda para seleccionar y para confirmar.** La separación de agentes llevó a dos bandas independientes, y los umbrales de visibilidad no tenían margen para esa variación. Una confirmatoria futura debe congelar una banda antes, compartida y con hash, y exigir visibilidad robusta (por ejemplo, pasar en al menos el 95% de las bandas remuestreadas).
+5. **Comparar D entre q exige un vector común.** La auditoría muestra que pasar a un vector común de 13 componentes en los 4 q no cambia nada material en R20, así que (a) puede fijarlo desde el principio sin costo.
+6. **Selección por visibilidad en (a).** Para órdenes no geométricos la visibilidad con q = 1 es casi segura (R14-C: percolación separa en 49 de 49 observables). El riesgo es el opuesto: familias que **nunca** se acercan, porque nada en Φ_q las transforma en 4D (por ejemplo, KR diluido sigue en 3 capas). El preregistro de (a) debe declarar la predicción por familia antes de correr, para que «no se acerca» sea un resultado y no una sorpresa.
 
 ## 4. Pasos adoptados (sin firma, por el criterio del encabezado)
 
@@ -56,7 +57,7 @@ Verifiqué cada afirmación técnica contra los datos de R20 (`tools/r22_auditor
 
 | # | Decisión | Recomendación del orquestador |
 |---|---|---|
-| R22-1 | Confirmar el PASA de R20 como PASA computacional para las 14 votantes, bajo la métrica y el procedimiento ejecutados | **sí** |
+| R22-1 | Confirmar el PASA de R20 como PASA computacional para las 14 votantes, bajo la métrica y el procedimiento ejecutados | **sí**, y registrar que la afirmación robusta a la banda vale para 12 (sin S2b ni S2d), sin cambiar el veredicto (auditoría §4.4) |
 | R22-2 | Registrar S1 → S2 como desviación material; la afirmación sobre conos suaves vale solo para S2 | **sí** |
-| R22-3 | Aprobar la síntesis (d) y la salida del gate de la fase 3 | **sí**, con la salida que recomienda la auditoría (§6 de `OMEGA_R22_AUDITORIA.md`) |
+| R22-3 | Aprobar la síntesis (d) y la salida del gate de la fase 3 | **sí**: (i) para la cobertura y el alcance precisado de R20; (ii), instrumento congelado con una sola banda, como requisito de entrada de cualquier confirmatoria nueva; el piloto (a) puede usar el instrumento actual porque es exploratorio |
 | R22-4 | Autorizar el preregistro de (a) como piloto exploratorio, con blanco geométrico en un diamante de Minkowski 3+1 independiente | **sí**, si 3+1 es la dimensión física objetivo del proyecto |

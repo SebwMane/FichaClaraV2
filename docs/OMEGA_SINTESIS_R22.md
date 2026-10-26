@@ -21,7 +21,7 @@ Dos ejes independientes. El primero dice **sobre qué** se afirma; el segundo, *
 
 | # | Hecho | Escalón y nivel | Universo y límites | Fuente |
 |---|---|---|---|---|
-| H1 | Φ_q (dilución) más el control reinyectado separa defectos que se desvanecen (copias) de defectos autosemejantes (conos), con la métrica ejecutada | E1, nivel 1, **confirmatorio** (PASA) | 14 estructuras sintéticas votantes de 4 familias visibles (G1, G2, P1, S2); N₀ = 8000; q = 1/8 con 13 componentes; conclusión limitada a S2 para los conos suaves | `OMEGA_R20_RESULTADOS.md` y su adenda A1 |
+| H1 | Φ_q (dilución) más el control reinyectado separa defectos que se desvanecen (copias) de defectos autosemejantes (conos), con la métrica ejecutada | E1, nivel 1, **confirmatorio** (PASA) | 14 estructuras sintéticas votantes de 4 familias visibles (G1, G2, P1, S2); N₀ = 8000; q = 1/8 con 13 componentes; conclusión limitada a S2 para los conos suaves; **robusta a la banda para 12** (S2b y S2d tienen identificabilidad frágil) | `OMEGA_R20_RESULTADOS.md` y su adenda A1 |
 | H2 | Diluir confunde convergencia con pérdida de resolución: al bajar N, las bandas se ensanchan y un defecto fijo termina en banda | E1, nivel 1, exploratorio | estructuras vistas, N₀ = 8000 | `OMEGA_R14B_V2_RESULTADOS.md` |
 | H3 | Percolación, producto y poliedros se separan de la plana con observables causales; los conos suaves, débilmente y confundidos con de Sitter | E1, nivel 1, exploratorio | N = 4000 y 8000; Holm sobre 784 filas | `OMEGA_R14C_V2_RESULTADOS.md` |
 | H4 | El instrumento E1′ (entropía SJ) es de 2D: se estabiliza solo con N ≥ 512; KR imita el coeficiente con 2 modos; en 3D y 4D no da ley de área | E1, nivel 1 | sprinklings y KR, N de 64 a 2048 | `OMEGA_A_E1P_RESULTADOS.md` |
@@ -59,7 +59,7 @@ Dos ejes independientes. El primero dice **sobre qué** se afirma; el segundo, *
 4. La lectura 1 del informe de apertura de la sesión 11 («las copias diluidas se vuelven indistinguibles del plano») estaba exagerada. Quedan mayormente en banda, pero su distribución todavía se distingue de la plana (adenda A1 y `OMEGA_R22_AUDITORIA.md`).
 
 **Advertencias:**
-- **De implementación:** el guardián seleccionó con su propia banda y con D por par; el ejecutor votó con otra banda y con la máscara de las 300 referencias. Resultado de la reproducción: ver `OMEGA_R22_AUDITORIA.md` §4.
+- **De implementación:** el guardián seleccionó con su propia banda y con D por par; el ejecutor votó con otra banda y con la máscara de las 300 referencias. La reproducción exacta de su selección muestra que, con la banda del ejecutor, S2b y S2d no habrían sido identificables. La causa es el ruido de la muestra plana de la banda. El veredicto no cambia, pero la afirmación robusta vale para 12 estructuras (`OMEGA_R22_AUDITORIA.md` §4).
 - **De población:** la familia de conos suaves que votó (S2) reemplazó a una familia invisible (S1), y S2 incluye prismas de sección curva. La conclusión sobre conos suaves vale para S2, no para todos los conos suaves.
 
 ## 6. Interpretaciones vigentes (nivel 2, no son hechos)
