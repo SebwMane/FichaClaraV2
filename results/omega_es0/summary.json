@@ -1,0 +1,1282 @@
+{
+  "spec": "docs/OMEGA_ES0_PILOTO.md",
+  "criterio": {
+    "rhat": 1.05,
+    "ess": 200.0,
+    "rhat_no_estimable": 1.5,
+    "sokal_c": 5.0,
+    "observables": [
+      "S",
+      "rel_frac",
+      "height"
+    ]
+  },
+  "sigma0": {
+    "sigma0_Ea_N32": {
+      "space": "Ea",
+      "N": 32,
+      "sigma0": 0.07155152479996219,
+      "n_samples": 800,
+      "etapa2": "lam = -/+ 2/sigma0"
+    },
+    "sigma0_Ea_N64": {
+      "space": "Ea",
+      "N": 64,
+      "sigma0": 0.2876803676752637,
+      "n_samples": 400,
+      "etapa2": "lam = -/+ 2/sigma0"
+    },
+    "sigma0_Eb_N32": {
+      "space": "Eb",
+      "N": 32,
+      "sigma0": 0.11638724503577917,
+      "n_samples": 800,
+      "etapa2": "lam = -/+ 2/sigma0"
+    },
+    "sigma0_Eb_N64": {
+      "space": "Eb",
+      "N": 64,
+      "sigma0": 0.11037570105977527,
+      "n_samples": 400,
+      "etapa2": "lam = -/+ 2/sigma0"
+    }
+  },
+  "cells": {
+    "Ea_N32_l0": {
+      "space": "Ea",
+      "N": 32,
+      "lam_idx": 0,
+      "chains": 4,
+      "sweeps": [
+        400,
+        400,
+        400,
+        400
+      ],
+      "lam": 0.0,
+      "sigma0": null,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.2986008223563754,
+      "s_per_sweep": 0.1548581982862486,
+      "valid_frac": 1.0,
+      "accept_rate": 1.0,
+      "accept_per_valid": 1.0,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 3.18,
+        "hist": {
+          "3": 672,
+          "4": 112,
+          "5": 16
+        }
+      },
+      "S_mitad_final": {
+        "mean": 0.5076725302622741,
+        "std": 0.07155152479996219
+      },
+      "rel_frac_mitad_final_mean": 0.5039818548387097,
+      "S_vs_nR": {
+        "pearson_con_region": -0.4483118634439088,
+        "eta2_todo": 0.20256811365725524,
+        "eta2_con_region": 0.20256811365725524
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 0.997123211114507,
+          "tau": [
+            1.0,
+            1.0,
+            1.0,
+            1.5862857817796239
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 726.0806862781205
+        },
+        "rel_frac": {
+          "rhat": 0.999554378972516,
+          "tau": [
+            1.35105699069361,
+            1.1211183478129843,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 726.4255438360503
+        },
+        "height": {
+          "rhat": 1.0005797822713065,
+          "tau": [
+            1.0215295803806033,
+            1.1104199066874032,
+            1.1665846599131693,
+            1.2736444309655979
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 704.367199452421
+        }
+      },
+      "mezcla": true
+    },
+    "Ea_N32_l1": {
+      "space": "Ea",
+      "N": 32,
+      "lam_idx": 1,
+      "chains": 4,
+      "sweeps": [
+        400,
+        400,
+        400,
+        400
+      ],
+      "lam": -27.95188510086171,
+      "sigma0": 0.07155152479996219,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.2893552448879361,
+      "s_per_sweep": 0.15024407279938187,
+      "valid_frac": 1.0,
+      "accept_rate": 0.4824584173387097,
+      "accept_per_valid": 0.4824584173387097,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 3.82,
+        "hist": {
+          "3": 292,
+          "4": 360,
+          "5": 148
+        }
+      },
+      "S_mitad_final": {
+        "mean": 0.31490891685984407,
+        "std": 0.08643688677803611
+      },
+      "rel_frac_mitad_final_mean": 0.4458719758064516,
+      "S_vs_nR": {
+        "pearson_con_region": -0.3171572866978933,
+        "eta2_todo": 0.10652551835439916,
+        "eta2_con_region": 0.10652551835439916
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 0.9971314719294176,
+          "tau": [
+            1.3677838929576107,
+            1.4231763711389482,
+            1.0,
+            1.3824145423650718
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 631.4270534391286
+        },
+        "rel_frac": {
+          "rhat": 1.0018310944063065,
+          "tau": [
+            1.3014690657884684,
+            1.1198253083279743,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 732.2717816913676
+        },
+        "height": {
+          "rhat": 1.0000959025874576,
+          "tau": [
+            1.5072055012955952,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 732.695906316743
+        }
+      },
+      "mezcla": true
+    },
+    "Ea_N32_l2": {
+      "space": "Ea",
+      "N": 32,
+      "lam_idx": 2,
+      "chains": 4,
+      "sweeps": [
+        400,
+        400,
+        400,
+        400
+      ],
+      "lam": 27.95188510086171,
+      "sigma0": 0.07155152479996219,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.28096006198071294,
+      "s_per_sweep": 0.1458368948099971,
+      "valid_frac": 1.0,
+      "accept_rate": 0.5809034778225807,
+      "accept_per_valid": 0.5809034778225807,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 3.16,
+        "hist": {
+          "3": 732,
+          "4": 8,
+          "5": 60
+        }
+      },
+      "S_mitad_final": {
+        "mean": 0.6927587081832779,
+        "std": 0.22522583523367315
+      },
+      "rel_frac_mitad_final_mean": 0.5342338709677419,
+      "S_vs_nR": {
+        "pearson_con_region": 0.9389093249667814,
+        "eta2_todo": 0.9309228266919907,
+        "eta2_con_region": 0.9309228266919907
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.5577659930656265,
+          "tau": [
+            1.0,
+            1.0,
+            1.0,
+            24.871043071768007
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 608.0414801833151
+        },
+        "rel_frac": {
+          "rhat": 1.0096518634255502,
+          "tau": [
+            1.0,
+            1.0295258111945782,
+            1.0,
+            6.457801539606021
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 625.2344842401377
+        },
+        "height": {
+          "rhat": 1.0140914595673405,
+          "tau": [
+            1.0,
+            1.0,
+            1.0,
+            6.46354261772247
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 630.9427835211634
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "Ea_N64_l0": {
+      "space": "Ea",
+      "N": 64,
+      "lam_idx": 0,
+      "chains": 4,
+      "sweeps": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "lam": 0.0,
+      "sigma0": null,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.9568972808351905,
+      "s_per_sweep": 1.9818799192387504,
+      "valid_frac": 1.0,
+      "accept_rate": 1.0,
+      "accept_per_valid": 1.0,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 7.405,
+        "hist": {
+          "7": 264,
+          "8": 110,
+          "9": 26
+        }
+      },
+      "S_mitad_final": {
+        "mean": 1.0160699465558054,
+        "std": 0.2876803676752637
+      },
+      "rel_frac_mitad_final_mean": 0.5008556547619049,
+      "S_vs_nR": {
+        "pearson_con_region": 0.07885833840677725,
+        "eta2_todo": 0.007716791025586089,
+        "eta2_con_region": 0.007716791025586089
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 0.9957686720290254,
+          "tau": [
+            1.0,
+            1.0,
+            1.0,
+            1.050527731721
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 395.1902524611869
+        },
+        "rel_frac": {
+          "rhat": 1.0069357856199286,
+          "tau": [
+            1.0,
+            1.0,
+            1.0,
+            1.1012423311661843
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 390.80653473800163
+        },
+        "height": {
+          "rhat": 1.002036477098363,
+          "tau": [
+            1.0,
+            1.0460502512562813,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 395.5977018120328
+        }
+      },
+      "mezcla": true
+    },
+    "Ea_N64_l1": {
+      "space": "Ea",
+      "N": 64,
+      "lam_idx": 1,
+      "chains": 4,
+      "sweeps": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "lam": -6.9521601914024895,
+      "sigma0": 0.2876803676752637,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.9539308762631437,
+      "s_per_sweep": 1.9775280808187494,
+      "valid_frac": 1.0,
+      "accept_rate": 0.725047123015873,
+      "accept_per_valid": 0.725047123015873,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 7.3575,
+        "hist": {
+          "7": 282,
+          "8": 93,
+          "9": 25
+        }
+      },
+      "S_mitad_final": {
+        "mean": 0.6809711336989724,
+        "std": 0.17166247183881078
+      },
+      "rel_frac_mitad_final_mean": 0.4927219742063492,
+      "S_vs_nR": {
+        "pearson_con_region": 0.03831210565292355,
+        "eta2_todo": 0.006160956292837638,
+        "eta2_con_region": 0.006160956292837638
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.0031381954824536,
+          "tau": [
+            1.5314441630776372,
+            1.175977294399925,
+            1.1964546571452708,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 333.91376534056747
+        },
+        "rel_frac": {
+          "rhat": 0.9966133527694271,
+          "tau": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 400.0
+        },
+        "height": {
+          "rhat": 0.9977942634206368,
+          "tau": [
+            1.0,
+            1.0,
+            1.8727839065541856,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 353.39644347114995
+        }
+      },
+      "mezcla": true
+    },
+    "Ea_N64_l2": {
+      "space": "Ea",
+      "N": 64,
+      "lam_idx": 2,
+      "chains": 4,
+      "sweeps": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "lam": 6.9521601914024895,
+      "sigma0": 0.2876803676752637,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.9690847370780435,
+      "s_per_sweep": 2.008743506895001,
+      "valid_frac": 1.0,
+      "accept_rate": 0.515797371031746,
+      "accept_per_valid": 0.515797371031746,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 7.3375,
+        "hist": {
+          "7": 286,
+          "8": 93,
+          "9": 21
+        }
+      },
+      "S_mitad_final": {
+        "mean": 1.729312089256095,
+        "std": 0.28583028710001696
+      },
+      "rel_frac_mitad_final_mean": 0.5061284722222222,
+      "S_vs_nR": {
+        "pearson_con_region": -0.280641799216229,
+        "eta2_todo": 0.07889529174531718,
+        "eta2_con_region": 0.07889529174531718
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 0.9944336299528318,
+          "tau": [
+            1.0,
+            1.0,
+            1.2630544646838615,
+            2.5538539849790824
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 318.3296559686354
+        },
+        "rel_frac": {
+          "rhat": 0.9993280569736542,
+          "tau": [
+            1.0,
+            1.141954474904499,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 387.5691651441385
+        },
+        "height": {
+          "rhat": 0.997965186669425,
+          "tau": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 400.0
+        }
+      },
+      "mezcla": true
+    },
+    "Ea_N128_l0": {
+      "space": "Ea",
+      "N": 128,
+      "lam_idx": 0,
+      "chains": 1,
+      "sweeps": [
+        5
+      ],
+      "lam": 0.0,
+      "sigma0": null,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 4.706908278445527,
+      "s_per_sweep": 38.840343752999885,
+      "valid_frac": 1.0,
+      "accept_rate": 1.0,
+      "accept_per_valid": 1.0,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 15.333333333333334,
+        "hist": {
+          "15": 2,
+          "16": 1
+        }
+      },
+      "S_mitad_final": {
+        "mean": 1.3782228034686266,
+        "std": 0.04997355871347404
+      },
+      "rel_frac_mitad_final_mean": 0.49204396325459315,
+      "S_vs_nR": {
+        "pearson_con_region": -0.9414263501092519,
+        "eta2_todo": 0.8862835726800279,
+        "eta2_con_region": 0.8862835726800279
+      }
+    },
+    "Eb_N32_l0": {
+      "space": "Eb",
+      "N": 32,
+      "lam_idx": 0,
+      "chains": 4,
+      "sweeps": [
+        400,
+        400,
+        400,
+        400
+      ],
+      "lam": 0.0,
+      "sigma0": null,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.31594047896939115,
+      "s_per_sweep": 0.06824590746812433,
+      "valid_frac": 0.4152217741935484,
+      "accept_rate": 0.4152217741935484,
+      "accept_per_valid": 1.0,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 3.36125,
+        "hist": {
+          "3": 586,
+          "4": 139,
+          "5": 75
+        }
+      },
+      "S_mitad_final": {
+        "mean": 0.5162037944150788,
+        "std": 0.11638724503577917
+      },
+      "rel_frac_mitad_final_mean": 0.3478654233870968,
+      "S_vs_nR": {
+        "pearson_con_region": -0.797058213215133,
+        "eta2_todo": 0.6498354938245943,
+        "eta2_con_region": 0.6498354938245943
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.001823569549295,
+          "tau": [
+            1.0,
+            2.6515309647398984,
+            2.359250548033403,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 560.2008050845742
+        },
+        "rel_frac": {
+          "rhat": 1.052707024553537,
+          "tau": [
+            3.043629487146921,
+            5.306330335581481,
+            11.163565332210581,
+            8.047358963857894
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 146.1701492818779
+        },
+        "height": {
+          "rhat": 1.0300431429009127,
+          "tau": [
+            2.4824999999999995,
+            4.17689346566462,
+            3.7729817007534985,
+            3.343895781637716
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 241.26537321189042
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": 1118,
+      "horas_cpu_estimadas": 0.08477658283262555
+    },
+    "Eb_N32_l1": {
+      "space": "Eb",
+      "N": 32,
+      "lam_idx": 1,
+      "chains": 4,
+      "sweeps": [
+        400,
+        400,
+        400,
+        400
+      ],
+      "lam": -17.18401358658477,
+      "sigma0": 0.11638724503577917,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.2978230590194231,
+      "s_per_sweep": 0.06745143716937292,
+      "valid_frac": 0.4352041330645161,
+      "accept_rate": 0.3796610383064516,
+      "accept_per_valid": 0.8723746156385178,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.028750000000000053,
+      "nR_mitad_final": {
+        "mean": 4.515,
+        "hist": {
+          "3": 85,
+          "4": 218,
+          "5": 497
+        }
+      },
+      "S_mitad_final": {
+        "mean": 0.30078263390322596,
+        "std": 0.08960734647965007
+      },
+      "rel_frac_mitad_final_mean": 0.34610383064516126,
+      "S_vs_nR": {
+        "pearson_con_region": -0.707116880087112,
+        "eta2_todo": 0.5131110518932633,
+        "eta2_con_region": 0.5131110518932633
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.0323810595905412,
+          "tau": [
+            4.175277198534834,
+            2.9760935113250326,
+            7.555414086516075,
+            8.851661352151353
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 164.16891308789812
+        },
+        "rel_frac": {
+          "rhat": 1.0633300971796669,
+          "tau": [
+            8.717396906789624,
+            6.368365827618567,
+            9.561351842205173,
+            10.886563216740413
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 93.63667459915732
+        },
+        "height": {
+          "rhat": 1.0392676289680343,
+          "tau": [
+            8.183612935826176,
+            2.330611790878754,
+            4.9333333333333345,
+            2.728789659224443
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 224.08656893717983
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": 1090,
+      "horas_cpu_estimadas": 0.08169118501624054
+    },
+    "Eb_N32_l2": {
+      "space": "Eb",
+      "N": 32,
+      "lam_idx": 2,
+      "chains": 4,
+      "sweeps": [
+        400,
+        400,
+        400,
+        400
+      ],
+      "lam": 17.18401358658477,
+      "sigma0": 0.11638724503577917,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.3013963040562806,
+      "s_per_sweep": 0.06377059402624496,
+      "valid_frac": 0.40595262096774193,
+      "accept_rate": 0.3614856350806452,
+      "accept_per_valid": 0.8904626215219578,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 3.0275,
+        "hist": {
+          "3": 780,
+          "4": 18,
+          "5": 2
+        }
+      },
+      "S_mitad_final": {
+        "mean": 0.6361723128340532,
+        "std": 0.07661684828232533
+      },
+      "rel_frac_mitad_final_mean": 0.33975806451612905,
+      "S_vs_nR": {
+        "pearson_con_region": -0.34851041614998435,
+        "eta2_todo": 0.12515798400686406,
+        "eta2_con_region": 0.12515798400686406
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.099788432774425,
+          "tau": [
+            3.476279668868562,
+            12.952129941668256,
+            7.775639307110545,
+            1.3775043678265453
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 243.88570605260918
+        },
+        "rel_frac": {
+          "rhat": 1.1890266022623388,
+          "tau": [
+            15.116097680304694,
+            7.004850619718017,
+            6.607218318670953,
+            5.4439111728105845
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 108.79078869571802
+        },
+        "height": {
+          "rhat": 1.0698693517429603,
+          "tau": [
+            9.411531928036448,
+            4.598985549985255,
+            3.488617886178864,
+            2.7443478260869565
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 194.9447303807079
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": 1512,
+      "horas_cpu_estimadas": 0.10713459796409154
+    },
+    "Eb_N64_l0": {
+      "space": "Eb",
+      "N": 64,
+      "lam_idx": 0,
+      "chains": 4,
+      "sweeps": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "lam": 0.0,
+      "sigma0": null,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.9247700323580262,
+      "s_per_sweep": 0.9092833949662503,
+      "valid_frac": 0.4781268601190476,
+      "accept_rate": 0.4781268601190476,
+      "accept_per_valid": 1.0,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.10250000000000004,
+      "nR_mitad_final": {
+        "mean": 8.04,
+        "hist": {
+          "7": 116,
+          "8": 152,
+          "9": 132
+        }
+      },
+      "S_mitad_final": {
+        "mean": 0.3579274905042141,
+        "std": 0.11037570105977527
+      },
+      "rel_frac_mitad_final_mean": 0.33499131944444444,
+      "S_vs_nR": {
+        "pearson_con_region": -0.24951449754771898,
+        "eta2_todo": 0.0661880509725381,
+        "eta2_con_region": 0.0661880509725381
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 1.1662413062696169,
+          "tau": [
+            1.0,
+            1.1887309071750316,
+            1.0,
+            1.1941778770577955
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 367.8629466222438
+        },
+        "rel_frac": {
+          "rhat": 7.714351781641753,
+          "tau": [
+            1.0,
+            5.922605950395194,
+            1.4418462722642222,
+            2.7494045077105693
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 222.61149320189048
+        },
+        "height": {
+          "rhat": 1.9991839339274509,
+          "tau": [
+            1.351205673758865,
+            1.8533875338753392,
+            3.1454385964912293,
+            100.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "ess": 160.7553034969753
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "Eb_N64_l1": {
+      "space": "Eb",
+      "N": 64,
+      "lam_idx": 1,
+      "chains": 4,
+      "sweeps": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "lam": -18.119930209248466,
+      "sigma0": 0.11037570105977527,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.761697858868751,
+      "s_per_sweep": 0.7281884417425011,
+      "valid_frac": 0.4634641617063492,
+      "accept_rate": 0.4351264880952381,
+      "accept_per_valid": 0.9388568179537777,
+      "frac_sin_region_mitad_final": 0.25,
+      "frac_sin_region_todo": 0.25,
+      "nR_mitad_final": {
+        "mean": 6.345,
+        "hist": {
+          "0": 100,
+          "7": 37,
+          "8": 88,
+          "9": 175
+        }
+      },
+      "S_mitad_final": {
+        "mean": 0.2072389434530082,
+        "std": 0.12868329286817032
+      },
+      "rel_frac_mitad_final_mean": 0.3321502976190476,
+      "S_vs_nR": {
+        "pearson_con_region": -0.32973524371412133,
+        "eta2_todo": 0.8817569946545778,
+        "eta2_con_region": 0.11301608749830394
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 3.145794633035904,
+          "tau": [
+            100.0,
+            1.0,
+            1.498037352190778,
+            1.1012242995140387
+          ],
+          "ventana_sokal": [
+            false,
+            true,
+            true,
+            true
+          ],
+          "ess": 258.5620313617935
+        },
+        "rel_frac": {
+          "rhat": 7.3204953909640285,
+          "tau": [
+            1.0,
+            8.998356625739527,
+            1.0,
+            1.0
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 311.11314033875396
+        },
+        "height": {
+          "rhat": 2.6803312900042457,
+          "tau": [
+            1.086666666666667,
+            2.178823529411767,
+            1.7750000000000004,
+            5.025952380952384
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 214.15562285480786
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "Eb_N64_l2": {
+      "space": "Eb",
+      "N": 64,
+      "lam_idx": 2,
+      "chains": 4,
+      "sweeps": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "lam": 18.119930209248466,
+      "sigma0": 0.11037570105977527,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 0.7690183469872968,
+      "s_per_sweep": 0.7133104522337402,
+      "valid_frac": 0.4496062748015873,
+      "accept_rate": 0.3378218005952381,
+      "accept_per_valid": 0.7513725219789691,
+      "frac_sin_region_mitad_final": 0.25,
+      "frac_sin_region_todo": 0.25,
+      "nR_mitad_final": {
+        "mean": 5.5725,
+        "hist": {
+          "0": 100,
+          "7": 177,
+          "8": 117,
+          "9": 6
+        }
+      },
+      "S_mitad_final": {
+        "mean": 2.7601365737645454,
+        "std": 1.7052038925979307
+      },
+      "rel_frac_mitad_final_mean": 0.3654786706349206,
+      "S_vs_nR": {
+        "pearson_con_region": 0.6539664485697376,
+        "eta2_todo": 0.9581914475998148,
+        "eta2_con_region": 0.6640893219753758
+      },
+      "mezcla_detalle": {
+        "S": {
+          "rhat": 17.247970753538915,
+          "tau": [
+            100.0,
+            1.638402020478864,
+            1.4733290934256789,
+            1.0
+          ],
+          "ventana_sokal": [
+            false,
+            true,
+            true,
+            true
+          ],
+          "ess": 229.90857947281447
+        },
+        "rel_frac": {
+          "rhat": 9.36743393052179,
+          "tau": [
+            1.6652046991250282,
+            5.676675748812844,
+            4.221030472488366,
+            1.364505861803197
+          ],
+          "ventana_sokal": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "ess": 174.6461215564143
+        },
+        "height": {
+          "rhat": 10.326792021337376,
+          "tau": [
+            1.0,
+            100.0,
+            100.0,
+            1.1884210526315786
+          ],
+          "ventana_sokal": [
+            true,
+            false,
+            false,
+            true
+          ],
+          "ess": 186.14526129317983
+        }
+      },
+      "mezcla": false,
+      "sweeps_needed": "no estimable",
+      "horas_cpu_estimadas": null
+    },
+    "Eb_N128_l0": {
+      "space": "Eb",
+      "N": 128,
+      "lam_idx": 0,
+      "chains": 1,
+      "sweeps": [
+        5
+      ],
+      "lam": 0.0,
+      "sigma0": null,
+      "commits": [
+        "331a1054e2a0c7dedf4bc722a7f8e83fa24c829b"
+      ],
+      "dirty": false,
+      "official": true,
+      "ms_per_eval": 4.987283688635139,
+      "s_per_sweep": 7.192298908400062,
+      "valid_frac": 0.17583661417322835,
+      "accept_rate": 0.17583661417322835,
+      "accept_per_valid": 1.0,
+      "frac_sin_region_mitad_final": 0.0,
+      "frac_sin_region_todo": 0.0,
+      "nR_mitad_final": {
+        "mean": 15.333333333333334,
+        "hist": {
+          "15": 2,
+          "16": 1
+        }
+      },
+      "S_mitad_final": {
+        "mean": 3.45196307476855,
+        "std": 0.6707577256529009
+      },
+      "rel_frac_mitad_final_mean": 0.4057578740157481,
+      "S_vs_nR": {
+        "pearson_con_region": -0.21285464609901086,
+        "eta2_todo": 0.045307100365935105,
+        "eta2_con_region": 0.045307100365935105
+      }
+    }
+  }
+}

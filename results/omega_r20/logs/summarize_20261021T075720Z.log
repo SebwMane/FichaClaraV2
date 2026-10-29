@@ -1,0 +1,40 @@
+commits ['c2e227d2ca40984cc2019ffd5281f8485ab7c6c6'] oficial True sucia False sellado f6dc1a12c41c registrado True
+
+Banda conforme por q (dim, radio, validación):
+  q=1.0    d14 R 4.659 (k 96, ref 91)  validación 92/100 (mín 87) ok
+  q=0.5    d14 R 4.609 (k 96, ref 77)  validación 92/100 (mín 87) ok
+  q=0.25   d14 R 5.259 (k 96, ref 53)  validación 100/100 (mín 87) ok
+  q=0.125  d13 R 4.515 (k 96, ref 17)  validación 95/100 (mín 87) ok
+
+L_q = ln(D_obs/D_ctrl), mediana [IC 95%]; margen ±0.262
+  plana                      calibracion      nula            -0.05 [ -0.15,  0.09]  -0.03 [ -0.13,  0.11]  -0.00 [ -0.08,  0.11]   0.10 [ -0.08,  0.17]  equivalente
+  de_sitter                  calibracion      nula             0.03 [ -0.09,  0.09]  -0.04 [ -0.13,  0.01]  -0.00 [ -0.09,  0.21]   0.03 [ -0.05,  0.21]  equivalente
+  D7_cono_huso               vista            autosemejante   -0.01 [ -0.07,  0.07]   0.10 [ -0.10,  0.17]   0.10 [  0.05,  0.17]  -0.04 [ -0.14,  0.10]  equivalente
+  D8_cono_suma_normas        vista            autosemejante    0.01 [ -0.12,  0.05]   0.02 [ -0.06,  0.09]  -0.00 [ -0.19,  0.09]   0.06 [ -0.12,  0.17]  equivalente
+  D5_gemelos                 vista            se_desvanece     0.01 [ -0.02,  0.03]  -0.61 [ -0.65, -0.58]  -0.87 [ -1.00, -0.81]  -0.63 [ -0.74, -0.47]  separa
+  G1a_gemelos_07             no identificable se_desvanece     0.02 [ -0.01,  0.04]  -0.57 [ -0.63, -0.48]  -0.70 [ -0.84, -0.59]    nan [   nan,   nan]  no evaluable
+  G1b_gemelos_12             vota             se_desvanece    -0.01 [ -0.04,  0.01]  -0.65 [ -0.74, -0.61]  -0.93 [ -1.00, -0.89]  -0.80 [ -0.90, -0.74]  separa
+  G1c_gemelos_17             vota             se_desvanece     0.01 [ -0.01,  0.03]  -0.77 [ -0.81, -0.67]  -1.27 [ -1.31, -1.18]  -1.01 [ -1.10, -0.91]  separa
+  G1d_gemelos_23             vota             se_desvanece    -0.00 [ -0.02,  0.01]  -0.86 [ -0.90, -0.82]  -1.39 [ -1.48, -1.28]  -1.41 [ -1.51, -1.28]  separa
+  G2a_tripletes_07           no identificable se_desvanece     0.01 [ -0.02,  0.04]  -0.43 [ -0.53, -0.36]  -0.71 [ -0.80, -0.55]  -0.54 [ -0.69, -0.41]  separa
+  G2b_tripletes_12           vota             se_desvanece     0.02 [ -0.02,  0.04]  -0.50 [ -0.56, -0.47]  -0.87 [ -0.95, -0.76]  -0.91 [ -1.04, -0.75]  separa
+  G2c_tripletes_17           vota             se_desvanece     0.01 [ -0.02,  0.03]  -0.58 [ -0.61, -0.51]  -0.85 [ -0.93, -0.79]  -1.11 [ -1.20, -1.03]  separa
+  G2d_tripletes_23           vota             se_desvanece    -0.01 [ -0.02,  0.01]  -0.59 [ -0.62, -0.56]  -1.03 [ -1.13, -0.95]  -1.32 [ -1.40, -1.22]  separa
+  P1a_cono_prisma_triangular vota             autosemejante   -0.00 [ -0.01,  0.00]  -0.00 [ -0.02,  0.02]   0.02 [ -0.00,  0.05]  -0.00 [ -0.06,  0.08]  equivalente
+  P1b_cono_prisma_hexagonal  vota             autosemejante   -0.00 [ -0.02,  0.01]   0.00 [ -0.03,  0.02]  -0.04 [ -0.08,  0.02]  -0.02 [ -0.05,  0.06]  equivalente
+  P1c_cono_piramide_cuadrada vota             autosemejante    0.01 [ -0.01,  0.02]  -0.01 [ -0.02,  0.01]   0.01 [ -0.02,  0.04]  -0.01 [ -0.07,  0.07]  equivalente
+  P1d_cono_bipiramide_triangular vota             autosemejante    0.00 [ -0.01,  0.01]   0.00 [ -0.01,  0.02]   0.03 [  0.01,  0.05]   0.01 [ -0.04,  0.09]  equivalente
+  S2a_cono_circular          vota             autosemejante    0.00 [ -0.01,  0.02]   0.00 [ -0.01,  0.03]   0.01 [ -0.03,  0.02]   0.01 [ -0.10,  0.09]  equivalente
+  S2b_cono_prisma_reuleaux   vota             autosemejante    0.00 [ -0.02,  0.01]   0.00 [ -0.03,  0.03]   0.01 [ -0.03,  0.06]   0.07 [ -0.01,  0.13]  equivalente
+  S2c_cono_prisma_semicircular vota             autosemejante    0.00 [ -0.01,  0.01]  -0.00 [ -0.03,  0.02]   0.00 [ -0.09,  0.09]  -0.07 [ -0.15, -0.02]  equivalente
+  S2d_cono_prisma_lenticular vota             autosemejante   -0.01 [ -0.03,  0.01]  -0.01 [ -0.03,  0.01]   0.04 [ -0.03,  0.09]   0.08 [ -0.06,  0.15]  equivalente
+
+Familias:
+  G1_gemelos (se_desvanece): identificables ['G1b_gemelos_12', 'G1c_gemelos_17', 'G1d_gemelos_23']; excluidas 1 ['G1a_gemelos_07']; clases {'G1a_gemelos_07': 'no evaluable', 'G1b_gemelos_12': 'separa', 'G1c_gemelos_17': 'separa', 'G1d_gemelos_23': 'separa'}
+  G2_tripletes (se_desvanece): identificables ['G2b_tripletes_12', 'G2c_tripletes_17', 'G2d_tripletes_23']; excluidas 1 ['G2a_tripletes_07']; clases {'G2a_tripletes_07': 'separa', 'G2b_tripletes_12': 'separa', 'G2c_tripletes_17': 'separa', 'G2d_tripletes_23': 'separa'}
+  P1_conos_poliedricos (autosemejante): identificables ['P1a_cono_prisma_triangular', 'P1b_cono_prisma_hexagonal', 'P1c_cono_piramide_cuadrada', 'P1d_cono_bipiramide_triangular']; excluidas 0 []; clases {'P1a_cono_prisma_triangular': 'equivalente', 'P1b_cono_prisma_hexagonal': 'equivalente', 'P1c_cono_piramide_cuadrada': 'equivalente', 'P1d_cono_bipiramide_triangular': 'equivalente'}
+  S2_conos_suaves (autosemejante): identificables ['S2a_cono_circular', 'S2b_cono_prisma_reuleaux', 'S2c_cono_prisma_semicircular', 'S2d_cono_prisma_lenticular']; excluidas 0 []; clases {'S2a_cono_circular': 'equivalente', 'S2b_cono_prisma_reuleaux': 'equivalente', 'S2c_cono_prisma_semicircular': 'equivalente', 'S2d_cono_prisma_lenticular': 'equivalente'}
+
+Calibración: cobertura ok True; L plana/de Sitter dentro {'plana': True, 'de_sitter': True}
+Población: {'familias_suficientes': {'se_desvanece': ['G1_gemelos', 'G2_tripletes'], 'autosemejante': ['P1_conos_poliedricos', 'S2_conos_suaves']}, 'ok': True}
+VEREDICTO (14 votantes: G1b_gemelos_12, G1c_gemelos_17, G1d_gemelos_23, G2b_tripletes_12, G2c_tripletes_17, G2d_tripletes_23, P1a_cono_prisma_triangular, P1b_cono_prisma_hexagonal, P1c_cono_piramide_cuadrada, P1d_cono_bipiramide_triangular, S2a_cono_circular, S2b_cono_prisma_reuleaux, S2c_cono_prisma_semicircular, S2d_cono_prisma_lenticular): PASA (todas las votantes cumplen (intersección-unión))

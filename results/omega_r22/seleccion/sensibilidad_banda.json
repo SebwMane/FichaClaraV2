@@ -1,0 +1,33 @@
+{
+ "B": 300,
+ "semilla": "default_rng(20261117)",
+ "pool": "200 guardi\u00e1n + 300 ejecutor por q",
+ "p_identificable": {
+  "G1a_gemelos_07": 0.0,
+  "G1b_gemelos_12": 1.0,
+  "G1c_gemelos_17": 1.0,
+  "G1d_gemelos_23": 1.0,
+  "G2a_tripletes_07": 0.0033333333333333335,
+  "G2b_tripletes_12": 0.8466666666666667,
+  "G2c_tripletes_17": 1.0,
+  "G2d_tripletes_23": 1.0,
+  "P1a_cono_prisma_triangular": 1.0,
+  "P1b_cono_prisma_hexagonal": 0.9933333333333333,
+  "P1c_cono_piramide_cuadrada": 1.0,
+  "P1d_cono_bipiramide_triangular": 1.0,
+  "S2a_cono_circular": 1.0,
+  "S2b_cono_prisma_reuleaux": 0.67,
+  "S2c_cono_prisma_semicircular": 1.0,
+  "S2d_cono_prisma_lenticular": 0.3933333333333333,
+  "S1a_cono_lente": 0.0,
+  "S1b_cono_tricilindro": 0.0,
+  "S1c_cono_capsula": 0.0,
+  "S1d_cono_almohada": 0.0
+ },
+ "votantes_p5_p50_p95": [
+  11.0,
+  13.0,
+  14.0
+ ],
+ "p_14_votantes": 0.38
+}

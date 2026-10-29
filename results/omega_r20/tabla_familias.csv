@@ -1,0 +1,5 @@
+familia,tipo,candidatas,identificables,excluidas,lista_excluidas,L_mediana_de_medianas_votantes,clases
+G1_gemelos,se_desvanece,4,3,1,G1a_gemelos_07,-1.0135121557310298,G1a_gemelos_07:no evaluable;G1b_gemelos_12:separa;G1c_gemelos_17:separa;G1d_gemelos_23:separa
+G2_tripletes,se_desvanece,4,3,1,G2a_tripletes_07,-1.1105488195979367,G2a_tripletes_07:separa;G2b_tripletes_12:separa;G2c_tripletes_17:separa;G2d_tripletes_23:separa
+P1_conos_poliedricos,autosemejante,4,4,0,,-0.004876425556303077,P1a_cono_prisma_triangular:equivalente;P1b_cono_prisma_hexagonal:equivalente;P1c_cono_piramide_cuadrada:equivalente;P1d_cono_bipiramide_triangular:equivalente
+S2_conos_suaves,autosemejante,4,4,0,,0.03616598657988092,S2a_cono_circular:equivalente;S2b_cono_prisma_reuleaux:equivalente;S2c_cono_prisma_semicircular:equivalente;S2d_cono_prisma_lenticular:equivalente

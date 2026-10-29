@@ -42,7 +42,10 @@ def slab_causal_matrix(x: FloatArr) -> BoolArr:
 
 
 def retarded_action_4d(c: BoolArr, eps: float) -> FloatArr:
-    """s(x) = 1 - eps sum_{y<x} f4(n(y,x), eps); con eps = 1 usa los coeficientes (1, -9, 16, -8)."""
+    """s(x) = 1 - eps sum_{y<x} f4(n(y,x), eps); con eps = 1 usa los coeficientes (1, -9, 16, -8).
+
+    Densidad local: la accion es sqrt(eps) * sum_x s(x) (bd_action_4d_smeared).
+    """
     b = between_counts(c)
     if eps == 1.0:
         coef = np.zeros(int(max(b.max(), 0)) + 1)

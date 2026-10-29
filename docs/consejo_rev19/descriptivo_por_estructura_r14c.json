@@ -1,0 +1,450 @@
+{
+ "C0_kasner": {
+  "4000": {
+   "z_lmax_plana": -0.20205669598671924,
+   "z_r160_plana": -1.0425471494431295,
+   "z_r20_plana": -0.4746029792905066,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.03293229557044445
+  },
+  "8000": {
+   "z_lmax_plana": 0.15929674154364562,
+   "z_r160_plana": -0.5614517160234953,
+   "z_r20_plana": -0.029801116704713,
+   "geom_cercana_lmax": "D3_frw_rigida",
+   "z_lmax_cercana": 0.07516160500312233
+  }
+ },
+ "C1_elipsoidal_rotado": {
+  "4000": {
+   "z_lmax_plana": 7.958119360486271,
+   "z_r160_plana": 0.11207734945723277,
+   "z_r20_plana": -0.007709600053453898,
+   "geom_cercana_lmax": "C1_elipsoidal_rotado",
+   "z_lmax_cercana": 0.3602849121418772
+  },
+  "8000": {
+   "z_lmax_plana": 22.69864291584174,
+   "z_r160_plana": 0.45972890393154087,
+   "z_r20_plana": -0.008540563933666619,
+   "geom_cercana_lmax": "C1_elipsoidal_rotado",
+   "z_lmax_cercana": 0.35839449731877643
+  }
+ },
+ "C2_densidad_suave": {
+  "4000": {
+   "z_lmax_plana": -0.13093786117692002,
+   "z_r160_plana": 0.4424777308653232,
+   "z_r20_plana": 0.4536328671451056,
+   "geom_cercana_lmax": "C2_densidad_suave",
+   "z_lmax_cercana": 0.007000786701152141
+  },
+  "8000": {
+   "z_lmax_plana": 0.13120221550120179,
+   "z_r160_plana": 0.051803212456791245,
+   "z_r20_plana": -0.11102733113766604,
+   "geom_cercana_lmax": "D3_frw_rigida",
+   "z_lmax_cercana": 0.04127314800345014
+  }
+ },
+ "C3_cono_cilindrico": {
+  "4000": {
+   "z_lmax_plana": -0.8574136934356152,
+   "z_r160_plana": 2.6927266605574354,
+   "z_r20_plana": 3.50601772030779,
+   "geom_cercana_lmax": "de_sitter",
+   "z_lmax_cercana": 0.21290142614214996
+  },
+  "8000": {
+   "z_lmax_plana": -3.512275029395092,
+   "z_r160_plana": 4.907772506032692,
+   "z_r20_plana": 2.9821105258595897,
+   "geom_cercana_lmax": "de_sitter_fuerte",
+   "z_lmax_cercana": 0.3956036693261736
+  }
+ },
+ "C4_cono_esfera_cubo": {
+  "4000": {
+   "z_lmax_plana": -0.6906400745701137,
+   "z_r160_plana": 1.5606408120139146,
+   "z_r20_plana": 1.5551805227823268,
+   "geom_cercana_lmax": "de_sitter",
+   "z_lmax_cercana": 0.13050948612764315
+  },
+  "8000": {
+   "z_lmax_plana": -2.7888790869757414,
+   "z_r160_plana": 3.1914692773791393,
+   "z_r20_plana": 0.8980312119187162,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.6667861430276504
+  }
+ },
+ "C5_links_borrados": {
+  "4000": {
+   "z_lmax_plana": 0.7189760179727749,
+   "z_r160_plana": -3.7929374544300023,
+   "z_r20_plana": -1.1351615118702663,
+   "geom_cercana_lmax": "D1_cizalla",
+   "z_lmax_cercana": 0.17299892304729406
+  },
+  "8000": {
+   "z_lmax_plana": 2.324224967199044,
+   "z_r160_plana": -6.715492714332041,
+   "z_r20_plana": -1.1151795927853523,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.6417022477065151
+  }
+ },
+ "C6_cono_p_por_eje": {
+  "4000": {
+   "z_lmax_plana": -0.9789031968364039,
+   "z_r160_plana": 2.3312088687106023,
+   "z_r20_plana": 2.7683631871935157,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.35494154189803406
+  },
+  "8000": {
+   "z_lmax_plana": -3.5944238085116935,
+   "z_r160_plana": 5.40527788267973,
+   "z_r20_plana": 2.784768984754017,
+   "geom_cercana_lmax": "de_sitter_fuerte",
+   "z_lmax_cercana": 0.28714009067020363
+  }
+ },
+ "D0_kasner": {
+  "4000": {
+   "z_lmax_plana": 0.036160506316840764,
+   "z_r160_plana": 0.9369241188909201,
+   "z_r20_plana": 0.4906389474016736,
+   "geom_cercana_lmax": "D3_frw_rigida",
+   "z_lmax_cercana": 0.006075981545980379
+  },
+  "8000": {
+   "z_lmax_plana": 7.429802297489379,
+   "z_r160_plana": 0.6049832434869854,
+   "z_r20_plana": -0.10448562259273367,
+   "geom_cercana_lmax": "C1_elipsoidal_rotado",
+   "z_lmax_cercana": 0.86718521981948
+  }
+ },
+ "D1_cizalla": {
+  "4000": {
+   "z_lmax_plana": -0.06542393586259063,
+   "z_r160_plana": -0.025217819700029846,
+   "z_r20_plana": 0.8187595256765903,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.04229869372766276
+  },
+  "8000": {
+   "z_lmax_plana": 0.7590418718345573,
+   "z_r160_plana": 0.21231944770212352,
+   "z_r20_plana": 0.3348991346754705,
+   "geom_cercana_lmax": "D1_cizalla",
+   "z_lmax_cercana": 0.21612839792537947
+  }
+ },
+ "D2_frw_exponencial": {
+  "4000": {
+   "z_lmax_plana": -0.5157400962538049,
+   "z_r160_plana": 0.1576676208760015,
+   "z_r20_plana": 0.34261462637539675,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.19642165302918868
+  },
+  "8000": {
+   "z_lmax_plana": -0.5531619178884554,
+   "z_r160_plana": 0.28008319093224576,
+   "z_r20_plana": 0.03725139588088155,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.07831531079006503
+  }
+ },
+ "D3_frw_rigida": {
+  "4000": {
+   "z_lmax_plana": -0.12465532214865757,
+   "z_r160_plana": -0.5009766400942591,
+   "z_r20_plana": -0.18718908929781516,
+   "geom_cercana_lmax": "C2_densidad_suave",
+   "z_lmax_cercana": 0.021404911138611905
+  },
+  "8000": {
+   "z_lmax_plana": -0.09349189805591454,
+   "z_r160_plana": -0.2157778843582096,
+   "z_r20_plana": 0.06287308768187709,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.022987193846950176
+  }
+ },
+ "D4_relaciones_agregadas": {
+  "4000": {
+   "z_lmax_plana": -1.484065331719848,
+   "z_r160_plana": 11.897709229991175,
+   "z_r20_plana": 26.19814613363604,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.5278358104218958
+  },
+  "8000": {
+   "z_lmax_plana": -4.679188936965646,
+   "z_r160_plana": 18.199239350577617,
+   "z_r20_plana": 26.53880299617428,
+   "geom_cercana_lmax": "de_sitter_fuerte",
+   "z_lmax_cercana": 1.1451089226269509
+  }
+ },
+ "D5_gemelos": {
+  "4000": {
+   "z_lmax_plana": 0.20602577092173574,
+   "z_r160_plana": -0.03284868656858489,
+   "z_r20_plana": -0.1366141129471705,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.050606326769016954
+  },
+  "8000": {
+   "z_lmax_plana": 0.494153464365739,
+   "z_r160_plana": -0.013598295021637825,
+   "z_r20_plana": 0.019806839761054698,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.1733708211798783
+  }
+ },
+ "D6_cono_tapa_plana": {
+  "4000": {
+   "z_lmax_plana": -0.5482651478750469,
+   "z_r160_plana": -0.2751514115808126,
+   "z_r20_plana": 0.096524192669219,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.20755351470376363
+  },
+  "8000": {
+   "z_lmax_plana": -0.6673391530211308,
+   "z_r160_plana": 0.7133681779767141,
+   "z_r20_plana": 0.36815281977889647,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.12386537618114776
+  }
+ },
+ "D7_cono_huso": {
+  "4000": {
+   "z_lmax_plana": -0.38205095351732415,
+   "z_r160_plana": 0.4915153679110555,
+   "z_r20_plana": 0.4961898594401619,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.14566330961886023
+  },
+  "8000": {
+   "z_lmax_plana": -0.5666759300672142,
+   "z_r160_plana": 1.0995474050314344,
+   "z_r20_plana": 0.4281184814408161,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.09316333505663199
+  }
+ },
+ "D8_cono_suma_normas": {
+  "4000": {
+   "z_lmax_plana": -0.3357381352537218,
+   "z_r160_plana": 0.41169442634637055,
+   "z_r20_plana": 0.19459030534912486,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.0997103669012074
+  },
+  "8000": {
+   "z_lmax_plana": -1.057078153289584,
+   "z_r160_plana": 0.9803239770927475,
+   "z_r20_plana": 0.7939090175784933,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.22360302123283168
+  }
+ },
+ "anti_de_sitter": {
+  "4000": {
+   "z_lmax_plana": 1.5125222659903306,
+   "z_r160_plana": -4.93028340238131,
+   "z_r20_plana": -1.7093725238513606,
+   "geom_cercana_lmax": "anti_de_sitter",
+   "z_lmax_cercana": 0.029790079071684624
+  },
+  "8000": {
+   "z_lmax_plana": 5.0827674146408315,
+   "z_r160_plana": -5.531549419250127,
+   "z_r20_plana": -0.6823365440620847,
+   "geom_cercana_lmax": "anti_de_sitter",
+   "z_lmax_cercana": 0.18080554508599564
+  }
+ },
+ "cono_cubico": {
+  "4000": {
+   "z_lmax_plana": -0.6953441337877274,
+   "z_r160_plana": 3.675329227924943,
+   "z_r20_plana": 4.664924800342686,
+   "geom_cercana_lmax": "de_sitter",
+   "z_lmax_cercana": 0.12082315037333743
+  },
+  "8000": {
+   "z_lmax_plana": -2.385084087020965,
+   "z_r160_plana": 8.211590796524092,
+   "z_r20_plana": 4.843226606893896,
+   "geom_cercana_lmax": "de_sitter",
+   "z_lmax_cercana": 0.4427715160633725
+  }
+ },
+ "cono_octaedrico": {
+  "4000": {
+   "z_lmax_plana": -0.6931036294469618,
+   "z_r160_plana": 2.904610560235951,
+   "z_r20_plana": 4.215917693229646,
+   "geom_cercana_lmax": "de_sitter",
+   "z_lmax_cercana": 0.12543667165350622
+  },
+  "8000": {
+   "z_lmax_plana": -2.968192199921954,
+   "z_r160_plana": 6.923963879281818,
+   "z_r20_plana": 4.51832174916207,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.7126739489691217
+  }
+ },
+ "cono_p1_5": {
+  "4000": {
+   "z_lmax_plana": -0.46638060209678045,
+   "z_r160_plana": 0.14220762876931117,
+   "z_r20_plana": 0.21494364949023262,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.17952811915623595
+  },
+  "8000": {
+   "z_lmax_plana": -1.1195106987219134,
+   "z_r160_plana": 1.3737057072727317,
+   "z_r20_plana": 0.4504693189693433,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.23958005984511765
+  }
+ },
+ "cono_p3": {
+  "4000": {
+   "z_lmax_plana": -0.37176666323734253,
+   "z_r160_plana": 0.41300047676010304,
+   "z_r20_plana": 0.0897397446221782,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.1354589338143516
+  },
+  "8000": {
+   "z_lmax_plana": -1.0332463392684457,
+   "z_r160_plana": 0.8641575601268464,
+   "z_r20_plana": 0.6630748466797597,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.21750424998812481
+  }
+ },
+ "cono_p6": {
+  "4000": {
+   "z_lmax_plana": -1.0658171282637443,
+   "z_r160_plana": 3.1373608932687027,
+   "z_r20_plana": 2.4174221927603816,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.3846882698512887
+  },
+  "8000": {
+   "z_lmax_plana": -3.6734762177867477,
+   "z_r160_plana": 5.762739733929452,
+   "z_r20_plana": 2.5917885826784066,
+   "geom_cercana_lmax": "de_sitter_fuerte",
+   "z_lmax_cercana": 0.18276474506490364
+  }
+ },
+ "de_sitter": {
+  "4000": {
+   "z_lmax_plana": -0.8761833614450251,
+   "z_r160_plana": 1.4697319411616332,
+   "z_r20_plana": 0.6830705647358329,
+   "geom_cercana_lmax": "de_sitter",
+   "z_lmax_cercana": 0.251550877164202
+  },
+  "8000": {
+   "z_lmax_plana": -1.671352962001468,
+   "z_r160_plana": 2.541923923184034,
+   "z_r20_plana": 0.5300601062660643,
+   "geom_cercana_lmax": "de_sitter",
+   "z_lmax_cercana": 0.2997040934032537
+  }
+ },
+ "de_sitter_fuerte": {
+  "4000": {
+   "z_lmax_plana": -1.3436886940133066,
+   "z_r160_plana": 4.5464222367227904,
+   "z_r20_plana": 1.554563754778043,
+   "geom_cercana_lmax": "de_sitter_fuerte",
+   "z_lmax_cercana": 0.2795825112691625
+  },
+  "8000": {
+   "z_lmax_plana": -4.026178021038556,
+   "z_r160_plana": 4.2691351228086445,
+   "z_r20_plana": 0.24495064218260185,
+   "geom_cercana_lmax": "de_sitter_fuerte",
+   "z_lmax_cercana": 0.28291837512858686
+  }
+ },
+ "frw_polvo": {
+  "4000": {
+   "z_lmax_plana": -0.4736356845983323,
+   "z_r160_plana": -1.033860395528555,
+   "z_r20_plana": -0.5628008039019979,
+   "geom_cercana_lmax": "frw_polvo",
+   "z_lmax_cercana": 0.1820112074472368
+  },
+  "8000": {
+   "z_lmax_plana": -1.1656496339570273,
+   "z_r160_plana": -1.4306618359525893,
+   "z_r20_plana": -0.050516527097003876,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.2513874200076179
+  }
+ },
+ "percolacion_005": {
+  "4000": {
+   "z_lmax_plana": 9.209838555725986,
+   "z_r160_plana": 210.41479038929342,
+   "z_r20_plana": 110.5152664622205,
+   "geom_cercana_lmax": "C1_elipsoidal_rotado",
+   "z_lmax_cercana": 0.5349333404901142
+  },
+  "8000": {
+   "z_lmax_plana": 35.75465336669255,
+   "z_r160_plana": 325.00808624177364,
+   "z_r20_plana": 99.63258342301717,
+   "geom_cercana_lmax": "C1_elipsoidal_rotado",
+   "z_lmax_cercana": 0.07665994828731905
+  }
+ },
+ "plana": {
+  "4000": {
+   "z_lmax_plana": -0.30027012390805724,
+   "z_r160_plana": -0.45544711520634373,
+   "z_r20_plana": 0.07370377651099663,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.06451796110980021
+  },
+  "8000": {
+   "z_lmax_plana": -0.14081990457591106,
+   "z_r160_plana": 0.006040684561120608,
+   "z_r20_plana": -0.14864215527105412,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.010875539863017893
+  }
+ },
+ "producto_4": {
+  "4000": {
+   "z_lmax_plana": -0.3733711097276556,
+   "z_r160_plana": 13.779849369236947,
+   "z_r20_plana": 8.50060501893609,
+   "geom_cercana_lmax": "D2_frw_exponencial",
+   "z_lmax_cercana": 0.13705091289114288
+  },
+  "8000": {
+   "z_lmax_plana": -1.9711569718457356,
+   "z_r160_plana": 22.389521345655137,
+   "z_r20_plana": 7.733026356619398,
+   "geom_cercana_lmax": "de_sitter",
+   "z_lmax_cercana": 0.01217408750637144
+  }
+ }
+}

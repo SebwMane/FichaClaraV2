@@ -1,0 +1,643 @@
+{
+  "spec": "docs/OMEGA_R18_WL_ALTURA_PREREGISTRO.md",
+  "experiment_id": 331,
+  "no_es_evidencia": true,
+  "criterio": {
+    "rhat": 1.05,
+    "ess": 200.0,
+    "viajes_por_cadena": 10,
+    "ess_reponderacion": 200.0,
+    "z_max": 2.0,
+    "observables_mezcla": [
+      "rel_frac",
+      "height",
+      "S4"
+    ],
+    "mitad": "final",
+    "lotes_por_cadena": 20,
+    "sectores": {
+      "bajo": 2,
+      "alto": 5
+    },
+    "criterio_4": "|r_c - r_conjunta| <= 2 SE_c (SE por lotes de la cadena c)",
+    "criterio_5": "|r_conjunta - m_ESC0| <= 2 sqrt(SE^2 + SE_ESC0^2); solo N = 32",
+    "veredicto": "mezcla si se cumplen todos los criterios aplicables con 4 cadenas"
+  },
+  "referencia_esc0": {
+    "celda": "ES-C0 e0_N32_b2 (eps = 1, b = 0)",
+    "dir": "results/omega_esc0",
+    "rel_frac_media": 0.3483220766129032,
+    "se_lotes": 0.0014916104399666206,
+    "por_cadena": [
+      0.3493548387096774,
+      0.35278629032258063,
+      0.3436552419354839,
+      0.347491935483871
+    ],
+    "muestras_por_cadena": [
+      1000,
+      1000,
+      1000,
+      1000
+    ]
+  },
+  "N": {
+    "32": {
+      "N": 32,
+      "hmax": 6,
+      "fase_A": {
+        "W": [
+          0.0,
+          42727.0,
+          44589.0,
+          44328.5,
+          38102.5
+        ],
+        "W_h": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "sweeps_used": 3000,
+        "budget": 3000,
+        "lnf_final": 0.5,
+        "reached_lnf_min": false,
+        "halvings": 1,
+        "halving_sweeps": [
+          2306
+        ],
+        "congelado_sin_llegar": true,
+        "s_per_sweep": 0.015508366877999984,
+        "official": true,
+        "commit": "6aface1b5bbb915a4826314dcd48f6b4f53559dc",
+        "dirty": false
+      },
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.5029485887096774,
+          "valid_frac": 0.5100231854838709,
+          "s_per_sweep": 0.015901951685501445,
+          "measure_s_per_sweep": 1.9892360000199005e-05,
+          "rel_frac_sesgada_mitad_final": 0.2519133064516129,
+          "h_sesgada_mitad_final": 2.0,
+          "rel_frac_reponderada": 0.2519133064516129,
+          "se_lotes": 0.0007917131306127373,
+          "ess_reponderacion": 1000.0,
+          "peso_conjunto_frac": 0.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "2c3061ece88037697978cf2c073fbf0a7ae8720414a29fed31782ad61f190c23"
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.3782489919354839,
+          "valid_frac": 0.3853760080645161,
+          "s_per_sweep": 0.014846360607499037,
+          "measure_s_per_sweep": 2.301175750096718e-05,
+          "rel_frac_sesgada_mitad_final": 0.3787802419354838,
+          "h_sesgada_mitad_final": 6.02,
+          "rel_frac_reponderada": 0.3787802419354838,
+          "se_lotes": 0.0025257380995501156,
+          "ess_reponderacion": 1000.0,
+          "peso_conjunto_frac": 1.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "2c3061ece88037697978cf2c073fbf0a7ae8720414a29fed31782ad61f190c23"
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.5119314516129032,
+          "valid_frac": 0.5168991935483871,
+          "s_per_sweep": 0.01692469748749875,
+          "measure_s_per_sweep": 2.19992859992999e-05,
+          "rel_frac_sesgada_mitad_final": 0.2565141129032258,
+          "h_sesgada_mitad_final": 2.0,
+          "rel_frac_reponderada": 0.2565141129032258,
+          "se_lotes": 0.0006609154272438281,
+          "ess_reponderacion": 1000.0,
+          "peso_conjunto_frac": 0.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "2c3061ece88037697978cf2c073fbf0a7ae8720414a29fed31782ad61f190c23"
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.49193548387096775,
+          "valid_frac": 0.4984385080645161,
+          "s_per_sweep": 0.016153839054999366,
+          "measure_s_per_sweep": 2.3236396001266256e-05,
+          "rel_frac_sesgada_mitad_final": 0.2551532258064516,
+          "h_sesgada_mitad_final": 2.0,
+          "rel_frac_reponderada": 0.2551532258064516,
+          "se_lotes": 0.0008567036469028087,
+          "ess_reponderacion": 1000.0,
+          "peso_conjunto_frac": 0.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "2c3061ece88037697978cf2c073fbf0a7ae8720414a29fed31782ad61f190c23"
+        }
+      },
+      "s_per_sweep": 0.015956712208874648,
+      "chains": 4,
+      "official": true,
+      "commits": [
+        "6aface1b5bbb915a4826314dcd48f6b4f53559dc"
+      ],
+      "criterios": {
+        "1_rhat_ess": {
+          "ok": false,
+          "detalle": {
+            "rel_frac": {
+              "rhat": 3.0954906926972745,
+              "tau": [
+                2.165534454703459,
+                12.94443586637753,
+                1.471949840976877,
+                1.91967318605484
+              ],
+              "ess": 1739.3260172842631
+            },
+            "height": {
+              "rhat": 25.35560043383356,
+              "tau": [
+                1000.0,
+                1.0547777777777783,
+                1000.0,
+                1000.0
+              ],
+              "ess": 951.0669967344355
+            },
+            "S4": {
+              "rhat": 1.7555550920335965,
+              "tau": [
+                2.165534454703457,
+                1.2133519700969253,
+                1.471949840976877,
+                1.91967318605484
+              ],
+              "ess": 2486.2359122600324
+            }
+          }
+        },
+        "2_viajes": {
+          "ok": false,
+          "por_cadena": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimo": 10
+        },
+        "3_ess_reponderacion": {
+          "ok": true,
+          "ess": 1000.0
+        },
+        "4_concordancia": {
+          "ok": false,
+          "media_conjunta": 0.3787802419354838,
+          "se_conjunta": 0.0025257380995501156,
+          "z_por_cadena": {
+            "0": -160.2435662342542,
+            "1": 0.0,
+            "2": -184.99512039253855,
+            "3": -144.30546266024876
+          }
+        },
+        "5_validacion_externa": {
+          "ok": false,
+          "z": 10.383579969282877,
+          "media_r18": 0.3787802419354838,
+          "se_r18": 0.0025257380995501156,
+          "media_esc0": 0.3483220766129032,
+          "se_esc0": 0.0014916104399666206
+        }
+      },
+      "h_reponderada": 6.02,
+      "veredicto": "no convergido"
+    },
+    "64": {
+      "N": 64,
+      "hmax": 7,
+      "fase_A": {
+        "W": [
+          0.0,
+          880527.0,
+          1677815.0,
+          1658512.0,
+          1173162.0,
+          485694.0
+        ],
+        "W_h": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "sweeps_used": 3000,
+        "budget": 3000,
+        "lnf_final": 1.0,
+        "reached_lnf_min": false,
+        "halvings": 0,
+        "halving_sweeps": [],
+        "congelado_sin_llegar": true,
+        "s_per_sweep": 0.06981413356833331,
+        "official": true,
+        "commit": "6aface1b5bbb915a4826314dcd48f6b4f53559dc",
+        "dirty": false
+      },
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 2000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.4512646329365079,
+          "valid_frac": 0.4522869543650794,
+          "s_per_sweep": 0.060787561947001904,
+          "measure_s_per_sweep": 3.569513400032065e-05,
+          "rel_frac_sesgada_mitad_final": 0.22855357142857144,
+          "h_sesgada_mitad_final": 2.0,
+          "rel_frac_reponderada": 0.22855357142857144,
+          "se_lotes": 0.0005257737500371587,
+          "ess_reponderacion": 1000.0,
+          "peso_conjunto_frac": 0.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "343320b05d06bd958589c8d00e61449f60513cdeb7bfedd03fd779a641df9a9e"
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 2000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.4502085813492063,
+          "valid_frac": 0.45300719246031745,
+          "s_per_sweep": 0.06530783000849931,
+          "measure_s_per_sweep": 3.437138949573182e-05,
+          "rel_frac_sesgada_mitad_final": 0.3820079365079365,
+          "h_sesgada_mitad_final": 7.0,
+          "rel_frac_reponderada": 0.3820079365079365,
+          "se_lotes": 0.0015987845337900296,
+          "ess_reponderacion": 1000.0,
+          "peso_conjunto_frac": 0.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "343320b05d06bd958589c8d00e61449f60513cdeb7bfedd03fd779a641df9a9e"
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 2000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.49392881944444444,
+          "valid_frac": 0.4940577876984127,
+          "s_per_sweep": 0.06470169933549857,
+          "measure_s_per_sweep": 3.514369650281424e-05,
+          "rel_frac_sesgada_mitad_final": 0.24702678571428568,
+          "h_sesgada_mitad_final": 2.0,
+          "rel_frac_reponderada": 0.24702678571428568,
+          "se_lotes": 0.00026889852562700595,
+          "ess_reponderacion": 1000.0,
+          "peso_conjunto_frac": 0.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "343320b05d06bd958589c8d00e61449f60513cdeb7bfedd03fd779a641df9a9e"
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 2000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.5074836309523809,
+          "valid_frac": 0.5075255456349206,
+          "s_per_sweep": 0.0698610893569986,
+          "measure_s_per_sweep": 3.424910950388949e-05,
+          "rel_frac_sesgada_mitad_final": 0.3803253968253968,
+          "h_sesgada_mitad_final": 3.0,
+          "rel_frac_reponderada": 0.3803253968253968,
+          "se_lotes": 0.00024161605078101513,
+          "ess_reponderacion": 1000.0,
+          "peso_conjunto_frac": 1.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "343320b05d06bd958589c8d00e61449f60513cdeb7bfedd03fd779a641df9a9e"
+        }
+      },
+      "s_per_sweep": 0.0651645451619996,
+      "chains": 4,
+      "official": true,
+      "commits": [
+        "6aface1b5bbb915a4826314dcd48f6b4f53559dc"
+      ],
+      "criterios": {
+        "1_rhat_ess": {
+          "ok": false,
+          "detalle": {
+            "rel_frac": {
+              "rhat": 8.84987674048059,
+              "tau": [
+                3.6990874711650683,
+                41.05889222761428,
+                1.4732946336625479,
+                1.7802851114416876
+              ],
+              "ess": 1535.1508449550438
+            },
+            "height": {
+              "rhat": "inf",
+              "tau": [
+                1000.0,
+                1000.0,
+                1000.0,
+                1000.0
+              ],
+              "ess": 4.0
+            },
+            "S4": {
+              "rhat": 2.72639714845025,
+              "tau": [
+                3.6990874711650683,
+                58.24855592955713,
+                1.4732946336625474,
+                1.5913852525535095
+              ],
+              "ess": 1594.6389635675555
+            }
+          }
+        },
+        "2_viajes": {
+          "ok": false,
+          "por_cadena": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimo": 10
+        },
+        "3_ess_reponderacion": {
+          "ok": true,
+          "ess": 1000.0
+        },
+        "4_concordancia": {
+          "ok": false,
+          "media_conjunta": 0.3803253968253968,
+          "se_conjunta": 0.00024161605078101513,
+          "z_por_cadena": {
+            "0": -288.6637558191123,
+            "1": 1.0523867644323235,
+            "2": -495.7208701694856,
+            "3": 0.0
+          }
+        },
+        "5_validacion_externa": {
+          "ok": null,
+          "nota": "solo aplica con N = 32"
+        }
+      },
+      "h_reponderada": 3.0,
+      "veredicto": "no convergido"
+    },
+    "128": {
+      "N": 128,
+      "hmax": 8,
+      "fase_A": {
+        "W": [
+          0.0,
+          -2930947.0,
+          -6581336.0,
+          -7234761.0,
+          -7234761.0,
+          -7234761.0,
+          -7234761.0
+        ],
+        "W_h": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "sweeps_used": 1500,
+        "budget": 1500,
+        "lnf_final": 1.0,
+        "reached_lnf_min": false,
+        "halvings": 0,
+        "halving_sweeps": [],
+        "congelado_sin_llegar": true,
+        "s_per_sweep": 0.2604359721653334,
+        "official": true,
+        "commit": "6aface1b5bbb915a4826314dcd48f6b4f53559dc",
+        "dirty": false
+      },
+      "por_cadena": {
+        "0": {
+          "start": "orden vac\u00edo",
+          "sweeps": 1000,
+          "viajes": 0,
+          "cruces": 1,
+          "accept_rate": 0.44365514271653544,
+          "valid_frac": 0.44409018208661416,
+          "s_per_sweep": 0.24304468103599833,
+          "measure_s_per_sweep": 6.43837089992303e-05,
+          "rel_frac_sesgada_mitad_final": 0.2383713090551181,
+          "h_sesgada_mitad_final": 5.0,
+          "rel_frac_reponderada": 0.2383713090551181,
+          "se_lotes": 0.0002879417305350944,
+          "ess_reponderacion": 500.0,
+          "peso_conjunto_frac": 0.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "c27d27c30e120ad98e2ee3d6cb2f76fc26f059fbbbdec5b28d91779d1ecf5231"
+        },
+        "1": {
+          "start": "cadena total",
+          "sweeps": 1000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.40989000984251966,
+          "valid_frac": 0.40989000984251966,
+          "s_per_sweep": 0.29062658754100246,
+          "measure_s_per_sweep": 6.332803300233536e-05,
+          "rel_frac_sesgada_mitad_final": 0.529869094488189,
+          "h_sesgada_mitad_final": 5.028,
+          "rel_frac_reponderada": 0.529869094488189,
+          "se_lotes": 0.0010242617481151439,
+          "ess_reponderacion": 500.0,
+          "peso_conjunto_frac": 0.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "c27d27c30e120ad98e2ee3d6cb2f76fc26f059fbbbdec5b28d91779d1ecf5231"
+        },
+        "2": {
+          "start": "sprinkling 4D",
+          "sweeps": 1000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.46766830708661417,
+          "valid_frac": 0.46811220472440945,
+          "s_per_sweep": 0.25668952789499666,
+          "measure_s_per_sweep": 6.812578599942753e-05,
+          "rel_frac_sesgada_mitad_final": 0.26126796259842516,
+          "h_sesgada_mitad_final": 5.0,
+          "rel_frac_reponderada": 0.26126796259842516,
+          "se_lotes": 0.00016066564712842753,
+          "ess_reponderacion": 500.0,
+          "peso_conjunto_frac": 0.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "c27d27c30e120ad98e2ee3d6cb2f76fc26f059fbbbdec5b28d91779d1ecf5231"
+        },
+        "3": {
+          "start": "KR natural",
+          "sweeps": 1000,
+          "viajes": 0,
+          "cruces": 0,
+          "accept_rate": 0.5038511318897638,
+          "valid_frac": 0.5038511318897638,
+          "s_per_sweep": 0.30144334923700195,
+          "measure_s_per_sweep": 6.3568595003062e-05,
+          "rel_frac_sesgada_mitad_final": 0.37841240157480316,
+          "h_sesgada_mitad_final": 3.0,
+          "rel_frac_reponderada": 0.37841240157480316,
+          "se_lotes": 0.00016281131986718237,
+          "ess_reponderacion": 500.0,
+          "peso_conjunto_frac": 1.0,
+          "final_check": {
+            "h_exact": true,
+            "s4_drift": 0.0
+          },
+          "official": true,
+          "W_file_sha256": "c27d27c30e120ad98e2ee3d6cb2f76fc26f059fbbbdec5b28d91779d1ecf5231"
+        }
+      },
+      "s_per_sweep": 0.2729510364272498,
+      "chains": 4,
+      "official": true,
+      "commits": [
+        "6aface1b5bbb915a4826314dcd48f6b4f53559dc"
+      ],
+      "criterios": {
+        "1_rhat_ess": {
+          "ok": false,
+          "detalle": {
+            "rel_frac": {
+              "rhat": 30.780144350181036,
+              "tau": [
+                2.533864118594878,
+                63.455495893299684,
+                1.0,
+                1.2983090616053459
+              ],
+              "ess": 1090.3229289403675
+            },
+            "height": {
+              "rhat": 11.42048424932413,
+              "tau": [
+                500.0,
+                3.5783421516754856,
+                500.0,
+                500.0
+              ],
+              "ess": 142.72951126707804
+            },
+            "S4": {
+              "rhat": 2.670652388255194,
+              "tau": [
+                41.52238349647979,
+                1.5865487077237468,
+                1.8070016107093716,
+                1.3100581423177062
+              ],
+              "ess": 985.5550965210324
+            }
+          }
+        },
+        "2_viajes": {
+          "ok": false,
+          "por_cadena": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimo": 10
+        },
+        "3_ess_reponderacion": {
+          "ok": true,
+          "ess": 500.0
+        },
+        "4_concordancia": {
+          "ok": false,
+          "media_conjunta": 0.37841240157480316,
+          "se_conjunta": 0.00016281131986718237,
+          "z_por_cadena": {
+            "0": -486.3521944507339,
+            "1": 147.86912934325414,
+            "2": -729.119392166883,
+            "3": 0.0
+          }
+        },
+        "5_validacion_externa": {
+          "ok": null,
+          "nota": "solo aplica con N = 32"
+        }
+      },
+      "h_reponderada": 3.0,
+      "veredicto": "no convergido"
+    }
+  }
+}

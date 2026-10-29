@@ -1,0 +1,74 @@
+RECIBO DEL GUARDIÁN R20 (sellado_r20.py)  — fecha 2026-10-21
+
+1. Versiones
+  python 3.13.16; numpy 2.5.3; Linux-6.18.44 x86_64; 4 núcleos. Repositorio leído (solo lectura) en HEAD a9e8fa6b6cce0c1164210a7137332a1e03d44ed5.
+  sellado_r20.py: autocontenido, importa solo math, typing, numpy. Su sha256 está en HASH.txt.
+  Código de selección: seleccion.py (misma carpeta). Importa en solo lectura tools/r14b.py (dilute, measure, obs_vector,
+  ledoit_wolf, comp_floors, GEN['plana']) y tools/r19.py (n_copias_de, add_copies, copias_generar).
+
+2. Esquema de semillas de selección (entropía 20261114, EXPERIMENT_ID 333)
+  Estructura si (índice en ESTRUCTURAS, 0..15), realización real = 0..9:
+    SeedSequence(20261114, spawn_key=(333, 9, si, real, sub[, qi])), qi = 0 (q=1) o 3 (q=1/8):
+    sub 0 puntos del observado (base de copias o generar(8000)); 1 copias del observado; 2 dilución Φ_q (qi);
+    3 intervalos del observado (qi); 4 subconjunto de base del control (qi); 5 puntos del control región (qi);
+    6 copias del control (qi); 7 intervalos del control (qi).
+  Banda plana: SeedSequence(20261114, spawn_key=(333, 8, qi, s, 0)) Binomial(8000, q) y puntos; (…, 1) intervalos.
+    s = 0..99 ajuste, s = 100..199 calibración. No se usaron 20261113/15/16.
+  Nota: las 4 estructuras S2 ocupan los índices si = 12..15 que en el universo v1 tenían las S1 descartadas (mismas claves,
+  otras regiones).
+
+3. Procedimiento (§1–§3)
+  N0 = 8000; q ∈ {1, 1/8}; observado = Φ_q(X); N = tamaño de Φ_q(X); control emparejado por N:
+  copias: n_copias = k·round(frac·N/k), base = subconjunto uniforme de N − n_copias de la base de la misma realización
+  (orden inducido) + copias nuevas; región: generar(N, rng nuevo). Vector r14b de 14 componentes; banda: media, sd con
+  pisos de r14b, Ledoit-Wolf sobre 100 de ajuste; radio = 96.º menor de 100 distancias de calibración (empates por
+  índice). D de un par (obs, ctrl) con las componentes de la referencia finitas en ambos vectores (como r19.pair_D).
+  Banda q=1.0: N medio 8000.0, dim 14, radio 4.8232, lambda LW 0.0372
+  Banda q=0.125: N medio 1003.9, dim 13, radio 4.4397, lambda LW 0.0455 (sin ['r_40']: no finita en todas las referencias)
+  Medianas por brazo sobre 10 realizaciones. Copias: med D_obs/radio(q=1) ≥ 2.0 y med D_ctrl/radio(q=1/8) ≥ 1.5.
+  Región: med D_obs/radio(q=1) ≥ 2.0 y, con q=1/8, med D_obs/radio ≥ 1.25 y med D_ctrl/radio ≥ 1.25.
+
+4. Log de requisitos — UNIVERSO FINAL SELLADO
+  estructura                         familia                Dobs/r q1 Dctrl/r q1 Dobs/r 1/8 Dctrl/r 1/8   N q1/8 med [min,max] ident
+  G1a_gemelos_07                     G1_gemelos                  3.57       3.55       0.72        1.06   1011.5   [974, 1048] False
+  G1b_gemelos_12                     G1_gemelos                  6.22       6.09       0.72        1.97   1005.0   [975, 1034] True
+  G1c_gemelos_17                     G1_gemelos                  9.12       9.35       0.87        2.78   1002.0   [960, 1051] True
+  G1d_gemelos_23                     G1_gemelos                 14.06      13.87       0.90        3.85    996.5   [956, 1052] True
+  G2a_tripletes_07                   G2_tripletes                3.54       3.44       0.75        1.44    993.0   [947, 1038] False
+  G2b_tripletes_12                   G2_tripletes                5.85       5.78       0.80        1.70    993.5   [971, 1030] True
+  G2c_tripletes_17                   G2_tripletes                8.46       8.13       0.88        2.70    993.0   [947, 1018] True
+  G2d_tripletes_23                   G2_tripletes               11.61      11.74       0.97        3.76   1001.0   [948, 1065] True
+  P1a_cono_prisma_triangular         P1_conos_poliedricos       17.36      17.39       2.97        3.00   1010.5   [984, 1057] True
+  P1b_cono_prisma_hexagonal          P1_conos_poliedricos       10.90      10.78       1.60        1.65   1002.5   [970, 1041] True
+  P1c_cono_piramide_cuadrada         P1_conos_poliedricos       18.30      18.07       2.97        2.98    997.0   [976, 1051] True
+  P1d_cono_bipiramide_triangular     P1_conos_poliedricos       16.30      16.11       2.68        2.58    989.0   [949, 1025] True
+  S2a_cono_circular                  S2_conos_suaves            13.08      13.11       2.37        2.26   1006.5   [968, 1036] True
+  S2b_cono_prisma_reuleaux           S2_conos_suaves             9.73       9.87       1.38        1.73   1022.0   [936, 1041] True
+  S2c_cono_prisma_semicircular       S2_conos_suaves            10.79      10.74       1.88        1.77   1005.5   [971, 1043] True
+  S2d_cono_prisma_lenticular         S2_conos_suaves             8.91       9.04       1.31        1.38    976.5   [947, 1020] True
+
+5. Cambios del universo
+  v1 (primer y único diseño previo a ver resultados): G1, G2, P1 como en el final, más la familia S1_conos_suaves:
+  S1a lente (intersección de bolas con centros ±0.75 ẑ), S1b tricilindro de Steinmetz, S1c cápsula (L = 1.2),
+  S1d almohada (intersección de dos elipsoides prolatos ortogonales, semieje 3). Resultado v1 de S1 (mismas bandas):
+    S1a_cono_lente               Dobs/r q1 1.38  Dobs/r 1/8 0.77  Dctrl/r 1/8 0.63  identificable False
+    S1b_cono_tricilindro         Dobs/r q1 3.10  Dobs/r 1/8 0.69  Dctrl/r 1/8 0.88  identificable False
+    S1c_cono_capsula             Dobs/r q1 2.55  Dobs/r 1/8 0.74  Dctrl/r 1/8 0.87  identificable False
+    S1d_cono_almohada            Dobs/r q1 3.83  Dobs/r 1/8 0.88  Dctrl/r 1/8 0.90  identificable False
+  Falla: S1 tenía 0 identificables (mínimo de §3: 2). Cambio: se reemplazó la familia completa S1 por S2_conos_suaves
+  (cuerpos de frontera curva con aristas: cono circular, prisma de Reuleaux, prisma semicircular, prisma lenticular),
+  diseñada una sola vez y evaluada una sola vez; no se tocaron G1, G2 ni P1 ni ningún parámetro tras ver resultados.
+  Las S1 no quedan en el universo final porque el tope es 16 estructuras (4 familias × 4); se registran aquí.
+  La copia del universo v1 queda en universo_v1_descartado.py.txt; sus medidas en identificables_v1.json.
+  Las estructuras no identificables del universo final (G1a, G2a) siguen listadas y no votan.
+
+6. Tiempos
+  Corrida 1 (16 estructuras × 10 realizaciones + 400 referencias planas): 1954 s de pared con 4 procesos.
+  Corrida 2 (4 estructuras S2 × 10 realizaciones; referencias reutilizadas): 365 s de pared con 4 procesos.
+  generar(8000) de las regiones selladas: unos 3–11 s cada una (un hilo).
+
+7. Notas de interfaz
+  - Cada familia tiene 4 estructuras: cumple §3 de R20 (≥ 3), pero r19.validate_sellado (regla de R19 «2 o 3») emite
+    advertencias; el ejecutor de R20 debe usar la regla de R20.
+  - IDENTIFICABLES[nombre] incluye además 'familia', 'regla' y 'radio' (bandas de selección).
+  - Mínimo de §3: SE CUMPLE (G1 3/4, G2 3/4, P1 4/4, S2 4/4 identificables).
